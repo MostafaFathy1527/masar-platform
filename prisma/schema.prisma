@@ -1,0 +1,217 @@
+// Masār — v1.0 schema.
+//
+// Scoped to what Weeks 1-2 actually need. Tables for assessment, simulations,
+// certificates and the content pipeline arrive in their own migrations, as each
+// week lands, so nothing is built for a feature the plan's cut lines may drop.
+//
+// Conventions: cuid ids, createdAt/updatedAt everywhere, enums for
+// every state machine, bilingual fields as xAr/xEn pairs, soft deactivation
+// over deletion.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Prisma 7 removed `url` from this block: the connection string for migrate
+// lives in prisma.config.ts, and the client gets a driver adapter (see lib/db.ts).
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------- identity
+
+enum Role {
+  LEARNER
+  ADMIN
+}
+
+enum Locale {
+  ar
+  en
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  passwordHash    String
+  name            String
+  locale          Locale    @default(ar)
+  role            Role      @default(LEARNER)
+  /// Guest accounts created by the one-click demo entry. Purged on a schedule.
+  isDemo          Boolean   @default(false)
+  /// Soft deactivation; rows are never hard-deleted.
+  isActive        Boolean   @default(true)
+  emailVerifiedAt DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  enrollments Enrollment[]
+
+  @@index([isDemo, createdAt])
+}
+
+// ------------------------------------------------------------------ course
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Course {
+  id         String       @id @default(cuid())
+  slug       String       @unique
+  titleAr    String
+  titleEn    String
+  summaryAr  String
+  summaryEn  String
+  /// Minor units. Sandbox/demo pricing only — no real money moves.
+  priceEgp   Int          @default(0)
+  priceUsd   Int          @default(0)
+  status     CourseStatus @default(DRAFT)
+  version    Int          @default(1)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  objectives  Objective[]
+  modules     Module[]
+  enrollments Enrollment[]
+}
+
+enum Bloom {
+  RECALL
+  APPLY
+  ANALYZE
+}
+
+/// The spine: every block and every item carries an objectiveId, which makes
+/// coverage, mastery and item analysis the same query.
+model Objective {
+  id           String   @id @default(cuid())
+  courseId     String
+  code         String
+  statementAr  String
+  statementEn  String
+  bloom        Bloom
+  weight       Int      @default(1)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[] @relation("LessonObjectives")
+
+  @@unique([courseId, code])
+}
+
+model Module {
+  id         String   @id @default(cuid())
+  courseId   String
+  order      Int
+  titleAr    String
+  titleEn    String
+  unlockRule String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@unique([courseId, order])
+}
+
+// ------------------------------------------------------------------ lesson
+
+/// Depth is a property of a lesson, not a separate lesson. One row holds all
+/// three block arrays, so adding L2 to an L1 lesson is an additive diff: no URL
+/// change, no re-enrolment, no progress reset.
+enum Level {
+  L1
+  L2
+  L3
+}
+
+enum LessonStatus {
+  DRAFT
+  QA
+  PUBLISHED
+}
+
+model Lesson {
+  id         String       @id @default(cuid())
+  moduleId   String
+  order      Int
+  slug       String       @unique
+  titleAr    String
+  titleEn    String
+  estMinutes Int          @default(0)
+  levels     Level[]
+  /// Validated JSON, not a relational block store: a block table plus an editor
+  /// over it roughly doubles the build for no visible benefit. Every block
+  /// carries a stable id, so block-level analytics still work.
+  blocksJson Json
+  status     LessonStatus @default(DRAFT)
+  isPreview  Boolean      @default(false)
+  /// SHA-256 of the pipeline source note; a changed source flags this stale.
+  sourceHash String?
+  pipelineRunId String?
+  qaScore    Float?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  module     Module           @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  objectives Objective[]      @relation("LessonObjectives")
+  progress   LessonProgress[]
+
+  @@unique([moduleId, order])
+}
+
+// ---------------------------------------------------------------- progress
+
+enum EnrollmentSource {
+  PURCHASE
+  MANUAL
+  GUEST_DEMO
+}
+
+model Enrollment {
+  id          String           @id @default(cuid())
+  userId      String
+  courseId    String
+  source      EnrollmentSource
+  startedAt   DateTime         @default(now())
+  completedAt DateTime?
+  progressPct Int              @default(0)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  user     User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course   Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  progress LessonProgress[]
+
+  @@unique([userId, courseId])
+}
+
+enum ProgressState {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETE
+}
+
+model LessonProgress {
+  id           String        @id @default(cuid())
+  enrollmentId String
+  lessonId     String
+  /// The depth the learner is reading at.
+  level        Level         @default(L1)
+  blocksDone   Int           @default(0)
+  blocksTotal  Int           @default(0)
+  state        ProgressState @default(NOT_STARTED)
+  timeSpentSec Int           @default(0)
+  completedAt  DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  lesson     Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, lessonId])
+}
