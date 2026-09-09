@@ -1,0 +1,1112 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for the English-only L1 lessons and the compliance objective. English-only by design: these belong to lessons that ship English-only in this build, and a learner should not meet an Arabic question inside an English lesson. The flagship lesson's items (MI-05, MI-06) are bilingual and live in their own file. No knowledge checks here: these lessons ship at L1, where knowledge_check blocks are not allowed, so a formative item would be unreachable.",
+  "items": [
+    {
+      "key": "MI-01-05",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which party carries the financial risk?",
+      "stemEn": "Which party carries the financial risk?",
+      "rationaleAr": "The payer carries the risk and sets the rules a claim is judged against. A TPA may process claims without carrying either.",
+      "rationaleEn": "The payer carries the risk and sets the rules a claim is judged against. A TPA may process claims without carrying either.",
+      "options": [
+        {
+          "textAr": "The payer",
+          "textEn": "The payer",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Carrying the risk is what makes it the payer rather than an administrator.",
+          "feedbackEn": "Correct. Carrying the risk is what makes it the payer rather than an administrator."
+        },
+        {
+          "textAr": "The third-party administrator",
+          "textEn": "The third-party administrator",
+          "isCorrect": false,
+          "feedbackAr": "A TPA processes claims on the payer's behalf without carrying the risk; the rules are still the payer's.",
+          "feedbackEn": "A TPA processes claims on the payer's behalf without carrying the risk; the rules are still the payer's."
+        },
+        {
+          "textAr": "The provider",
+          "textEn": "The provider",
+          "isCorrect": false,
+          "feedbackAr": "The provider carries the risk of not being paid, which is a different thing from insuring the member.",
+          "feedbackEn": "The provider carries the risk of not being paid, which is a different thing from insuring the member."
+        },
+        {
+          "textAr": "The member",
+          "textEn": "The member",
+          "isCorrect": false,
+          "feedbackAr": "The member bears cost sharing, but the insured risk sits with the payer.",
+          "feedbackEn": "The member bears cost sharing, but the insured risk sits with the payer."
+        }
+      ]
+    },
+    {
+      "key": "MI-01-01",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "A premium is paid at which point relative to care?",
+      "stemEn": "A premium is paid at which point relative to care?",
+      "rationaleAr": "Premiums are paid before any care, which is what makes insurance a pooled arrangement rather than a payment plan.",
+      "rationaleEn": "Premiums are paid before any care, which is what makes insurance a pooled arrangement rather than a payment plan.",
+      "options": [
+        {
+          "textAr": "Before care, whether or not any is needed",
+          "textEn": "Before care, whether or not any is needed",
+          "isCorrect": true,
+          "feedbackAr": "Correct. That is what pooling means: payment precedes and is independent of use.",
+          "feedbackEn": "Correct. That is what pooling means: payment precedes and is independent of use."
+        },
+        {
+          "textAr": "After care, once the claim is adjudicated",
+          "textEn": "After care, once the claim is adjudicated",
+          "isCorrect": false,
+          "feedbackAr": "That describes the payer paying the provider, not the member paying the premium.",
+          "feedbackEn": "That describes the payer paying the provider, not the member paying the premium."
+        },
+        {
+          "textAr": "At the time of the visit",
+          "textEn": "At the time of the visit",
+          "isCorrect": false,
+          "feedbackAr": "A payment at the visit is cost sharing or self-pay, not a premium.",
+          "feedbackEn": "A payment at the visit is cost sharing or self-pay, not a premium."
+        },
+        {
+          "textAr": "Only when a claim is denied",
+          "textEn": "Only when a claim is denied",
+          "isCorrect": false,
+          "feedbackAr": "Denial changes who owes the balance; it does not trigger a premium.",
+          "feedbackEn": "Denial changes who owes the balance; it does not trigger a premium."
+        }
+      ]
+    },
+    {
+      "key": "MI-01-02",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "A patient is told \"the TPA denied it\". Who set the rule that produced the denial?",
+      "stemEn": "A patient is told \"the TPA denied it\". Who set the rule that produced the denial?",
+      "rationaleAr": "A TPA applies the payer's rules. Tracing a decision to the rule-setter is what makes it possible to challenge.",
+      "rationaleEn": "A TPA applies the payer's rules. Tracing a decision to the rule-setter is what makes it possible to challenge.",
+      "options": [
+        {
+          "textAr": "The payer",
+          "textEn": "The payer",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The administrator applied someone else's rule, and that is who the challenge is really with.",
+          "feedbackEn": "Correct. The administrator applied someone else's rule, and that is who the challenge is really with."
+        },
+        {
+          "textAr": "The TPA",
+          "textEn": "The TPA",
+          "isCorrect": false,
+          "feedbackAr": "The TPA applied the rule; it did not write it. This confusion sends appeals to the wrong place.",
+          "feedbackEn": "The TPA applied the rule; it did not write it. This confusion sends appeals to the wrong place."
+        },
+        {
+          "textAr": "The provider",
+          "textEn": "The provider",
+          "isCorrect": false,
+          "feedbackAr": "The provider submitted the claim and does not set coverage rules.",
+          "feedbackEn": "The provider submitted the claim and does not set coverage rules."
+        },
+        {
+          "textAr": "The clearinghouse",
+          "textEn": "The clearinghouse",
+          "isCorrect": false,
+          "feedbackAr": "A clearinghouse checks format and routes claims; it makes no coverage decisions.",
+          "feedbackEn": "A clearinghouse checks format and routes claims; it makes no coverage decisions."
+        }
+      ]
+    },
+    {
+      "key": "MI-01-03",
+      "objectiveId": "MI-01",
+      "type": "MULTI_SELECT",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which of these move money? Select all that apply.",
+      "stemEn": "Which of these move money? Select all that apply.",
+      "rationaleAr": "Premium and payment move money. Care is a service, and a claim is a request rather than a transfer.",
+      "rationaleEn": "Premium and payment move money. Care is a service, and a claim is a request rather than a transfer.",
+      "options": [
+        {
+          "textAr": "The premium",
+          "textEn": "The premium",
+          "isCorrect": true,
+          "feedbackAr": "Correct — money, before any care.",
+          "feedbackEn": "Correct — money, before any care."
+        },
+        {
+          "textAr": "The payer's payment to the provider",
+          "textEn": "The payer's payment to the provider",
+          "isCorrect": true,
+          "feedbackAr": "Correct — money, after adjudication.",
+          "feedbackEn": "Correct — money, after adjudication."
+        },
+        {
+          "textAr": "The claim",
+          "textEn": "The claim",
+          "isCorrect": false,
+          "feedbackAr": "A claim is a request for payment, not a payment. Treating it as money is why \"submitted\" gets confused with \"paid\".",
+          "feedbackEn": "A claim is a request for payment, not a payment. Treating it as money is why \"submitted\" gets confused with \"paid\"."
+        },
+        {
+          "textAr": "The delivery of care",
+          "textEn": "The delivery of care",
+          "isCorrect": false,
+          "feedbackAr": "Care is the service being paid for, moving in the opposite direction to money.",
+          "feedbackEn": "Care is the service being paid for, moving in the opposite direction to money."
+        }
+      ]
+    },
+    {
+      "key": "MI-01-04",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Why does most administrative difficulty in this field trace back to one structural fact?",
+      "stemEn": "Why does most administrative difficulty in this field trace back to one structural fact?",
+      "rationaleAr": "The person receiving the service is usually not the person paying, so every service needs a documented justification addressed to a third party.",
+      "rationaleEn": "The person receiving the service is usually not the person paying, so every service needs a documented justification addressed to a third party.",
+      "options": [
+        {
+          "textAr": "The recipient of care is not the payer, so every service must be justified to a third party",
+          "textEn": "The recipient of care is not the payer, so every service must be justified to a third party",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Nearly every rule in the field exists to bridge that gap.",
+          "feedbackEn": "Correct. Nearly every rule in the field exists to bridge that gap."
+        },
+        {
+          "textAr": "Medical services are inherently expensive",
+          "textEn": "Medical services are inherently expensive",
+          "isCorrect": false,
+          "feedbackAr": "Cost explains why insurance exists, not why the paperwork works this way.",
+          "feedbackEn": "Cost explains why insurance exists, not why the paperwork works this way."
+        },
+        {
+          "textAr": "Providers and payers use different software",
+          "textEn": "Providers and payers use different software",
+          "isCorrect": false,
+          "feedbackAr": "A real friction, but a symptom rather than the structural cause.",
+          "feedbackEn": "A real friction, but a symptom rather than the structural cause."
+        },
+        {
+          "textAr": "Regulations change frequently",
+          "textEn": "Regulations change frequently",
+          "isCorrect": false,
+          "feedbackAr": "Change adds work; the separation of recipient and payer creates the work in the first place.",
+          "feedbackEn": "Change adds work; the separation of recipient and payer creates the work in the first place."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-05",
+      "objectiveId": "MI-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Active coverage on the service date means the service will be paid.",
+      "stemEn": "Active coverage on the service date means the service will be paid.",
+      "rationaleAr": "Active coverage is necessary but not sufficient: the service must also be covered, and may require pre-authorisation.",
+      "rationaleEn": "Active coverage is necessary but not sufficient: the service must also be covered, and may require pre-authorisation.",
+      "options": [
+        {
+          "textAr": "False — coverage may be active and the service still unpayable",
+          "textEn": "False — coverage may be active and the service still unpayable",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Eligibility and permission are separate questions.",
+          "feedbackEn": "Correct. Eligibility and permission are separate questions."
+        },
+        {
+          "textAr": "True — active coverage is what payment depends on",
+          "textEn": "True — active coverage is what payment depends on",
+          "isCorrect": false,
+          "feedbackAr": "This is the single most common eligibility error: treating active coverage as permission.",
+          "feedbackEn": "This is the single most common eligibility error: treating active coverage as permission."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-01",
+      "objectiveId": "MI-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "Coverage is active, and the payer requires pre-authorisation for the planned service, which has not been obtained. What is the correct action?",
+      "stemEn": "Coverage is active, and the payer requires pre-authorisation for the planned service, which has not been obtained. What is the correct action?",
+      "rationaleAr": "Pre-authorisation usually cannot be obtained retroactively, so the decision must be made before delivery.",
+      "rationaleEn": "Pre-authorisation usually cannot be obtained retroactively, so the decision must be made before delivery.",
+      "options": [
+        {
+          "textAr": "Obtain pre-authorisation before delivering the service",
+          "textEn": "Obtain pre-authorisation before delivering the service",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Afterwards the option is usually gone, whatever the clinical merit.",
+          "feedbackEn": "Correct. Afterwards the option is usually gone, whatever the clinical merit."
+        },
+        {
+          "textAr": "Deliver the service and request authorisation afterwards",
+          "textEn": "Deliver the service and request authorisation afterwards",
+          "isCorrect": false,
+          "feedbackAr": "Retroactive authorisation is rarely available; this converts a solvable problem into an unpayable claim.",
+          "feedbackEn": "Retroactive authorisation is rarely available; this converts a solvable problem into an unpayable claim."
+        },
+        {
+          "textAr": "Deliver and submit, since coverage is active",
+          "textEn": "Deliver and submit, since coverage is active",
+          "isCorrect": false,
+          "feedbackAr": "Active coverage is not permission. This is the error the lesson is built around.",
+          "feedbackEn": "Active coverage is not permission. This is the error the lesson is built around."
+        },
+        {
+          "textAr": "Convert to self-pay immediately",
+          "textEn": "Convert to self-pay immediately",
+          "isCorrect": false,
+          "feedbackAr": "Premature: authorisation may well be granted, and the member loses a benefit they hold.",
+          "feedbackEn": "Premature: authorisation may well be granted, and the member loses a benefit they hold."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-02",
+      "objectiveId": "MI-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "What does an eligibility check ask?",
+      "stemEn": "What does an eligibility check ask?",
+      "rationaleAr": "It asks whether active coverage exists for this member, on this date, for this category of service.",
+      "rationaleEn": "It asks whether active coverage exists for this member, on this date, for this category of service.",
+      "options": [
+        {
+          "textAr": "Whether coverage is active for this member on this date",
+          "textEn": "Whether coverage is active for this member on this date",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It is a question about the policy, not the patient's condition.",
+          "feedbackEn": "Correct. It is a question about the policy, not the patient's condition."
+        },
+        {
+          "textAr": "Whether the service is medically appropriate",
+          "textEn": "Whether the service is medically appropriate",
+          "isCorrect": false,
+          "feedbackAr": "That is medical necessity, judged from the record after the fact.",
+          "feedbackEn": "That is medical necessity, judged from the record after the fact."
+        },
+        {
+          "textAr": "Whether the provider is accepting new patients",
+          "textEn": "Whether the provider is accepting new patients",
+          "isCorrect": false,
+          "feedbackAr": "An operational question unrelated to coverage.",
+          "feedbackEn": "An operational question unrelated to coverage."
+        },
+        {
+          "textAr": "Whether the claim was formatted correctly",
+          "textEn": "Whether the claim was formatted correctly",
+          "isCorrect": false,
+          "feedbackAr": "That is checked at submission, long after eligibility.",
+          "feedbackEn": "That is checked at submission, long after eligibility."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-03",
+      "objectiveId": "MI-04",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which are legitimate outcomes of an eligibility check? Select all that apply.",
+      "stemEn": "Which are legitimate outcomes of an eligibility check? Select all that apply.",
+      "rationaleAr": "Proceed, pre-authorise first, or convert to self-pay. Adjusting a date is falsification, not an outcome.",
+      "rationaleEn": "Proceed, pre-authorise first, or convert to self-pay. Adjusting a date is falsification, not an outcome.",
+      "options": [
+        {
+          "textAr": "Proceed with the service",
+          "textEn": "Proceed with the service",
+          "isCorrect": true,
+          "feedbackAr": "Correct — coverage active and no permission required.",
+          "feedbackEn": "Correct — coverage active and no permission required."
+        },
+        {
+          "textAr": "Obtain pre-authorisation first",
+          "textEn": "Obtain pre-authorisation first",
+          "isCorrect": true,
+          "feedbackAr": "Correct — coverage active but permission required.",
+          "feedbackEn": "Correct — coverage active but permission required."
+        },
+        {
+          "textAr": "Change the service date so it falls inside the coverage period",
+          "textEn": "Change the service date so it falls inside the coverage period",
+          "isCorrect": false,
+          "feedbackAr": "Not an outcome — a falsification. The date of service is a fact.",
+          "feedbackEn": "Not an outcome — a falsification. The date of service is a fact."
+        },
+        {
+          "textAr": "Submit anyway and see what happens",
+          "textEn": "Submit anyway and see what happens",
+          "isCorrect": false,
+          "feedbackAr": "Not a decision. It spends a cycle to learn what the check already told you.",
+          "feedbackEn": "Not a decision. It spends a cycle to learn what the check already told you."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-04",
+      "objectiveId": "MI-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Why record the reference number from an eligibility response?",
+      "stemEn": "Why record the reference number from an eligibility response?",
+      "rationaleAr": "Without it a later dispute is recollection against record, which is not a dispute the provider wins.",
+      "rationaleEn": "Without it a later dispute is recollection against record, which is not a dispute the provider wins.",
+      "options": [
+        {
+          "textAr": "It makes a later dispute winnable rather than a matter of recollection",
+          "textEn": "It makes a later dispute winnable rather than a matter of recollection",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The reference is the evidence that the answer was given.",
+          "feedbackEn": "Correct. The reference is the evidence that the answer was given."
+        },
+        {
+          "textAr": "It speeds up claim processing",
+          "textEn": "It speeds up claim processing",
+          "isCorrect": false,
+          "feedbackAr": "It does not affect processing speed; it matters only in dispute.",
+          "feedbackEn": "It does not affect processing speed; it matters only in dispute."
+        },
+        {
+          "textAr": "It is required on the claim form",
+          "textEn": "It is required on the claim form",
+          "isCorrect": false,
+          "feedbackAr": "Not a claim field; it is a record of the conversation.",
+          "feedbackEn": "Not a claim field; it is a record of the conversation."
+        },
+        {
+          "textAr": "It proves the service was medically necessary",
+          "textEn": "It proves the service was medically necessary",
+          "isCorrect": false,
+          "feedbackAr": "Eligibility says nothing about necessity, which is judged from the clinical record.",
+          "feedbackEn": "Eligibility says nothing about necessity, which is judged from the clinical record."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-04",
+      "objectiveId": "MI-09",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "A claim is returned before the payer assesses it. Rejection or denial?",
+      "stemEn": "A claim is returned before the payer assesses it. Rejection or denial?",
+      "rationaleAr": "A rejection stops the claim before assessment; a denial follows assessment.",
+      "rationaleEn": "A rejection stops the claim before assessment; a denial follows assessment.",
+      "options": [
+        {
+          "textAr": "Rejection",
+          "textEn": "Rejection",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Nothing was judged — the claim never entered assessment.",
+          "feedbackEn": "Correct. Nothing was judged — the claim never entered assessment."
+        },
+        {
+          "textAr": "Denial",
+          "textEn": "Denial",
+          "isCorrect": false,
+          "feedbackAr": "A denial means it was read and refused. Here it was never read.",
+          "feedbackEn": "A denial means it was read and refused. Here it was never read."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-01",
+      "objectiveId": "MI-09",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Why does the rejection/denial distinction change what you do next?",
+      "stemEn": "Why does the rejection/denial distinction change what you do next?",
+      "rationaleAr": "A rejection is corrected and resubmitted as a new claim; a denial is a decision, addressed by correction or appeal.",
+      "rationaleEn": "A rejection is corrected and resubmitted as a new claim; a denial is a decision, addressed by correction or appeal.",
+      "options": [
+        {
+          "textAr": "A rejection is corrected and resubmitted; a denial is a decision to be corrected or appealed",
+          "textEn": "A rejection is corrected and resubmitted; a denial is a decision to be corrected or appealed",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The distinction picks the route, which is why the words are not interchangeable.",
+          "feedbackEn": "Correct. The distinction picks the route, which is why the words are not interchangeable."
+        },
+        {
+          "textAr": "A rejection is more serious than a denial",
+          "textEn": "A rejection is more serious than a denial",
+          "isCorrect": false,
+          "feedbackAr": "Usually the reverse: a rejection is often a data fix, while a denial has been judged.",
+          "feedbackEn": "Usually the reverse: a rejection is often a data fix, while a denial has been judged."
+        },
+        {
+          "textAr": "Only denials can be appealed, so rejections are final",
+          "textEn": "Only denials can be appealed, so rejections are final",
+          "isCorrect": false,
+          "feedbackAr": "Rejections are not final at all — they are corrected and resubmitted.",
+          "feedbackEn": "Rejections are not final at all — they are corrected and resubmitted."
+        },
+        {
+          "textAr": "They differ only in the wording of the notice",
+          "textEn": "They differ only in the wording of the notice",
+          "isCorrect": false,
+          "feedbackAr": "They differ in whether assessment happened, which changes the remedy.",
+          "feedbackEn": "They differ in whether assessment happened, which changes the remedy."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-02",
+      "objectiveId": "MI-09",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "A claim is refused because the service preceded the policy effective date. How is it classified?",
+      "stemEn": "A claim is refused because the service preceded the policy effective date. How is it classified?",
+      "rationaleAr": "It was assessed and refused on coverage grounds, which makes it a denial with an eligibility root cause.",
+      "rationaleEn": "It was assessed and refused on coverage grounds, which makes it a denial with an eligibility root cause.",
+      "options": [
+        {
+          "textAr": "A denial, root cause eligibility",
+          "textEn": "A denial, root cause eligibility",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It was read and judged against the policy period.",
+          "feedbackEn": "Correct. It was read and judged against the policy period."
+        },
+        {
+          "textAr": "A rejection, because the data was wrong",
+          "textEn": "A rejection, because the data was wrong",
+          "isCorrect": false,
+          "feedbackAr": "The data was correct; the coverage was not in force. Nothing here is a formatting failure.",
+          "feedbackEn": "The data was correct; the coverage was not in force. Nothing here is a formatting failure."
+        },
+        {
+          "textAr": "A denial, root cause documentation",
+          "textEn": "A denial, root cause documentation",
+          "isCorrect": false,
+          "feedbackAr": "Documentation concerns whether the record supports the service, which is not the issue.",
+          "feedbackEn": "Documentation concerns whether the record supports the service, which is not the issue."
+        },
+        {
+          "textAr": "A duplicate",
+          "textEn": "A duplicate",
+          "isCorrect": false,
+          "feedbackAr": "Nothing suggests the service was claimed twice.",
+          "feedbackEn": "Nothing suggests the service was claimed twice."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-03",
+      "objectiveId": "MI-09",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which of these produce a rejection rather than a denial? Select all that apply.",
+      "stemEn": "Which of these produce a rejection rather than a denial? Select all that apply.",
+      "rationaleAr": "Format and identity failures stop a claim before assessment; coverage and documentation judgements come after it.",
+      "rationaleEn": "Format and identity failures stop a claim before assessment; coverage and documentation judgements come after it.",
+      "options": [
+        {
+          "textAr": "A date written in an unaccepted format",
+          "textEn": "A date written in an unaccepted format",
+          "isCorrect": true,
+          "feedbackAr": "Correct — the claim cannot be read, so it is not assessed.",
+          "feedbackEn": "Correct — the claim cannot be read, so it is not assessed."
+        },
+        {
+          "textAr": "A member identifier that does not match the payer's record",
+          "textEn": "A member identifier that does not match the payer's record",
+          "isCorrect": true,
+          "feedbackAr": "Correct — the claim cannot be matched to a policy, so assessment never starts.",
+          "feedbackEn": "Correct — the claim cannot be matched to a policy, so assessment never starts."
+        },
+        {
+          "textAr": "A service excluded by the policy",
+          "textEn": "A service excluded by the policy",
+          "isCorrect": false,
+          "feedbackAr": "That requires reading the claim and the policy: a denial.",
+          "feedbackEn": "That requires reading the claim and the policy: a denial."
+        },
+        {
+          "textAr": "A record that does not support the level billed",
+          "textEn": "A record that does not support the level billed",
+          "isCorrect": false,
+          "feedbackAr": "A judgement about evidence, made after assessment.",
+          "feedbackEn": "A judgement about evidence, made after assessment."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-01",
+      "objectiveId": "MI-10",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "A denial states the record does not support the level billed, and on review it does not. What is the correct action?",
+      "stemEn": "A denial states the record does not support the level billed, and on review it does not. What is the correct action?",
+      "rationaleAr": "Correct the claim to match the record. Changing the record to match the claim is falsification.",
+      "rationaleEn": "Correct the claim to match the record. Changing the record to match the claim is falsification.",
+      "options": [
+        {
+          "textAr": "Correct the claim to match the record and resubmit",
+          "textEn": "Correct the claim to match the record and resubmit",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The record is the evidence; the claim is the assertion, and the assertion is what changes.",
+          "feedbackEn": "Correct. The record is the evidence; the claim is the assertion, and the assertion is what changes."
+        },
+        {
+          "textAr": "Appeal, citing the clinician's judgement",
+          "textEn": "Appeal, citing the clinician's judgement",
+          "isCorrect": false,
+          "feedbackAr": "An appeal without new evidence loses and consumes the filing window.",
+          "feedbackEn": "An appeal without new evidence loses and consumes the filing window."
+        },
+        {
+          "textAr": "Amend the record to describe what was billed",
+          "textEn": "Amend the record to describe what was billed",
+          "isCorrect": false,
+          "feedbackAr": "That is falsification, and it turns a billing error into an integrity matter.",
+          "feedbackEn": "That is falsification, and it turns a billing error into an integrity matter."
+        },
+        {
+          "textAr": "Write the claim off immediately",
+          "textEn": "Write the claim off immediately",
+          "isCorrect": false,
+          "feedbackAr": "Premature: a corrected claim for the supported level is usually payable.",
+          "feedbackEn": "Premature: a corrected claim for the supported level is usually payable."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-02",
+      "objectiveId": "MI-10",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "What is the most expensive common mistake in denial work?",
+      "stemEn": "What is the most expensive common mistake in denial work?",
+      "rationaleAr": "Appealing what should have been corrected: appeals are slow, consume the filing window, and lose when the cause was a data error.",
+      "rationaleEn": "Appealing what should have been corrected: appeals are slow, consume the filing window, and lose when the cause was a data error.",
+      "options": [
+        {
+          "textAr": "Appealing something that should have been corrected and resubmitted",
+          "textEn": "Appealing something that should have been corrected and resubmitted",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It spends the slowest remedy on the cheapest problem.",
+          "feedbackEn": "Correct. It spends the slowest remedy on the cheapest problem."
+        },
+        {
+          "textAr": "Correcting something that should have been appealed",
+          "textEn": "Correcting something that should have been appealed",
+          "isCorrect": false,
+          "feedbackAr": "A real error, but a corrected resubmission usually still lands inside the window.",
+          "feedbackEn": "A real error, but a corrected resubmission usually still lands inside the window."
+        },
+        {
+          "textAr": "Writing off small balances",
+          "textEn": "Writing off small balances",
+          "isCorrect": false,
+          "feedbackAr": "A commercial judgement, not a classification error.",
+          "feedbackEn": "A commercial judgement, not a classification error."
+        },
+        {
+          "textAr": "Resubmitting too quickly",
+          "textEn": "Resubmitting too quickly",
+          "isCorrect": false,
+          "feedbackAr": "Speed is rarely the problem; misclassification is.",
+          "feedbackEn": "Speed is rarely the problem; misclassification is."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-03",
+      "objectiveId": "MI-10",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "A denial cites timely filing. Which responses are defensible? Select all that apply.",
+      "stemEn": "A denial cites timely filing. Which responses are defensible? Select all that apply.",
+      "rationaleAr": "Only evidence of timely submission supports an appeal. Resubmitting or backdating does not.",
+      "rationaleEn": "Only evidence of timely submission supports an appeal. Resubmitting or backdating does not.",
+      "options": [
+        {
+          "textAr": "Appeal with evidence the claim was submitted inside the window",
+          "textEn": "Appeal with evidence the claim was submitted inside the window",
+          "isCorrect": true,
+          "feedbackAr": "Correct — the appeal turns on proof of submission date.",
+          "feedbackEn": "Correct — the appeal turns on proof of submission date."
+        },
+        {
+          "textAr": "Accept the denial where no such evidence exists",
+          "textEn": "Accept the denial where no such evidence exists",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Accepting a correct denial is a legitimate outcome, not a failure.",
+          "feedbackEn": "Correct. Accepting a correct denial is a legitimate outcome, not a failure."
+        },
+        {
+          "textAr": "Resubmit the claim unchanged",
+          "textEn": "Resubmit the claim unchanged",
+          "isCorrect": false,
+          "feedbackAr": "The deadline has already passed; resubmission cannot cure lateness.",
+          "feedbackEn": "The deadline has already passed; resubmission cannot cure lateness."
+        },
+        {
+          "textAr": "Change the submission date on the claim",
+          "textEn": "Change the submission date on the claim",
+          "isCorrect": false,
+          "feedbackAr": "Falsification, and easily disproved by the payer's own receipt records.",
+          "feedbackEn": "Falsification, and easily disproved by the payer's own receipt records."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-04",
+      "objectiveId": "MI-10",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "A denial is for a duplicate claim, and the service genuinely was claimed before. What is the correct action?",
+      "stemEn": "A denial is for a duplicate claim, and the service genuinely was claimed before. What is the correct action?",
+      "rationaleAr": "Withdraw. Resubmitting a genuine duplicate creates a second problem rather than solving the first.",
+      "rationaleEn": "Withdraw. Resubmitting a genuine duplicate creates a second problem rather than solving the first.",
+      "options": [
+        {
+          "textAr": "Withdraw the claim and do not resubmit",
+          "textEn": "Withdraw the claim and do not resubmit",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The original claim is the one to follow up.",
+          "feedbackEn": "Correct. The original claim is the one to follow up."
+        },
+        {
+          "textAr": "Resubmit with a note explaining it is not a duplicate",
+          "textEn": "Resubmit with a note explaining it is not a duplicate",
+          "isCorrect": false,
+          "feedbackAr": "It is a duplicate. A note asserting otherwise is inaccurate.",
+          "feedbackEn": "It is a duplicate. A note asserting otherwise is inaccurate."
+        },
+        {
+          "textAr": "Appeal the duplicate determination",
+          "textEn": "Appeal the duplicate determination",
+          "isCorrect": false,
+          "feedbackAr": "There is nothing to appeal: the determination is correct.",
+          "feedbackEn": "There is nothing to appeal: the determination is correct."
+        },
+        {
+          "textAr": "Bill the patient for the difference",
+          "textEn": "Bill the patient for the difference",
+          "isCorrect": false,
+          "feedbackAr": "The service was already claimed; billing the patient for it compounds the error.",
+          "feedbackEn": "The service was already claimed; billing the patient for it compounds the error."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-01",
+      "objectiveId": "MI-13",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "A colleague suggests coding an extended assessment because \"that level is always used for this visit type\", though the record describes a brief review. What is this?",
+      "stemEn": "A colleague suggests coding an extended assessment because \"that level is always used for this visit type\", though the record describes a brief review. What is this?",
+      "rationaleAr": "Billing a level above what the record supports is upcoding, whatever the local custom.",
+      "rationaleEn": "Billing a level above what the record supports is upcoding, whatever the local custom.",
+      "options": [
+        {
+          "textAr": "Upcoding — billing above what the record supports",
+          "textEn": "Upcoding — billing above what the record supports",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Custom is not evidence, and the record is what a reviewer reads.",
+          "feedbackEn": "Correct. Custom is not evidence, and the record is what a reviewer reads."
+        },
+        {
+          "textAr": "A reasonable interpretation of an ambiguous record",
+          "textEn": "A reasonable interpretation of an ambiguous record",
+          "isCorrect": false,
+          "feedbackAr": "The record is not ambiguous here; it describes a brief review. This is the rationalisation the callout warns about.",
+          "feedbackEn": "The record is not ambiguous here; it describes a brief review. This is the rationalisation the callout warns about."
+        },
+        {
+          "textAr": "Unbundling",
+          "textEn": "Unbundling",
+          "isCorrect": false,
+          "feedbackAr": "Unbundling splits one service into parts; this inflates the level of a single service.",
+          "feedbackEn": "Unbundling splits one service into parts; this inflates the level of a single service."
+        },
+        {
+          "textAr": "A documentation gap, to be fixed by the clinician",
+          "textEn": "A documentation gap, to be fixed by the clinician",
+          "isCorrect": false,
+          "feedbackAr": "The record is not missing anything — it simply does not support the higher level.",
+          "feedbackEn": "The record is not missing anything — it simply does not support the higher level."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-02",
+      "objectiveId": "MI-13",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "One procedure is submitted as three separate lines, each paid individually, where the payer expects a single combined line. What is this called?",
+      "stemEn": "One procedure is submitted as three separate lines, each paid individually, where the payer expects a single combined line. What is this called?",
+      "rationaleAr": "Splitting one service into separately paid parts is unbundling.",
+      "rationaleEn": "Splitting one service into separately paid parts is unbundling.",
+      "options": [
+        {
+          "textAr": "Unbundling",
+          "textEn": "Unbundling",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The parts are real; presenting them separately to be paid more is the problem.",
+          "feedbackEn": "Correct. The parts are real; presenting them separately to be paid more is the problem."
+        },
+        {
+          "textAr": "Upcoding",
+          "textEn": "Upcoding",
+          "isCorrect": false,
+          "feedbackAr": "Upcoding raises the level of one service rather than splitting it into several.",
+          "feedbackEn": "Upcoding raises the level of one service rather than splitting it into several."
+        },
+        {
+          "textAr": "A duplicate claim",
+          "textEn": "A duplicate claim",
+          "isCorrect": false,
+          "feedbackAr": "A duplicate re-bills the same thing; here the service is described differently.",
+          "feedbackEn": "A duplicate re-bills the same thing; here the service is described differently."
+        },
+        {
+          "textAr": "A timely filing issue",
+          "textEn": "A timely filing issue",
+          "isCorrect": false,
+          "feedbackAr": "Nothing here concerns when the claim was submitted.",
+          "feedbackEn": "Nothing here concerns when the claim was submitted."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-03",
+      "objectiveId": "MI-13",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "A \"correction\" increases the amount owed, and nothing in the record changed. What should you do?",
+      "stemEn": "A \"correction\" increases the amount owed, and nothing in the record changed. What should you do?",
+      "rationaleAr": "A change in payment with no change in evidence is the signal to stop and ask what is actually being corrected.",
+      "rationaleEn": "A change in payment with no change in evidence is the signal to stop and ask what is actually being corrected.",
+      "options": [
+        {
+          "textAr": "Stop and establish what evidence supports the increase",
+          "textEn": "Stop and establish what evidence supports the increase",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Payment changing while evidence does not is the warning sign the callout names.",
+          "feedbackEn": "Correct. Payment changing while evidence does not is the warning sign the callout names."
+        },
+        {
+          "textAr": "Submit it, since corrections are routine",
+          "textEn": "Submit it, since corrections are routine",
+          "isCorrect": false,
+          "feedbackAr": "Routine is exactly how this passes unnoticed. The system did not stop it, so a person is answerable.",
+          "feedbackEn": "Routine is exactly how this passes unnoticed. The system did not stop it, so a person is answerable."
+        },
+        {
+          "textAr": "Submit it and flag it for audit later",
+          "textEn": "Submit it and flag it for audit later",
+          "isCorrect": false,
+          "feedbackAr": "Submitting a claim you cannot yet justify is the action under question; flagging afterwards does not undo it.",
+          "feedbackEn": "Submitting a claim you cannot yet justify is the action under question; flagging afterwards does not undo it."
+        },
+        {
+          "textAr": "Reduce the amount instead",
+          "textEn": "Reduce the amount instead",
+          "isCorrect": false,
+          "feedbackAr": "Under-billing is also inaccurate. The aim is a claim the record supports, not a lower number.",
+          "feedbackEn": "Under-billing is also inaccurate. The aim is a claim the record supports, not a lower number."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-04",
+      "objectiveId": "MI-13",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Why are upcoding and unbundling treated as integrity matters rather than data errors? Select all that apply.",
+      "stemEn": "Why are upcoding and unbundling treated as integrity matters rather than data errors? Select all that apply.",
+      "rationaleAr": "Both often pass automated edits, and both increase payment without any change in what was delivered.",
+      "rationaleEn": "Both often pass automated edits, and both increase payment without any change in what was delivered.",
+      "options": [
+        {
+          "textAr": "They frequently pass automated checks, so no system catches them",
+          "textEn": "They frequently pass automated checks, so no system catches them",
+          "isCorrect": true,
+          "feedbackAr": "Correct — which is why a person is answerable for them.",
+          "feedbackEn": "Correct — which is why a person is answerable for them."
+        },
+        {
+          "textAr": "They increase payment without any change in what was delivered",
+          "textEn": "They increase payment without any change in what was delivered",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Payment moves while the underlying facts do not.",
+          "feedbackEn": "Correct. Payment moves while the underlying facts do not."
+        },
+        {
+          "textAr": "They are always the result of deliberate fraud",
+          "textEn": "They are always the result of deliberate fraud",
+          "isCorrect": false,
+          "feedbackAr": "Often they are drift or pressure rather than intent, which is why the rule is about evidence and not motive.",
+          "feedbackEn": "Often they are drift or pressure rather than intent, which is why the rule is about evidence and not motive."
+        },
+        {
+          "textAr": "They can only occur in electronic claims",
+          "textEn": "They can only occur in electronic claims",
+          "isCorrect": false,
+          "feedbackAr": "The medium is irrelevant to either.",
+          "feedbackEn": "The medium is irrelevant to either."
+        }
+      ]
+    },
+    {
+      "key": "MI-07-04",
+      "objectiveId": "MI-07",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "The record reads \"imaging to be arranged\". Imaging is billed. Is the line supported?",
+      "stemEn": "The record reads \"imaging to be arranged\". Imaging is billed. Is the line supported?",
+      "rationaleAr": "An intention is not evidence that a service happened. Support requires the record to show it was performed.",
+      "rationaleEn": "An intention is not evidence that a service happened. Support requires the record to show it was performed.",
+      "options": [
+        {
+          "textAr": "No — the record states an intention, not a performed service",
+          "textEn": "No — the record states an intention, not a performed service",
+          "isCorrect": true,
+          "feedbackAr": "Correct. \"To be arranged\" describes a plan; a reviewer needs evidence it took place.",
+          "feedbackEn": "Correct. \"To be arranged\" describes a plan; a reviewer needs evidence it took place."
+        },
+        {
+          "textAr": "Yes — arranging imaging implies it was done",
+          "textEn": "Yes — arranging imaging implies it was done",
+          "isCorrect": false,
+          "feedbackAr": "Implication is not evidence. This is precisely the inference a reviewer will refuse to make.",
+          "feedbackEn": "Implication is not evidence. This is precisely the inference a reviewer will refuse to make."
+        },
+        {
+          "textAr": "Yes, provided the clinician confirms it verbally",
+          "textEn": "Yes, provided the clinician confirms it verbally",
+          "isCorrect": false,
+          "feedbackAr": "A later verbal confirmation is not what was documented at the time of service.",
+          "feedbackEn": "A later verbal confirmation is not what was documented at the time of service."
+        },
+        {
+          "textAr": "Only if the payer requires no pre-authorisation",
+          "textEn": "Only if the payer requires no pre-authorisation",
+          "isCorrect": false,
+          "feedbackAr": "Authorisation is a separate question; the line is unsupported either way.",
+          "feedbackEn": "Authorisation is a separate question; the line is unsupported either way."
+        }
+      ]
+    },
+    {
+      "key": "MI-07-05",
+      "objectiveId": "MI-07",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which statements in a record support billing an extended assessment? Select all that apply.",
+      "stemEn": "Which statements in a record support billing an extended assessment? Select all that apply.",
+      "rationaleAr": "Support needs the service to be described as performed, with enough detail to distinguish it from a lesser one.",
+      "rationaleEn": "Support needs the service to be described as performed, with enough detail to distinguish it from a lesser one.",
+      "options": [
+        {
+          "textAr": "\"Extended assessment performed; findings recorded.\"",
+          "textEn": "\"Extended assessment performed; findings recorded.\"",
+          "isCorrect": true,
+          "feedbackAr": "Correct — performed, and described at the level billed.",
+          "feedbackEn": "Correct — performed, and described at the level billed."
+        },
+        {
+          "textAr": "\"Full history and examination completed, findings documented below.\"",
+          "textEn": "\"Full history and examination completed, findings documented below.\"",
+          "isCorrect": true,
+          "feedbackAr": "Correct — describes work consistent with the level billed.",
+          "feedbackEn": "Correct — describes work consistent with the level billed."
+        },
+        {
+          "textAr": "\"Patient reviewed.\"",
+          "textEn": "\"Patient reviewed.\"",
+          "isCorrect": false,
+          "feedbackAr": "Describes something happening, but not at the level billed. This is where upcoding starts.",
+          "feedbackEn": "Describes something happening, but not at the level billed. This is where upcoding starts."
+        },
+        {
+          "textAr": "\"Extended assessment scheduled for next week.\"",
+          "textEn": "\"Extended assessment scheduled for next week.\"",
+          "isCorrect": false,
+          "feedbackAr": "A future service cannot support a current claim.",
+          "feedbackEn": "A future service cannot support a current claim."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-05",
+      "objectiveId": "MI-09",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "A claim is returned by the clearinghouse before reaching the payer. What is the correct term and next step?",
+      "stemEn": "A claim is returned by the clearinghouse before reaching the payer. What is the correct term and next step?",
+      "rationaleAr": "Nothing was assessed, so it is a rejection: correct the data or format and resubmit.",
+      "rationaleEn": "Nothing was assessed, so it is a rejection: correct the data or format and resubmit.",
+      "options": [
+        {
+          "textAr": "A rejection — correct and resubmit",
+          "textEn": "A rejection — correct and resubmit",
+          "isCorrect": true,
+          "feedbackAr": "Correct. No decision was made, so there is nothing to appeal.",
+          "feedbackEn": "Correct. No decision was made, so there is nothing to appeal."
+        },
+        {
+          "textAr": "A denial — file an appeal",
+          "textEn": "A denial — file an appeal",
+          "isCorrect": false,
+          "feedbackAr": "An appeal argues against a decision, and no decision exists yet.",
+          "feedbackEn": "An appeal argues against a decision, and no decision exists yet."
+        },
+        {
+          "textAr": "A denial — bill the patient",
+          "textEn": "A denial — bill the patient",
+          "isCorrect": false,
+          "feedbackAr": "The payer has not refused anything; billing the patient here is premature and probably wrong.",
+          "feedbackEn": "The payer has not refused anything; billing the patient here is premature and probably wrong."
+        },
+        {
+          "textAr": "A duplicate — withdraw the claim",
+          "textEn": "A duplicate — withdraw the claim",
+          "isCorrect": false,
+          "feedbackAr": "Nothing indicates the service was claimed twice.",
+          "feedbackEn": "Nothing indicates the service was claimed twice."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-05",
+      "objectiveId": "MI-10",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": false,
+      "formative": false,
+      "stemAr": "Which single question most reliably decides how to respond to a denial?",
+      "stemEn": "Which single question most reliably decides how to respond to a denial?",
+      "rationaleAr": "The root cause decides the action. The notice wording often describes the symptom rather than the cause.",
+      "rationaleEn": "The root cause decides the action. The notice wording often describes the symptom rather than the cause.",
+      "options": [
+        {
+          "textAr": "What was the root cause?",
+          "textEn": "What was the root cause?",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Cause picks the route; everything else follows from it.",
+          "feedbackEn": "Correct. Cause picks the route; everything else follows from it."
+        },
+        {
+          "textAr": "How much money is at stake?",
+          "textEn": "How much money is at stake?",
+          "isCorrect": false,
+          "feedbackAr": "Relevant to whether to pursue it, not to which action is correct.",
+          "feedbackEn": "Relevant to whether to pursue it, not to which action is correct."
+        },
+        {
+          "textAr": "Which payer issued it?",
+          "textEn": "Which payer issued it?",
+          "isCorrect": false,
+          "feedbackAr": "Useful context, but the same cause takes the same route across payers.",
+          "feedbackEn": "Useful context, but the same cause takes the same route across payers."
+        },
+        {
+          "textAr": "What does the denial notice say?",
+          "textEn": "What does the denial notice say?",
+          "isCorrect": false,
+          "feedbackAr": "The notice is evidence about the cause, not the cause itself — and often describes the symptom.",
+          "feedbackEn": "The notice is evidence about the cause, not the cause itself — and often describes the symptom."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-05",
+      "objectiveId": "MI-13",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "formative": false,
+      "stemAr": "Which is the strongest single defence when asked to bill something the record does not show?",
+      "stemEn": "Which is the strongest single defence when asked to bill something the record does not show?",
+      "rationaleAr": "Pointing at the record moves the conversation from opinion to evidence, and is the same defence in an audit.",
+      "rationaleEn": "Pointing at the record moves the conversation from opinion to evidence, and is the same defence in an audit.",
+      "options": [
+        {
+          "textAr": "Point at the record and ask what evidence supports the change",
+          "textEn": "Point at the record and ask what evidence supports the change",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It is the same question an auditor asks, and asking it early is cheaper.",
+          "feedbackEn": "Correct. It is the same question an auditor asks, and asking it early is cheaper."
+        },
+        {
+          "textAr": "Defer to the more senior colleague",
+          "textEn": "Defer to the more senior colleague",
+          "isCorrect": false,
+          "feedbackAr": "Seniority is not evidence, and it does not transfer answerability for the claim.",
+          "feedbackEn": "Seniority is not evidence, and it does not transfer answerability for the claim."
+        },
+        {
+          "textAr": "Submit it and note your disagreement internally",
+          "textEn": "Submit it and note your disagreement internally",
+          "isCorrect": false,
+          "feedbackAr": "The claim still goes out asserting something unsupported; a private note does not change that.",
+          "feedbackEn": "The claim still goes out asserting something unsupported; a private note does not change that."
+        },
+        {
+          "textAr": "Ask the payer whether it would be accepted",
+          "textEn": "Ask the payer whether it would be accepted",
+          "isCorrect": false,
+          "feedbackAr": "Acceptance is not the test. A claim can be paid and still be unsupported.",
+          "feedbackEn": "Acceptance is not the test. A claim can be paid and still be unsupported."
+        }
+      ]
+    }
+  ]
+}

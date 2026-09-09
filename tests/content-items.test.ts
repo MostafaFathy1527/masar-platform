@@ -46,21 +46,49 @@ describe('authored item banks', () => {
         }
       })
 
-      it('supplies every knowledge check the lessons reference', () => {
-        const bank = ItemBankDoc.parse(JSON.parse(raw))
-        const keys = new Set(bank.items.map((i) => i.key))
-        const lessons = walk('content/courses').filter((f) => f.split(sep).includes('lessons'))
-        for (const lessonFile of lessons) {
-          const lesson = JSON.parse(readFileSync(lessonFile, 'utf-8'))
-          for (const level of ['l1', 'l2', 'l3'] as const) {
-            for (const b of lesson.blocks[level] ?? []) {
-              if (b.type === 'knowledge_check') {
-                expect(keys, `${lessonFile} references ${b.payload.itemRef}`).toContain(b.payload.itemRef)
-              }
-            }
-          }
-        }
-      })
     })
   }
+})
+
+// Checked across ALL bank files together, not per file: knowledge checks live
+// in whichever bank matches their lesson's language, so no single file can be
+// expected to satisfy every reference.
+describe('knowledge checks referenced by lessons', () => {
+  const keys = new Set<string>()
+  for (const f of files) {
+    for (const item of ItemBankDoc.parse(JSON.parse(readFileSync(f, 'utf-8'))).items) {
+      keys.add(item.key)
+    }
+  }
+
+  const lessons = walk('content/courses').filter((f) => f.split(sep).includes('lessons'))
+
+  it.each(lessons)('%s has every knowledge_check it references', (lessonFile) => {
+    const lesson = JSON.parse(readFileSync(lessonFile, 'utf-8'))
+    for (const level of ['l1', 'l2', 'l3'] as const) {
+      for (const b of lesson.blocks[level] ?? []) {
+        if (b.type === 'knowledge_check') {
+          expect(keys, `${lessonFile} references ${b.payload.itemRef}`).toContain(
+            b.payload.itemRef,
+          )
+        }
+      }
+    }
+  })
+
+  // A knowledge check nothing references is dead weight in the bank; it is
+  // never drawn into a quiz either, because formative items are excluded.
+  it('has no orphaned knowledge check', () => {
+    const referenced = new Set<string>()
+    for (const lessonFile of lessons) {
+      const lesson = JSON.parse(readFileSync(lessonFile, 'utf-8'))
+      for (const level of ['l1', 'l2', 'l3'] as const) {
+        for (const b of lesson.blocks[level] ?? []) {
+          if (b.type === 'knowledge_check') referenced.add(b.payload.itemRef)
+        }
+      }
+    }
+    const orphans = [...keys].filter((k) => k.includes('-KC-') && !referenced.has(k))
+    expect(orphans, 'these knowledge checks are referenced by no lesson').toEqual([])
+  })
 })

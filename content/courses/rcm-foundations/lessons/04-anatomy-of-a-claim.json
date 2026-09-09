@@ -10,7 +10,8 @@
   ],
   "objectives": [
     "MI-05",
-    "MI-06"
+    "MI-06",
+    "MI-13"
   ],
   "conceptsIntroduced": [
     "clean_claim",
@@ -225,6 +226,15 @@
         "payload": {
           "mdAr": "أكثر أسباب الرفض شيوعًا ليست طبية على الإطلاق، بل بيانات: اسم مكتوب بصيغة مختلفة، أو تاريخ ميلاد لا يطابق بطاقة العضو. افحص الحقول قبل أن تفحص الترميز.",
           "mdEn": "The most common reasons for rejection are not clinical at all — they are data. A name entered in a different form, or a date of birth that does not match the member card. Check the fields before you check the coding."
+        }
+      },
+      {
+        "id": "b_l1_tip_fwa",
+        "type": "job_tip",
+        "objectiveId": "MI-13",
+        "payload": {
+          "mdAr": "**حيث يتوقف هذا عن كونه مسألة أوراق.** المطالبة بمستوى أعلى مما يدعمه السجل ترميزٌ مُبالغ فيه، وتقسيم خدمة واحدة إلى أجزاء للحصول على سداد أكبر تفكيكٌ غير مشروع. كلاهما قد يجتاز الفحص الآلي، ولهذا يُعاملان كمسألة نزاهة لا كخطأ إدخال: النظام لم يوقفهما، فالمسؤولية على إنسان. إذا زاد «التصحيح» المبلغ المستحق ولم يتغير السجل، توقّف واسأل لماذا.",
+          "mdEn": "**Where this stops being a paperwork question.** Billing a level higher than the record supports is upcoding. Splitting one service into parts to be paid more is unbundling. Both can pass an automated edit, which is why they are treated as integrity matters rather than data errors — the system did not stop them, so a person is answerable. If a \"correction\" increases the amount owed and the record did not change, stop and ask why."
         }
       },
       {

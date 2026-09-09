@@ -8,11 +8,16 @@ import { assemble, blueprintSize, type PoolItem } from '../lib/assessment/assemb
 // assessments v1.0 ships: a lesson quiz and one blueprint-sampled exam.
 // Content stays in git; the database is a load target, not the source.
 
-const BANK = 'content/courses/rcm-foundations/items/mi-05-06-07.json'
+const BANKS = [
+  'content/courses/rcm-foundations/items/mi-05-06-07.json',
+  'content/courses/rcm-foundations/items/mi-01-04-09-10-13.json',
+]
 const COURSE_SLUG = 'rcm-foundations'
 const LESSON_SLUG = 'anatomy-of-a-claim'
 
-const bank = ItemBankDoc.parse(JSON.parse(readFileSync(BANK, 'utf-8')))
+const bank = {
+  items: BANKS.flatMap((f) => ItemBankDoc.parse(JSON.parse(readFileSync(f, 'utf-8'))).items),
+}
 const db = getDb()
 
 const course = await db.course.findUnique({ where: { slug: COURSE_SLUG } })
@@ -65,8 +70,14 @@ for (const item of bank.items) {
 
 // Blueprints are checked against the real pool here rather than discovered to
 // be impossible when a learner starts an attempt.
+// The lesson quiz stays on the flagship's objectives; the exam samples across
+// every objective the course teaches, which is what makes it blueprint-driven
+// rather than a pile of questions.
 const QUIZ_BLUEPRINT = { 'MI-05': 2, 'MI-06': 3 }
-const EXAM_BLUEPRINT = { 'MI-05': 3, 'MI-06': 3, 'MI-07': 3 }
+const EXAM_BLUEPRINT = {
+  'MI-01': 2, 'MI-04': 2, 'MI-05': 2, 'MI-06': 2,
+  'MI-07': 2, 'MI-09': 2, 'MI-10': 2, 'MI-13': 2,
+}
 
 const pool: PoolItem[] = (
   await db.item.findMany({

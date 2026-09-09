@@ -1,0 +1,201 @@
+{
+  "slug": "the-insurance-transaction",
+  "titleAr": "The insurance transaction: who pays whom",
+  "titleEn": "The insurance transaction: who pays whom",
+  "estMinutes": 30,
+  "bilingual": false,
+  "levels": [
+    "L1"
+  ],
+  "objectives": [
+    "MI-01"
+  ],
+  "conceptsIntroduced": [
+    "member",
+    "payer",
+    "provider",
+    "third_party_administrator"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b1_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-01",
+        "payload": {
+          "textAr": "Four parties, one transaction",
+          "textEn": "Four parties, one transaction",
+          "level": 2
+        }
+      },
+      {
+        "id": "b1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-01",
+        "payload": {
+          "mdAr": "Almost every difficulty in this field comes from the same structural fact: the person receiving the service is usually not the person paying for it. A patient is treated, and a third party is billed. Everything else follows from that gap.\n\nFour parties matter. The **member** receives care and holds the coverage. The **provider** delivers the service and wants to be paid for it. The **payer** holds the money and decides what it owes. A **third-party administrator** may sit between them, running the paperwork on the payer's behalf without carrying the financial risk itself.",
+          "mdEn": "Almost every difficulty in this field comes from the same structural fact: the person receiving the service is usually not the person paying for it. A patient is treated, and a third party is billed. Everything else follows from that gap.\n\nFour parties matter. The **member** receives care and holds the coverage. The **provider** delivers the service and wants to be paid for it. The **payer** holds the money and decides what it owes. A **third-party administrator** may sit between them, running the paperwork on the payer's behalf without carrying the financial risk itself."
+        }
+      },
+      {
+        "id": "b1_d_member",
+        "type": "definition_card",
+        "objectiveId": "MI-01",
+        "payload": {
+          "termAr": "Member",
+          "termEn": "Member",
+          "defAr": "The person covered by a policy. Not always the person who bought it, and not always the patient — a child treated under a parent's policy is a dependent on that member's coverage.",
+          "defEn": "The person covered by a policy. Not always the person who bought it, and not always the patient — a child treated under a parent's policy is a dependent on that member's coverage.",
+          "icon": "👤"
+        }
+      },
+      {
+        "id": "b1_d_payer",
+        "type": "definition_card",
+        "objectiveId": "MI-01",
+        "payload": {
+          "termAr": "Payer",
+          "termEn": "Payer",
+          "defAr": "The organisation that carries the financial risk and decides what is owed. It sets the rules the claim is judged against, which is why a claim that is correct for one payer can fail for another.",
+          "defEn": "The organisation that carries the financial risk and decides what is owed. It sets the rules the claim is judged against, which is why a claim that is correct for one payer can fail for another.",
+          "icon": "🏦"
+        }
+      },
+      {
+        "id": "b1_d_tpa",
+        "type": "definition_card",
+        "objectiveId": "MI-01",
+        "payload": {
+          "termAr": "Third-party administrator (TPA)",
+          "termEn": "Third-party administrator (TPA)",
+          "defAr": "An organisation that processes claims on behalf of a payer without carrying the risk. When you are told \"the TPA denied it\", the decision still traces back to the payer's rules.",
+          "defEn": "An organisation that processes claims on behalf of a payer without carrying the risk. When you are told \"the TPA denied it\", the decision still traces back to the payer's rules.",
+          "icon": "⇄",
+          "exampleAr": "Training example: Gulf Care Insurance carries the risk; a TPA processes its claims. The rules are the insurer's.",
+          "exampleEn": "Training example: Gulf Care Insurance carries the risk; a TPA processes its claims. The rules are the insurer's."
+        }
+      },
+      {
+        "id": "b1_t_money",
+        "type": "compare_table",
+        "objectiveId": "MI-01",
+        "payload": {
+          "captionAr": "Where the money moves, and when",
+          "captionEn": "Where the money moves, and when",
+          "columns": [
+            {
+              "labelAr": "Step",
+              "labelEn": "Step"
+            },
+            {
+              "labelAr": "Who acts",
+              "labelEn": "Who acts"
+            },
+            {
+              "labelAr": "What moves",
+              "labelEn": "What moves"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "Premium",
+                "textEn": "Premium"
+              },
+              {
+                "textAr": "Member or employer to payer",
+                "textEn": "Member or employer to payer"
+              },
+              {
+                "textAr": "Money, before any care",
+                "textEn": "Money, before any care"
+              }
+            ],
+            [
+              {
+                "textAr": "Care",
+                "textEn": "Care"
+              },
+              {
+                "textAr": "Provider to member",
+                "textEn": "Provider to member"
+              },
+              {
+                "textAr": "A service, not money",
+                "textEn": "A service, not money"
+              }
+            ],
+            [
+              {
+                "textAr": "Claim",
+                "textEn": "Claim"
+              },
+              {
+                "textAr": "Provider to payer",
+                "textEn": "Provider to payer"
+              },
+              {
+                "textAr": "A request for payment",
+                "textEn": "A request for payment"
+              }
+            ],
+            [
+              {
+                "textAr": "Payment",
+                "textEn": "Payment"
+              },
+              {
+                "textAr": "Payer to provider",
+                "textEn": "Payer to provider"
+              },
+              {
+                "textAr": "Money, after adjudication",
+                "textEn": "Money, after adjudication"
+              }
+            ],
+            [
+              {
+                "textAr": "Balance",
+                "textEn": "Balance"
+              },
+              {
+                "textAr": "Provider to member",
+                "textEn": "Provider to member"
+              },
+              {
+                "textAr": "Whatever the policy leaves to the member",
+                "textEn": "Whatever the policy leaves to the member"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b1_tip",
+        "type": "job_tip",
+        "objectiveId": "MI-01",
+        "payload": {
+          "mdAr": "When a claim goes wrong, ask first *which party's rule was broken*. A missing field is the provider's problem, an exclusion is the policy's, and a delay in adjudication is the payer's. Naming the party is usually faster than naming the error.",
+          "mdEn": "When a claim goes wrong, ask first *which party's rule was broken*. A missing field is the provider's problem, an exclusion is the policy's, and a delay in adjudication is the payer's. Naming the party is usually faster than naming the error."
+        }
+      },
+      {
+        "id": "b1_take",
+        "type": "takeaways",
+        "objectiveId": "MI-01",
+        "payload": {
+          "itemsAr": [
+            "The person receiving care is usually not the person paying, and that gap causes most of the work.",
+            "The payer carries the risk and sets the rules; a TPA may process claims without carrying either.",
+            "Money moves in both directions and at different times: premium before care, payment long after it."
+          ],
+          "itemsEn": [
+            "The person receiving care is usually not the person paying, and that gap causes most of the work.",
+            "The payer carries the risk and sets the rules; a TPA may process claims without carrying either.",
+            "Money moves in both directions and at different times: premium before care, payment long after it."
+          ]
+        }
+      }
+    ]
+  }
+}
