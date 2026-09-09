@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Masār — a practice-first learning platform",
+    "description": "A learning platform where a lesson can be published at three defined depths and assessment is built from a blueprint rather than a pile of questions."
+  },
+  "nav": { "method": "Method", "spec": "Specification", "repo": "Repository" },
+  "hero": {
+    "badge": "Under construction — Week 1",
+    "title": "Masār",
+    "tagline": "A practice-first learning platform",
+    "body": "One lesson can be published at three defined depths, assessment is built from a blueprint rather than a pile of questions, and the content pipeline that produces the lessons ships in this repository with its own quality gate.",
+    "cta": "Enter as a guest",
+    "ctaNote": "One click — no signup",
+    "secondary": "Read the specification"
+  },
+  "depth": {
+    "title": "Three depths, one lesson",
+    "l1": { "name": "L1 — Structured publishing", "body": "The source material, professionally structured into the platform." },
+    "l2": { "name": "L2 — Interactive lesson", "body": "Worked examples, knowledge checks, and scenarios with consequences." },
+    "l3": { "name": "L3 — Applied practice", "body": "A rehearsal of a real job task, scored against a published rubric." }
+  },
+  "disclaimer": "A self-initiated demonstration platform. Not affiliated with, or recognized by, any certification body. All data is fictional training data. Not medical, billing, clinical, legal or regulatory advice.",
+  "footer": { "status": "Week 1 — placeholder", "rights": "Code MIT · Course content CC BY-NC 4.0" }
+}
