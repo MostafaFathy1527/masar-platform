@@ -93,6 +93,37 @@ jobs:
           --to-schema prisma/schema.prisma
           --exit-code
 
+  # The content pipeline's own gate. It validates lesson documents against the
+  # GENERATED JSON Schema, so this job also proves the TypeScript-to-Python
+  # contract still holds. The negative tests run first: a validator that has
+  # only ever returned PASS proves nothing.
+  content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm ci
+      - run: pip install -r pipeline/requirements.txt
+
+      # The schema is generated. If it is stale, the contract is a fiction.
+      - name: JSON Schema must be up to date with the Zod source
+        run: |
+          npm run schema:export
+          git diff --exit-code -- content/schema/lesson.schema.json
+
+      - name: Validator negative tests
+        run: python pipeline/test_validate.py
+
+      - name: Validate authored lesson content
+        run: python pipeline/validate.py
+
   publish-safety:
     runs-on: ubuntu-latest
     steps:

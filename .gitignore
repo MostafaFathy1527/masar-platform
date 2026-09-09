@@ -43,3 +43,9 @@ Thumbs.db
 
 # machine-specific, never published (denylist, day-0 notes, local paths)
 .local/
+
+# python bytecode - compiled .pyc files embed the absolute source path,
+# which is a local-path leak the publish gate correctly refuses
+__pycache__/
+*.py[cod]
+.pytest_cache/
