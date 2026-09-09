@@ -3,26 +3,30 @@
 Update this file at the end of every session. It is the first thing the next session reads.
 
 ## Now
-**Week 1 complete — every definition-of-done criterion met.** `masar.mostafafathy.com`
-is live over HTTPS, CI is green, the database is migrated and verified, and a clean clone
-reaches a running instance in 156 seconds.
+**v1.0 is complete and deployed.** All six weeks shipped at `masar.mostafafathy.com`, CI is
+green, and `npm run check` passes with no warnings. The interior has since been rebuilt on a
+real design system — see "Design system" below.
 
-**Week 2 is complete.** All four of its plan deliverables have landed: the lesson renderer
-and block registry, L1 and L2 rendering, the `/depth` page, and the lesson JSON schema with
-`pipeline/validate.py`. Verified at runtime in both locales.
+This section was itself stale for weeks: it said five of six weeks were done, and claimed
+environment variables were unset on Vercel so `POST /api/demo` returned 500 in production.
+Both stopped being true and nothing forced the sentence to follow. That is the same
+sub-pattern this file documents further down, in the file whose whole job is to tell the
+next session what is true.
 
-**Week 5's code is complete.** Five lessons, a 42-item bank, three pipeline gates with
-33 negative tests, and `/how-it-was-built`. Five of six weeks done, each ending deployed.
-
-**Two Week 5 items are the owner's and remain open** — the SME invitation and the blind
-inter-rater sample. Neither can be done by the agent, and both are listed under
-"Blocked / needs the owner".
+**What remains needs a person, not an agent**, and is listed in the project rules file: the judge
+sitting, the blind inter-rater check, the instructional-design review, and the narrated
+recording. The SME recruitment is **closed, not deferred** — §0.7 records it as a scope
+decision and the limitation is stated on the page.
 
 Note: `/method` is **not** in v1.0. It belongs to the 14-week plan's Week 9, which §0.3
 cut; `/depth` already renders the depth model.
 
-**One production gap, not a DoD line:** environment variables are still unset on Vercel,
-so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
+**Local development currently cannot reach the database.** Outbound TCP 5432 times out on
+this machine's network while port 443 to the *same* Neon host connects in ~150 ms — two
+attempts at 20 s each against one 153 ms control. That control is the one the earlier
+misdiagnosis below got wrong: comparing against a different host never isolates the port.
+Production is unaffected, because Vercel has its own egress. Nothing here says the earlier
+correction was wrong; conditions changed.
 
 Scope of record is the correction pass (section 0 of the authoritative plan, path in
 `.local/DAY0.md`) — **v1.0 = 6 weeks / ~65 h**. `BUILD.md` sections 3 and 9 describe the
@@ -176,6 +180,33 @@ credential on a public page, in a project whose whole argument is that it does n
 The two reviews he *is* doing are real and are labelled precisely: an **instructional-design
 review** and the **blind inter-rater check**. Neither is a subject-matter review, and the
 copy never lets the two blur. See `docs/design/sme-review.md`.
+
+## Design system
+
+The interior of the product was rebuilt in two passes after a review found the presentation
+undermining the writing: default dark shadcn, no header, no footer, no navigation, no
+typographic hierarchy, and a 620px column floating in a 1280px viewport.
+
+The palette is the owner's identity — amber `#F4A93C` on warm paper `#F6F4EF` — so a
+reviewer moving from the portfolio site to this one sees one hand at work. **Light is the
+default**, dark is the `prefers-color-scheme` alternate. Type is Archivo for display, Space
+Grotesk for body, JetBrains Mono for labels and data, Cairo for Arabic, all self-hosted
+through `next/font`. The layout language is editorial: mono eyebrows, a real display scale,
+hairline rules instead of bordered cards, full-bleed bands alternating ground and surface,
+prose at 68ch inside a 1240px shell.
+
+Two rules that are easy to break and expensive to miss:
+
+- **Arabic is never letter-spaced.** Tracking breaks the cursive joins. The mono faces carry
+  no Arabic at all, so Arabic labels use Cairo a step smaller and heavier rather than
+  falling through to a system monospace.
+- **Every layout property stays logical** (`padding-inline`, `border-inline-start`), so one
+  stylesheet serves both directions. 390px RTL is re-measured after any layout change rather
+  than assumed — `scrollWidth` must be exactly 390 with no element escaping the viewport.
+
+`scripts/shot.mjs` takes a colour scheme argument. A headless browser reports the host
+machine's setting, so on a dark machine a light-default design photographs dark forever and
+the default never gets reviewed. That is how entry 9 in `what-failed.md` was found.
 
 ## Next
 
