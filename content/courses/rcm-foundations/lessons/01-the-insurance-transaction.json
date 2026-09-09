@@ -14,7 +14,7 @@
     "member",
     "payer",
     "provider",
-    "third_party_administrator"
+    "third_party_administrator_tpa"
   ],
   "blocks": {
     "l1": [
