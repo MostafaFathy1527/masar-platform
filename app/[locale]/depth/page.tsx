@@ -71,7 +71,7 @@ export default async function DepthPage({
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <header>
-        <p className="badge">{l === 'ar' ? 'قيد الإنشاء — الأسبوع الثاني' : 'Under construction — Week 2'}</p>
+        <p className="badge">{l === 'ar' ? 'نموذج العمق' : 'The depth model'}</p>
         <h1 className="mt-4 text-3xl font-bold tracking-tight">{t.title}</h1>
         <p className="mt-3 max-w-prose leading-relaxed text-muted">{t.lead}</p>
       </header>

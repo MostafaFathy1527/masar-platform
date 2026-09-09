@@ -57,7 +57,23 @@ export default async function LandingPage({
           <span className="text-sm text-muted">{t('hero.ctaNote')}</span>
         </div>
 
-        <section className="mt-16">
+        {/* Without these, a reviewer arriving at the landing page can reach the
+            practice workbench and nothing else — no depth model, no case study,
+            no pipeline page. The guest button is the fast path, not the only one. */}
+        <nav className="mt-12" aria-label={t('explore')}>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
+            {t('explore')}
+          </h2>
+          <ul className="landing-links mt-3">
+            <li><Link href="/depth">{t('nav.method')}</Link></li>
+            <li><Link href="/course">{t('nav.course')}</Link></li>
+            <li><Link href="/case-study">{t('nav.caseStudy')}</Link></li>
+            <li><Link href="/how-it-was-built">{t('nav.built')}</Link></li>
+            <li><Link href="/privacy">{t('nav.privacy')}</Link></li>
+          </ul>
+        </nav>
+
+        <section className="mt-12">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
             {t('depth.title')}
           </h2>
