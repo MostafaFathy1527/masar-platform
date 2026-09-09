@@ -393,3 +393,203 @@ body {
     color: var(--color-muted);
   }
 }
+
+/* -------------------------------------------------------------- simulation */
+
+@layer components {
+  .sim-instruction {
+    font-weight: 600;
+    margin-block-end: 1rem;
+  }
+  .sim-subhead {
+    font-weight: 700;
+    margin-block: 1rem 0.5rem;
+  }
+  .sim-fields {
+    display: grid;
+    gap: 0.375rem;
+  }
+  .sim-fields button {
+    inline-size: 100%;
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-canvas);
+  }
+  .sim-fields button.is-flagged {
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+  }
+  .sim-fields button:disabled {
+    opacity: 0.85;
+  }
+  .sim-field-label {
+    flex: 1;
+    font-weight: 600;
+  }
+  .sim-field-value {
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  /* The flag state is a word, not a colour. */
+  .sim-flag-state {
+    font-size: 0.75rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    padding-inline: 0.5rem;
+    color: var(--color-accent);
+  }
+  .sim-mark {
+    display: block;
+    font-size: 0.8rem;
+    padding-inline-start: 0.75rem;
+    padding-block-start: 0.25rem;
+  }
+  .sim-total {
+    margin-block-start: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sim-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-start: 1.25rem;
+  }
+  .sim-count {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .sim-result h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-block-start: 1.5rem;
+  }
+  .sim-metrics,
+  .sim-formula {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-block-start: 0.25rem;
+  }
+  .sim-outcomes {
+    display: grid;
+    gap: 0.75rem;
+    margin-block: 1rem;
+  }
+  .sim-outcomes li {
+    border: 1px solid var(--color-line);
+    border-inline-start: 3px solid currentColor;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+  .sim-outcomes p {
+    color: var(--color-ink);
+    margin-block: 0.375rem;
+  }
+  .sim-outcomes a {
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .tour-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--color-accent);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-block-end: 1.5rem;
+  }
+
+  /*
+    Evidence panel. One element, two presentations.
+
+    Phone first: a bottom sheet fixed to the viewport, which is the only
+    sensible place for reference material on a 390px screen — the learner needs
+    the member card while looking at the claim, and a panel above or below the
+    fold means scrolling back and forth on every field.
+  */
+  .sim-evidence {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 10;
+    background: var(--color-canvas);
+    border-block-start: 1px solid var(--color-line);
+    max-block-size: 45dvh;
+    overflow-y: auto;
+  }
+  .sim-evidence > summary {
+    padding: 0.875rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+  .sim-evidence > summary::after {
+    content: " ▲";
+    color: var(--color-muted);
+  }
+  .sim-evidence[open] > summary::after {
+    content: " ▼";
+  }
+  .sim-evidence-body {
+    padding: 0 1rem 1rem;
+  }
+  .sim-evidence-body h3 {
+    font-weight: 700;
+    margin-block: 0.75rem 0.25rem;
+  }
+  .sim-evidence-body dl > div {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    border-block-end: 1px solid var(--color-line);
+    padding-block: 0.25rem;
+    font-size: 0.875rem;
+  }
+  .sim-evidence-body dt {
+    color: var(--color-muted);
+  }
+  /* Keep the last field reachable above a collapsed sheet. */
+  .sim-actions {
+    margin-block-end: 4rem;
+  }
+
+  /* From tablet up it becomes a side panel: the content is always visible and
+     the toggle is removed, so there is no state to get wrong on a wide screen. */
+  @media (min-width: 768px) {
+    .sim-body {
+      display: grid;
+      grid-template-columns: 1fr 20rem;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .sim-evidence {
+      position: sticky;
+      inset-block-start: 1rem;
+      inset-block-end: auto;
+      border: 1px solid var(--color-line);
+      border-radius: 0.75rem;
+      max-block-size: none;
+    }
+    .sim-evidence > summary {
+      display: none;
+    }
+    .sim-evidence > .sim-evidence-body {
+      display: block;
+      padding-block-start: 1rem;
+    }
+    .sim-actions {
+      margin-block-end: 0;
+    }
+  }
+}

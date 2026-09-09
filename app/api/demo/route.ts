@@ -8,11 +8,11 @@ import { hashPassword } from '@/lib/passwords'
 // them in — no signup form, no email verification, nothing between a reviewer
 // and the product.
 //
-// The intended destination is the claim-review simulation (SPEC.md section 7):
-// practice before reading. That simulation ships in Week 3; until then the tour
-// parameter rides along and lands on the landing page, so the entry point and
-// its analytics exist from the start.
-const DESTINATION = '/?tour=1'
+// Practice before reading (SPEC.md section 7): the guest lands directly in the
+// claim-review workbench with the reviewer tour banner, not on a marketing page.
+// Unprefixed on purpose — the locale proxy adds the right prefix, so this works
+// for both locales without hard-coding one.
+const DESTINATION = '/practice/claim-review?tour=1'
 
 export async function POST(req: Request) {
   const db = getDb()

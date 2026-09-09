@@ -116,3 +116,27 @@ describe('the case-study claim', () => {
     expect(score([]).scorePct).toBe(0)
   })
 })
+
+describe('integrity: answers must not reach the browser', () => {
+  // The page ships the claim, the note and the card. If someone later passes
+  // the seeded errors to the client component "for convenience", the
+  // simulation becomes a spot-the-highlighted-field exercise. This is a cheap
+  // structural guard for a property that is otherwise easy to regress.
+  it('the practice page never reads seededErrorsJson', () => {
+    const page = readFileSync('app/[locale]/practice/[slug]/page.tsx', 'utf-8')
+    expect(page).not.toContain('seededErrorsJson')
+    expect(page).toContain('datasetJson')
+  })
+
+  it('the client workbench has no notion of a seeded error', () => {
+    const wb = readFileSync('components/sims/ClaimReviewWorkbench.tsx', 'utf-8')
+    expect(wb).not.toContain('seededErrors')
+  })
+
+  it('scoring happens only in the server route', () => {
+    const route = readFileSync('app/api/sim/route.ts', 'utf-8')
+    expect(route).toContain('scoreClaimReview')
+    const wb = readFileSync('components/sims/ClaimReviewWorkbench.tsx', 'utf-8')
+    expect(wb).not.toContain('scoreClaimReview')
+  })
+})
