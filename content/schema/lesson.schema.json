@@ -1,0 +1,2234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://masar.mostafafathy.com/schema/lesson.schema.json",
+  "title": "Masar LessonDoc",
+  "description": "GENERATED from lib/schema/lesson.ts by scripts/export-schema.mts. Do not edit by hand. Structural rules only; cross-field rules live in the Zod schema and pipeline/validate.py.",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "titleAr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "titleEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "estMinutes": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 300
+    },
+    "levels": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "L1",
+          "L2",
+          "L3"
+        ]
+      }
+    },
+    "objectives": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MI-\\d{2}$"
+      }
+    },
+    "conceptsIntroduced": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "blocks": {
+      "type": "object",
+      "properties": {
+        "l1": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "heading"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "textAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "textEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "level": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "const": 2
+                          },
+                          {
+                            "type": "number",
+                            "const": 3
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "textAr",
+                      "textEn",
+                      "level"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "rich_text"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "definition_card"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "termAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "termEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "icon": {
+                        "type": "string"
+                      },
+                      "exampleAr": {
+                        "type": "string"
+                      },
+                      "exampleEn": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "termAr",
+                      "termEn",
+                      "defAr",
+                      "defEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "compare_table"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "captionAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "captionEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "columns": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "rows": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "captionAr",
+                      "captionEn",
+                      "columns",
+                      "rows"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "process_flow"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "steps": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn",
+                            "detailAr",
+                            "detailEn"
+                          ]
+                        }
+                      },
+                      "interactive": {
+                        "default": false,
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "steps"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "job_tip"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "takeaways"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemsAr": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "itemsEn": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "required": [
+                      "itemsAr",
+                      "itemsEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "worked_example"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "promptAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "promptEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "steps": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "showAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "showEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "showAr",
+                            "showEn",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      },
+                      "answerAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "answerEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "promptAr",
+                      "promptEn",
+                      "steps",
+                      "answerAr",
+                      "answerEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "knowledge_check"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemRef": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "itemRef"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "scenario"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "situationAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "situationEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "decisions": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "isBest": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "optionAr",
+                            "optionEn",
+                            "consequenceAr",
+                            "consequenceEn",
+                            "isBest"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "situationAr",
+                      "situationEn",
+                      "decisions"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "sort_buckets"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "buckets": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn"
+                          ]
+                        }
+                      },
+                      "cards": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "bucketId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "textAr",
+                            "textEn",
+                            "bucketId",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "buckets",
+                      "cards"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "practice_sim"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "simSlug": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "simSlug"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              }
+            ]
+          }
+        },
+        "l2": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "heading"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "textAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "textEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "level": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "const": 2
+                          },
+                          {
+                            "type": "number",
+                            "const": 3
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "textAr",
+                      "textEn",
+                      "level"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "rich_text"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "definition_card"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "termAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "termEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "icon": {
+                        "type": "string"
+                      },
+                      "exampleAr": {
+                        "type": "string"
+                      },
+                      "exampleEn": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "termAr",
+                      "termEn",
+                      "defAr",
+                      "defEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "compare_table"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "captionAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "captionEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "columns": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "rows": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "captionAr",
+                      "captionEn",
+                      "columns",
+                      "rows"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "process_flow"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "steps": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn",
+                            "detailAr",
+                            "detailEn"
+                          ]
+                        }
+                      },
+                      "interactive": {
+                        "default": false,
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "steps"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "job_tip"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "takeaways"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemsAr": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "itemsEn": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "required": [
+                      "itemsAr",
+                      "itemsEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "worked_example"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "promptAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "promptEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "steps": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "showAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "showEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "showAr",
+                            "showEn",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      },
+                      "answerAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "answerEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "promptAr",
+                      "promptEn",
+                      "steps",
+                      "answerAr",
+                      "answerEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "knowledge_check"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemRef": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "itemRef"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "scenario"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "situationAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "situationEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "decisions": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "isBest": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "optionAr",
+                            "optionEn",
+                            "consequenceAr",
+                            "consequenceEn",
+                            "isBest"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "situationAr",
+                      "situationEn",
+                      "decisions"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "sort_buckets"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "buckets": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn"
+                          ]
+                        }
+                      },
+                      "cards": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "bucketId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "textAr",
+                            "textEn",
+                            "bucketId",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "buckets",
+                      "cards"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "practice_sim"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "simSlug": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "simSlug"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              }
+            ]
+          }
+        },
+        "l3": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "heading"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "textAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "textEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "level": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "const": 2
+                          },
+                          {
+                            "type": "number",
+                            "const": 3
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "textAr",
+                      "textEn",
+                      "level"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "rich_text"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "definition_card"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "termAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "termEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "defEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "icon": {
+                        "type": "string"
+                      },
+                      "exampleAr": {
+                        "type": "string"
+                      },
+                      "exampleEn": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "termAr",
+                      "termEn",
+                      "defAr",
+                      "defEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "compare_table"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "captionAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "captionEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "columns": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "rows": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "captionAr",
+                      "captionEn",
+                      "columns",
+                      "rows"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "process_flow"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "steps": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "detailEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn",
+                            "detailAr",
+                            "detailEn"
+                          ]
+                        }
+                      },
+                      "interactive": {
+                        "default": false,
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "steps"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "job_tip"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "mdAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "mdEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "mdAr",
+                      "mdEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "takeaways"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemsAr": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "itemsEn": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "required": [
+                      "itemsAr",
+                      "itemsEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "worked_example"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "promptAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "promptEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "steps": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "showAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "showEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "showAr",
+                            "showEn",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      },
+                      "answerAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "answerEn": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "promptAr",
+                      "promptEn",
+                      "steps",
+                      "answerAr",
+                      "answerEn"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "knowledge_check"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "itemRef": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "itemRef"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "scenario"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "situationAr": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "situationEn": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "decisions": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "optionEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "consequenceEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "isBest": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "optionAr",
+                            "optionEn",
+                            "consequenceAr",
+                            "consequenceEn",
+                            "isBest"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "situationAr",
+                      "situationEn",
+                      "decisions"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "sort_buckets"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "buckets": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "labelAr",
+                            "labelEn"
+                          ]
+                        }
+                      },
+                      "cards": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "textEn": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "bucketId": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "whyEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "textAr",
+                            "textEn",
+                            "bucketId",
+                            "whyAr",
+                            "whyEn"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "buckets",
+                      "cards"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "practice_sim"
+                  },
+                  "objectiveId": {
+                    "type": "string",
+                    "pattern": "^MI-\\d{2}$"
+                  },
+                  "payload": {
+                    "type": "object",
+                    "properties": {
+                      "simSlug": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "simSlug"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "objectiveId",
+                  "payload"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "slug",
+    "titleAr",
+    "titleEn",
+    "estMinutes",
+    "levels",
+    "objectives",
+    "blocks"
+  ]
+}
