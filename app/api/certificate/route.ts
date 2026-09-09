@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { auth } from '@/auth'
+import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import {
   certificateEligibility,
@@ -11,13 +11,11 @@ import {
 // certificate rather than minting a second serial for the same achievement.
 
 export async function POST() {
-  const session = await auth().catch(() => null)
-  const userId = session?.user?.id
-  if (!userId) return NextResponse.json({ error: 'Not signed in' }, { status: 401 })
+  const user = await requireUser()
+  if (!user) return NextResponse.json({ error: 'Not signed in' }, { status: 401 })
+  const userId = user.id
 
   const db = getDb()
-  const user = await db.user.findUnique({ where: { id: userId } })
-  if (!user) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
   const course = await db.course.findFirst({ where: { status: 'PUBLISHED' } })
   if (!course) return NextResponse.json({ error: 'No course' }, { status: 404 })

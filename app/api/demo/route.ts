@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 import { signIn } from '@/auth'
 import { getDb } from '@/lib/db'
 import { hashPassword } from '@/lib/passwords'
+import { purgeExpiredGuests } from '@/app/api/retention/route'
 
 // One-click guest entry. Creates a throwaway learner, enrols them, and signs
 // them in — no signup form, no email verification, nothing between a reviewer
@@ -16,6 +17,12 @@ const DESTINATION = '/practice/claim-review?tour=1'
 
 export async function POST(req: Request) {
   const db = getDb()
+
+  // Retention runs here rather than on a schedule: the event that creates guest
+  // data is the event that clears expired guest data, so the mechanism cannot
+  // drift away from what it cleans up. A failure must not block entry — the
+  // visitor is not the person the retention policy protects from.
+  await purgeExpiredGuests().catch(() => null)
 
   // A password is required by the credentials provider but is never shown to
   // anyone: the guest is signed in programmatically in the same request.

@@ -31,6 +31,30 @@ These are **not** in version control and must be redone on every new machine:
    Git hooks are never cloned.
 3. **Node on PATH** if using a portable install.
 
+### Accounts created to test a gate
+
+Any account created to exercise an authorization gate gets a **random** password and is
+**deleted in the same session**, or it is created in a scratch database instead. Never a
+known or guessable password, and never left behind.
+
+This rule exists because it was broken once: an admin account with the password
+`demo-admin-password` was written to the *production* database while testing that
+`/admin/analytics` refuses non-admins. It was deleted immediately and the promoted guest
+demoted, leaving zero privileged accounts — but the window should not have existed.
+
+Verify with a direct query rather than trusting a cleanup step:
+
+```sql
+SELECT role, count(*) FROM "User" GROUP BY role;
+```
+
+### Role changes do not take effect until the next sign-in
+
+Sessions are JWTs and the role travels on the token, so promoting a user to `ADMIN` in the
+database leaves their current session refused. This is correct for JWT sessions, not a
+defect — but it costs an hour if you debug it without knowing. Sign out and back in after
+any role change.
+
 ## Environment
 
 | Runtime | Version |
@@ -146,6 +170,30 @@ packages have been removed.
 **The lesson worth keeping.** A first connection can time out while the next succeeds
 instantly. Retry before concluding anything about the network, and make sure a control
 test varies only the thing being tested.
+
+### Authorization is server-side only, and deliberately so
+
+**The rule.** the project rules file rule 8 asks for permission checks in middleware *and* re-checked
+in every server action and route handler.
+
+**What is actually in place.** Only the server-side check. `/admin/analytics` resolves the
+session and returns a 404 — not a 403 — when the caller is not an `ADMIN`, so the route
+does not confirm its own existence to someone who may not use it.
+
+**Why the middleware layer is missing.** The proxy runs on the edge, and this project's
+auth configuration imports Prisma, which is not edge-safe. The available shortcut is a
+cookie-presence check in the proxy, and that was **deliberately rejected**: it inspects
+whether a session cookie exists without validating it, so it looks like authorization to
+anyone reading the file while providing none. Worse, it would make the real server-side
+check look redundant and invite someone to weaken it.
+
+**Do not "fix" this by adding a cookie check to the proxy.** An honest gap is better than a
+layer that performs security theatre. Closing it properly means an edge-safe auth
+configuration — splitting the session verification away from the Prisma import — which is
+a real piece of work, not a patch.
+
+**Residual risk.** Low. The server-side check is the one that actually protects the data;
+no admin surface is reachable without it, and v1.0 ships no admin writes at all.
 
 ### Vercel project settings that a build log will not reveal
 

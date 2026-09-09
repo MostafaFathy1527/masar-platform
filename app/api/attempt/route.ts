@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { auth } from '@/auth'
+import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import { assemble, ThinPoolError, type Blueprint, type PoolItem } from '@/lib/assessment/assembly'
 import { toPublicItemsShuffled, type ScoredItem } from '@/lib/assessment/scoring'
@@ -16,8 +16,8 @@ const Body = z.object({
 })
 
 export async function POST(req: Request) {
-  const session = await auth().catch(() => null)
-  const userId = session?.user?.id
+  const me = await requireUser()
+  const userId = me?.id
   if (!userId) {
     return NextResponse.json(
       { error: 'Sign in or enter as a guest to start an attempt.' },

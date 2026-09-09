@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { auth } from '@/auth'
+import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import {
   flaggableKeysFor,
@@ -47,8 +47,8 @@ export async function POST(req: Request) {
   // guest still gets scored and still gets the explanations — the exercise is
   // the point, and requiring a session first would put a wall exactly where the
   // demo is trying to remove one.
-  const session = await auth().catch(() => null)
-  const userId = session?.user?.id
+  const me = await requireUser()
+  const userId = me?.id
   if (userId) {
     await db.simSubmission
       .create({
