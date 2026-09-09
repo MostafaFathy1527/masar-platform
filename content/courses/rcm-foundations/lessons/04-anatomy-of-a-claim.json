@@ -1,0 +1,423 @@
+{
+  "slug": "anatomy-of-a-claim",
+  "titleAr": "تشريح المطالبة من بدايتها إلى نهايتها",
+  "titleEn": "Anatomy of a claim, end to end",
+  "estMinutes": 45,
+  "levels": [
+    "L1",
+    "L2",
+    "L3"
+  ],
+  "objectives": [
+    "MI-05",
+    "MI-06"
+  ],
+  "conceptsIntroduced": [
+    "clean_claim",
+    "clearinghouse",
+    "remittance_advice"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-05",
+        "payload": {
+          "textAr": "ما المطالبة؟",
+          "textEn": "What a claim is",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-05",
+        "payload": {
+          "mdAr": "المطالبة هي طلب رسمي بالدفع، يرسله مقدّم الخدمة إلى شركة التأمين بعد تقديم الخدمة. وهي في جوهرها مستند بيانات: كل حقل فيه يجيب عن سؤال يحتاجه الطرف الدافع قبل أن يوافق على الدفع.\n\nالمطالبة التي تصل مكتملة وصحيحة من المحاولة الأولى تسمّى مطالبة نظيفة. وهذه التسمية ليست مجاملة، بل مقياس تشغيلي: كل مطالبة غير نظيفة تعني عملًا إضافيًا وتأخيرًا في التحصيل.",
+          "mdEn": "A claim is a formal request for payment, sent by a provider to a payer after a service has been delivered. At heart it is a data document: every field answers a question the payer needs settled before it will agree to pay.\n\nA claim that arrives complete and correct on the first attempt is called a clean claim. That label is not a compliment — it is an operational measure. Every claim that is not clean means rework and delayed collection."
+        }
+      },
+      {
+        "id": "b_l1_def_clean",
+        "type": "definition_card",
+        "objectiveId": "MI-05",
+        "payload": {
+          "termAr": "المطالبة النظيفة",
+          "termEn": "Clean claim",
+          "defAr": "مطالبة تجتاز فحوصات الطرف الدافع من المحاولة الأولى دون تصحيح أو معلومات إضافية.",
+          "defEn": "A claim that passes the payer's edits on the first submission, with no correction and no request for further information.",
+          "icon": "✓",
+          "exampleAr": "مثال تدريبي: مطالبة بإجراء PRC-1042 وتشخيص DX-A118 وصلت مكتملة الحقول ومطابقة لبطاقة العضو.",
+          "exampleEn": "Training example: a claim for procedure PRC-1042 with diagnosis DX-A118 arrives with every field complete and matching the member card."
+        }
+      },
+      {
+        "id": "b_l1_def_clearinghouse",
+        "type": "definition_card",
+        "objectiveId": "MI-05",
+        "payload": {
+          "termAr": "غرفة المقاصة",
+          "termEn": "Clearinghouse",
+          "defAr": "وسيط يستقبل المطالبات من مقدّمي الخدمة، ويتحقق من صيغتها، ثم يوجّهها إلى الطرف الدافع الصحيح.",
+          "defEn": "An intermediary that receives claims from providers, checks their format, and routes them to the correct payer.",
+          "icon": "⇄"
+        }
+      },
+      {
+        "id": "b_l1_compare_paths",
+        "type": "compare_table",
+        "objectiveId": "MI-05",
+        "payload": {
+          "captionAr": "الدفع المباشر مقابل الدفع عبر التأمين",
+          "captionEn": "Self-pay compared with an insured encounter",
+          "columns": [
+            "Aspect",
+            "Self-pay",
+            "Insured"
+          ],
+          "rows": [
+            [
+              "Who is billed",
+              "The patient",
+              "The payer, then the patient for any balance"
+            ],
+            [
+              "When money arrives",
+              "At the visit",
+              "After adjudication, often weeks later"
+            ],
+            [
+              "What can go wrong",
+              "Non-payment",
+              "Rejection, denial, underpayment, or delay"
+            ],
+            [
+              "Document produced",
+              "A receipt",
+              "A claim, then a remittance advice"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_stages",
+        "type": "process_flow",
+        "objectiveId": "MI-05",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "التسجيل",
+              "labelEn": "Registration",
+              "detailAr": "تُجمع بيانات العضو والتغطية.",
+              "detailEn": "Member and coverage details are captured."
+            },
+            {
+              "id": "s2",
+              "labelAr": "التحقق من الأهلية",
+              "labelEn": "Eligibility check",
+              "detailAr": "يُتأكد أن التغطية سارية للخدمة المطلوبة.",
+              "detailEn": "Coverage is confirmed as active for the service requested."
+            },
+            {
+              "id": "s3",
+              "labelAr": "تقديم الخدمة",
+              "labelEn": "Service delivery",
+              "detailAr": "تُقدَّم الخدمة وتُوثَّق في السجل.",
+              "detailEn": "The service is delivered and documented in the record."
+            },
+            {
+              "id": "s4",
+              "labelAr": "الترميز",
+              "labelEn": "Coding",
+              "detailAr": "تُترجم الوثائق إلى رموز إجراءات وتشخيص.",
+              "detailEn": "Documentation is translated into procedure and diagnosis codes."
+            },
+            {
+              "id": "s5",
+              "labelAr": "إعداد المطالبة",
+              "labelEn": "Claim assembly",
+              "detailAr": "تُجمع الحقول المطلوبة في مستند واحد.",
+              "detailEn": "The required fields are assembled into one document."
+            },
+            {
+              "id": "s6",
+              "labelAr": "الإرسال",
+              "labelEn": "Submission",
+              "detailAr": "تُرسل المطالبة عبر غرفة المقاصة.",
+              "detailEn": "The claim is sent through the clearinghouse."
+            },
+            {
+              "id": "s7",
+              "labelAr": "الفصل في المطالبة",
+              "labelEn": "Adjudication",
+              "detailAr": "يقرر الطرف الدافع الدفع أو الرفض أو التخفيض.",
+              "detailEn": "The payer decides to pay, deny, or reduce."
+            },
+            {
+              "id": "s8",
+              "labelAr": "إشعار السداد",
+              "labelEn": "Remittance",
+              "detailAr": "يصل بيان يوضح ما دُفع ولماذا.",
+              "detailEn": "A statement arrives explaining what was paid and why."
+            },
+            {
+              "id": "s9",
+              "labelAr": "التسوية",
+              "labelEn": "Posting and follow-up",
+              "detailAr": "يُسجَّل الدفع وتُتابع الفروق.",
+              "detailEn": "Payment is posted and any shortfall is worked."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_fields",
+        "type": "job_tip",
+        "objectiveId": "MI-06",
+        "payload": {
+          "mdAr": "أكثر أسباب الرفض شيوعًا ليست طبية على الإطلاق، بل بيانات: اسم مكتوب بصيغة مختلفة، أو تاريخ ميلاد لا يطابق بطاقة العضو. افحص الحقول قبل أن تفحص الترميز.",
+          "mdEn": "The most common reasons for rejection are not clinical at all — they are data. A name entered in a different form, or a date of birth that does not match the member card. Check the fields before you check the coding."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "MI-05",
+        "payload": {
+          "itemsAr": [
+            "المطالبة مستند بيانات، وكل حقل فيه يجيب عن سؤال للطرف الدافع.",
+            "المطالبة النظيفة تجتاز الفحص من المحاولة الأولى.",
+            "دورة المطالبة تسع مراحل، وكل مرحلة تنتج أثرًا يمكن تتبعه."
+          ],
+          "itemsEn": [
+            "A claim is a data document; each field answers a question the payer needs settled.",
+            "A clean claim passes the payer's edits on the first attempt.",
+            "The lifecycle has nine stages, and each one produces a traceable artefact."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "MI-06",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_flow_order",
+        "type": "process_flow",
+        "objectiveId": "MI-05",
+        "payload": {
+          "interactive": true,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "التسجيل",
+              "labelEn": "Registration",
+              "detailAr": "تُجمع بيانات العضو.",
+              "detailEn": "Member details are captured."
+            },
+            {
+              "id": "s2",
+              "labelAr": "التحقق من الأهلية",
+              "labelEn": "Eligibility check",
+              "detailAr": "يُتأكد أن التغطية سارية.",
+              "detailEn": "Coverage is confirmed as active."
+            },
+            {
+              "id": "s3",
+              "labelAr": "تقديم الخدمة",
+              "labelEn": "Service delivery",
+              "detailAr": "تُقدَّم الخدمة وتُوثَّق.",
+              "detailEn": "The service is delivered and documented."
+            },
+            {
+              "id": "s4",
+              "labelAr": "الترميز",
+              "labelEn": "Coding",
+              "detailAr": "تُترجم الوثائق إلى رموز.",
+              "detailEn": "Documentation becomes codes."
+            },
+            {
+              "id": "s5",
+              "labelAr": "الإرسال",
+              "labelEn": "Submission",
+              "detailAr": "تُرسل عبر غرفة المقاصة.",
+              "detailEn": "Sent via the clearinghouse."
+            },
+            {
+              "id": "s6",
+              "labelAr": "الفصل في المطالبة",
+              "labelEn": "Adjudication",
+              "detailAr": "يقرر الطرف الدافع.",
+              "detailEn": "The payer decides."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_worked_liability",
+        "type": "worked_example",
+        "objectiveId": "MI-06",
+        "payload": {
+          "promptAr": "وصلت مطالبة تدريبية إلى شركة نيل هيلث للتأمين بإجمالي 1,260 جنيهًا. تاريخ الميلاد على المطالبة 11 مارس 1988، وعلى بطاقة العضو 14 مارس 1988. ماذا تفعل؟",
+          "promptEn": "A training claim reaches Nile Health Assurance for a total of 1,260. The date of birth on the claim reads 11 March 1988; the member card reads 14 March 1988. What do you do?",
+          "steps": [
+            {
+              "showAr": "قارن الحقل بالمصدر، لا بذاكرتك.",
+              "showEn": "Compare the field against the source document, not your memory.",
+              "whyAr": "بطاقة العضو هي المرجع الذي سيستخدمه الطرف الدافع، فالمقارنة به تتوقع نتيجته.",
+              "whyEn": "The member card is the reference the payer will use, so comparing against it predicts their result."
+            },
+            {
+              "showAr": "صنّف الخطأ: هذا عدم تطابق في البيانات الديموغرافية، وليس خطأ ترميز.",
+              "showEn": "Classify the error: this is a demographic mismatch, not a coding error.",
+              "whyAr": "التصنيف يحدد المسار: التصحيح وإعادة الإرسال، لا الاستئناف.",
+              "whyEn": "The classification decides the route: correct and resubmit, not appeal."
+            },
+            {
+              "showAr": "صحّح الحقل قبل الإرسال، ولا ترسل ثم تنتظر الرفض.",
+              "showEn": "Correct the field before submission rather than sending and waiting for the rejection.",
+              "whyAr": "التصحيح المسبق يوفّر دورة كاملة من التأخير، وهو الفرق العملي بين مطالبة نظيفة وأخرى غير نظيفة.",
+              "whyEn": "Correcting first saves an entire cycle of delay — the practical difference between a clean claim and one that is not."
+            }
+          ],
+          "answerAr": "صحّح تاريخ الميلاد ليطابق بطاقة العضو، ثم أرسل المطالبة كمطالبة نظيفة من المحاولة الأولى.",
+          "answerEn": "Correct the date of birth to match the member card, then submit as a clean claim on the first attempt."
+        }
+      },
+      {
+        "id": "b_l2_scenario_missing",
+        "type": "scenario",
+        "objectiveId": "MI-06",
+        "payload": {
+          "situationAr": "أثناء إعداد مطالبة تدريبية لشركة جلف كير للتأمين، تكتشف أن اسم الطبيب المعالج غير مسجّل في المطالبة، والموعد النهائي للإرسال اليوم.",
+          "situationEn": "While assembling a training claim for Gulf Care Insurance, you find the rendering provider is missing from the claim. Today is the submission deadline.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أرسل المطالبة الآن وأضف الاسم لاحقًا عند الرفض.",
+              "optionEn": "Submit now and add the name later if it is rejected.",
+              "consequenceAr": "تُرفض المطالبة عند الفحص الأولي، فتخسر دورة كاملة وتعود إلى نقطة البداية بعد أسابيع.",
+              "consequenceEn": "The claim is rejected at the first edit. You lose a full cycle and return to the start weeks later.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "احصل على الاسم من سجل الخدمة الآن، ثم أرسل.",
+              "optionEn": "Get the name from the service record now, then submit.",
+              "consequenceAr": "تُرسل المطالبة مكتملة وتجتاز الفحص من المحاولة الأولى. الموعد محفوظ والدورة لم تُهدر.",
+              "consequenceEn": "The claim goes out complete and passes on the first attempt. The deadline is met and no cycle is wasted.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "أدخل اسم الطبيب المسؤول عن القسم بدلًا منه.",
+              "optionEn": "Enter the department's supervising physician instead.",
+              "consequenceAr": "الحقل يصبح مكتملًا لكنه غير صحيح. هذا يتجاوز الفحص الآلي وقد يُقرأ لاحقًا كخطأ في التوثيق، وهو أسوأ من الرفض.",
+              "consequenceEn": "The field is now complete but wrong. It may pass the automated edit and later read as a documentation failure — worse than a rejection.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_fields",
+        "type": "sort_buckets",
+        "objectiveId": "MI-06",
+        "payload": {
+          "buckets": [
+            {
+              "id": "member",
+              "labelAr": "بيانات العضو",
+              "labelEn": "Member data"
+            },
+            {
+              "id": "service",
+              "labelAr": "بيانات الخدمة",
+              "labelEn": "Service data"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "تاريخ الميلاد",
+              "textEn": "Date of birth",
+              "bucketId": "member",
+              "whyAr": "يُطابق ببطاقة العضو للتحقق من الهوية.",
+              "whyEn": "Matched against the member card to confirm identity."
+            },
+            {
+              "id": "c2",
+              "textAr": "رقم الوثيقة",
+              "textEn": "Policy number",
+              "bucketId": "member",
+              "whyAr": "يحدد التغطية التي ستُفحص.",
+              "whyEn": "Identifies the coverage that will be checked."
+            },
+            {
+              "id": "c3",
+              "textAr": "رمز الإجراء PRC-1042",
+              "textEn": "Procedure code PRC-1042",
+              "bucketId": "service",
+              "whyAr": "يصف ما قُدِّم فعلًا، لا من تلقّاه.",
+              "whyEn": "Describes what was delivered, not who received it."
+            },
+            {
+              "id": "c4",
+              "textAr": "تاريخ الخدمة",
+              "textEn": "Date of service",
+              "bucketId": "service",
+              "whyAr": "يحدد ما إذا كانت التغطية سارية وقتها.",
+              "whyEn": "Determines whether coverage was active at the time."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "MI-05",
+        "payload": {
+          "itemRef": "MI-05-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "MI-06",
+        "payload": {
+          "itemRef": "MI-06-KC-01"
+        }
+      }
+    ],
+    "l3": [
+      {
+        "id": "b_l3_h_apply",
+        "type": "heading",
+        "objectiveId": "MI-06",
+        "payload": {
+          "textAr": "راجع مطالبة حقيقية",
+          "textEn": "Review a claim yourself",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l3_sim",
+        "type": "practice_sim",
+        "objectiveId": "MI-06",
+        "payload": {
+          "simSlug": "claim-review"
+        }
+      }
+    ]
+  }
+}
