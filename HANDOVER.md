@@ -91,3 +91,53 @@ what actually resolved — not what any planning document predicted.
 - **`AGENTS.md` is framework-managed.** `next dev` injects a block into `AGENTS.md`
   when it exists, and into the project rules file only when it does not. `AGENTS.md` exists so
   the framework never edits the file carrying the project's hard rules. Do not delete it.
+
+## Known deviations
+
+Departures from the project's own rules, recorded rather than quietly absorbed.
+
+### Vercel is on the work-email account
+
+**The rule.** Every account for this project is created with the personal Gmail, so the
+work is never bound to an employer's identity.
+
+**What was done instead.** The Vercel account is the work-email one. It already owns
+`mostafafathy.com` and deploys the live portfolio site, so `masar` was added there as its
+own project rather than splitting one domain's DNS across two Vercel accounts.
+
+**Why.** Splitting a domain across accounts means the apex and the subdomain are
+administered separately, which is fragile for a site that is in active use and is the
+destination the whole job search points at.
+
+**Residual risk.** Account continuity is tied to an email address the owner does not
+control long term. If access to that address ends, so does control of the project and,
+more seriously, of the portfolio domain.
+
+**Mitigation.** Add the personal Gmail as an owner on the Vercel team, so control does
+not depend on the work address. Until that is done the risk is live.
+
+**Scope of the exception.** This is limited to the deployment account. GitHub and Neon
+are on the personal Gmail, the repository-local git identity is the personal address, and
+nothing in the repository, the commit history or any deployed output carries the work
+address — verified by the publish-safety gate over every blob in the object database.
+
+### The Neon driver, not the generic Postgres driver
+
+**The intent.** Use plain `@prisma/adapter-pg` so the same code runs against any Postgres
+and nothing is bound to one vendor.
+
+**What was done instead.** `lib/db.ts` uses `@prisma/adapter-neon` over a WebSocket.
+
+**Why.** The development machine cannot open outbound TCP 5432 — DNS resolves and HTTPS
+works, but the Postgres port is blocked at the network level. `adapter-pg` cannot connect
+at all from there. The Neon driver tunnels Postgres over 443, which works locally and in
+production.
+
+**Residual risk.** The *driver* is Neon-specific. The database is not: the schema, the
+data and the `pg_dump` export are ordinary Postgres, so the ownership story is unaffected.
+Reverting to `adapter-pg` is a few lines once the network allows it.
+
+**Consequence.** `prisma migrate` needs a direct TCP connection and therefore cannot run
+from the development machine at all. The baseline migration was generated offline and
+applied over HTTP, and the CI `migrations` job replays it against a real Postgres on every
+push to prove it reproduces the datamodel.
