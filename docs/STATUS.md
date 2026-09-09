@@ -3,71 +3,94 @@
 Update this file at the end of every session. It is the first thing the next session reads.
 
 ## Now
-**Week 1 in progress.** Publish safety, scaffold, schema, `SPEC.md` v0, the bilingual
-landing page and CI are all committed. `npm run check` is green and the landing page is
-verified at runtime, not just at build.
+**Week 1 substantially complete.** The repository is on GitHub (private), CI is green, the
+database is live and migrated, auth and one-click guest entry work end to end, and the
+bilingual landing page is built and verified.
 
-**Blocked on one thing:** `DATABASE_URL`. The Neon connection string was pasted into a
-chat transcript, so it must be rotated in the Neon dashboard before use, and the new
-pooled string put into `.env` by hand. Nothing that touches the database can proceed
-until then.
+**One item outstanding:** the Vercel project has not been created, so
+`masar.mostafafathy.com` is not yet serving. DNS is already in place and verified.
 
 Scope of record is the correction pass (section 0 of the authoritative plan, path in
-`.local/DAY0.md`) — **v1.0 = 6 weeks / ~65 h**. `BUILD.md` §3 and §9 describe the older
-14-week plan and are superseded; treat them as v2 reference only.
+`.local/DAY0.md`) — **v1.0 = 6 weeks / ~65 h**. `BUILD.md` sections 3 and 9 describe the
+older 14-week plan and are superseded; treat them as v2 reference only.
 
-## Next (Week 1, remaining)
-1. **Rotate the Neon credential** and put the new pooled string in `.env`. *(owner)*
-2. **First migration.** Run `prisma migrate dev` against the empty Neon database, then
-   diff the SQL it generates against the offline baseline in
-   `prisma/migrations/*_init/`. Only treat the baseline as trusted if they match; if
-   they differ, record what the offline method got wrong — that is a finding about the
-   method, not just this migration.
-3. `ensure-db` / `reset-db` / `seed` scripts, then credentials auth (NextAuth v5) with
-   LEARNER + ADMIN roles, then wire the guest button to a real guest enrolment.
-4. Vercel project + DNS. **Add `masar` as its own project with only a CNAME. Do not
-   touch the apex records** — `mostafafathy.com` is a live portfolio site in active use.
-5. Self-hosted OFL fonts (currently a system stack) — carried into Week 2.
+## Week 1 against its definition of done
+
+| Criterion | Status |
+|---|---|
+| `masar.mostafafathy.com` serves a bilingual placeholder over HTTPS | **Not met.** Page built and verified locally; the Vercel project still needs creating. |
+| `prisma migrate deploy` runs clean | **Met, by a different route** — see below. |
+| A clean clone reaches a running local instance in under 5 minutes on Windows | **Not verified.** Never tested from an actual fresh clone. |
+| CI green | **Met.** Run #2 green across all three jobs. |
+| No employer name in tree or history | **Met.** Verified over every blob in the object database. |
+
+## The migration, and what the offline baseline check found
+
+This machine cannot open outbound TCP 5432 — DNS resolves and HTTPS works, but the
+Postgres port is blocked at the network level, with and without the command sandbox. So
+`prisma migrate dev` could not run locally at all, and the requested by-hand comparison
+was impossible. Instead:
+
+- the baseline was applied to Neon over the HTTP endpoint and recorded in
+  `_prisma_migrations` with the correct checksum, so `migrate deploy` treats it as applied;
+- the applied structure was read back and matched: 8 tables, 8 enums with the expected
+  member counts, 9 foreign keys, 16 unique indexes;
+- the check became a permanent CI job. `migrations` replays the committed migrations
+  against a real Postgres service and asserts by exit code that they reproduce the
+  datamodel and leave no drift after applying.
+
+**Result: the offline baseline was correct.** The `migrations` job passes, so
+`migrate diff --from-migrations` finds no difference against the datamodel and no drift
+after `migrate deploy`. The offline method got nothing wrong on this schema — and that is
+now checked on every push rather than trusted once.
+
+## Next
+1. **Create the Vercel project** and attach `masar` (owner action — needs the two secrets).
+2. Verify HTTPS serves `/ar` and `/en`, and that the guest button works in production.
+3. Test a genuinely clean clone against the five-minute claim; fix what it exposes.
+4. Self-hosted OFL fonts — currently a system stack.
+5. Week 2: lesson renderer, block registry, L1/L2 rendering, `/depth`, lesson JSON schema
+   and `validate.py`.
 
 ## Done
-- Repo, folder structure, the project rules file, `BUILD.md` (sanitized), `LATER.md`, `.gitignore`.
-- **Publish safety.** Forbidden terms moved out of the repo into `.local/denylist.txt`
-  with a 14-case regression fixture; `pre-push` hook installed; git history rebuilt as a
-  single clean commit; repo-local git identity pinned to the personal account.
-- **Scaffold.** Next.js + TypeScript + Tailwind, npm scripts, vitest harness with a
-  smoke test, `AGENTS.md` shielding the project rules file from framework writes.
-- `HANDOVER.md` with resolved versions, the clean-clone runbook, and the steps that do
-  not survive a clone.
-- **`SPEC.md` v0** — all fourteen client headings, one paragraph each, written to the
-  6-week scope. Records the guest button's intended destination as `claim_review`.
-- **Prisma schema** (7 models) + an offline baseline migration, **not yet applied**.
-- **Bilingual RTL landing page.** `/` redirects to `/ar`, `/en` mirrors it, `dir` flips
-  correctly, Arabic renders. Verified at runtime. Guest button stubbed with `?tour=1`.
-- **CI** (typecheck, lint, tests, `prisma validate`, build, gitleaks over full history)
-  and `.gitleaks.toml` — committed shape-based rules that name no person or company,
-  verified against 11 fixtures with zero false positives across the tree.
+- Repo, the project rules file, `BUILD.md` (sanitized), `LATER.md`.
+- **Publish safety.** Forbidden terms in `.local/denylist.txt` with a 14-case fixture;
+  `.gitleaks.toml` with committed shape-based rules naming no person or company, plus an
+  11-case fixture; `.local/gate.sh` scans blob content in three modes; a `pre-push` hook
+  delegates to it. History rebuilt as one clean commit; git identity pinned.
+- **Scaffold.** Next.js 16 + TypeScript + Tailwind 4, npm scripts, vitest.
+- **`SPEC.md` v0** — all fourteen client headings, written to the 6-week scope.
+- **Database.** 7 models, baseline applied to Neon and verified in CI.
+- **Auth.** NextAuth v5 credentials + JWT, bcrypt cost 12, no user enumeration.
+- **One-click guest.** `POST /api/demo` creates a guest, signs them in, redirects to
+  `?tour=1`; `GET` returns 405. Verified against the live database.
+- **Bilingual RTL landing page.** `/` to `/ar`, `/en` mirrors, `dir` flips, Arabic renders.
+- **CI** — typecheck, lint, tests, `prisma validate`, build, migration verification,
+  full-history secret scan.
+- `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
 
 ## Blocked / needs the owner
-- [ ] **Rotate the Neon database credential.** It was pasted into a chat transcript.
-      Reset the role password in Neon, then put the new pooled string into `.env`
-      directly. `.env` is gitignored and untracked, so nothing leaked from the repo.
+- [ ] **Create the Vercel project.** The import page is prepared with both variable names
+      filled in. The two *values* must be pasted by hand — `DATABASE_URL` (the Neon pooled
+      string) and `AUTH_SECRET` (in `.env`). Then click **Create Project** and add
+      `masar.mostafafathy.com` under the project's Domains tab. DNS already resolves.
+- [ ] **Add the personal Gmail as a Vercel team owner** — the mitigation recorded against
+      the work-email deviation in `HANDOVER.md`. Until then that risk is live.
 - [ ] Day 0 #3 — confirm the fictional entity names read as obviously invented (Week 2).
-- [ ] Day 0 #4 — Stripe availability for an Egypt-based individual. Not a Week 1 gate;
-      v1.0 ships the mock adapter only, so this only affects what `SPEC.md` claims.
-- [ ] **Open question:** which Prisma models ship in v1.0. `BUILD.md` §6.4 lists 22, but
-      the correction pass cuts the mastery engine, module quizzes, orders/refunds and the
-      certificate registry. Building all 22 would contradict the scope; building too few
-      forces a migration later.
+- [ ] Day 0 #4 — Stripe availability. Not a v1.0 gate; only affects what `SPEC.md` claims.
 
 ## Decisions log
 | Date | Decision | Why |
 |---|---|---|
-| 2026-09-08 | Name: **Masār** (مسار) | Vertical-neutral, licensable as a platform rather than one course brand. |
-| 2026-09-08 | v1.0 cut to 6 weeks / ~65 h | Original 14-week plan was ~2× what one part-time person can ship. |
-| 2026-09-08 | One simulation only (`claim_review`) in v1.0 | It is the hero moment; the other three stay documented patterns. |
-| 2026-09-09 | **Postgres (Neon), not Turso/libSQL** | The ownership story is defined as content in git + `pg_dump` + `/api/admin/export`. `BUILD.md` §6.4/§7 is the stale side. |
-| 2026-09-09 | **Plain `provider = "postgresql"`**, no driver adapter | Fewer moving parts, and `pg_dump` works unchanged — which the ownership story depends on. |
-| 2026-09-09 | **`create-next-app@latest`**, not pinned 14.2.35 | Instructed by the correction pass. Landed Next 16 / React 19 / Tailwind 4; recorded in `HANDOVER.md`. |
-| 2026-09-09 | **Prisma held at 7.10.0** | `latest` currently resolves to `8.0.0-rc.13`; a release candidate does not belong on the critical path, and the CLI must match the client. |
-| 2026-09-09 | **Denylist moved to `.local/`, history rebuilt** | The terms were literals in a tracked file — itself a hard-rule violation — and the private plan path was in commit 1. One fresh commit removes every vector rather than regex whack-a-mole. |
-| 2026-09-09 | **`AGENTS.md` added** | `next dev` injects a managed block into the project rules file unless `AGENTS.md` exists. Keeps the framework out of the hard-rules file. |
+| 2026-09-08 | Name: **Masār** | Vertical-neutral, licensable as a platform rather than one course brand. |
+| 2026-09-08 | v1.0 cut to 6 weeks / ~65 h | The 14-week plan was about twice what one part-time person can ship. |
+| 2026-09-08 | One simulation only (`claim_review`) | It is the hero moment; the others stay documented patterns. |
+| 2026-09-09 | **Postgres (Neon), not Turso** | Ownership story is content in git + `pg_dump` + an export endpoint. |
+| 2026-09-09 | **`create-next-app@latest`** | Instructed by the correction pass. Landed Next 16 / React 19 / Tailwind 4. |
+| 2026-09-09 | **Prisma held at 7.10.0** | `latest` resolves to `8.0.0-rc.13`; an RC does not belong on the critical path. |
+| 2026-09-09 | **Denylist moved to `.local/`, history rebuilt** | Terms were literals in a tracked file, and the private plan path was in commit 1. |
+| 2026-09-09 | **`AGENTS.md` added** | `next dev` injects a managed block into the project rules file unless `AGENTS.md` exists. |
+| 2026-09-09 | **Week-by-week migrations**, 7 models now | Builds nothing for features the cut lines may drop. |
+| 2026-09-09 | **`@prisma/adapter-neon`, not `adapter-pg`** | Outbound 5432 is blocked here; the Neon driver tunnels over 443. Recorded as a deviation. |
+| 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
+| 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
