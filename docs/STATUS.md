@@ -11,9 +11,15 @@ reaches a running instance in 156 seconds.
 and block registry, L1 and L2 rendering, the `/depth` page, and the lesson JSON schema with
 `pipeline/validate.py`. Verified at runtime in both locales.
 
-**Week 4 is complete.** The assessment ladder, certificate-lite and read-only admin
-analytics all ship. §0.2's cut line was never needed: quiz, exam and certificate all
-landed. Four of the six weeks are done, each ending deployed.
+**Week 5's code is complete.** Five lessons, a 42-item bank, three pipeline gates with
+33 negative tests, and `/how-it-was-built`. Five of six weeks done, each ending deployed.
+
+**Two Week 5 items are the owner's and remain open** — the SME invitation and the blind
+inter-rater sample. Neither can be done by the agent, and both are listed under
+"Blocked / needs the owner".
+
+Note: `/method` is **not** in v1.0. It belongs to the 14-week plan's Week 9, which §0.3
+cut; `/depth` already renders the depth model.
 
 **One production gap, not a DoD line:** environment variables are still unset on Vercel,
 so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
@@ -121,23 +127,43 @@ route does not confirm its own existence.
 ADMIN leaves them refused until they sign in again. Correct behaviour for JWT sessions
 rather than a defect, but worth knowing before someone debugs it twice.
 
-## Next (Week 5)
+## The pipeline, and what it does not yet claim
 
-Content and the AI pipeline: five lessons (L01, L03, L04, L05, L07) with L05 as the only
-L3 flagship, roughly 60 items, the pipeline the project rules file workflow with three prompts, the
-concept log, the rubric gate, and `/how-it-was-built`.
+Three gates exist, each with negative tests proving it refuses things, and all run in CI:
 
-`pipeline/validate.py` already exists and is CI-enforced, so Week 5 adds generation on top
-of a gate that is already working rather than building both at once.
+| Gate | Refuses | Negative tests |
+|---|---|---|
+| `validate.py` | structure, undeclared objectives, wrong-level blocks, duplicate ids, prose budget, licensed code sets | 18 |
+| `concept_log.py` | re-defining a concept an earlier lesson taught; using one before it is introduced | 6 |
+| `qa_gate.py` | any criterion below 3, a mean below 4.0, a verdict missing criteria | 9 |
 
-**Block-type budget: still 12 of 16.** Neither the simulation nor the assessment needed a
-new block type.
+Each set includes a case asserting valid content **passes**, so no gate can satisfy its own
+tests by refusing everything.
 
-Also scheduled for Week 5 by the plan: recruit one or two practitioners for a structured
-review. "Invited, not invented" is only honest if the invitation actually happened.
+**The gates were built before the generation, and that ordering is the argument.** A
+generator built first and gated afterwards is gated to whatever it already produces. This
+is checkable in the commit history rather than asserted.
 
-Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` writes; two
-`teachesBlockId` targets that point at the closest existing block until lesson 5 lands.
+**What the pipeline does not yet claim.** The five shipped lessons were hand-authored, not
+generated. The run log is empty. `/how-it-was-built` says so and reports no first-pass rate,
+because inventing one is exactly the failure the page exists to avoid.
+
+Running the loop honestly needs two sessions: one to generate, and a **separate** one for
+the judge, which §0.4 item 5 requires to be a fresh context that has never seen the
+generation prompt. An agent that wrote the generation prompt cannot also judge the output
+without producing a number that looks like evidence and is not.
+
+## Next (Week 6)
+
+The last week: `PaymentProvider` interface with a mock adapter only and a paywall (two
+days, not two weeks), six screenshots and a short recording, the case study in English with
+an Arabic summary, and `HANDOVER.md` finished.
+
+`docs/design/what-failed.md` has five entries banked for §0.4 item 4, with the pattern
+named: **the falsifiable claims are the ones that break, and they only break when you try
+to game them.**
+
+**Block-type budget: still 12 of 16.** Nothing in Weeks 3, 4 or 5 needed a new type.
 
 ## Done
 - **Week 2, complete.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
@@ -153,6 +179,12 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
   fails if the generated schema is stale, so the contract cannot quietly become a fiction.
 - **`compare_table` is bilingual**, so every text-bearing block now is, with no exceptions —
   enforced by the schema rather than by review.
+- **Week 5, code complete.** Four English-only L1 lessons plus the bilingual flagship,
+  each declaring `bilingual` so the player tells an Arabic reader before they start. MI-13
+  covers fraud, waste and abuse with callouts in two lessons and five scenario items. A
+  42-item bank with every objective at the floor of five and a 20/40/40 Bloom mix. Three
+  pipeline gates, their contract, three prompts, and `/how-it-was-built` reading its numbers
+  from the repository at build time.
 - **Week 4, complete.** Item, ItemOption, Assessment, Attempt, AttemptAnswer and
   Certificate tables. Blueprint assembly that is deterministic from a stored seed and
   fails loudly on a thin pool rather than scoring an attempt out of the wrong denominator.
@@ -184,6 +216,14 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
 
 ## Blocked / needs the owner
+- [ ] **Send the SME invitation.** `docs/design/sme-review.md` is ready: eleven fixed
+      questions, two links, a draft message, and the paragraph the case study carries if
+      nobody accepts. §0.7 is explicit that "invited, not invented" only holds if the
+      invitation happened, and a week has a finite number of days for a reply to arrive.
+- [ ] **Blind inter-rater sample.** Three lessons scored against `pipeline/rubric.md` by a
+      human, without seeing the model's scores, and the mean absolute difference reported.
+      This is what makes the rubric number worth anything; without it the score is a model
+      marking its own work.
 - [ ] **Environment variables on Vercel** — `DATABASE_URL` and `AUTH_SECRET`, scoped to
       all environments. Until then `POST /api/demo` returns 500 in production. The
       landing page is static and serves fine without them.
@@ -216,5 +256,9 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
 | 2026-09-09 | **Two item types, not six** | A scenario item is an MCQ_SINGLE with a vignette, flagged by `isScenario`: the difference is in the stem, not in how it is answered or scored. |
 | 2026-09-09 | **Admin routes return 404, not 403** | An admin route should not confirm its own existence to someone who may not access it. |
 | 2026-09-09 | **No middleware authorization** | The proxy is edge-run and the auth config imports Prisma. A cookie-presence check would look like authorization without being it. Recorded as a gap rather than faked. |
+| 2026-09-09 | **Authorization reads the row, not the token** | A JWT outlives the account it describes: a deleted user's cookie returned 200 from the export endpoint. |
+| 2026-09-09 | **Guest retention runs on guest creation** | A purge that only runs on a schedule is one that silently stops when the schedule breaks. |
+| 2026-09-09 | **Flagship bilingual, four lessons English-only** | Fits the hours honestly. The `bilingual` flag makes the limitation visible on the page, and both gates reject a lesson that claims Arabic while repeating its English. |
+| 2026-09-09 | **The judge must be a separate session** | An agent that wrote the generation prompt cannot judge the output; the score would look like evidence and be self-assessment. |
 | 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
