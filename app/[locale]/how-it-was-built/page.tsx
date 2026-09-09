@@ -51,12 +51,30 @@ function generatedDrafts(): number {
 }
 
 function runLogEntries(): number {
+  return runLog().length
+}
+
+type RunEntry = {
+  lesson: string
+  mean: number
+  passed: boolean
+  levels?: string[]
+  scored_criteria?: number
+  not_scored?: string[]
+  independence_caveat?: string
+}
+
+// Every number on this page is read from the run log rather than written into
+// the copy. The log is the record; a sentence restating it is a second copy
+// that nothing keeps in sync.
+function runLog(): RunEntry[] {
   try {
     return readFileSync('pipeline/memory/run-log.jsonl', 'utf-8')
       .split('\n')
-      .filter((l) => l.trim()).length
+      .filter((l) => l.trim())
+      .map((l) => JSON.parse(l) as RunEntry)
   } catch {
-    return 0
+    return []
   }
 }
 
@@ -97,6 +115,9 @@ export default async function HowItWasBuiltPage({
   const totalTests = gates.reduce((n, g) => n + g.tests, 0)
   const concepts = conceptLog()
   const runs = runLogEntries()
+  const log = runLog()
+  const passes = log.filter((r) => r.passed).length
+  const latest = log[log.length - 1]
   const drafts = generatedDrafts()
 
   return (
@@ -200,9 +221,13 @@ export default async function HowItWasBuiltPage({
             : `The five published lessons were hand-authored. ${drafts} lesson has since been generated through the pipeline from a source note, and passed both deterministic gates: structural validation and the concept log. It is not published, because pipeline output is a draft and a human decides whether it ships.`}
         </p>
         <p className="mt-3 max-w-prose leading-relaxed">
-          {ar
-            ? 'بوابة المعيار لم تُشغَّل على تلك المسودّة. الحَكَم يجب أن يكون بسياق جديد لم يرَ موجّه التوليد، والوكيل الذي ولّد الدرس كتب ذلك الموجّه — فدرجته ستبدو دليلًا وهي تقييم ذاتي. البوابة تبقى غير مُشغَّلة بدل أن تُستوفى بشكل غير أمين.'
-            : 'The rubric gate has not been run on that draft. The judge must be a fresh context that has never seen the generation prompt, and the agent that generated the lesson wrote that prompt — so its score would look like evidence and be self-assessment. The gate stays unrun rather than being satisfied dishonestly.'}
+          {latest
+            ? ar
+              ? `بوابة المعيار شُغِّلت على تلك المسودّة. الحَكَم كان جلسة جديدة لم ترَ موجّه التوليد ولم تكتب الدرس، وسجّلت تحفّظها على استقلاليتها بنفسها — وهو منشور كما كُتب أدناه.`
+              : `The rubric gate has been run on that draft. The judge was a fresh session that had not seen the generation prompt and did not author the lesson, and it recorded its own caveat about how independent that makes it — published below, as written.`
+            : ar
+              ? 'بوابة المعيار لم تُشغَّل على تلك المسودّة. البوابة تبقى غير مُشغَّلة بدل أن تُستوفى بشكل غير أمين.'
+              : 'The rubric gate has not been run on that draft. The gate stays unrun rather than being satisfied dishonestly.'}
         </p>
         <p className="mt-3 max-w-prose leading-relaxed">
           {runs === 0
@@ -210,13 +235,26 @@ export default async function HowItWasBuiltPage({
               ? `سجل التشغيل يسجّل أحكام المعيار، وهو فارغ (${runs}). لذلك لا توجد نسبة اجتياز من المحاولة الأولى ولا متوسط درجة يمكن الإبلاغ عنه — وذكر رقم هنا سيكون اختلاقًا.`
               : `The run log records rubric verdicts and is empty (${runs}). There is therefore no first-pass rate and no mean score to report, and putting a number here would be inventing one.`
             : ar
-              ? `سجل التشغيل يحتوي ${runs} تشغيلة، بما فيها الإخفاقات.`
-              : `The run log holds ${runs} runs, failures included.`}
+              ? `سجل التشغيل يحتوي ${runs} تشغيلة (اجتازت ${passes}). آخر تشغيلة: ${latest?.lesson} — متوسط ${latest?.mean?.toFixed(2)} على ${latest?.scored_criteria} معايير مُقيَّمة${latest?.not_scored?.length ? `، و${latest.not_scored.length} غير قابل للتقييم عند مستوى الدرس` : ''}. عدد التشغيلات ${runs}، وهو صغير جدًا لاشتقاق نسبة اجتياز منه.`
+              : `The run log holds ${runs} run${runs === 1 ? '' : 's'} (${passes} passed), failures included. Most recent: ${latest?.lesson} — mean ${latest?.mean?.toFixed(2)} over ${latest?.scored_criteria} scored criteria${latest?.not_scored?.length ? `, with ${latest.not_scored.length} not scorable at this lesson's level` : ''}. With n = ${runs}, that is a result and not a first-pass rate; a percentage from one run would be a number pretending to be a trend.`}
         </p>
+        {/*
+          The judge's independence caveat is printed verbatim beside the score
+          it qualifies, from the run-log entry rather than retyped. A score is
+          only as good as the independence of whoever produced it, and that
+          sentence is the reason the blind inter-rater check still matters.
+        */}
+        {latest?.independence_caveat ? (
+          <p className="admin-caveat mt-3 max-w-prose leading-relaxed">
+            <strong>{ar ? 'استقلالية الحَكَم: ' : 'Judge independence: '}</strong>
+            {latest.independence_caveat}
+          </p>
+        ) : null}
+
         <p className="mt-3 max-w-prose text-sm text-muted">
           {ar
-            ? 'حين تُشغَّل الحلقة، يُنشر السجل كاملًا هنا — بما في ذلك التشغيلات التي رفضتها البوابة. سجل لا يحوي إلا نجاحات ليس دليلًا على شيء.'
-            : 'When the loop is run, the log is published here in full — including the runs the gate refused. A history containing only successes is not evidence of anything.'}
+            ? 'السجل يُنشر كاملًا هنا — بما في ذلك التشغيلات التي ترفضها البوابة. سجل لا يحوي إلا نجاحات ليس دليلًا على شيء.'
+            : 'The log is published here in full — including the runs the gate refuses. A history containing only successes is not evidence of anything.'}
         </p>
       </div>
 
