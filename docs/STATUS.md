@@ -187,10 +187,17 @@ What remains needs a person, not an agent, and is listed in the project rules fi
 in a fresh session, the blind inter-rater check, the instructional-design review, and the
 narrated recording.
 
-`docs/design/what-failed.md` has **seven** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **eight** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
-you try to game them.** The sixth and seventh break it in opposite directions: the code
-was right and the product was wrong, then the product was right and the tool was wrong.
+you try to game them.** The last three break it in different directions: the code was
+right and the product was wrong; the product was right and the tool was wrong; and a check
+written to keep a screenshot honest caught the page lying to learners.
+
+Two things in that file are for the case study rather than the incident list. **Facts that
+were true when written** — three of the eight are hardcoded facts that silently stopped
+being true, and the general fix is to interpolate from the source of truth rather than
+restate it. And **the gate has failed more often than it has caught** — three failures,
+one real catch, including a false pass that printed `clean` over zero blobs scanned.
 
 **Block-type budget: still 12 of 16.** Nothing in Weeks 3 to 6 needed a new type.
 

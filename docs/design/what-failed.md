@@ -3,8 +3,10 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Seven so far. The first five share one pattern; the sixth and seventh each break it in a
-different direction, which is why they are kept separate rather than folded in.
+Eight so far. The first five share one pattern; the sixth, seventh and eighth each break
+it in a different direction, which is why they are kept separate rather than folded in.
+Three of the eight are the same underlying defect wearing different clothes, and that
+sub-pattern is named at the end.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -210,6 +212,45 @@ file at all if its `--user-data-dir` collides with a running profile. No error, 
 exit code 0. Three attempts were lost to it. `scripts/shot.mjs` documents both dead ends in
 its header so nobody re-derives them.
 
+---
+
+## 8. A check written to keep a screenshot honest found the page lying
+
+**Why the check existed.** Two of the six screenshots needed interaction before the
+capture, so the script drives the page: click four fields, submit, photograph the result.
+A scripted capture has a way of going wrong that a manual one does not. If a selector
+matches nothing, the clicks land nowhere, the page never changes, and the script still
+produces a perfectly real screenshot of an untouched page. That image is not corrupt, not
+obviously wrong, and almost impossible to catch later. So each step file was made to
+assert what it had actually done and throw rather than return: sixteen items expected,
+four buttons pressed, a result section present.
+
+That was instrumentation for the honesty of a deliverable. It was not a test of the
+product and it was not looking for defects.
+
+**What it found.** The exam step asserted the item count against the blueprint in the seed
+-- eight objectives at two items each, sixteen -- and stopped. The page had rendered
+sixteen items while its own lead sentence told the learner there were nine, in both Arabic
+and English, on production.
+
+**Why nothing else caught it.** The blueprint grew from nine items to sixteen in Week 5,
+when the bank was extended to cover every objective. The copy was a string literal written
+when nine was true. Nothing was broken: assembly was correct, scoring was correct, every
+test passed, and the page rendered exactly as designed. The only defect was that the page
+made a false statement to its reader, and no test in the suite was in a position to
+notice, because no test compares prose against data. Six weeks of looking at that page had
+not caught it either -- a sentence that was true when written does not read as suspicious.
+
+**The fix.** The lead interpolates `itemCount` and `passPct` from the assessment row
+instead of restating them. The sentence can no longer drift from the blueprint, because it
+no longer holds an independent copy of the fact.
+
+**The rule it argues for.** A check written to verify that a deliverable is honest will
+occasionally catch the product being dishonest, because both are the same question asked
+of different artefacts. The value did not come from the check being clever. It came from
+comparing the page against the source of truth rather than against the page. An assertion
+that reads the product back through its own claims can only ever agree with it.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -237,5 +278,87 @@ clipped an RTL layout and made a working page look broken, convincingly enough t
 next step was nearly to "fix" it. It was caught by re-measuring in a real browser instead
 of believing the image.
 
-Together they bracket the discipline. Verify the artefact rather than the code — and when
-the artefact accuses the code, verify the instrument before believing it.
+The eighth came from somewhere else again. It was not a test and was not hunting for
+bugs: it was an assertion added so that a screenshot could not photograph a page it had
+failed to change. It caught the exam page telling learners there were nine questions while
+serving sixteen. A check written to keep a deliverable honest found the product being
+dishonest, because it compared the page against the blueprint rather than against the
+page.
+
+Together they bracket the discipline. Verify the artefact rather than the code; when the
+artefact accuses the code, verify the instrument before believing it; and prefer checks
+that compare a thing against its source of truth, because a check that reads the product
+back through its own claims can only ever agree with it.
+
+## The sub-pattern worth naming: facts that were true when written
+
+Three of the eight are the same defect. The landing page carried a "Week 1 — under
+construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
+told every new session that Week 1 was the next action, long after it shipped. The exam
+page said nine questions and served sixteen.
+
+Each was a hardcoded fact, correct on the day it was written, that silently stopped being
+true. In all three cases nothing broke, no test could fail, and the system went on stating
+something false to a reader — a visitor, a future session, a learner. The falsehood was
+not introduced by a change to the sentence. It was created by a change *elsewhere*, to the
+thing the sentence described.
+
+**The general fix is to interpolate from the source of truth rather than restate it.** The
+exam lead now reads `itemCount` from the assessment row, so it cannot disagree with the
+blueprint. Where interpolation is impossible — prose in a Markdown file, a badge encoding
+a judgement — the fact needs an owner and a moment when it is re-read, which is why
+the project rules file now carries an instruction to keep itself current.
+
+That is the more useful thing to say than the three incidents. Restating a fact creates a
+second copy that no mechanism keeps in sync, and duplicated state drifts. It is the
+argument for normalising a database, applied to sentences — and the copy that drifts is
+almost always the one written for humans, because that is the copy nothing executes.
+
+## The gate has failed more often than it has caught
+
+Worth stating plainly, because it is the sharpest thing in this document.
+
+`.local/gate.sh` is the publish-safety gate. It scans content for the employer name, client
+names and local path patterns before anything leaves the machine. It has one real catch to
+its name: a `.pyc` file embedding an absolute build path, which it blocked correctly.
+
+It has failed three times.
+
+1. **A false positive on URLs.** The drive-letter pattern matches the last two characters
+   of a URL scheme — the `s:` followed by a slash in a secure-http address — so any commit
+   containing one was blocked. Still unfixed: the gate blocked this very paragraph on its
+   first draft, because the draft spelled the scheme out. The pattern needs anchoring so a
+   drive letter only counts when it is not preceded by another letter; that lives in a
+   gitignored file and is the owner's call, so it is recorded here rather than changed.
+2. **A false positive on binary blobs.** Compressed PNG bytes match the drive-letter
+   pattern by chance every few hundred KB, so committing a screenshot was impossible until
+   binaries were skipped explicitly and their metadata checked separately instead.
+3. **A false pass, which is far worse.** An optimisation replaced the scanning call sites
+   with a faster function and never defined it. Every scan errored to stderr, the hit list
+   stayed empty because nothing ever ran, and the gate printed `gate: clean` over **zero
+   blobs examined**. The pre-push hook runs that same sweep, so the reassurance sat
+   directly in front of every push.
+
+Three failures, one catch. That is not an argument against having the gate: an unscanned
+push is exactly the kind of mistake that cannot be undone once a repository is public. It
+is the sharper version of what the rest of this document says. **The code you trust most
+is the code you test least, because testing it feels redundant.** A safety mechanism is
+the easiest place in a codebase to accumulate untested behaviour, precisely because its
+output is reassuring and its correct answer is almost always "fine".
+
+The third failure is the one that recurs in real systems. A CI secret-scanner earlier in
+this project reported "no leaks" after scanning zero bytes, because it built an invalid
+commit range on a root-commit push. Same shape: a green result that means nothing, which
+is worse than a red one, because red gets investigated and green removes the reason to
+look.
+
+The fix is not more careful editing. It is making the null result impossible to report as
+success. The gate now counts the blobs it examined and refuses to print clean when that
+count is zero in any sweep mode. The count is printed on every run, which is what makes it
+real rather than decorative — it read 248, 256, 261 and 265 across four successive pushes,
+rising by exactly the number of blobs each commit added, and a number that tracks reality
+is a number that can be checked. Verifying the fix meant planting a
+forbidden string and confirming every mode blocks it, then running the gate against git's
+empty tree to confirm it refuses to pass on nothing.
+
+Anyone who has maintained CI will have met all three.
