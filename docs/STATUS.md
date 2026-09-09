@@ -3,24 +3,31 @@
 Update this file at the end of every session. It is the first thing the next session reads.
 
 ## Now
-**Week 1 in progress.** Repo history rebuilt for publish safety; Next.js app scaffolded,
-installed, building, and committed. `npm run check` is green.
+**Week 1 in progress.** Publish safety, scaffold, schema, `SPEC.md` v0, the bilingual
+landing page and CI are all committed. `npm run check` is green and the landing page is
+verified at runtime, not just at build.
+
+**Blocked on one thing:** `DATABASE_URL`. The Neon connection string was pasted into a
+chat transcript, so it must be rotated in the Neon dashboard before use, and the new
+pooled string put into `.env` by hand. Nothing that touches the database can proceed
+until then.
 
 Scope of record is the correction pass (section 0 of the authoritative plan, path in
 `.local/DAY0.md`) — **v1.0 = 6 weeks / ~65 h**. `BUILD.md` §3 and §9 describe the older
 14-week plan and are superseded; treat them as v2 reference only.
 
 ## Next (Week 1, remaining)
-1. **Prisma schema + first migration** against Neon Postgres — model set scoped to
-   v1.0 (see the open question below), then `ensure-db` / `reset-db` / `seed` scripts.
-2. Credentials auth (NextAuth v5) with LEARNER + ADMIN roles.
-3. **One-click guest entry.** Deep-links to `claim_review` per the plan, but that
-   simulation does not exist until Week 3 — Week 1 ships the button and the `?tour=1`
-   plumbing pointed at the landing page. `SPEC.md` must record the intended destination
-   so the intent survives.
-4. Landing page skeleton, bilingual (AR default), RTL via logical properties.
-5. `SPEC.md` v0 — the 14 client headings, one paragraph each.
-6. Vercel project + DNS + SSL. **Week 1 ends with a live URL.**
+1. **Rotate the Neon credential** and put the new pooled string in `.env`. *(owner)*
+2. **First migration.** Run `prisma migrate dev` against the empty Neon database, then
+   diff the SQL it generates against the offline baseline in
+   `prisma/migrations/*_init/`. Only treat the baseline as trusted if they match; if
+   they differ, record what the offline method got wrong — that is a finding about the
+   method, not just this migration.
+3. `ensure-db` / `reset-db` / `seed` scripts, then credentials auth (NextAuth v5) with
+   LEARNER + ADMIN roles, then wire the guest button to a real guest enrolment.
+4. Vercel project + DNS. **Add `masar` as its own project with only a CNAME. Do not
+   touch the apex records** — `mostafafathy.com` is a live portfolio site in active use.
+5. Self-hosted OFL fonts (currently a system stack) — carried into Week 2.
 
 ## Done
 - Repo, folder structure, the project rules file, `BUILD.md` (sanitized), `LATER.md`, `.gitignore`.
@@ -31,12 +38,19 @@ Scope of record is the correction pass (section 0 of the authoritative plan, pat
   smoke test, `AGENTS.md` shielding the project rules file from framework writes.
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and the steps that do
   not survive a clone.
+- **`SPEC.md` v0** — all fourteen client headings, one paragraph each, written to the
+  6-week scope. Records the guest button's intended destination as `claim_review`.
+- **Prisma schema** (7 models) + an offline baseline migration, **not yet applied**.
+- **Bilingual RTL landing page.** `/` redirects to `/ar`, `/en` mirrors it, `dir` flips
+  correctly, Arabic renders. Verified at runtime. Guest button stubbed with `?tour=1`.
+- **CI** (typecheck, lint, tests, `prisma validate`, build, gitleaks over full history)
+  and `.gitleaks.toml` — committed shape-based rules that name no person or company,
+  verified against 11 fixtures with zero false positives across the tree.
 
 ## Blocked / needs the owner
-- [ ] Day 0 #2 — name/trademark check for "Masār". **Gates the Vercel project and DNS**,
-      since the subdomain bakes the name in.
-- [ ] Day 0 #1 — accounts on the personal Gmail (GitHub, Vercel, Neon, Paymob sandbox).
-      Neon is needed before the first migration can run against anything but a local DB.
+- [ ] **Rotate the Neon database credential.** It was pasted into a chat transcript.
+      Reset the role password in Neon, then put the new pooled string into `.env`
+      directly. `.env` is gitignored and untracked, so nothing leaked from the repo.
 - [ ] Day 0 #3 — confirm the fictional entity names read as obviously invented (Week 2).
 - [ ] Day 0 #4 — Stripe availability for an Egypt-based individual. Not a Week 1 gate;
       v1.0 ships the mock adapter only, so this only affects what `SPEC.md` claims.
