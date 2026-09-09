@@ -50,14 +50,17 @@ what actually resolved — not what any planning document predicted.
 
 | Package | Version |
 |---|---|
+| `@prisma/adapter-pg` | 7.10.0 |
 | `@prisma/client` | 7.10.0 |
 | `@tailwindcss/postcss` | 4.3.3 |
 | `@tanstack/react-query` | 5.102.8 |
 | `@types/node` | 20.19.43 |
+| `@types/pg` | 8.23.1 |
 | `@types/react` | 19.2.18 |
 | `@types/react-dom` | 19.2.7 |
 | `@vitejs/plugin-react` | 6.1.1 |
 | `bcryptjs` | 3.0.3 |
+| `dotenv` | 17.4.2 |
 | `eslint` | 9.39.5 |
 | `eslint-config-next` | 16.3.4 |
 | `lucide-react` | 1.43.0 |
@@ -65,6 +68,7 @@ what actually resolved — not what any planning document predicted.
 | `next-auth` | 5.0.0-beta.32 |
 | `next-intl` | 4.14.2 |
 | `next-themes` | 0.4.6 |
+| `pg` | 8.23.0 |
 | `prisma` | 7.10.0 |
 | `react` | 19.2.8 |
 | `react-dom` | 19.2.8 |
@@ -121,23 +125,47 @@ are on the personal Gmail, the repository-local git identity is the personal add
 nothing in the repository, the commit history or any deployed output carries the work
 address — verified by the publish-safety gate over every blob in the object database.
 
-### The Neon driver, not the generic Postgres driver
+### Resolved: the driver switch, and the misdiagnosis behind it
 
-**The intent.** Use plain `@prisma/adapter-pg` so the same code runs against any Postgres
-and nothing is bound to one vendor.
+**What was believed.** That this machine could not open outbound TCP 5432 — that the
+Postgres port was blocked at the network level. `lib/db.ts` was switched to
+`@prisma/adapter-neon` over a WebSocket on 443 to work around it.
 
-**What was done instead.** `lib/db.ts` uses `@prisma/adapter-neon` over a WebSocket.
+**What was actually true.** A Neon endpoint auto-suspends when idle and takes a few
+seconds to wake. The first TCP connection hit a suspended endpoint and timed out; an HTTP
+call then woke it; TCP was never retried. **A cold start, not a firewall.** The control
+test used at the time — HTTPS to a different, always-awake host — never isolated the
+variable it claimed to.
 
-**Why.** The development machine cannot open outbound TCP 5432 — DNS resolves and HTTPS
-works, but the Postgres port is blocked at the network level. `adapter-pg` cannot connect
-at all from there. The Neon driver tunnels Postgres over 443, which works locally and in
-production.
+**Current state.** `@prisma/adapter-pg` is restored and verified: three consecutive
+transactions succeeded (1950 ms on the first, ~750 ms after), `prisma migrate status`
+reports no drift, and `prisma migrate dev` reports "Already in sync". The Neon-specific
+packages have been removed.
 
-**Residual risk.** The *driver* is Neon-specific. The database is not: the schema, the
-data and the `pg_dump` export are ordinary Postgres, so the ownership story is unaffected.
-Reverting to `adapter-pg` is a few lines once the network allows it.
+**The lesson worth keeping.** A first connection can time out while the next succeeds
+instantly. Retry before concluding anything about the network, and make sure a control
+test varies only the thing being tested.
 
-**Consequence.** `prisma migrate` needs a direct TCP connection and therefore cannot run
-from the development machine at all. The baseline migration was generated offline and
-applied over HTTP, and the CI `migrations` job replays it against a real Postgres on every
-push to prove it reproduces the datamodel.
+### Vercel project settings that a build log will not reveal
+
+Three settings caused or masked failures during the first deployment. All are project
+configuration, not code, and none appear in a build log.
+
+**`framework` must be `nextjs`.** The project was first imported with `framework: null`.
+Vercel built the application correctly — `prisma generate` ran, `/ar` and `/en`
+prerendered, the proxy was present, the build reported success — and then served the
+output as a plain static directory: no App Router, no proxy, no route table. Every path
+returned `X-Vercel-Error: NOT_FOUND` behind a green build.
+
+**Production branch must be `main`.** The repository's default branch is `main`; a project
+pointed at another branch produces no production deployment.
+
+**Diagnostic rule.** A green build plus a 404 on *every* route, including the raw
+`.vercel.app` alias, means project settings — not DNS, not the domain, not the code. The
+two failure modes above are indistinguishable from the dashboard.
+
+**Deployment Protection is deliberately off.** It was `all_except_custom_domains`, which
+returned SSO redirects on some aliases and 404s on others and made the routing failure
+much harder to isolate. For a public portfolio demo whose entire purpose is that a
+stranger can open the link, off is the correct end state. This is a deliberate setting,
+not an oversight.
