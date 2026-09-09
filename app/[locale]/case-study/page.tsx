@@ -196,13 +196,13 @@ function English() {
 
       <h2 className="admin-q">What failed</h2>
       <p>
-        Five failures, and they form a pattern worth naming:{' '}
+        Six failures. The first five form a pattern worth naming:{' '}
         <strong>
           the falsifiable claims are the ones that break, and they only break when you try
           to game them.
         </strong>{' '}
-        Every one of these passed code review, passed its schema, passed CI, and looked
-        right on the screen.
+        Every one of those passed code review, passed its schema, passed CI, and looked
+        right on the screen. The sixth is a different kind and belongs beside them.
       </p>
 
       <ol className="cs-failures">
@@ -239,9 +239,24 @@ function English() {
         <li>
           <strong>A test file reported 16/16 while two tests never ran.</strong> Two cases
           were appended below the entry point, so the decorator registering them executed
-          after the process had exited. The suite was green and measuring nothing.
+          after the process had exited. The suite was green and measuring nothing — the
+          most expensive kind of green, because it removes the incentive to look again.
+        </li>
+        <li>
+          <strong>The code was correct and the product was wrong.</strong> Six weeks of
+          work — the depth model, the course, this page, the pipeline page — was
+          unreachable from the landing page. The only route in was the guest button. The
+          site was also still wearing its own build schedule: &ldquo;Under construction —
+          Week 1&rdquo; on the hero, &ldquo;Week 1 — placeholder&rdquo; in the footer. Every
+          page worked, every page had tests, every test passed. No test asserts that a
+          visitor can <em>find</em> a feature. Found by opening the deployed site as a
+          stranger, which is a different discipline from testing.
         </li>
       </ol>
+      <p className="cs-small">
+        Five of these were found by attacking the system. The sixth was found by simply
+        arriving at it.
+      </p>
 
       <h2 className="admin-q">Disclosure</h2>
       <div className="verify-card">
@@ -321,11 +336,14 @@ function ArabicSummary() {
 
       <h2 className="admin-q">ما الذي أخفق</h2>
       <p>
-        خمسة إخفاقات، ونمطها واحد:{' '}
+        ستة إخفاقات. الخمسة الأولى نمطها واحد:{' '}
         <strong>الادعاءات القابلة للدحض هي التي تنكسر، ولا تنكسر إلا حين تحاول التحايل عليها.</strong>{' '}
         صيغة التقييم أخفقت في ادعائها المنشور. بنك الأسئلة كان يُهزم بالإجابة الأولى دائمًا
         ويعطي 89٪. ولوحة الأدلة أبلغت أنها ظاهرة وهي فارغة. وجلسة حساب محذوف ظلّت تعمل.
-        وملف اختبار أعلن نجاح 16 من 16 بينما لم يُنفَّذ اختباران أصلًا.
+        وملف اختبار أعلن نجاح 16 من 16 بينما لم يُنفَّذ اختباران أصلًا. والسادس من نوع آخر:
+        الكود كان سليمًا والمنتج كان خاطئًا — ستة أسابيع من العمل لم يكن لها أي رابط من
+        الصفحة الرئيسية، وكل اختبار كان يمر. لا يوجد اختبار يتحقق من أن الزائر يستطيع
+        <em>الوصول</em> إلى ما بُني.
       </p>
 
       <h2 className="admin-q">إفصاح</h2>
