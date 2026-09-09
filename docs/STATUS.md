@@ -153,6 +153,30 @@ the judge, which §0.4 item 5 requires to be a fresh context that has never seen
 generation prompt. An agent that wrote the generation prompt cannot also judge the output
 without producing a number that looks like evidence and is not.
 
+## §0.7 practitioner review — not sought (scope decision, closed)
+
+The plan scheduled a review by one or two claims or revenue-cycle practitioners. **The
+owner decided against seeking it**, on cost: recruiting a practitioner reviewer spends real
+time and social capital on a self-initiated project with no budget. This is a closed scope
+decision, not an outstanding task.
+
+The limitation it leaves is published rather than absent — on `/how-it-was-built` and in
+the case study:
+
+> No claims or revenue-cycle practitioner reviewed this content. It was authored from
+> public sources by an instructional designer. All code sets are fictional training codes,
+> and a real deployment would use a deploying organisation's own payer rules and licensed
+> code sets, reviewed by someone who works in the field.
+
+**The owner must never be named as the subject-matter expert on this content.** He is an
+instructional designer, not a claims or RCM practitioner. That would be a fabricated
+credential on a public page, in a project whose whole argument is that it does not do that
+— and it is the single easiest claim for a domain reviewer to check and dismiss.
+
+The two reviews he *is* doing are real and are labelled precisely: an **instructional-design
+review** and the **blind inter-rater check**. Neither is a subject-matter review, and the
+copy never lets the two blur. See `docs/design/sme-review.md`.
+
 ## Next (Week 6)
 
 The last week: `PaymentProvider` interface with a mock adapter only and a paywall (two
@@ -216,14 +240,14 @@ to game them.**
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
 
 ## Blocked / needs the owner
-- [ ] **Send the SME invitation.** `docs/design/sme-review.md` is ready: eleven fixed
-      questions, two links, a draft message, and the paragraph the case study carries if
-      nobody accepts. §0.7 is explicit that "invited, not invented" only holds if the
-      invitation happened, and a week has a finite number of days for a reply to arrive.
-- [ ] **Blind inter-rater sample.** Three lessons scored against `pipeline/rubric.md` by a
-      human, without seeing the model's scores, and the mean absolute difference reported.
-      This is what makes the rubric number worth anything; without it the score is a model
-      marking its own work.
+- [ ] **Blind inter-rater sample** (~20 min). Three lessons scored against
+      `pipeline/rubric.md`, without seeing the model's scores first, then the mean absolute
+      difference reported. This is instructional quality, which is the owner's actual
+      expertise. Without it the rubric number is a model marking its own homework, and
+      §0.4 item 5 is explicit that it cannot stand alone.
+- [ ] **Instructional-design review** — objective alignment, coverage, the assessment
+      blueprint, feedback quality, the depth model, and the Arabic. Labelled as an
+      instructional-design review everywhere, never as a subject-matter or accuracy review.
 - [ ] **Environment variables on Vercel** — `DATABASE_URL` and `AUTH_SECRET`, scoped to
       all environments. Until then `POST /api/demo` returns 500 in production. The
       landing page is static and serves fine without them.
