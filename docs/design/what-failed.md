@@ -3,7 +3,8 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Six so far. The first five form one pattern; the sixth is a different failure worth keeping separate.
+Seven so far. The first five share one pattern; the sixth and seventh each break it in a
+different direction, which is why they are kept separate rather than folded in.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -174,6 +175,41 @@ system; this was found by simply arriving at it.
 
 ---
 
+## 7. The tool was wrong and the product was right
+
+**What happened.** Capturing the 390px mobile screenshot with Chrome's
+`--headless --screenshot --window-size=390,844` produced an image with the Arabic labels
+sheared off the right edge. It looked exactly like a real RTL layout overflow on the single
+most important shot in the set — the one whose entire job is to prove the mobile pattern
+works.
+
+**What was nearly done.** Reported as a layout defect and fixed. The "fix" would have been
+changes to a layout that was already correct, chasing a bug that did not exist, and
+probably breaking the thing being photographed.
+
+**What was actually true.** Checked against a real browser at the same viewport:
+`documentElement.scrollWidth === 390`, `body.scrollWidth === 390`, and a sweep of every
+element for a box escaping the viewport returned zero. The measurement taken during the
+Week 3 build was right all along. Chrome's headless screenshot mode silently lays RTL out
+wider than `--window-size` and then clips the capture to the window. Capturing through
+`Emulation.setDeviceMetricsOverride` over the DevTools protocol produces output identical
+to the real browser.
+
+**Why it inverts the pattern.** The other six say: do not trust that the code is right,
+verify the artefact. This one says the artefact was right and **the instrument was lying**.
+A capture that clips is pixel-for-pixel indistinguishable from a layout that overflows, so
+the image cannot adjudicate between them — only a second, independent measurement can.
+
+**The rule it argues for.** Verify your verifier. When a tool reports a defect that
+contradicts an earlier direct measurement, one of the two is wrong and it is not
+automatically the older one. Establish which before changing any code, because "fixing"
+a phantom does real damage to something that was working.
+
+**A second, cheaper trap in the same session.** Headless Chrome silently fails to write a
+file at all if its `--user-data-dir` collides with a running profile. No error, no output,
+exit code 0. Three attempts were lost to it. `scripts/shot.mjs` documents both dead ends in
+its header so nobody re-derives them.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -190,8 +226,16 @@ not happen. And a test file reported a passing count for tests that never execut
 
 Five for five, the defect was in something that already looked correct.
 
-The sixth is the counterweight and belongs beside them: the code was correct and the
-product was wrong. Six weeks of work sat behind no link, under a badge announcing it was
-under construction. No test could have caught that, because nothing was broken. It was
-found by opening the site as a stranger, which is a different discipline from testing and
-worth naming as one.
+Two more complete the set, and each breaks the pattern in a different direction.
+
+The sixth: the code was correct and the **product** was wrong. Six weeks of work sat behind
+no link, under a badge announcing it was under construction. No test could have caught it,
+because nothing was broken. It was found by opening the site as a stranger.
+
+The seventh: the product was correct and the **tool** was wrong. A screenshot utility
+clipped an RTL layout and made a working page look broken, convincingly enough that the
+next step was nearly to "fix" it. It was caught by re-measuring in a real browser instead
+of believing the image.
+
+Together they bracket the discipline. Verify the artefact rather than the code — and when
+the artefact accuses the code, verify the instrument before believing it.
