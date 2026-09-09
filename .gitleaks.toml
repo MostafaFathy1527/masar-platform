@@ -1,0 +1,41 @@
+# Publish-safety rules that are safe to commit.
+#
+# The local denylist (.local/denylist.txt) names the employer, the reference
+# prospect and this machine's paths. Those terms must never enter a tracked
+# file, so CI cannot read them. These rules match the *shapes* instead, which
+# catches the same leaks without naming any person or company.
+#
+# Local, pre-push enforcement stays in .git/hooks/pre-push.
+
+title = "masar-platform publish safety"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "windows-absolute-path"
+description = "Absolute Windows path leaked into a tracked file"
+# A drive letter followed by a separator, not preceded by an alphanumeric.
+# Requiring a non-alphanumeric character before the drive letter is what keeps
+# this from firing on the scheme separator in an ordinary web URL.
+regex = '''(^|[^A-Za-z0-9])[A-Za-z]:[\\/](?:Users|Program Files|[A-Za-z0-9_.-]{2,})'''
+tags = ["local-path"]
+
+[[rules]]
+id = "unix-style-windows-home"
+description = "Git Bash style path to a Windows home directory"
+regex = '''(^|[^A-Za-z0-9])/[a-z]/[Uu]sers/'''
+tags = ["local-path"]
+
+[[rules]]
+id = "home-directory-username"
+description = "A user home directory with a name in it"
+regex = '''[Uu]sers[\\/][A-Za-z][A-Za-z0-9_.-]{2,}[\\/]'''
+tags = ["local-path"]
+
+[allowlist]
+description = "Paths that legitimately contain these shapes"
+paths = [
+  '''\.gitleaks\.toml''',
+  '''package-lock\.json''',
+]
