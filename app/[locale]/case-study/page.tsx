@@ -65,13 +65,17 @@ function English() {
         how would I know it was any good?
       </p>
 
-      <h2 className="admin-q">The problem</h2>
+      <h2 id="problem" className="cs-h2">
+        <span className="cs-num">01</span>
+        The problem
+      </h2>
       <p>
         A course is not a pile of PDFs with a quiz at the end. The failure mode is
         specific: content gets published at whatever depth it happened to be written at,
         assessment is assembled from whatever questions exist, and nobody can say which
-        objective any of it serves. It looks like a course and teaches like a document.
+        objective any of it serves.
       </p>
+      <p className="pull-quote">It looks like a course and teaches like a document.</p>
       <p>
         Three ideas were worth building to answer that. Depth is a property of a lesson
         rather than a separate lesson. Assessment is assembled from a blueprint rather than
@@ -79,7 +83,10 @@ function English() {
         repository as the platform, with the gates that constrain it.
       </p>
 
-      <h2 className="admin-q">One paragraph, three depths</h2>
+      <h2 id="depths" className="cs-h2">
+        <span className="cs-num">02</span>
+        One paragraph, three depths
+      </h2>
       <p>
         This is the whole design argument in one example. The same source material,
         published at three depths, with the decision behind each one.
@@ -96,6 +103,7 @@ function English() {
         </p>
       </div>
 
+      <div className="cs-depths">
       <Annotated
         label="L1 — Structured publishing"
         note={
@@ -158,8 +166,12 @@ function English() {
           scores 48% and fails.
         </p>
       </Annotated>
+      </div>
 
-      <h2 className="admin-q">Decisions I would defend</h2>
+      <h2 id="decisions" className="cs-h2">
+        <span className="cs-num">03</span>
+        Decisions I would defend
+      </h2>
       <ol className="cs-decisions">
         <li>
           <strong>Lesson content is validated JSON on one row, not a relational block
@@ -194,15 +206,19 @@ function English() {
         </li>
       </ol>
 
-      <h2 className="admin-q">What failed</h2>
+      <h2 id="failed" className="cs-h2">
+        <span className="cs-num">04</span>
+        What failed
+      </h2>
       <p>
-        Six failures. The first five form a pattern worth naming:{' '}
+        Eight so far. The first five form a pattern worth naming:{' '}
         <strong>
           the falsifiable claims are the ones that break, and they only break when you try
           to game them.
         </strong>{' '}
         Every one of those passed code review, passed its schema, passed CI, and looked
-        right on the screen. The sixth is a different kind and belongs beside them.
+        right on the screen. The last three each break the pattern in a different
+        direction.
       </p>
 
       <ol className="cs-failures">
@@ -252,13 +268,37 @@ function English() {
           visitor can <em>find</em> a feature. Found by opening the deployed site as a
           stranger, which is a different discipline from testing.
         </li>
+        <li>
+          <strong>The tool was wrong and the product was right.</strong> The 390px mobile
+          screenshot came out with the Arabic labels sheared off the right edge — exactly
+          like an RTL layout overflow, on the one shot whose job is to prove the mobile
+          pattern works. The layout was fine. Chrome&rsquo;s headless screenshot mode lays
+          RTL out wider than the window and clips the capture, and a clipped capture is
+          pixel-for-pixel indistinguishable from a real overflow. Re-measuring in a browser
+          settled it. The near-miss was &ldquo;fixing&rdquo; a page that had nothing wrong
+          with it.
+        </li>
+        <li>
+          <strong>A check written to keep a screenshot honest found the page lying.</strong>{' '}
+          Two shots needed scripted interaction, so each step asserted what it had actually
+          done — otherwise a selector matching nothing produces a real screenshot of an
+          untouched page. One step checked the exam&rsquo;s item count against the
+          blueprint and stopped: the page had rendered sixteen questions while telling the
+          learner there were nine, in both languages, in production. Nothing was broken and
+          no test could have failed. The count now interpolates from the blueprint instead
+          of restating it.
+        </li>
       </ol>
       <p className="cs-small">
-        Five of these were found by attacking the system. The sixth was found by simply
-        arriving at it.
+        Five of these were found by attacking the system. The sixth was found by arriving
+        at it, the seventh by disbelieving an instrument, and the eighth by a check that
+        was not looking for defects at all.
       </p>
 
-      <h2 className="admin-q">Disclosure</h2>
+      <h2 id="disclosure" className="cs-h2">
+        <span className="cs-num">05</span>
+        Disclosure
+      </h2>
       <div className="verify-card">
         <ul className="privacy-list">
           <li>
@@ -295,7 +335,10 @@ function English() {
         </ul>
       </div>
 
-      <h2 className="admin-q">Deliberately not built</h2>
+      <h2 id="not-built" className="cs-h2">
+        <span className="cs-num">06</span>
+        Deliberately not built
+      </h2>
       <p>
         A second simulation, module quizzes, a mastery engine, content CRUD editors, an
         instructor role, real payment adapters, SCORM export, and a mobile app. Each was
@@ -319,13 +362,19 @@ function ArabicSummary() {
         على التفاصيل الكاملة.
       </p>
 
-      <h2 className="admin-q">الفكرة</h2>
+      <h2 id="ar-idea" className="cs-h2">
+        <span className="cs-num">01</span>
+        الفكرة
+      </h2>
       <p>
         ثلاث أفكار كانت تستحق البناء: العمق خاصية للدرس لا درس منفصل، والتقييم يُبنى من مخطط
         لا من كومة أسئلة، وخط إنتاج المحتوى يُنشر في المستودع نفسه مع البوابات التي تقيّده.
       </p>
 
-      <h2 className="admin-q">فقرة واحدة، ثلاثة مستويات</h2>
+      <h2 id="ar-depths" className="cs-h2">
+        <span className="cs-num">02</span>
+        فقرة واحدة، ثلاثة مستويات
+      </h2>
       <p>
         المستوى الأول ينشر المادة منظّمة: تعريف ثابت وجدول مقارنة، دون إضافة ما لا يحمله
         المصدر. المستوى الثاني يطلب من المتعلّم أن يفعل شيئًا قبل أن يُخبَر بالصواب: مثال
@@ -334,7 +383,10 @@ function ArabicSummary() {
         يعود برابط إلى الكتلة التي شرحته — وهذا الرابط هو الحجة التربوية للمشروع كله.
       </p>
 
-      <h2 className="admin-q">ما الذي أخفق</h2>
+      <h2 id="ar-failed" className="cs-h2">
+        <span className="cs-num">03</span>
+        ما الذي أخفق
+      </h2>
       <p>
         ستة إخفاقات. الخمسة الأولى نمطها واحد:{' '}
         <strong>الادعاءات القابلة للدحض هي التي تنكسر، ولا تنكسر إلا حين تحاول التحايل عليها.</strong>{' '}
@@ -346,7 +398,10 @@ function ArabicSummary() {
         <em>الوصول</em> إلى ما بُني.
       </p>
 
-      <h2 className="admin-q">إفصاح</h2>
+      <h2 id="ar-disclosure" className="cs-h2">
+        <span className="cs-num">04</span>
+        إفصاح
+      </h2>
       <div className="verify-card">
         <ul className="privacy-list">
           <li>
@@ -369,6 +424,22 @@ function ArabicSummary() {
   )
 }
 
+const EN_SECTIONS = [
+  { id: 'problem', label: 'The problem' },
+  { id: 'depths', label: 'One paragraph, three depths' },
+  { id: 'decisions', label: 'Decisions I would defend' },
+  { id: 'failed', label: 'What failed' },
+  { id: 'disclosure', label: 'Disclosure' },
+  { id: 'not-built', label: 'Deliberately not built' },
+] as const
+
+const AR_SECTIONS = [
+  { id: 'ar-idea', label: 'الفكرة' },
+  { id: 'ar-depths', label: 'فقرة واحدة، ثلاثة مستويات' },
+  { id: 'ar-failed', label: 'ما الذي أخفق' },
+  { id: 'ar-disclosure', label: 'إفصاح' },
+] as const
+
 export default async function CaseStudyPage({
   params,
 }: {
@@ -379,11 +450,40 @@ export default async function CaseStudyPage({
   const l = locale as AppLocale
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10 cs">
-      <h1 className="text-3xl font-bold tracking-tight">
-        {l === 'ar' ? 'مسار — دراسة حالة' : 'Masār — case study'}
-      </h1>
-      {l === 'ar' ? <ArabicSummary /> : <English />}
-    </div>
+    <>
+      <section className="band band-tight">
+        <div className="shell">
+          <span className="eyebrow">{l === 'ar' ? 'دراسة حالة' : 'Case study'}</span>
+          <h1 className="h-display measure">
+            {l === 'ar' ? 'مسار — دراسة حالة' : 'Masār — case study'}
+          </h1>
+        </div>
+      </section>
+
+      <section className="band band-alt">
+        <div className="shell cs-shell">
+          {/*
+            The rail exists because the argument has a shape and the reader
+            should be able to see it before reading 4,000 words, and move within
+            it afterwards. It is hidden below 1000px rather than collapsed into
+            a menu: on a phone the page is short enough to scroll.
+          */}
+          <nav className="cs-rail" aria-label={l === 'ar' ? 'أقسام دراسة الحالة' : 'Sections'}>
+            <ol>
+              {(l === 'ar' ? AR_SECTIONS : EN_SECTIONS).map((sec, i) => (
+                <li key={sec.id}>
+                  <a href={`#${sec.id}`}>
+                    <span className="n">{String(i + 1).padStart(2, '0')}</span>
+                    <span>{sec.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <article className="cs">{l === 'ar' ? <ArabicSummary /> : <English />}</article>
+        </div>
+      </section>
+    </>
   )
 }

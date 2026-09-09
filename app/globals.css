@@ -2,42 +2,114 @@
 
 /*
   Tailwind 4 is CSS-first: theme tokens live here, not in a tailwind.config.ts.
-  Colours are named by role (canvas/ink/muted/line) rather than by hue, so the
-  dark variant swaps values without touching a single class name.
+
+  The palette is the owner's identity — amber on warm paper — so that a reviewer
+  moving from the portfolio site to this one feels one hand at work. Masār is a
+  sibling of that site, not a clone: same typographic and chromatic family,
+  different layout language, because a product should not read as a portfolio
+  page.
+
+  LIGHT IS THE DEFAULT, deliberately. A learning product that exists only in
+  black reads as a developer tool. Dark is the prefers-color-scheme alternate.
+
+  Colours are named by role rather than by hue, so the dark variant swaps values
+  without touching a single class name.
 */
 @theme {
-  --color-canvas: #fdfdfc;
-  --color-ink: #1a1a18;
-  --color-muted: #6b6b66;
-  --color-line: #e5e4e0;
-  --color-accent: #1b5e5a;
-  --color-right: #1a6b3c;
-  --color-wrong: #8c2f1d;
-  --color-raise: #f5f4f0;
+  --color-canvas: #f6f4ef;
+  --color-surface: #fbfaf7;
+  --color-raise: #fbfaf7;
+  --color-ink: #14110d;
+  --color-ink-2: #3a3630;
+  --color-muted: #625b50;
+  --color-line: #d8d2c6;
+
+  --color-accent: #f4a93c;
+  --color-accent-ink: #8f5a00;
+  --color-on-accent: #14110d;
 
   /*
-    Week 1 placeholder stack. The system fonts listed first render Arabic
-    correctly on every target platform. Self-hosted OFL faces are a later task.
+    Exactly one semantic green and one red, used only for correct/incorrect in
+    the simulation and the exam review. Never the sole carrier of meaning: every
+    use is accompanied by words, which is the existing accessibility rule and
+    the reason the palette can afford to be this quiet.
   */
-  --font-sans: system-ui, "Segoe UI", "Noto Sans Arabic", "Noto Sans",
-    -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --color-right: #1f7a43;
+  --color-wrong: #a33418;
+
+  /*
+    Self-hosted through next/font, which downloads the OFL faces at build time
+    and serves them from this origin — no third-party request at runtime.
+    Archivo carries the display voice, Space Grotesk the body, JetBrains Mono
+    the eyebrows and data, Cairo the Arabic.
+  */
+  --font-display: var(--font-archivo), Georgia, serif;
+  --font-sans: var(--font-body), system-ui, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-arabic: var(--font-cairo), "Noto Sans Arabic", system-ui, sans-serif;
+
+  --step-section: clamp(48px, 6vw, 92px);
+  --measure: 68ch;
+  --shell: 1240px;
 }
 
+/*
+  The dark alternate overrides plain custom properties on :root, NOT a nested
+  @theme block.
+
+  Tailwind 4 hoists @theme at build time: an `@theme` inside a media query has
+  its variables lifted out and emitted unconditionally, so the media query stops
+  gating anything. The previous version of this file did exactly that, which is
+  why the site rendered dark for every visitor regardless of their system
+  setting — the "dark mode" was not a mode, it was the only mode, and the light
+  default it was supposedly an alternate to had never rendered anywhere.
+
+  Overriding the same variable names on :root works because every generated
+  utility resolves var(--color-*) at runtime.
+*/
 @media (prefers-color-scheme: dark) {
-  @theme {
-    --color-canvas: #121211;
-    --color-ink: #f2f1ed;
-    --color-muted: #a1a099;
-    --color-line: #2b2b28;
-    --color-accent: #5fbdb6;
-    --color-right: #64c98c;
-    --color-wrong: #e08a76;
-    --color-raise: #1b1b19;
+  :root {
+    --color-canvas: #12100d;
+    --color-surface: #17140f;
+    --color-raise: #17140f;
+    --color-ink: #f3ede3;
+    --color-ink-2: #d9d2c6;
+    --color-muted: #a69e90;
+    --color-line: #2c2822;
+
+    --color-accent: #f4a93c;
+    --color-accent-ink: #f4a93c;
+    --color-on-accent: #14110d;
+
+    --color-right: #6bc98f;
+    --color-wrong: #e8907a;
   }
 }
 
 body {
   font-family: var(--font-sans);
+  font-synthesis-weight: none;
+}
+
+/* Arabic gets its own face; the dir attribute on <html> is the switch. */
+[dir="rtl"] body,
+[lang="ar"] body {
+  font-family: var(--font-arabic);
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] .display {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
 }
 
 /*
@@ -59,13 +131,27 @@ body {
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: 4px;
     background: var(--color-accent);
     padding-block: 0.625rem;
     padding-inline: 1.25rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-canvas);
+    /*
+      Dark ink on amber, not canvas. Amber is a light hue: white or near-white
+      text on it lands around 1.8:1, which fails at any size. Ink on amber is
+      about 9:1.
+    */
+    color: var(--color-on-accent);
+    border: 1px solid color-mix(in oklab, var(--color-accent) 70%, #000);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--color-accent) 88%, #000);
+  }
+  .btn-sm {
+    padding-block: 0.4rem;
+    padding-inline: 0.85rem;
+    font-size: 0.8125rem;
   }
   .btn-primary:disabled {
     opacity: 0.5;
@@ -75,7 +161,7 @@ body {
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--color-line);
-    border-radius: 0.5rem;
+    border-radius: 4px;
     padding-block: 0.5rem;
     padding-inline: 1rem;
     font-size: 0.875rem;
@@ -931,5 +1017,445 @@ body {
   }
   .landing-links a:hover {
     border-color: var(--color-accent);
+  }
+}
+
+/* -------------------------------------------------------------- editorial */
+/*
+  The layout language. Every property here is logical (inline/block, never
+  left/right) so one stylesheet serves both directions and the dir attribute on
+  <html> does the mirroring.
+
+  The problem this solves: a ~620px column centred in a 1280px viewport, ending
+  at 40% of the page height with ground below it, reads as unfinished no matter
+  how good the writing is. Prose still wants ~68ch, but the SECTION should span
+  the shell and carry its own ground, so the page has bands rather than one
+  column floating in a void.
+*/
+@layer components {
+  .shell {
+    margin-inline: auto;
+    inline-size: min(100% - 3rem, var(--shell));
+  }
+
+  .measure {
+    max-inline-size: var(--measure);
+  }
+
+  /* Full-bleed band. Alternate .band-alt for rhythm down the page. */
+  .band {
+    padding-block: var(--step-section);
+    background: var(--color-canvas);
+  }
+  .band-alt {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-line);
+  }
+  .band-tight {
+    padding-block: clamp(32px, 4vw, 56px);
+  }
+
+  /*
+    Mono uppercase eyebrow. Carries the section's identity so the heading does
+    not have to work twice, and gives the accent somewhere to live that is not a
+    button.
+  */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+    display: block;
+    margin-block-end: 0.75rem;
+  }
+  [dir="rtl"] .eyebrow {
+    letter-spacing: 0;
+  }
+
+  /*
+    A real type scale. The old h1 and section labels sat within a few pixels of
+    each other, so nothing led and the eye had no entry point.
+  */
+  .h-display {
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.05;
+    font-weight: 700;
+    /*
+      Display type needs a much tighter measure than prose. 68ch at 52px is
+      most of a 1280px viewport, which produces a single enormous line rather
+      than a heading with shape.
+    */
+    max-inline-size: 20ch;
+  }
+  .h-section {
+    max-inline-size: 26ch;
+  }
+  .h-section {
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.15;
+    font-weight: 600;
+  }
+  .h-item {
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  .lede {
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.6;
+    color: var(--color-ink-2);
+  }
+
+  /*
+    Hairline rules instead of boxes. Most rows on this site are members of a
+    list, not discrete objects; a border on each one turns a list into a pile of
+    cards. Boxes are reserved for things that genuinely are discrete.
+  */
+  .rule-list > * {
+    border-block-start: 1px solid var(--color-line);
+    padding-block: clamp(20px, 2.4vw, 30px);
+  }
+  .rule-list > *:last-child {
+    border-block-end: 1px solid var(--color-line);
+  }
+
+  .rule-top {
+    border-block-start: 1px solid var(--color-line);
+  }
+
+  /* Mono data chip — objective codes, counts, durations. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    padding-block: 0.15rem;
+    padding-inline: 0.4rem;
+    white-space: nowrap;
+  }
+  .chip-accent {
+    color: var(--color-accent-ink);
+    border-color: color-mix(in oklab, var(--color-accent) 55%, var(--color-line));
+    background: color-mix(in oklab, var(--color-accent) 10%, transparent);
+  }
+
+  .pull-quote {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--color-ink);
+    border-inline-start: 3px solid var(--color-accent);
+    padding-inline-start: clamp(16px, 2vw, 28px);
+    margin-block: clamp(28px, 4vw, 44px);
+  }
+  [dir="rtl"] .pull-quote {
+    font-family: var(--font-arabic);
+  }
+}
+
+/* ------------------------------------------------------- header and footer */
+/*
+  Page furniture. Its absence was the single largest contributor to the
+  unfinished feel: with no header, no nav and no footer, a visitor could not
+  tell where they were or move anywhere except back to the landing page's list
+  of links.
+*/
+@layer components {
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 40;
+    background: color-mix(in oklab, var(--color-canvas) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-block-end: 1px solid var(--color-line);
+  }
+  .site-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-block: 0.85rem;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .wordmark .wordmark-ar {
+    font-family: var(--font-arabic);
+    color: var(--color-accent-ink);
+  }
+  .site-nav {
+    display: none;
+    align-items: center;
+    gap: 1.15rem;
+    margin-inline-start: 0.5rem;
+  }
+  @media (min-width: 900px) {
+    .site-nav {
+      display: flex;
+    }
+  }
+  .site-nav a {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-block-end: 2px solid transparent;
+  }
+  .site-nav a:hover {
+    color: var(--color-ink);
+  }
+  .site-nav a[aria-current="page"] {
+    color: var(--color-ink);
+    border-block-end-color: var(--color-accent);
+  }
+  .header-end {
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .locale-switch {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    padding-block: 0.2rem;
+    padding-inline: 0.45rem;
+    text-decoration: none;
+  }
+  .locale-switch:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink-2);
+  }
+
+  .site-footer {
+    background: var(--color-surface);
+    border-block-start: 1px solid var(--color-line);
+    padding-block: clamp(40px, 5vw, 64px);
+    margin-block-start: var(--step-section);
+  }
+  .site-footer-grid {
+    display: grid;
+    gap: clamp(24px, 4vw, 48px);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) {
+    .site-footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr;
+    }
+  }
+  .site-footer h2 {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-block-end: 0.75rem;
+  }
+  .site-footer ul {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .site-footer a {
+    font-size: 0.8125rem;
+    color: var(--color-ink-2);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal {
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+    max-inline-size: 52ch;
+  }
+}
+
+/* ------------------------------------------------------------ course index */
+@layer components {
+  .lesson-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(14px, 2vw, 28px);
+    align-items: start;
+  }
+  .lesson-num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    padding-block-start: 0.3rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-block-start: 0.7rem;
+  }
+
+  /*
+    The price strip. Demoted deliberately: on a portfolio demo with a sandbox
+    banner beside it, a large number is the loudest possible wrong signal. It is
+    a quiet strip near the bottom, not the visual centre of the page.
+  */
+  .price-strip {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-surface);
+    padding: clamp(16px, 2.2vw, 22px);
+    display: grid;
+    gap: 0.75rem;
+  }
+  .price-line {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-ink-2);
+  }
+  .price-line strong {
+    font-weight: 600;
+    font-size: 1.0625rem;
+    color: var(--color-ink);
+  }
+}
+
+/* ------------------------------------------------- case study, restructured */
+/*
+  The case study holds the strongest writing on the site and had the weakest
+  presentation: one narrow column, every section the same weight, no way to see
+  the shape of the argument or to move within it.
+*/
+@layer components {
+  .cs-shell {
+    display: grid;
+    gap: clamp(28px, 4vw, 56px);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 1000px) {
+    .cs-shell {
+      grid-template-columns: 210px minmax(0, 1fr);
+    }
+  }
+
+  .cs-rail {
+    display: none;
+  }
+  @media (min-width: 1000px) {
+    .cs-rail {
+      display: block;
+      position: sticky;
+      inset-block-start: 84px;
+    }
+  }
+  .cs-rail ol {
+    display: grid;
+    gap: 0.55rem;
+    counter-reset: rail;
+  }
+  .cs-rail a {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    line-height: 1.35;
+    border-inline-start: 2px solid var(--color-line);
+    padding-inline-start: 0.7rem;
+    padding-block: 0.15rem;
+  }
+  .cs-rail a:hover {
+    color: var(--color-ink);
+    border-inline-start-color: var(--color-accent);
+  }
+  .cs-rail .n {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-accent-ink);
+  }
+
+  /* Numbered section headings, so the argument has visible structure. */
+  .cs-h2 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.15;
+    font-weight: 600;
+    margin-block: clamp(48px, 6vw, 76px) 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    scroll-margin-block-start: 90px;
+  }
+  .cs-h2 .cs-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-accent-ink);
+    letter-spacing: 0.08em;
+  }
+
+  /*
+    The three depths side by side. Stacked, they read as three unrelated boxes;
+    in columns the comparison is the point, which is the whole argument of the
+    section.
+  */
+  .cs-depths {
+    display: grid;
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-block-start: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .cs-depths {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .cs-depths .cs-depth {
+    background: var(--color-surface);
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: clamp(16px, 1.8vw, 22px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .cs-depths .cs-depth h4 {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+  .cs-depths .cs-note {
+    margin-block-start: auto;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid var(--color-line);
+    font-size: 0.8125rem;
+    color: var(--color-muted);
   }
 }

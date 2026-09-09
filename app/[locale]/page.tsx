@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { routing, type AppLocale } from '@/i18n/routing'
+import { routing } from '@/i18n/routing'
 
 export default async function LandingPage({
   params,
@@ -10,91 +10,135 @@ export default async function LandingPage({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations()
+  const ar = locale === 'ar'
 
-  const other: AppLocale = locale === 'ar' ? 'en' : 'ar'
   const depths = ['l1', 'l2', 'l3'] as const
 
+  // The page's own header, <main> and footer are gone: the locale layout now
+  // supplies all three. Keeping them produced two stacked wordmarks, a second
+  // locale switch, and two <main> landmarks on one page.
   return (
-    <div className="mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-10">
-      <header className="flex items-center justify-between gap-4">
-        <span className="text-sm font-semibold tracking-wide">
-          {t('hero.title')}
-        </span>
-        <nav className="flex items-center gap-4 text-sm">
-          <a className="link" href="https://github.com" rel="noreferrer">
-            {t('nav.repo')}
-          </a>
-          {/* Locale switch keeps the reader on the same route. */}
-          <Link className="link" href="/" locale={other} hrefLang={other}>
-            {other === 'ar' ? 'العربية' : 'English'}
-          </Link>
-        </nav>
-      </header>
+    <>
+      <section className="band">
+        <div className="shell">
+          <span className="eyebrow">{t('hero.badge')}</span>
+          <h1 className="h-display">{t('hero.title')}</h1>
+          <p className="lede measure" style={{ marginBlockStart: '1rem' }}>
+            {t('hero.tagline')}
+          </p>
+          <p className="measure" style={{ marginBlockStart: '1.25rem', color: 'var(--color-muted)' }}>
+            {t('hero.body')}
+          </p>
 
-      <main className="flex flex-1 flex-col justify-center py-16">
-        <p className="badge">{t('hero.badge')}</p>
-
-        <h1 className="mt-6 text-5xl font-bold tracking-tight">
-          {t('hero.title')}
-        </h1>
-        <p className="mt-2 text-xl text-muted">{t('hero.tagline')}</p>
-        <p className="mt-6 max-w-prose text-base leading-relaxed text-muted">
-          {t('hero.body')}
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          {/*
-            A plain form, so guest entry works without JavaScript and cannot be
-            triggered by a crawler following a link. The endpoint creates the
-            guest, signs them in, and redirects. Destination is the claim-review
-            simulation from Week 3 (SPEC.md section 7); for now, ?tour=1.
-          */}
-          <form action="/api/demo" method="post">
-            <button className="btn-primary" type="submit">
-              {t('hero.cta')}
-            </button>
-          </form>
-          <span className="text-sm text-muted">{t('hero.ctaNote')}</span>
+          <div
+            style={{
+              marginBlockStart: '2rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              gap: '0.85rem',
+            }}
+          >
+            {/*
+              A plain form, so guest entry works without JavaScript and cannot be
+              triggered by a crawler following a link. The endpoint creates the
+              guest, signs them in, and redirects.
+            */}
+            <form action="/api/demo" method="post">
+              <button className="btn-primary" type="submit">
+                {t('hero.cta')}
+              </button>
+            </form>
+            <span style={{ fontSize: '0.875rem', color: 'var(--color-muted)' }}>
+              {t('hero.ctaNote')}
+            </span>
+          </div>
         </div>
+      </section>
 
-        {/* Without these, a reviewer arriving at the landing page can reach the
-            practice workbench and nothing else — no depth model, no case study,
-            no pipeline page. The guest button is the fast path, not the only one. */}
-        <nav className="mt-12" aria-label={t('explore')}>
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-            {t('explore')}
+      {/* ------------------------------------------------------ three depths */}
+      <section className="band band-alt">
+        <div className="shell">
+          <span className="eyebrow">{t('depth.title')}</span>
+          <h2 className="h-section">
+            {ar ? 'العمق خاصية للدرس، لا درس منفصل' : 'Depth is a property of a lesson, not a separate lesson'}
           </h2>
-          <ul className="landing-links mt-3">
-            <li><Link href="/depth">{t('nav.method')}</Link></li>
-            <li><Link href="/course">{t('nav.course')}</Link></li>
-            <li><Link href="/case-study">{t('nav.caseStudy')}</Link></li>
-            <li><Link href="/how-it-was-built">{t('nav.built')}</Link></li>
-            <li><Link href="/privacy">{t('nav.privacy')}</Link></li>
-          </ul>
-        </nav>
 
-        <section className="mt-12">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-muted">
-            {t('depth.title')}
-          </h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+          <div className="cs-depths" style={{ marginBlockStart: '1.75rem' }}>
             {depths.map((level) => (
-              <li key={level} className="card">
-                <h3 className="text-sm font-semibold">{t(`depth.${level}.name`)}</h3>
-                <p className="mt-2 text-sm text-muted">{t(`depth.${level}.body`)}</p>
-              </li>
+              <div key={level} className="cs-depth">
+                <h4>{t(`depth.${level}.name`)}</h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-ink-2)' }}>
+                  {t(`depth.${level}.body`)}
+                </p>
+              </div>
             ))}
-          </ul>
-        </section>
-      </main>
+          </div>
 
-      <footer className="border-t border-line pt-6 text-xs leading-relaxed text-muted">
-        <p>{t('disclaimer')}</p>
-        <p className="mt-3">
-          {t('footer.status')} · {t('footer.rights')}
-        </p>
-      </footer>
-    </div>
+          <p style={{ marginBlockStart: '1.25rem' }}>
+            <Link className="link" href="/depth">
+              {ar ? 'انظر الفقرة نفسها بالمستويات الثلاثة' : 'See the same paragraph at all three levels'}
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------ index */}
+      <section className="band">
+        <div className="shell">
+          <span className="eyebrow">{t('explore')}</span>
+          <h2 className="h-section">{ar ? 'ما بداخل هذا العرض' : "What is inside this demo"}</h2>
+
+          {/*
+            Without a real index, a reviewer arriving here can reach the practice
+            workbench and nothing else. The guest button is the fast path, not
+            the only one.
+          */}
+          <ul className="rule-list" style={{ marginBlockStart: '1.75rem' }}>
+            <li>
+              <h3 className="h-item">
+                <Link href="/course">{t('nav.course')}</Link>
+              </h3>
+              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
+                {ar
+                  ? 'خمسة دروس، كل درس بعمقه ولغته ومدته المعلنة.'
+                  : 'Five lessons, each with its depth, language and length declared.'}
+              </p>
+            </li>
+            <li>
+              <h3 className="h-item">
+                <Link href="/practice/claim-review">{ar ? 'مراجعة مطالبة' : 'Claim review'}</Link>
+              </h3>
+              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
+                {ar
+                  ? 'ستة أخطاء مزروعة، ودرجة بمقياس F1 تعاقب التعليم العشوائي.'
+                  : 'Six seeded errors, scored with F1 so indiscriminate flagging is penalised.'}
+              </p>
+            </li>
+            <li>
+              <h3 className="h-item">
+                <Link href="/case-study">{t('nav.caseStudy')}</Link>
+              </h3>
+              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
+                {ar
+                  ? 'القرارات التي أدافع عنها، وما الذي أخفق أثناء البناء.'
+                  : 'The decisions worth defending, and what failed along the way.'}
+              </p>
+            </li>
+            <li>
+              <h3 className="h-item">
+                <Link href="/how-it-was-built">{t('nav.built')}</Link>
+              </h3>
+              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
+                {ar
+                  ? 'خط إنتاج المحتوى وبواباته، وما لم يُشغَّل بعد.'
+                  : 'The content pipeline, its gates, and what has not been run yet.'}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </>
   )
 }
 
