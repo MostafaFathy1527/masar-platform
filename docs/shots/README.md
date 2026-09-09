@@ -1,7 +1,7 @@
 # Screenshots
 
 Deliverable D8. Six shots, chosen so that each one carries an argument rather than showing
-a screen. Not yet captured — see "Status" below.
+a screen. **Four are captured**; two need interaction — see "Status".
 
 All from production, `https://masar.mostafafathy.com`. Filenames are fixed so the case
 study and README can reference them before they exist.
@@ -30,18 +30,40 @@ Three of the six need interaction, which is why they are worth the most:
 - **5** — enter as a guest, start the exam, answer, submit. Any answers will do; the shot
   is of the breakdown, not the score.
 
+## Capturing them
+
+`scripts/shot.mjs` drives Chrome over the DevTools protocol. Start headless Chrome first,
+with a **dedicated** user-data-dir:
+
+```bash
+chrome --headless=new --remote-debugging-port=9333 --user-data-dir=/tmp/masar-shots
+node scripts/shot.mjs https://masar.mostafafathy.com/ar docs/shots/01-landing-ar.png 1280 900 2
+```
+
+Two dead ends are documented in that script's header so nobody re-derives them:
+
+- **`--headless --screenshot --window-size` clips RTL.** It lays the page out wider than
+  the window and crops the capture, which is indistinguishable from a layout that
+  overflows. `Emulation.setDeviceMetricsOverride` matches the real browser.
+- **A colliding `--user-data-dir` fails silently.** No error, no file, exit code 0.
+
 ## Status
 
-**Not captured.** The available browser tooling can render and verify these pages — every
-one has been checked at these viewports — but cannot write an image file into this
-repository.
+| # | File | State |
+|---|---|---|
+| 1 | `01-landing-ar.png` | Captured — 1280×900 @2x |
+| 2 | `02-depth-switch.png` | Captured — 1280×900 @2x |
+| 3 | `03-claim-review-390.png` | Captured — 390×844 @2x |
+| 4 | `04-claim-review-result.png` | **Not captured** — needs interaction |
+| 5 | `05-exam-review.png` | **Not captured** — needs interaction |
+| 6 | `06-how-it-was-built.png` | Captured — 1280×900 @2x |
 
-Two ways to close it:
+Each captured shot was inspected rather than assumed present. Shot 3 in particular was
+verified to show the claim's `1988-03-11` and the card's `1988-03-14` in the same frame,
+with nothing clipped — the simultaneity is the reason that shot exists.
 
-1. **Manually**, following the table above. Roughly ten minutes.
-2. **With Playwright**, which would also unlock the three end-to-end journeys the plan asks
-   for and which are currently untested. That is a dependency install and a scope decision,
-   not something to add quietly.
+**4 and 5 need a few interactions before the capture.** `scripts/shot.mjs` can be extended
+to drive them over the same connection (`Runtime.evaluate` plus `Input` events), or they
+can be taken by hand in about five minutes. Both are honest; neither is done.
 
-Until they exist, nothing in the README or the case study points at an image that is not
-there — the table above is the specification, not a claim that the files are present.
+Nothing in the README or the case study points at 4 or 5.
