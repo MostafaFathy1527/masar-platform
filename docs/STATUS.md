@@ -7,8 +7,9 @@ Update this file at the end of every session. It is the first thing the next ses
 is live over HTTPS, CI is green, the database is migrated and verified, and a clean clone
 reaches a running instance in 156 seconds.
 
-**Week 2 is open.** The `LessonDoc` schema and block registry have landed; the renderer,
-the depth page and `validate.py` are next.
+**Week 2 is under way.** The `LessonDoc` schema, the 12-block registry, the renderer and
+`/depth` have all landed and are verified at runtime in both locales. `pipeline/validate.py`
+and the lesson-player shell are what remain.
 
 **One production gap, not a DoD line:** environment variables are still unset on Vercel,
 so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
@@ -59,23 +60,34 @@ now checked on every push rather than trusted once.
 Ships by Sunday: lesson renderer + block registry, L1 and L2 rendering, a `/depth` page
 showing one lesson at all three depths, and `pipeline/validate.py`.
 
-1. **Block components** — one per type in `components/blocks/`, plus a `<BlockRenderer>`
-   switch driven by the discriminated union.
-2. **Lesson player shell** — reading column, progress rail, depth switch L1/L2/L3.
-3. **`/depth`** — the same lesson rendered at each depth, side by side. This is the page
-   an L&D reader will actually judge the project on.
+1. ~~Block components and the `<BlockRenderer>` switch~~ — **done**, all 12 types.
+2. ~~`/depth`~~ — **done**, cumulative rendering with a three-tab depth switch.
+3. ~~Hand-author lesson 4~~ — **done** at L1, L2 and L3 as the golden reference.
 4. **`pipeline/validate.py`** — structural validation against the generated JSON Schema,
-   plus the semantic rules the schema cannot express, plus the forbidden-code-set
-   denylist (CPT/HCPCS/CDT, X12 remark shapes, DRG).
-5. **Hand-author lesson 4** at L1 + L2, bilingual, as the locked golden reference.
+   plus the semantic rules the schema cannot express, plus the forbidden-code-set denylist.
+   The TypeScript side of both already exists and is tested; this ports them to the
+   pipeline's side of the contract.
+5. **Lesson player shell** — reading column, progress rail, per-lesson depth switch, and
+   `BlockInteraction` writes so block-level analytics start accumulating.
 6. Self-hosted OFL fonts — still a system stack.
 
+### Known gaps in the block schema, worth deciding before more content is authored
+- **`compare_table` is not bilingual.** Its `columns` and `rows` are plain strings, so a
+  table renders the same text in both locales. Inherited from the block schema in
+  `BUILD.md`; every other block is properly paired. Either make the cells `xAr`/`xEn`
+  pairs or state the limitation.
+- **`@types/node` is on 20.x while the runtime is Node 24.** Harmless so far — it surfaced
+  as `fs.globSync` existing at runtime but not in the types — but the mismatch will keep
+  producing false type errors.
+
 ## Done
-- **Week 2 started.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
+- **Week 2, so far.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
   registry against a 16-type cap, with the cross-field rules a human editor cannot
   enforce by eye. `content/schema/lesson.schema.json` is generated from it and
   cross-validated with Python's `jsonschema`; a drift test makes "regenerate after any
-  change" mechanical.
+  change" mechanical. All 12 block components, an exhaustive `<BlockRenderer>`, lesson 4
+  authored bilingually at all three depths, and `/depth` rendering it cumulatively.
+  Content is validated and scanned for licensed code sets in CI.
 
 - Repo, the project rules file, `BUILD.md` (sanitized), `LATER.md`.
 - **Publish safety.** Forbidden terms in `.local/denylist.txt` with a 14-case fixture;
