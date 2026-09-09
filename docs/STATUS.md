@@ -177,17 +177,22 @@ The two reviews he *is* doing are real and are labelled precisely: an **instruct
 review** and the **blind inter-rater check**. Neither is a subject-matter review, and the
 copy never lets the two blur. See `docs/design/sme-review.md`.
 
-## Next (Week 6)
+## Next
 
-The last week: `PaymentProvider` interface with a mock adapter only and a paywall (two
-days, not two weeks), six screenshots and a short recording, the case study in English with
-an Arabic summary, and `HANDOVER.md` finished.
+**v1.0 is complete.** All six weeks are shipped and deployed. Week 6 delivered the
+`PaymentProvider` interface with a mock adapter and the paywall, all six screenshots, the
+case study in English with an Arabic summary, and `HANDOVER.md`.
 
-`docs/design/what-failed.md` has five entries banked for §0.4 item 4, with the pattern
-named: **the falsifiable claims are the ones that break, and they only break when you try
-to game them.**
+What remains needs a person, not an agent, and is listed in the project rules file: the judge sitting
+in a fresh session, the blind inter-rater check, the instructional-design review, and the
+narrated recording.
 
-**Block-type budget: still 12 of 16.** Nothing in Weeks 3, 4 or 5 needed a new type.
+`docs/design/what-failed.md` has **seven** entries for §0.4 item 4. The first five share
+one pattern — **the falsifiable claims are the ones that break, and they only break when
+you try to game them.** The sixth and seventh break it in opposite directions: the code
+was right and the product was wrong, then the product was right and the tool was wrong.
+
+**Block-type budget: still 12 of 16.** Nothing in Weeks 3 to 6 needed a new type.
 
 ## Done
 - **Week 2, complete.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
