@@ -3,12 +3,13 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Ten so far. The first five share one pattern; the sixth, seventh and eighth each break it
+Eleven so far. The first five share one pattern; the sixth, seventh and eighth each break it
 in a different direction, which is why they are kept separate rather than folded in. Three
-of the ten are the same underlying defect wearing different clothes, and that sub-pattern
+of the eleven are the same underlying defect wearing different clothes, and that sub-pattern
 is named at the end. The ninth and tenth belong with the gate's false pass: all three are
 **checks that could not do the thing they claimed** — one scanned nothing, one gated
-nothing, and one could not accept the input it existed to judge.
+nothing, and one could not accept the input it existed to judge. The eleventh names a second
+pattern, and it took two independent instances to see it.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -43,7 +44,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the ten to catch.
+testable. This is the easiest of the eleven to catch.
 
 ---
 
@@ -354,6 +355,54 @@ negative test asserts that an L1 fixture carrying a fabricated `knowledge_check`
 **rejected**: without it the fix legitimises the exact fabrication it exists to prevent,
 which is the same shape as the zero-blob counter added to `gate.sh`.
 
+---
+
+## 11. Monolingual infrastructure wearing a bilingual claim
+
+**What was wrong.** `pipeline/qa_gate.py` printed its report to stdout. On Windows that
+stream defaults to cp1252, so the gate **died with a `UnicodeEncodeError` on any character
+outside that codepage**. What actually killed it was a single icon — `☷` — quoted from
+inside a judge's note.
+
+**Why it is not a trivia item.** The crash happens *after* the verdict is evaluated, while
+the report is being printed. The gate did the work correctly and then failed at the last
+step, on the content it was quoting. And the input that broke it was not exotic: it was a
+non-Latin character, on a project whose stated differentiator is Arabic quality. **The first
+Arabic judge note would have crashed the gate**, and Arabic judge notes are the expected
+case, not an edge one.
+
+**Why nothing caught it.** Twenty negative tests, all passing. Not one of them ever printed
+a report containing a non-Latin character, because every fixture in the file was written in
+English by someone typing in English. The suite was thorough about what the gate should
+refuse and silent about what it would be asked to handle.
+
+**The transferable line.** *A gate for a bilingual product whose tests only ever handle
+Latin text is monolingual infrastructure wearing a bilingual claim.* The claim lives in the
+product description; the assumption lives in the fixtures; and nothing connects the two, so
+the contradiction can sit indefinitely.
+
+**The second instance, which is what makes it a pattern.** This is not the only place it
+happened. The Arabic case-study summary said `ستة إخفاقات` — six — for as long as this
+document held nine, while every English surface was correct. Every count check ever run on
+this project, by the agent and by the owner, had been run against English text. Two
+independent mechanisms, built months apart for unrelated purposes, both silently assumed
+their inputs were Latin.
+
+One is an incident. Two, arrived at separately, is the shape of the project: **the
+non-English half of a bilingual system is where verification quietly stops.** Not because
+anyone decided to skip it, but because the person writing the test writes the fixture, and
+writes it in the language they are thinking in.
+
+**Why it belongs beside the evidence panel.** Entry 3 was code that was correct by every
+test it had and rendered nothing in use. This is the same family — every test passed, and
+the artefact failed the moment it met real input — but sharper, because the real input was
+the product's own headline feature.
+
+**The repair.** `sys.stdout` and `sys.stderr` are reconfigured to UTF-8 with
+`errors='replace'` before anything is printed. The narrower fix would have been to strip the
+offending character from the note; that would have made the symptom disappear while leaving
+the gate unable to report on Arabic content, which is most of what it exists to report on.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -395,7 +444,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Three of the ten are the same defect. The landing page carried a "Week 1 — under
+Three of the eleven are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen.

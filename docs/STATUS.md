@@ -213,8 +213,14 @@ and rendered nothing: **the artefact worked in every test and not in use.**
 
 `sys.stdout` and `sys.stderr` are now reconfigured to UTF-8 with `errors='replace'`.
 
-**This is not in `docs/design/what-failed.md`.** It is a genuine eleventh finding and the
-record currently stops at ten — landing it is the owner's call, not the agent's.
+**Recorded as entry 11** in `docs/design/what-failed.md`, where it names a second
+sub-pattern: *a gate for a bilingual product whose tests only ever handle Latin text is
+monolingual infrastructure wearing a bilingual claim.* It took two independent instances to
+see it — this crash, and the Arabic case-study count that read `ستة إخفاقات` while every
+English surface was correct. Two mechanisms, built months apart for unrelated purposes, both
+silently assuming their inputs were Latin. **The non-English half of a bilingual system is
+where verification quietly stops** — not by decision, but because whoever writes the test
+writes the fixture, in the language they are thinking in.
 
 ## §0.7 practitioner review — not sought (scope decision, closed)
 
@@ -286,7 +292,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **ten** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **eleven** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
@@ -296,13 +302,17 @@ palette shipped unconditionally and the light default had never rendered anywher
 `qa_gate.py` could not accept an L1-only lesson — four of the five shipped — while nine
 negative tests passed throughout.
 
+The eleventh names a second sub-pattern — monolingual infrastructure under a bilingual
+claim — from two independent instances.
+
 **Both case-study locales now derive the count** from the document via `lib/failures.ts`,
 after `/ar/case-study` sat at "ستة إخفاقات" while every English surface said nine. Every
 count check on this project had been run against English text, which made hand-written
-Arabic prose the one surface where a stale number could sit indefinitely.
+Arabic prose the one surface where a stale number could sit indefinitely. The mechanism has
+since earned itself twice: the pages moved to ten and then to eleven with no edit.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — three of the ten are hardcoded facts that silently stopped
+were true when written** — three of the eleven are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
@@ -361,6 +371,22 @@ leak patterns will trip a leak detector.
 - **CI** — typecheck, lint, tests, `prisma validate`, build, migration verification,
   full-history secret scan.
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
+
+## A note for whoever opens this next
+
+"Environment variables on Vercel" sat in the blocked list below for weeks, claiming
+production was broken and `POST /api/demo` returned 500. It had been false since the day the
+variables were set. It survived every previous pass over this file — **including passes whose
+explicit subject was stale facts**, written by someone who had just finished cataloguing that
+exact failure mode two sections above.
+
+That is the strongest evidence in the project for the thing the record keeps saying: **a
+document describing a failure mode does not protect itself from it.** Knowing the pattern is
+not a mechanism. Only a mechanism is a mechanism — a derived value, a test, or a named owner
+and a moment when the claim is re-read.
+
+So: the checklist below is prose, and prose drifts. Before trusting any line in it, check the
+thing it describes.
 
 ## Blocked / needs the owner
 - [ ] **Blind inter-rater sample** (~20 min). **Now load-bearing.** Three lessons scored
