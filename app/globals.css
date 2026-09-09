@@ -827,3 +827,29 @@ body {
     color: var(--color-muted);
   }
 }
+
+@layer components {
+  .sandbox-banner {
+    border: 1px solid var(--color-accent);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .price-card {
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+  .price-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-block: 0.75rem 0.25rem;
+  }
+  .price-amount span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+}
