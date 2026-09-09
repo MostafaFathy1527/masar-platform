@@ -218,3 +218,143 @@ returned SSO redirects on some aliases and 404s on others and made the routing f
 much harder to isolate. For a public portfolio demo whose entire purpose is that a
 stranger can open the link, off is the correct end state. This is a deliberate setting,
 not an oversight.
+
+---
+
+# Architecture
+
+A single Next.js application talking to one Postgres database. No queue, no cache, no
+second service, no blob store. Everything below is a consequence of that being enough.
+
+```
+Next.js (App Router)  ──  Prisma + @prisma/adapter-pg  ──  Postgres (Neon)
+        │
+        ├── app/[locale]/…      pages, Arabic default with an English mirror
+        ├── app/api/…           route handlers: auth, demo, sim, attempt, certificate,
+        │                       checkout, retention, me/export, me/delete
+        ├── lib/                the pure logic: scoring, assembly, certificates,
+        │                       retention, auth guard, payments
+        ├── content/            lessons, items and simulations as JSON, in git
+        └── pipeline/           gates, contract, prompts, memory
+```
+
+**Where the rules live.** Anything that could silently corrupt a grade, a certificate or a
+privacy claim is a pure module under `lib/`, unit-tested, with no database or request in
+sight: `lib/scoring/claim-review.ts`, `lib/assessment/{assembly,scoring}.ts`,
+`lib/certificates.ts`, `lib/retention.ts`, `lib/auth-guard.ts`. Route handlers call them;
+they never reimplement them.
+
+**Content is data, in git.** Lessons, items and simulations are JSON files validated by a
+Zod schema, loaded into the database by seed scripts. The database is a load target, not
+the source of truth — which is what makes the export story below real rather than nominal.
+
+# Commands
+
+```
+npm run dev            development server
+npm run build          production build (runs prisma generate first)
+npm run check          typecheck + lint + tests + prisma validate — run before committing
+npm run test           vitest
+npm run schema:export  regenerate content/schema/lesson.schema.json from the Zod source
+npm run db:migrate     prisma migrate dev
+npm run db:deploy      prisma migrate deploy
+
+python pipeline/validate.py --denylist .local/denylist.txt
+python pipeline/concept_log.py --check
+python pipeline/qa_gate.py --verdict <file>
+python pipeline/test_validate.py && python pipeline/test_concept_log.py && python pipeline/test_qa_gate.py
+```
+
+# Environment
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | Postgres connection string, pooled |
+| `AUTH_SECRET` | Session signing secret |
+| `SHADOW_DATABASE_URL` | CI only, for `migrate diff --from-migrations` |
+
+`.env.example` is committed with placeholder shapes; `.env` is gitignored and never leaves
+the machine.
+
+# Costs
+
+| Item | Plan | Monthly |
+|---|---|---|
+| Vercel | Hobby (non-commercial) | $0 |
+| Neon Postgres | Free | $0 |
+| GitHub | Public repository | $0 |
+| Domain | Already owned | — |
+| Payment provider | None activated | $0 |
+| **Total** | | **$0.00** |
+
+The Hobby plan forbids commercial use, which is why the price card never renders without a
+test-mode banner and why no payment provider is activated. A production-scale equivalent
+would be a paid database tier and a paid hosting tier; nothing about the architecture
+assumes the free tiers.
+
+# How you take all of this and leave
+
+The point of this section is that none of it depends on the author, this account, or this
+hosting provider.
+
+**1. The source code.** A public Git repository. Clone it; there is no build service, no
+private registry and no proprietary tooling.
+
+**2. The content.** Every lesson, item and simulation is a JSON file under `content/`, in
+git, validated by a published schema. The database can be rebuilt from these files with the
+seed scripts. Nothing about the course lives only in a database row.
+
+**3. The database.** One standard Postgres. A full dump is one command:
+
+```bash
+pg_dump "$DATABASE_URL" > masar-backup.sql
+```
+
+Restore it anywhere that speaks Postgres. `@prisma/adapter-pg` is the generic driver, not a
+vendor-specific one, so moving off Neon is a connection-string change.
+
+**4. Learner data.** Any signed-in learner can export everything held about them as JSON
+from `/api/me/export`, and delete their account outright at `/api/me/delete`. Deletion
+cascades; a test fails the build if a model is ever added that holds a learner id without a
+cascade.
+
+**5. The schema.** `npx prisma migrate deploy` rebuilds the structure from the committed
+migrations against any empty Postgres.
+
+**6. The domain.** A CNAME. Point it elsewhere and this stops being the deployment.
+
+**7. The pipeline.** Python, standard library plus `jsonschema` and `PyYAML`. It calls no
+model API and has no credentials of its own.
+
+# Licences
+
+- **Code** — MIT.
+- **Course content** — CC BY-NC 4.0.
+- **Dependencies** — all permissively licensed; no commercial licence is required to run,
+  modify or redistribute this.
+- **Code sets** — none licensed. Every code in the course is fictional
+  (`PRC-1000` procedures, `DX-A100` diagnoses) precisely so that no licensed descriptor is
+  redistributed. A real deployment would license real code sets and is responsible for
+  doing so.
+
+# What is deliberately not built
+
+Recorded in `LATER.md` and scoped out in writing before the build, not dropped when time
+ran short: a second simulation, module quizzes, a mastery engine, content CRUD editors, an
+instructor role, real payment adapters, SCORM export, a mobile app, and email
+deliverability beyond a single free tier.
+
+# Support model
+
+Thirty days of defect correction after handover.
+
+| Severity | Definition | Response |
+|---|---|---|
+| P1 | Platform down, or grading or certification incorrect | 1 business day |
+| P2 | A feature is broken and a workaround exists | 3 business days |
+| P3 | Cosmetic | Next release |
+
+**Defect versus change request.** A defect is behaviour that contradicts this document, the
+specification, or a committed test. Anything else — including behaviour that is correct but
+unwanted — is a change request. Writing that distinction down in advance is the part that
+usually gets skipped, and it is where most support relationships fail.

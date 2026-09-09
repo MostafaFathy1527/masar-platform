@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Three so far, and they form a pattern worth naming:
+Six so far. The first five form one pattern; the sixth is a different failure worth keeping separate.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -38,7 +38,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the three to catch.
+testable. This is the easiest of the six to catch.
 
 ---
 
@@ -47,7 +47,7 @@ testable. This is the easiest of the three to catch.
 **What was wrong.** Answering *the first option* on every exam item scored **89%** and
 passed. The bank was authored with the correct answer first in 11 of 14 items.
 
-**What makes this the worst of the three.** Nothing caught it and nothing could have. The
+**What makes this the worst of them.** Nothing caught it and nothing could have. The
 content read well. The Zod schema validated it. `pipeline/validate.py` passed it. The
 forbidden-code-set scan passed it. Every option had feedback naming its misconception. The
 item bank was, by every check the project had, correct — and a reviewer who tried "always
@@ -94,6 +94,86 @@ whether the element was styled to be visible.
 
 ---
 
+---
+
+## 4. A deleted account's session still worked
+
+**What was wrong.** After deleting an account through the privacy page, the same cookie
+still returned **200** from the data-export endpoint.
+
+A JSON Web Token outlives the row it describes. The cookie stays cryptographically valid
+until it expires, so `session.user.id` continued to identify a user who no longer existed.
+Every authorized route trusted that id without asking whether the account was still there.
+
+**What makes it worse than an ordinary bug.** The code comment in the delete route
+asserted the opposite — that "every authorized path resolves the user from the database,
+so it grants nothing". That sentence had been written without checking, and it was the
+sentence a reviewer would have trusted instead of testing.
+
+**The repair.** Every authorization decision now goes through a guard that resolves the row
+rather than reading the token. After deletion the same cookie returns 401 from export,
+attempt-start and certificate issue, and 404 from admin. A structural test fails the build
+if any route reads `session.user.id` or `.role` directly again.
+
+It also closed a second issue that had been filed as acceptable: a demoted administrator
+now loses access on the next request rather than at their next sign-in.
+
+**Why it was found.** By deleting an account and then continuing to use the session, rather
+than by deleting an account and checking that the delete returned 200.
+
+---
+
+## 5. A test file reported 16/16 while two of its tests never ran
+
+**What was wrong.** Two new test cases were appended to a Python test file *below* its
+`main()` entry point. The decorator that registers a case runs at import time, and the file
+ends with `raise SystemExit(main())` — so the process had already exited before those two
+definitions were reached.
+
+The suite printed **16/16 passed**. It was green, and it was measuring nothing about the
+two rules it had just been extended to cover.
+
+**Why it belongs here.** This is the same failure as the gitleaks step in week 1, which
+scanned zero bytes, reported "no leaks found", and failed the job for an unrelated reason.
+Both are checks that appear to be working while verifying nothing — the most expensive kind
+of green, because it actively removes the incentive to look again.
+
+**The repair.** Moved above `main()`; the suite now runs 18. The count is printed on every
+run, which is what made the discrepancy visible at all.
+
+**Why it was found.** Because the number was expected to change and did not. Nothing else
+about the output looked wrong.
+
+## 6. The code was correct and the product was wrong
+
+**What was wrong.** Six weeks of work — the depth model, the course page, the case study,
+the pipeline page, the privacy page — was **unreachable from the landing page**. The only
+route in was the guest button, straight to the practice workbench. A reviewer who did not
+guess URLs would have seen roughly a tenth of the project.
+
+At the same time the site was still wearing its own build schedule: the hero badge read
+"Under construction — Week 1", the footer read "Week 1 — placeholder", and the depth page
+read "Under construction — Week 2". Those are notes to ourselves about a plan. A visitor
+has no way to read them as anything but an unfinished product, on the page whose entire
+job is to look finished.
+
+**Why no test caught it.** Every page worked. Every page had tests. Every test passed.
+Nothing was broken — there was simply no path to any of it, and no test asserts that a
+visitor can *find* a feature. The build-week copy was equally invisible to tooling: it was
+correct, current, valid text that happened to say the wrong thing to the wrong audience.
+
+**Why it belongs in a separate category.** The other five failures were all defects in
+something that looked correct. This one is different: the code was correct, and the
+*product* was wrong. It was found only by opening the deployed site and looking at it as a
+stranger would, which is a different activity from testing and cannot be automated into
+one.
+
+**The habit it argues for.** Look at the deployed thing, in the language a reviewer will
+use, without knowing any URLs. Everything else in this list was found by attacking the
+system; this was found by simply arriving at it.
+
+---
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -101,8 +181,17 @@ Not "we found three bugs". The point is narrower and more useful:
 The project makes exactly one falsifiable claim about learning — that its simulation
 rewards careful reading over indiscriminate flagging — and that claim was **false as
 originally specified**. It was found in a unit test rather than by a reviewer, because it
-had been written down precisely enough to test. The item-bank failure had not been written
-down anywhere, and only surfaced under adversarial use. The panel failure lied to the
-first tool used to check it.
+had been written down precisely enough to test.
 
-Three for three, the defect was in something that already looked correct.
+The others were progressively harder to see. The item-bank failure had not been written
+down anywhere and only surfaced under adversarial use. The panel lied to the first tool
+used to check it. The deleted session was contradicted by a code comment asserting it could
+not happen. And a test file reported a passing count for tests that never executed.
+
+Five for five, the defect was in something that already looked correct.
+
+The sixth is the counterweight and belongs beside them: the code was correct and the
+product was wrong. Six weeks of work sat behind no link, under a badge announcing it was
+under construction. No test could have caught that, because nothing was broken. It was
+found by opening the site as a stranger, which is a different discipline from testing and
+worth naming as one.
