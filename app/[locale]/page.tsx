@@ -44,14 +44,16 @@ export default async function LandingPage({
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           {/*
-            Week 1 stub. The intended destination is the claim-review
-            simulation (SPEC.md §7) — practice before reading. That ships in
-            Week 3; until then the tour parameter rides along so the entry
-            point and its analytics exist from the start.
+            A plain form, so guest entry works without JavaScript and cannot be
+            triggered by a crawler following a link. The endpoint creates the
+            guest, signs them in, and redirects. Destination is the claim-review
+            simulation from Week 3 (SPEC.md section 7); for now, ?tour=1.
           */}
-          <Link className="btn-primary" href="/?tour=1">
-            {t('hero.cta')}
-          </Link>
+          <form action="/api/demo" method="post">
+            <button className="btn-primary" type="submit">
+              {t('hero.cta')}
+            </button>
+          </form>
           <span className="text-sm text-muted">{t('hero.ctaNote')}</span>
         </div>
 
