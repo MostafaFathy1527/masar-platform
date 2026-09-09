@@ -18,8 +18,8 @@ export default async function CheckoutPage({
   const ar = l === 'ar'
 
   return (
-    <div className="mx-auto max-w-xl px-6 py-10">
-      <h1 className="text-2xl font-bold tracking-tight">
+    <div className="page-shell-narrow">
+      <h1 className="page-title">
         {ar ? 'إتمام الطلب' : 'Complete your order'}
       </h1>
       <SandboxBanner locale={l} />

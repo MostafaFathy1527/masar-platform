@@ -835,9 +835,44 @@ h3,
     color: var(--color-muted);
   }
 
+  /*
+    The shared section heading across the interior pages. It was bold body text
+    with a small margin, which put it within a few pixels of the h1 and left the
+    page with no hierarchy at all — everything the same weight, so nothing led.
+  */
   .admin-q {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 2vw, 24px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-block: clamp(36px, 4.5vw, 60px) 0.75rem;
+    max-inline-size: 38ch;
+  }
+  [dir="rtl"] .admin-q {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+  }
+
+  /*
+    Interior pages keep their own structure but sit on the shared shell and
+    rhythm instead of a bare centred column with no vertical space around it.
+  */
+  .page-shell {
+    margin-inline: auto;
+    inline-size: min(100% - 3rem, var(--shell));
+    padding-block: clamp(40px, 5vw, 72px);
+  }
+  .page-shell-narrow {
+    margin-inline: auto;
+    inline-size: min(100% - 3rem, 78ch);
+    padding-block: clamp(40px, 5vw, 72px);
+  }
+  .page-title {
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.08;
     font-weight: 700;
-    margin-block: 1.75rem 0.625rem;
+    max-inline-size: 24ch;
   }
   .admin-caveat {
     margin-block-start: 1.75rem;
@@ -1083,14 +1118,16 @@ h3,
     line-height: 1.05;
     font-weight: 700;
     /*
-      Display type needs a much tighter measure than prose. 68ch at 52px is
-      most of a 1280px viewport, which produces a single enormous line rather
-      than a heading with shape.
+      Display type needs a tighter measure than prose — 68ch at 52px is most of
+      a 1280px viewport and produces one enormous line — but not so tight that
+      a title breaks into three and eats the hero. Section headings run wider
+      still: a short h2 wrapping inside a 1240px band reads as a mistake rather
+      than a choice.
     */
-    max-inline-size: 20ch;
+    max-inline-size: 27ch;
   }
   .h-section {
-    max-inline-size: 26ch;
+    max-inline-size: 38ch;
   }
   .h-section {
     font-size: clamp(22px, 2.6vw, 30px);
@@ -1298,12 +1335,20 @@ h3,
     gap: clamp(14px, 2vw, 28px);
     align-items: start;
   }
+  /*
+    In an editorial index the numeral is a design element, not a label. Small
+    grey mono made it the weakest thing in a row it is supposed to anchor.
+  */
   .lesson-num {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: var(--color-muted);
-    padding-block-start: 0.3rem;
+    font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-accent-ink);
+    opacity: 0.65;
+    padding-block-start: 0.1rem;
     font-variant-numeric: tabular-nums;
+    min-inline-size: 2.2ch;
   }
   .lesson-meta {
     display: flex;
@@ -1457,5 +1502,78 @@ h3,
     border-block-start: 1px solid var(--color-line);
     font-size: 0.8125rem;
     color: var(--color-muted);
+  }
+}
+
+/* ------------------------------------------------------- Arabic label faces */
+/*
+  Arabic is cursive: letters join, and tracking breaks the joins. It must never
+  be letter-spaced, at any size, in any class.
+
+  The second half of the problem is the face. JetBrains Mono carries no Arabic,
+  so every mono label — eyebrows, chips, the locale switch, footer headings —
+  fell through to whatever monospace the system had, which renders Arabic
+  disjointed even before tracking is applied. Arabic labels use Cairo instead,
+  a step smaller and a weight heavier, which is what makes a label read as a
+  label without borrowing a Latin typographic device that Arabic does not have.
+*/
+:where([lang="ar"], [dir="rtl"]) :is(
+  .eyebrow,
+  .chip,
+  .locale-switch,
+  .lesson-num,
+  .site-footer h2,
+  .cs-depths .cs-depth h4,
+  .cs-rail .n,
+  .cs-h2 .cs-num,
+  .badge,
+  .sim-field-label,
+  .assess-hint
+) {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+:where([lang="ar"], [dir="rtl"]) :is(
+  .eyebrow,
+  .chip,
+  .locale-switch,
+  .site-footer h2,
+  .cs-depths .cs-depth h4
+) {
+  font-family: var(--font-arabic);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+/* Digits and Latin codes inside an Arabic label keep the mono face, because a
+   code like MI-05 or a count like 30 is data rather than prose. */
+:where([lang="ar"], [dir="rtl"]) .chip[data-latin="true"] {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+@layer components {
+  /*
+    Objective statements under a lesson. A quiet two-column row: the code is a
+    label on the statement, not a substitute for it.
+  */
+  .lesson-objectives {
+    display: grid;
+    gap: 0.45rem;
+    margin-block-start: 0.85rem;
+    max-inline-size: 60ch;
+  }
+  .lesson-objectives li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-ink-2);
+  }
+  .lesson-objectives .chip {
+    align-self: start;
   }
 }

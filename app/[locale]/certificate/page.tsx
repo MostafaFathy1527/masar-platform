@@ -84,8 +84,8 @@ export default async function CertificatePage({
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-10">
-      <h1 className="text-2xl font-bold tracking-tight">{t.title}</h1>
+    <div className="page-shell-narrow">
+      <h1 className="page-title">{t.title}</h1>
 
       <h2 className="mt-6 text-sm font-semibold uppercase tracking-widest text-muted">
         {t.gates}

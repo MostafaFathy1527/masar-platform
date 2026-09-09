@@ -211,13 +211,13 @@ function English() {
         What failed
       </h2>
       <p>
-        Eight so far. The first five form a pattern worth naming:{' '}
+        Nine so far. The first five form a pattern worth naming:{' '}
         <strong>
           the falsifiable claims are the ones that break, and they only break when you try
           to game them.
         </strong>{' '}
         Every one of those passed code review, passed its schema, passed CI, and looked
-        right on the screen. The last three each break the pattern in a different
+        right on the screen. The last four each break the pattern in a different
         direction.
       </p>
 
@@ -288,11 +288,25 @@ function English() {
           no test could have failed. The count now interpolates from the blueprint instead
           of restating it.
         </li>
+        <li>
+          <strong>A conditional that was never conditional.</strong> The dark palette was
+          not an alternate — it was the only one. Tailwind 4 lifts <code>@theme</code> out
+          of whatever it is nested in, so a dark block written inside a{' '}
+          <code>prefers-color-scheme</code> media query was emitted unconditionally and the
+          query gated nothing. Every visitor got the dark site regardless of their setting,
+          and the light default had never rendered anywhere — not in a browser, not in a
+          single one of six weeks of screenshots. It surfaced when a capture forced to light
+          came back dark while the page itself reported{' '}
+          <code>prefers-color-scheme: light</code>. A media query cannot be true and not
+          apply, and that contradiction was the whole tell: when output disagrees with a
+          condition, read the compiled artefact rather than the source.
+        </li>
       </ol>
       <p className="cs-small">
         Five of these were found by attacking the system. The sixth was found by arriving
-        at it, the seventh by disbelieving an instrument, and the eighth by a check that
-        was not looking for defects at all.
+        at it, the seventh by disbelieving an instrument, the eighth by a check that was
+        not looking for defects at all, and the ninth by noticing that the page and the
+        browser disagreed about what the browser had asked for.
       </p>
 
       <h2 id="disclosure" className="cs-h2">

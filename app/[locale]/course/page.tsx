@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import { certificateEligibility } from '@/lib/certificates'
+import { objectiveFor } from '@/lib/objectives'
 import { SandboxBanner } from '@/components/payments/SandboxBanner'
 import { StartCheckout } from '@/components/payments/StartCheckout'
 import type { AppLocale } from '@/i18n/routing'
@@ -155,11 +156,16 @@ export default async function CoursePage({
                     <span className="chip">
                       {lesson.estMinutes} {ar ? 'دقيقة' : 'min'}
                     </span>
+                    {/*
+                      The depth badge says the depth and nothing else. It
+                      previously read "L1 · 8", which needs a legend nobody
+                      reads, in a row that already carries four chips. The
+                      block count belongs in the lesson, not the index.
+                    */}
                     {['l1', 'l2', 'l3'].map((lv) =>
                       lesson.levels.map((x) => x.toLowerCase()).includes(lv) ? (
                         <span key={lv} className="chip chip-accent">
                           {ar ? LEVEL_LABEL[lv].ar : LEVEL_LABEL[lv].en}
-                          {lesson.blockCounts[lv] ? ` · ${lesson.blockCounts[lv]}` : ''}
                         </span>
                       ) : null,
                     )}
@@ -179,16 +185,45 @@ export default async function CoursePage({
                           ? 'إنجليزي فقط'
                           : 'EN only'}
                     </span>
-                    {lesson.objectives.map((o) => (
-                      <span key={o} className="chip">
-                        {o}
-                      </span>
-                    ))}
                   </div>
+
+                  {/*
+                    Objective codes alone are meaningless to a buyer. The
+                    statement is what tells them whether the course teaches the
+                    thing they need, so the code becomes a label on the
+                    statement rather than a chip standing in for one.
+
+                    On Arabic the statement still renders in English, marked as
+                    such, because the Arabic objectives have not been written
+                    yet — see lib/objectives.ts. Showing the code alone would
+                    hide that gap instead of stating it.
+                  */}
+                  <ul className="lesson-objectives">
+                    {lesson.objectives.map((code) => {
+                      const o = objectiveFor(code)
+                      return (
+                        <li key={code}>
+                          <span className="chip" data-latin="true">
+                            {o.code}
+                          </span>
+                          <span lang={ar ? 'en' : undefined} dir={ar ? 'ltr' : undefined}>
+                            {o.en}
+                          </span>
+                        </li>
+                      )
+                    })}
+                  </ul>
                 </div>
               </li>
             ))}
           </ol>
+
+          {ar ? (
+            <p className="measure" style={{ marginBlockStart: '1.5rem', fontSize: '0.8125rem', color: 'var(--color-muted)' }}>
+              أهداف التعلّم معروضة بالإنجليزية حتى الآن. صياغتها بالعربية عمل تصميم تعليمي
+              لم يُنجز بعد، وترجمتها الحرفية كانت ستنتج أهدافًا غير مكتوبة كأهداف.
+            </p>
+          ) : null}
 
           <p className="measure" style={{ marginBlockStart: '1.5rem', fontSize: '0.8125rem', color: 'var(--color-muted)' }}>
             {ar

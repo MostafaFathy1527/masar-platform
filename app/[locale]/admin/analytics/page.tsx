@@ -97,8 +97,8 @@ export default async function AdminAnalyticsPage({
   ])
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
-      <h1 className="text-2xl font-bold tracking-tight">{t.title}</h1>
+    <div className="page-shell">
+      <h1 className="page-title">{t.title}</h1>
       <p className="mt-2 max-w-prose text-muted">{t.lead}</p>
 
       <h2 className="admin-q">{t.q1}</h2>

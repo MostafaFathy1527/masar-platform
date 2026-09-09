@@ -50,10 +50,10 @@ export default async function AssessPage({
   })
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
+    <div className="page-shell">
       <header className="mb-6">
-        <p className="badge">{l === 'ar' ? 'تقييم' : 'Assessment'}</p>
-        <h1 className="mt-3 text-2xl font-bold tracking-tight">{t.title}</h1>
+        <p className="eyebrow">{l === 'ar' ? 'تقييم' : 'Assessment'}</p>
+        <h1 className="page-title">{t.title}</h1>
         {assessment ? (
           <p className="mt-2 max-w-prose text-muted">
             {t.lead(assessment.itemCount, assessment.passPct)}
