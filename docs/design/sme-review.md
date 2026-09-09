@@ -1,126 +1,102 @@
-# SME review — form and invitation
+# Review: what was done, what was not, and why
 
-§0.7: *schedule it, don't hope for it.* "Invited, not invented" is only honest if the
-invitation actually happened, so this document exists to be **sent**, not to sit here.
-
-**Owner: Mostafa.** Nobody else can send this — it goes out under his name, through his
-network. Everything below is drafted so it can go out today.
-
-**If nobody accepts, the case study says so plainly.** That sentence is written in advance
-(at the bottom of this file) so there is no temptation to soften it later.
+§0.7 scheduled a practitioner review of the content. **That review was not sought.** This
+document records the decision, the limitation it leaves, and the two reviews that *are*
+being done — which are real, but are not the same thing and must never be described as if
+they were.
 
 ---
 
-## What a reviewer is asked to do
+## 1. Practitioner review — not sought (scope decision, closed)
 
-Thirty minutes, no preparation, no account needed. They open two links and answer eleven
-questions. They are **not** asked to proofread, and not asked whether they liked it.
+**What the plan asked for.** One or two claims or revenue-cycle practitioners to review the
+flagship lesson and the simulation against a fixed form.
 
-| | Link | Time |
-|---|---|---|
-| 1 | The applied practice: `masar.mostafafathy.com/en/practice/claim-review` | ~15 min |
-| 2 | The flagship lesson at three depths: `masar.mostafafathy.com/en/depth` | ~10 min |
-| 3 | The form below | ~5 min |
+**What was decided.** Not to seek it. Recruiting a practitioner reviewer has a real cost in
+time and social capital for a self-initiated project with no budget, and the owner decided
+against it.
 
-Arabic versions: swap `/en/` for `/ar/`.
+**This is a scope decision, not an outstanding task.** It is closed. It is recorded here so
+that the limitation is visible rather than absent, which is the only thing that makes the
+decision defensible.
 
----
+### The limitation this leaves
 
-## The form
+Stated on `/how-it-was-built` and in the case study, in these words:
 
-Fixed questions. The point is to find out whether the content would embarrass someone who
-does this work — not to collect praise.
+> No claims or revenue-cycle practitioner reviewed this content. It was authored from
+> public sources by an instructional designer. All code sets are fictional training codes,
+> and a real deployment would use a deploying organisation's own payer rules and licensed
+> code sets, reviewed by someone who works in the field.
 
-### A. The claim review (the simulation)
+**Why the honest version is stronger than a softened one.** A reviewer who works in claims
+is the single most likely person to test this claim, and it is the easiest one to check. A
+vague "reviewed for accuracy" invites exactly that scrutiny and fails it. Saying plainly
+that no practitioner saw it costs nothing that was ever truthfully claimed, and it removes
+the only sentence a domain reviewer could use to dismiss the whole project.
 
-1. **Are the six seeded errors the kind of thing you actually see?** For each one, answer
-   *realistic / plausible but rare / not a real problem*:
-   demographic mismatch · service date before coverage · a line the record does not support ·
-   an unspecified diagnosis where the record is specific · missing rendering provider ·
-   a total that does not reconcile to the lines.
+### What must never be written
 
-2. **Is anything missing that you would expect a first-week reviewer to check?**
+**The owner is not the subject-matter expert on this content.** He is an instructional
+designer, not a claims or RCM practitioner. Naming him as the SME would be a fabricated
+credential on a public page, in a project whose entire argument is that it does not do
+that — and it would be trivially checkable by anyone in the field.
 
-3. **Does the written explanation for each error match how you would explain it to a new
-   colleague?** Name any that read wrong.
-
-4. **The scoring punishes flagging everything.** Is that the right incentive for this task,
-   or does it discourage useful caution?
-
-### B. The lesson
-
-5. **Does the nine-stage claim lifecycle match how work actually flows** where you have
-   worked? Name any stage that is missing, misnamed, or in the wrong order.
-
-6. **Is anything stated as fact that is actually payer-specific or country-specific?**
-   This is the question most likely to catch a real error.
-
-7. **Would a new hire who read only this lesson be more useful on day one, or would they
-   have confident wrong ideas?**
-
-### C. Framing and honesty
-
-8. **The course uses invented code families** (`PRC-1000`, `DX-A100`) and invented payers
-   rather than real licensed code sets. Does that read as a sensible constraint, or as
-   avoiding the hard part?
-
-9. **Anything here that would make you doubt the author has done this work?**
-
-10. **Anything that reads as overclaiming?**
-
-11. **One thing you would cut, and one thing you would add.**
-
-### Consent
-
-- May we credit you by name in the case study? *(yes / name only / no — anonymous)*
-- Credit is **not** an endorsement and will never be presented as one.
+The two reviews below are his, they are genuine, and they are labelled for what they are.
 
 ---
 
-## Draft invitation
+## 2. Instructional-design review — his actual expertise
 
-Short, specific, honest about the ask, and easy to decline. Send as-is or adapt.
+This is the review he is qualified to give, and it is a real credential. It is described
+everywhere as an **instructional-design review**, never as a subject-matter or accuracy
+review.
 
-> **Subject: 30 minutes of your eye on a claims-review training exercise?**
->
-> Hi [name],
->
-> I've built a small training platform as a portfolio project — a practice-first course on
-> medical insurance and the revenue cycle. It's self-initiated, not tied to any employer,
-> and everything in it is written from public knowledge with invented codes and payers.
->
-> I'd value 30 minutes from someone who actually does this work. Specifically: does the
-> claim-review exercise reflect real errors, and is anything stated as fact that's really
-> payer-specific? I'm more interested in what's wrong than what's good.
->
-> No account or signup — two links and eleven fixed questions.
->
-> If you'd rather not, that's completely fine and I won't follow up.
->
-> Either way, thank you.
->
-> Mostafa
+**Scope — design, not domain truth:**
 
-**Where to send it** (§0.7): a claims or RCM contact on LinkedIn; an Alexandria dental
-clinic's billing staff; someone working at a TPA. Two accepting is plenty; one is enough.
+1. **Objective alignment.** Does every block serve the objective it declares? Any block
+   that teaches something true but unrelated to its objective.
+2. **Coverage.** Does each objective have enough blocks and items to be learnable, and does
+   anything have coverage it does not need?
+3. **Assessment blueprint.** Does the item distribution match what the course claims to
+   teach? Is the exam sampling defensible?
+4. **Feedback quality.** Does every distractor name a misconception someone actually holds,
+   and does feedback explain rather than restate?
+5. **Depth model.** Does L2 do something L1 does not, or is it L1 with a question added?
+6. **Arabic.** Does the flagship read as written in Arabic rather than translated? Is
+   terminology consistent?
+
+**What this review explicitly does not cover:** whether the claims content is factually
+correct, whether the workflow matches real practice, or whether the seeded errors are
+realistic. Those need a practitioner, and no practitioner saw this.
 
 ---
 
-## What gets written if nobody accepts
+## 3. Blind inter-rater check — the one that makes the rubric number mean anything
 
-Drafted now, so the honest version already exists:
+§0.4 item 5: the LLM rubric score cannot stand alone. Without this, it is a model marking
+its own homework.
 
-> No practitioner review was obtained. Two invitations were sent during week 5 and neither
-> was taken up. The content is therefore authored from public knowledge and reviewed by
-> the author alone, and has not been checked by anyone who does this work professionally.
-> That is a real limitation of this demonstration, not a detail.
+**Method.** Three lessons, scored against `pipeline/rubric.md`, **without seeing the
+model's scores first**. The blindness is the whole point — knowing the model's answer makes
+agreement worthless. Then report the **mean absolute difference** per criterion.
+
+**Cost.** Roughly twenty minutes.
+
+**What the result means either way.** Close agreement means the rubric score is
+approximately trustworthy for this kind of content. Wide disagreement means it is not —
+and that is a finding worth publishing, not a reason to bury the exercise. Either outcome
+goes in the case study with the number attached.
+
+- [ ] Lesson A scored blind — date:
+- [ ] Lesson B scored blind — date:
+- [ ] Lesson C scored blind — date:
+- [ ] Mean absolute difference computed and published
 
 ---
 
 ## Status
 
-- [ ] Invitations sent — date:
-- [ ] Reviewer 1 — accepted / declined / no reply
-- [ ] Reviewer 2 — accepted / declined / no reply
-- [ ] Responses received
-- [ ] Case study updated with what came back, including anything unflattering
+- [x] Practitioner review — **not sought.** Scope decision, closed. Limitation published.
+- [ ] Instructional-design review — the owner's, labelled as such
+- [ ] Blind inter-rater check — the owner's, ~20 minutes

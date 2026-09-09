@@ -206,6 +206,31 @@ export default async function HowItWasBuiltPage({
         </p>
       </div>
 
+      <h2 className="admin-q">{ar ? 'من راجع هذا' : 'Who reviewed this'}</h2>
+      {/*
+        The limitation a domain reviewer is most likely to test, stated before
+        they have to look for it. A vague "reviewed for accuracy" would invite
+        exactly that scrutiny and fail it; saying plainly that no practitioner
+        saw this costs nothing that was ever truthfully claimed.
+
+        The owner is an instructional designer, not a claims practitioner.
+        Naming him as the subject-matter expert would be a fabricated
+        credential, and the two reviews are kept distinct in this copy for that
+        reason.
+      */}
+      <div className="verify-card">
+        <p className="max-w-prose leading-relaxed">
+          {ar
+            ? 'لم يراجع هذا المحتوى أي ممارس في المطالبات أو دورة الإيرادات. كُتب من مصادر عامة بواسطة مصمّم تعليمي. جميع الرموز هنا رموز تدريبية خيالية، وأي تطبيق حقيقي سيستخدم قواعد الجهة الدافعة ومجموعات الرموز المرخّصة الخاصة بالمؤسسة المُشغِّلة، بمراجعة شخص يعمل في المجال.'
+            : 'No claims or revenue-cycle practitioner reviewed this content. It was authored from public sources by an instructional designer. All code sets are fictional training codes, and a real deployment would use a deploying organisation’s own payer rules and licensed code sets, reviewed by someone who works in the field.'}
+        </p>
+        <p className="mt-3 max-w-prose leading-relaxed">
+          {ar
+            ? 'ما جرى فعلًا مراجعة تصميم تعليمي: مواءمة الأهداف، وتغطيتها، ومخطط التقييم، وجودة التغذية الراجعة، والعربية. هذه خبرة حقيقية، لكنها ليست مراجعة دقة موضوعية، والاثنان ليسا شيئًا واحدًا.'
+            : 'What was done is an instructional-design review: objective alignment, coverage, the assessment blueprint, feedback quality, and the Arabic. That is genuine expertise, but it is not a subject-matter accuracy review, and the two are not the same thing.'}
+        </p>
+      </div>
+
       <footer className="mt-10 border-t border-line pt-6 text-xs leading-relaxed text-muted">
         {ar
           ? 'منصة عرض ذاتية المبادرة. المحتوى أصلي ومكتوب من معرفة عامة، وكل الرموز والجهات خيالية للتدريب. ليست استشارة طبية أو فوترية أو قانونية أو تنظيمية.'
