@@ -1,0 +1,4 @@
+# Pipeline validation dependencies. Stdlib plus these two, per the plan's
+# "no metered API in any request path" and minimal-dependency stance.
+jsonschema>=4.23
+PyYAML>=6.0
