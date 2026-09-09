@@ -72,30 +72,75 @@
           "captionAr": "الدفع المباشر مقابل الدفع عبر التأمين",
           "captionEn": "Self-pay compared with an insured encounter",
           "columns": [
-            "Aspect",
-            "Self-pay",
-            "Insured"
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "الدفع المباشر",
+              "labelEn": "Self-pay"
+            },
+            {
+              "labelAr": "عبر التأمين",
+              "labelEn": "Insured"
+            }
           ],
           "rows": [
             [
-              "Who is billed",
-              "The patient",
-              "The payer, then the patient for any balance"
+              {
+                "textAr": "من تُرسل إليه الفاتورة",
+                "textEn": "Who is billed"
+              },
+              {
+                "textAr": "المريض",
+                "textEn": "The patient"
+              },
+              {
+                "textAr": "الطرف الدافع، ثم المريض لما تبقّى",
+                "textEn": "The payer, then the patient for any balance"
+              }
             ],
             [
-              "When money arrives",
-              "At the visit",
-              "After adjudication, often weeks later"
+              {
+                "textAr": "متى يصل المال",
+                "textEn": "When money arrives"
+              },
+              {
+                "textAr": "عند الزيارة",
+                "textEn": "At the visit"
+              },
+              {
+                "textAr": "بعد الفصل في المطالبة، وغالبًا بعد أسابيع",
+                "textEn": "After adjudication, often weeks later"
+              }
             ],
             [
-              "What can go wrong",
-              "Non-payment",
-              "Rejection, denial, underpayment, or delay"
+              {
+                "textAr": "ما الذي قد يفشل",
+                "textEn": "What can go wrong"
+              },
+              {
+                "textAr": "عدم السداد",
+                "textEn": "Non-payment"
+              },
+              {
+                "textAr": "رفض شكلي، أو رفض موضوعي، أو سداد ناقص، أو تأخير",
+                "textEn": "Rejection, denial, underpayment, or delay"
+              }
             ],
             [
-              "Document produced",
-              "A receipt",
-              "A claim, then a remittance advice"
+              {
+                "textAr": "المستند الناتج",
+                "textEn": "Document produced"
+              },
+              {
+                "textAr": "إيصال",
+                "textEn": "A receipt"
+              },
+              {
+                "textAr": "مطالبة، ثم إشعار سداد",
+                "textEn": "A claim, then a remittance advice"
+              }
             ]
           ]
         }

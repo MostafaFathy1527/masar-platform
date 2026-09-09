@@ -86,8 +86,42 @@ describe('block payloads', () => {
       objectiveId: 'MI-04',
       payload: {
         captionAr: 'ت', captionEn: 'C',
-        columns: ['a', 'b', 'c'],
-        rows: [['1', '2']],
+        columns: [
+          { labelAr: 'أ', labelEn: 'a' },
+          { labelAr: 'ب', labelEn: 'b' },
+          { labelAr: 'ج', labelEn: 'c' },
+        ],
+        rows: [[{ textAr: '١', textEn: '1' }, { textAr: '٢', textEn: '2' }]],
+      },
+    })
+    expect(r.success).toBe(false)
+  })
+
+  it('accepts a compare_table whose cells each carry an Ar/En pair', () => {
+    const r = Block.safeParse({
+      id: 'b1', type: 'compare_table', objectiveId: 'MI-04',
+      payload: {
+        captionAr: 'ت', captionEn: 'C',
+        columns: [
+          { labelAr: 'أ', labelEn: 'a' },
+          { labelAr: 'ب', labelEn: 'b' },
+        ],
+        rows: [[{ textAr: '١', textEn: '1' }, { textAr: '٢', textEn: '2' }]],
+      },
+    })
+    expect(r.success).toBe(true)
+  })
+
+  it('rejects a compare_table cell missing its Arabic side', () => {
+    const r = Block.safeParse({
+      id: 'b1', type: 'compare_table', objectiveId: 'MI-04',
+      payload: {
+        captionAr: 'ت', captionEn: 'C',
+        columns: [
+          { labelAr: 'أ', labelEn: 'a' },
+          { labelAr: 'ب', labelEn: 'b' },
+        ],
+        rows: [[{ textEn: '1' }, { textAr: '٢', textEn: '2' }]],
       },
     })
     expect(r.success).toBe(false)

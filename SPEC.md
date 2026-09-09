@@ -63,7 +63,12 @@ evidence panel becomes a bottom sheet, verified at 390px. Accessibility is part 
 exercises, visible focus, alt text, live regions for feedback, and no meaning carried
 by colour alone. **Bilingual honesty:** the UI is fully bilingual and the interactive
 lessons are Arabic; any lesson that ships English-only says so on its own page rather
-than being covered by a blanket "bilingual" claim.
+than being covered by a blanket "bilingual" claim. **Every text-bearing content block is
+bilingual, with no exceptions** — including table headers and individual table cells,
+which is where a partially-translated system usually leaks. This is enforced by the
+content schema rather than by review: a block with a missing Arabic string fails
+validation, so it cannot reach a page. A reviewer opening an Arabic lesson will not find
+an English fragment inside it.
 
 ## 5. Database
 

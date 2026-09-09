@@ -243,8 +243,21 @@
                         "minItems": 2,
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "object",
+                          "properties": {
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "labelAr",
+                            "labelEn"
+                          ]
                         }
                       },
                       "rows": {
@@ -253,7 +266,21 @@
                         "items": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "object",
+                            "properties": {
+                              "textAr": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "textEn": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "textAr",
+                              "textEn"
+                            ]
                           }
                         }
                       }
@@ -965,8 +992,21 @@
                         "minItems": 2,
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "object",
+                          "properties": {
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "labelAr",
+                            "labelEn"
+                          ]
                         }
                       },
                       "rows": {
@@ -975,7 +1015,21 @@
                         "items": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "object",
+                            "properties": {
+                              "textAr": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "textEn": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "textAr",
+                              "textEn"
+                            ]
                           }
                         }
                       }
@@ -1687,8 +1741,21 @@
                         "minItems": 2,
                         "type": "array",
                         "items": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "object",
+                          "properties": {
+                            "labelAr": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "labelEn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "labelAr",
+                            "labelEn"
+                          ]
                         }
                       },
                       "rows": {
@@ -1697,7 +1764,21 @@
                         "items": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "object",
+                            "properties": {
+                              "textAr": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "textEn": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "textAr",
+                              "textEn"
+                            ]
                           }
                         }
                       }

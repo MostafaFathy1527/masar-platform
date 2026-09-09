@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { LessonDoc } from './lesson'
+import { LessonDoc } from './lesson.ts'
 
 /**
  * Builds the JSON Schema published to the Python content pipeline.

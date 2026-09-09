@@ -53,12 +53,25 @@ const DefinitionCardPayload = z.object({
   exampleEn: z.string().optional(),
 })
 
+/**
+ * Cells carry their own Ar/En pair, following the same idiom as process_flow
+ * steps. Parallel `columnsAr` / `columnsEn` arrays would be the obvious
+ * alternative and the wrong one: they can drift in length and would need a
+ * second refine to police. Here alignment holds by construction.
+ */
+const CompareTableCell = z.object({
+  textAr: z.string().min(1),
+  textEn: z.string().min(1),
+})
+
 const CompareTablePayload = z
   .object({
     captionAr: z.string().min(1),
     captionEn: z.string().min(1),
-    columns: z.array(z.string().min(1)).min(2),
-    rows: z.array(z.array(z.string())).min(1),
+    columns: z
+      .array(z.object({ labelAr: z.string().min(1), labelEn: z.string().min(1) }))
+      .min(2),
+    rows: z.array(z.array(CompareTableCell)).min(1),
   })
   .refine(
     (p) => p.rows.every((r) => r.length === p.columns.length),
