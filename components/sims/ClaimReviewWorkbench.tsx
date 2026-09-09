@@ -112,6 +112,20 @@ const COPY = {
   },
 } as const
 
+// The state transition, kept pure and exported so it can be tested without a
+// browser. The handler passes it to setFlagged as an updater rather than
+// computing from the `flagged` it captured at render: a burst of clicks in one
+// tick would otherwise all start from the same stale set and only the last
+// would survive. Reachable by fast tapping, and the mobile pattern is a shipped
+// deliverable — "a person cannot click that fast" is the kind of assumption
+// this project keeps falsifying.
+export function toggleFlag(prev: ReadonlySet<string>, key: string): Set<string> {
+  const next = new Set(prev)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  return next
+}
+
 export function ClaimReviewWorkbench({
   slug,
   dataset,
@@ -130,10 +144,7 @@ export function ClaimReviewWorkbench({
 
   const toggle = (key: string) => {
     if (result) return
-    const next = new Set(flagged)
-    if (next.has(key)) next.delete(key)
-    else next.add(key)
-    setFlagged(next)
+    setFlagged((prev) => toggleFlag(prev, key))
   }
 
   async function submit() {

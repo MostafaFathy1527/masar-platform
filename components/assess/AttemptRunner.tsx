@@ -92,6 +92,25 @@ const COPY = {
   },
 } as const
 
+// Pure and exported for the same reason as toggleFlag in the claim-review
+// workbench, and the failure here was worse: the handler spread the `responses`
+// object it captured at render, so two answers registered in one tick dropped
+// the first item's answer entirely rather than merely one option.
+export function applyResponse(
+  prev: Readonly<Record<string, string[]>>,
+  itemId: string,
+  optionId: string,
+  single: boolean,
+): Record<string, string[]> {
+  const current = prev[itemId] ?? []
+  const next = single
+    ? [optionId]
+    : current.includes(optionId)
+      ? current.filter((id) => id !== optionId)
+      : [...current, optionId]
+  return { ...prev, [itemId]: next }
+}
+
 export function AttemptRunner({
   scope,
   scopeId,
@@ -141,14 +160,7 @@ export function AttemptRunner({
   }
 
   const toggle = (item: PublicItem, optionId: string) => {
-    const current = responses[item.id] ?? []
-    const next =
-      item.type === 'MCQ_SINGLE'
-        ? [optionId]
-        : current.includes(optionId)
-          ? current.filter((id) => id !== optionId)
-          : [...current, optionId]
-    setResponses({ ...responses, [item.id]: next })
+    setResponses((prev) => applyResponse(prev, item.id, optionId, item.type === 'MCQ_SINGLE'))
   }
 
   if (needGuest) {
