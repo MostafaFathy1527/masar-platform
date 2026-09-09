@@ -117,8 +117,9 @@ destination the whole job search points at.
 control long term. If access to that address ends, so does control of the project and,
 more seriously, of the portfolio domain.
 
-**Mitigation.** Add the personal Gmail as an owner on the Vercel team, so control does
-not depend on the work address. Until that is done the risk is live.
+**Mitigation.** Adding the personal Gmail as a co-owner on the Vercel team was
+considered and declined by the owner. The risk above is therefore accepted as it stands,
+knowingly, rather than left open as a pending task.
 
 **Scope of the exception.** This is limited to the deployment account. GitHub and Neon
 are on the personal Gmail, the repository-local git identity is the personal address, and

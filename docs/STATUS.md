@@ -141,8 +141,6 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
 - [ ] **Environment variables on Vercel** — `DATABASE_URL` and `AUTH_SECRET`, scoped to
       all environments. Until then `POST /api/demo` returns 500 in production. The
       landing page is static and serves fine without them.
-- [ ] **Add the personal Gmail as a Vercel team owner** — the mitigation recorded against
-      the work-email deviation in `HANDOVER.md`. Until then that risk is live.
 - [ ] Day 0 #3 — confirm the fictional entity names read as obviously invented (Week 2).
 - [ ] Day 0 #4 — Stripe availability. Not a v1.0 gate; only affects what `SPEC.md` claims.
 
