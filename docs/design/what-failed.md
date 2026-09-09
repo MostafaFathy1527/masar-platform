@@ -3,11 +3,12 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Nine so far. The first five share one pattern; the sixth, seventh and eighth each break
-it in a different direction, which is why they are kept separate rather than folded in.
-Three of the nine are the same underlying defect wearing different clothes, and that
-sub-pattern is named at the end. The ninth pairs with the gate's false pass instead: both
-are conditionals that were never conditional.
+Ten so far. The first five share one pattern; the sixth, seventh and eighth each break it
+in a different direction, which is why they are kept separate rather than folded in. Three
+of the ten are the same underlying defect wearing different clothes, and that sub-pattern
+is named at the end. The ninth and tenth belong with the gate's false pass: all three are
+**checks that could not do the thing they claimed** — one scanned nothing, one gated
+nothing, and one could not accept the input it existed to judge.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -42,7 +43,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the nine to catch.
+testable. This is the easiest of the ten to catch.
 
 ---
 
@@ -302,6 +303,57 @@ query, which Tailwind does not touch, and both schemes were verified by measurin
 browser reports the host machine's setting — on a dark machine a light-default design
 photographs dark forever and the default is never reviewed.
 
+---
+
+## 10. The gate could not accept its most common input
+
+**What was wrong.** `pipeline/qa_gate.py` cannot evaluate an L1-only lesson. `CRITERIA` is a
+fixed eight-tuple and the gate raises `GateError` when a verdict omits any of them. Three of
+those criteria — `knowledge_check`, `worked_example`, `scenario_authenticity` — describe
+block types the registry forbids at L1. **A conforming L1 lesson therefore cannot produce a
+conforming verdict.**
+
+Four of the five shipped lessons are L1-only.
+
+**What makes it worse than an ordinary bug.** Every available response is bad. Fabricate a
+score for a block type that cannot exist, and the number is invented — which criterion 8's
+own standard forbids, and that standard applies to the judge as much as to the content.
+Score it 1, and a compliant lesson auto-fails on the floor. Leave the lesson unjudged, and
+the pipeline's central argument — that content passes a gate before it ships — quietly
+stops covering most of the content.
+
+**Why nothing caught it.** The gate has nine negative tests, and they pass. It had only ever
+been run against L2/L3 fixtures and against fixtures it defined itself. Its most common real
+input was the one shape never tried. The tests proved the gate refuses bad verdicts; nothing
+asked whether it accepts good lessons, and a gate that refuses everything satisfies a suite
+built only from refusals.
+
+That is the specific trap in testing a mechanism whose job is to say no. **Its negative tests
+constrain what it rejects; only a positive case over real inputs constrains what it can
+accept.** The suite already contained two cases asserting valid content passes — and both
+used the eight-criterion shape, so both encoded the same assumption as the bug.
+
+**How it was found.** By running the thing on real content for the first time, in a fresh
+session with only the lesson and the rubric. The judge scored the seven criteria that apply,
+refused to score the eighth, and said why. Filling it in would have produced a verdict the
+gate accepted, a run-log entry, a number on `/how-it-was-built`, and no defect — the failure
+would have been laundered into a passing score by the one participant positioned to notice
+it.
+
+**Why it belongs beside the false pass and the `@theme` bug.** All three are checks that
+could not do what they claimed. `gate.sh` printed `clean` over zero blobs scanned. A media
+query gated nothing because the build hoisted its contents out. This gate could not accept
+the input it existed to judge. In each, the mechanism looked present and did nothing, and in
+each the artefact reported success in exactly the words it uses when it works.
+
+**The repair.** A criterion may be declared inapplicable **with a reason**, and applicability
+is derived from the lesson's declared levels rather than from the judge's discretion — a
+judge that could excuse itself from an inconvenient criterion is a judge that sets its own
+threshold. The mean and the below-3 floor are taken over the applicable set only. And a
+negative test asserts that an L1 fixture carrying a fabricated `knowledge_check` score is
+**rejected**: without it the fix legitimises the exact fabrication it exists to prevent,
+which is the same shape as the zero-blob counter added to `gate.sh`.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -343,7 +395,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Three of the nine are the same defect. The landing page carried a "Week 1 — under
+Three of the ten are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen.
