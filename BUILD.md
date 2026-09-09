@@ -174,7 +174,9 @@ Shotgun-flagging every field scores *worse* than reading four fields carefully. 
 
 ## 4.4 Assessment system
 
-**Objectives are the spine.** Twelve objectives, `MI-01`…`MI-12`, each with a Bloom level, a weight, and exactly one owning lesson (table in §5). Every block and every item carries an `objectiveId`. That one rule makes coverage, mastery and item analysis the same query.
+**Objectives are the spine.** Thirteen objectives, `MI-01`…`MI-13`, each with a Bloom level, a weight, and an owning lesson (table in §5). Every block and every item carries an `objectiveId`. That one rule makes coverage, mastery and item analysis the same query.
+
+`MI-13` was added in Week 5 and is the one exception to *exactly one* owning lesson: it is cross-cutting, carried by callouts in two lessons and five scenario items. This paragraph said "Twelve objectives, `MI-01`…`MI-12`" for weeks after two shipped lessons and the exam blueprint began using a thirteenth — a hardcoded fact that stopped being true when the content changed underneath it.
 
 **Item types (6):** `MCQ_SINGLE` · `MULTI_SELECT` (partial credit `max(0, correct − incorrect) / required`) · `MATCHING` (per-pair credit) · `ORDERING` (Kendall-tau partial credit) · `SCENARIO_MCQ` (60–120-word vignette then a decision) · `CASE_SET` (shared stimulus, 3–5 linked items, kept together in assembly).
 
@@ -243,6 +245,13 @@ Every chart carries a caption naming the learning question it answers. No vanity
 | MI-10 | Choose the correct corrective action for a denial | analyze | L7 |
 | MI-11 | Trace the revenue cycle end to end and locate where a failure originated | analyze | L8 |
 | MI-12 | Interpret clean-claim rate, denial rate, days in A/R, net collection rate and diagnose a trend | analyze | L8 |
+| MI-13 | Recognise fraud, waste and abuse in claims and documentation | *not recorded* | L4, L5 (cross-cutting) |
+
+`MI-13`'s Bloom level and weight are marked *not recorded* rather than guessed. Its
+statement above is the topic it covers, taken from `docs/STATUS.md`; no behavioural
+objective for it has ever been written down, and writing one is instructional-design work
+rather than a documentation fix. `lib/objectives.ts` carries the same caveat, so the page
+and the brief agree about what is missing.
 
 **Lessons:**
 

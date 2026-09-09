@@ -21,12 +21,28 @@ decision and the limitation is stated on the page.
 Note: `/method` is **not** in v1.0. It belongs to the 14-week plan's Week 9, which §0.3
 cut; `/depth` already renders the depth model.
 
-**Local development currently cannot reach the database.** Outbound TCP 5432 times out on
-this machine's network while port 443 to the *same* Neon host connects in ~150 ms — two
-attempts at 20 s each against one 153 ms control. That control is the one the earlier
-misdiagnosis below got wrong: comparing against a different host never isolates the port.
-Production is unaffected, because Vercel has its own egress. Nothing here says the earlier
-correction was wrong; conditions changed.
+**Outbound 5432 is intermittently blocked on this network.** Not "blocked", not "a cold
+start" — *intermittent*, and both states have been measured on the same machine, the same
+host and the same `.env`, hours apart:
+
+| When | Raw TCP 5432 | Postgres handshake |
+|---|---|---|
+| Working | — | **1,933 ms**, returned `PostgreSQL 18.6` and the table count |
+| Blocked | **TIMEOUT after 20,107 ms** | **ETIMEDOUT after 21,566 ms** |
+
+**The diagnostic is a same-host 443-vs-5432 comparison.** In the blocked state, 443 to that
+exact Neon host connects in ~150 ms while 5432 times out twice at 20 s+. Same host is the
+whole point: it isolates the port from DNS, routing and the endpoint being down. Comparing
+against a *different* host is what made the earlier diagnosis on this page wrong, and a
+cold start is ruled out because a cold start still completes the TCP handshake — Neon's
+proxy accepts the connection and then wakes the compute.
+
+Write neither verdict down as permanent. A flat "blocked" or a flat "cold start" would be
+wrong within a day and would cost the next reader an afternoon. Run the comparison; it
+takes seconds and it answers the question in whichever state the network is in.
+
+Production is unaffected — Vercel has its own egress — so DB-backed screenshots come from
+production while this is in the blocked state.
 
 Scope of record is the correction pass (section 0 of the authoritative plan, path in
 `.local/DAY0.md`) — **v1.0 = 6 weeks / ~65 h**. `BUILD.md` sections 3 and 9 describe the

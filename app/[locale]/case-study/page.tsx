@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
+import { failureCount } from '@/lib/failures'
 import { routing, type AppLocale } from '@/i18n/routing'
 
 export function generateStaticParams() {
@@ -56,7 +57,7 @@ function Annotated({
   )
 }
 
-function English() {
+function English({ failures }: { failures: number }) {
   return (
     <>
       <p className="cs-lead">
@@ -211,7 +212,7 @@ function English() {
         What failed
       </h2>
       <p>
-        Nine so far. The first five form a pattern worth naming:{' '}
+        {failures} so far. The first five form a pattern worth naming:{' '}
         <strong>
           the falsifiable claims are the ones that break, and they only break when you try
           to game them.
@@ -363,7 +364,7 @@ function English() {
   )
 }
 
-function ArabicSummary() {
+function ArabicSummary({ failures }: { failures: number }) {
   return (
     <>
       <p className="cs-lead">
@@ -401,15 +402,32 @@ function ArabicSummary() {
         <span className="cs-num">03</span>
         ما الذي أخفق
       </h2>
+      {/*
+        The number is interpolated from docs/design/what-failed.md, not written
+        here. This paragraph is why: it said "ستة إخفاقات" long after the
+        document held nine, and it enumerated six and stopped. Every count check
+        on this project had been run against English text, so the Arabic summary
+        was the one surface where a stale number could sit indefinitely.
+
+        It also no longer lists the entries one by one. A summary that
+        enumerates goes stale every time an entry is added; one that names the
+        pattern and points at the full record does not.
+      */}
       <p>
-        ستة إخفاقات. الخمسة الأولى نمطها واحد:{' '}
+        {failures} إخفاقات مسجَّلة حتى الآن. الخمسة الأولى نمطها واحد:{' '}
         <strong>الادعاءات القابلة للدحض هي التي تنكسر، ولا تنكسر إلا حين تحاول التحايل عليها.</strong>{' '}
-        صيغة التقييم أخفقت في ادعائها المنشور. بنك الأسئلة كان يُهزم بالإجابة الأولى دائمًا
-        ويعطي 89٪. ولوحة الأدلة أبلغت أنها ظاهرة وهي فارغة. وجلسة حساب محذوف ظلّت تعمل.
-        وملف اختبار أعلن نجاح 16 من 16 بينما لم يُنفَّذ اختباران أصلًا. والسادس من نوع آخر:
-        الكود كان سليمًا والمنتج كان خاطئًا — ستة أسابيع من العمل لم يكن لها أي رابط من
-        الصفحة الرئيسية، وكل اختبار كان يمر. لا يوجد اختبار يتحقق من أن الزائر يستطيع
-        <em>الوصول</em> إلى ما بُني.
+        صيغة التقييم أخفقت في ادعائها المنشور، وبنك الأسئلة كان يُهزم بالإجابة الأولى دائمًا
+        ويعطي 89٪، ولوحة الأدلة أبلغت أنها ظاهرة وهي فارغة، وجلسة حساب محذوف ظلّت تعمل،
+        وملف اختبار أعلن نجاح 16 من 16 بينما لم يُنفَّذ اختباران أصلًا.
+      </p>
+      <p>
+        والباقي يكسر النمط في اتجاهات مختلفة: مرة كان الكود سليمًا والمنتج خاطئًا، ومرة كانت
+        الأداة تكذب والمنتج سليم، ومرة وجد فحصٌ كُتب لضبط لقطة شاشة أن الصفحة تكذب على
+        المتعلّم، ومرة كان شرطٌ لم يكن شرطًا أصلًا فظهر الموقع داكنًا للجميع بينما لم تُعرض
+        النسخة الفاتحة قط.
+      </p>
+      <p className="cs-small">
+        التفاصيل الكاملة لكل إخفاق في النسخة الإنجليزية من هذه الصفحة.
       </p>
 
       <h2 id="ar-disclosure" className="cs-h2">
@@ -463,6 +481,10 @@ export default async function CaseStudyPage({
   setRequestLocale(locale)
   const l = locale as AppLocale
 
+  // Read once here and pass to whichever locale renders, so both derive the
+  // number from docs/design/what-failed.md rather than restating it.
+  const failures = failureCount()
+
   return (
     <>
       <section className="band band-tight">
@@ -495,7 +517,7 @@ export default async function CaseStudyPage({
             </ol>
           </nav>
 
-          <article className="cs">{l === 'ar' ? <ArabicSummary /> : <English />}</article>
+          <article className="cs">{l === 'ar' ? <ArabicSummary failures={failures} /> : <English failures={failures} />}</article>
         </div>
       </section>
     </>
