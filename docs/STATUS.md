@@ -147,7 +147,7 @@ route does not confirm its own existence.
 ADMIN leaves them refused until they sign in again. Correct behaviour for JWT sessions
 rather than a defect, but worth knowing before someone debugs it twice.
 
-## The pipeline, and what it does not yet claim
+## The pipeline, what it claims, and what it does not
 
 Three gates exist, each with negative tests proving it refuses things, and all run in CI:
 
@@ -155,23 +155,66 @@ Three gates exist, each with negative tests proving it refuses things, and all r
 |---|---|---|
 | `validate.py` | structure, undeclared objectives, wrong-level blocks, duplicate ids, prose budget, licensed code sets | 18 |
 | `concept_log.py` | re-defining a concept an earlier lesson taught; using one before it is introduced | 6 |
-| `qa_gate.py` | any criterion below 3, a mean below 4.0, a verdict missing criteria | 9 |
+| `qa_gate.py` | any criterion below 3, a mean below 4.0, a verdict missing criteria, a criterion scored where the registry gives it no evidence, a skipped criterion with no reason | 20 |
 
 Each set includes a case asserting valid content **passes**, so no gate can satisfy its own
 tests by refusing everything.
+
+**That was not enough, and `qa_gate.py` proves it.** It carried nine passing negative tests
+while being unable to evaluate an L1-only lesson at all — four of the five shipped lessons.
+Negative tests constrain what a gate *rejects*; only a positive case over real input
+constrains what it can *accept*. Both of its "valid content passes" fixtures used the
+eight-criterion shape, so they encoded the same assumption as the bug. See
+`docs/design/what-failed.md` entry 10.
 
 **The gates were built before the generation, and that ordering is the argument.** A
 generator built first and gated afterwards is gated to whatever it already produces. This
 is checkable in the commit history rather than asserted.
 
-**What the pipeline does not yet claim.** The five shipped lessons were hand-authored, not
-generated. The run log is empty. `/how-it-was-built` says so and reports no first-pass rate,
-because inventing one is exactly the failure the page exists to avoid.
+**Content has now been through it.** The five shipped lessons were hand-authored, but
+`pipeline/out/lesson-02/v1` was generated from a source note, passed both deterministic
+gates, and has now been judged and gated: **PASS, mean 4.14 over seven scored criteria,
+nothing below 4**, with `knowledge_check` declared not scorable at L1 and the reason
+recorded. `pipeline/memory/run-log.jsonl` holds that run.
+
+**n = 1 is a result, not a first-pass rate.** `/how-it-was-built` reads every figure from
+the run log and says exactly that, because a percentage from one run is a number pretending
+to be a trend.
+
+**The judge's independence caveat travels with the score**, verbatim, from the run-log entry
+to the page. The judge did not see the generation prompt and did not author the lesson, but
+the same session directed the project and set several of its constraints — weaker
+independence than the rubric assumes. That caveat is why the blind inter-rater check is now
+the load-bearing open item: the page publishes a rubric score that only resolves when a
+human scores three lessons blind against the same rubric.
 
 Running the loop honestly needs two sessions: one to generate, and a **separate** one for
 the judge, which §0.4 item 5 requires to be a fresh context that has never seen the
 generation prompt. An agent that wrote the generation prompt cannot also judge the output
 without producing a number that looks like evidence and is not.
+
+## The gate crashed on the content it was quoting
+
+Recorded here with its own heading rather than as a line in a commit message, because it is
+a second finding and not a detail of the first.
+
+`qa_gate.py` printed its report to stdout. On Windows that stream defaults to cp1252, so the
+gate **died with a `UnicodeEncodeError` on any character outside that codepage**. What
+actually killed it was a single icon inside a judge's note.
+
+On a project whose entire differentiator is Arabic, that is not an edge case. The first
+Arabic judge note would have crashed it, and the crash happens while *printing the report* —
+after the verdict has been evaluated, so the gate would have failed at the last step, on the
+content it was quoting, having already done the work correctly.
+
+It surfaced only because the gate was run on real content. Every test passed, and every test
+supplied ASCII. This is the same family as the evidence panel that reported itself visible
+and rendered nothing: **the artefact worked in every test and not in use.**
+
+`sys.stdout` and `sys.stderr` are now reconfigured to UTF-8 with `errors='replace'`.
+
+**This is not in `docs/design/what-failed.md`.** It is a genuine eleventh finding and the
+record currently stops at ten — landing it is the owner's call, not the agent's.
 
 ## §0.7 practitioner review — not sought (scope decision, closed)
 
@@ -230,21 +273,36 @@ the default never gets reviewed. That is how entry 9 in `what-failed.md` was fou
 `PaymentProvider` interface with a mock adapter and the paywall, all six screenshots, the
 case study in English with an Arabic summary, and `HANDOVER.md`.
 
-What remains needs a person, not an agent, and is listed in the project rules file: the judge sitting
-in a fresh session, the blind inter-rater check, the instructional-design review, and the
-narrated recording.
+**The judge sitting is done.** It ran in a fresh session and its verdict is at
+`pipeline/out/lesson-02/v1/verdict.json`; the gate it exposed is repaired and the result is
+published.
 
-`docs/design/what-failed.md` has **nine** entries for §0.4 item 4. The first five share
+What remains needs a person, not an agent: the **blind inter-rater check**, the
+instructional-design review, the narrated recording, and the eight Arabic objective
+statements plus a behavioural statement for `MI-13`.
+
+**The inter-rater check is now the load-bearing one.** `/how-it-was-built` publishes a
+rubric score that carries its own caveat about the judge's independence, and that caveat
+only resolves when a human scores three lessons blind against the same rubric. Until then
+the page is honest but the number is unconfirmed — which is the state it describes.
+
+`docs/design/what-failed.md` has **ten** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
-a check written to keep a screenshot honest caught the page lying to learners. The ninth
-pairs with the gate's false pass instead — a conditional that was never conditional:
-Tailwind 4 hoists `@theme` out of `@media`, so the dark palette shipped unconditionally and
-the light default had never rendered anywhere, in six weeks or in any screenshot.
+a check written to keep a screenshot honest caught the page lying to learners. The ninth and tenth pair with the gate's false pass instead: all three are checks that could
+not do the thing they claimed. Tailwind 4 hoists `@theme` out of `@media`, so the dark
+palette shipped unconditionally and the light default had never rendered anywhere. And
+`qa_gate.py` could not accept an L1-only lesson — four of the five shipped — while nine
+negative tests passed throughout.
+
+**Both case-study locales now derive the count** from the document via `lib/failures.ts`,
+after `/ar/case-study` sat at "ستة إخفاقات" while every English surface said nine. Every
+count check on this project had been run against English text, which made hand-written
+Arabic prose the one surface where a stale number could sit indefinitely.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — three of the nine are hardcoded facts that silently stopped
+were true when written** — three of the ten are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
@@ -305,17 +363,22 @@ leak patterns will trip a leak detector.
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
 
 ## Blocked / needs the owner
-- [ ] **Blind inter-rater sample** (~20 min). Three lessons scored against
-      `pipeline/rubric.md`, without seeing the model's scores first, then the mean absolute
-      difference reported. This is instructional quality, which is the owner's actual
-      expertise. Without it the rubric number is a model marking its own homework, and
-      §0.4 item 5 is explicit that it cannot stand alone.
+- [ ] **Blind inter-rater sample** (~20 min). **Now load-bearing.** Three lessons scored
+      against `pipeline/rubric.md`, without seeing the model's scores first, then the mean
+      absolute difference reported. This is instructional quality, which is the owner's
+      actual expertise. A rubric score is now published on `/how-it-was-built` with the
+      judge's own caveat beside it — the judge did not see the generation prompt and did
+      not author the lesson, but the same session directed the project. That caveat is
+      what this check resolves, and §0.4 item 5 is explicit that the number cannot stand
+      alone without it.
+- [ ] **Eight Arabic objective statements, and a behavioural statement for `MI-13`.**
+      Objectives are written, not translated. `/ar/course` currently shows the code with
+      the English statement beneath it and says why. `MI-13` has no behavioural statement
+      anywhere: `BUILD.md` §5 now carries its row with Bloom and weight marked
+      *not recorded*, and `lib/objectives.ts` carries the topic taken from this file.
 - [ ] **Instructional-design review** — objective alignment, coverage, the assessment
       blueprint, feedback quality, the depth model, and the Arabic. Labelled as an
       instructional-design review everywhere, never as a subject-matter or accuracy review.
-- [ ] **Environment variables on Vercel** — `DATABASE_URL` and `AUTH_SECRET`, scoped to
-      all environments. Until then `POST /api/demo` returns 500 in production. The
-      landing page is static and serves fine without them.
 - [ ] Day 0 #3 — confirm the fictional entity names read as obviously invented (Week 2).
 - [ ] Day 0 #4 — Stripe availability. Not a v1.0 gate; only affects what `SPEC.md` claims.
 
