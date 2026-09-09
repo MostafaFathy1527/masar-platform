@@ -119,6 +119,36 @@ is a committed test: attempts are materialised server-side, the payload for an
 in-progress attempt is stripped of correct answers and rationales, timers are
 server-authoritative, and assembly fails loudly rather than silently serving fewer items.
 
+### Scoring the applied practice
+
+The L3 simulation asks the learner to review a claim and flag what would make it fail. Six
+errors are seeded, one per class: a demographic mismatch against the member card, a date
+that precedes coverage, a billed line the record does not support, a diagnosis less
+specific than the documentation, a missing required element, and a total that cannot be
+reconciled to its lines. Scoring is published rather than hidden:
+
+```
+precision = hits / flags made          (zero when nothing was flagged)
+recall    = hits / 6
+score     = 2 × precision × recall / (precision + recall)      // F1
+pass      = 70%
+```
+
+**Why the harmonic mean.** A weighted sum of recall and precision does not do what this
+exercise needs. Flagging every field maxes recall, and if recall carries most of the
+weight, a learner who flags everything can outscore one who reads a few fields carefully —
+the opposite of the point. F1 is dominated by whichever of precision and recall is worse,
+so buying recall by flagging everything costs more than it gains. On this claim, flagging
+all nineteen fields scores 48%; flagging four fields correctly scores 80%; flagging
+nothing scores zero.
+
+That property is not asserted in prose alone — it is a committed test. If a future change
+breaks it, the build fails rather than a reviewer discovering it.
+
+Every hit and every miss returns a written explanation in both languages, and every miss
+links back to the specific lesson block that taught it. That link is the pedagogical
+argument of the project: without it, a simulation is a quiz with a nicer interface.
+
 ## 9. Payments
 
 Payment lives behind a provider interface with a single **mock adapter** in v1.0. No

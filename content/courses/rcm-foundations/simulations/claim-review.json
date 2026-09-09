@@ -1,0 +1,200 @@
+{
+  "slug": "claim-review",
+  "kind": "CLAIM_REVIEW",
+  "objectiveIds": [
+    "MI-06",
+    "MI-07"
+  ],
+  "scoringMode": "PRECISION_RECALL",
+  "passPct": 70,
+  "dataset": {
+    "claim": {
+      "fields": [
+        {
+          "key": "member_name",
+          "labelAr": "اسم العضو",
+          "labelEn": "Member name",
+          "value": "Layla Hassan"
+        },
+        {
+          "key": "member_dob",
+          "labelAr": "تاريخ ميلاد العضو",
+          "labelEn": "Member date of birth",
+          "value": "1988-03-11"
+        },
+        {
+          "key": "member_id",
+          "labelAr": "رقم العضوية",
+          "labelEn": "Member ID",
+          "value": "NHA-4471902"
+        },
+        {
+          "key": "policy_number",
+          "labelAr": "رقم الوثيقة",
+          "labelEn": "Policy number",
+          "value": "POL-2026-88134"
+        },
+        {
+          "key": "group_number",
+          "labelAr": "رقم المجموعة",
+          "labelEn": "Group number",
+          "value": "GRP-0219"
+        },
+        {
+          "key": "payer",
+          "labelAr": "الطرف الدافع",
+          "labelEn": "Payer",
+          "value": "Nile Health Assurance"
+        },
+        {
+          "key": "service_date",
+          "labelAr": "تاريخ الخدمة",
+          "labelEn": "Date of service",
+          "value": "2026-01-20"
+        },
+        {
+          "key": "submitted_date",
+          "labelAr": "تاريخ الإرسال",
+          "labelEn": "Submitted date",
+          "value": "2026-02-06"
+        },
+        {
+          "key": "facility",
+          "labelAr": "المنشأة",
+          "labelEn": "Facility",
+          "value": "Riverside Day Clinic"
+        },
+        {
+          "key": "place_of_service",
+          "labelAr": "مكان الخدمة",
+          "labelEn": "Place of service",
+          "value": "Outpatient clinic"
+        },
+        {
+          "key": "rendering_provider",
+          "labelAr": "الطبيب المعالج",
+          "labelEn": "Rendering provider",
+          "value": ""
+        },
+        {
+          "key": "referring_provider",
+          "labelAr": "الطبيب المُحوِّل",
+          "labelEn": "Referring provider",
+          "value": "Dr N. Farouk"
+        },
+        {
+          "key": "dx_primary",
+          "labelAr": "التشخيص الأساسي",
+          "labelEn": "Primary diagnosis",
+          "value": "DX-A100 (unspecified)"
+        },
+        {
+          "key": "dx_secondary",
+          "labelAr": "التشخيص الثانوي",
+          "labelEn": "Secondary diagnosis",
+          "value": "DX-A214"
+        },
+        {
+          "key": "prior_auth_number",
+          "labelAr": "رقم الموافقة المسبقة",
+          "labelEn": "Prior authorisation",
+          "value": "PA-77120"
+        },
+        {
+          "key": "claim_total",
+          "labelAr": "إجمالي المطالبة",
+          "labelEn": "Claim total",
+          "value": "1110.00"
+        }
+      ],
+      "lines": [
+        {
+          "key": "line_1",
+          "code": "PRC-1042",
+          "descAr": "فحص أوّلي موسّع",
+          "descEn": "Extended initial assessment",
+          "units": 1,
+          "charge": 420.0
+        },
+        {
+          "key": "line_2",
+          "code": "PRC-1180",
+          "descAr": "تصوير تشخيصي",
+          "descEn": "Diagnostic imaging",
+          "units": 1,
+          "charge": 540.0
+        },
+        {
+          "key": "line_3",
+          "code": "PRC-1015",
+          "descAr": "متابعة قصيرة",
+          "descEn": "Short follow-up",
+          "units": 2,
+          "charge": 150.0
+        }
+      ],
+      "total": 1110.0
+    },
+    "note": {
+      "mdAr": "حضرت المريضة لشكوى مستمرة منذ ثلاثة أسابيع. أُجري فحص أوّلي موسّع وسُجّلت النتائج. رُتِّبت متابعتان قصيرتان خلال الشهر التالي. لا يوجد في السجل ما يشير إلى إجراء تصوير تشخيصي في هذه الزيارة. التشخيص الموثّق محدد ومسجّل بالتفصيل في السجل.",
+      "mdEn": "The patient attended for a complaint of three weeks' standing. An extended initial assessment was performed and the findings recorded. Two short follow-ups were arranged over the following month. Nothing in the record indicates that diagnostic imaging was performed at this visit. The documented diagnosis is specific and recorded in detail in the record."
+    },
+    "card": {
+      "memberNameOnCard": "Layla Hassan",
+      "memberDobOnCard": "1988-03-14",
+      "policyEffective": "2026-02-01",
+      "policyNumberOnCard": "POL-2026-88134",
+      "payerOnCard": "Nile Health Assurance"
+    }
+  },
+  "seededErrors": [
+    {
+      "id": "E1",
+      "fieldKey": "member_dob",
+      "class": "DEMOGRAPHIC_MISMATCH",
+      "whyAr": "تاريخ الميلاد على المطالبة 11 مارس 1988، وعلى بطاقة العضو 14 مارس 1988. عدم التطابق هذا يُرفض آليًا قبل أن ينظر أحد في الترميز.",
+      "whyEn": "The claim reads 11 March 1988; the member card reads 14 March 1988. A mismatch like this is rejected automatically, before anyone looks at the coding.",
+      "teachesBlockId": "b_l2_worked_liability"
+    },
+    {
+      "id": "E2",
+      "fieldKey": "service_date",
+      "class": "DATE_LOGIC",
+      "whyAr": "تاريخ الخدمة 20 يناير 2026، لكن الوثيقة تسري من 1 فبراير 2026. الخدمة سابقة لبدء التغطية، فلا يوجد ما يغطيها.",
+      "whyEn": "The date of service is 20 January 2026, but the policy is effective from 1 February 2026. The service precedes coverage, so there is nothing to pay against.",
+      "teachesBlockId": "b_l2_sort_fields"
+    },
+    {
+      "id": "E3",
+      "fieldKey": "line_2",
+      "class": "UNDOCUMENTED_SERVICE",
+      "whyAr": "السطر الثاني يطالب بتصوير تشخيصي، والسجل يذكر صراحةً أنه لم يُجرَ في هذه الزيارة. المطالبة بما لا يدعمه التوثيق مشكلة نزاهة، لا خطأ إدخال.",
+      "whyEn": "Line 2 bills for diagnostic imaging, and the record states plainly that none was performed at this visit. Billing what the documentation does not support is an integrity problem, not a typing error.",
+      "teachesBlockId": "b_l1_flow_stages"
+    },
+    {
+      "id": "E4",
+      "fieldKey": "dx_primary",
+      "class": "SPECIFICITY",
+      "whyAr": "التشخيص الأساسي مسجّل كغير محدد، بينما السجل يوثّق تشخيصًا محددًا. اختيار رمز غير محدد مع توفر التوثيق يضعف المطالبة بلا داعٍ.",
+      "whyEn": "The primary diagnosis is recorded as unspecified while the record documents a specific one. Choosing an unspecified code when the documentation supports a specific one weakens the claim for no reason.",
+      "teachesBlockId": "b_l1_flow_stages"
+    },
+    {
+      "id": "E5",
+      "fieldKey": "rendering_provider",
+      "class": "MISSING_ELEMENT",
+      "whyAr": "حقل الطبيب المعالج فارغ. هذا عنصر مطلوب، وغيابه يوقف المطالبة عند الفحص الأولي.",
+      "whyEn": "The rendering provider field is empty. It is a required element, and its absence stops the claim at the first edit.",
+      "teachesBlockId": "b_l2_scenario_missing"
+    },
+    {
+      "id": "E6",
+      "fieldKey": "claim_total",
+      "class": "ARITHMETIC",
+      "whyAr": "مجموع السطور: 420 + 540 + (150 × وحدتين = 300) = 1,260. لكن الإجمالي المعلن 1,110، أي أنه أسقط الوحدة الثانية من السطر الثالث. إجمالي لا يمكن مطابقته بسطوره عيبٌ في ذاته.",
+      "whyEn": "The lines sum to 420 + 540 + (150 x 2 units = 300) = 1,260. The stated total is 1,110, which drops the second unit of line 3. A total that cannot be reconciled to its lines is a defect in itself.",
+      "teachesBlockId": "b_l1_tip_fields"
+    }
+  ]
+}
