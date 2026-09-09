@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server'
-import { auth } from '@/auth'
+import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import {
   CERTIFICATE_DISCLAIMER,
@@ -46,8 +46,8 @@ export default async function CertificatePage({
   const l = locale as AppLocale
   const t = COPY[l] ?? COPY.ar
 
-  const session = await auth().catch(() => null)
-  const userId = session?.user?.id
+  const me = await requireUser()
+  const userId = me?.id
   const db = getDb()
 
   const course = await db.course.findFirst({ where: { status: 'PUBLISHED' } })
@@ -65,7 +65,6 @@ export default async function CertificatePage({
   let existingIsDemo = false
 
   if (userId) {
-    const user = await db.user.findUnique({ where: { id: userId } })
     const bestExam = examAssessment
       ? await db.attempt.findFirst({
           where: { userId, assessmentId: examAssessment.id, scorePct: { not: null } },
@@ -77,7 +76,7 @@ export default async function CertificatePage({
       examScorePct: bestExam?.scorePct ?? null,
       examPassPct: examAssessment?.passPct ?? 75,
       simulationPassed: !!simPassed,
-      isDemo: user?.isDemo ?? false,
+      isDemo: me?.isDemo ?? false,
     })
     const cert = await db.certificate.findFirst({ where: { userId, revokedAt: null } })
     existingSerial = cert?.serial ?? null

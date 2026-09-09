@@ -222,9 +222,29 @@ first thirty days after launch, so the process is evidenced rather than claimed.
 
 ## Privacy inventory
 
-Stored: email, display name, a password hash, hashed IP for 24 hours for rate limiting,
-and learning data (progress, attempts, submissions). Guest accounts are purged on a
-schedule. Learners can export their own data and request deletion. **No third-party
-analytics runs on learner pages, ever** — learning data stays as first-party rows in
-this project's own database, which is the point of the ownership argument. Relevant to
-data-protection regimes in the target market.
+Stored: an email address and a display name (guests get a generated address on an
+undeliverable domain and the name "Guest"), a bcrypt password hash, and learning data —
+enrolment, lesson progress, assessment attempts and submitted answers, applied-practice
+submissions and scores, and any certificate issued.
+
+Not stored: **no IP addresses and no application access logs**, no payment data, and **no
+third-party tracking on learner pages, ever** — learning data stays as first-party rows in
+this project's own database, which is the point of the ownership argument.
+
+**Guest accounts and all their data are deleted after seven days.** The purge runs whenever
+a new guest is created, so the event that produces the data is the event that clears what
+has expired; it does not depend on a scheduled job that can silently stop. Current counts
+are readable at `/api/retention`.
+
+Learners can export everything held about them as JSON, and delete their account outright.
+Deletion is a real delete rather than a deactivation flag: every table holding learner data
+cascades from the account row, and a committed test fails the build if a model is added
+that holds a learner id without one.
+
+Relevant to data-protection regimes in the target market.
+
+**Every sentence in this section describes behaviour that exists.** The retention claim
+points at `lib/retention.ts` and `/api/retention`; export and deletion point at
+`/api/me/export` and `/api/me/delete`. An earlier draft of this document stated the
+seven-day policy before anything enforced it — the mechanism was built rather than the
+sentence softened.

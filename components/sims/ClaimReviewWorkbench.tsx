@@ -131,7 +131,8 @@ export function ClaimReviewWorkbench({
   const toggle = (key: string) => {
     if (result) return
     const next = new Set(flagged)
-    next.has(key) ? next.delete(key) : next.add(key)
+    if (next.has(key)) next.delete(key)
+    else next.add(key)
     setFlagged(next)
   }
 

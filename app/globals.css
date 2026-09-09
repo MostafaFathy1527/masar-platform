@@ -801,3 +801,17 @@ body {
     color: #444;
   }
 }
+
+@layer components {
+  .privacy-list {
+    display: grid;
+    gap: 0.5rem;
+    list-style: disc;
+    padding-inline-start: 1.25rem;
+    max-width: 68ch;
+    line-height: 1.7;
+  }
+  .privacy-list form {
+    display: inline;
+  }
+}

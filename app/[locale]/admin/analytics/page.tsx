@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
-import { auth } from '@/auth'
+import { requireAdmin } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import type { AppLocale } from '@/i18n/routing'
 
@@ -66,8 +66,9 @@ export default async function AdminAnalyticsPage({
   const l = locale as AppLocale
   const t = COPY[l] ?? COPY.ar
 
-  const session = await auth().catch(() => null)
-  if (session?.user?.role !== 'ADMIN') notFound()
+  // Role is read from the row, not from the token: a demoted admin loses
+  // access at the next request rather than at their next sign-in.
+  if (!(await requireAdmin())) notFound()
 
   const db = getDb()
 

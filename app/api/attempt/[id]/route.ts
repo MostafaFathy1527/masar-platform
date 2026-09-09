@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { auth } from '@/auth'
+import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import { scoreAttempt, type Responses, type ScoredItem } from '@/lib/assessment/scoring'
 
@@ -17,8 +17,8 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params
-  const session = await auth().catch(() => null)
-  const userId = session?.user?.id
+  const me = await requireUser()
+  const userId = me?.id
   if (!userId) return NextResponse.json({ error: 'Not signed in' }, { status: 401 })
 
   const parsed = Body.safeParse(await req.json().catch(() => null))
