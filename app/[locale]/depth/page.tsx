@@ -34,6 +34,8 @@ const COPY = {
       L3: 'تطبيق عملي — ينتج عملًا يُقيَّم',
     },
     cumulative: 'المستويات تراكمية',
+    englishOnlyNotice:
+      'هذا الدرس متاح بالإنجليزية فقط في هذه النسخة. واجهة المنصة والدروس التفاعلية بالعربية بالكامل.',
     blockCountTemplate: '{n} كتلة معروضة',
     disclaimer:
       'محتوى تدريبي أصلي. كل الرموز والجهات في هذا الدرس خيالية للتدريب فقط. ليست استشارة طبية أو فوترية أو قانونية أو تنظيمية.',
@@ -48,6 +50,7 @@ const COPY = {
       L3: 'Applied practice — they produce work that is scored',
     },
     cumulative: 'Levels are cumulative',
+    englishOnlyNotice: 'This lesson is English-only in this build.',
     blockCountTemplate: '{n} blocks shown',
     disclaimer:
       'Original training content. Every code and organisation in this lesson is fictional and for training only. Not medical, billing, clinical, legal or regulatory advice.',
@@ -92,11 +95,13 @@ export default async function DepthPage({
             l2: lesson.blocks.l2 ?? [],
             l3: lesson.blocks.l3 ?? [],
           }}
+          bilingual={lesson.bilingual}
           copy={{
             levelName: t.levelName,
             levelWhat: t.levelWhat,
             cumulative: t.cumulative,
             blockCountTemplate: t.blockCountTemplate,
+            englishOnlyNotice: t.englishOnlyNotice,
           }}
         />
       </div>

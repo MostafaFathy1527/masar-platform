@@ -211,8 +211,59 @@ def check_semantics(doc, file: str) -> list[Finding]:
                         Finding(file, "missing-alt-text", f"block {bid} carries an image with no alt text")
                     )
 
+    findings += check_bilingual_honesty(doc, file)
     findings += check_level_completeness(doc, file)
     findings += check_prose_budget(doc, file)
+    return findings
+
+
+def check_bilingual_honesty(doc, file: str) -> list[Finding]:
+    """A lesson claiming Arabic must not just repeat its English.
+
+    The failure this catches is specific and easy to commit by accident: paste
+    English into the Arabic fields to satisfy a schema that requires both, and a
+    lesson reports full Arabic coverage while a reader gets English. The flag
+    exists so English-only content can be declared and said on the page; this
+    rule stops the flag being wrong.
+    """
+    findings: list[Finding] = []
+    if not doc.get("bilingual", True):
+        return findings
+
+    if str(doc.get("titleAr", "")).strip() == str(doc.get("titleEn", "")).strip():
+        findings.append(
+            Finding(
+                file,
+                "bilingual-claim",
+                "marked bilingual but the Arabic title is identical to the English one; "
+                "set bilingual: false if this lesson is English-only",
+            )
+        )
+
+    # Sample the prose too: identical Arabic and English bodies mean the same
+    # thing as an identical title, and are the more likely place to find it.
+    duplicated = 0
+    total = 0
+    for key in ("l1", "l2", "l3"):
+        for block in doc.get("blocks", {}).get(key) or []:
+            payload = block.get("payload", {})
+            if not isinstance(payload, dict):
+                continue
+            for ar_field, en_field in (("mdAr", "mdEn"), ("textAr", "textEn")):
+                ar, en = payload.get(ar_field), payload.get(en_field)
+                if isinstance(ar, str) and isinstance(en, str) and ar.strip():
+                    total += 1
+                    if ar.strip() == en.strip():
+                        duplicated += 1
+    if total and duplicated / total > 0.5:
+        findings.append(
+            Finding(
+                file,
+                "bilingual-claim",
+                f"marked bilingual but {duplicated} of {total} text blocks have identical "
+                "Arabic and English; set bilingual: false if this lesson is English-only",
+            )
+        )
     return findings
 
 
