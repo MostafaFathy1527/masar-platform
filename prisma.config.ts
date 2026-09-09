@@ -1,20 +1,22 @@
 import 'dotenv/config'
-import { defineConfig, env } from 'prisma/config'
+import { defineConfig } from 'prisma/config'
 
 // Prisma 7 no longer reads `url` from schema.prisma, and no longer loads .env
 // on its own — hence the dotenv import above. The runtime client does not use
 // this file; it gets a driver adapter in lib/db.ts.
 //
-// shadowDatabaseUrl is optional and only set in CI, where a throwaway Postgres
-// service exists. It lets `migrate diff --from-migrations` replay the committed
-// migrations and prove they reproduce the datamodel exactly.
+// The datasource is assembled conditionally rather than with prisma/config's
+// `env()` helper, which throws on a missing variable. `prisma generate` runs
+// during the build and needs no database, so throwing there would fail a
+// deployment for a variable that step never uses.
+const url = process.env.DATABASE_URL
 const shadowDatabaseUrl = process.env.SHADOW_DATABASE_URL
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',
+  migrations: { path: 'prisma/migrations' },
   datasource: {
-    url: env('DATABASE_URL'),
+    ...(url ? { url } : {}),
     ...(shadowDatabaseUrl ? { shadowDatabaseUrl } : {}),
   },
-  migrations: { path: 'prisma/migrations' },
 })
