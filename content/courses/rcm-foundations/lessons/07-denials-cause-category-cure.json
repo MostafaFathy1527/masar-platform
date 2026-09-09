@@ -1,0 +1,192 @@
+{
+  "slug": "denials-cause-category-cure",
+  "titleAr": "Denials: cause, category, cure",
+  "titleEn": "Denials: cause, category, cure",
+  "estMinutes": 40,
+  "bilingual": false,
+  "levels": [
+    "L1"
+  ],
+  "objectives": [
+    "MI-09",
+    "MI-10"
+  ],
+  "conceptsIntroduced": [
+    "rejection",
+    "denial",
+    "root_cause",
+    "appeal"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b7_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-09",
+        "payload": {
+          "textAr": "A rejection and a denial are not the same thing",
+          "textEn": "A rejection and a denial are not the same thing",
+          "level": 2
+        }
+      },
+      {
+        "id": "b7_p_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-09",
+        "payload": {
+          "mdAr": "The words are used interchangeably in conversation and mean different things in practice. A **rejection** happens before the payer assesses the claim: something about its form or its data stopped it from being processed at all. A **denial** happens after assessment: the payer read the claim and decided not to pay.\n\nThe distinction is not pedantry. It decides what you do next. A rejection is corrected and resubmitted. A denial is a decision, and changing a decision means either fixing what it was based on or arguing against it.",
+          "mdEn": "The words are used interchangeably in conversation and mean different things in practice. A **rejection** happens before the payer assesses the claim: something about its form or its data stopped it from being processed at all. A **denial** happens after assessment: the payer read the claim and decided not to pay.\n\nThe distinction is not pedantry. It decides what you do next. A rejection is corrected and resubmitted. A denial is a decision, and changing a decision means either fixing what it was based on or arguing against it."
+        }
+      },
+      {
+        "id": "b7_d_rejection",
+        "type": "definition_card",
+        "objectiveId": "MI-09",
+        "payload": {
+          "termAr": "Rejection",
+          "termEn": "Rejection",
+          "defAr": "The claim was not processed. Usually a format or data failure, often caught before it reaches the payer at all. Corrected and resubmitted, it is treated as a new claim rather than a disputed one.",
+          "defEn": "The claim was not processed. Usually a format or data failure, often caught before it reaches the payer at all. Corrected and resubmitted, it is treated as a new claim rather than a disputed one.",
+          "icon": "↩"
+        }
+      },
+      {
+        "id": "b7_d_denial",
+        "type": "definition_card",
+        "objectiveId": "MI-09",
+        "payload": {
+          "termAr": "Denial",
+          "termEn": "Denial",
+          "defAr": "The claim was processed and payment was refused. The reason may be about coverage, documentation, timing, or authorisation, and the route back is correction or appeal depending on which.",
+          "defEn": "The claim was processed and payment was refused. The reason may be about coverage, documentation, timing, or authorisation, and the route back is correction or appeal depending on which.",
+          "icon": "⛔",
+          "exampleAr": "Training example: a claim refused because the service preceded the policy effective date is a denial — it was read and judged, not bounced.",
+          "exampleEn": "Training example: a claim refused because the service preceded the policy effective date is a denial — it was read and judged, not bounced."
+        }
+      },
+      {
+        "id": "b7_t_action",
+        "type": "compare_table",
+        "objectiveId": "MI-10",
+        "payload": {
+          "captionAr": "Root cause decides the action",
+          "captionEn": "Root cause decides the action",
+          "columns": [
+            {
+              "labelAr": "Root cause",
+              "labelEn": "Root cause"
+            },
+            {
+              "labelAr": "What actually went wrong",
+              "labelEn": "What actually went wrong"
+            },
+            {
+              "labelAr": "Correct action",
+              "labelEn": "Correct action"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "Eligibility",
+                "textEn": "Eligibility"
+              },
+              {
+                "textAr": "No active coverage on the service date",
+                "textEn": "No active coverage on the service date"
+              },
+              {
+                "textAr": "Verify other coverage; otherwise bill the patient",
+                "textEn": "Verify other coverage; otherwise bill the patient"
+              }
+            ],
+            [
+              {
+                "textAr": "Authorisation",
+                "textEn": "Authorisation"
+              },
+              {
+                "textAr": "Required permission was not obtained",
+                "textEn": "Required permission was not obtained"
+              },
+              {
+                "textAr": "Appeal only if permission existed; otherwise absorb or bill per policy",
+                "textEn": "Appeal only if permission existed; otherwise absorb or bill per policy"
+              }
+            ],
+            [
+              {
+                "textAr": "Documentation",
+                "textEn": "Documentation"
+              },
+              {
+                "textAr": "The record does not support what was billed",
+                "textEn": "The record does not support what was billed"
+              },
+              {
+                "textAr": "Correct the claim to match the record — never the reverse",
+                "textEn": "Correct the claim to match the record — never the reverse"
+              }
+            ],
+            [
+              {
+                "textAr": "Timely filing",
+                "textEn": "Timely filing"
+              },
+              {
+                "textAr": "Submitted after the payer's deadline",
+                "textEn": "Submitted after the payer's deadline"
+              },
+              {
+                "textAr": "Appeal only with evidence of timely submission",
+                "textEn": "Appeal only with evidence of timely submission"
+              }
+            ],
+            [
+              {
+                "textAr": "Duplicate",
+                "textEn": "Duplicate"
+              },
+              {
+                "textAr": "The same service was already claimed",
+                "textEn": "The same service was already claimed"
+              },
+              {
+                "textAr": "Withdraw; do not resubmit",
+                "textEn": "Withdraw; do not resubmit"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b7_tip",
+        "type": "job_tip",
+        "objectiveId": "MI-10",
+        "payload": {
+          "mdAr": "Classify before you act. The most expensive mistake in denial work is appealing something that should have been corrected and resubmitted: appeals are slow, they consume the filing window, and a denial that was really a data error will lose an appeal it never needed to enter.",
+          "mdEn": "Classify before you act. The most expensive mistake in denial work is appealing something that should have been corrected and resubmitted: appeals are slow, they consume the filing window, and a denial that was really a data error will lose an appeal it never needed to enter."
+        }
+      },
+      {
+        "id": "b7_take",
+        "type": "takeaways",
+        "objectiveId": "MI-09",
+        "payload": {
+          "itemsAr": [
+            "A rejection was never assessed; a denial was assessed and refused.",
+            "The root cause, not the wording of the notice, decides the correct action.",
+            "Correct the claim to match the record — never the record to match the claim.",
+            "Appealing what should have been corrected wastes the filing window and usually loses."
+          ],
+          "itemsEn": [
+            "A rejection was never assessed; a denial was assessed and refused.",
+            "The root cause, not the wording of the notice, decides the correct action.",
+            "Correct the claim to match the record — never the record to match the claim.",
+            "Appealing what should have been corrected wastes the filing window and usually loses."
+          ]
+        }
+      }
+    ]
+  }
+}

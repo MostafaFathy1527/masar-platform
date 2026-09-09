@@ -1,0 +1,187 @@
+{
+  "slug": "documentation-that-supports-the-claim",
+  "titleAr": "Documentation that supports the claim",
+  "titleEn": "Documentation that supports the claim",
+  "estMinutes": 40,
+  "bilingual": false,
+  "levels": [
+    "L1"
+  ],
+  "objectives": [
+    "MI-07",
+    "MI-13"
+  ],
+  "conceptsIntroduced": [
+    "documentation_supports",
+    "medical_necessity",
+    "upcoding",
+    "unbundling"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b5_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-07",
+        "payload": {
+          "textAr": "The record decides what may be billed",
+          "textEn": "The record decides what may be billed",
+          "level": 2
+        }
+      },
+      {
+        "id": "b5_p_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-07",
+        "payload": {
+          "mdAr": "A claim is a set of assertions about what happened. The record is the evidence for those assertions. When the two disagree, the record wins — not because it is more accurate, but because it is what a reviewer will read.\n\nThe working question is narrow and answerable: *for each line on this claim, is there something in the record that would satisfy someone who did not perform the service?* Not \"did it probably happen\", and not \"is it usually done\". Something written down.",
+          "mdEn": "A claim is a set of assertions about what happened. The record is the evidence for those assertions. When the two disagree, the record wins — not because it is more accurate, but because it is what a reviewer will read.\n\nThe working question is narrow and answerable: *for each line on this claim, is there something in the record that would satisfy someone who did not perform the service?* Not \"did it probably happen\", and not \"is it usually done\". Something written down."
+        }
+      },
+      {
+        "id": "b5_d_supports",
+        "type": "definition_card",
+        "objectiveId": "MI-07",
+        "payload": {
+          "termAr": "Supported",
+          "termEn": "Supported",
+          "defAr": "A billed service is supported when the record independently shows it was performed and why. A note that describes an intention, an order, or a plan is not evidence that the service happened.",
+          "defEn": "A billed service is supported when the record independently shows it was performed and why. A note that describes an intention, an order, or a plan is not evidence that the service happened.",
+          "icon": "📄"
+        }
+      },
+      {
+        "id": "b5_d_necessity",
+        "type": "definition_card",
+        "objectiveId": "MI-07",
+        "payload": {
+          "termAr": "Medical necessity",
+          "termEn": "Medical necessity",
+          "defAr": "Whether the service was appropriate for the documented condition. A service can be genuinely performed, correctly coded, and still unpayable because the record does not show why it was needed.",
+          "defEn": "Whether the service was appropriate for the documented condition. A service can be genuinely performed, correctly coded, and still unpayable because the record does not show why it was needed.",
+          "icon": "🔎",
+          "exampleAr": "Training example: imaging is documented as performed, but nothing in the record explains what question it was meant to answer.",
+          "exampleEn": "Training example: imaging is documented as performed, but nothing in the record explains what question it was meant to answer."
+        }
+      },
+      {
+        "id": "b5_t_pairs",
+        "type": "compare_table",
+        "objectiveId": "MI-07",
+        "payload": {
+          "captionAr": "Supported or not: three pairs",
+          "captionEn": "Supported or not: three pairs",
+          "columns": [
+            {
+              "labelAr": "What the record says",
+              "labelEn": "What the record says"
+            },
+            {
+              "labelAr": "What is billed",
+              "labelEn": "What is billed"
+            },
+            {
+              "labelAr": "Supported?",
+              "labelEn": "Supported?"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "\"Extended assessment performed; findings recorded.\"",
+                "textEn": "\"Extended assessment performed; findings recorded.\""
+              },
+              {
+                "textAr": "Extended assessment",
+                "textEn": "Extended assessment"
+              },
+              {
+                "textAr": "Yes — the service and its performance are both stated.",
+                "textEn": "Yes — the service and its performance are both stated."
+              }
+            ],
+            [
+              {
+                "textAr": "\"Imaging to be arranged.\"",
+                "textEn": "\"Imaging to be arranged.\""
+              },
+              {
+                "textAr": "Imaging",
+                "textEn": "Imaging"
+              },
+              {
+                "textAr": "No — an intention, not evidence that it happened.",
+                "textEn": "No — an intention, not evidence that it happened."
+              }
+            ],
+            [
+              {
+                "textAr": "\"Two short follow-ups arranged over the next month.\"",
+                "textEn": "\"Two short follow-ups arranged over the next month.\""
+              },
+              {
+                "textAr": "Two follow-ups",
+                "textEn": "Two follow-ups"
+              },
+              {
+                "textAr": "Only once they occur; arranging is not delivering.",
+                "textEn": "Only once they occur; arranging is not delivering."
+              }
+            ],
+            [
+              {
+                "textAr": "\"Patient reviewed.\"",
+                "textEn": "\"Patient reviewed.\""
+              },
+              {
+                "textAr": "Extended assessment",
+                "textEn": "Extended assessment"
+              },
+              {
+                "textAr": "No — the record does not support the level billed.",
+                "textEn": "No — the record does not support the level billed."
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b5_tip_fwa",
+        "type": "job_tip",
+        "objectiveId": "MI-13",
+        "payload": {
+          "mdAr": "**Where this stops being a paperwork question.** Billing a level higher than the record supports is *upcoding*. Splitting one service into parts to be paid more is *unbundling*. Both can pass an automated edit, which is exactly why they are treated as integrity matters rather than errors — the system did not catch them, so a person is answerable for them. If a correction increases payment and the record did not change, stop and ask why.",
+          "mdEn": "**Where this stops being a paperwork question.** Billing a level higher than the record supports is *upcoding*. Splitting one service into parts to be paid more is *unbundling*. Both can pass an automated edit, which is exactly why they are treated as integrity matters rather than errors — the system did not catch them, so a person is answerable for them. If a correction increases payment and the record did not change, stop and ask why."
+        }
+      },
+      {
+        "id": "b5_p_pressure",
+        "type": "rich_text",
+        "objectiveId": "MI-13",
+        "payload": {
+          "mdAr": "This pressure is usually not dramatic. It arrives as a suggestion that a code \"probably\" applies, or that a service is \"always\" done at this level. The defence is the same either way: point at the record. If the record does not say it, the claim should not either, and the person asking is better off knowing that before submission than after an audit.",
+          "mdEn": "This pressure is usually not dramatic. It arrives as a suggestion that a code \"probably\" applies, or that a service is \"always\" done at this level. The defence is the same either way: point at the record. If the record does not say it, the claim should not either, and the person asking is better off knowing that before submission than after an audit."
+        }
+      },
+      {
+        "id": "b5_take",
+        "type": "takeaways",
+        "objectiveId": "MI-07",
+        "payload": {
+          "itemsAr": [
+            "For every line, ask whether the record would satisfy someone who did not perform the service.",
+            "An intention, an order or a plan is not evidence that a service happened.",
+            "A service can be real, correctly coded, and still unpayable if necessity is not documented.",
+            "Upcoding and unbundling often pass automated checks, which is why they are integrity matters rather than errors."
+          ],
+          "itemsEn": [
+            "For every line, ask whether the record would satisfy someone who did not perform the service.",
+            "An intention, an order or a plan is not evidence that a service happened.",
+            "A service can be real, correctly coded, and still unpayable if necessity is not documented.",
+            "Upcoding and unbundling often pass automated checks, which is why they are integrity matters rather than errors."
+          ]
+        }
+      }
+    ]
+  }
+}

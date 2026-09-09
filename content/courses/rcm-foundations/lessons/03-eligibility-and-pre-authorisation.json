@@ -1,0 +1,147 @@
+{
+  "slug": "eligibility-and-pre-authorisation",
+  "titleAr": "Eligibility and pre-authorisation",
+  "titleEn": "Eligibility and pre-authorisation",
+  "estMinutes": 35,
+  "bilingual": false,
+  "levels": [
+    "L1"
+  ],
+  "objectives": [
+    "MI-04"
+  ],
+  "conceptsIntroduced": [
+    "eligibility",
+    "pre_authorisation",
+    "coverage_active"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b3_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-04",
+        "payload": {
+          "textAr": "Checking before, not arguing after",
+          "textEn": "Checking before, not arguing after",
+          "level": 2
+        }
+      },
+      {
+        "id": "b3_p_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-04",
+        "payload": {
+          "mdAr": "An eligibility check asks one narrow question: on the date this service will be delivered, is there active coverage that would pay for it? It is cheap to ask beforehand and expensive to discover afterwards.\n\nPre-authorisation asks a second, different question: even if coverage is active, does this payer require permission before this particular service? Confusing the two is the most common error here. Active coverage is not permission.",
+          "mdEn": "An eligibility check asks one narrow question: on the date this service will be delivered, is there active coverage that would pay for it? It is cheap to ask beforehand and expensive to discover afterwards.\n\nPre-authorisation asks a second, different question: even if coverage is active, does this payer require permission before this particular service? Confusing the two is the most common error here. Active coverage is not permission."
+        }
+      },
+      {
+        "id": "b3_d_elig",
+        "type": "definition_card",
+        "objectiveId": "MI-04",
+        "payload": {
+          "termAr": "Eligibility",
+          "termEn": "Eligibility",
+          "defAr": "Whether coverage is active for this member, on this date, for this category of service. It is a question about the policy, not about the patient's condition.",
+          "defEn": "Whether coverage is active for this member, on this date, for this category of service. It is a question about the policy, not about the patient's condition.",
+          "icon": "✓"
+        }
+      },
+      {
+        "id": "b3_d_preauth",
+        "type": "definition_card",
+        "objectiveId": "MI-04",
+        "payload": {
+          "termAr": "Pre-authorisation",
+          "termEn": "Pre-authorisation",
+          "defAr": "Permission obtained from the payer before delivering a specific service. Its absence can make an otherwise valid claim unpayable, and it usually cannot be obtained retroactively.",
+          "defEn": "Permission obtained from the payer before delivering a specific service. Its absence can make an otherwise valid claim unpayable, and it usually cannot be obtained retroactively.",
+          "icon": "🔑",
+          "exampleAr": "Training example: a policy is active from 1 February, and the payer requires pre-authorisation for imaging. Both must be true before imaging is delivered.",
+          "exampleEn": "Training example: a policy is active from 1 February, and the payer requires pre-authorisation for imaging. Both must be true before imaging is delivered."
+        }
+      },
+      {
+        "id": "b3_flow",
+        "type": "process_flow",
+        "objectiveId": "MI-04",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "Identify the member",
+              "labelEn": "Identify the member",
+              "detailAr": "Match the person to a policy using the card, not memory.",
+              "detailEn": "Match the person to a policy using the card, not memory."
+            },
+            {
+              "id": "s2",
+              "labelAr": "Confirm the date",
+              "labelEn": "Confirm the date",
+              "detailAr": "Coverage is a period, not a state. Ask about the service date.",
+              "detailEn": "Coverage is a period, not a state. Ask about the service date."
+            },
+            {
+              "id": "s3",
+              "labelAr": "Confirm the service category",
+              "labelEn": "Confirm the service category",
+              "detailAr": "Active coverage does not mean everything is covered.",
+              "detailEn": "Active coverage does not mean everything is covered."
+            },
+            {
+              "id": "s4",
+              "labelAr": "Check for a pre-authorisation requirement",
+              "labelEn": "Check for a pre-authorisation requirement",
+              "detailAr": "A separate question with a separate answer.",
+              "detailEn": "A separate question with a separate answer."
+            },
+            {
+              "id": "s5",
+              "labelAr": "Decide",
+              "labelEn": "Decide",
+              "detailAr": "Proceed, obtain pre-authorisation first, or convert to self-pay.",
+              "detailEn": "Proceed, obtain pre-authorisation first, or convert to self-pay."
+            },
+            {
+              "id": "s6",
+              "labelAr": "Record what you were told",
+              "labelEn": "Record what you were told",
+              "detailAr": "A reference number turns a claim into an argument you can win.",
+              "detailEn": "A reference number turns a claim into an argument you can win."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b3_tip",
+        "type": "job_tip",
+        "objectiveId": "MI-04",
+        "payload": {
+          "mdAr": "Always record the reference number and the date of an eligibility response. Without it, a later dispute is your recollection against their record, and that is not a dispute you win.",
+          "mdEn": "Always record the reference number and the date of an eligibility response. Without it, a later dispute is your recollection against their record, and that is not a dispute you win."
+        }
+      },
+      {
+        "id": "b3_take",
+        "type": "takeaways",
+        "objectiveId": "MI-04",
+        "payload": {
+          "itemsAr": [
+            "Eligibility asks whether coverage is active on the service date; it is a question about the policy.",
+            "Pre-authorisation is a separate question, and active coverage is not permission.",
+            "The three honest outcomes are proceed, pre-authorise first, or convert to self-pay.",
+            "A recorded reference number is what makes a later dispute winnable."
+          ],
+          "itemsEn": [
+            "Eligibility asks whether coverage is active on the service date; it is a question about the policy.",
+            "Pre-authorisation is a separate question, and active coverage is not permission.",
+            "The three honest outcomes are proceed, pre-authorise first, or convert to self-pay.",
+            "A recorded reference number is what makes a later dispute winnable."
+          ]
+        }
+      }
+    ]
+  }
+}
