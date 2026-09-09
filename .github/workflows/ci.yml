@@ -118,11 +118,26 @@ jobs:
           npm run schema:export
           git diff --exit-code -- content/schema/lesson.schema.json
 
-      - name: Validator negative tests
-        run: python pipeline/test_validate.py
+      # Negative tests first: a gate that has only ever passed proves nothing,
+      # so CI verifies each one refuses things before trusting it on content.
+      - name: Gate negative tests
+        run: |
+          python pipeline/test_validate.py
+          python pipeline/test_concept_log.py
+          python pipeline/test_qa_gate.py
 
       - name: Validate authored lesson content
         run: python pipeline/validate.py
+
+      - name: Concept log — no re-definitions or forward references
+        run: python pipeline/concept_log.py --check
+
+      # The log is generated. If it is stale, the pipeline reads a memory that
+      # does not match the course.
+      - name: Concept log is up to date
+        run: |
+          python pipeline/concept_log.py --rebuild
+          git diff --exit-code -- pipeline/memory/concept-log.json
 
   publish-safety:
     runs-on: ubuntu-latest
