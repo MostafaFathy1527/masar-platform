@@ -7,7 +7,7 @@
 // It runs as an async function body and must resolve before the shot is taken —
 // a capture that fires mid-transition is the same class of lie as a clipped one.
 import fs from 'node:fs';
-const [,, url, out, w, h, dpr, stepsFile] = process.argv;
+const [,, url, out, w, h, dpr, stepsFile, scheme] = process.argv;
 const list = await (await fetch('http://127.0.0.1:9333/json/list')).json();
 const target = list.find(t => t.type === 'page') || list[0];
 const ws = new WebSocket(target.webSocketDebuggerUrl);
@@ -26,6 +26,13 @@ await send('Page.enable');
 const em = await send('Emulation.setDeviceMetricsOverride',
   { width:+w, height:+h, deviceScaleFactor:+dpr, mobile:+w < 768, screenWidth:+w, screenHeight:+h });
 if (em.error) console.log('emulation error:', em.error);
+// The headless browser reports whatever colour scheme the host is set to, so
+// without this a light-default design photographs dark on a dark machine and
+// the default never gets reviewed. Pass "dark" explicitly to shoot the
+// alternate.
+await send('Emulation.setEmulatedMedia', {
+  features: [{ name: 'prefers-color-scheme', value: scheme === 'dark' ? 'dark' : 'light' }],
+});
 await send('Page.navigate', { url });
 await new Promise(r => setTimeout(r, 10000));
 if (stepsFile) {
