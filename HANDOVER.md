@@ -78,7 +78,7 @@ what actually resolved — not what any planning document predicted.
 | `@prisma/client` | 7.10.0 |
 | `@tailwindcss/postcss` | 4.3.3 |
 | `@tanstack/react-query` | 5.102.8 |
-| `@types/node` | 20.19.43 |
+| `@types/node` | 24.13.3 |
 | `@types/pg` | 8.23.1 |
 | `@types/react` | 19.2.18 |
 | `@types/react-dom` | 19.2.7 |
@@ -87,6 +87,7 @@ what actually resolved — not what any planning document predicted.
 | `dotenv` | 17.4.2 |
 | `eslint` | 9.39.5 |
 | `eslint-config-next` | 16.3.4 |
+| `jsdom` | 29.1.1 |
 | `lucide-react` | 1.43.0 |
 | `next` | 16.3.4 |
 | `next-auth` | 5.0.0-beta.32 |
@@ -119,6 +120,13 @@ what actually resolved — not what any planning document predicted.
 - **`AGENTS.md` is framework-managed.** `next dev` injects a block into `AGENTS.md`
   when it exists, and into the project rules file only when it does not. `AGENTS.md` exists so
   the framework never edits the file carrying the project's hard rules. Do not delete it.
+- **`jsdom` is a dev dependency, and it earns its place.** `tests/batched-clicks.test.tsx`
+  renders the real components and fires several clicks inside one React batch, which is
+  the only way to catch a handler that computes state from its render closure instead of
+  from previous state. Testing the extracted pure updaters alone would pass even if a
+  handler were reverted to the broken form — a test that cannot fail for the bug it names,
+  which is `docs/design/what-failed.md` entry 5. The test was verified red against the old
+  handlers before it was kept. Removing `jsdom` removes the only guard on that class.
 
 ## Known deviations
 
