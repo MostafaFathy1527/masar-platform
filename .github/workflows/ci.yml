@@ -43,6 +43,56 @@ jobs:
       - name: Build
         run: npm run build
 
+  # Proves the committed migrations reproduce the datamodel exactly. The
+  # baseline was generated offline with `migrate diff` on a machine that cannot
+  # open outbound TCP 5432, so it had never been replayed against a real
+  # Postgres. This job is that check, run on every push rather than once.
+  migrations:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready --health-interval 10s
+          --health-timeout 5s --health-retries 5
+        ports: ['5432:5432']
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/masar
+      SHADOW_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/shadow
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Create databases
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -c 'CREATE DATABASE masar;'
+          PGPASSWORD=postgres psql -h localhost -U postgres -c 'CREATE DATABASE shadow;'
+
+      # Exit code 2 means the migrations and the schema disagree.
+      - name: Migrations must reproduce the datamodel
+        run: >-
+          npx prisma migrate diff
+          --from-migrations prisma/migrations
+          --to-schema prisma/schema.prisma
+          --exit-code
+
+      # And they must actually apply to an empty database.
+      - name: Apply migrations
+        run: npx prisma migrate deploy
+
+      - name: No drift after apply
+        run: >-
+          npx prisma migrate diff
+          --from-config-datasource
+          --to-schema prisma/schema.prisma
+          --exit-code
+
   publish-safety:
     runs-on: ubuntu-latest
     steps:
