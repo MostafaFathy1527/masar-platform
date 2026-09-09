@@ -11,9 +11,9 @@ reaches a running instance in 156 seconds.
 and block registry, L1 and L2 rendering, the `/depth` page, and the lesson JSON schema with
 `pipeline/validate.py`. Verified at runtime in both locales.
 
-**Week 3 is complete.** `claim_review` ships with F1 scoring, per-field feedback, a retry
-variant and the 390px bottom-sheet pattern, and the guest button now deep-links into it.
-All three promises this week carried are met.
+**Week 4 is complete.** The assessment ladder, certificate-lite and read-only admin
+analytics all ship. §0.2's cut line was never needed: quiz, exam and certificate all
+landed. Four of the six weeks are done, each ending deployed.
 
 **One production gap, not a DoD line:** environment variables are still unset on Vercel,
 so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
@@ -89,16 +89,55 @@ field count:
 The tests encode the **claim**, not the implementation, so a future change that breaks it
 fails the build rather than surfacing in front of a reviewer.
 
-## Next (Week 4)
+## Position bias: found end to end, not by inspection
 
-Assessment and a lightweight certificate, per the plan: in-lesson knowledge checks, a
-lesson quiz, one blueprint-sampled exam with an objective breakdown, certificate-lite with
-`/verify/[serial]` and print CSS, and one read-only `/admin/analytics` page.
+Answering "the first option" on every exam item scored **89%**. The bank is authored with
+the correct answer first in 11 of 14 items, so option position predicted correctness — a
+bank that read fine and was trivially gameable.
 
-**Block-type budget: still 12 of 16.** `claim_review` needed no new block type — it mounts
-through the existing `practice_sim` block — so all four slots remain.
+Options are now shuffled deterministically per attempt and per item, seeded by the attempt
+so a reload does not move them under the learner. Scoring is unaffected, because answers
+match by option id and never by position.
 
-Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` writes.
+| strategy | before | after |
+|---|---|---|
+| always answer the first shown option | 89%, passes | 22% / 28% / 11%, all fail |
+
+A test asserts the mean across eight seeds stays near chance, and a second test documents
+that the authored bank *is* position-biased — so the shuffle cannot later be removed as
+apparently redundant.
+
+## Two honest gaps in Week 4
+
+**Middleware authorization is not in place.** the project rules file rule 8 asks for permission checks
+in middleware *and* re-checked server-side. Only the server-side check exists. The proxy
+runs on the edge and this project's auth config imports Prisma, which is not edge-safe.
+A cookie-presence check in the proxy was deliberately not added: something that looks like
+authorization without being it is worse than a recorded gap. The server-side check is the
+one that actually protects the data, and a non-admin gets a 404 rather than a 403 so the
+route does not confirm its own existence.
+
+**Role changes need re-authentication.** Role travels on the JWT, so promoting a user to
+ADMIN leaves them refused until they sign in again. Correct behaviour for JWT sessions
+rather than a defect, but worth knowing before someone debugs it twice.
+
+## Next (Week 5)
+
+Content and the AI pipeline: five lessons (L01, L03, L04, L05, L07) with L05 as the only
+L3 flagship, roughly 60 items, the pipeline the project rules file workflow with three prompts, the
+concept log, the rubric gate, and `/how-it-was-built`.
+
+`pipeline/validate.py` already exists and is CI-enforced, so Week 5 adds generation on top
+of a gate that is already working rather than building both at once.
+
+**Block-type budget: still 12 of 16.** Neither the simulation nor the assessment needed a
+new block type.
+
+Also scheduled for Week 5 by the plan: recruit one or two practitioners for a structured
+review. "Invited, not invented" is only honest if the invitation actually happened.
+
+Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` writes; two
+`teachesBlockId` targets that point at the closest existing block until lesson 5 lands.
 
 ## Done
 - **Week 2, complete.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
@@ -114,6 +153,13 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
   fails if the generated schema is stale, so the contract cannot quietly become a fiction.
 - **`compare_table` is bilingual**, so every text-bearing block now is, with no exceptions —
   enforced by the schema rather than by review.
+- **Week 4, complete.** Item, ItemOption, Assessment, Attempt, AttemptAnswer and
+  Certificate tables. Blueprint assembly that is deterministic from a stored seed and
+  fails loudly on a thin pool rather than scoring an attempt out of the wrong denominator.
+  Quiz and exam with a per-objective breakdown and weakest-objectives list. Certificate-lite
+  issuing idempotently with the objectives demonstrated printed on it, public verification,
+  and print CSS. Read-only admin analytics. 14 authored items, every option carrying
+  feedback that names its misconception.
 - **Week 3, complete.** `Simulation` and `SimSubmission` tables; the claim-review dataset
   with six seeded errors, one per class, each carrying a bilingual explanation and a
   `teachesBlockId` verified to exist in lesson 4; F1 scoring as a pure, hard-tested module;
@@ -166,5 +212,9 @@ Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` wr
 | 2026-09-09 | **Scoring is F1, not the specified linear blend** | The linear formula let shotgun-flagging (79%) beat careful reading (77%) and paid 30% for doing nothing. F1 delivers the claim at any field count. |
 | 2026-09-09 | **Seeded errors never reach the client** | Same rule as stripping answer keys from an in-progress attempt; otherwise the exercise is spot-the-highlighted-field. |
 | 2026-09-09 | **Evidence panel is one `<details>`, `open` by default** | CSS cannot reveal a closed `<details>`, so the desktop panel rendered empty. Open + hidden summary is the panel; on a phone the same element is the bottom sheet. |
+| 2026-09-09 | **Options are shuffled per attempt** | Authored banks put the correct answer first; without shuffling, "always answer A" scored 89% on the exam. |
+| 2026-09-09 | **Two item types, not six** | A scenario item is an MCQ_SINGLE with a vignette, flagged by `isScenario`: the difference is in the stem, not in how it is answered or scored. |
+| 2026-09-09 | **Admin routes return 404, not 403** | An admin route should not confirm its own existence to someone who may not access it. |
+| 2026-09-09 | **No middleware authorization** | The proxy is edge-run and the auth config imports Prisma. A cookie-presence check would look like authorization without being it. Recorded as a gap rather than faked. |
 | 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
