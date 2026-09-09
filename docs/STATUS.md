@@ -187,14 +187,17 @@ What remains needs a person, not an agent, and is listed in the project rules fi
 in a fresh session, the blind inter-rater check, the instructional-design review, and the
 narrated recording.
 
-`docs/design/what-failed.md` has **eight** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **nine** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
-you try to game them.** The last three break it in different directions: the code was
-right and the product was wrong; the product was right and the tool was wrong; and a check
-written to keep a screenshot honest caught the page lying to learners.
+you try to game them.** The sixth, seventh and eighth break it in different directions: the
+code was right and the product was wrong; the product was right and the tool was wrong; and
+a check written to keep a screenshot honest caught the page lying to learners. The ninth
+pairs with the gate's false pass instead — a conditional that was never conditional:
+Tailwind 4 hoists `@theme` out of `@media`, so the dark palette shipped unconditionally and
+the light default had never rendered anywhere, in six weeks or in any screenshot.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — three of the eight are hardcoded facts that silently stopped
+were true when written** — three of the nine are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third

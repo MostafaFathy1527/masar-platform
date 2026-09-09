@@ -43,7 +43,7 @@ export default async function PracticePage({
   const t = TOUR[l] ?? TOUR.ar
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
+    <div className="page-shell">
       {tour === '1' ? (
         <div className="tour-banner">
           <p>{t.banner}</p>
@@ -54,8 +54,8 @@ export default async function PracticePage({
       ) : null}
 
       <header className="mb-6">
-        <p className="badge">{l === 'ar' ? 'تدريب تطبيقي — المستوى الثالث' : 'Applied practice — L3'}</p>
-        <h1 className="mt-3 text-2xl font-bold tracking-tight">
+        <p className="eyebrow">{l === 'ar' ? 'تدريب تطبيقي — المستوى الثالث' : 'Applied practice — L3'}</p>
+        <h1 className="page-title">
           {l === 'ar' ? 'مراجعة مطالبة' : 'Claim review'}
         </h1>
       </header>

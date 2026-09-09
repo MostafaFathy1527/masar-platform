@@ -49,9 +49,15 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
         </nav>
 
         <div className="header-end">
-          {/* lang on the link so a screen reader switches voice for the label. */}
+          {/*
+            The label names the language it switches TO, written in that
+            language, and is the same shape in both directions. A bare "ع" in a
+            small square on the English header was neither self-evident nor the
+            same control as the "EN" on the Arabic one.
+            lang on the link so a screen reader switches voice for the label.
+          */}
           <a className="locale-switch" href={otherHref} lang={other} hrefLang={other}>
-            {ar ? 'EN' : 'ع'}
+            {ar ? 'English' : 'العربية'}
           </a>
           <form action="/api/demo" method="post">
             <button className="btn-primary btn-sm" type="submit">

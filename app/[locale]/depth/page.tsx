@@ -69,10 +69,10 @@ export default async function DepthPage({
   const lesson = loadLesson()
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
+    <div className="page-shell">
       <header>
-        <p className="badge">{l === 'ar' ? 'نموذج العمق' : 'The depth model'}</p>
-        <h1 className="mt-4 text-3xl font-bold tracking-tight">{t.title}</h1>
+        <p className="eyebrow">{l === 'ar' ? 'نموذج العمق' : 'The depth model'}</p>
+        <h1 className="page-title">{t.title}</h1>
         <p className="mt-3 max-w-prose leading-relaxed text-muted">{t.lead}</p>
       </header>
 

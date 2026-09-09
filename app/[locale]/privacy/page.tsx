@@ -91,8 +91,8 @@ export default async function PrivacyPage({
   const t = COPY[l] ?? COPY.ar
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-10">
-      <h1 className="text-2xl font-bold tracking-tight">{t.title}</h1>
+    <div className="page-shell-narrow">
+      <h1 className="page-title">{t.title}</h1>
       <p className="mt-2 text-muted">{t.lead}</p>
 
       <h2 className="admin-q">{t.storedTitle}</h2>
@@ -123,8 +123,9 @@ export default async function PrivacyPage({
         <li>
           {/* An API endpoint that returns a file, not a page. <Link> would
               client-side navigate instead of downloading, so the Next rule
-              does not apply here. */}
-          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+              does not apply here — and because it does not apply, it never
+              fires, which made the disable directive that used to sit here
+              dead code that lint reported on every run. */}
           <a className="link" href="/api/me/export" download>
             {t.export}
           </a>

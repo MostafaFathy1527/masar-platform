@@ -3,10 +3,11 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Eight so far. The first five share one pattern; the sixth, seventh and eighth each break
+Nine so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in.
-Three of the eight are the same underlying defect wearing different clothes, and that
-sub-pattern is named at the end.
+Three of the nine are the same underlying defect wearing different clothes, and that
+sub-pattern is named at the end. The ninth pairs with the gate's false pass instead: both
+are conditionals that were never conditional.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -41,7 +42,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the eight to catch.
+testable. This is the easiest of the nine to catch.
 
 ---
 
@@ -249,6 +250,58 @@ of different artefacts. The value did not come from the check being clever. It c
 comparing the page against the source of truth rather than against the page. An assertion
 that reads the product back through its own claims can only ever agree with it.
 
+---
+
+## 9. A conditional that was never conditional
+
+**What was wrong.** The dark colour palette was not an alternate. It was the only palette.
+Every visitor got the dark site regardless of their system setting, and the light default
+it was nominally an alternate to **had never rendered anywhere** — not in a browser, not in
+any of the six committed screenshots, not once in six weeks.
+
+**Why nothing caught it.** The stylesheet looked exactly right:
+
+```css
+@media (prefers-color-scheme: dark) {
+  @theme { --color-canvas: #121211; ... }
+}
+```
+
+Tailwind 4 processes `@theme` at build time and hoists the variables out of whatever they
+are nested in. The media query survived into the output with nothing left inside it, and
+the dark values were emitted unconditionally. The source read as a conditional; the
+compiled artefact contained none.
+
+**How it was found, and the part worth keeping.** A screenshot taken with the colour scheme
+forced to light came back dark. The natural reading is that the emulation did not work — so
+the page was asked directly:
+
+```js
+{ dark: false, light: true, bodyBg: "rgb(18, 16, 13)" }
+```
+
+The browser said light. The page was painted dark. **The page disagreed with `matchMedia`,
+and that disagreement is the whole tell.** A media query cannot be true and not-apply at the
+same time, so once those two facts sat side by side the only remaining explanation was that
+the rule was not in a media query at all by the time it reached the browser.
+
+That is the transferable part, and it is not about Tailwind. Any build step that rewrites
+CSS — nesting, layers, custom-property extraction, a minifier hoisting rules — can move a
+declaration out of the condition the author wrote around it. **When output disagrees with a
+condition, read the compiled artefact, not the source.** The source is what you meant; the
+artefact is what shipped.
+
+**Why it belongs beside the gate failure.** Both are conditionals that were never
+conditional. The gate printed `clean` because a scan that never ran produced no hits, and
+this stylesheet applied a dark theme because a media query that never gated produced no
+constraint. In both, the absent thing looked identical to the passing thing.
+
+**The repair.** Dark now overrides plain custom properties on `:root` inside the media
+query, which Tailwind does not touch, and both schemes were verified by measuring
+`bodyBg` under each. `scripts/shot.mjs` takes a colour scheme argument, because a headless
+browser reports the host machine's setting — on a dark machine a light-default design
+photographs dark forever and the default is never reviewed.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -290,7 +343,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Three of the eight are the same defect. The landing page carried a "Week 1 — under
+Three of the nine are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen.
