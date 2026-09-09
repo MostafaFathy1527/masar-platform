@@ -7,9 +7,14 @@ Update this file at the end of every session. It is the first thing the next ses
 is live over HTTPS, CI is green, the database is migrated and verified, and a clean clone
 reaches a running instance in 156 seconds.
 
-**Week 2 is under way.** The `LessonDoc` schema, the 12-block registry, the renderer and
-`/depth` have all landed and are verified at runtime in both locales. `pipeline/validate.py`
-and the lesson-player shell are what remain.
+**Week 2 is complete.** All four of its plan deliverables have landed: the lesson renderer
+and block registry, L1 and L2 rendering, the `/depth` page, and the lesson JSON schema with
+`pipeline/validate.py`. Verified at runtime in both locales.
+
+**Week 3 is next, and it is the critical path.** `claim_review` is the hero of the case
+study, the destination the guest button deep-links to, and the subject of the 390px
+bottom-sheet mobile pattern — three separate promises resting on one week of 12 hours. If
+anything threatens to overrun, cut it rather than borrowing from Week 3.
 
 **One production gap, not a DoD line:** environment variables are still unset on Vercel,
 so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
@@ -56,38 +61,41 @@ What was done at the time, which still stands:
 after `migrate deploy`. The offline method got nothing wrong on this schema — and that is
 now checked on every push rather than trusted once.
 
-## Next (Week 2)
-Ships by Sunday: lesson renderer + block registry, L1 and L2 rendering, a `/depth` page
-showing one lesson at all three depths, and `pipeline/validate.py`.
+## Next (Week 3) — the hero
 
-1. ~~Block components and the `<BlockRenderer>` switch~~ — **done**, all 12 types.
-2. ~~`/depth`~~ — **done**, cumulative rendering with a three-tab depth switch.
-3. ~~Hand-author lesson 4~~ — **done** at L1, L2 and L3 as the golden reference.
-4. **`pipeline/validate.py`** — structural validation against the generated JSON Schema,
-   plus the semantic rules the schema cannot express, plus the forbidden-code-set denylist.
-   The TypeScript side of both already exists and is tested; this ports them to the
-   pipeline's side of the contract.
-5. **Lesson player shell** — reading column, progress rail, per-lesson depth switch, and
-   `BlockInteraction` writes so block-level analytics start accumulating.
-6. Self-hosted OFL fonts — still a system stack.
+Ships by Sunday: the `claim_review` simulation with F1-style scoring, per-field feedback
+and a retry variant, plus the mobile pattern verified at 390px.
 
-### Known gaps in the block schema, worth deciding before more content is authored
-- **`compare_table` is not bilingual.** Its `columns` and `rows` are plain strings, so a
-  table renders the same text in both locales. Inherited from the block schema in
-  `BUILD.md`; every other block is properly paired. Either make the cells `xAr`/`xEn`
-  pairs or state the limitation.
-- **`@types/node` is on 20.x while the runtime is Node 24.** Harmless so far — it surfaced
-  as `fs.globSync` existing at runtime but not in the types — but the mismatch will keep
-  producing false type errors.
+1. **`Simulation` and `SimSubmission` tables** — the next week-by-week migration.
+2. **The claim-review workbench** — a claim with seeded errors the learner flags.
+3. **Precision-aware scoring**, published in the UI: flagging every field must score worse
+   than reading four fields carefully. Pure and unit-tested, in its own module.
+4. **Per-error feedback**, with every miss linked back to the block that taught it.
+5. **Bottom-sheet evidence panel**, verified at 390px.
+6. **Point the guest button at it** — replacing the Week 1 `?tour=1` stub, which is the
+   third promise resting on this week.
+
+**Block-type budget: 12 of 16 used, 4 left for Weeks 3-6.** Those four slots are the whole
+allowance for the rest of v1.0 and belong to `claim_review`, not to a thirteenth
+presentational block.
+
+Carried, not blocking: self-hosted OFL fonts (still a system stack); a lesson-player shell
+with `BlockInteraction` writes, which the plan does not place in Week 2.
 
 ## Done
-- **Week 2, so far.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
+- **Week 2, complete.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
   registry against a 16-type cap, with the cross-field rules a human editor cannot
   enforce by eye. `content/schema/lesson.schema.json` is generated from it and
   cross-validated with Python's `jsonschema`; a drift test makes "regenerate after any
   change" mechanical. All 12 block components, an exhaustive `<BlockRenderer>`, lesson 4
   authored bilingually at all three depths, and `/depth` rendering it cumulatively.
   Content is validated and scanned for licensed code sets in CI.
+- **`pipeline/validate.py`** in three layers: structure against the generated JSON Schema,
+  semantics that JSON Schema cannot express, and forbidden content. Sixteen negative tests,
+  three of which exist to catch a validator that passes by failing everything. CI also
+  fails if the generated schema is stale, so the contract cannot quietly become a fiction.
+- **`compare_table` is bilingual**, so every text-bearing block now is, with no exceptions —
+  enforced by the schema rather than by review.
 
 - Repo, the project rules file, `BUILD.md` (sanitized), `LATER.md`.
 - **Publish safety.** Forbidden terms in `.local/denylist.txt` with a 14-case fixture;
@@ -129,6 +137,9 @@ showing one lesson at all three depths, and `pipeline/validate.py`.
 | 2026-09-09 | ~~`@prisma/adapter-neon`~~ — **reverted to `adapter-pg`** | The blocked-port diagnosis was wrong: it was a Neon cold start. Retry before concluding anything about a network. |
 | 2026-09-09 | **Vercel project needs `framework: "nextjs"`** | With `framework: null` the build is green and every route 404s. Recorded in `HANDOVER.md`; no build log shows it. |
 | 2026-09-09 | **Deployment Protection off** | Deliberate for a public portfolio demo whose purpose is that a stranger can open the link. |
-| 2026-09-09 | **12 block types, cap 16** | The plan caps the registry at 16; the headroom is deliberate and unallocated. |
+| 2026-09-09 | **12 block types, cap 16** | The plan caps the registry at 16. The 4 remaining slots are reserved for `claim_review` in Week 3, not for presentational blocks. |
+| 2026-09-09 | **`compare_table` cells carry their own Ar/En pair** | Parallel `columnsAr`/`columnsEn` arrays can drift in length; per-cell pairs make alignment hold by construction. |
+| 2026-09-09 | **`@types/node` tracks the runtime major** | Types four majors behind the runtime produce type errors that are not real and hide ones that are. |
+| 2026-09-09 | **`__pycache__` is gitignored** | A `.pyc` embeds `co_filename`, verified as the absolute source path on this machine — a local-path leak in a repo that goes public. |
 | 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
