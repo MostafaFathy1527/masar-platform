@@ -180,6 +180,26 @@ def _(doc):
     assert "missing-alt-text" in rules(run(doc))
 
 
+@case("a lesson claiming Arabic while repeating its English is rejected")
+def _(doc):
+    doc["bilingual"] = True
+    doc["titleAr"] = doc["titleEn"]
+    assert "bilingual-claim" in rules(run(doc))
+
+
+@case("an honestly declared English-only lesson is accepted")
+def _(doc):
+    doc["bilingual"] = False
+    doc["titleAr"] = doc["titleEn"]
+    for level in ("l1", "l2", "l3"):
+        for b in doc["blocks"][level]:
+            p = b.get("payload", {})
+            for ar, en in (("mdAr", "mdEn"), ("textAr", "textEn")):
+                if ar in p and en in p:
+                    p[ar] = p[en]
+    assert "bilingual-claim" not in rules(run(doc))
+
+
 def main() -> int:
     passed = sum(1 for _, ok, _ in RESULTS if ok)
     for name, ok, err in RESULTS:

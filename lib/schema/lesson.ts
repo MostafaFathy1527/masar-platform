@@ -231,6 +231,16 @@ export const LessonDoc = z
     titleAr: z.string().min(1),
     titleEn: z.string().min(1),
     estMinutes: z.number().int().positive().max(300),
+    /**
+     * Whether this lesson is genuinely available in Arabic.
+     *
+     * False means English-only in this build, and the lesson player says so on
+     * the page rather than letting a reader discover it. Arabic fields are
+     * still required by the schema — a blank block is a worse failure than an
+     * English one — so an English-only lesson carries English text in both,
+     * and this flag is what stops that reading as Arabic coverage.
+     */
+    bilingual: z.boolean().default(true),
     levels: z.array(Level).min(1),
     objectives: z.array(ObjectiveId).min(1),
     conceptsIntroduced: z.array(z.string().min(1)).default([]),
@@ -262,6 +272,18 @@ export const LessonDoc = z
           message: `blocks exist for ${level} but the level is not declared`,
         })
       }
+    }
+
+    // A lesson claiming Arabic must not simply repeat its English. This is a
+    // cheap smell test for the failure mode that matters: marking a lesson
+    // bilingual after pasting English into the Arabic fields.
+    if (doc.bilingual && doc.titleAr.trim() === doc.titleEn.trim()) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['bilingual'],
+        message:
+          'lesson is marked bilingual but its Arabic title is identical to its English one; set bilingual: false if it is English-only',
+      })
     }
 
     // Block ids must be unique across the whole document, not just per level:

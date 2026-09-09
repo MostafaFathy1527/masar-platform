@@ -22,6 +22,10 @@
       "exclusiveMinimum": 0,
       "maximum": 300
     },
+    "bilingual": {
+      "default": true,
+      "type": "boolean"
+    },
     "levels": {
       "minItems": 1,
       "type": "array",

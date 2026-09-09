@@ -815,3 +815,15 @@ body {
     display: inline;
   }
 }
+
+@layer components {
+  .lesson-english-only {
+    border: 1px solid var(--color-line);
+    border-inline-start: 3px solid var(--color-accent);
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    margin-block-end: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+}

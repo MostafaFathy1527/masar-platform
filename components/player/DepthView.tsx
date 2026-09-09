@@ -9,6 +9,8 @@ type Copy = {
   levelName: Record<Level, string>
   levelWhat: Record<Level, string>
   cumulative: string
+  /** Shown when the lesson is English-only and the reader is in Arabic. */
+  englishOnlyNotice: string
   /** Contains the literal token {n}, replaced with the visible block count.
    *  A string rather than a function: functions cannot cross the server /
    *  client component boundary. */
@@ -29,11 +31,13 @@ export function DepthView({
   levels,
   locale,
   copy,
+  bilingual = true,
 }: {
   blocks: { l1: Block[]; l2: Block[]; l3: Block[] }
   levels: Level[]
   locale: AppLocale
   copy: Copy
+  bilingual?: boolean
 }) {
   const [level, setLevel] = useState<Level>(levels[0])
 
@@ -45,6 +49,13 @@ export function DepthView({
 
   return (
     <div>
+      {/* Said on the lesson's own page, not buried in a blanket claim
+          elsewhere. A reader in Arabic learns this before reading, not by
+          discovering English text halfway down. */}
+      {!bilingual && locale === 'ar' ? (
+        <p className="lesson-english-only">{copy.englishOnlyNotice}</p>
+      ) : null}
+
       <div className="depth-switch" role="tablist" aria-label="Depth">
         {levels.map((l) => (
           <button
