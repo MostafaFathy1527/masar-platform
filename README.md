@@ -9,7 +9,9 @@ sandbox/test mode only, all demo data is synthetic and labelled as such, and the
 content is original, written from public knowledge. Not affiliated with or recognized by
 any certification body. Not billing, clinical, legal or regulatory advice.
 
+- Specification: [`SPEC.md`](SPEC.md) — the fourteen headings a client asked to see
 - Build brief: [`BUILD.md`](BUILD.md)
+- Architecture, runbook, ownership: [`HANDOVER.md`](HANDOVER.md)
 - Current state: [`docs/STATUS.md`](docs/STATUS.md)
 - Out of scope for v1.0: [`LATER.md`](LATER.md)
 
