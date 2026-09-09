@@ -11,10 +11,9 @@ reaches a running instance in 156 seconds.
 and block registry, L1 and L2 rendering, the `/depth` page, and the lesson JSON schema with
 `pipeline/validate.py`. Verified at runtime in both locales.
 
-**Week 3 is next, and it is the critical path.** `claim_review` is the hero of the case
-study, the destination the guest button deep-links to, and the subject of the 390px
-bottom-sheet mobile pattern — three separate promises resting on one week of 12 hours. If
-anything threatens to overrun, cut it rather than borrowing from Week 3.
+**Week 3 is complete.** `claim_review` ships with F1 scoring, per-field feedback, a retry
+variant and the 390px bottom-sheet pattern, and the guest button now deep-links into it.
+All three promises this week carried are met.
 
 **One production gap, not a DoD line:** environment variables are still unset on Vercel,
 so `POST /api/demo` returns 500 in production. The landing page is static and unaffected.
@@ -61,26 +60,45 @@ What was done at the time, which still stands:
 after `migrate deploy`. The offline method got nothing wrong on this schema — and that is
 now checked on every push rather than trusted once.
 
-## Next (Week 3) — the hero
+## The scoring formula changed, and why
 
-Ships by Sunday: the `claim_review` simulation with F1-style scoring, per-field feedback
-and a retry variant, plus the mobile pattern verified at 390px.
+The formula specified for `claim_review` was
+`(hits/6) x 0.7 + (1 - falsePositives/flagsMade) x 0.3`. Written as tests, **the
+case-study claim failed against it**: flagging all 19 fields scored 79% while reading four
+fields carefully scored 77%. Shotgun-flagging won — the exact thing the case study says
+cannot happen.
 
-1. **`Simulation` and `SimSubmission` tables** — the next week-by-week migration.
-2. **The claim-review workbench** — a claim with seeded errors the learner flags.
-3. **Precision-aware scoring**, published in the UI: flagging every field must score worse
-   than reading four fields carefully. Pure and unit-tested, in its own module.
-4. **Per-error feedback**, with every miss linked back to the block that taught it.
-5. **Bottom-sheet evidence panel**, verified at 390px.
-6. **Point the guest button at it** — replacing the Week 1 `?tour=1` stub, which is the
-   third promise resting on this week.
+The cause is structural, not a tuning problem. Flagging everything maxes recall, and the
+recall weight alone (0.70) already reaches the pass mark. The linear form only supports the
+claim when the form has more than 27 flaggable fields; this claim has 19. Padding the form
+to fit the metric would have been the wrong repair, and would have made the 390px panel
+worse. The same formula also paid the full precision weight for zero flags — 30% for doing
+nothing.
 
-**Block-type budget: 12 of 16 used, 4 left for Weeks 3-6.** Those four slots are the whole
-allowance for the rest of v1.0 and belong to `claim_review`, not to a thirteenth
-presentational block.
+Scoring is now **F1**, the harmonic mean, which the plan's own prose already called it. It
+is dominated by whichever of precision and recall is worse, so it delivers the claim at any
+field count:
 
-Carried, not blocking: self-hosted OFL fonts (still a system stack); a lesson-player shell
-with `BlockInteraction` writes, which the plan does not place in Week 2.
+| strategy | score | |
+|---|---|---|
+| flag nothing | 0% | fail |
+| shotgun, all 19 fields | 48% | fail |
+| four fields, all correct | 80% | pass |
+| all six correct | 100% | pass |
+
+The tests encode the **claim**, not the implementation, so a future change that breaks it
+fails the build rather than surfacing in front of a reviewer.
+
+## Next (Week 4)
+
+Assessment and a lightweight certificate, per the plan: in-lesson knowledge checks, a
+lesson quiz, one blueprint-sampled exam with an objective breakdown, certificate-lite with
+`/verify/[serial]` and print CSS, and one read-only `/admin/analytics` page.
+
+**Block-type budget: still 12 of 16.** `claim_review` needed no new block type — it mounts
+through the existing `practice_sim` block — so all four slots remain.
+
+Carried: self-hosted OFL fonts; a lesson-player shell with `BlockInteraction` writes.
 
 ## Done
 - **Week 2, complete.** `lib/schema/lesson.ts` — the LessonDoc schema and 12-type block
@@ -96,6 +114,12 @@ with `BlockInteraction` writes, which the plan does not place in Week 2.
   fails if the generated schema is stale, so the contract cannot quietly become a fiction.
 - **`compare_table` is bilingual**, so every text-bearing block now is, with no exceptions —
   enforced by the schema rather than by review.
+- **Week 3, complete.** `Simulation` and `SimSubmission` tables; the claim-review dataset
+  with six seeded errors, one per class, each carrying a bilingual explanation and a
+  `teachesBlockId` verified to exist in lesson 4; F1 scoring as a pure, hard-tested module;
+  the workbench with keyboard-first flagging; the evidence panel as a 390px bottom sheet
+  and a desktop side panel from one element; and guest entry deep-linking into it.
+  Answers never reach the browser before submission, guarded by three structural tests.
 
 - Repo, the project rules file, `BUILD.md` (sanitized), `LATER.md`.
 - **Publish safety.** Forbidden terms in `.local/denylist.txt` with a 14-case fixture;
@@ -141,5 +165,8 @@ with `BlockInteraction` writes, which the plan does not place in Week 2.
 | 2026-09-09 | **`compare_table` cells carry their own Ar/En pair** | Parallel `columnsAr`/`columnsEn` arrays can drift in length; per-cell pairs make alignment hold by construction. |
 | 2026-09-09 | **`@types/node` tracks the runtime major** | Types four majors behind the runtime produce type errors that are not real and hide ones that are. |
 | 2026-09-09 | **`__pycache__` is gitignored** | A `.pyc` embeds `co_filename`, verified as the absolute source path on this machine — a local-path leak in a repo that goes public. |
+| 2026-09-09 | **Scoring is F1, not the specified linear blend** | The linear formula let shotgun-flagging (79%) beat careful reading (77%) and paid 30% for doing nothing. F1 delivers the claim at any field count. |
+| 2026-09-09 | **Seeded errors never reach the client** | Same rule as stripping answer keys from an in-progress attempt; otherwise the exercise is spot-the-highlighted-field. |
+| 2026-09-09 | **Evidence panel is one `<details>`, `open` by default** | CSS cannot reveal a closed `<details>`, so the desktop panel rendered empty. Open + hidden summary is the panel; on a phone the same element is the bottom sheet. |
 | 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
