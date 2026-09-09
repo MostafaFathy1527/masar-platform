@@ -47,6 +47,8 @@ model User {
 
   enrollments Enrollment[]
   simSubmissions SimSubmission[]
+  attempts       Attempt[]
+  certificates   Certificate[]
 
   @@index([isDemo, createdAt])
 }
@@ -277,4 +279,168 @@ model SimSubmission {
   user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, simulationId])
+}
+
+// -------------------------------------------------------------- assessment
+
+/// Two item types ship in v1.0. A scenario item is an MCQ_SINGLE carrying a
+/// vignette, flagged by `isScenario`, rather than a separate type — the
+/// difference is in the stem, not in how it is answered or scored. The wider
+/// set (MATCHING, ORDERING, CASE_SET) is in LATER.md.
+enum ItemType {
+  MCQ_SINGLE
+  MULTI_SELECT
+}
+
+enum ItemStatus {
+  DRAFT
+  LIVE
+  RETIRED
+}
+
+enum AuthoredBy {
+  HUMAN
+  PIPELINE
+}
+
+/// LESSON is the short quiz at the end of a lesson; EXAM is the single
+/// blueprint-sampled assessment. The module-quiz and mock/final split are cut
+/// from v1.0.
+enum AssessmentScope {
+  LESSON
+  EXAM
+}
+
+enum AttemptState {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+}
+
+model Item {
+  id          String     @id @default(cuid())
+  courseId    String
+  /// Objective code, e.g. MI-06. The spine: coverage, weakness reporting and
+  /// item analysis are the same query because of this column.
+  objectiveId String
+  type        ItemType
+  stemAr      String
+  stemEn      String
+  bloom       Bloom
+  /// A vignette-led item. Not a separate type: it is answered and scored
+  /// identically, and only the stem differs.
+  isScenario  Boolean    @default(false)
+  /// Formative items are in-lesson knowledge checks. Never scored, never in a
+  /// gradebook, and never drawn into a quiz or exam.
+  formative   Boolean    @default(false)
+  /// Shown after an attempt is over, never during one.
+  rationaleAr String
+  rationaleEn String
+  status      ItemStatus @default(DRAFT)
+  authoredBy  AuthoredBy @default(HUMAN)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  options ItemOption[]
+  answers AttemptAnswer[]
+
+  @@index([courseId, objectiveId, status])
+}
+
+model ItemOption {
+  id         String  @id @default(cuid())
+  itemId     String
+  order      Int
+  textAr     String
+  textEn     String
+  isCorrect  Boolean
+  /// Required on every option, correct or not. A distractor without a
+  /// rationale that names its misconception is a QA failure.
+  feedbackAr String
+  feedbackEn String
+
+  item Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@unique([itemId, order])
+}
+
+model Assessment {
+  id           String          @id @default(cuid())
+  courseId     String
+  scope        AssessmentScope
+  /// Lesson slug for a lesson quiz; null for the exam.
+  scopeId      String?
+  itemCount    Int
+  timeLimitSec Int?
+  passPct      Int             @default(70)
+  /// Blueprint: how many items to draw per objective. Assembly fails loudly if
+  /// a pool cannot satisfy it rather than silently serving fewer items.
+  assemblyJson Json
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  attempts Attempt[]
+
+  @@index([courseId, scope])
+}
+
+model Attempt {
+  id           String       @id @default(cuid())
+  userId       String
+  assessmentId String
+  startedAt    DateTime     @default(now())
+  submittedAt  DateTime?
+  /// The item set is materialised server-side at start, so the server decides
+  /// what was asked and a client cannot influence it afterwards.
+  itemIdsJson  Json
+  seed         String
+  scorePct     Int?
+  passed       Boolean?
+  attemptNo    Int          @default(1)
+  state        AttemptState @default(IN_PROGRESS)
+
+  assessment Assessment      @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers    AttemptAnswer[]
+
+  @@index([userId, assessmentId])
+}
+
+model AttemptAnswer {
+  id         String   @id @default(cuid())
+  attemptId  String
+  itemId     String
+  responseJson Json
+  isCorrect  Boolean
+  answeredAt DateTime @default(now())
+
+  attempt Attempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  item    Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@unique([attemptId, itemId])
+}
+
+// ------------------------------------------------------------- certificate
+
+model Certificate {
+  id            String    @id @default(cuid())
+  serial        String    @unique
+  userId        String
+  courseId      String
+  issuedAt      DateTime  @default(now())
+  finalScorePct Int
+  /// Objectives the holder demonstrated. Printed on the certificate: a
+  /// credential that says what you can do beats one that says you attended.
+  objectivesMet String[]
+  /// sha256 over the identifying fields, so a printed copy can be checked
+  /// against the record. The verify URL is the source of truth, never the PDF.
+  payloadHash   String
+  revokedAt     DateTime?
+  revokeReason  String?
+  /// True when issued through the demo shortcut rather than by meeting gates.
+  isDemo        Boolean   @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
