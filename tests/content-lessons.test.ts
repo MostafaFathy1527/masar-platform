@@ -1,11 +1,10 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { LessonDoc } from '@/lib/schema/lesson'
 
-// A hand-rolled walk rather than fs.globSync: @types/node is on 20.x while the
-// runtime is Node 24, so globSync exists at runtime but not in the types. Kept
-// portable instead of bumping types as a side effect of writing a test.
+// A hand-rolled walk. fs.globSync is available now that the types match the
+// runtime, but this stays explicit and dependency-free.
 function walk(dir: string): string[] {
   let out: string[] = []
   for (const entry of readdirSync(dir)) {
@@ -16,7 +15,12 @@ function walk(dir: string): string[] {
   return out
 }
 
-const files = walk('content/courses')
+// Only lesson documents. content/courses also holds simulations, which are a
+// different shape and are validated by their own tests. Checked by path
+// segment rather than by regex, so it works with either path separator.
+const files = walk('content/courses').filter((f) =>
+  f.split(sep).includes('lessons'),
+)
 
 // Forbidden licensed code sets. Everything in the demo course is a
 // fictional training code, and this keeps that true as content grows — a rule

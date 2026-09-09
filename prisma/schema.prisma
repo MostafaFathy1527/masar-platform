@@ -46,6 +46,7 @@ model User {
   updatedAt       DateTime  @updatedAt
 
   enrollments Enrollment[]
+  simSubmissions SimSubmission[]
 
   @@index([isDemo, createdAt])
 }
@@ -214,4 +215,66 @@ model LessonProgress {
   lesson     Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@unique([enrollmentId, lessonId])
+}
+
+// -------------------------------------------------------------- simulation
+
+/// One simulation kind ships in v1.0. The correction pass cuts the others to
+/// documented design patterns in SPEC.md, so this enum stays deliberately
+/// narrow: widening it is a scope change, not a schema tidy-up.
+enum SimulationKind {
+  CLAIM_REVIEW
+}
+
+/// How a submission is scored. PRECISION_RECALL rewards reading carefully and
+/// punishes flagging everything; the formula is published in the UI and the
+/// case study, not buried here.
+enum ScoringMode {
+  PRECISION_RECALL
+}
+
+model Simulation {
+  id              String         @id @default(cuid())
+  courseId        String
+  slug            String         @unique
+  kind            SimulationKind
+  objectiveIds    String[]
+  /// The claim under review: fields, lines, total, the clinical note, and the
+  /// member card. The card is what makes the demographic and date errors
+  /// findable rather than guessable.
+  datasetJson     Json
+  /// The seeded errors, each with its class, its written explanation, and the
+  /// id of the block that taught it.
+  seededErrorsJson Json
+  /// Reserved for kinds that self-assess against published criteria. Unused by
+  /// CLAIM_REVIEW, which scores deterministically.
+  rubricJson      Json?
+  scoringMode     ScoringMode    @default(PRECISION_RECALL)
+  passPct         Int            @default(70)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  submissions SimSubmission[]
+
+  @@index([courseId])
+}
+
+model SimSubmission {
+  id           String   @id @default(cuid())
+  simulationId String
+  userId       String
+  /// What the learner flagged.
+  responseJson Json
+  /// The full breakdown: hits, misses, false positives, both score terms, and
+  /// the per-error explanations. Stored so a review screen never recomputes a
+  /// score and risks showing a different number than the one awarded.
+  scoreJson    Json
+  scorePct     Int
+  passed       Boolean
+  submittedAt  DateTime @default(now())
+
+  simulation Simulation @relation(fields: [simulationId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, simulationId])
 }
