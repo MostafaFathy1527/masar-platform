@@ -98,9 +98,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # gitleaks scans history, not just the tip
+          fetch-depth: 0 # scan history, not just the tip
 
-      - name: Scan for secrets and leaked local paths
-        uses: gitleaks/gitleaks-action@v2
+      # The gitleaks action is not used here. It derives a commit range of the
+      # form <first-pushed>^..<last>, which is an invalid revision when the
+      # push contains the root commit — it then scans zero bytes and still
+      # fails the job. Red for the wrong reason while verifying nothing is
+      # worse than no check at all, so the binary is invoked directly.
+      - name: Install gitleaks
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"             | sudo tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
         env:
-          GITLEAKS_CONFIG: .gitleaks.toml
+          GITLEAKS_VERSION: 8.24.3
+
+      - name: Scan full history for secrets and leaked local paths
+        run: gitleaks detect --source . --config .gitleaks.toml --redact -v --exit-code 1
+
+      - name: Scan the working tree
+        run: gitleaks dir . --config .gitleaks.toml --redact -v --exit-code 1
