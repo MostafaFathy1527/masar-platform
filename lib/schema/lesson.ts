@@ -26,10 +26,6 @@ const ObjectiveId = z
 
 const BlockId = z.string().min(1).max(64)
 
-/** A bilingual pair. Arabic is not optional — it is the default locale. */
-const bilingual = <K extends string>(ar: K, en: K) =>
-  z.object({ [ar]: z.string().min(1), [en]: z.string().min(1) })
-
 // ---------------------------------------------------------------- payloads
 
 const HeadingPayload = z.object({
