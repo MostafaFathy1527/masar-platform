@@ -196,8 +196,11 @@ written to keep a screenshot honest caught the page lying to learners.
 Two things in that file are for the case study rather than the incident list. **Facts that
 were true when written** — three of the eight are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
-restate it. And **the gate has failed more often than it has caught** — three failures,
-one real catch, including a false pass that printed `clean` over zero blobs scanned.
+restate it. And **the gate has failed twice against one real catch** — a false positive on
+binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
+incident was recorded as a false positive and was not one: the pattern is anchored and the
+prose was genuinely path-shaped, which is the operational note that a document describing
+leak patterns will trip a leak detector.
 
 **Block-type budget: still 12 of 16.** Nothing in Weeks 3 to 6 needed a new type.
 

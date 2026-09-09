@@ -41,7 +41,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the six to catch.
+testable. This is the easiest of the eight to catch.
 
 ---
 
@@ -94,8 +94,6 @@ phone the same element is a sheet the learner can collapse.
 
 **Why it was found.** Because the verification asked whether the text was *there*, not
 whether the element was styled to be visible.
-
----
 
 ---
 
@@ -314,7 +312,7 @@ second copy that no mechanism keeps in sync, and duplicated state drifts. It is 
 argument for normalising a database, applied to sentences — and the copy that drifts is
 almost always the one written for humans, because that is the copy nothing executes.
 
-## The gate has failed more often than it has caught
+## The gate has failed twice, and caught one real thing
 
 Worth stating plainly, because it is the sharpest thing in this document.
 
@@ -322,31 +320,48 @@ Worth stating plainly, because it is the sharpest thing in this document.
 names and local path patterns before anything leaves the machine. It has one real catch to
 its name: a `.pyc` file embedding an absolute build path, which it blocked correctly.
 
-It has failed three times.
+It has failed twice, and only one of the two was the dangerous kind.
 
-1. **A false positive on URLs.** The drive-letter pattern matches the last two characters
-   of a URL scheme — the `s:` followed by a slash in a secure-http address — so any commit
-   containing one was blocked. Still unfixed: the gate blocked this very paragraph on its
-   first draft, because the draft spelled the scheme out. The pattern needs anchoring so a
-   drive letter only counts when it is not preceded by another letter; that lives in a
-   gitignored file and is the owner's call, so it is recorded here rather than changed.
-2. **A false positive on binary blobs.** Compressed PNG bytes match the drive-letter
+1. **A false positive on binary blobs.** Compressed PNG bytes match the drive-letter
    pattern by chance every few hundred KB, so committing a screenshot was impossible until
    binaries were skipped explicitly and their metadata checked separately instead.
-3. **A false pass, which is far worse.** An optimisation replaced the scanning call sites
+2. **A false pass, which is far worse.** An optimisation replaced the scanning call sites
    with a faster function and never defined it. Every scan errored to stderr, the hit list
    stayed empty because nothing ever ran, and the gate printed `gate: clean` over **zero
    blobs examined**. The pre-push hook runs that same sweep, so the reassurance sat
    directly in front of every push.
 
-Three failures, one catch. That is not an argument against having the gate: an unscanned
-push is exactly the kind of mistake that cannot be undone once a repository is public. It
-is the sharper version of what the rest of this document says. **The code you trust most
-is the code you test least, because testing it feels redundant.** A safety mechanism is
-the easiest place in a codebase to accumulate untested behaviour, precisely because its
-output is reassuring and its correct answer is almost always "fine".
+Two failures, one catch. That is not an argument against having the gate: an unscanned push
+is exactly the kind of mistake that cannot be undone once a repository is public. It is the
+sharper version of what the rest of this document says. **The code you trust most is the
+code you test least, because testing it feels redundant.** A safety mechanism is the
+easiest place in a codebase to accumulate untested behaviour, precisely because its output
+is reassuring and its correct answer is almost always "fine".
 
-The third failure is the one that recurs in real systems. A CI secret-scanner earlier in
+### A third incident that was not a failure
+
+The first draft of this section was blocked by the gate, and the reflex was to record it as
+a false positive on URLs. It was not one. The pattern is anchored — a drive letter only
+counts when the character before it is not alphanumeric — so a real address passes, because
+the character before the `s:` is a letter. What tripped it was a bare letter-colon-slash
+token, written on its own while explaining the rule, with a space in front of it.
+
+That is the drive-letter shape the rule exists to catch, and nothing distinguishes it from
+a real path without special-casing a single letter, which would blind the rule to genuine
+leaks. The rule was right and the prose was path-shaped.
+
+The operational note is more interesting than the regex would have been: **a document that
+describes leak patterns will trip a leak detector, because describing a pattern means
+writing something with its shape.** Security documentation is the one genre guaranteed to
+look like the thing it warns about. The answer is to describe the shape rather than spell
+it, which is what this section now does — not to carve an exception into the detector.
+
+It is also a reminder about this document specifically. The claim "the gate produces false
+positives on URLs" was wrong, and it was written here, in the file whose entire value is
+that it reports accurately. It was corrected by someone running the real pattern against
+six lines instead of trusting the write-up — which is entry 7 again, one document later.
+
+The dangerous failure is the one that recurs in real systems. A CI secret-scanner earlier in
 this project reported "no leaks" after scanning zero bytes, because it built an invalid
 commit range on a root-commit push. Same shape: a green result that means nothing, which
 is worse than a red one, because red gets investigated and green removes the reason to
@@ -361,4 +376,4 @@ is a number that can be checked. Verifying the fix meant planting a
 forbidden string and confirming every mode blocks it, then running the gate against git's
 empty tree to confirm it refuses to pass on nothing.
 
-Anyone who has maintained CI will have met all three.
+Anyone who has maintained CI will have met both.
