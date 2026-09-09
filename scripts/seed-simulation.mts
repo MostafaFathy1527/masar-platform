@@ -22,6 +22,11 @@ const course = await db.course.upsert({
     summaryAr: 'مقدمة تطبيقية لكيفية عمل المطالبات ودورة الإيرادات.',
     summaryEn: 'A practice-first introduction to how claims and the revenue cycle work.',
     status: 'PUBLISHED',
+    // Symbolic, for demonstration only. No provider is activated and the
+    // hosting plan forbids commercial use; the price never renders without
+    // the sandbox banner beside it.
+    priceEgp: 149900,
+    priceUsd: 4900,
   },
 })
 
