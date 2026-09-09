@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Tailwind 4 is CSS-first: theme tokens live here, not in a tailwind.config.ts.
+  Colours are named by role (canvas/ink/muted/line) rather than by hue, so the
+  dark variant below swaps values without touching a single class name.
+*/
+@theme {
+  --color-canvas: #fdfdfc;
+  --color-ink: #1a1a18;
+  --color-muted: #6b6b66;
+  --color-line: #e5e4e0;
+  --color-accent: #1b5e5a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /*
+    Week 1 placeholder stack. The system fonts listed first render Arabic
+    correctly on every target platform. Self-hosted OFL faces are a Week 2
+    task — see docs/STATUS.md.
+  */
+  --font-sans: system-ui, "Segoe UI", "Noto Sans Arabic", "Noto Sans",
+    -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @theme {
+    --color-canvas: #121211;
+    --color-ink: #f2f1ed;
+    --color-muted: #a1a099;
+    --color-line: #2b2b28;
+    --color-accent: #5fbdb6;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/*
+  Logical properties only — never margin-left / padding-right. One layout
+  serves both directions; the dir attribute on <html> does the mirroring.
+ 
+*/
+@layer components {
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding-block: 0.25rem;
+    padding-inline: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: var(--color-accent);
+    padding-block: 0.625rem;
+    padding-inline: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-canvas);
+  }
+
+  .link {
+    color: var(--color-muted);
+    text-underline-offset: 3px;
+  }
+  .link:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+  }
+
+  .card {
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+}
+
+/* Accessibility is part of "done": a visible focus ring. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
