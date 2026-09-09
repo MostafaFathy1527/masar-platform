@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
@@ -39,6 +39,14 @@ function conceptLog() {
       .map(([key, v]) => ({ key, lesson: v.firstTaughtLesson.split('/').pop() ?? '' }))
   } catch {
     return []
+  }
+}
+
+function generatedDrafts(): number {
+  try {
+    return readdirSync('pipeline/out').length
+  } catch {
+    return 0
   }
 }
 
@@ -89,6 +97,7 @@ export default async function HowItWasBuiltPage({
   const totalTests = gates.reduce((n, g) => n + g.tests, 0)
   const concepts = conceptLog()
   const runs = runLogEntries()
+  const drafts = generatedDrafts()
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
@@ -187,14 +196,19 @@ export default async function HowItWasBuiltPage({
       <div className="verify-card">
         <p className="max-w-prose leading-relaxed">
           {ar
-            ? 'الدروس الخمسة في هذه النسخة كُتبت يدويًا، لا عبر خط الإنتاج. البوابات مبنية ومُثبتة وتعمل في التكامل المستمر، لكن حلقة التوليد لم تُنتج بعد درسًا منشورًا.'
-            : 'The five lessons in this build were hand-authored, not generated. The gates are built, proven and running in CI, but the generation loop has not yet produced a published lesson.'}
+            ? `الدروس الخمسة المنشورة كُتبت يدويًا. وقد وُلِّد ${drafts} درس عبر خط الإنتاج من ملاحظة مصدر، واجتاز البوابتين الحتميتين: التحقق البنيوي وسجل المفاهيم. لم يُنشر، لأن مخرجات خط الإنتاج مسودّة يقرر إنسان نشرها.`
+            : `The five published lessons were hand-authored. ${drafts} lesson has since been generated through the pipeline from a source note, and passed both deterministic gates: structural validation and the concept log. It is not published, because pipeline output is a draft and a human decides whether it ships.`}
+        </p>
+        <p className="mt-3 max-w-prose leading-relaxed">
+          {ar
+            ? 'بوابة المعيار لم تُشغَّل على تلك المسودّة. الحَكَم يجب أن يكون بسياق جديد لم يرَ موجّه التوليد، والوكيل الذي ولّد الدرس كتب ذلك الموجّه — فدرجته ستبدو دليلًا وهي تقييم ذاتي. البوابة تبقى غير مُشغَّلة بدل أن تُستوفى بشكل غير أمين.'
+            : 'The rubric gate has not been run on that draft. The judge must be a fresh context that has never seen the generation prompt, and the agent that generated the lesson wrote that prompt — so its score would look like evidence and be self-assessment. The gate stays unrun rather than being satisfied dishonestly.'}
         </p>
         <p className="mt-3 max-w-prose leading-relaxed">
           {runs === 0
             ? ar
-              ? `سجل التشغيل فارغ (${runs} تشغيلة). لذلك لا توجد بعد نسبة اجتياز من المحاولة الأولى ولا متوسط درجة معيار يمكن الإبلاغ عنه — وذكر رقم هنا الآن سيكون اختلاقًا.`
-              : `The run log is empty (${runs} runs). There is therefore no first-pass gate rate and no mean rubric score to report yet, and putting a number here now would be inventing one.`
+              ? `سجل التشغيل يسجّل أحكام المعيار، وهو فارغ (${runs}). لذلك لا توجد نسبة اجتياز من المحاولة الأولى ولا متوسط درجة يمكن الإبلاغ عنه — وذكر رقم هنا سيكون اختلاقًا.`
+              : `The run log records rubric verdicts and is empty (${runs}). There is therefore no first-pass rate and no mean score to report, and putting a number here would be inventing one.`
             : ar
               ? `سجل التشغيل يحتوي ${runs} تشغيلة، بما فيها الإخفاقات.`
               : `The run log holds ${runs} runs, failures included.`}
