@@ -853,3 +853,65 @@ body {
     color: var(--color-muted);
   }
 }
+
+/* -------------------------------------------------------------- case study */
+
+@layer components {
+  .cs p {
+    max-width: 68ch;
+    line-height: 1.75;
+    margin-block-start: 0.75rem;
+  }
+  .cs-lead {
+    font-size: 1.1rem;
+    margin-block-start: 1rem !important;
+  }
+  .cs-small {
+    font-size: 0.9rem;
+  }
+  .cs-source {
+    border: 1px solid var(--color-line);
+    border-inline-start: 3px solid var(--color-muted);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: var(--color-raise);
+    margin-block-start: 1rem;
+  }
+  .cs-source h4,
+  .cs-depth h4 {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .cs-depth {
+    border: 1px solid var(--color-line);
+    border-inline-start: 3px solid var(--color-accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-block-start: 1rem;
+  }
+  .cs-render {
+    margin-block-start: 0.5rem;
+  }
+  /* The annotation is the point of the section: it is what turns a rendering
+     into evidence of a decision. */
+  .cs-note {
+    margin-block-start: 0.75rem;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px dashed var(--color-line);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .cs-decisions,
+  .cs-failures {
+    display: grid;
+    gap: 0.875rem;
+    list-style: decimal;
+    padding-inline-start: 1.5rem;
+    margin-block-start: 0.75rem;
+  }
+  .cs-decisions li,
+  .cs-failures li {
+    line-height: 1.7;
+    max-width: 68ch;
+  }
+}
