@@ -1,0 +1,240 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Week 4 working set. The full bank (~60 items) is Week 5. Every option carries feedback naming the misconception it represents; a distractor without one is a QA failure.",
+  "items": [
+    {
+      "key": "MI-05-KC-01",
+      "objectiveId": "MI-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما الذي تنتجه مرحلة «الفصل في المطالبة»؟",
+      "stemEn": "What does the adjudication stage produce?",
+      "rationaleAr": "الفصل في المطالبة هو قرار الطرف الدافع، ويصل أثره في صورة إشعار سداد يوضح ما دُفع ولماذا.",
+      "rationaleEn": "Adjudication is the payer's decision, and its artefact is a remittance advice explaining what was paid and why.",
+      "options": [
+        { "textAr": "إشعار سداد يوضح ما دُفع ولماذا", "textEn": "A remittance advice explaining what was paid and why", "isCorrect": true, "feedbackAr": "صحيح. كل مرحلة تنتج أثرًا يمكن تتبعه، وأثر الفصل هو إشعار السداد.", "feedbackEn": "Correct. Each stage produces a traceable artefact, and adjudication's is the remittance advice." },
+        { "textAr": "المطالبة نفسها", "textEn": "The claim itself", "isCorrect": false, "feedbackAr": "الخلط شائع: المطالبة تُنتج في مرحلة الإعداد، قبل الفصل بمرحلتين.", "feedbackEn": "A common conflation: the claim is produced at assembly, two stages before adjudication." },
+        { "textAr": "بطاقة العضو", "textEn": "The member card", "isCorrect": false, "feedbackAr": "بطاقة العضو مُدخل من مرحلة التسجيل، لا ناتج من الفصل.", "feedbackEn": "The member card is an input captured at registration, not an output of adjudication." },
+        { "textAr": "السجل السريري", "textEn": "The clinical record", "isCorrect": false, "feedbackAr": "السجل يُنتج عند تقديم الخدمة ويُستخدم في الترميز، وليس ناتجًا عن قرار الطرف الدافع.", "feedbackEn": "The record is produced at service delivery and used for coding; it is not an output of the payer's decision." }
+      ]
+    },
+    {
+      "key": "MI-06-KC-01",
+      "objectiveId": "MI-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "تاريخ الميلاد على المطالبة لا يطابق بطاقة العضو. ما التصنيف الصحيح؟",
+      "stemEn": "The date of birth on the claim does not match the member card. How is this classified?",
+      "rationaleAr": "عدم التطابق في بيانات الهوية خطأ ديموغرافي يُكتشف آليًا قبل النظر في الترميز.",
+      "rationaleEn": "An identity-data mismatch is a demographic error, caught automatically before coding is examined.",
+      "options": [
+        { "textAr": "عدم تطابق ديموغرافي", "textEn": "A demographic mismatch", "isCorrect": true, "feedbackAr": "صحيح. وهو من أكثر أسباب الرفض شيوعًا، ولا علاقة له بالطب.", "feedbackEn": "Correct. It is among the most common reasons for rejection, and has nothing to do with clinical content." },
+        { "textAr": "خطأ ترميز", "textEn": "A coding error", "isCorrect": false, "feedbackAr": "الترميز يصف ما قُدِّم من خدمة، لا من تلقّاها. هذا الحقل يخص هوية العضو.", "feedbackEn": "Coding describes what was delivered, not who received it. This field concerns member identity." },
+        { "textAr": "نقص في التوثيق", "textEn": "A documentation gap", "isCorrect": false, "feedbackAr": "التوثيق يخص ما إذا كان السجل يدعم الخدمة المفوترة، وليس تطابق البيانات.", "feedbackEn": "Documentation concerns whether the record supports what was billed, not whether data matches." },
+        { "textAr": "مشكلة في الأهلية", "textEn": "An eligibility problem", "isCorrect": false, "feedbackAr": "الأهلية تسأل عمّا إذا كانت التغطية سارية، لا عمّا إذا كان الحقل مكتوبًا بشكل صحيح.", "feedbackEn": "Eligibility asks whether coverage was active, not whether a field was entered correctly." }
+      ]
+    },
+
+    {
+      "key": "MI-05-01",
+      "objectiveId": "MI-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "stemAr": "ما تعريف «المطالبة النظيفة»؟",
+      "stemEn": "What is a clean claim?",
+      "rationaleAr": "المطالبة النظيفة تجتاز فحوصات الطرف الدافع من المحاولة الأولى دون تصحيح أو طلب معلومات إضافية.",
+      "rationaleEn": "A clean claim passes the payer's edits on first submission, with no correction and no request for more information.",
+      "options": [
+        { "textAr": "مطالبة تجتاز الفحص من المحاولة الأولى", "textEn": "One that passes the payer's edits on the first attempt", "isCorrect": true, "feedbackAr": "صحيح. التسمية مقياس تشغيلي، لا مجاملة.", "feedbackEn": "Correct. The label is an operational measure, not a compliment." },
+        { "textAr": "مطالبة دُفعت بالكامل", "textEn": "One that was paid in full", "isCorrect": false, "feedbackAr": "قد تكون المطالبة نظيفة ثم تُخفَّض لأسباب تعاقدية. النظافة تصف المسار لا المبلغ.", "feedbackEn": "A claim can be clean and still be reduced for contractual reasons. Cleanliness describes the path, not the amount." },
+        { "textAr": "مطالبة أُرسلت إلكترونيًا", "textEn": "One submitted electronically", "isCorrect": false, "feedbackAr": "وسيلة الإرسال لا علاقة لها بالأمر: المطالبة الإلكترونية قد تُرفض فورًا.", "feedbackEn": "The channel is irrelevant: an electronic claim can be rejected immediately." },
+        { "textAr": "مطالبة بمبلغ صغير", "textEn": "One for a small amount", "isCorrect": false, "feedbackAr": "المبلغ لا يدخل في التعريف إطلاقًا.", "feedbackEn": "The amount plays no part in the definition." }
+      ]
+    },
+    {
+      "key": "MI-05-02",
+      "objectiveId": "MI-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "stemAr": "أُرسلت مطالبة عبر غرفة المقاصة، وعادت خلال ساعات برسالة تفيد بأن صيغتها غير مقبولة ولم تصل إلى الطرف الدافع. عند أي مرحلة توقّفت؟",
+      "stemEn": "A claim is sent through the clearinghouse and comes back within hours saying its format was not accepted and it never reached the payer. Where did it stop?",
+      "rationaleAr": "غرفة المقاصة تتحقق من الصيغة قبل التوجيه، فالإيقاف عند هذه المرحلة يعني أن الفصل لم يبدأ أصلًا.",
+      "rationaleEn": "The clearinghouse checks format before routing, so a stop there means adjudication never began.",
+      "options": [
+        { "textAr": "عند الإرسال، في غرفة المقاصة", "textEn": "At submission, in the clearinghouse", "isCorrect": true, "feedbackAr": "صحيح. ولهذا سُمّي رفضًا شكليًا لا رفضًا موضوعيًا: الطرف الدافع لم يرَ المطالبة.", "feedbackEn": "Correct. This is why it is a rejection rather than a denial: the payer never saw the claim." },
+        { "textAr": "عند الفصل في المطالبة", "textEn": "At adjudication", "isCorrect": false, "feedbackAr": "الفصل يتطلب وصول المطالبة إلى الطرف الدافع، والسؤال يقول صراحةً إنها لم تصل.", "feedbackEn": "Adjudication requires the claim to have reached the payer, and the stem says plainly that it did not." },
+        { "textAr": "عند التسوية", "textEn": "At posting", "isCorrect": false, "feedbackAr": "التسوية تأتي بعد إشعار السداد، وهي آخر مرحلة لا أولاها.", "feedbackEn": "Posting follows the remittance advice; it is the last stage, not the first." },
+        { "textAr": "عند التحقق من الأهلية", "textEn": "At the eligibility check", "isCorrect": false, "feedbackAr": "الأهلية تُفحص قبل تقديم الخدمة، أي قبل وجود مطالبة تُرسل.", "feedbackEn": "Eligibility is checked before the service, before there is a claim to submit at all." }
+      ]
+    },
+    {
+      "key": "MI-05-03",
+      "objectiveId": "MI-05",
+      "type": "MULTI_SELECT",
+      "bloom": "RECALL",
+      "stemAr": "أي من التالي مراحل في دورة المطالبة؟ اختر كل ما ينطبق.",
+      "stemEn": "Which of the following are stages in the claim lifecycle? Select all that apply.",
+      "rationaleAr": "التحقق من الأهلية والترميز مرحلتان في الدورة؛ التسعير التعاقدي والتحصيل من المريض نشاطان مرتبطان لكنهما ليسا مرحلتين في المسار الموصوف.",
+      "rationaleEn": "Eligibility checking and coding are stages; contract pricing and patient collections are related activities but not stages in the lifecycle as described.",
+      "options": [
+        { "textAr": "التحقق من الأهلية", "textEn": "Eligibility check", "isCorrect": true, "feedbackAr": "صحيح، وهي المرحلة الثانية.", "feedbackEn": "Correct, the second stage." },
+        { "textAr": "الترميز", "textEn": "Coding", "isCorrect": true, "feedbackAr": "صحيح: ترجمة التوثيق إلى رموز.", "feedbackEn": "Correct: translating documentation into codes." },
+        { "textAr": "التفاوض على أسعار العقد", "textEn": "Negotiating contract rates", "isCorrect": false, "feedbackAr": "نشاط تجاري يسبق الدورة ويحدد المبالغ، لكنه ليس مرحلة تمر بها مطالبة بعينها.", "feedbackEn": "A commercial activity that precedes the cycle and sets amounts, but not a stage any individual claim passes through." },
+        { "textAr": "تصميم شبكة مقدمي الخدمة", "textEn": "Designing the provider network", "isCorrect": false, "feedbackAr": "قرار على مستوى الخطة، لا مرحلة في مسار مطالبة.", "feedbackEn": "A plan-level decision, not a stage in a claim's path." }
+      ]
+    },
+    {
+      "key": "MI-05-04",
+      "objectiveId": "MI-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "stemAr": "ترتفع نسبة المطالبات المرتجعة قبل وصولها إلى الطرف الدافع بشكل حاد هذا الشهر، بينما لم تتغير نسب الرفض الموضوعي. أين تبحث أولًا؟",
+      "stemEn": "The share of claims bouncing back before reaching the payer rises sharply this month, while denial rates are unchanged. Where do you look first?",
+      "rationaleAr": "الارتجاع قبل الوصول مشكلة صيغة أو بيانات عند الإرسال، لا مشكلة تقييم طبي أو تعاقدي.",
+      "rationaleEn": "Bouncing before arrival is a format or data problem at submission, not a clinical or contractual assessment problem.",
+      "options": [
+        { "textAr": "بيانات التسجيل وصيغة الإرسال", "textEn": "Registration data and submission format", "isCorrect": true, "feedbackAr": "صحيح. الرفض الشكلي يشير إلى الحقول والصيغة، وثبات الرفض الموضوعي يؤكد أن التقييم نفسه لم يتغير.", "feedbackEn": "Correct. Rejections point at fields and format, and unchanged denials confirm the assessment itself has not shifted." },
+        { "textAr": "سياسات التغطية لدى الطرف الدافع", "textEn": "The payer's coverage policies", "isCorrect": false, "feedbackAr": "سياسات التغطية تؤثر في الرفض الموضوعي، وهو لم يتغير في هذا السيناريو.", "feedbackEn": "Coverage policy shows up in denials, which the stem says are unchanged." },
+        { "textAr": "جودة التوثيق السريري", "textEn": "Clinical documentation quality", "isCorrect": false, "feedbackAr": "التوثيق يُقيَّم بعد وصول المطالبة، والمطالبات هنا لا تصل أصلًا.", "feedbackEn": "Documentation is assessed after a claim arrives, and these claims are not arriving." },
+        { "textAr": "أسعار العقد", "textEn": "Contract rates", "isCorrect": false, "feedbackAr": "الأسعار تغيّر المبالغ المدفوعة، لا معدل الارتجاع قبل الوصول.", "feedbackEn": "Rates change amounts paid, not the rate at which claims bounce before arrival." }
+      ]
+    },
+
+    {
+      "key": "MI-06-01",
+      "objectiveId": "MI-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "isScenario": true,
+      "stemAr": "تاريخ الخدمة 20 يناير، وسريان الوثيقة يبدأ 1 فبراير. ما الإجراء الصحيح؟",
+      "stemEn": "The date of service is 20 January; the policy takes effect on 1 February. What is the correct action?",
+      "rationaleAr": "الخدمة سابقة لبدء التغطية، فلا يوجد ما يغطيها تحت هذه الوثيقة. التصحيح الشكلي لن يغيّر ذلك.",
+      "rationaleEn": "The service precedes coverage, so there is nothing to pay against under this policy. A formatting correction cannot change that.",
+      "options": [
+        { "textAr": "تأكد من وجود تغطية أخرى سارية وقتها، وإلا فحوّلها إلى دفع مباشر", "textEn": "Check whether other coverage was active then; if not, convert to self-pay", "isCorrect": true, "feedbackAr": "صحيح. السؤال الحقيقي: هل كانت هناك تغطية سارية في تاريخ الخدمة؟", "feedbackEn": "Correct. The real question is whether any coverage was active on the date of service." },
+        { "textAr": "عدّل تاريخ الخدمة ليقع بعد بدء السريان", "textEn": "Change the date of service to fall after the effective date", "isCorrect": false, "feedbackAr": "هذا ليس تصحيحًا بل تزوير. تاريخ الخدمة واقعة، لا حقل قابل للتفاوض.", "feedbackEn": "That is not a correction, it is falsification. The date of service is a fact, not a negotiable field." },
+        { "textAr": "أعد الإرسال دون تغيير", "textEn": "Resubmit unchanged", "isCorrect": false, "feedbackAr": "سيتكرر الرفض بالسبب نفسه، وتخسر دورة أخرى.", "feedbackEn": "It will be refused for the same reason and you lose another cycle." },
+        { "textAr": "قدّم استئنافًا فورًا", "textEn": "File an appeal immediately", "isCorrect": false, "feedbackAr": "الاستئناف يناسب قرارًا محل خلاف. عدم وجود تغطية في التاريخ ليس محل خلاف.", "feedbackEn": "An appeal suits a decision open to dispute. Having no coverage on the date is not in dispute." }
+      ]
+    },
+    {
+      "key": "MI-06-02",
+      "objectiveId": "MI-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "stemAr": "حقل الطبيب المعالج فارغ في مطالبة جاهزة للإرسال اليوم. ما الأفضل؟",
+      "stemEn": "The rendering provider field is empty on a claim due to be submitted today. What is best?",
+      "rationaleAr": "استكمال الحقل من سجل الخدمة يحفظ الموعد ويتجنّب دورة كاملة من التأخير.",
+      "rationaleEn": "Completing the field from the service record meets the deadline and avoids a full cycle of delay.",
+      "options": [
+        { "textAr": "احصل على الاسم من سجل الخدمة ثم أرسل", "textEn": "Get the name from the service record, then submit", "isCorrect": true, "feedbackAr": "صحيح. المعلومة موجودة بالفعل؛ استخراجها أسرع من دورة رفض كاملة.", "feedbackEn": "Correct. The information already exists, and retrieving it is faster than a full rejection cycle." },
+        { "textAr": "أرسل الآن وأصلح لاحقًا عند الرفض", "textEn": "Submit now and fix it after the rejection", "isCorrect": false, "feedbackAr": "يضمن خسارة دورة كاملة مقابل توفير دقائق.", "feedbackEn": "Guarantees the loss of a full cycle to save minutes." },
+        { "textAr": "أدخل اسم رئيس القسم", "textEn": "Enter the department head's name", "isCorrect": false, "feedbackAr": "حقل مكتمل لكنه غير صحيح: قد يجتاز الفحص الآلي ثم يُقرأ لاحقًا كخطأ توثيق، وهو أسوأ من الرفض.", "feedbackEn": "Complete but wrong: it may pass the automated edit and later read as a documentation failure, which is worse than a rejection." },
+        { "textAr": "احذف السطر المرتبط بالطبيب", "textEn": "Remove the line associated with the provider", "isCorrect": false, "feedbackAr": "إسقاط خدمة قُدّمت فعلًا يفقد إيرادًا مستحقًا ويجعل المطالبة غير مطابقة للسجل.", "feedbackEn": "Dropping a service that was actually delivered forfeits earned revenue and makes the claim disagree with the record." }
+      ]
+    },
+    {
+      "key": "MI-06-03",
+      "objectiveId": "MI-06",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "stemAr": "أي من هذه الحقول تُطابَق ببطاقة العضو قبل الإرسال؟ اختر كل ما ينطبق.",
+      "stemEn": "Which of these fields are checked against the member card before submission? Select all that apply.",
+      "rationaleAr": "الاسم وتاريخ الميلاد ورقم الوثيقة بيانات هوية وتغطية موجودة على البطاقة؛ رمز الإجراء ومكان الخدمة يصفان الخدمة لا العضو.",
+      "rationaleEn": "Name, date of birth and policy number are identity and coverage data carried on the card; the procedure code and place of service describe the service, not the member.",
+      "options": [
+        { "textAr": "تاريخ الميلاد", "textEn": "Date of birth", "isCorrect": true, "feedbackAr": "صحيح: بيان هوية يُطابق مباشرة بالبطاقة.", "feedbackEn": "Correct: identity data matched directly against the card." },
+        { "textAr": "رقم الوثيقة", "textEn": "Policy number", "isCorrect": true, "feedbackAr": "صحيح: يحدد التغطية التي ستُفحص.", "feedbackEn": "Correct: it identifies the coverage to be checked." },
+        { "textAr": "رمز الإجراء", "textEn": "Procedure code", "isCorrect": false, "feedbackAr": "يصف ما قُدِّم، ويُطابق بالتوثيق لا بالبطاقة.", "feedbackEn": "Describes what was delivered, and is checked against documentation rather than the card." },
+        { "textAr": "مكان الخدمة", "textEn": "Place of service", "isCorrect": false, "feedbackAr": "يصف ظرف الخدمة؛ البطاقة لا تحمل هذه المعلومة.", "feedbackEn": "Describes the setting of the service; the card does not carry it." }
+      ]
+    },
+    {
+      "key": "MI-06-04",
+      "objectiveId": "MI-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "stemAr": "إجمالي المطالبة 1,110 بينما مجموع السطور 1,260، والفارق يساوي وحدة واحدة من سطر بوحدتين. ما الأرجح؟",
+      "stemEn": "A claim total reads 1,110 while its lines sum to 1,260, and the gap equals one unit of a two-unit line. What is most likely?",
+      "rationaleAr": "الفارق المطابق تمامًا لوحدة واحدة يشير إلى أن الإجمالي حُسب بسعر السطر مرة واحدة بدل ضربه في الوحدات.",
+      "rationaleEn": "A gap exactly equal to one unit points to a total computed from the line charge once rather than multiplied by units.",
+      "options": [
+        { "textAr": "حُسب الإجمالي دون ضرب السطر في عدد وحداته", "textEn": "The total was computed without multiplying the line by its units", "isCorrect": true, "feedbackAr": "صحيح. الفارق يساوي بالضبط وحدة واحدة، وهو توقيع هذا الخطأ.", "feedbackEn": "Correct. The gap is exactly one unit, which is the signature of this error." },
+        { "textAr": "أحد السطور غير مغطى", "textEn": "One of the lines is not covered", "isCorrect": false, "feedbackAr": "التغطية تُقرَّر بعد الوصول، ولا تغيّر مجموعًا حسابيًا على المطالبة نفسها.", "feedbackEn": "Coverage is decided after arrival and does not alter an arithmetic sum on the claim itself." },
+        { "textAr": "طُبِّق خصم تعاقدي", "textEn": "A contractual discount was applied", "isCorrect": false, "feedbackAr": "الخصومات التعاقدية تظهر في إشعار السداد، لا في إجمالي مطالبة لم تُرسل بعد.", "feedbackEn": "Contractual reductions appear on the remittance advice, not in the total of a claim not yet submitted." },
+        { "textAr": "أُدخل رمز إجراء خاطئ", "textEn": "A wrong procedure code was entered", "isCorrect": false, "feedbackAr": "رمز خاطئ يغيّر وصف الخدمة، ولا ينتج فارقًا مساويًا لوحدة واحدة بالضبط.", "feedbackEn": "A wrong code changes what the service is; it does not produce a gap equal to exactly one unit." }
+      ]
+    },
+    {
+      "key": "MI-06-05",
+      "objectiveId": "MI-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "stemAr": "قبل فحص الترميز، أي مجموعة حقول تُراجَع أولًا ولماذا؟",
+      "stemEn": "Before checking coding, which group of fields is reviewed first, and why?",
+      "rationaleAr": "بيانات الهوية والتغطية تُفحص آليًا أولًا، وأخطاؤها توقف المطالبة قبل أن ينظر أحد في الترميز.",
+      "rationaleEn": "Identity and coverage data are edited automatically first, and errors there stop a claim before anyone examines coding.",
+      "options": [
+        { "textAr": "بيانات العضو والتغطية، لأنها تُفحص آليًا وتوقف المطالبة فورًا", "textEn": "Member and coverage data, because they are edited automatically and stop the claim immediately", "isCorrect": true, "feedbackAr": "صحيح. أكثر أسباب الرفض شيوعًا بيانات، لا طب.", "feedbackEn": "Correct. The most common reasons for rejection are data, not clinical content." },
+        { "textAr": "الرموز، لأنها تحدد المبلغ", "textEn": "The codes, because they determine the amount", "isCorrect": false, "feedbackAr": "الرموز مهمة، لكن مطالبة تسقط عند فحص الهوية لا تصل إلى تقييم الرموز أصلًا.", "feedbackEn": "Codes matter, but a claim that fails an identity edit never reaches code assessment." },
+        { "textAr": "السجل السريري، لأنه الأطول", "textEn": "The clinical record, because it is longest", "isCorrect": false, "feedbackAr": "الطول ليس معيار أولوية؛ الأولوية لما يوقف المطالبة أبكر.", "feedbackEn": "Length is not a priority criterion; what stops the claim earliest is." },
+        { "textAr": "بيانات المنشأة، لأنها ثابتة", "textEn": "Facility data, because it is static", "isCorrect": false, "feedbackAr": "ثبات الحقل يجعله أقل عرضة للخطأ، وهو سبب لتأخيره في المراجعة لا لتقديمه.", "feedbackEn": "A static field is less error-prone, which is a reason to check it later, not first." }
+      ]
+    },
+
+    {
+      "key": "MI-07-01",
+      "objectiveId": "MI-07",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "isScenario": true,
+      "stemAr": "يطالب سطر بتصوير تشخيصي، والسجل يذكر صراحةً أنه لم يُجرَ في تلك الزيارة. كيف تصنّف هذا؟",
+      "stemEn": "A line bills for diagnostic imaging, and the record states plainly that none was performed at that visit. How do you classify this?",
+      "rationaleAr": "المطالبة بخدمة لا يدعمها التوثيق مسألة نزاهة، وتُعالج بإزالة السطر لا بتعديل الصياغة.",
+      "rationaleEn": "Billing a service the documentation does not support is an integrity matter, addressed by removing the line rather than rewording anything.",
+      "options": [
+        { "textAr": "خدمة غير موثّقة، وتُزال من المطالبة", "textEn": "An undocumented service, to be removed from the claim", "isCorrect": true, "feedbackAr": "صحيح. التوثيق هو ما يحدد ما يجوز فوترته.", "feedbackEn": "Correct. Documentation determines what may be billed." },
+        { "textAr": "نقص في التحديد", "textEn": "A specificity problem", "isCorrect": false, "feedbackAr": "نقص التحديد يعني رمزًا أقل دقة من التوثيق المتاح؛ هنا لا يوجد توثيق أصلًا.", "feedbackEn": "A specificity problem means a code less precise than the available documentation; here there is no documentation at all." },
+        { "textAr": "خطأ حسابي", "textEn": "An arithmetic error", "isCorrect": false, "feedbackAr": "الحساب يخص المبالغ، والمشكلة هنا في وجود الخدمة لا في قيمتها.", "feedbackEn": "Arithmetic concerns amounts; the problem here is whether the service happened, not what it cost." },
+        { "textAr": "عنصر مفقود", "textEn": "A missing element", "isCorrect": false, "feedbackAr": "العنصر المفقود حقل مطلوب تُرك فارغًا؛ هنا الحقل مملوء لكنه غير مدعوم.", "feedbackEn": "A missing element is a required field left blank; here the field is filled but unsupported." }
+      ]
+    },
+    {
+      "key": "MI-07-02",
+      "objectiveId": "MI-07",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "stemAr": "يوثّق السجل تشخيصًا محددًا، لكن المطالبة تحمل رمزًا «غير محدد». ما الأثر؟",
+      "stemEn": "The record documents a specific diagnosis, but the claim carries an 'unspecified' code. What is the effect?",
+      "rationaleAr": "اختيار رمز أقل تحديدًا مع توفر التوثيق يضعف المطالبة بلا داعٍ ويعرّضها للمراجعة.",
+      "rationaleEn": "Choosing a less specific code when documentation supports a specific one weakens the claim for no reason and invites review.",
+      "options": [
+        { "textAr": "تضعف المطالبة رغم أن التوثيق يدعم ما هو أدق", "textEn": "It weakens the claim even though the documentation supports something more precise", "isCorrect": true, "feedbackAr": "صحيح. المشكلة أن الدقة كانت متاحة ولم تُستخدم.", "feedbackEn": "Correct. The problem is that precision was available and went unused." },
+        { "textAr": "لا أثر، فكلاهما مقبول", "textEn": "No effect, since both are acceptable", "isCorrect": false, "feedbackAr": "المقبول شكلًا ليس المقبول عند المراجعة؛ الفجوة بين السجل والرمز هي المشكلة.", "feedbackEn": "Formally acceptable is not the same as defensible on review; the gap between record and code is the problem." },
+        { "textAr": "تُرفض المطالبة آليًا دائمًا", "textEn": "The claim is always rejected automatically", "isCorrect": false, "feedbackAr": "غالبًا تمر آليًا، وهو ما يجعل المشكلة أصعب اكتشافًا لا أسهل.", "feedbackEn": "It often passes automated edits, which makes the problem harder to catch, not easier." },
+        { "textAr": "يزيد المبلغ المدفوع", "textEn": "It increases the amount paid", "isCorrect": false, "feedbackAr": "العكس أقرب: الرمز الأقل تحديدًا لا يدعم مطالبة أقوى.", "feedbackEn": "If anything the opposite: a less specific code does not support a stronger claim." }
+      ]
+    },
+    {
+      "key": "MI-07-03",
+      "objectiveId": "MI-07",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "stemAr": "أي مما يلي يمثل مخاطرة نزاهة وليس مجرد خطأ إدخال؟ اختر كل ما ينطبق.",
+      "stemEn": "Which of these are integrity risks rather than simple data-entry errors? Select all that apply.",
+      "rationaleAr": "فوترة خدمة لم تُقدَّم، وتقسيم خدمة واحدة إلى سطور متعددة لزيادة العائد، كلاهما يمس النزاهة. الخطأ الإملائي وتاريخ مكتوب بصيغة خاطئة أخطاء إدخال.",
+      "rationaleEn": "Billing a service that was not delivered, and splitting one service into several lines to increase the return, both go to integrity. A misspelling and a date in the wrong format are entry errors.",
+      "options": [
+        { "textAr": "فوترة خدمة لم تُقدَّم", "textEn": "Billing a service that was not delivered", "isCorrect": true, "feedbackAr": "صحيح، وهي المثال الأوضح.", "feedbackEn": "Correct, and the clearest example." },
+        { "textAr": "تقسيم خدمة واحدة إلى سطور لزيادة العائد", "textEn": "Splitting one service into several lines to increase the return", "isCorrect": true, "feedbackAr": "صحيح: الشكل سليم والنية ليست كذلك.", "feedbackEn": "Correct: the form is fine and the intent is not." },
+        { "textAr": "خطأ إملائي في اسم المريض", "textEn": "A misspelling in the patient's name", "isCorrect": false, "feedbackAr": "خطأ إدخال يُصحَّح ويُعاد الإرسال؛ لا يمس النزاهة.", "feedbackEn": "An entry error: correct it and resubmit. It does not go to integrity." },
+        { "textAr": "تاريخ مكتوب بصيغة غير مقبولة", "textEn": "A date written in an unaccepted format", "isCorrect": false, "feedbackAr": "مشكلة صيغة تُوقف المطالبة شكليًا، لا مسألة نزاهة.", "feedbackEn": "A format problem that stops the claim formally; not an integrity matter." }
+      ]
+    }
+  ]
+}

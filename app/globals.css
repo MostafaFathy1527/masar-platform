@@ -593,3 +593,211 @@ body {
     }
   }
 }
+
+/* ------------------------------------------------- assessment, certificate */
+
+@layer components {
+  .assess-start {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .assess-items {
+    display: grid;
+    gap: 1.25rem;
+    counter-reset: q;
+  }
+  .assess-items > li {
+    counter-increment: q;
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+  .assess-stem {
+    font-weight: 600;
+  }
+  .assess-stem::before {
+    content: counter(q) ". ";
+    color: var(--color-muted);
+  }
+  .assess-hint {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-block: 0.25rem 0.625rem;
+  }
+  .assess-items ul {
+    display: grid;
+    gap: 0.375rem;
+  }
+  .assess-items ul button {
+    inline-size: 100%;
+    text-align: start;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-canvas);
+  }
+  .assess-items ul button.is-selected {
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 0 1px var(--color-accent);
+  }
+  .assess-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-start: 1.25rem;
+  }
+  .assess-review h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .assess-review h3 {
+    font-weight: 700;
+    margin-block: 1.25rem 0.5rem;
+  }
+  .assess-expired {
+    color: var(--color-wrong);
+  }
+  .assess-objectives {
+    display: grid;
+    gap: 0.375rem;
+  }
+  .assess-objectives li {
+    display: grid;
+    grid-template-columns: 5rem 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+  .assess-bar {
+    display: block;
+    block-size: 0.5rem;
+    background: var(--color-line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .assess-bar > span {
+    display: block;
+    block-size: 100%;
+    background: var(--color-accent);
+  }
+  .assess-weakest {
+    margin-block-start: 0.75rem;
+  }
+  .assess-opt-text {
+    font-weight: 600;
+  }
+  .assess-feedback {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .assess-rationale {
+    margin-block-start: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cert-gates {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .cert-gates li {
+    border: 1px solid var(--color-line);
+    border-inline-start: 3px solid currentColor;
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .verify-card {
+    border: 1px solid var(--color-line);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+  }
+  .verify-status {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .verify-reason,
+  .verify-demo {
+    margin-block-start: 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-muted);
+  }
+  .verify-fields {
+    margin-block-start: 1rem;
+  }
+  .verify-fields > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-block-end: 1px solid var(--color-line);
+    padding-block: 0.5rem;
+  }
+  .verify-fields dt {
+    color: var(--color-muted);
+  }
+  .verify-hash {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85rem;
+  }
+  .verify-note {
+    margin-block-start: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .admin-q {
+    font-weight: 700;
+    margin-block: 1.75rem 0.625rem;
+  }
+  .admin-caveat {
+    margin-block-start: 1.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+}
+
+/*
+  Print. The verification page is what gets printed or saved as a PDF, so it
+  has to survive without colour, without the site chrome, and without implying
+  the paper is the credential — the note about this page being the record
+  stays visible in print for exactly that reason.
+*/
+@media print {
+  :root {
+    --color-canvas: #ffffff;
+    --color-ink: #000000;
+    --color-muted: #444444;
+    --color-line: #999999;
+    --color-raise: #ffffff;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  header nav,
+  .btn-primary,
+  .btn-secondary,
+  .sim-evidence,
+  .tour-banner {
+    display: none !important;
+  }
+  .verify-card {
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+  .verify-hash {
+    word-break: break-all;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+    color: #444;
+  }
+}

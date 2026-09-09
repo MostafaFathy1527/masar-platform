@@ -27,17 +27,24 @@ export interface PoolItem {
 export type Blueprint = Record<string, number>
 
 export class ThinPoolError extends Error {
-  constructor(
-    readonly objectiveId: string,
-    readonly wanted: number,
-    readonly available: number,
-  ) {
+  // Fields are declared and assigned explicitly rather than using TypeScript
+  // parameter properties. Parameter properties require a transform, and Node's
+  // strip-only type removal cannot do transforms — this module is imported by
+  // the .mts seed scripts, which run under plain Node.
+  readonly objectiveId: string
+  readonly wanted: number
+  readonly available: number
+
+  constructor(objectiveId: string, wanted: number, available: number) {
     super(
       `Blueprint asks for ${wanted} item(s) for ${objectiveId} but only ${available} ` +
         `live, non-formative item(s) exist. Assembly fails rather than serving a ` +
         `short assessment and scoring it out of the wrong denominator.`,
     )
     this.name = 'ThinPoolError'
+    this.objectiveId = objectiveId
+    this.wanted = wanted
+    this.available = available
   }
 }
 

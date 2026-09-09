@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import {
   assemble,
@@ -10,6 +11,7 @@ import {
   scoreItem,
   toPublicItem,
   toPublicItems,
+  toPublicItemsShuffled,
   type ScoredItem,
 } from '@/lib/assessment/scoring'
 
@@ -204,5 +206,91 @@ describe('attempt scoring', () => {
     const r = scoreAttempt(items, {}, 70)
     expect(r.scorePct).toBe(0)
     expect(r.passed).toBe(false)
+  })
+})
+
+describe('option position must not predict correctness', () => {
+  // Found in end-to-end testing, not by inspection: answering "the first
+  // option" on every exam item scored 89%, because the bank is authored with
+  // the correct answer first. Shuffling per attempt removes the signal
+  // entirely, so the authored order stops mattering.
+  const bank = JSON.parse(
+    readFileSync('content/courses/rcm-foundations/items/mi-05-06-07.json', 'utf-8'),
+  )
+
+  type RawOption = {
+    textAr: string; textEn: string; isCorrect: boolean
+    feedbackAr: string; feedbackEn: string
+  }
+  type RawItem = {
+    objectiveId: string
+    type: 'MCQ_SINGLE' | 'MULTI_SELECT'
+    stemAr: string; stemEn: string
+    isScenario?: boolean
+    rationaleAr: string; rationaleEn: string
+    options: RawOption[]
+  }
+
+  const asScored = (raw: RawItem, n: number): ScoredItem => ({
+    id: `item-${n}`,
+    objectiveId: raw.objectiveId,
+    type: raw.type,
+    stemAr: raw.stemAr,
+    stemEn: raw.stemEn,
+    isScenario: !!raw.isScenario,
+    rationaleAr: raw.rationaleAr,
+    rationaleEn: raw.rationaleEn,
+    options: raw.options.map((o: RawOption, i: number) => ({
+      id: `item-${n}-opt-${i}`,
+      order: i + 1,
+      textAr: o.textAr,
+      textEn: o.textEn,
+      isCorrect: o.isCorrect,
+      feedbackAr: o.feedbackAr,
+      feedbackEn: o.feedbackEn,
+    })),
+  })
+
+  const items: ScoredItem[] = (bank.items as RawItem[]).map(asScored)
+
+  it('confirms the authored bank IS position-biased, which is why shuffling exists', () => {
+    const firstIsCorrect = items.filter((i) => i.options[0].isCorrect).length
+    // Documents the reason for the shuffle rather than silently depending on it.
+    expect(firstIsCorrect / items.length).toBeGreaterThan(0.5)
+  })
+
+  it('always answering the first shown option scores near chance across seeds', () => {
+    const scores: number[] = []
+    for (const seed of ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8']) {
+      const shown = toPublicItemsShuffled(items, seed)
+      const responses: Record<string, string[]> = {}
+      for (const s of shown) responses[s.id] = [s.options[0].id]
+      scores.push(scoreAttempt(items, responses, 70).scorePct)
+    }
+    const mean = scores.reduce((a, b) => a + b, 0) / scores.length
+    // Roughly 1-in-4 by chance. Well below the 75% exam pass mark, and nowhere
+    // near the 89% the unshuffled bank handed out.
+    expect(mean).toBeLessThan(50)
+  })
+
+  it('shows the same order on a reload of the same attempt', () => {
+    const a = toPublicItemsShuffled(items, 'attempt-seed')
+    const b = toPublicItemsShuffled(items, 'attempt-seed')
+    expect(a).toEqual(b)
+  })
+
+  it('shows a different order to a different attempt', () => {
+    const a = toPublicItemsShuffled(items, 'attempt-a')
+    const b = toPublicItemsShuffled(items, 'attempt-b')
+    expect(a).not.toEqual(b)
+  })
+
+  it('shuffling changes no answer key: scoring matches by id, not position', () => {
+    const responses: Record<string, string[]> = {}
+    for (const i of items) {
+      responses[i.id] = i.options.filter((o) => o.isCorrect).map((o) => o.id)
+    }
+    // A perfect answer set stays perfect no matter how the options are shown.
+    expect(scoreAttempt(items, responses, 70).scorePct).toBe(100)
   })
 })

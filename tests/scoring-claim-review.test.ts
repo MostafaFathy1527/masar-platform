@@ -16,7 +16,6 @@ const sim = JSON.parse(
 const seededErrors: SeededError[] = sim.seededErrors
 const flaggableKeys = flaggableKeysFor(sim.dataset.claim)
 const errorKeys = seededErrors.map((e) => e.fieldKey)
-const cleanKeys = flaggableKeys.filter((k) => !errorKeys.includes(k))
 
 const score = (flagged: string[]) =>
   scoreClaimReview({ seededErrors, flaggableKeys, flagged, passPct: sim.passPct })
