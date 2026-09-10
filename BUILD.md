@@ -182,9 +182,39 @@ Shotgun-flagging every field scores *worse* than reading four fields carefully. 
 
 **Bank target: 90 approved items** (floor 70 — and the case study says "90 items" plainly; the demo scope is not hidden). Composition, enforced mechanically by `content-pipeline/tools/bank_report.py` and by `scripts/check-blueprint.mjs` in CI:
 - Bloom mix: recall ≤ 30%, apply ≥ 40%, analyze ≥ 30%.
-- **≥ 50% of the bank must be `SCENARIO_MCQ` or `CASE_SET`.**
+- ~~**≥ 50% of the bank must be `SCENARIO_MCQ` or `CASE_SET`.**~~ **Withdrawn for v1.0** — see below.
 - Every objective ≥ 5 items, with at least one above recall.
 - Every option carries per-option feedback; **every distractor's rationale must name the misconception it represents.** No feedback = QA failure.
+
+**The scenario bar is withdrawn for v1.0, not redefined.** It came from the 14-week plan and
+was never re-derived when §0.3 cut assessment scope to two item types. v1.0 ships no
+`SCENARIO_MCQ` and no `CASE_SET`; the stems are short, the longest at 28 words against a
+defined minimum of 60. A "scenario-led" percentage was nevertheless reported, computed from a
+hand-set `isScenario` boolean on a third of the bank — a figure that measured the flag rather
+than the property the flag named.
+
+Two repairs were rejected. Amending the definition to fit the bank would still have left a
+published percentage computed from a hand-set flag: renaming the flag does not change what it
+measures. Padding stems to 60 words would have been the F1 mistake again — designing the
+artefact to flatter the metric. So the bar is withdrawn, `isScenario` is deleted along with
+every reader of it, and no scenario percentage is published anywhere.
+
+The questions themselves are not weak for being short. Several are decisions framed by a
+situation — *a claim comes back within hours saying its format was not accepted and it never
+reached the payer; where did it stop?* — which is a good question and simply not a vignette
+by this document's definition. A genuine `SCENARIO_MCQ` type is in `LATER.md`.
+
+**What the v1.0 bank verifiably is**, computed from the content files rather than restated.
+Figures are over the **40 scored items**, which are the exam's pool; the 10 formative items
+are in-lesson knowledge checks and are never drawn into a quiz or exam, so counting them with
+scored items would inflate coverage:
+
+- 50 items: 40 scored, 10 formative. Two types: `MCQ_SINGLE` (31 scored) and `MULTI_SELECT` (9).
+- Every one of 196 options carries feedback in both languages. No exceptions.
+- Bloom, scored items: recall 20% · apply 40% · analyze 40%, against recall ≤ 30%, apply ≥ 40%,
+  analyze ≥ 30%.
+- Every objective has exactly five scored items. An earlier count reported two objectives at
+  six; both sixes were knowledge checks, counted as if they were scored coverage.
 
 **The ladder:**
 
@@ -347,7 +377,7 @@ Prisma + SQLite (dev) / Turso libSQL (prod). 22 application models + 3 Auth.js. 
 | `Lesson` | moduleId, order, slug, titleAr/En, estMinutes, levels[], **blocksJson**, status (DRAFT\|QA\|PUBLISHED), isPreview, sourceHash, pipelineRunId, qaScore |
 | `ConceptLogEntry` | courseId, conceptKey @unique(courseId), firstTaughtLessonId, definitionSnippet, allowedReuse (DEFINE\|RECALL\|APPLY) |
 | `GlossaryTerm` | courseId, termAr/En, definitionAr/En, firstLessonId |
-| `Item` | courseId, objectiveId, type, stemAr/En, difficulty, bloom, isScenario, formative, rationaleAr/En, status (DRAFT\|LIVE\|RETIRED), authoredBy (HUMAN\|PIPELINE), reviewedAt |
+| `Item` | courseId, objectiveId, type, stemAr/En, difficulty, bloom, formative, rationaleAr/En, status (DRAFT\|LIVE\|RETIRED), authoredBy (HUMAN\|PIPELINE), reviewedAt — no `isScenario`; see §4.4 |
 | `ItemOption` | itemId, order, textAr/En, isCorrect, **feedbackAr/En (required)** |
 | `ItemStat` | itemId @unique, exposures, pValue, pointBiserial, meanTimeSec, distractorDistJson, lastComputedAt |
 | `Assessment` | courseId, scope (LESSON\|MODULE\|MOCK\|FINAL), scopeId, itemCount, timeLimitSec, passPct, maxAttempts, cooldownSec, assemblyJson |
@@ -635,7 +665,7 @@ W2 — `#9` Zod `LessonDoc` schema + JSON Schema export + validator test · `#10
 2. `/method` shows the same lesson at L1, L2 and L3 live.
 3. `/how-it-was-built` publishes a real generated lesson, its rubric scorecard and its concept-log entry, including failed runs.
 4. One certificate is issued, downloadable with correct Arabic, and verifiable at a public URL.
-5. The blueprint matrix shows zero uncovered objectives across ~90 items with ≥ 50% scenario/case.
+5. The blueprint matrix shows zero uncovered objectives across ~90 items. *(The ≥ 50% scenario/case clause is withdrawn for v1.0 — see §4.4.)*
 6. The repo is public, CI is green, and a clean clone reaches a running local instance from the README alone.
 7. `docs/00-15`, `COSTS.md`, `DATA-OWNERSHIP.md`, `SUPPORT.md`, `ROADMAP.md`, `ACCESSIBILITY.md` all exist with real content.
 8. The case study and the 3-minute video are live, and both pass the honesty checklist.

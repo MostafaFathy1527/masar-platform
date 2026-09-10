@@ -28,7 +28,6 @@ export const ItemDoc = z
     objectiveId: z.string().regex(/^MI-\d{2}$/),
     type: z.enum(['MCQ_SINGLE', 'MULTI_SELECT']),
     bloom: z.enum(['RECALL', 'APPLY', 'ANALYZE']),
-    isScenario: z.boolean().default(false),
     formative: z.boolean().default(false),
     stemAr: bilingual(),
     stemEn: bilingual(),

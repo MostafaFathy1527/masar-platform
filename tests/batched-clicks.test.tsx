@@ -134,7 +134,6 @@ const ITEMS = [
     type: 'MCQ_SINGLE' as const,
     stemAr: 'س1',
     stemEn: 'Q1',
-    isScenario: false,
     options: [
       { id: 'i1a', order: 1, textAr: 'أ', textEn: 'A' },
       { id: 'i1b', order: 2, textAr: 'ب', textEn: 'B' },
@@ -145,7 +144,6 @@ const ITEMS = [
     type: 'MULTI_SELECT' as const,
     stemAr: 'س2',
     stemEn: 'Q2',
-    isScenario: false,
     options: [
       { id: 'i2a', order: 1, textAr: 'أ', textEn: 'A' },
       { id: 'i2b', order: 2, textAr: 'ب', textEn: 'B' },

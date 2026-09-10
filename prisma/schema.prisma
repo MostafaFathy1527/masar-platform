@@ -284,10 +284,12 @@ model SimSubmission {
 
 // -------------------------------------------------------------- assessment
 
-/// Two item types ship in v1.0. A scenario item is an MCQ_SINGLE carrying a
-/// vignette, flagged by `isScenario`, rather than a separate type — the
-/// difference is in the stem, not in how it is answered or scored. The wider
-/// set (MATCHING, ORDERING, CASE_SET) is in LATER.md.
+/// Two item types ship in v1.0. There is no scenario flag: an `isScenario`
+/// boolean was hand-set on a third of the bank and reported as a
+/// "scenario-led" percentage, while the longest flagged stem was less than
+/// half the defined minimum length. It measured itself, not the property it
+/// named, so it was removed rather than renamed. The wider set (MATCHING,
+/// ORDERING, SCENARIO_MCQ, CASE_SET) is in LATER.md.
 enum ItemType {
   MCQ_SINGLE
   MULTI_SELECT
@@ -328,9 +330,6 @@ model Item {
   stemAr      String
   stemEn      String
   bloom       Bloom
-  /// A vignette-led item. Not a separate type: it is answered and scored
-  /// identically, and only the stem differs.
-  isScenario  Boolean    @default(false)
   /// Formative items are in-lesson knowledge checks. Never scored, never in a
   /// gradebook, and never drawn into a quiz or exam.
   formative   Boolean    @default(false)

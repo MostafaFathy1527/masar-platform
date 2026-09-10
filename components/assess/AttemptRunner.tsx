@@ -10,7 +10,6 @@ type PublicItem = {
   type: 'MCQ_SINGLE' | 'MULTI_SELECT'
   stemAr: string
   stemEn: string
-  isScenario: boolean
   options: PublicOption[]
 }
 type Started = {
@@ -55,7 +54,6 @@ const COPY = {
     submitting: 'جارٍ التصحيح…',
     single: 'اختر إجابة واحدة',
     multi: 'اختر كل ما ينطبق',
-    scenario: 'سيناريو',
     result: 'النتيجة',
     pass: 'ناجح',
     fail: 'غير ناجح',
@@ -77,7 +75,6 @@ const COPY = {
     submitting: 'Scoring…',
     single: 'Choose one answer',
     multi: 'Select all that apply',
-    scenario: 'Scenario',
     result: 'Result',
     pass: 'Pass',
     fail: 'Not yet',
@@ -253,7 +250,6 @@ export function AttemptRunner({
       <ol className="assess-items">
         {started.items.map((item) => (
           <li key={item.id}>
-            {item.isScenario ? <span className="badge">{t.scenario}</span> : null}
             <p className="assess-stem">{pick(locale, item.stemAr, item.stemEn)}</p>
             <p className="assess-hint">
               {item.type === 'MCQ_SINGLE' ? t.single : t.multi}

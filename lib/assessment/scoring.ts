@@ -25,7 +25,6 @@ export interface ScoredItem {
   type: 'MCQ_SINGLE' | 'MULTI_SELECT'
   stemAr: string
   stemEn: string
-  isScenario: boolean
   rationaleAr: string
   rationaleEn: string
   options: ScoredOption[]
@@ -50,7 +49,6 @@ export interface PublicItem {
   type: 'MCQ_SINGLE' | 'MULTI_SELECT'
   stemAr: string
   stemEn: string
-  isScenario: boolean
   options: PublicOption[]
 }
 
@@ -69,7 +67,6 @@ export function toPublicItem(item: ScoredItem): PublicItem {
     type: item.type,
     stemAr: item.stemAr,
     stemEn: item.stemEn,
-    isScenario: item.isScenario,
     options: item.options
       .slice()
       .sort((a, b) => a.order - b.order)

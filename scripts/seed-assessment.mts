@@ -40,7 +40,6 @@ for (const item of bank.items) {
     stemAr: item.stemAr,
     stemEn: item.stemEn,
     bloom: item.bloom,
-    isScenario: item.isScenario,
     formative: item.formative,
     rationaleAr: item.rationaleAr,
     rationaleEn: item.rationaleEn,

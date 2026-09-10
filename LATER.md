@@ -9,6 +9,12 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
 ## Assessment
 - Module quizzes, mock-vs-final split, attempt cooldowns, seen-item exclusion
 - Mastery engine (`ObjectiveScore`, readiness index, recompute cron)
+- The wider item types: `MATCHING` (per-pair credit), `ORDERING` (Kendall-tau partial credit),
+  `SCENARIO_MCQ` (a 60–120-word vignette, then a decision) and `CASE_SET` (a shared stimulus with
+  3–5 linked items, kept together in assembly). v1.0 ships `MCQ_SINGLE` and `MULTI_SELECT` only.
+  The Prisma schema said these were listed here long before they were; they now are.
+- A scenario-led share of the bank, if it returns, measured from the item type rather than from a
+  hand-set flag. The v1.0 bar was withdrawn — see `BUILD.md` §4.4.
 
 ## Platform
 - Real payment adapters (Stripe, Paymob live), orders, refunds
