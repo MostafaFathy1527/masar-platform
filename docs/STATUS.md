@@ -292,7 +292,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **eleven** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **twelve** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
@@ -312,7 +312,7 @@ Arabic prose the one surface where a stale number could sit indefinitely. The me
 since earned itself twice: the pages moved to ten and then to eleven with no edit.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — three of the eleven are hardcoded facts that silently stopped
+were true when written** — three of the twelve are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
@@ -371,6 +371,41 @@ leak patterns will trip a leak detector.
 - **CI** — typecheck, lint, tests, `prisma validate`, build, migration verification,
   full-history secret scan.
 - `HANDOVER.md` with resolved versions, the clean-clone runbook, and **Known deviations**.
+
+## The lesson reader, and the hole in the brief
+
+**The product listed five lessons and could not open one.** There was no lesson route —
+no `/lesson/[slug]`, nothing. The lessons existed as validated JSON, passed every gate, were
+listed on `/course` with objectives and durations, and could not be read.
+
+**The plan omitted it.** §0.2's Week 2 specifies "Lesson renderer + block registry (16 block
+types max) · L1 + L2 rendering · `/depth` page · lesson JSON schema + validate.py". All of
+that was built and all of it was correct. The brief specified the machinery and a
+demonstration of the machinery, and never specified the thing the machinery is for. This is
+not scope creep against `LATER.md`; it is a gap in the specification.
+
+**It is the first gap found by using the product rather than testing it, and the owner found
+it** — not either agent. Every test in the repository derives from the specification, so
+every test agreed with the specification, including the ones written to catch the product
+being wrong rather than the code being wrong. A suite cannot find a page nobody said should
+exist. Recorded as `docs/design/what-failed.md` entry 12, and kept distinct from entry 6:
+that one was finished work behind no link, a navigation failure whose fix was links; this
+one had nothing to link to.
+
+**It also blocked the load-bearing item.** The blind inter-rater check requires reading three
+lessons and scoring them. They did not render, so the check that resolves the caveat on
+`/how-it-was-built` could not begin.
+
+`/[locale]/lesson/[slug]` now reads the content files rather than the database, reuses the
+`/depth` renderer and the existing registry (budget still 12 of 16), opens at the deepest
+level a lesson declares, shows the depth switch only when there is a choice, states the
+English-only notice before the body on `/ar`, lists objectives with their statements, and
+links previous/next. The `/course` rows are links. It is a reader, not a player: no progress
+tracking, no completion state, no block-viewed marking.
+
+**Verified while the database was unreachable**, which was the point of reading from the
+content files: all five lessons render in both locales with 5432 in its blocked state, and
+390px RTL reports `scrollWidth` exactly 390 with no overflow and no letter-spaced Arabic.
 
 ## A note for whoever opens this next
 

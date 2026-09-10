@@ -1,9 +1,9 @@
-import { readFileSync, readdirSync } from 'node:fs'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
 import { certificateEligibility } from '@/lib/certificates'
+import { lessonIndex } from '@/lib/lessons'
 import { objectiveFor } from '@/lib/objectives'
 import { SandboxBanner } from '@/components/payments/SandboxBanner'
 import { StartCheckout } from '@/components/payments/StartCheckout'
@@ -18,47 +18,6 @@ export const metadata: Metadata = {
 }
 
 const COURSE_SLUG = 'rcm-foundations'
-const LESSON_DIR = 'content/courses/rcm-foundations/lessons'
-
-// The lesson index is read from the content files rather than the database,
-// because the content files are the source of truth — that is the whole
-// ownership story in section 0.3, and it means this page cannot claim a lesson
-// that does not exist in the repository.
-type LessonCard = {
-  slug: string
-  titleAr: string
-  titleEn: string
-  estMinutes: number
-  levels: string[]
-  bilingual: boolean
-  objectives: string[]
-  blockCounts: Record<string, number>
-}
-
-function readLessons(): LessonCard[] {
-  return readdirSync(LESSON_DIR)
-    .filter((f) => f.endsWith('.json'))
-    .sort()
-    .map((f) => {
-      const d = JSON.parse(readFileSync(`${LESSON_DIR}/${f}`, 'utf-8'))
-      return {
-        slug: d.slug,
-        titleAr: d.titleAr,
-        titleEn: d.titleEn,
-        estMinutes: d.estMinutes,
-        levels: d.levels,
-        // Absent means bilingual; the four English-only lessons say so
-        // explicitly in their source. Section 0.6: the limitation is stated on
-        // the page rather than left for the reader to discover.
-        bilingual: d.bilingual !== false,
-        objectives: d.objectives ?? [],
-        blockCounts: Object.fromEntries(
-          Object.entries(d.blocks ?? {}).map(([k, v]) => [k, (v as unknown[]).length]),
-        ),
-      }
-    })
-}
-
 export default async function CoursePage({
   params,
 }: {
@@ -91,7 +50,7 @@ export default async function CoursePage({
     isDemo: false,
   }).gates
 
-  const lessons = readLessons()
+  const lessons = lessonIndex()
   const totalMinutes = lessons.reduce((n, x) => n + x.estMinutes, 0)
   const objectiveCount = new Set(lessons.flatMap((x) => x.objectives)).size
   const price = ((course?.priceEgp ?? 0) / 100).toFixed(2)
@@ -150,7 +109,18 @@ export default async function CoursePage({
               <li key={lesson.slug} className="lesson-row">
                 <span className="lesson-num">{String(i + 1).padStart(2, '0')}</span>
                 <div>
-                  <h3 className="h-item">{ar ? lesson.titleAr : lesson.titleEn}</h3>
+                  {/*
+                    These rows listed five lessons that could not be opened:
+                    there was no lesson route at all. The renderer, the
+                    registry, the schema and the validator were all built and
+                    correct, and nothing joined them to a URL. Found by opening
+                    the product, not by testing it.
+                  */}
+                  <h3 className="h-item">
+                    <a className="lesson-link" href={`/${l}/lesson/${lesson.slug}`}>
+                      {ar ? lesson.titleAr : lesson.titleEn}
+                    </a>
+                  </h3>
 
                   <div className="lesson-meta">
                     <span className="chip">

@@ -3,13 +3,15 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Eleven so far. The first five share one pattern; the sixth, seventh and eighth each break it
+Twelve so far. The first five share one pattern; the sixth, seventh and eighth each break it
 in a different direction, which is why they are kept separate rather than folded in. Three
-of the eleven are the same underlying defect wearing different clothes, and that sub-pattern
+of the twelve are the same underlying defect wearing different clothes, and that sub-pattern
 is named at the end. The ninth and tenth belong with the gate's false pass: all three are
 **checks that could not do the thing they claimed** — one scanned nothing, one gated
 nothing, and one could not accept the input it existed to judge. The eleventh names a second
-pattern, and it took two independent instances to see it.
+pattern, and it took two independent instances to see it. The twelfth is the only one found
+by a person opening the product rather than by anyone testing it, and it is the one no check
+in this repository could have found.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -44,7 +46,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the eleven to catch.
+testable. This is the easiest of the twelve to catch.
 
 ---
 
@@ -403,6 +405,60 @@ the product's own headline feature.
 offending character from the note; that would have made the symptom disappear while leaving
 the gate unable to report on Arabic content, which is most of what it exists to report on.
 
+---
+
+## 12. A specification can be complete and still describe no product
+
+**What was wrong.** There was no way to read a lesson. `/course` listed five lessons with
+their titles, durations, depth badges and objectives, and **not one of them opened**. There
+was no lesson route at all — no `/lesson/[slug]`, nothing. The five lessons existed as
+validated JSON, passed every gate, were listed accurately, and could not be read by anyone.
+
+**Why every check passed.** Because nothing was broken. Section 0.2's Week 2 reads:
+
+> Lesson renderer + block registry (16 block types max) · L1 + L2 rendering · `/depth` page ·
+> lesson JSON schema + validate.py
+
+All of that was built, and built correctly. The renderer works. The registry is exhaustive.
+The schema validates. `/depth` renders one lesson at three depths and makes the argument it
+exists to make. **The brief specified the machinery, and a demonstration of the machinery,
+and never specified the thing the machinery is for.**
+
+Every test in the repository was derived from that specification, so every test agreed with
+it — including the ones written specifically to catch the product being wrong rather than
+the code being wrong. A test suite cannot find a page that nobody ever said should exist.
+
+**How it was found.** The owner opened the product and tried to read a lesson. Not a test,
+not a review of the code, not either agent working on it. Someone using the thing for the
+purpose it claims to serve, hitting the first wall a learner would hit.
+
+**Why it is not entry 6 again.** Entry 6 was six weeks of finished work sitting behind no
+link: every page existed and the landing page pointed at none of them. That is a navigation
+failure, and the fix was links. This is different in kind — **the page was never specified**.
+There was nothing to link to. Entry 6 says *check that a visitor can reach what you built*;
+this one says something harder: **check that what you built is the product, not the parts of
+it.** A plan can be executed faithfully, item by item, and leave a hole where the point was.
+
+**What it cost, beyond the obvious.** It blocked the one remaining item that everything else
+waits on. `/how-it-was-built` publishes a rubric score carrying its own caveat about the
+judge's independence, and that caveat only resolves when a human scores three lessons blind
+against the same rubric. Scoring them requires reading them. So the missing route was not
+one absent feature — it was the thing standing between the project and the check that makes
+its central number mean anything.
+
+**The repair.** `/[locale]/lesson/[slug]`, reading the content files rather than the
+database — a reader that stops working when a port is blocked is a reader that cannot be
+reviewed, and being reviewable is the entire reason it exists. It reuses the existing
+registry and the `/depth` renderer; no new block types, so the budget stays 12 of 16. It
+opens at the deepest level a lesson declares, shows the depth switch only when there is a
+choice to make, states the English-only notice before the body on `/ar`, lists the
+objectives with their statements, and links to the previous and next lesson. The `/course`
+rows are now links, which is the defect as the owner met it.
+
+**The rule it argues for.** Ship a path through the product, not a set of parts that
+satisfies the plan. The check is not "is every item built" — it is "can a stranger do the
+thing this product claims to do, end to end, without being told where to click".
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -444,7 +500,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Three of the eleven are the same defect. The landing page carried a "Week 1 — under
+Three of the twelve are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen.
