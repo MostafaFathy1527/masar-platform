@@ -2,10 +2,11 @@
   "slug": "eligibility-and-pre-authorisation",
   "titleAr": "Eligibility and pre-authorisation",
   "titleEn": "Eligibility and pre-authorisation",
-  "estMinutes": 35,
+  "estMinutes": 45,
   "bilingual": false,
   "levels": [
-    "L1"
+    "L1",
+    "L2"
   ],
   "objectives": [
     "MI-04"
@@ -140,6 +141,112 @@
             "The three honest outcomes are proceed, pre-authorise first, or convert to self-pay.",
             "A recorded reference number is what makes a later dispute winnable."
           ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b03_l2_head",
+        "type": "heading",
+        "objectiveId": "MI-04",
+        "payload": {
+          "textAr": "Three honest outcomes, worked through",
+          "textEn": "Three honest outcomes, worked through",
+          "level": 2
+        }
+      },
+      {
+        "id": "b03_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "MI-04",
+        "payload": {
+          "promptAr": "A member is booked for imaging next Tuesday. The eligibility response shows the policy is active on that date, and this payer requires permission before imaging.",
+          "promptEn": "A member is booked for imaging next Tuesday. The eligibility response shows the policy is active on that date, and this payer requires permission before imaging.",
+          "steps": [
+            {
+              "showAr": "Confirm the date: coverage is active on Tuesday, the service date.",
+              "showEn": "Confirm the date: coverage is active on Tuesday, the service date.",
+              "whyAr": "Eligibility is a question about the service date, not about today.",
+              "whyEn": "Eligibility is a question about the service date, not about today."
+            },
+            {
+              "showAr": "Confirm the service category: imaging.",
+              "showEn": "Confirm the service category: imaging.",
+              "whyAr": "Requirements differ by category, so the answer for a consultation does not carry over.",
+              "whyEn": "Requirements differ by category, so the answer for a consultation does not carry over."
+            },
+            {
+              "showAr": "Check for a pre-authorisation requirement: this payer requires one for imaging.",
+              "showEn": "Check for a pre-authorisation requirement: this payer requires one for imaging.",
+              "whyAr": "Active coverage is not permission. It answers a different question.",
+              "whyEn": "Active coverage is not permission. It answers a different question."
+            },
+            {
+              "showAr": "Decide: pre-authorise first, before Tuesday.",
+              "showEn": "Decide: pre-authorise first, before Tuesday.",
+              "whyAr": "Without permission an otherwise valid claim can be unpayable, and permission usually cannot be obtained after the service.",
+              "whyEn": "Without permission an otherwise valid claim can be unpayable, and permission usually cannot be obtained after the service."
+            },
+            {
+              "showAr": "Record the reference number and the date of the eligibility response.",
+              "showEn": "Record the reference number and the date of the eligibility response.",
+              "whyAr": "A later dispute is then their record against your record, not their record against your memory.",
+              "whyEn": "A later dispute is then their record against your record, not their record against your memory."
+            }
+          ],
+          "answerAr": "Pre-authorise first, and record what you were told. Active coverage alone was never the answer.",
+          "answerEn": "Pre-authorise first, and record what you were told. Active coverage alone was never the answer."
+        }
+      },
+      {
+        "id": "b03_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "MI-04",
+        "payload": {
+          "situationAr": "A patient arrives for a planned procedure. The eligibility check returns no active coverage for today's date. The patient insists the policy was renewed last week.",
+          "situationEn": "A patient arrives for a planned procedure. The eligibility check returns no active coverage for today's date. The patient insists the policy was renewed last week.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Proceed and bill the payer, assuming the renewal will appear.",
+              "optionEn": "Proceed and bill the payer, assuming the renewal will appear.",
+              "consequenceAr": "If coverage is not active on the service date, payment is refused afterwards and the balance reaches the patient later, by surprise. Cheap to ask beforehand, expensive to discover afterwards.",
+              "consequenceEn": "If coverage is not active on the service date, payment is refused afterwards and the balance reaches the patient later, by surprise. Cheap to ask beforehand, expensive to discover afterwards.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "Explain the result, offer to reschedule or proceed as self-pay, and record the response with its reference number.",
+              "optionEn": "Explain the result, offer to reschedule or proceed as self-pay, and record the response with its reference number.",
+              "consequenceAr": "The patient decides with the facts in front of them, and if the renewal does appear, the recorded reference makes the correction straightforward.",
+              "consequenceEn": "The patient decides with the facts in front of them, and if the renewal does appear, the recorded reference makes the correction straightforward.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "Proceed and mark the claim as urgent.",
+              "optionEn": "Proceed and mark the claim as urgent.",
+              "consequenceAr": "Urgency does not create coverage. The claim is judged against the policy on the service date whatever it is labelled.",
+              "consequenceEn": "Urgency does not create coverage. The claim is judged against the policy on the service date whatever it is labelled.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b03_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "MI-04",
+        "payload": {
+          "itemRef": "MI-04-KC-01"
+        }
+      },
+      {
+        "id": "b03_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "MI-04",
+        "payload": {
+          "itemRef": "MI-04-KC-02"
         }
       }
     ]
