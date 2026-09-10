@@ -1577,3 +1577,62 @@ h3,
     align-self: start;
   }
 }
+
+/* --------------------------------------------------------- lesson reader */
+@layer components {
+  .lesson-link {
+    color: var(--color-ink);
+    text-decoration: none;
+    text-underline-offset: 4px;
+  }
+  .lesson-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  /* Prose measure for the body; the blocks bring their own internal layout. */
+  .lesson-body {
+    max-inline-size: var(--measure);
+  }
+
+  .lesson-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-block-start: clamp(32px, 4vw, 56px);
+    padding-block-start: 1.5rem;
+    border-block-start: 1px solid var(--color-line);
+  }
+  .lesson-nav-end {
+    text-align: end;
+  }
+  .lesson-nav-link {
+    display: inline-grid;
+    gap: 0.2rem;
+    text-decoration: none;
+    max-inline-size: 34ch;
+  }
+  .lesson-nav-dir {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+  [dir="rtl"] .lesson-nav-dir {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .lesson-nav-title {
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    color: var(--color-ink-2);
+  }
+  .lesson-nav-link:hover .lesson-nav-title {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}

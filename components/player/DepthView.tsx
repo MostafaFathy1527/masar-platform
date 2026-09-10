@@ -32,14 +32,23 @@ export function DepthView({
   locale,
   copy,
   bilingual = true,
+  initialLevel,
 }: {
   blocks: { l1: Block[]; l2: Block[]; l3: Block[] }
   levels: Level[]
   locale: AppLocale
   copy: Copy
   bilingual?: boolean
+  /**
+   * Which level to open on. /depth opens at L1, because its argument is the
+   * progression from one level to the next. A lesson reader opens at the
+   * deepest level the lesson declares, because there the argument is the
+   * lesson: opening a three-level lesson at L1 would hide two thirds of it
+   * behind a control the reader has no reason to touch.
+   */
+  initialLevel?: Level
 }) {
-  const [level, setLevel] = useState<Level>(levels[0])
+  const [level, setLevel] = useState<Level>(initialLevel ?? levels[0])
 
   const shown: Block[] = [
     ...blocks.l1,
@@ -56,6 +65,13 @@ export function DepthView({
         <p className="lesson-english-only">{copy.englishOnlyNotice}</p>
       ) : null}
 
+      {/*
+        A control with one option is not a control. Four of the five lessons
+        declare L1 only; rendering a single-tab tablist for them would suggest a
+        choice that does not exist, and would read as a broken switch rather
+        than as an honest statement of the lesson's depth.
+      */}
+      {levels.length > 1 ? (
       <div className="depth-switch" role="tablist" aria-label="Depth">
         {levels.map((l) => (
           <button
@@ -71,9 +87,13 @@ export function DepthView({
           </button>
         ))}
       </div>
+      ) : null}
 
+      {/* "Levels are cumulative" says nothing about a lesson with one level,
+          and a line that does not apply is a line a reader has to discount. */}
       <p className="depth-meta" aria-live="polite">
-        {copy.cumulative} · {copy.blockCountTemplate.replace('{n}', String(shown.length))}
+        {levels.length > 1 ? `${copy.cumulative} · ` : ''}
+        {copy.blockCountTemplate.replace('{n}', String(shown.length))}
       </p>
 
       <BlockList blocks={shown} locale={locale} />
