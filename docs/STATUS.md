@@ -14,7 +14,8 @@ sub-pattern this file documents further down, in the file whose whole job is to 
 next session what is true.
 
 **What remains needs a person, not an agent**, and is listed in the project rules file: the blind
-inter-rater check and the instructional-design review. The judge sitting is done. The SME
+inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
+the instructional-design review are done. The SME
 recruitment is **closed, not deferred** — §0.7 records it as a scope decision and the
 limitation is stated on the page. **The narrated recording is cut**, also a decision rather
 than a deferral: it is not in `LATER.md` and should not reappear as an open item.
@@ -449,9 +450,11 @@ hand-set `isScenario` boolean; no stem in the bank reaches the defined 60-word m
 flag and every reader of it are deleted, including the "Scenario" badge that asserted the
 property to learners. The Prisma column is dropped by migration
 `20260910071908_drop_item_is_scenario`, generated offline because 5432 was unreachable.
-**Production still has the column until `npm run db:deploy` is run** — harmless, since the
-client no longer reads it and inserts take the column default, but it is an unapplied
-migration and should not be forgotten.
+**Applied.** CI #42 was green on `3bcfbd5`, so the offline-generated migration has had its
+replay check against a real Postgres. The owner approved `npm run db:deploy`; the SQL was read
+first (one statement, `ALTER TABLE "Item" DROP COLUMN "isScenario"`), 5432 was confirmed
+reachable, and it was applied. `migrate status` reports up to date, and production was healthy
+afterwards: exam, lessons and course 200, `POST /api/demo` 303.
 
 **The bank, as it verifiably is:** 50 items, 40 scored and 10 formative; two types; every one
 of 196 options with feedback in both languages; Bloom over scored items 20/40/40; every
@@ -463,6 +466,65 @@ that the wider item types "are in `LATER.md`" — they were not, and now are. An
 that fixed the placeholders said nothing checked `itemRef`; `tests/content-items.test.ts`
 already checked that references *exist*, and what was missing was that they are *formative*.
 Entry 13 says so.
+
+## The instructional-design review of the L2 content
+
+**Provenance, to be stated wherever this is cited:** a design critique from an independent
+*session*. That session did not author the content, but it wrote the critique that asked for
+it, and it has read every lesson the content attaches to. It is **not a subject-matter review**.
+
+Its overall verdict was that the new L2 layers are strong — better than the L1 layers they
+extend. Its findings, and what was done:
+
+**An open accuracy question — needs a practitioner.** Lesson 07 taught, for a service denied
+because the provider never obtained required authorisation, "absorb the loss or bill according
+to the policy". Many provider–payer agreements prohibit billing the member for a denial caused
+by the provider's own authorisation failure; if that applies, the lesson taught a prohibited
+action. Neither agent is qualified to rule on it and the project disclaims domain review, so
+**it stays open**. The interim wording is the safer one: *treat it as a provider loss unless
+your agreement with the payer says otherwise.*
+
+The claim did not originate in the new L2: lesson 07's L1 root-cause table, live since Week 5,
+already said "otherwise absorb or bill per policy". Both are reworded, or the page would
+contradict itself. The worked-example step was also an instructional defect on its own terms —
+a "Decide" step offering two actions with no rule for choosing is not a decision — and now
+states one action and the single condition that would change it.
+
+**Three weak checks, replaced.** MI-04-KC-02 tested recall of the lesson's own heading;
+MI-09-KC-01 was functionally a two-option item; MI-10-KC-01 measured MI-13's record-integrity
+principle rather than choosing a corrective action.
+
+**Two exam leaks the review did not flag.** Comparing every formative item with every scored
+item on the same objective found MI-01-KC-01 was scored MI-01-05 with a clause appended, and
+MI-13-KC-01 rehearsed MI-13-03's situation and answer. With the original MI-04-KC-02 —
+near-identical to scored MI-04-03 — **three of the eight new formative items were exam leaks**:
+a learner doing the lesson's check would have answered the exam question in advance. That is the
+failure writing new items was meant to prevent, and nothing checks for it.
+
+There is deliberately **no automated guard**. A lexical check would have caught the verbatim
+MI-01 copy and missed the paraphrased MI-13 one, which measured only 0.25 word overlap — it would
+claim coverage it does not have. **Formative/scored overlap is a review-time check.** One
+remaining pair is borderline and was kept: MI-09-KC-01 and scored MI-09-02 both classify an
+assessed refusal as a denial, in different situations, and MI-09-02 also asks the root cause.
+
+All replacements pass `validate.py` and `concept_log.py`. None was run through `qa_gate.py`, for
+the same reason as before; the run log stays at n = 1.
+
+**What the review found genuinely good — for the case study, with the provenance above:**
+
+- Every worked-example step names the judgement, not just the move — "Arranging is an
+  intention. It is not evidence that the visit happened." That is the rubric's 5-behaviour,
+  consistently.
+- Every scenario option carries a consequence, including the best one. Most branching
+  scenarios only explain the wrong answers.
+- The distractors are misconceptions people actually hold: waive the balance to end the
+  complaint; tell the member to call the payer; assume a high-billing clinician simply sees
+  complex patients.
+- Lesson 05's MI-13 scenario is the standout. Its wrong answer, "quietly downgrade those claims
+  yourself", returns "you have changed claims without the record changing — the same move you
+  noticed, in the other direction."
+- Lesson 01 carries its worked-example numbers (800 → 640 / 160) into its scenario, so the
+  learner applies the trace they just watched.
 
 ## A note for whoever opens this next
 
@@ -481,6 +543,11 @@ So: the checklist below is prose, and prose drifts. Before trusting any line in 
 thing it describes.
 
 ## Blocked / needs the owner
+- [ ] **Practitioner accuracy question** — may a provider bill the member for a service denied
+      because the provider failed to obtain required authorisation? Lesson 07 teaches the
+      safer answer in the interim. Needs someone who does this work; neither agent can rule.
+- [x] **Instructional-design review of the L2 content** — **done**, by an independent session
+      that wrote the critique asking for the content. Not a subject-matter review.
 - [ ] **Blind inter-rater sample** (~20 min). **Now load-bearing.** Three lessons scored
       against `pipeline/rubric.md`, without seeing the model's scores first, then the mean
       absolute difference reported. This is instructional quality, which is the owner's
