@@ -30,7 +30,6 @@ const item = (over: Partial<ScoredItem> = {}): ScoredItem => ({
   type: 'MCQ_SINGLE',
   stemAr: 'سؤال',
   stemEn: 'Question',
-  isScenario: false,
   rationaleAr: 'التفسير',
   rationaleEn: 'The rationale',
   options: [
@@ -226,7 +225,6 @@ describe('option position must not predict correctness', () => {
     objectiveId: string
     type: 'MCQ_SINGLE' | 'MULTI_SELECT'
     stemAr: string; stemEn: string
-    isScenario?: boolean
     rationaleAr: string; rationaleEn: string
     options: RawOption[]
   }
@@ -237,7 +235,6 @@ describe('option position must not predict correctness', () => {
     type: raw.type,
     stemAr: raw.stemAr,
     stemEn: raw.stemEn,
-    isScenario: !!raw.isScenario,
     rationaleAr: raw.rationaleAr,
     rationaleEn: raw.rationaleEn,
     options: raw.options.map((o: RawOption, i: number) => ({
