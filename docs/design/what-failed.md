@@ -3,15 +3,16 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Twelve so far. The first five share one pattern; the sixth, seventh and eighth each break it
-in a different direction, which is why they are kept separate rather than folded in. Three
-of the twelve are the same underlying defect wearing different clothes, and that sub-pattern
-is named at the end. The ninth and tenth belong with the gate's false pass: all three are
-**checks that could not do the thing they claimed** — one scanned nothing, one gated
-nothing, and one could not accept the input it existed to judge. The eleventh names a second
-pattern, and it took two independent instances to see it. The twelfth is the only one found
-by a person opening the product rather than by anyone testing it, and it is the one no check
-in this repository could have found.
+Thirteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+it in a different direction, which is why they are kept separate rather than folded in. Four
+of the thirteen are the same underlying defect wearing different clothes, and that
+sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
+three are **checks that could not do the thing they claimed** — one scanned nothing, one
+gated nothing, and one could not accept the input it existed to judge. The eleventh names a
+second pattern, and it took two independent instances to see it. The twelfth is the only one
+found by a person opening the product rather than by anyone testing it. **The thirteenth is
+the most serious in the record**: the other twelve undermined a feature or a metric, and it
+undermined the only proof of the central claim.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -46,7 +47,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the twelve to catch.
+testable. This is the easiest of the thirteen to catch.
 
 ---
 
@@ -459,6 +460,72 @@ rows are now links, which is the defect as the owner met it.
 satisfies the plan. The check is not "is every item built" — it is "can a stranger do the
 thing this product claims to do, end to end, without being told where to click".
 
+---
+
+## 13. The proof of the central claim was demonstrating placeholders
+
+**What was wrong.** `/course`, the case study and `/how-it-was-built` all point at lesson 04
+as the demonstration that the depth model works. It is the one lesson published at all three
+levels, the one the others are measured against. Its L2 is defined as *interactive — they
+answer and decide*. It rendered nothing answerable. Two knowledge checks read:
+
+> Knowledge check — This check renders once the item bank ships (Week 4).
+
+The item bank shipped in Week 4. Its L3 is defined as *applied practice — they produce work
+that is scored*. It rendered:
+
+> Applied practice — The simulation ships in Week 3.
+
+The simulation shipped in Week 3 and had been live at `/practice/claim-review` ever since,
+two clicks away from the box announcing it was coming.
+
+**Why this is the most serious entry.** Every other finding undermined something the product
+does. This one undermined the evidence that it does the thing it exists to do. The depth
+model is the central idea; lesson 04 is its only full demonstration; and its two
+distinguishing levels were coming-soon boxes. A reviewer following any page's own link to the
+proof found placeholders where the proof should be.
+
+**Why nothing caught it.** Because the placeholders were not failures. They were deliberate,
+correctly rendered text, written as honest notes during the build — *this is not built yet,
+so say so rather than render a blank*. That was the right call on the day it was made. Every
+check passed because nothing was broken: a component was faithfully displaying a sentence
+that had become false. This is the stale-facts sub-pattern in its purest form, and it sat
+inside the one artefact every other page vouches for.
+
+A correction to how this was first reported. The commit that fixed it said nothing checked
+that a knowledge check's `itemRef` resolved. `validate.py` did not, but
+`tests/content-items.test.ts` already asserted every reference **exists**. What was missing
+was the assertion that the referenced item is **formative** — a lesson must never embed a
+scored item. While every check rendered the same placeholder, a dangling reference and a real
+one looked identical on the page, which is the part that was true.
+
+**Why the repair order mattered.** The critique that surfaced this recommended promoting four
+L1-only lessons to L2 with knowledge checks. Done first, that would have added eight more
+placeholders and turned four true level labels false — `L1` would have become `L1 L2` over a
+renderer that could not render an L2. The renderer had to be fixed before anything was built
+on it.
+
+**The repair.** `KnowledgeCheck` resolves its item from the bank and renders an answerable
+check — options, per-option feedback in words, the rationale on reveal — never scored and
+never in a gradebook. Only formative items reach the browser; importing the whole bank into a
+client bundle would have shipped answer keys for every scored item. `PracticeSim` links to the
+live simulation rather than embedding it, so the lesson reader still never touches the
+database. Two guards: every `itemRef` must resolve to a formative item, and no block component
+may ship a "Week N" promise again. Both were verified red before being kept.
+
+**What followed from it.** With checks that render, the four L1-only lessons were promoted — and
+the plan for that turned out to be wrong in the same direction. It proposed two knowledge
+checks per lesson. `validate.py` defines a complete L2 as a worked example, two knowledge
+checks, and a scenario or sort exercise, so two checks alone is not an L2 by the project's own
+definition. Relaxing the gate to fit the content would have made the level label mean less; the
+full definition was authored instead. The eight new items were **not** run through `qa_gate.py`:
+the judge must not be the author, and the only other available session wrote the critique that
+asked for them. The run log stays at n = 1.
+
+**The rule it argues for.** A placeholder is a promise with a date on it. Give it an owner and a
+test that fails when the date passes, or do not ship it — because on the day the work lands,
+nothing forces the sentence announcing it to leave.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -500,13 +567,14 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Three of the twelve are the same defect. The landing page carried a "Week 1 — under
+Four of the thirteen are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
-page said nine questions and served sixteen.
+page said nine questions and served sixteen. And the flagship lesson told every reader its
+knowledge checks and its simulation were coming in Weeks 3 and 4, long after both had come.
 
 Each was a hardcoded fact, correct on the day it was written, that silently stopped being
-true. In all three cases nothing broke, no test could fail, and the system went on stating
+true. In all four cases nothing broke, no test could fail, and the system went on stating
 something false to a reader — a visitor, a future session, a learner. The falsehood was
 not introduced by a change to the sentence. It was created by a change *elsewhere*, to the
 thing the sentence described.
