@@ -1,7 +1,7 @@
 import { defineRouting } from 'next-intl/routing'
 
 // Arabic is the default locale and is served from the bare path.
-// See the project conventions: Arabic-first, English as a full mirror.
+// See docs/CONVENTIONS.md: Arabic-first, English as a full mirror.
 export const routing = defineRouting({
   locales: ['ar', 'en'],
   defaultLocale: 'ar',

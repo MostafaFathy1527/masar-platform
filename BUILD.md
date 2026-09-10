@@ -15,7 +15,7 @@
 - He can produce a client-grade technical specification before writing code (the exact 14-item spec a real prospect asked for).
 - He can design learning, not just pages: named depth levels, formative vs summative separation, a mastery definition, job-task simulations with defensible scoring.
 - He can build and deploy the platform: Next.js/Prisma/Turso/NextAuth, bilingual Arabic-first RTL, payments, certificates, analytics.
-- He can industrialise content production: an AI coding agent pipeline with a concept log, a rubric gate, and a human publish step.
+- He can industrialise content production: an LLM-driven pipeline with a concept log, a rubric gate, and a human publish step.
 
 **What it is NOT — stated in the README, the case study and this file:**
 - Not built with any client's or employer's material. The reference prospect's lessons are never opened, copied, paraphrased or stored.
@@ -36,7 +36,7 @@ These are the things a recruiter or client actually sees. Everything else in thi
 
 ```
 masar-platform/
-├── PLAN.md  the project rules file  README.md  README.ar.md  LICENSE  LICENSE-CONTENT
+├── PLAN.md  README.md  README.ar.md  LICENSE  LICENSE-CONTENT
 ├── docs/  00-brief.md 01-sitemap.md 02-course-architecture.md
 │          03-module-lesson-structure.md 04-ux-ui.md 05-database.md
 │          06-roles-permissions.md 07-student-journey.md 08-assessment-system.md
@@ -46,7 +46,7 @@ masar-platform/
 │          ROADMAP.md  ACCESSIBILITY.md  adr/0001..0010.md  shots/
 ├── app/ components/ lib/ prisma/ scripts/ tests/
 ├── content/  schema/lesson.schema.json  courses/rcm-foundations/  items/
-├── content-pipeline/  the project rules file  sources/  reference/  memory/  tools/  out/
+├── content-pipeline/  CONTRACT.md  sources/  reference/  memory/  tools/  out/
 └── .github/workflows/ci.yml
 ```
 
@@ -460,7 +460,7 @@ Phases in §9. Final deliverables = D1–D10 in §2. Support model (`docs/14`, w
 | Testing | Vitest (scoring, assembly, mastery, eligibility, permissions) + Playwright (3 journeys) + axe-core in CI | Test the rules that would silently corrupt a grade. No coverage targets. |
 | CI | GitHub Actions on `ubuntu-latest`: typecheck, lint, vitest, `prisma validate`, `scripts/check-blueprint.mjs`, `content-pipeline/tools/qa_gate.py`, axe, **gitleaks** | Free on public repos. |
 | Hosting | Vercel Hobby, `masar.mostafafathy.com` | Owned domain, $0 incremental. **Hobby forbids commercial use** — this stays test-mode; `Dockerfile` + `deploy.sh` for Google Cloud Run stay in-repo as the documented migration path (`docs/RUNBOOK.md`). |
-| Pipeline | Python 3.12 (stdlib + `jsonschema` + `pyyaml`) driven by an AI coding agent on the existing subscription | **No metered API key anywhere in the request path.** |
+| Pipeline | Python 3.12 (stdlib + `jsonschema` + `pyyaml`) driven by an AI coding agent on an existing subscription | **No metered API key anywhere in the request path.** |
 
 **Environments.** `local` (SQLite file, `npm run dev` → `scripts/ensure-db.js` + `scripts/start-dev.js`), `preview` (Vercel PR deploys against a scratch Turso DB), `production` (Turso). Secrets live only in `.env.local` and Vercel env vars; `.env.example` is committed, `.env*` is git-ignored, `gitleaks` runs in CI. `.gitattributes` sets `* text=auto eol=lf` and CI runs on Linux to catch Windows-only path assumptions early.
 
@@ -476,7 +476,7 @@ Phases in §9. Final deliverables = D1–D10 in §2. Support model (`docs/14`, w
 | Domain | owned | ~$12/yr existing | subdomain free | — |
 | Stripe | Test mode | $0 | no real money | live = 2.9% + $0.30 |
 | Paymob | Not activated | $0 | needs commercial registration + KYC | documented, not claimed |
-| an AI coding agent | Existing subscription | $0 incremental | rate limits on long runs | batch pipeline runs overnight |
+| AI coding agent | Existing subscription | $0 incremental | rate limits on long runs | batch pipeline runs overnight |
 | **Total new spend** | | **$0.00/month** | | |
 
 **Security and privacy.** bcrypt password hashing · rate limiting on `/api/auth/*`, `/api/attempts/*`, `/api/demo/login` and all guest writes · CSRF on server actions · server-side scoring only, answer keys never leave the server during an attempt · signature-verified, idempotent webhooks · security headers + CSP · Dependabot + `npm audit` in CI · no third-party analytics on learner pages, ever — learning data is first-party rows in the project's own database, which is the ownership point.
@@ -487,11 +487,11 @@ Phases in §9. Final deliverables = D1–D10 in §2. Support model (`docs/14`, w
 
 # 8. AI-assisted content pipeline
 
-Lives in the same monorepo under `content-pipeline/`, a direct descendant of the the project rules file-driven generation projects on D: (the project rules file as spec + a locked reference + a `memory/` folder + Python verification gates). What is new: the output is **validated JSON that loads into a database**, not HTML files — which is what makes it reusable across clients.
+Lives in the same monorepo under `content-pipeline/`, a direct descendant of earlier spec-driven generation projects (a written contract as spec + a locked reference + a `memory/` folder + Python verification gates). What is new: the output is **validated JSON that loads into a database**, not HTML files — which is what makes it reusable across clients.
 
 ```
 content-pipeline/
-├── the project rules file                    the generation contract: block schema, level rules,
+├── CONTRACT.md                  the generation contract: block schema, level rules,
 │                                tone, forbidden claims, known failure modes
 ├── reference/lesson-04/         THE LOCKED GOLDEN LESSON (hand-authored, L1+L2+L3)
 ├── sources/                     Mostafa's own .md source notes — the ONLY permitted input
@@ -511,14 +511,14 @@ python content-pipeline/tools/run.py --lesson 05 --levels L1,L2
 
 **The stages.**
 1. **Context.** Reads `objectives.yml` (this lesson's objectives only), `memory/concept-log.json` (every concept already taught in lessons 1..N−1 with its allowed reuse level), `reference/lesson-04/` (the locked shape), `memory/style-decisions.md` (accumulated corrections).
-2. **Generate.** an AI coding agent emits `out/lesson-NN/vX/lesson.json` (blocks at the requested levels) + `items.json` + `conceptsIntroduced[]`.
+2. **Generate.** The generating agent emits `out/lesson-NN/vX/lesson.json` (blocks at the requested levels) + `items.json` + `conceptsIntroduced[]`.
 3. **`validate.py` — hard fail:** JSON Schema valid · every block and item carries a real `objectiveId` · block types allowed at that level · every image block has non-empty alt text · every `ItemOption` has feedback · exactly one correct option for MCQ_SINGLE · no duplicate block ids · L2 depth completeness (≥1 worked_example, ≥2 knowledge_check, ≥1 scenario or sort_buckets) · L3 completeness (≥1 practice_sim with a rubric) · ≤180 words of prose between acting blocks.
 4. **`concept_log.py` — hard fail:** a concept already `firstTaught` in an earlier lesson may not be **re-defined** here — only recalled or applied; and a concept **used before it is introduced anywhere** is a forward-reference error. New concepts are appended with their lesson id. This is the single most defensible piece in the project: a checkable content invariant a human editor cannot enforce across 120 lessons.
-5. **`qa_gate.py` — the rubric gate.** A second, **adversarial** an AI coding agent pass that never sees the generation prompt, scoring 8 criteria 1–5: objective alignment · level fidelity (a "visual card" that is a bulleted list fails) · worked-example quality · knowledge-check quality (plausible distractors from real misconceptions, per-option feedback that explains why, no "all of the above") · scenario authenticity · AR/EN parity and natural Arabic · concision and reading level · accessibility & IP (alt text, no colour-only meaning, **no real licensed code descriptors, no payer text, and a forbidden-term denylist covering employer and client names**). **Gate: fail if any criterion < 3 or the mean < 4.0.** On failure it writes `qa-report.md`, retries once with the report appended, then stops for a human decision.
+5. **`qa_gate.py` — the rubric gate.** A second, **adversarial** model pass that never sees the generation prompt, scoring 8 criteria 1–5: objective alignment · level fidelity (a "visual card" that is a bulleted list fails) · worked-example quality · knowledge-check quality (plausible distractors from real misconceptions, per-option feedback that explains why, no "all of the above") · scenario authenticity · AR/EN parity and natural Arabic · concision and reading level · accessibility & IP (alt text, no colour-only meaning, **no real licensed code descriptors, no payer text, and a forbidden-term denylist covering employer and client names**). **Gate: fail if any criterion < 3 or the mean < 4.0.** On failure it writes `qa-report.md`, retries once with the report appended, then stops for a human decision.
 6. **`bank_report.py`** recomputes blueprint coverage and prints the gap list. Gaps are what Mostafa authors by hand.
 7. **`import_lesson.py`** POSTs to `/api/admin/lessons/import` with the SERVICE token, `--dry-run` first (block-level diff), writing rows as **`status = DRAFT`**. `--rollback <runId>` reverses an import. **The pipeline has no publish permission. A human clicks Publish in `/admin/lessons/[id]`.** That sentence ends the "AI slop" objection.
 
-**Invariants (in the project rules file, learned from the existing projects):** never edit a generated output in place — copy to `vN+1`; if Mostafa hand-edits an output, **his version becomes the new baseline** and regeneration diffs onto it; `sourceHash` (SHA-256 of the source note) is stored on the Lesson so a changed source flags it stale in admin; the pipeline may never invent a fact about insurance practice that is not in the source note — new claims go to `needs-verification.md` for him to confirm or cut; the only permitted input path is `content-pipeline/sources/`, and `import_lesson.py` refuses anything outside it.
+**Invariants (in `CONTRACT.md`, learned from the existing projects):** never edit a generated output in place — copy to `vN+1`; if Mostafa hand-edits an output, **his version becomes the new baseline** and regeneration diffs onto it; `sourceHash` (SHA-256 of the source note) is stored on the Lesson so a changed source flags it stale in admin; the pipeline may never invent a fact about insurance practice that is not in the source note — new claims go to `needs-verification.md` for him to confirm or cut; the only permitted input path is `content-pipeline/sources/`, and `import_lesson.py` refuses anything outside it.
 
 **Two committed negative tests** (cheapest credibility in the whole project, run in CI):
 - `tests/pipeline/redefines-concept.test` — a lesson that deliberately re-defines `coinsurance` must fail the gate.
@@ -537,11 +537,11 @@ Plus a repo-wide CI grep for the same denylist, so the never-name-the-employer r
 
 | Week | Ships | Definition of done |
 |---|---|---|
-| **1** | Monorepo public, MIT + CC BY-NC, `PLAN.md`, the project rules file, `README.ar.md`. Next.js 14 + TS + Tailwind + shadcn scaffold. Full Prisma schema + first migration. `ensure-db`/`reset-db`/`seed` scripts. CI green (typecheck, vitest, prisma validate, gitleaks). Vercel project + DNS + SSL. `docs/00-brief`, `01-sitemap`, `05-database` (Mermaid ERD), `06-roles`, `07-journey`. ADR-0001..0005. | `masar.mostafafathy.com` serves a bilingual placeholder over HTTPS. `npx prisma migrate deploy` runs clean against Turso. A clean clone reaches a running local instance from the README in under 5 minutes on Windows. No employer name anywhere. |
+| **1** | Monorepo public, MIT + CC BY-NC, `PLAN.md`, `README.ar.md`. Next.js 14 + TS + Tailwind + shadcn scaffold. Full Prisma schema + first migration. `ensure-db`/`reset-db`/`seed` scripts. CI green (typecheck, vitest, prisma validate, gitleaks). Vercel project + DNS + SSL. `docs/00-brief`, `01-sitemap`, `05-database` (Mermaid ERD), `06-roles`, `07-journey`. ADR-0001..0005. | `masar.mostafafathy.com` serves a bilingual placeholder over HTTPS. `npx prisma migrate deploy` runs clean against Turso. A clean clone reaches a running local instance from the README in under 5 minutes on Windows. No employer name anywhere. |
 | **2** | **★ FIRST DEMOABLE CHECKPOINT.** Lesson block renderer for the 12 types (L1 + L2 sets). `LessonDoc` Zod schema + JSON Schema export. Lesson 4 hand-authored bilingually at L1+L2 and published at `/preview/anatomy-of-a-claim`, **no signup**. RTL/LTR correct at layout level. Depth switch L1↔L2. | A stranger with the link reads the full flagship lesson on a phone, in Arabic and English, answers the knowledge checks and sees per-option feedback. Lighthouse ≥ 90 perf + a11y. Screenshots committed. Link is postable to LinkedIn as-is. |
 | **3** | Auth (register, verify, reset), roles, `lib/permissions.ts` + tests, enrolment, `BlockInteraction` → `LessonProgress` → `Enrollment.progressPct`, dashboard, resume. `/demo` one-click guest login (bypasses verification), nightly reset cron, guest rate limiting. | A guest reaches the lesson in one click and lands mid-course. Progress survives logout, reload and a different browser. A LEARNER hitting `/admin` is refused by middleware **and** by the server action. |
 | **4** | Admin shell: course/module/lesson CRUD, drag ordering, JSON editor + Validate + live preview, `/api/admin/lessons/import` with SERVICE token, audit log. `docs/02`, `03`, `04`, `11`. **Case-study draft started.** | An admin creates a module, reorders lessons and imports a lesson JSON without touching the database. Every admin write appears in `/admin/audit`. |
-| **5–6** | `content-pipeline/` complete (all tools, the project rules file, locked reference, concept log, rubric). All 8 lessons generated at L1 from the source notes, QA-gated, imported, published. `run-log.jsonl` populated. Both negative tests committed and green. `docs/15`. | `python tools/run.py --lesson 07 --levels L1` goes source → generate → validate → concept log → gate → DRAFT with no manual step. The gate has demonstrably rejected at least one real generation and the report is kept in the repo. All 8 lessons readable end to end. Concept log shows zero re-definitions. |
+| **5–6** | `content-pipeline/` complete (all tools, the contract, locked reference, concept log, rubric). All 8 lessons generated at L1 from the source notes, QA-gated, imported, published. `run-log.jsonl` populated. Both negative tests committed and green. `docs/15`. | `python tools/run.py --lesson 07 --levels L1` goes source → generate → validate → concept log → gate → DRAFT with no manual step. The gate has demonstrably rejected at least one real generation and the report is kept in the repo. All 8 lessons readable end to end. Concept log shows zero re-definitions. |
 | **7–8** | Assessment engine: 6 item types, partial credit, blueprint assembly with recency exclusion and loud thin-pool failure, server timers, autosave/resume, review screen with rationales. Item bank admin, blueprint matrix. **90 items** (pipeline-drafted, human-reviewed, gaps hand-authored). `scripts/check-blueprint.mjs` in CI. `docs/08`. | A learner fails and retakes a lesson quiz and provably gets a different item set. A killed browser mid-exam resumes with the correct remaining clock. **The network payload for an in-progress attempt contains no correct keys — verified, tested and screenshotted.** Blueprint shows zero uncovered objectives; bank mix passes. |
 | **9** | All 8 lessons upgraded to L2 through the pipeline. Knowledge checks live. `/method` public with the block gallery and the same lesson at L1 vs L2. | `/method` renders every block type live and makes the L1↔L2 difference obvious to a stranger in under 60 seconds. |
 | **10** | **SIM-CLAIM** — claim-review workbench, 6 seeded errors, precision-aware scoring, per-error feedback, misses linked to `teachesBlockId`. Lesson 4 at L3. | A guest completes it with keyboard only; a shotgun-flagger scores lower than a careful reader; every miss returns a written explanation and a link back to the teaching block. |
@@ -555,79 +555,12 @@ Plus a repo-wide CI grep for the same denylist, so the never-name-the-employer r
 
 ---
 
-# 10. How to work on this with an AI coding agent
+# 10. Bootstrap (superseded)
 
-**Bootstrap:**
-```bash
-mkdir masar-platform && cd masar-platform
-git init && gh repo create masar-platform --public --source=. 
-npx create-next-app@14.2.35 . --ts --tailwind --app --eslint --src-dir=false
-npx shadcn@latest init
-npm i @prisma/client@^7.7 @prisma/adapter-libsql @libsql/client next-auth@beta bcryptjs \
-      zod@^4 @tanstack/react-query recharts next-intl next-themes sonner lucide-react \
-      html2canvas jspdf
-npm i -D prisma@^7.7 vitest @vitejs/plugin-react playwright @axe-core/playwright ts-node
-cp /path/to/PLAN.md ./PLAN.md
-```
-Then copy `scripts/ensure-db.js`, `start-dev.js`, `stop-dev.js`, `reset-db.js` from the existing KPI project (same Windows-path wrapper pattern), add `.gitattributes` with `* text=auto eol=lf`, add the gitleaks workflow, and commit before writing feature code.
-
-**the project rules file seed (repo root):**
-
-```markdown
-# Masār — agent operating rules
-
-## Next action
-<one line, updated at the end of every session>
-
-## What this is
-Self-initiated portfolio build. Read PLAN.md first; it is authoritative.
-Never name the owner's employer or any client. Never use client material.
-Zero budget: no paid APIs, no metered model calls in any request path.
-
-## Hard rules
-1. Work ONE week of PLAN.md at a time. Do not start the next week without being asked.
-2. Never leave `main` broken. Every session ends with a passing `npm run check` and a commit.
-3. Content is data. Lessons are validated JSON on Lesson.blocksJson; never hardcode lesson text in a component.
-4. lib/schema/lesson.ts (Zod) is the single source of truth. Regenerate content/schema/lesson.schema.json after any change.
-5. Scoring, assembly, mastery and certificate eligibility live ONLY in lib/scoring.ts, lib/blueprint.ts,
-   lib/mastery.ts, lib/certificates.ts — all pure, all unit-tested. Never inline grading logic in a route.
-6. Never send answer keys or rationales to the client during an in-progress attempt.
-7. Timers are server-authoritative. Prices are server-computed. Webhooks are idempotent on providerRef.
-8. Permissions are checked in middleware AND re-checked in every server action / route handler.
-9. RTL: logical CSS properties only (margin-inline-start, padding-inline-end). No mirrored stylesheets.
-10. Accessibility is part of "done": keyboard path, focus ring, alt text, aria-live on feedback,
-    no colour-only meaning, select-then-place fallback for every drag.
-11. Secrets only in .env.local and Vercel env. Never inline a token. gitleaks runs in CI.
-12. New feature ideas go to docs/ROADMAP.md, not to main.
-
-## Commands
-npm run dev            # ensure-db + start-dev (Windows-safe wrappers)
-npm run check          # typecheck + lint + vitest + prisma validate
-npm run db:reset       # nuke + migrate + seed
-npm run db:seed
-npm run test:e2e       # playwright, 3 journeys
-node scripts/check-blueprint.mjs
-python content-pipeline/tools/run.py --lesson NN --levels L1,L2
-
-## Conventions
-- Route groups: app/(marketing) (auth) (learn) (admin) api
-- Components: components/ui (shadcn), components/blocks (one file per block type),
-  components/player, components/sims, components/admin
-- Bilingual fields are always `xAr` / `xEn` pairs. Arabic is the default locale.
-- Prisma: cuid ids, createdAt/updatedAt everywhere, enums for state machines.
-- Every admin write emits an AuditLog row.
-```
-
-**Issue list for weeks 1–2** (create as GitHub issues under milestones `W1 Foundations` and `W2 First Demoable`):
-
-W1 — `#1` scaffold + shadcn + tokens · `#2` Prisma schema (all 22 models) + migration · `#3` ensure-db/reset-db/seed scripts · `#4` CI: typecheck, lint, vitest, prisma validate, gitleaks · `#5` Vercel project + DNS + SSL · `#6` next-intl AR/EN routing + RTL layout root + fonts · `#7` docs/00,01,05,06,07 + ADR 0001–0005 · `#8` README (EN) + README.ar.md + LICENSE + LICENSE-CONTENT.
-
-W2 — `#9` Zod `LessonDoc` schema + JSON Schema export + validator test · `#10` `<BlockRenderer>` switch + the 12 block components · `#11` lesson player shell (sticky rail, progress dots, depth switch) · `#12` `/preview/[slug]` public route, no auth · `#13` author Lesson 4 JSON at L1+L2, AR+EN · `#14` mobile pass at 360px + Lighthouse ≥ 90 · `#15` commit screenshots to `docs/shots/` · `#16` copy Lesson 4 to `content-pipeline/reference/lesson-04/` and lock it.
-
-**Testing and review discipline.** Unit-test only the logic that can silently corrupt a grade or a certificate: `lib/scoring.ts`, `lib/blueprint.ts`, `lib/mastery.ts`, `lib/certificates.ts`, `lib/permissions.ts`, plus the two pipeline negative tests. Three Playwright journeys and no more: (1) guest → lesson → knowledge check → progress persists; (2) quiz → fail → retake → different item set → review screen; (3) checkout test card → enrol → final → certificate → public verify. Run `/security-review` before the week-14 launch. No coverage targets — they buy nothing here.
-
-**What to ask the agent first, verbatim:**
-> Read PLAN.md end to end. Then: (1) list anything in Week 1 that is ambiguous or that you would decide differently, and wait for my answer; (2) do not write code until I reply. After I answer, execute Week 1 only, commit in small logical commits, and finish by updating the "Next action" line in the project rules file.
+The original bootstrap instructions targeted Next.js 14 and libSQL, and were superseded
+when the stack changed to Next.js 16 and Postgres. The current path from a clean clone to a
+running instance is the runbook in `HANDOVER.md`, measured at 156 seconds on Windows; the
+rules the code is built to are in `docs/CONVENTIONS.md`.
 
 ---
 
@@ -717,7 +650,7 @@ Masār is not only a portfolio piece; it is the proposal template. Any prospect 
 | **Assessment** | Existing questions organised into lesson quizzes | + a blueprint, module quizzes, a real item bank | + mock exams, final assessment, item analysis, mastery |
 | **Practice** | — | 2–3 job-task simulations | Simulations across every module |
 | **Platform** | Delivery, progress, admin | + certificates, public verification | + payments, analytics, multi-course, scale |
-| **Pipeline** | Bulk L1 conversion via the pipeline | + concept log across the whole corpus | + client-run pipeline, handed over with its the project rules file and gate |
+| **Pipeline** | Bulk L1 conversion via the pipeline | + concept log across the whole corpus | + client-run pipeline, handed over with its contract and gate |
 | **Timeline shape** | Shortest | Medium | Phased; A ships first, B and C are upgrades |
 | **Upgrade path** | A → B → C with **no migration**, no URL change, no progress reset — depth is additive | | |
 | **Always included** | The `docs/00-15` specification produced first and reviewed together · full ownership (source, database, content, user data, domain, admin, design assets) · a transparent recurring-cost table · a written data-export and offboarding document · a 30-day support policy | | |

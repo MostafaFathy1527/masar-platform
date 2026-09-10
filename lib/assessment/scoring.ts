@@ -1,7 +1,7 @@
 /**
  * Attempt scoring and the client payload boundary.
  *
- * Pure and dependency-free. This module decides grades, so
+ * Pure and dependency-free (docs/CONVENTIONS.md). This module decides grades, so
  * it is unit-tested rather than exercised through a route.
  *
  * The payload builder lives here on purpose, next to the scoring it protects:

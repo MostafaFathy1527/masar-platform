@@ -4,7 +4,7 @@
 // certificates and the content pipeline arrive in their own migrations, as each
 // week lands, so nothing is built for a feature the plan's cut lines may drop.
 //
-// Conventions: cuid ids, createdAt/updatedAt everywhere, enums for
+// Conventions (docs/CONVENTIONS.md): cuid ids, createdAt/updatedAt everywhere, enums for
 // every state machine, bilingual fields as xAr/xEn pairs, soft deactivation
 // over deletion.
 

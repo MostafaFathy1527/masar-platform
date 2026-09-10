@@ -81,7 +81,7 @@ them:
 
 ```
 pipeline/
-  the project rules file              this contract
+  CONTRACT.md            this contract
   rubric.md              8 criteria, the thresholds, and what the score is worth
   prompts/               generate · revise · judge
   sources/               the only permitted input

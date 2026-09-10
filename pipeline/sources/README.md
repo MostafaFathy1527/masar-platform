@@ -1,7 +1,7 @@
 # Sources
 
 The only permitted input to the pipeline. `import_lesson.py` refuses anything outside this
-directory, and the project rules file forbids reading client or employer material into it.
+directory, and `docs/CONVENTIONS.md` forbids reading client or employer material into it.
 
 Each source note is the author's own writing, from public knowledge. A lesson may not
 assert anything its source note does not carry: unsupported claims go to

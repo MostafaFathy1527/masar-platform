@@ -22,7 +22,7 @@ const files = walk('content/courses').filter((f) =>
   f.split(sep).includes('lessons'),
 )
 
-// Forbidden licensed code sets. Everything in the demo course is a
+// Forbidden licensed code sets (docs/CONVENTIONS.md). Everything in the demo course is a
 // fictional training code, and this keeps that true as content grows — a rule
 // enforced by a machine rather than remembered at 1am.
 const FORBIDDEN: Array<[string, RegExp]> = [

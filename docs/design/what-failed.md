@@ -568,7 +568,7 @@ back through its own claims can only ever agree with it.
 ## The sub-pattern worth naming: facts that were true when written
 
 Four of the thirteen are the same defect. The landing page carried a "Week 1 — under
-construction" badge over a finished six-week product. the project rules file and `docs/STATUS.md`
+construction" badge over a finished six-week product. The project's rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen. And the flagship lesson told every reader its
 knowledge checks and its simulation were coming in Weeks 3 and 4, long after both had come.
@@ -583,7 +583,7 @@ thing the sentence described.
 exam lead now reads `itemCount` from the assessment row, so it cannot disagree with the
 blueprint. Where interpolation is impossible — prose in a Markdown file, a badge encoding
 a judgement — the fact needs an owner and a moment when it is re-read, which is why
-the project rules file now carries an instruction to keep itself current.
+the rules file now carries an instruction to keep itself current.
 
 That is the more useful thing to say than the three incidents. Restating a fact creates a
 second copy that no mechanism keeps in sync, and duplicated state drifts. It is the

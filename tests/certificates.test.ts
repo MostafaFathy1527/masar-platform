@@ -89,7 +89,7 @@ describe('serials and hashing', () => {
   })
 })
 
-// A hard rule. This wording is fixed; paraphrasing it is the failure
+// A hard rule (docs/CONVENTIONS.md). This wording is fixed; paraphrasing it is the failure
 // mode, and it is easy to do accidentally while editing copy.
 describe('honesty constraints', () => {
   it('uses the required disclaimer wording verbatim', () => {

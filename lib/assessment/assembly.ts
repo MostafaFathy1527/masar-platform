@@ -1,7 +1,7 @@
 /**
  * Blueprint-driven item assembly.
  *
- * Pure and dependency-free. Assembly decides what a learner
+ * Pure and dependency-free (docs/CONVENTIONS.md). Assembly decides what a learner
  * is asked, so it must be testable without a database.
  *
  * Two properties matter more than the sampling itself:
