@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
  * protect — only this view.
  *
  * Authorization is enforced here, server-side, which is the check that actually
- * protects the data. The project rules also asks for a middleware check; that is
+ * protects the data. The project rules also ask for a middleware check; that is
  * NOT in place, because the proxy runs on the edge and this project's auth
  * config imports Prisma, which is not edge-safe. Rather than add a cookie-
  * presence check in the proxy that looks like authorization without being it,

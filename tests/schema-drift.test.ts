@@ -6,7 +6,7 @@ import {
   serialiseSchema,
 } from '@/lib/schema/export'
 
-// The project rules: lib/schema/lesson.ts is the single source of truth, and
+// docs/CONVENTIONS.md: lib/schema/lesson.ts is the single source of truth, and
 // the JSON Schema must be regenerated after any change. This makes that
 // mechanical rather than remembered — if someone edits the Zod schema and
 // forgets `npm run schema:export`, CI fails here instead of the Python

@@ -1,7 +1,7 @@
 import type { AppLocale } from '@/i18n/routing'
 
 /**
- * Content is stored as xAr / xEn pairs. This picks the
+ * Content is stored as xAr / xEn pairs (docs/CONVENTIONS.md). This picks the
  * right side for the active locale.
  *
  * Arabic is the default locale and is never optional in the schema, so there is

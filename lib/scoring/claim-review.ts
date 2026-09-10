@@ -1,7 +1,7 @@
 /**
  * Scoring for the claim-review simulation.
  *
- * Pure and dependency-free on purpose: this is the one part
+ * Pure and dependency-free on purpose (docs/CONVENTIONS.md): this is the one part
  * of the project that makes a falsifiable claim, so it must be testable without
  * a database, a request, or a rendered page.
  *

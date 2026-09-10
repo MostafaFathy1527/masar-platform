@@ -117,9 +117,9 @@ what actually resolved — not what any planning document predicted.
 - **`npm run typecheck` runs `next typegen` first.** Next 16 generates global route
   types during the build; a bare `tsc --noEmit` fails on `LayoutProps`, which is not
   checked in. CI must run the script, not `tsc` directly.
-- **`AGENTS.md` is framework-managed.** `next dev` injects a block into `AGENTS.md`
-  when it exists, and into the project rules file only when it does not. `AGENTS.md` exists so
-  the framework never edits the file carrying the project's hard rules. Do not delete it.
+- **`next dev` can write an agent-instructions file at the repository root.** It is
+  local tooling output, not project documentation, and is kept out of version control.
+  The rules the code is built to live in `docs/CONVENTIONS.md`.
 - **`jsdom` is a dev dependency, and it earns its place.** `tests/batched-clicks.test.tsx`
   renders the real components and fires several clicks inside one React batch, which is
   the only way to catch a handler that computes state from its render closure instead of
@@ -181,7 +181,7 @@ test varies only the thing being tested.
 
 ### Authorization is server-side only, and deliberately so
 
-**The rule.** the project rules file rule 8 asks for permission checks in middleware *and* re-checked
+**The rule.** The original project rules asked for permission checks in middleware *and* re-checked
 in every server action and route handler.
 
 **What is actually in place.** Only the server-side check. `/admin/analytics` resolves the

@@ -59,7 +59,7 @@ PROSE_FIELDS = {
 MAX_PROSE_WORDS_BETWEEN_ACTS = 180
 
 # Real licensed code sets, forbidden everywhere in course content. Every code in
-# this demo is a fictional training code. See the project rules file.
+# this demo is a fictional training code. See docs/CONVENTIONS.md.
 FORBIDDEN_CODE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("CPT", re.compile(r"\bCPT\b", re.I)),
     ("HCPCS", re.compile(r"\bHCPCS\b", re.I)),

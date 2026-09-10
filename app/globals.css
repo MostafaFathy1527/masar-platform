@@ -115,7 +115,7 @@ h3,
 /*
   Logical properties only — never margin-left / padding-right. One layout
   serves both directions; the dir attribute on <html> does the mirroring.
- 
+  (docs/CONVENTIONS.md, "Layout and accessibility".)
 */
 @layer components {
   .badge {
@@ -438,7 +438,7 @@ h3,
   }
 }
 
-/* Accessibility is part of "done": a visible focus ring. */
+/* Accessibility is part of "done" (docs/CONVENTIONS.md): a visible focus ring. */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;

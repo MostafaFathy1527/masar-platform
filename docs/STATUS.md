@@ -13,7 +13,7 @@ Both stopped being true and nothing forced the sentence to follow. That is the s
 sub-pattern this file documents further down, in the file whose whole job is to tell the
 next session what is true.
 
-**What remains needs a person, not an agent**, and is listed in the project rules file: the blind
+**What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
 recruitment is **closed, not deferred** — §0.7 records it as a scope decision and the
@@ -137,7 +137,7 @@ apparently redundant.
 
 ## Two honest gaps in Week 4
 
-**Middleware authorization is not in place.** the project rules file rule 8 asks for permission checks
+**Middleware authorization is not in place.** The original project rules asked for permission checks
 in middleware *and* re-checked server-side. Only the server-side check exists. The proxy
 runs on the edge and this project's auth config imports Prisma, which is not edge-safe.
 A cookie-presence check in the proxy was deliberately not added: something that looks like
@@ -362,7 +362,7 @@ leak patterns will trip a leak detector.
   and a desktop side panel from one element; and guest entry deep-linking into it.
   Answers never reach the browser before submission, guarded by three structural tests.
 
-- Repo, the project rules file, `BUILD.md` (sanitized), `LATER.md`.
+- Repo, `BUILD.md` (sanitized), `LATER.md`.
 - **Publish safety.** Forbidden terms in `.local/denylist.txt` with a 14-case fixture;
   `.gitleaks.toml` with committed shape-based rules naming no person or company, plus an
   11-case fixture; `.local/gate.sh` scans blob content in three modes; a `pre-push` hook
@@ -450,7 +450,7 @@ hand-set `isScenario` boolean; no stem in the bank reaches the defined 60-word m
 flag and every reader of it are deleted, including the "Scenario" badge that asserted the
 property to learners. The Prisma column is dropped by migration
 `20260910071908_drop_item_is_scenario`, generated offline because 5432 was unreachable.
-**Applied.** CI #42 was green on `3bcfbd5`, so the offline-generated migration has had its
+**Applied.** CI #42 was green on the commit that introduced it, so the offline-generated migration has had its
 replay check against a real Postgres. The owner approved `npm run db:deploy`; the SQL was read
 first (one statement, `ALTER TABLE "Item" DROP COLUMN "isScenario"`), 5432 was confirmed
 reachable, and it was applied. `migrate status` reports up to date, and production was healthy
@@ -579,7 +579,7 @@ thing it describes.
 | 2026-09-09 | **`create-next-app@latest`** | Instructed by the correction pass. Landed Next 16 / React 19 / Tailwind 4. |
 | 2026-09-09 | **Prisma held at 7.10.0** | `latest` resolves to `8.0.0-rc.13`; an RC does not belong on the critical path. |
 | 2026-09-09 | **Denylist moved to `.local/`, history rebuilt** | Terms were literals in a tracked file, and the private plan path was in commit 1. |
-| 2026-09-09 | **`AGENTS.md` added** | `next dev` injects a managed block into the project rules file unless `AGENTS.md` exists. |
+| 2026-09-09 | **Agent-instructions files kept local** | `next dev` can write a managed block into an agent-instructions file at the repo root. It is tooling output and stays out of version control; the project's rules are in `docs/CONVENTIONS.md`. |
 | 2026-09-09 | **Week-by-week migrations**, 7 models now | Builds nothing for features the cut lines may drop. |
 | 2026-09-09 | ~~`@prisma/adapter-neon`~~ — **reverted to `adapter-pg`** | The blocked-port diagnosis was wrong: it was a Neon cold start. Retry before concluding anything about a network. |
 | 2026-09-09 | **Vercel project needs `framework: "nextjs"`** | With `framework: null` the build is green and every route 404s. Recorded in `HANDOVER.md`; no build log shows it. |
