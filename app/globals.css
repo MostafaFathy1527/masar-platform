@@ -1636,3 +1636,123 @@ h3,
     text-underline-offset: 3px;
   }
 }
+
+/* ------------------------------------------------------ knowledge check */
+/*
+  Answered, not scored. Correctness is always stated in words; the colour only
+  reinforces it, which is the same accessibility rule the simulation follows.
+*/
+@layer components {
+  .kcheck {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background: var(--color-surface);
+    padding: clamp(16px, 2vw, 22px);
+    margin-block: 1.5rem;
+  }
+  .kcheck-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+  [dir="rtl"] .kcheck-label {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .kcheck-stem {
+    margin-block-start: 0.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .kcheck-hint {
+    margin-block-start: 0.3rem;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .kcheck-options {
+    display: grid;
+    gap: 0.5rem;
+    margin-block: 1rem;
+  }
+  .kcheck-options button {
+    inline-size: 100%;
+    text-align: start;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-canvas);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--color-ink);
+  }
+  .kcheck-options button:hover:not(:disabled) {
+    border-color: var(--color-ink-2);
+  }
+  .kcheck-options button.is-selected {
+    border-color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-accent) 12%, transparent);
+  }
+  .kcheck-fb {
+    margin-block-start: 0.35rem;
+    padding-inline-start: 0.8rem;
+    border-inline-start: 2px solid var(--color-line);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+  }
+  .kcheck-fb.is-right {
+    border-inline-start-color: var(--color-right);
+  }
+  .kcheck-fb.is-wrong {
+    border-inline-start-color: var(--color-wrong);
+  }
+  .kcheck-rationale {
+    margin-block-start: 0.75rem;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid var(--color-line);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+  }
+}
+
+@layer components {
+  /* The L3 hand-off from reading to producing work. */
+  .practice-cta {
+    border: 1px solid color-mix(in oklab, var(--color-accent) 45%, var(--color-line));
+    border-radius: 6px;
+    background: color-mix(in oklab, var(--color-accent) 7%, var(--color-surface));
+    padding: clamp(18px, 2.2vw, 26px);
+    margin-block: 1.5rem;
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+  }
+  .practice-cta-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+  [dir="rtl"] .practice-cta-label {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .practice-cta-lead {
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .practice-cta-note {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+  }
+  .practice-cta .btn-primary {
+    margin-block-start: 0.35rem;
+  }
+}
