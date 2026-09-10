@@ -13,10 +13,11 @@ Both stopped being true and nothing forced the sentence to follow. That is the s
 sub-pattern this file documents further down, in the file whose whole job is to tell the
 next session what is true.
 
-**What remains needs a person, not an agent**, and is listed in the project rules file: the judge
-sitting, the blind inter-rater check, the instructional-design review, and the narrated
-recording. The SME recruitment is **closed, not deferred** — §0.7 records it as a scope
-decision and the limitation is stated on the page.
+**What remains needs a person, not an agent**, and is listed in the project rules file: the blind
+inter-rater check and the instructional-design review. The judge sitting is done. The SME
+recruitment is **closed, not deferred** — §0.7 records it as a scope decision and the
+limitation is stated on the page. **The narrated recording is cut**, also a decision rather
+than a deferral: it is not in `LATER.md` and should not reappear as an open item.
 
 Note: `/method` is **not** in v1.0. It belongs to the 14-week plan's Week 9, which §0.3
 cut; `/depth` already renders the depth model.
@@ -283,9 +284,13 @@ case study in English with an Arabic summary, and `HANDOVER.md`.
 `pipeline/out/lesson-02/v1/verdict.json`; the gate it exposed is repaired and the result is
 published.
 
-What remains needs a person, not an agent: the **blind inter-rater check**, the
-instructional-design review, the narrated recording, and the eight Arabic objective
-statements plus a behavioural statement for `MI-13`.
+What remains needs a person, not an agent: the **blind inter-rater check** and the
+instructional-design review.
+
+The Arabic objective statements are **done** — written by the owner rather than translated,
+and `MI-13` now carries a behavioural statement in both languages where it previously had
+only a topic. `/ar` renders them directly; the fallback that showed the code with the
+English beneath it is removed. The narrated recording is **cut from scope**.
 
 **The inter-rater check is now the load-bearing one.** `/how-it-was-built` publishes a
 rubric score that carries its own caveat about the judge's independence, and that caveat
@@ -432,11 +437,13 @@ thing it describes.
       not author the lesson, but the same session directed the project. That caveat is
       what this check resolves, and §0.4 item 5 is explicit that the number cannot stand
       alone without it.
-- [ ] **Eight Arabic objective statements, and a behavioural statement for `MI-13`.**
-      Objectives are written, not translated. `/ar/course` currently shows the code with
-      the English statement beneath it and says why. `MI-13` has no behavioural statement
-      anywhere: `BUILD.md` §5 now carries its row with Bloom and weight marked
-      *not recorded*, and `lib/objectives.ts` carries the topic taken from this file.
+- [x] **Eight Arabic objective statements, and a behavioural statement for `MI-13`** —
+      **done.** Written by the owner rather than translated. Two authoring decisions are
+      recorded in `lib/objectives.ts` so they are not "corrected" later: `rejection` and
+      `denial` keep their English terms beside the Arabic in `MI-09`, because they are
+      distinct operational states Arabic RCM practice does not reliably separate and
+      practitioners say the English; and every statement is a present-tense observable
+      behaviour, never يفهم, so each stays measurable.
 - [ ] **Instructional-design review** — objective alignment, coverage, the assessment
       blueprint, feedback quality, the depth model, and the Arabic. Labelled as an
       instructional-design review everywhere, never as a subject-matter or accuracy review.

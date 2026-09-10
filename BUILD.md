@@ -52,7 +52,7 @@ masar-platform/
 
 **D3 — Case study page**, AR + EN, at `mostafafathy.com/p/masar` (deployed with the existing `vercel_deploy.py` flow, token in `.env`). Outline: the problem (120 PDF lessons is not a course) → the depth model with the same lesson shown at L1 and L2 side by side → the assessment blueprint → the two simulations and why their scoring is shaped that way → the AI pipeline and its concept-log gate, including the runs that failed → architecture and cost ($0) → what is deliberately not built → a closing disclosure paragraph (self-initiated, original content, seeded demo data, no employer named, sandbox payments).
 
-**D4 — Three-minute walkthrough video** (OBS, free; screen only, no face; English narration, Arabic subtitles; unlisted YouTube). Script:
+**D4 — ~~Three-minute walkthrough video~~ — CUT FROM SCOPE.** A decision, not a deferral: it is not a `LATER.md` item and should not return as an open one. Original text follows for the record. **D4 (superseded) — Three-minute walkthrough video** (OBS, free; screen only, no face; English narration, Arabic subtitles; unlisted YouTube). Script:
 - 0:00–0:20 — "This is Masār. I built it to show what I'd deliver for a certification-prep client. Everything you'll see is mine: the platform, the course, the pipeline."
 - 0:20–0:50 — `/demo`, one click. Land mid-course on the L3 flagship. Point at the depth switch: same lesson, L1 / L2 / L3.
 - 0:50–1:30 — Do the claim-review simulation live. Flag two errors, deliberately flag one wrong field, show that the score punishes shotgun-flagging, show the feedback and the link back to the block that taught it.
@@ -245,13 +245,12 @@ Every chart carries a caption naming the learning question it answers. No vanity
 | MI-10 | Choose the correct corrective action for a denial | analyze | L7 |
 | MI-11 | Trace the revenue cycle end to end and locate where a failure originated | analyze | L8 |
 | MI-12 | Interpret clean-claim rate, denial rate, days in A/R, net collection rate and diagnose a trend | analyze | L8 |
-| MI-13 | Recognise fraud, waste and abuse in claims and documentation | *not recorded* | L4, L5 (cross-cutting) |
+| MI-13 | Recognise indicators of fraud, waste and abuse in claims and documentation, and state the record-based response | analyze | L4, L5 (cross-cutting) |
 
-`MI-13`'s Bloom level and weight are marked *not recorded* rather than guessed. Its
-statement above is the topic it covers, taken from `docs/STATUS.md`; no behavioural
-objective for it has ever been written down, and writing one is instructional-design work
-rather than a documentation fix. `lib/objectives.ts` carries the same caveat, so the page
-and the brief agree about what is missing.
+`MI-13` now has a behavioural statement in both languages, written rather than translated.
+It previously carried only a topic — "fraud, waste and abuse" — which names a subject rather
+than something a learner can be observed doing, and therefore gave a rubric nothing to mark.
+`lib/objectives.ts` carries the same English, so the brief and the code agree.
 
 **Lessons:**
 

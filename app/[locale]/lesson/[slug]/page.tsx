@@ -51,8 +51,6 @@ const COPY = {
   ar: {
     eyebrow: 'درس',
     objectives: 'أهداف هذا الدرس',
-    objectivesEnglishNote:
-      'الأهداف معروضة بالإنجليزية حتى الآن. صياغتها بالعربية عمل تصميم تعليمي لم يُنجز بعد.',
     minutes: 'دقيقة',
     backToCourse: 'كل الدروس',
     previous: 'السابق',
@@ -75,7 +73,6 @@ const COPY = {
   en: {
     eyebrow: 'Lesson',
     objectives: 'What this lesson is for',
-    objectivesEnglishNote: '',
     minutes: 'min',
     backToCourse: 'All lessons',
     previous: 'Previous',
@@ -159,18 +156,11 @@ export default async function LessonPage({
                   <span className="chip" data-latin="true">
                     {o.code}
                   </span>
-                  <span lang={ar ? 'en' : undefined} dir={ar ? 'ltr' : undefined}>
-                    {o.en}
-                  </span>
+                  <span>{ar ? o.ar : o.en}</span>
                 </li>
               )
             })}
           </ul>
-          {ar && t.objectivesEnglishNote ? (
-            <p style={{ marginBlockStart: '0.85rem', fontSize: '0.8125rem', color: 'var(--color-muted)' }}>
-              {t.objectivesEnglishNote}
-            </p>
-          ) : null}
         </div>
       </section>
 

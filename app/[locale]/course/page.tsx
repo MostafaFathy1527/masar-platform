@@ -160,13 +160,8 @@ export default async function CoursePage({
                   {/*
                     Objective codes alone are meaningless to a buyer. The
                     statement is what tells them whether the course teaches the
-                    thing they need, so the code becomes a label on the
-                    statement rather than a chip standing in for one.
-
-                    On Arabic the statement still renders in English, marked as
-                    such, because the Arabic objectives have not been written
-                    yet — see lib/objectives.ts. Showing the code alone would
-                    hide that gap instead of stating it.
+                    thing they need, so the code is a label on the statement
+                    rather than a chip standing in for one.
                   */}
                   <ul className="lesson-objectives">
                     {lesson.objectives.map((code) => {
@@ -176,9 +171,7 @@ export default async function CoursePage({
                           <span className="chip" data-latin="true">
                             {o.code}
                           </span>
-                          <span lang={ar ? 'en' : undefined} dir={ar ? 'ltr' : undefined}>
-                            {o.en}
-                          </span>
+                          <span>{ar ? o.ar : o.en}</span>
                         </li>
                       )
                     })}
@@ -187,13 +180,6 @@ export default async function CoursePage({
               </li>
             ))}
           </ol>
-
-          {ar ? (
-            <p className="measure" style={{ marginBlockStart: '1.5rem', fontSize: '0.8125rem', color: 'var(--color-muted)' }}>
-              أهداف التعلّم معروضة بالإنجليزية حتى الآن. صياغتها بالعربية عمل تصميم تعليمي
-              لم يُنجز بعد، وترجمتها الحرفية كانت ستنتج أهدافًا غير مكتوبة كأهداف.
-            </p>
-          ) : null}
 
           <p className="measure" style={{ marginBlockStart: '1.5rem', fontSize: '0.8125rem', color: 'var(--color-muted)' }}>
             {ar
