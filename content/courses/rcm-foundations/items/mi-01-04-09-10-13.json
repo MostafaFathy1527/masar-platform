@@ -1085,40 +1085,40 @@
       "key": "MI-01-KC-01",
       "objectiveId": "MI-01",
       "type": "MCQ_SINGLE",
-      "bloom": "RECALL",
+      "bloom": "APPLY",
       "formative": true,
-      "stemAr": "Which party carries the financial risk and sets the rules a claim is judged against?",
-      "stemEn": "Which party carries the financial risk and sets the rules a claim is judged against?",
-      "rationaleAr": "The payer carries the risk and sets the rules. A TPA may process claims for a payer, but the decision still traces back to the payer's rules.",
-      "rationaleEn": "The payer carries the risk and sets the rules. A TPA may process claims for a payer, but the decision still traces back to the payer's rules.",
+      "stemAr": "The payer has paid the provider its share of a visit, and part of the charge is left over. Who is asked to pay the remainder, and by whom?",
+      "stemEn": "The payer has paid the provider its share of a visit, and part of the charge is left over. Who is asked to pay the remainder, and by whom?",
+      "rationaleAr": "The balance is whatever the policy leaves to the member, and the provider bills it. It moves last, after the payer has decided — which is why it so often surprises the member.",
+      "rationaleEn": "The balance is whatever the policy leaves to the member, and the provider bills it. It moves last, after the payer has decided — which is why it so often surprises the member.",
       "options": [
         {
-          "textAr": "The payer",
-          "textEn": "The payer",
+          "textAr": "The member, billed by the provider",
+          "textEn": "The member, billed by the provider",
           "isCorrect": true,
-          "feedbackAr": "Correct. The payer holds the money and decides what is owed.",
-          "feedbackEn": "Correct. The payer holds the money and decides what is owed."
+          "feedbackAr": "Correct. The policy leaves that share to the member, and it is the provider who asks for it.",
+          "feedbackEn": "Correct. The policy leaves that share to the member, and it is the provider who asks for it."
         },
         {
-          "textAr": "The third-party administrator",
-          "textEn": "The third-party administrator",
+          "textAr": "The payer, billed again by the provider",
+          "textEn": "The payer, billed again by the provider",
           "isCorrect": false,
-          "feedbackAr": "A TPA processes claims without carrying the risk; its decisions trace back to the payer's rules.",
-          "feedbackEn": "A TPA processes claims without carrying the risk; its decisions trace back to the payer's rules."
+          "feedbackAr": "The payer has already decided what it owes. Asking again for the remainder is asking it to pay a share the policy leaves to someone else.",
+          "feedbackEn": "The payer has already decided what it owes. Asking again for the remainder is asking it to pay a share the policy leaves to someone else."
         },
         {
-          "textAr": "The provider",
-          "textEn": "The provider",
+          "textAr": "The third-party administrator, which settles what is left",
+          "textEn": "The third-party administrator, which settles what is left",
           "isCorrect": false,
-          "feedbackAr": "The provider delivers the service and asks to be paid; it does not set the payer's rules.",
-          "feedbackEn": "The provider delivers the service and asks to be paid; it does not set the payer's rules."
+          "feedbackAr": "A TPA processes claims on behalf of a payer. It does not pay the member's share.",
+          "feedbackEn": "A TPA processes claims on behalf of a payer. It does not pay the member's share."
         },
         {
-          "textAr": "The member",
-          "textEn": "The member",
+          "textAr": "No one — whatever the payer does not pay is written off",
+          "textEn": "No one — whatever the payer does not pay is written off",
           "isCorrect": false,
-          "feedbackAr": "The member holds the coverage but does not decide what a claim is worth.",
-          "feedbackEn": "The member holds the coverage but does not decide what a claim is worth."
+          "feedbackAr": "The payer's payment is its share, not a full settlement. The policy decides who owes the rest.",
+          "feedbackEn": "The payer's payment is its share, not a full settlement. The policy decides who owes the rest."
         }
       ]
     },
@@ -1207,41 +1207,41 @@
     {
       "key": "MI-04-KC-02",
       "objectiveId": "MI-04",
-      "type": "MULTI_SELECT",
-      "bloom": "RECALL",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
       "formative": true,
-      "stemAr": "Which of these are honest outcomes of an eligibility check? Select all that apply.",
-      "stemEn": "Which of these are honest outcomes of an eligibility check? Select all that apply.",
-      "rationaleAr": "The three honest outcomes are to proceed, to pre-authorise first, or to convert to self-pay. Anything else defers the question to a point where it costs more.",
-      "rationaleEn": "The three honest outcomes are to proceed, to pre-authorise first, or to convert to self-pay. Anything else defers the question to a point where it costs more.",
+      "stemAr": "A member arrives for a routine consultation today. The eligibility response shows their coverage lapsed last month; they tell you they mean to renew this week. What do you do?",
+      "stemEn": "A member arrives for a routine consultation today. The eligibility response shows their coverage lapsed last month; they tell you they mean to renew this week. What do you do?",
+      "rationaleAr": "Eligibility is judged on the service date, and there is no active coverage today. Neither an intention to renew nor a permission request changes that, so the honest outcome is self-pay, with the member told why.",
+      "rationaleEn": "Eligibility is judged on the service date, and there is no active coverage today. Neither an intention to renew nor a permission request changes that, so the honest outcome is self-pay, with the member told why.",
       "options": [
         {
-          "textAr": "Proceed",
-          "textEn": "Proceed",
+          "textAr": "Convert to self-pay, and tell the member what the eligibility response showed",
+          "textEn": "Convert to self-pay, and tell the member what the eligibility response showed",
           "isCorrect": true,
-          "feedbackAr": "Correct — when coverage is active and no permission is required.",
-          "feedbackEn": "Correct — when coverage is active and no permission is required."
+          "feedbackAr": "Correct. There is no active coverage on the service date, and the member decides with the facts in front of them.",
+          "feedbackEn": "Correct. There is no active coverage on the service date, and the member decides with the facts in front of them."
         },
         {
-          "textAr": "Pre-authorise first",
-          "textEn": "Pre-authorise first",
-          "isCorrect": true,
-          "feedbackAr": "Correct — when coverage is active and this service needs permission.",
-          "feedbackEn": "Correct — when coverage is active and this service needs permission."
-        },
-        {
-          "textAr": "Convert to self-pay",
-          "textEn": "Convert to self-pay",
-          "isCorrect": true,
-          "feedbackAr": "Correct — when there is no active coverage for this service.",
-          "feedbackEn": "Correct — when there is no active coverage for this service."
-        },
-        {
-          "textAr": "Bill the payer now and appeal if it is refused",
-          "textEn": "Bill the payer now and appeal if it is refused",
+          "textAr": "Proceed as normal — the member intends to renew",
+          "textEn": "Proceed as normal — the member intends to renew",
           "isCorrect": false,
-          "feedbackAr": "This defers the question until it is expensive, and an appeal does not create coverage.",
-          "feedbackEn": "This defers the question until it is expensive, and an appeal does not create coverage."
+          "feedbackAr": "An intention to renew is not coverage. Eligibility is judged on the service date, and today there is none.",
+          "feedbackEn": "An intention to renew is not coverage. Eligibility is judged on the service date, and today there is none."
+        },
+        {
+          "textAr": "Request pre-authorisation before the consultation",
+          "textEn": "Request pre-authorisation before the consultation",
+          "isCorrect": false,
+          "feedbackAr": "Pre-authorisation answers a different question. Permission cannot stand in for coverage that is not active.",
+          "feedbackEn": "Pre-authorisation answers a different question. Permission cannot stand in for coverage that is not active."
+        },
+        {
+          "textAr": "Proceed, and hold the claim until the renewal appears",
+          "textEn": "Proceed, and hold the claim until the renewal appears",
+          "isCorrect": false,
+          "feedbackAr": "Holding the claim does not move the service date. Coverage is judged on the day the service was delivered.",
+          "feedbackEn": "Holding the claim does not move the service date. Coverage is judged on the day the service was delivered."
         }
       ]
     },
@@ -1251,38 +1251,38 @@
       "type": "MCQ_SINGLE",
       "bloom": "ANALYZE",
       "formative": true,
-      "stemAr": "A proposed correction would increase payment on a claim, and the record has not changed. What is the right response?",
-      "stemEn": "A proposed correction would increase payment on a claim, and the record has not changed. What is the right response?",
-      "rationaleAr": "If a correction increases payment and the record did not change, stop and ask why. The record decides what may be billed; an edit that passes an automated check is not thereby supported.",
-      "rationaleEn": "If a correction increases payment and the record did not change, stop and ask why. The record decides what may be billed; an edit that passes an automated check is not thereby supported.",
+      "stemAr": "Two sets of claims both contain mismatches with their records. In the first, the mismatches raise the amount on some claims and lower it on others. In the second, every mismatch raises the amount. Which should be treated as a pattern to escalate?",
+      "stemEn": "Two sets of claims both contain mismatches with their records. In the first, the mismatches raise the amount on some claims and lower it on others. In the second, every mismatch raises the amount. Which should be treated as a pattern to escalate?",
+      "rationaleAr": "A single error has no consistent direction. Mismatches that recur, and consistently move money one way — usually towards higher payment — are the indicator that something is being done repeatedly rather than slipping occasionally.",
+      "rationaleEn": "A single error has no consistent direction. Mismatches that recur, and consistently move money one way — usually towards higher payment — are the indicator that something is being done repeatedly rather than slipping occasionally.",
       "options": [
         {
-          "textAr": "Stop, ask why, and point to what the record actually says",
-          "textEn": "Stop, ask why, and point to what the record actually says",
+          "textAr": "The second — the mismatches recur in one direction, towards higher payment",
+          "textEn": "The second — the mismatches recur in one direction, towards higher payment",
           "isCorrect": true,
-          "feedbackAr": "Correct. The defence is the same whatever the pressure: the record.",
-          "feedbackEn": "Correct. The defence is the same whatever the pressure: the record."
+          "feedbackAr": "Correct. Consistency of direction is what separates a practice from a slip.",
+          "feedbackEn": "Correct. Consistency of direction is what separates a practice from a slip."
         },
         {
-          "textAr": "Submit it — the automated edit passed",
-          "textEn": "Submit it — the automated edit passed",
+          "textAr": "The first — it contains more kinds of mismatch",
+          "textEn": "The first — it contains more kinds of mismatch",
           "isCorrect": false,
-          "feedbackAr": "Upcoding and unbundling often pass automated checks, which is exactly why a person is answerable for them.",
-          "feedbackEn": "Upcoding and unbundling often pass automated checks, which is exactly why a person is answerable for them."
+          "feedbackAr": "Variety points the other way. Mismatches that move money in both directions look like slips, not a practice.",
+          "feedbackEn": "Variety points the other way. Mismatches that move money in both directions look like slips, not a practice."
         },
         {
-          "textAr": "Submit it and flag it for review later",
-          "textEn": "Submit it and flag it for review later",
+          "textAr": "Neither — every mismatch is corrected and resubmitted, whatever its direction",
+          "textEn": "Neither — every mismatch is corrected and resubmitted, whatever its direction",
           "isCorrect": false,
-          "feedbackAr": "Once submitted, an unsupported claim is already a problem. The question belongs before submission.",
-          "feedbackEn": "Once submitted, an unsupported claim is already a problem. The question belongs before submission."
+          "feedbackAr": "Each claim is still corrected, but a recurring one-directional mismatch is also a pattern someone is answerable for. Correcting claims one by one never examines it.",
+          "feedbackEn": "Each claim is still corrected, but a recurring one-directional mismatch is also a pattern someone is answerable for. Correcting claims one by one never examines it."
         },
         {
-          "textAr": "Update the record so it matches the corrected claim",
-          "textEn": "Update the record so it matches the corrected claim",
+          "textAr": "Both equally — any mismatch is an integrity matter",
+          "textEn": "Both equally — any mismatch is an integrity matter",
           "isCorrect": false,
-          "feedbackAr": "That reverses the rule: the claim follows the record, never the record the claim.",
-          "feedbackEn": "That reverses the rule: the claim follows the record, never the record the claim."
+          "feedbackAr": "Treating every slip as misconduct is its own failure: it buries the real pattern in noise and treats honest errors as accusations.",
+          "feedbackEn": "Treating every slip as misconduct is its own failure: it buries the real pattern in noise and treats honest errors as accusations."
         }
       ]
     },
@@ -1294,8 +1294,8 @@
       "formative": true,
       "stemAr": "A claim was processed, and payment was refused because the record does not support the level billed. What is this?",
       "stemEn": "A claim was processed, and payment was refused because the record does not support the level billed. What is this?",
-      "rationaleAr": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed.",
-      "rationaleEn": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed.",
+      "rationaleAr": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed at all; what the refusal is about does not change which of the two it is.",
+      "rationaleEn": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed at all; what the refusal is about does not change which of the two it is.",
       "options": [
         {
           "textAr": "A denial",
@@ -1305,25 +1305,25 @@
           "feedbackEn": "Correct. It was assessed and refused."
         },
         {
-          "textAr": "A rejection",
-          "textEn": "A rejection",
+          "textAr": "A rejection — payment was refused",
+          "textEn": "A rejection — payment was refused",
           "isCorrect": false,
-          "feedbackAr": "A rejection is never assessed. This claim was read and a decision was made.",
-          "feedbackEn": "A rejection is never assessed. This claim was read and a decision was made."
+          "feedbackAr": "In conversation the words are used interchangeably; in practice they are not. Refused after assessment is a denial.",
+          "feedbackEn": "In conversation the words are used interchangeably; in practice they are not. Refused after assessment is a denial."
         },
         {
-          "textAr": "A formatting failure",
-          "textEn": "A formatting failure",
+          "textAr": "A rejection — the problem is in the documentation, which is data",
+          "textEn": "A rejection — the problem is in the documentation, which is data",
           "isCorrect": false,
-          "feedbackAr": "Format failures stop a claim before assessment; this one was assessed.",
-          "feedbackEn": "Format failures stop a claim before assessment; this one was assessed."
+          "feedbackAr": "What the problem concerns does not decide it. A rejection is never assessed; this claim was read and a decision made.",
+          "feedbackEn": "What the problem concerns does not decide it. A rejection is never assessed; this claim was read and a decision made."
         },
         {
-          "textAr": "A duplicate submission",
-          "textEn": "A duplicate submission",
+          "textAr": "Neither yet — it becomes a denial only if an appeal is lost",
+          "textEn": "Neither yet — it becomes a denial only if an appeal is lost",
           "isCorrect": false,
-          "feedbackAr": "Nothing here suggests the claim was sent twice. The refusal is about the record.",
-          "feedbackEn": "Nothing here suggests the claim was sent twice. The refusal is about the record."
+          "feedbackAr": "The denial is the decision already made. An appeal is a response to a denial, not the thing that creates one.",
+          "feedbackEn": "The denial is the decision already made. An appeal is a response to a denial, not the thing that creates one."
         }
       ]
     },
@@ -1333,38 +1333,38 @@
       "type": "MCQ_SINGLE",
       "bloom": "APPLY",
       "formative": true,
-      "stemAr": "A denial's cause is documentation: the record does not support what was billed. What is the correct action?",
-      "stemEn": "A denial's cause is documentation: the record does not support what was billed. What is the correct action?",
-      "rationaleAr": "Correct the claim to match the record — never the reverse. An appeal cannot succeed on a claim the record does not support.",
-      "rationaleEn": "Correct the claim to match the record — never the reverse. An appeal cannot succeed on a claim the record does not support.",
+      "stemAr": "A claim is denied: the payer found no active coverage on the service date. The member mentions they are also covered under a spouse's policy. What is the correct action?",
+      "stemEn": "A claim is denied: the payer found no active coverage on the service date. The member mentions they are also covered under a spouse's policy. What is the correct action?",
+      "rationaleAr": "The cause decides the action. For an eligibility denial the first move is to verify other coverage — and here there may be some, so check it and submit there before doing anything else.",
+      "rationaleEn": "The cause decides the action. For an eligibility denial the first move is to verify other coverage — and here there may be some, so check it and submit there before doing anything else.",
       "options": [
         {
-          "textAr": "Correct the claim to match the record",
-          "textEn": "Correct the claim to match the record",
+          "textAr": "Verify the spouse's policy, and submit the claim there if it is active",
+          "textEn": "Verify the spouse's policy, and submit the claim there if it is active",
           "isCorrect": true,
-          "feedbackAr": "Correct. The record decides what may be billed.",
-          "feedbackEn": "Correct. The record decides what may be billed."
+          "feedbackAr": "Correct. An eligibility denial is answered by finding the coverage that does apply.",
+          "feedbackEn": "Correct. An eligibility denial is answered by finding the coverage that does apply."
         },
         {
-          "textAr": "Correct the record to match the claim",
-          "textEn": "Correct the record to match the claim",
+          "textAr": "Appeal the denial",
+          "textEn": "Appeal the denial",
           "isCorrect": false,
-          "feedbackAr": "That reverses the rule, and it turns a documentation error into an integrity problem.",
-          "feedbackEn": "That reverses the rule, and it turns a documentation error into an integrity problem."
+          "feedbackAr": "An appeal argues with a decision. There is nothing to argue: this payer had no active coverage. Appealing wastes the filing window.",
+          "feedbackEn": "An appeal argues with a decision. There is nothing to argue: this payer had no active coverage. Appealing wastes the filing window."
         },
         {
-          "textAr": "Appeal with a stronger explanation",
-          "textEn": "Appeal with a stronger explanation",
+          "textAr": "Correct the claim and resubmit it to the same payer",
+          "textEn": "Correct the claim and resubmit it to the same payer",
           "isCorrect": false,
-          "feedbackAr": "An explanation does not add evidence the record lacks.",
-          "feedbackEn": "An explanation does not add evidence the record lacks."
+          "feedbackAr": "Resubmission is the route back from a rejection. Nothing on the claim is wrong; the coverage simply is not with this payer.",
+          "feedbackEn": "Resubmission is the route back from a rejection. Nothing on the claim is wrong; the coverage simply is not with this payer."
         },
         {
-          "textAr": "Resubmit the claim unchanged",
-          "textEn": "Resubmit the claim unchanged",
+          "textAr": "Write the claim off",
+          "textEn": "Write the claim off",
           "isCorrect": false,
-          "feedbackAr": "Nothing has changed, so the same decision follows.",
-          "feedbackEn": "Nothing has changed, so the same decision follows."
+          "feedbackAr": "Premature. Another policy may pay it, and writing it off concedes a claim that may be payable elsewhere.",
+          "feedbackEn": "Premature. Another policy may pay it, and writing it off concedes a claim that may be payable elsewhere."
         }
       ]
     }
