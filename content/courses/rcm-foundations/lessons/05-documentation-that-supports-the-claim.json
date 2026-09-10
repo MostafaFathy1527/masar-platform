@@ -165,6 +165,101 @@
         }
       },
       {
+        "id": "b05_l1_error_vs_pattern",
+        "type": "compare_table",
+        "objectiveId": "MI-13",
+        "payload": {
+          "captionAr": "An error or a pattern?",
+          "captionEn": "An error or a pattern?",
+          "columns": [
+            {
+              "labelAr": "Signal",
+              "labelEn": "Signal"
+            },
+            {
+              "labelAr": "A single error",
+              "labelEn": "A single error"
+            },
+            {
+              "labelAr": "A pattern",
+              "labelEn": "A pattern"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "What you see",
+                "textEn": "What you see"
+              },
+              {
+                "textAr": "One claim does not match its record.",
+                "textEn": "One claim does not match its record."
+              },
+              {
+                "textAr": "The same mismatch recurs across many claims, often for one clinician or one service.",
+                "textEn": "The same mismatch recurs across many claims, often for one clinician or one service."
+              }
+            ],
+            [
+              {
+                "textAr": "What it usually is",
+                "textEn": "What it usually is"
+              },
+              {
+                "textAr": "A slip: a wrong field, a missed or duplicated line.",
+                "textEn": "A slip: a wrong field, a missed or duplicated line."
+              },
+              {
+                "textAr": "A practice: something is being done the same way, repeatedly.",
+                "textEn": "A practice: something is being done the same way, repeatedly."
+              }
+            ],
+            [
+              {
+                "textAr": "Which way the money moves",
+                "textEn": "Which way the money moves"
+              },
+              {
+                "textAr": "Either way, with no consistent direction.",
+                "textEn": "Either way, with no consistent direction."
+              },
+              {
+                "textAr": "Usually towards higher payment.",
+                "textEn": "Usually towards higher payment."
+              }
+            ],
+            [
+              {
+                "textAr": "The record-based response",
+                "textEn": "The record-based response"
+              },
+              {
+                "textAr": "Correct the claim to match the record, then resubmit.",
+                "textEn": "Correct the claim to match the record, then resubmit."
+              },
+              {
+                "textAr": "Escalate through the compliance route, citing the claims and what each record shows.",
+                "textEn": "Escalate through the compliance route, citing the claims and what each record shows."
+              }
+            ],
+            [
+              {
+                "textAr": "What not to do",
+                "textEn": "What not to do"
+              },
+              {
+                "textAr": "Change the record so it fits the claim.",
+                "textEn": "Change the record so it fits the claim."
+              },
+              {
+                "textAr": "Quietly fix each claim yourself, so the pattern is never examined.",
+                "textEn": "Quietly fix each claim yourself, so the pattern is never examined."
+              }
+            ]
+          ]
+        }
+      },
+      {
         "id": "b5_take",
         "type": "takeaways",
         "objectiveId": "MI-07",
