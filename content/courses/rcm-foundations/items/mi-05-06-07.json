@@ -610,6 +610,47 @@
           "feedbackEn": "The record is evidence for the claim, not a response from the payer."
         }
       ]
+    },
+    {
+      "key": "MI-07-KC-01",
+      "objectiveId": "MI-07",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "Which of these notes supports billing a follow-up visit?",
+      "stemEn": "Which of these notes supports billing a follow-up visit?",
+      "rationaleAr": "A billed service is supported when the record shows it was performed. An arrangement, a recommendation or an instruction describes a plan, not a visit.",
+      "rationaleEn": "A billed service is supported when the record shows it was performed. An arrangement, a recommendation or an instruction describes a plan, not a visit.",
+      "options": [
+        {
+          "textAr": "\"Follow-up completed; response to treatment recorded.\"",
+          "textEn": "\"Follow-up completed; response to treatment recorded.\"",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It states that the visit happened and what was found.",
+          "feedbackEn": "Correct. It states that the visit happened and what was found."
+        },
+        {
+          "textAr": "\"Follow-up arranged for next week.\"",
+          "textEn": "\"Follow-up arranged for next week.\"",
+          "isCorrect": false,
+          "feedbackAr": "Arranging is an intention, not evidence that the visit occurred.",
+          "feedbackEn": "Arranging is an intention, not evidence that the visit occurred."
+        },
+        {
+          "textAr": "\"Follow-up recommended.\"",
+          "textEn": "\"Follow-up recommended.\"",
+          "isCorrect": false,
+          "feedbackAr": "A recommendation is a plan. Nothing here shows it was carried out.",
+          "feedbackEn": "A recommendation is a plan. Nothing here shows it was carried out."
+        },
+        {
+          "textAr": "\"Patient advised to return if needed.\"",
+          "textEn": "\"Patient advised to return if needed.\"",
+          "isCorrect": false,
+          "feedbackAr": "An instruction to the patient is not a delivered service.",
+          "feedbackEn": "An instruction to the patient is not a delivered service."
+        }
+      ]
     }
   ]
 }

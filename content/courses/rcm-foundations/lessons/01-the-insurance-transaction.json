@@ -2,10 +2,11 @@
   "slug": "the-insurance-transaction",
   "titleAr": "The insurance transaction: who pays whom",
   "titleEn": "The insurance transaction: who pays whom",
-  "estMinutes": 30,
+  "estMinutes": 40,
   "bilingual": false,
   "levels": [
-    "L1"
+    "L1",
+    "L2"
   ],
   "objectives": [
     "MI-01"
@@ -194,6 +195,112 @@
             "The payer carries the risk and sets the rules; a TPA may process claims without carrying either.",
             "Money moves in both directions and at different times: premium before care, payment long after it."
           ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b01_l2_head",
+        "type": "heading",
+        "objectiveId": "MI-01",
+        "payload": {
+          "textAr": "Following the money through one visit",
+          "textEn": "Following the money through one visit",
+          "level": 2
+        }
+      },
+      {
+        "id": "b01_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "MI-01",
+        "payload": {
+          "promptAr": "A member has an outpatient consultation priced at 800 (training figures only). Their policy leaves 20% to the member. Trace who sends what to whom, and when.",
+          "promptEn": "A member has an outpatient consultation priced at 800 (training figures only). Their policy leaves 20% to the member. Trace who sends what to whom, and when.",
+          "steps": [
+            {
+              "showAr": "Before the visit, the employer has already paid the premium to the payer.",
+              "showEn": "Before the visit, the employer has already paid the premium to the payer.",
+              "whyAr": "Money moves before any care. The premium buys coverage; it is not linked to this visit.",
+              "whyEn": "Money moves before any care. The premium buys coverage; it is not linked to this visit."
+            },
+            {
+              "showAr": "At the visit, the provider delivers the consultation to the member.",
+              "showEn": "At the visit, the provider delivers the consultation to the member.",
+              "whyAr": "This step moves a service, not money. Nothing has been paid for it yet.",
+              "whyEn": "This step moves a service, not money. Nothing has been paid for it yet."
+            },
+            {
+              "showAr": "After the visit, the provider sends a claim for 800 to the payer.",
+              "showEn": "After the visit, the provider sends a claim for 800 to the payer.",
+              "whyAr": "A claim is a request for payment. Sending it does not mean anything will be paid.",
+              "whyEn": "A claim is a request for payment. Sending it does not mean anything will be paid."
+            },
+            {
+              "showAr": "The payer assesses the claim against its rules and pays the provider 640.",
+              "showEn": "The payer assesses the claim against its rules and pays the provider 640.",
+              "whyAr": "The payer carries the risk and decides what is owed: 80% of 800.",
+              "whyEn": "The payer carries the risk and decides what is owed: 80% of 800."
+            },
+            {
+              "showAr": "The provider bills the member the remaining 160.",
+              "showEn": "The provider bills the member the remaining 160.",
+              "whyAr": "The balance is whatever the policy leaves to the member. It arrives last, which is why it surprises people.",
+              "whyEn": "The balance is whatever the policy leaves to the member. It arrives last, which is why it surprises people."
+            }
+          ],
+          "answerAr": "The payer pays 640 and the member pays 160 — and the claim itself moved no money at all.",
+          "answerEn": "The payer pays 640 and the member pays 160 — and the claim itself moved no money at all."
+        }
+      },
+      {
+        "id": "b01_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "MI-01",
+        "payload": {
+          "situationAr": "A member phones the clinic, upset. They have received a bill for 160 after a visit they believed was \"covered\". The payer has already paid the clinic 640 for the same visit.",
+          "situationEn": "A member phones the clinic, upset. They have received a bill for 160 after a visit they believed was \"covered\". The payer has already paid the clinic 640 for the same visit.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Explain that 160 is the share the policy leaves to the member, and show how it was reached.",
+              "optionEn": "Explain that 160 is the share the policy leaves to the member, and show how it was reached.",
+              "consequenceAr": "The member may still be unhappy, but they now know the bill is correct and whose rule produced it. Naming the party is usually faster than arguing about the amount.",
+              "consequenceEn": "The member may still be unhappy, but they now know the bill is correct and whose rule produced it. Naming the party is usually faster than arguing about the amount.",
+              "isBest": true
+            },
+            {
+              "id": "d2",
+              "optionAr": "Waive the 160 so the member stops complaining.",
+              "optionEn": "Waive the 160 so the member stops complaining.",
+              "consequenceAr": "The clinic absorbs the loss. Done routinely, waiving the member's share can also breach the agreement with the payer — the problem has moved, not gone.",
+              "consequenceEn": "The clinic absorbs the loss. Done routinely, waiving the member's share can also breach the agreement with the payer — the problem has moved, not gone.",
+              "isBest": false
+            },
+            {
+              "id": "d3",
+              "optionAr": "Tell the member to take it up with the payer.",
+              "optionEn": "Tell the member to take it up with the payer.",
+              "consequenceAr": "The payer confirms the 160 is the member's share. The member returns to the clinic more frustrated, and nothing has been explained.",
+              "consequenceEn": "The payer confirms the 160 is the member's share. The member returns to the clinic more frustrated, and nothing has been explained.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b01_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "MI-01",
+        "payload": {
+          "itemRef": "MI-01-KC-01"
+        }
+      },
+      {
+        "id": "b01_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "MI-01",
+        "payload": {
+          "itemRef": "MI-01-KC-02"
         }
       }
     ]

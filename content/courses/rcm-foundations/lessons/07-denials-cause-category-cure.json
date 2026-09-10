@@ -2,10 +2,11 @@
   "slug": "denials-cause-category-cure",
   "titleAr": "Denials: cause, category, cure",
   "titleEn": "Denials: cause, category, cure",
-  "estMinutes": 40,
+  "estMinutes": 50,
   "bilingual": false,
   "levels": [
-    "L1"
+    "L1",
+    "L2"
   ],
   "objectives": [
     "MI-09",
@@ -185,6 +186,106 @@
             "Correct the claim to match the record — never the record to match the claim.",
             "Appealing what should have been corrected wastes the filing window and usually loses."
           ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b07_l2_head",
+        "type": "heading",
+        "objectiveId": "MI-10",
+        "payload": {
+          "textAr": "Classify, then act",
+          "textEn": "Classify, then act",
+          "level": 2
+        }
+      },
+      {
+        "id": "b07_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "MI-10",
+        "payload": {
+          "promptAr": "A claim comes back refused. The payer assessed it and says the service required permission that was never obtained.",
+          "promptEn": "A claim comes back refused. The payer assessed it and says the service required permission that was never obtained.",
+          "steps": [
+            {
+              "showAr": "Was it assessed? Yes — the payer read it and refused payment.",
+              "showEn": "Was it assessed? Yes — the payer read it and refused payment.",
+              "whyAr": "That makes it a denial, not a rejection. A rejection was never processed at all.",
+              "whyEn": "That makes it a denial, not a rejection. A rejection was never processed at all."
+            },
+            {
+              "showAr": "Classify the cause: authorisation.",
+              "showEn": "Classify the cause: authorisation.",
+              "whyAr": "The root cause, not the wording of the notice, decides the action.",
+              "whyEn": "The root cause, not the wording of the notice, decides the action."
+            },
+            {
+              "showAr": "Check whether permission existed at the time of service: it did not.",
+              "showEn": "Check whether permission existed at the time of service: it did not.",
+              "whyAr": "For an authorisation denial, an appeal only succeeds if the permission existed.",
+              "whyEn": "For an authorisation denial, an appeal only succeeds if the permission existed."
+            },
+            {
+              "showAr": "Decide: do not appeal. Absorb the loss or bill according to the policy.",
+              "showEn": "Decide: do not appeal. Absorb the loss or bill according to the policy.",
+              "whyAr": "An appeal without the permission loses, and it uses up the filing window on the way.",
+              "whyEn": "An appeal without the permission loses, and it uses up the filing window on the way."
+            }
+          ],
+          "answerAr": "No appeal. Classifying first is what stops a hopeless appeal from being filed.",
+          "answerEn": "No appeal. Classifying first is what stops a hopeless appeal from being filed."
+        }
+      },
+      {
+        "id": "b07_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "MI-09",
+        "payload": {
+          "situationAr": "A claim comes back within hours with a message that a required field was blank. It never reached assessment. A colleague has already started drafting an appeal.",
+          "situationEn": "A claim comes back within hours with a message that a required field was blank. It never reached assessment. A colleague has already started drafting an appeal.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Let the appeal go ahead — a refusal is a refusal.",
+              "optionEn": "Let the appeal go ahead — a refusal is a refusal.",
+              "consequenceAr": "There is no decision to appeal. The appeal is slow, consumes the filing window, and will lose an argument it never needed to enter.",
+              "consequenceEn": "There is no decision to appeal. The appeal is slow, consumes the filing window, and will lose an argument it never needed to enter.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "Stop the appeal, correct the blank field, and resubmit.",
+              "optionEn": "Stop the appeal, correct the blank field, and resubmit.",
+              "consequenceAr": "It is a rejection: corrected and resubmitted, it is treated as a new claim rather than a disputed one. Hours, not weeks.",
+              "consequenceEn": "It is a rejection: corrected and resubmitted, it is treated as a new claim rather than a disputed one. Hours, not weeks.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "Call the payer to dispute the refusal.",
+              "optionEn": "Call the payer to dispute the refusal.",
+              "consequenceAr": "The payer will confirm the claim was never processed. There is nothing to dispute until it is resubmitted.",
+              "consequenceEn": "The payer will confirm the claim was never processed. There is nothing to dispute until it is resubmitted.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b07_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "MI-09",
+        "payload": {
+          "itemRef": "MI-09-KC-01"
+        }
+      },
+      {
+        "id": "b07_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "MI-10",
+        "payload": {
+          "itemRef": "MI-10-KC-01"
         }
       }
     ]

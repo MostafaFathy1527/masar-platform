@@ -2,10 +2,11 @@
   "slug": "documentation-that-supports-the-claim",
   "titleAr": "Documentation that supports the claim",
   "titleEn": "Documentation that supports the claim",
-  "estMinutes": 40,
+  "estMinutes": 50,
   "bilingual": false,
   "levels": [
-    "L1"
+    "L1",
+    "L2"
   ],
   "objectives": [
     "MI-07",
@@ -180,6 +181,100 @@
             "A service can be real, correctly coded, and still unpayable if necessity is not documented.",
             "Upcoding and unbundling often pass automated checks, which is why they are integrity matters rather than errors."
           ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b05_l2_head",
+        "type": "heading",
+        "objectiveId": "MI-07",
+        "payload": {
+          "textAr": "Reading a record the way a reviewer does",
+          "textEn": "Reading a record the way a reviewer does",
+          "level": 2
+        }
+      },
+      {
+        "id": "b05_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "MI-07",
+        "payload": {
+          "promptAr": "A claim bills an extended assessment and one follow-up visit. The record reads: \"Extended assessment performed; findings recorded. Follow-up arranged for next month.\"",
+          "promptEn": "A claim bills an extended assessment and one follow-up visit. The record reads: \"Extended assessment performed; findings recorded. Follow-up arranged for next month.\"",
+          "steps": [
+            {
+              "showAr": "Line 1: the record says the extended assessment was performed and the findings were recorded.",
+              "showEn": "Line 1: the record says the extended assessment was performed and the findings were recorded.",
+              "whyAr": "It states both the service and its performance, so it would satisfy someone who did not perform it.",
+              "whyEn": "It states both the service and its performance, so it would satisfy someone who did not perform it."
+            },
+            {
+              "showAr": "Line 2: the record says the follow-up was arranged.",
+              "showEn": "Line 2: the record says the follow-up was arranged.",
+              "whyAr": "Arranging is an intention. It is not evidence that the visit happened.",
+              "whyEn": "Arranging is an intention. It is not evidence that the visit happened."
+            },
+            {
+              "showAr": "Decide: bill line 1 now; line 2 waits until the follow-up occurs and is documented.",
+              "showEn": "Decide: bill line 1 now; line 2 waits until the follow-up occurs and is documented.",
+              "whyAr": "The claim has to say only what the record says. The record decides what may be billed.",
+              "whyEn": "The claim has to say only what the record says. The record decides what may be billed."
+            }
+          ],
+          "answerAr": "One line is supported and one is not yet. Billing the follow-up now would bill a plan.",
+          "answerEn": "One line is supported and one is not yet. Billing the follow-up now would bill a plan."
+        }
+      },
+      {
+        "id": "b05_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "MI-13",
+        "payload": {
+          "situationAr": "Reviewing a month of claims, you notice that one clinician's visits are billed at the highest assessment level far more often than colleagues' visits, and the notes behind them are brief and very similar to one another.",
+          "situationEn": "Reviewing a month of claims, you notice that one clinician's visits are billed at the highest assessment level far more often than colleagues' visits, and the notes behind them are brief and very similar to one another.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Quietly downgrade those claims yourself before they go out.",
+              "optionEn": "Quietly downgrade those claims yourself before they go out.",
+              "consequenceAr": "You have changed claims without the record changing — the same move you noticed, in the other direction. The pattern itself is never examined, so it continues.",
+              "consequenceEn": "You have changed claims without the record changing — the same move you noticed, in the other direction. The pattern itself is never examined, so it continues.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "Treat it as a pattern: raise it through the compliance route, citing the claims and what their records show.",
+              "optionEn": "Treat it as a pattern: raise it through the compliance route, citing the claims and what their records show.",
+              "consequenceAr": "A single mismatch is an error to correct; a repeated one is a pattern someone is answerable for. Pointing at the records keeps it about evidence rather than about the clinician.",
+              "consequenceEn": "A single mismatch is an error to correct; a repeated one is a pattern someone is answerable for. Pointing at the records keeps it about evidence rather than about the clinician.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "Assume the clinician sees more complex patients and move on.",
+              "optionEn": "Assume the clinician sees more complex patients and move on.",
+              "consequenceAr": "Perhaps they do — but if the record does not show the complexity, the level is not supported. Assuming the best of a pattern is how upcoding persists.",
+              "consequenceEn": "Perhaps they do — but if the record does not show the complexity, the level is not supported. Assuming the best of a pattern is how upcoding persists.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b05_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "MI-07",
+        "payload": {
+          "itemRef": "MI-07-KC-01"
+        }
+      },
+      {
+        "id": "b05_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "MI-13",
+        "payload": {
+          "itemRef": "MI-13-KC-01"
         }
       }
     ]

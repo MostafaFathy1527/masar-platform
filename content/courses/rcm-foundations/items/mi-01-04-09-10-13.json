@@ -1107,6 +1107,293 @@
           "feedbackEn": "Acceptance is not the test. A claim can be paid and still be unsupported."
         }
       ]
+    },
+    {
+      "key": "MI-01-KC-01",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "Which party carries the financial risk and sets the rules a claim is judged against?",
+      "stemEn": "Which party carries the financial risk and sets the rules a claim is judged against?",
+      "rationaleAr": "The payer carries the risk and sets the rules. A TPA may process claims for a payer, but the decision still traces back to the payer's rules.",
+      "rationaleEn": "The payer carries the risk and sets the rules. A TPA may process claims for a payer, but the decision still traces back to the payer's rules.",
+      "options": [
+        {
+          "textAr": "The payer",
+          "textEn": "The payer",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The payer holds the money and decides what is owed.",
+          "feedbackEn": "Correct. The payer holds the money and decides what is owed."
+        },
+        {
+          "textAr": "The third-party administrator",
+          "textEn": "The third-party administrator",
+          "isCorrect": false,
+          "feedbackAr": "A TPA processes claims without carrying the risk; its decisions trace back to the payer's rules.",
+          "feedbackEn": "A TPA processes claims without carrying the risk; its decisions trace back to the payer's rules."
+        },
+        {
+          "textAr": "The provider",
+          "textEn": "The provider",
+          "isCorrect": false,
+          "feedbackAr": "The provider delivers the service and asks to be paid; it does not set the payer's rules.",
+          "feedbackEn": "The provider delivers the service and asks to be paid; it does not set the payer's rules."
+        },
+        {
+          "textAr": "The member",
+          "textEn": "The member",
+          "isCorrect": false,
+          "feedbackAr": "The member holds the coverage but does not decide what a claim is worth.",
+          "feedbackEn": "The member holds the coverage but does not decide what a claim is worth."
+        }
+      ]
+    },
+    {
+      "key": "MI-01-KC-02",
+      "objectiveId": "MI-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A child is treated under a parent's employer-provided policy. Who is the member?",
+      "stemEn": "A child is treated under a parent's employer-provided policy. Who is the member?",
+      "rationaleAr": "The member is the person covered by the policy. A child treated under a parent's policy is a dependent on that member's coverage.",
+      "rationaleEn": "The member is the person covered by the policy. A child treated under a parent's policy is a dependent on that member's coverage.",
+      "options": [
+        {
+          "textAr": "The parent, because the coverage is held in their name",
+          "textEn": "The parent, because the coverage is held in their name",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The child is a dependent on the parent's coverage.",
+          "feedbackEn": "Correct. The child is a dependent on the parent's coverage."
+        },
+        {
+          "textAr": "The child, because they received the care",
+          "textEn": "The child, because they received the care",
+          "isCorrect": false,
+          "feedbackAr": "The patient and the member are not always the same person — that gap is the point of the lesson.",
+          "feedbackEn": "The patient and the member are not always the same person — that gap is the point of the lesson."
+        },
+        {
+          "textAr": "The employer, because it pays the premium",
+          "textEn": "The employer, because it pays the premium",
+          "isCorrect": false,
+          "feedbackAr": "Paying the premium does not make the employer the covered person.",
+          "feedbackEn": "Paying the premium does not make the employer the covered person."
+        },
+        {
+          "textAr": "The provider, because it submits the claim",
+          "textEn": "The provider, because it submits the claim",
+          "isCorrect": false,
+          "feedbackAr": "The provider asks to be paid; it is not covered by the policy.",
+          "feedbackEn": "The provider asks to be paid; it is not covered by the policy."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-KC-01",
+      "objectiveId": "MI-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "Coverage is active on the service date. What does that tell you about pre-authorisation?",
+      "stemEn": "Coverage is active on the service date. What does that tell you about pre-authorisation?",
+      "rationaleAr": "Nothing. Eligibility asks whether coverage is active; pre-authorisation asks whether this payer requires permission for this service. Confusing the two is the most common error here.",
+      "rationaleEn": "Nothing. Eligibility asks whether coverage is active; pre-authorisation asks whether this payer requires permission for this service. Confusing the two is the most common error here.",
+      "options": [
+        {
+          "textAr": "Nothing — it is a separate question",
+          "textEn": "Nothing — it is a separate question",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Active coverage is not permission.",
+          "feedbackEn": "Correct. Active coverage is not permission."
+        },
+        {
+          "textAr": "That none is required",
+          "textEn": "That none is required",
+          "isCorrect": false,
+          "feedbackAr": "A payer can require permission even when coverage is active.",
+          "feedbackEn": "A payer can require permission even when coverage is active."
+        },
+        {
+          "textAr": "That it was granted automatically",
+          "textEn": "That it was granted automatically",
+          "isCorrect": false,
+          "feedbackAr": "Permission is obtained for a specific service; an active policy does not grant it.",
+          "feedbackEn": "Permission is obtained for a specific service; an active policy does not grant it."
+        },
+        {
+          "textAr": "That it can be obtained after the service if needed",
+          "textEn": "That it can be obtained after the service if needed",
+          "isCorrect": false,
+          "feedbackAr": "Pre-authorisation usually cannot be obtained retroactively.",
+          "feedbackEn": "Pre-authorisation usually cannot be obtained retroactively."
+        }
+      ]
+    },
+    {
+      "key": "MI-04-KC-02",
+      "objectiveId": "MI-04",
+      "type": "MULTI_SELECT",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "Which of these are honest outcomes of an eligibility check? Select all that apply.",
+      "stemEn": "Which of these are honest outcomes of an eligibility check? Select all that apply.",
+      "rationaleAr": "The three honest outcomes are to proceed, to pre-authorise first, or to convert to self-pay. Anything else defers the question to a point where it costs more.",
+      "rationaleEn": "The three honest outcomes are to proceed, to pre-authorise first, or to convert to self-pay. Anything else defers the question to a point where it costs more.",
+      "options": [
+        {
+          "textAr": "Proceed",
+          "textEn": "Proceed",
+          "isCorrect": true,
+          "feedbackAr": "Correct — when coverage is active and no permission is required.",
+          "feedbackEn": "Correct — when coverage is active and no permission is required."
+        },
+        {
+          "textAr": "Pre-authorise first",
+          "textEn": "Pre-authorise first",
+          "isCorrect": true,
+          "feedbackAr": "Correct — when coverage is active and this service needs permission.",
+          "feedbackEn": "Correct — when coverage is active and this service needs permission."
+        },
+        {
+          "textAr": "Convert to self-pay",
+          "textEn": "Convert to self-pay",
+          "isCorrect": true,
+          "feedbackAr": "Correct — when there is no active coverage for this service.",
+          "feedbackEn": "Correct — when there is no active coverage for this service."
+        },
+        {
+          "textAr": "Bill the payer now and appeal if it is refused",
+          "textEn": "Bill the payer now and appeal if it is refused",
+          "isCorrect": false,
+          "feedbackAr": "This defers the question until it is expensive, and an appeal does not create coverage.",
+          "feedbackEn": "This defers the question until it is expensive, and an appeal does not create coverage."
+        }
+      ]
+    },
+    {
+      "key": "MI-13-KC-01",
+      "objectiveId": "MI-13",
+      "type": "MCQ_SINGLE",
+      "bloom": "ANALYZE",
+      "formative": true,
+      "stemAr": "A proposed correction would increase payment on a claim, and the record has not changed. What is the right response?",
+      "stemEn": "A proposed correction would increase payment on a claim, and the record has not changed. What is the right response?",
+      "rationaleAr": "If a correction increases payment and the record did not change, stop and ask why. The record decides what may be billed; an edit that passes an automated check is not thereby supported.",
+      "rationaleEn": "If a correction increases payment and the record did not change, stop and ask why. The record decides what may be billed; an edit that passes an automated check is not thereby supported.",
+      "options": [
+        {
+          "textAr": "Stop, ask why, and point to what the record actually says",
+          "textEn": "Stop, ask why, and point to what the record actually says",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The defence is the same whatever the pressure: the record.",
+          "feedbackEn": "Correct. The defence is the same whatever the pressure: the record."
+        },
+        {
+          "textAr": "Submit it — the automated edit passed",
+          "textEn": "Submit it — the automated edit passed",
+          "isCorrect": false,
+          "feedbackAr": "Upcoding and unbundling often pass automated checks, which is exactly why a person is answerable for them.",
+          "feedbackEn": "Upcoding and unbundling often pass automated checks, which is exactly why a person is answerable for them."
+        },
+        {
+          "textAr": "Submit it and flag it for review later",
+          "textEn": "Submit it and flag it for review later",
+          "isCorrect": false,
+          "feedbackAr": "Once submitted, an unsupported claim is already a problem. The question belongs before submission.",
+          "feedbackEn": "Once submitted, an unsupported claim is already a problem. The question belongs before submission."
+        },
+        {
+          "textAr": "Update the record so it matches the corrected claim",
+          "textEn": "Update the record so it matches the corrected claim",
+          "isCorrect": false,
+          "feedbackAr": "That reverses the rule: the claim follows the record, never the record the claim.",
+          "feedbackEn": "That reverses the rule: the claim follows the record, never the record the claim."
+        }
+      ]
+    },
+    {
+      "key": "MI-09-KC-01",
+      "objectiveId": "MI-09",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A claim was processed, and payment was refused because the record does not support the level billed. What is this?",
+      "stemEn": "A claim was processed, and payment was refused because the record does not support the level billed. What is this?",
+      "rationaleAr": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed.",
+      "rationaleEn": "The payer assessed the claim and refused it, so it is a denial. A rejection is a claim that was never processed.",
+      "options": [
+        {
+          "textAr": "A denial",
+          "textEn": "A denial",
+          "isCorrect": true,
+          "feedbackAr": "Correct. It was assessed and refused.",
+          "feedbackEn": "Correct. It was assessed and refused."
+        },
+        {
+          "textAr": "A rejection",
+          "textEn": "A rejection",
+          "isCorrect": false,
+          "feedbackAr": "A rejection is never assessed. This claim was read and a decision was made.",
+          "feedbackEn": "A rejection is never assessed. This claim was read and a decision was made."
+        },
+        {
+          "textAr": "A formatting failure",
+          "textEn": "A formatting failure",
+          "isCorrect": false,
+          "feedbackAr": "Format failures stop a claim before assessment; this one was assessed.",
+          "feedbackEn": "Format failures stop a claim before assessment; this one was assessed."
+        },
+        {
+          "textAr": "A duplicate submission",
+          "textEn": "A duplicate submission",
+          "isCorrect": false,
+          "feedbackAr": "Nothing here suggests the claim was sent twice. The refusal is about the record.",
+          "feedbackEn": "Nothing here suggests the claim was sent twice. The refusal is about the record."
+        }
+      ]
+    },
+    {
+      "key": "MI-10-KC-01",
+      "objectiveId": "MI-10",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A denial's cause is documentation: the record does not support what was billed. What is the correct action?",
+      "stemEn": "A denial's cause is documentation: the record does not support what was billed. What is the correct action?",
+      "rationaleAr": "Correct the claim to match the record — never the reverse. An appeal cannot succeed on a claim the record does not support.",
+      "rationaleEn": "Correct the claim to match the record — never the reverse. An appeal cannot succeed on a claim the record does not support.",
+      "options": [
+        {
+          "textAr": "Correct the claim to match the record",
+          "textEn": "Correct the claim to match the record",
+          "isCorrect": true,
+          "feedbackAr": "Correct. The record decides what may be billed.",
+          "feedbackEn": "Correct. The record decides what may be billed."
+        },
+        {
+          "textAr": "Correct the record to match the claim",
+          "textEn": "Correct the record to match the claim",
+          "isCorrect": false,
+          "feedbackAr": "That reverses the rule, and it turns a documentation error into an integrity problem.",
+          "feedbackEn": "That reverses the rule, and it turns a documentation error into an integrity problem."
+        },
+        {
+          "textAr": "Appeal with a stronger explanation",
+          "textEn": "Appeal with a stronger explanation",
+          "isCorrect": false,
+          "feedbackAr": "An explanation does not add evidence the record lacks.",
+          "feedbackEn": "An explanation does not add evidence the record lacks."
+        },
+        {
+          "textAr": "Resubmit the claim unchanged",
+          "textEn": "Resubmit the claim unchanged",
+          "isCorrect": false,
+          "feedbackAr": "Nothing has changed, so the same decision follows.",
+          "feedbackEn": "Nothing has changed, so the same decision follows."
+        }
+      ]
     }
   ]
 }
