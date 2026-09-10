@@ -111,8 +111,8 @@
                 "textEn": "Required permission was not obtained"
               },
               {
-                "textAr": "Appeal only if permission existed; otherwise absorb or bill per policy",
-                "textEn": "Appeal only if permission existed; otherwise absorb or bill per policy"
+                "textAr": "Appeal only if permission existed; otherwise treat it as a provider loss, unless your agreement with the payer says otherwise",
+                "textEn": "Appeal only if permission existed; otherwise treat it as a provider loss, unless your agreement with the payer says otherwise"
               }
             ],
             [
@@ -227,14 +227,14 @@
               "whyEn": "For an authorisation denial, an appeal only succeeds if the permission existed."
             },
             {
-              "showAr": "Decide: do not appeal. Absorb the loss or bill according to the policy.",
-              "showEn": "Decide: do not appeal. Absorb the loss or bill according to the policy.",
-              "whyAr": "An appeal without the permission loses, and it uses up the filing window on the way.",
-              "whyEn": "An appeal without the permission loses, and it uses up the filing window on the way."
+              "showAr": "Decide: do not appeal, and treat it as a provider loss — unless your agreement with the payer says otherwise.",
+              "showEn": "Decide: do not appeal, and treat it as a provider loss — unless your agreement with the payer says otherwise.",
+              "whyAr": "An appeal only succeeds if the permission existed, and it did not. Obtaining it was the provider's step, so the default is to absorb the loss rather than move it to the member. The one thing that can change that is the agreement with the payer, so check it rather than assume.",
+              "whyEn": "An appeal only succeeds if the permission existed, and it did not. Obtaining it was the provider's step, so the default is to absorb the loss rather than move it to the member. The one thing that can change that is the agreement with the payer, so check it rather than assume."
             }
           ],
-          "answerAr": "No appeal. Classifying first is what stops a hopeless appeal from being filed.",
-          "answerEn": "No appeal. Classifying first is what stops a hopeless appeal from being filed."
+          "answerAr": "No appeal, and a provider loss unless the payer agreement says otherwise. Classifying first is what stops a hopeless appeal from being filed.",
+          "answerEn": "No appeal, and a provider loss unless the payer agreement says otherwise. Classifying first is what stops a hopeless appeal from being filed."
         }
       },
       {
