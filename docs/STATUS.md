@@ -297,7 +297,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **twelve** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **thirteen** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
@@ -317,7 +317,7 @@ Arabic prose the one surface where a stale number could sit indefinitely. The me
 since earned itself twice: the pages moved to ten and then to eleven with no edit.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — three of the twelve are hardcoded facts that silently stopped
+were true when written** — four of the thirteen are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
@@ -412,6 +412,58 @@ tracking, no completion state, no block-viewed marking.
 content files: all five lessons render in both locales with 5432 in its blocked state, and
 390px RTL reports `scrollWidth` exactly 390 with no overflow and no letter-spaced Arabic.
 
+## A design critique, and what it led to
+
+An independent session reviewed the five lessons and the item bank. It is **a design
+critique** — not a subject-matter review and not the blind inter-rater check — and anything
+from it that reaches the case study is labelled that way. Every measurable claim in it was
+reproduced from the content files before being acted on.
+
+**The flagship lesson was demonstrating placeholders.** Lesson 04 — the one `/course`, the
+case study and `/how-it-was-built` all point at as proof the depth model works — rendered
+"This check renders once the item bank ships (Week 4)" twice at L2 and "The simulation ships
+in Week 3" at L3, long after both shipped. No lesson had a working knowledge check. Knowledge
+checks now render from the bank and are answerable; the L3 block links to the live simulation.
+Recorded as `docs/design/what-failed.md` entry 13, the most serious in the record, and the
+fourth instance of the stale-facts sub-pattern.
+
+**Four lessons had no practice on a practice-first platform.** Lessons 01, 03, 05 and 07 now
+declare L1 and L2. The plan was two knowledge checks each; `validate.py` defines a complete L2
+as a worked example, two checks, and a scenario or sort exercise, so each got the full
+definition rather than a relaxed gate. Eight formative items, one worked example and one
+scenario per lesson, all passing `validate.py` and `concept_log.py`. The four lessons are
+English-only, so their L2 content follows that declaration.
+
+**The new items were not judged, deliberately.** `qa_gate.py` was not run on them: the judge
+must not be the author, and the only other available session wrote the critique that asked
+for them and has read every lesson they attach to. **The run log stays at n = 1.** An honest
+n = 1 is worth more than a manufactured n = 4.
+
+**MI-13 is now taught in proportion to how it is assessed.** Lesson 05 gains a table
+distinguishing a single error from a pattern, with the record-based response for each, aligned
+to the statement the owner approved. With the new L2 scenario and check, MI-13 has six blocks
+behind its five items where it had three.
+
+**The scenario bar is withdrawn for v1.0.** The 33% "scenario-led" figure was computed from a
+hand-set `isScenario` boolean; no stem in the bank reaches the defined 60-word minimum. The
+flag and every reader of it are deleted, including the "Scenario" badge that asserted the
+property to learners. The Prisma column is dropped by migration
+`20260910071908_drop_item_is_scenario`, generated offline because 5432 was unreachable.
+**Production still has the column until `npm run db:deploy` is run** — harmless, since the
+client no longer reads it and inserts take the column default, but it is an unapplied
+migration and should not be forgotten.
+
+**The bank, as it verifiably is:** 50 items, 40 scored and 10 formative; two types; every one
+of 196 options with feedback in both languages; Bloom over scored items 20/40/40; every
+objective at exactly five scored items. Figures are over scored items deliberately — an
+earlier count put two objectives at six, and both sixes were knowledge checks.
+
+**Two things this surfaced that were already false.** The Prisma schema had claimed for weeks
+that the wider item types "are in `LATER.md`" — they were not, and now are. And the commit
+that fixed the placeholders said nothing checked `itemRef`; `tests/content-items.test.ts`
+already checked that references *exist*, and what was missing was that they are *formative*.
+Entry 13 says so.
+
 ## A note for whoever opens this next
 
 "Environment variables on Vercel" sat in the blocked list below for weeks, claiming
@@ -474,6 +526,7 @@ thing it describes.
 | 2026-09-09 | **Evidence panel is one `<details>`, `open` by default** | CSS cannot reveal a closed `<details>`, so the desktop panel rendered empty. Open + hidden summary is the panel; on a phone the same element is the bottom sheet. |
 | 2026-09-09 | **Options are shuffled per attempt** | Authored banks put the correct answer first; without shuffling, "always answer A" scored 89% on the exam. |
 | 2026-09-09 | **Two item types, not six** | A scenario item is an MCQ_SINGLE with a vignette, flagged by `isScenario`: the difference is in the stem, not in how it is answered or scored. |
+| 2026-09-10 | **Scenario bar withdrawn; `isScenario` deleted** | Supersedes the row above. The flag was hand-set on a third of the bank and reported as a scenario-led share while the longest flagged stem was under half the defined minimum. Withdrawn rather than redefined, because renaming a flag does not change what it measures. See `BUILD.md` §4.4. |
 | 2026-09-09 | **Admin routes return 404, not 403** | An admin route should not confirm its own existence to someone who may not access it. |
 | 2026-09-09 | **No middleware authorization** | The proxy is edge-run and the auth config imports Prisma. A cookie-presence check would look like authorization without being it. Recorded as a gap rather than faked. |
 | 2026-09-09 | **Authorization reads the row, not the token** | A JWT outlives the account it describes: a deleted user's cookie returned 200 from the export endpoint. |
