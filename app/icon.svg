@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Masār">
+  <!--
+    Masār (مسار) means "path". The mark is a three-step rising path:
+    the word itself, and the product's three depth levels (L1 / L2 / L3),
+    in one shape. No letterform, because Arabic and Latin initials both
+    turn to mush at 16px and neither would carry the bilingual product.
+    Palette is the site's: near-black ground #14110D, amber #F4A93C.
+  -->
+  <rect width="64" height="64" fill="#14110D"/>
+  <path d="M14 45h13V32h13V19h15"
+        fill="none" stroke="#F4A93C" stroke-width="9"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>
