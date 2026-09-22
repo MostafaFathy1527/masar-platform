@@ -1325,6 +1325,76 @@ h3,
     color: var(--color-muted);
     max-inline-size: 52ch;
   }
+
+  /*
+    Community partner strip. It sits above the footer columns rather than in the
+    page body: the obligation is that the link exists on every page, and a
+    partner badge dropped into the middle of a lesson would read as an ad.
+
+    The partner's own brand colour is deliberately not used. A second palette
+    inside a product that has exactly one accent reads as a pasted banner, so
+    the mark is flattened to the local ink and the strip is built from the same
+    surface, line and mono-eyebrow tokens as everything around it.
+  */
+  .partner-strip {
+    border-block-end: 1px solid var(--color-line);
+    padding-block-end: clamp(24px, 3vw, 32px);
+    margin-block-end: clamp(28px, 4vw, 44px);
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 28px);
+    flex-wrap: wrap;
+  }
+  .partner-strip img {
+    inline-size: 96px;
+    block-size: auto;
+    flex: none;
+    /* Flattened to the page ink so one accent governs the whole product. */
+    filter: brightness(0);
+    opacity: 0.8;
+  }
+  .partner-strip .partner-copy {
+    flex: 1 1 26ch;
+    min-inline-size: 0;
+  }
+  /*
+    Only the two properties that differ from .eyebrow. Restating the rest would
+    match the RTL override's specificity and, being later in the file, would win
+    it — putting Latin letter-spacing back on the Arabic label and breaking the
+    rule that Arabic is never tracked.
+  */
+  .partner-strip .eyebrow {
+    color: var(--color-muted);
+    margin-block-end: 0.35rem;
+  }
+  .partner-strip p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+  }
+  .partner-strip a.partner-link {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+    text-decoration: none;
+    border-block-end: 1px solid var(--color-accent);
+    padding-block-end: 3px;
+  }
+  .partner-strip a.partner-link:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink-2);
+    text-decoration: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .partner-strip img {
+      filter: brightness(0) invert(1);
+      opacity: 0.88;
+    }
+  }
 }
 
 /* ------------------------------------------------------------ course index */
