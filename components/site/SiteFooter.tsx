@@ -19,12 +19,45 @@ const SYNTHETIC = {
   en: 'Every code, payer, clinic and patient in this demo is fictional and authored for training.',
 } as const
 
+// Masār is a community partner of Techne Summit 2026. The partnership asks for a
+// link back on the partner's site; putting it in the footer rather than in a page
+// body means it is present everywhere without interrupting a lesson.
+const PARTNER = {
+  ar: {
+    eyebrow: 'شريك مجتمعي',
+    body: 'مسار شريك مجتمعي في قمة تكني 2026، في الإسكندرية والقاهرة.',
+    link: 'موقع القمة',
+    alt: 'شعار قمة تكني',
+  },
+  en: {
+    eyebrow: 'Community partner',
+    body: 'Masār is a community partner of Techne Summit 2026, in Alexandria and Cairo.',
+    link: 'Summit website',
+    alt: 'Techne Summit logo',
+  },
+} as const
+
 export function SiteFooter({ locale }: { locale: AppLocale }) {
   const ar = locale === 'ar'
   const l = locale
 
   return (
     <footer className="site-footer">
+      <div className="shell">
+        <div className="partner-strip">
+          {/* eslint-disable-next-line @next/next/no-img-element -- a fixed-size
+              local mark; next/image would add a runtime for no benefit here. */}
+          <img src="/partners/techne-summit.webp" alt={PARTNER[l].alt} width={500} height={140} />
+          <div className="partner-copy">
+            <span className="eyebrow">{PARTNER[l].eyebrow}</span>
+            <p>{PARTNER[l].body}</p>
+          </div>
+          <a className="partner-link" href="https://technesummit.com" rel="noreferrer">
+            {PARTNER[l].link}
+          </a>
+        </div>
+      </div>
+
       <div className="shell site-footer-grid">
         <div>
           <h2>{ar ? 'مسار' : 'Masār'}</h2>

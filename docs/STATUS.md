@@ -13,6 +13,12 @@ Both stopped being true and nothing forced the sentence to follow. That is the s
 sub-pattern this file documents further down, in the file whose whole job is to tell the
 next session what is true.
 
+**Added 2026-09-22 — Techne Summit community-partner strip.** Masār is entering Techne
+Summit 2026 as a community partner in its own name, and the partnership asks for a link
+back on the partner's site. The strip lives in `SiteFooter`, above the footer columns, so
+the link is on every page without a partner badge landing inside a lesson. The application
+form was submitted by the owner; if Techne does not confirm, this strip comes out.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
@@ -602,3 +608,5 @@ thing it describes.
 | 2026-09-09 | **The judge must be a separate session** | An agent that wrote the generation prompt cannot judge the output; the score would look like evidence and be self-assessment. |
 | 2026-09-09 | **Vercel on the work-email account** | Deliberate, recorded exception to Day-0 #1; that account owns the apex domain. |
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
+| 2026-09-22 | **Partner mark is flattened to the local ink, not shown in Techne's own colours** | A second brand palette inside a product with exactly one accent reads as a pasted banner. `brightness(0)` in light, `brightness(0) invert(1)` in dark. |
+| 2026-09-22 | **`.partner-strip .eyebrow` overrides only colour and margin** | Restating the full `.eyebrow` rule matched the `[dir="rtl"] .eyebrow` specificity and, being later in the file, beat it — putting Latin letter-spacing back on the Arabic label. Caught at 375px before commit; Arabic is never tracked. |
