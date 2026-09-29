@@ -10,7 +10,12 @@ node_modules/
 
 # build output
 .next/
-out/
+# Anchored: a bare `out/` matches any directory of that name at any depth, which
+# silently swallowed pipeline/out — the pipeline's own deliverables, cited as
+# evidence in docs/STATUS.md and counted by the how-it-was-built page. They never
+# reached a deploy, so the live page reported 0 generated drafts while describing
+# one in the same paragraph.
+/out/
 dist/
 build/
 *.tsbuildinfo
