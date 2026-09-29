@@ -1,0 +1,183 @@
+{
+  "slug": "plans-benefits-and-member-liability",
+  "titleAr": "Plans, benefits and member liability",
+  "titleEn": "Plans, benefits and member liability",
+  "estMinutes": 35,
+  "bilingual": false,
+  "levels": ["L1"],
+  "objectives": ["MI-02", "MI-03"],
+  "conceptsIntroduced": [
+    "copay",
+    "deductible",
+    "coinsurance",
+    "out_of_pocket_maximum",
+    "benefit_schedule"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b2_h_intro",
+        "type": "heading",
+        "objectiveId": "MI-02",
+        "payload": {
+          "textAr": "Four mechanisms, not one \"patient share\"",
+          "textEn": "Four mechanisms, not one \"patient share\"",
+          "level": 2
+        }
+      },
+      {
+        "id": "b2_p_intro",
+        "type": "rich_text",
+        "objectiveId": "MI-02",
+        "payload": {
+          "mdAr": "Insurance rarely pays everything. What the member owes is decided by a small set of mechanisms that behave differently from one another, and most confusion at a front desk comes from treating them as one thing called \"the patient's share\".\n\nThe order matters and is worth memorising: deductible first, then coinsurance, and both are bounded by the out-of-pocket maximum. A copay may sit outside that sequence altogether depending on the plan.",
+          "mdEn": "Insurance rarely pays everything. What the member owes is decided by a small set of mechanisms that behave differently from one another, and most confusion at a front desk comes from treating them as one thing called \"the patient's share\".\n\nThe order matters and is worth memorising: deductible first, then coinsurance, and both are bounded by the out-of-pocket maximum. A copay may sit outside that sequence altogether depending on the plan."
+        }
+      },
+      {
+        "id": "b2_d_copay",
+        "type": "definition_card",
+        "objectiveId": "MI-02",
+        "payload": {
+          "termAr": "Copay",
+          "termEn": "Copay",
+          "defAr": "A fixed amount for a defined service. Known in advance and unchanged by the cost of the encounter, which is why it is the easiest to explain and to collect.",
+          "defEn": "A fixed amount for a defined service. Known in advance and unchanged by the cost of the encounter, which is why it is the easiest to explain and to collect.",
+          "icon": "●"
+        }
+      },
+      {
+        "id": "b2_d_deductible",
+        "type": "definition_card",
+        "objectiveId": "MI-02",
+        "payload": {
+          "termAr": "Deductible",
+          "termEn": "Deductible",
+          "defAr": "An amount the member pays before the policy shares cost at all, accumulating across the policy year.",
+          "defEn": "An amount the member pays before the policy shares cost at all, accumulating across the policy year.",
+          "icon": "◐",
+          "exampleAr": "A member early in the year may be told a service is covered and still owe the full amount: covered and payable are not the same thing.",
+          "exampleEn": "A member early in the year may be told a service is covered and still owe the full amount: covered and payable are not the same thing."
+        }
+      },
+      {
+        "id": "b2_d_coinsurance",
+        "type": "definition_card",
+        "objectiveId": "MI-02",
+        "payload": {
+          "termAr": "Coinsurance",
+          "termEn": "Coinsurance",
+          "defAr": "A percentage of the allowed amount, applied after the deductible is met. Because it is a percentage, the figure cannot be known until the payer has priced the service.",
+          "defEn": "A percentage of the allowed amount, applied after the deductible is met. Because it is a percentage, the figure cannot be known until the payer has priced the service.",
+          "icon": "%"
+        }
+      },
+      {
+        "id": "b2_d_oop",
+        "type": "definition_card",
+        "objectiveId": "MI-02",
+        "payload": {
+          "termAr": "Out-of-pocket maximum",
+          "termEn": "Out-of-pocket maximum",
+          "defAr": "A ceiling on the member's own spending. Once reached, the policy pays the remainder for the rest of the year. Premiums do not count toward it.",
+          "defEn": "A ceiling on the member's own spending. Once reached, the policy pays the remainder for the rest of the year. Premiums do not count toward it.",
+          "icon": "↑"
+        }
+      },
+      {
+        "id": "b2_p_worked",
+        "type": "rich_text",
+        "objectiveId": "MI-02",
+        "payload": {
+          "mdAr": "Training figures only. An encounter is allowed at 4,800. The member has 1,000 of deductible remaining and 20% coinsurance.\n\nThey pay the 1,000, then 20% of the remaining 3,800, which is 760. Their liability is 1,760 and the payer pays 3,040 — unless that 1,760 would carry them past their out-of-pocket maximum, in which case the ceiling applies and the payer pays more.",
+          "mdEn": "Training figures only. An encounter is allowed at 4,800. The member has 1,000 of deductible remaining and 20% coinsurance.\n\nThey pay the 1,000, then 20% of the remaining 3,800, which is 760. Their liability is 1,760 and the payer pays 3,040 — unless that 1,760 would carry them past their out-of-pocket maximum, in which case the ceiling applies and the payer pays more."
+        }
+      },
+      {
+        "id": "b2_d_schedule",
+        "type": "definition_card",
+        "objectiveId": "MI-03",
+        "payload": {
+          "termAr": "Benefit schedule",
+          "termEn": "Benefit schedule",
+          "defAr": "The document assigning each category of service to one of four states. The practical skill is deciding which state applies before the service rather than after.",
+          "defEn": "The document assigning each category of service to one of four states. The practical skill is deciding which state applies before the service rather than after.",
+          "icon": "☷"
+        }
+      },
+      {
+        "id": "b2_t_states",
+        "type": "compare_table",
+        "objectiveId": "MI-03",
+        "payload": {
+          "captionAr": "The four states a benefit schedule assigns",
+          "captionEn": "The four states a benefit schedule assigns",
+          "columns": [
+            { "labelAr": "State", "labelEn": "State" },
+            { "labelAr": "What it means", "labelEn": "What it means" },
+            { "labelAr": "What to do before the service", "labelEn": "What to do before the service" }
+          ],
+          "rows": [
+            [
+              { "textAr": "Covered", "textEn": "Covered" },
+              { "textAr": "The policy pays, subject to the usual cost sharing.", "textEn": "The policy pays, subject to the usual cost sharing." },
+              { "textAr": "State the member's share, never the word \"covered\" alone.", "textEn": "State the member's share, never the word \"covered\" alone." }
+            ],
+            [
+              { "textAr": "Excluded", "textEn": "Excluded" },
+              { "textAr": "The policy does not pay at all, and correct paperwork does not change that.", "textEn": "The policy does not pay at all, and correct paperwork does not change that." },
+              { "textAr": "Have the self-pay conversation before delivery, not an appeal afterwards.", "textEn": "Have the self-pay conversation before delivery, not an appeal afterwards." }
+            ],
+            [
+              { "textAr": "Limited", "textEn": "Limited" },
+              { "textAr": "Covered up to a stated cap: visits, money, or a period.", "textEn": "Covered up to a stated cap: visits, money, or a period." },
+              { "textAr": "Check accumulated use. The card looks identical whether or not the limit is spent.", "textEn": "Check accumulated use. The card looks identical whether or not the limit is spent." }
+            ],
+            [
+              { "textAr": "Permission required", "textEn": "Permission required" },
+              { "textAr": "The policy will pay, but only if permission was obtained first.", "textEn": "The policy will pay, but only if permission was obtained first." },
+              { "textAr": "Obtain it before delivering the service.", "textEn": "Obtain it before delivering the service." }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b2_tip_limited",
+        "type": "job_tip",
+        "objectiveId": "MI-03",
+        "payload": {
+          "mdAr": "The most expensive misreading is treating \"limited\" as \"covered\". The service is genuinely in the schedule, the member is genuinely eligible, and the claim is still refused because the limit was already reached. Nothing on the card or in an eligibility response shows this — it requires checking accumulated use.",
+          "mdEn": "The most expensive misreading is treating \"limited\" as \"covered\". The service is genuinely in the schedule, the member is genuinely eligible, and the claim is still refused because the limit was already reached. Nothing on the card or in an eligibility response shows this — it requires checking accumulated use."
+        }
+      },
+      {
+        "id": "b2_tip_language",
+        "type": "job_tip",
+        "objectiveId": "MI-02",
+        "payload": {
+          "mdAr": "\"Covered\" is the word members hear as \"free\". Never use it alone. \"Covered, and your share will be X\" is a different sentence, and it prevents most of the arguments that follow a bill.",
+          "mdEn": "\"Covered\" is the word members hear as \"free\". Never use it alone. \"Covered, and your share will be X\" is a different sentence, and it prevents most of the arguments that follow a bill."
+        }
+      },
+      {
+        "id": "b2_take",
+        "type": "takeaways",
+        "objectiveId": "MI-02",
+        "payload": {
+          "itemsAr": [
+            "Deductible first, then coinsurance, both bounded by the out-of-pocket maximum.",
+            "Covered and payable are not the same thing: a covered service can still be owed in full.",
+            "Coinsurance is a percentage, so the figure cannot be quoted before the payer prices the service.",
+            "Treating \"limited\" as \"covered\" is the most expensive misreading of a benefit schedule."
+          ],
+          "itemsEn": [
+            "Deductible first, then coinsurance, both bounded by the out-of-pocket maximum.",
+            "Covered and payable are not the same thing: a covered service can still be owed in full.",
+            "Coinsurance is a percentage, so the figure cannot be quoted before the payer prices the service.",
+            "Treating \"limited\" as \"covered\" is the most expensive misreading of a benefit schedule."
+          ]
+        }
+      }
+    ]
+  }
+}

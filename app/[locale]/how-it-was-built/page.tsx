@@ -50,6 +50,19 @@ function generatedDrafts(): number {
   }
 }
 
+/**
+ * Arabic counts do not take a bare numeral plus a singular noun the way the
+ * English sentence did. One is the noun alone, two has its own dual form, three
+ * to ten take the plural, and eleven upward returns to the singular accusative.
+ * Interpolating a number in front of "درس" was wrong for every value except one.
+ */
+function arDrafts(n: number): string {
+  if (n === 1) return 'درس واحد'
+  if (n === 2) return 'درسان'
+  if (n >= 3 && n <= 10) return `${n} دروس`
+  return `${n} درسًا`
+}
+
 function runLogEntries(): number {
   return runLog().length
 }
@@ -217,8 +230,8 @@ export default async function HowItWasBuiltPage({
       <div className="verify-card">
         <p className="max-w-prose leading-relaxed">
           {ar
-            ? `الدروس الخمسة المنشورة كُتبت يدويًا. وقد وُلِّد ${drafts} درس عبر خط الإنتاج من ملاحظة مصدر، واجتاز البوابتين الحتميتين: التحقق البنيوي وسجل المفاهيم. لم يُنشر، لأن مخرجات خط الإنتاج مسودّة يقرر إنسان نشرها.`
-            : `The five published lessons were hand-authored. ${drafts} lesson has since been generated through the pipeline from a source note, and passed both deterministic gates: structural validation and the concept log. It is not published, because pipeline output is a draft and a human decides whether it ships.`}
+            ? `الدروس الخمسة المنشورة كُتبت يدويًا. ومنذ ذلك الحين وُلِّد عبر خط الإنتاج ${arDrafts(drafts)} من ملاحظة مصدر، واجتاز البوابتين الحتميتين: التحقق البنيوي وسجل المفاهيم. ولم يُنشر، لأن مخرجات خط الإنتاج مسودّة يقرر إنسان نشرها.`
+            : `The five published lessons were hand-authored. ${drafts} ${drafts === 1 ? 'lesson has' : 'lessons have'} since been generated through the pipeline from a source note, and passed both deterministic gates: structural validation and the concept log. ${drafts === 1 ? 'It is' : 'They are'} not published, because pipeline output is a draft and a human decides whether it ships.`}
         </p>
         <p className="mt-3 max-w-prose leading-relaxed">
           {latest

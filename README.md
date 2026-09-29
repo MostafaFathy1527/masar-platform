@@ -44,8 +44,20 @@ The gates have their own tests. A gate nobody tests is a gate that passes everyt
 
 The demo course is medical insurance and revenue-cycle management. That domain was chosen
 because it is genuinely hard: it has real error types that can be planted in a claim and
-found, and shallow content would have been obvious. **The method is not specific to it.**
-Every code, payer, clinic and patient in the demo is fictional and authored for training.
+found, and shallow content would have been obvious. Every code, payer, clinic and patient
+in the demo is fictional and authored for training.
+
+**The method is not specific to it, and that is checked rather than asserted.** The
+pipeline was run against a subject as far from claims adjudication as a corporate training
+topic gets — recognising a phishing email — and the output is in
+[`pipeline/out/lesson-sec-01/v1/`](pipeline/out/lesson-sec-01/v1/STATUS.md), passing the
+same gates.
+
+That run found a fourteenth defect. The validator was itself domain-locked: objective
+codes were hardcoded to `^MI-\d{2}$`, so the project's own gate refused the first valid
+lesson from outside medical insurance, for a reason that had nothing to do with the
+lesson. The prefix is now a course namespace. A gate that has only ever seen one domain is
+not a general gate — it is a gate shaped like its first input.
 
 ## Design decisions, with the reasoning
 

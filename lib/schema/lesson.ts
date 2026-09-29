@@ -19,10 +19,18 @@ export const LEVELS = ['L1', 'L2', 'L3'] as const
 export const Level = z.enum(LEVELS)
 export type Level = z.infer<typeof Level>
 
-/** Objective codes are the spine: every block carries one. */
+/**
+ * Objective codes are the spine: every block carries one.
+ *
+ * The prefix is a course namespace, not a fixed value. It was `MI` alone until
+ * the pipeline was run against a subject outside medical insurance and the
+ * schema refused the lesson — the validator was domain-locked while the method
+ * it enforces is not. Two to four letters, so a course declares its own prefix
+ * and codes stay unambiguous across courses.
+ */
 const ObjectiveId = z
   .string()
-  .regex(/^MI-\d{2}$/, 'objectiveId must look like MI-04')
+  .regex(/^[A-Z]{2,4}-\d{2}$/, 'objectiveId must look like MI-04 or SEC-01')
 
 const BlockId = z.string().min(1).max(64)
 

@@ -70,7 +70,10 @@ FORBIDDEN_CODE_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("X12 remark code (M)", re.compile(r"\bM\d{2,3}\b")),
 ]
 
-OBJECTIVE_RE = re.compile(r"^MI-\d{2}$")
+# Mirrors ObjectiveId in lib/schema/lesson.ts. The prefix is a course
+# namespace: this was locked to "MI" until the pipeline was run against a
+# subject outside medical insurance and refused its own valid output.
+OBJECTIVE_RE = re.compile(r"^[A-Z]{2,4}-\d{2}$")
 
 # Which block types may appear at which level. Mirrors BLOCK_LEVELS in
 # lib/schema/lesson.ts; the drift test on the JSON Schema keeps the structural
