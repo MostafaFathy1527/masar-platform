@@ -1,0 +1,199 @@
+{
+  "slug": "what-counts-as-personal-data",
+  "titleAr": "ما الذي يُعدّ بيانات شخصية، وماذا تفعل بها في العمل",
+  "titleEn": "What counts as personal data, and what to do with it at work",
+  "estMinutes": 25,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "PRV-01"
+  ],
+  "conceptsIntroduced": [
+    "personal_data",
+    "identifiability",
+    "sensitive_data",
+    "need_to_know",
+    "data_subject_request",
+    "potential_breach"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "prv1_h_intro",
+        "type": "heading",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "textAr": "السؤال ليس «هل عليه اسم؟»",
+          "textEn": "The question is not \"is there a name on it?\"",
+          "level": 2
+        }
+      },
+      {
+        "id": "prv1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "mdAr": "**البيانات الشخصية** هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها. المعيار هو **إمكانية التعرّف**، لا الوسم الظاهر. الاسم بيانات شخصية. وكذلك رقم الموظف، والبريد الإلكتروني، ورقم الهاتف، والصورة، ولوحة السيارة، ومعرّف الجهاز، وعنوان المنزل. وكذلك مجموعة من حقائق عادية تشير مجتمعةً إلى شخص واحد: مسمّى وظيفي مع قسم مع تاريخ التحاق تكفي لتحديد شخص في فريق صغير كما يحدده اسمه.\n\nالسؤال الذي تسأله دائماً: **«هل يستطيع أحد أن يعرف عمّن تتحدث هذه المعلومة؟»** إن كانت الإجابة نعم، مباشرةً أو بضمّها إلى شيء آخر متاح على نحو معقول، فهي بيانات شخصية والقواعد تنطبق.",
+          "mdEn": "**Personal data** is any information that relates to an identified or identifiable living person. The test is **identifiability**, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person: a job title plus a department plus a start date identifies someone in a small team as surely as their name.\n\nThe question to ask is always: **\"could someone work out who this is about?\"** If the answer is yes, directly or by combining it with something else reasonably available, it is personal data and the rules apply."
+        }
+      },
+      {
+        "id": "prv1_d_sensitive",
+        "type": "definition_card",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "termAr": "البيانات الحسّاسة",
+          "termEn": "Sensitive data",
+          "defAr": "بيانات شخصية يكون معيار التعامل معها أعلى: المعلومات الصحية، والدين، والأصل العرقي، والآراء السياسية، والعضوية النقابية، والبيانات الحيوية والجينية، والحياة الجنسية، والسجل الجنائي في معظم الأنظمة. السبب ليس أنها سرية، بل أن كشفها قد يسبّب ضرراً لا يمكن التراجع عنه. سبب إجازة مرضية، أو متطلب غذائي يكشف ديناً، أو صورة تُظهر إعاقة — كلها حسّاسة حتى حين تصل في بريد عادي.",
+          "defEn": "Personal data with a higher handling bar: health information, religion, ethnic origin, political opinions, trade-union membership, biometric and genetic data, sexual life, and criminal records in most regimes. Not because these facts are secret, but because their disclosure can cause harm that cannot be undone. A sick-leave reason, a dietary requirement that reveals a religion, a photograph that shows a disability — each is sensitive even when it arrives in an ordinary email.",
+          "icon": "⚠️"
+        }
+      },
+      {
+        "id": "prv1_d_breach",
+        "type": "definition_card",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "termAr": "الاختراق المحتمل",
+          "termEn": "Potential breach",
+          "defAr": "بيانات شخصية ذهبت إلى حيث لا ينبغي: متلقٍّ خاطئ، أو جهاز مفقود، أو رابط عام كان يجب أن يكون خاصاً. يُبلَّغ عنه في اليوم نفسه إلى المسؤول عن الخصوصية، لا حين تجد الوقت. التزامات المؤسسة بالإبلاغ تُقاس بالساعات والأيام، والعدّاد يبدأ غالباً حين يعلم أي موظف، لا حين يعلم مسؤول الخصوصية.",
+          "defEn": "Personal data that has gone somewhere it should not have: the wrong recipient, a lost device, a public link that should have been private. Reported the same day to whoever owns privacy, not when you get round to it. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does.",
+          "icon": "🚨"
+        }
+      },
+      {
+        "id": "prv1_tip",
+        "type": "job_tip",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "mdAr": "أكثر خرق شيوعاً في العمل المكتبي العادي ليس هجوماً — هو **القناة المريحة**: إرسال بيانات عميل عبر تطبيق مراسلة شخصي أو بريد شخصي. اللحظة التي تنتقل فيها البيانات إلى هناك تخرج من كل ضابط تملكه المؤسسة. القناة المريحة هي غالباً القناة الخاطئة.",
+          "mdEn": "The most common breach in ordinary office work is not an attack — it is **the convenient channel**: sending a customer's details over a personal messaging app or a personal email address. The moment the data moves there, it is outside every control the organisation has. The convenient channel is usually the wrong one."
+        }
+      },
+      {
+        "id": "prv1_take",
+        "type": "takeaways",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemsAr": [
+            "المعيار إمكانية التعرّف: هل يستطيع أحد أن يعرف عمّن هذا؟",
+            "الحسّاس أعلى معياراً لأن ضرره لا يُستردّ — حتى لو وصل في بريد عادي.",
+            "اجمع واستخدم ما تحتاجه المهمة فقط؛ النسخة «احتياطاً» بيانات لا يحميها أحد.",
+            "شارك على قدر الحاجة وعبر القنوات المعتمدة؛ التحويل الداخلي بلا حاجة إفصاح أيضاً.",
+            "طلب صاحب البيانات والاختراق المحتمل كلاهما يُبلَّغ في اليوم نفسه — فالعدّاد بدأ منك."
+          ],
+          "itemsEn": [
+            "The test is identifiability: could someone work out who this is about?",
+            "Sensitive data has a higher bar because its harm cannot be undone — even when it arrives in an ordinary email.",
+            "Collect and use only what the task needs; a \"just in case\" copy is data nobody is protecting.",
+            "Share on a need-to-know basis through approved channels; an internal forward without a need is still a disclosure.",
+            "A data-subject request and a potential breach are both reported the same day — the clock started with you."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "prv1_l2_h",
+        "type": "heading",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "textAr": "قرّر، حالةً بحالة",
+          "textEn": "Decide, case by case",
+          "level": 2
+        }
+      },
+      {
+        "id": "prv1_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "promptAr": "يطلب منك زميل في قسم آخر «قائمة سريعة» بالموظفين الذين أخذوا إجازة مرضية هذا الربع، مع الأسباب، ليخطّط للتغطية. عندك الملف. اعمل القرار خطوة بخطوة.",
+          "promptEn": "A colleague in another department asks you for a \"quick list\" of employees who took sick leave this quarter, with the reasons, so he can plan cover. You have the file. Work the decision step by step.",
+          "steps": [
+            {
+              "showAr": "هل هذه بيانات شخصية؟ أسماء موظفين مع إجازاتهم — نعم، وكل سطر يحدد شخصاً.",
+              "showEn": "Is this personal data? Employee names with their leave — yes, and every row identifies a person.",
+              "whyAr": "حتى بلا أسماء، قسم + تواريخ غياب تكفي لتحديد الشخص في فريق صغير. معيار التعرّف لا الوسم.",
+              "whyEn": "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+            },
+            {
+              "showAr": "هل فيها حسّاس؟ أسباب الإجازة المرضية معلومات صحية — نعم.",
+              "showEn": "Is any of it sensitive? Sick-leave reasons are health information — yes.",
+              "whyAr": "الضرر من كشف سبب مرضي لا يُستردّ، ولذلك المعيار أعلى، حتى لو كان الطلب داخلياً وحسن النية.",
+              "whyEn": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+            },
+            {
+              "showAr": "ما الذي تحتاجه مهمته فعلاً؟ تخطيط التغطية يحتاج التواريخ والأقسام — لا الأسباب.",
+              "showEn": "What does his task actually need? Planning cover needs dates and departments — not reasons.",
+              "whyAr": "شارك على قدر الحاجة. الأسباب لا تخدم المهمة، فإدراجها إفصاح بلا غرض، داخلياً كان أو لا.",
+              "whyEn": "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not."
+            },
+            {
+              "showAr": "أرسل العدد والتواريخ لكل قسم، بلا أسماء ولا أسباب، عبر القناة المعتمدة، واشرح له لماذا.",
+              "showEn": "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why.",
+              "whyAr": "القناة المريحة هي الخطأ الأكثر شيوعاً. والشرح يمنع أن يطلب القائمة الكاملة من زميل آخر غداً.",
+              "whyEn": "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+            }
+          ],
+          "answerAr": "ليس رفضاً — هو أن تعطيه ما تحتاجه المهمة وتحجب ما لا تحتاجه. ولو كان قد أرسل لك القائمة الكاملة بنفسه عبر تطبيق شخصي، لكان ذلك اختراقاً محتملاً يُبلَّغ في اليوم نفسه.",
+          "answerEn": "Not a refusal — you give him what the task needs and withhold what it does not. And had he sent you the full list himself over a personal app, that would be a potential breach, reported the same day."
+        }
+      },
+      {
+        "id": "prv1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemRef": "PRV-01-KC-01"
+        }
+      },
+      {
+        "id": "prv1_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "situationAr": "أرسلت بريداً فيه كشف حساب عميل، ثم انتبهت بعد دقيقة أن الإكمال التلقائي اختار عميلاً آخر بالاسم نفسه. المتلقي لم يفتحه بعد على الأرجح. الساعة الخامسة مساءً.",
+          "situationEn": "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "تسحب الرسالة من البريد، وتراقب إن كان أحد سيلاحظ.",
+              "optionEn": "Recall the message and watch whether anyone notices.",
+              "isBest": false,
+              "consequenceAr": "السحب نادراً ما ينجح خارج مؤسستك، والانتظار يُخفي عن المسؤول أن العدّاد بدأ. الاختراق المخفي يُكتشف لاحقاً — ممن تضرر منه.",
+              "consequenceEn": "Recall rarely works outside your own organisation, and waiting hides from the owner that the clock has started. A hidden breach is discovered later — by the person it harmed."
+            },
+            {
+              "id": "d2",
+              "optionAr": "تبلّغ مسؤول الخصوصية الآن بما أُرسل ولمن، وتطلب من المتلقي الخاطئ حذفه بتأكيد.",
+              "optionEn": "Report it now to the privacy owner with what was sent and to whom, and ask the wrong recipient to delete it and confirm.",
+              "isBest": true,
+              "consequenceAr": "الإجراء الصحيح. الإبلاغ السريع قابل للاحتواء؛ التزامات المؤسسة تُقاس بالساعات، والساعة الخامسة لا تؤجّلها إلى الغد.",
+              "consequenceEn": "The correct action. A fast report is containable; the organisation's obligations are measured in hours, and 5 pm does not postpone them to tomorrow."
+            },
+            {
+              "id": "d3",
+              "optionAr": "تعيد إرسال الكشف للعميل الصحيح وتعتبر الأمر منتهياً، فالمعلومات ليست حسّاسة.",
+              "optionEn": "Resend the statement to the right customer and consider it closed, since the information is not sensitive.",
+              "isBest": false,
+              "consequenceAr": "كشف الحساب بيانات شخصية حتى لو لم يكن حسّاساً، وذهابه لمتلقٍّ خاطئ هو تعريف الاختراق المحتمل. إصلاح الإرسال لا يُلغي ما أُفصح عنه.",
+              "consequenceEn": "An account statement is personal data even if not sensitive, and its arrival at the wrong recipient is the definition of a potential breach. Fixing the send does not undo what was disclosed."
+            }
+          ]
+        }
+      },
+      {
+        "id": "prv1_l2_kc2",
+        "type": "knowledge_check",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemRef": "PRV-01-KC-02"
+        }
+      }
+    ]
+  }
+}

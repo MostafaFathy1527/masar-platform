@@ -25,3 +25,10 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
 ## Content
 - Remaining lessons beyond the 5 in v1.0; full bilingual coverage of every lesson
 - Video lessons
+
+## Added 8 October 2026
+- **SCORM 1.2 / 2004 export** of a lesson, for buyers who will not import JSON. Build it
+  against the first commissioned pilot, not before; `/commission` says it is agreed there.
+- **Render pipeline drafts in the lesson reader** (read from `pipeline/out`), so a prospect
+  can open a sample on the site instead of on GitHub. Only worth it once drafts are
+  rubric-scored by an independent judge.

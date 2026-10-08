@@ -16,6 +16,7 @@ const NAV = [
   { href: 'practice/claim-review', ar: 'التطبيق', en: 'Practice' },
   { href: 'case-study', ar: 'دراسة الحالة', en: 'Case study' },
   { href: 'how-it-was-built', ar: 'كيف بُني', en: 'How it was built' },
+  { href: 'commission', ar: 'اطلب دروسًا', en: 'Commission' },
 ] as const
 
 export function SiteHeader({ locale }: { locale: AppLocale }) {

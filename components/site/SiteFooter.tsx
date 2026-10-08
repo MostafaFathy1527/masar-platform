@@ -97,6 +97,9 @@ export function SiteFooter({ locale }: { locale: AppLocale }) {
               <a href={`/${l}/how-it-was-built`}>{ar ? 'كيف بُني' : 'How it was built'}</a>
             </li>
             <li>
+              <a href={`/${l}/commission`}>{ar ? 'اطلب دروسًا' : 'Commission lessons'}</a>
+            </li>
+            <li>
               <a href={`/${l}/privacy`}>{ar ? 'الخصوصية والبيانات' : 'Privacy and data'}</a>
             </li>
             <li>
