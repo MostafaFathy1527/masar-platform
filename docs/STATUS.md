@@ -612,3 +612,25 @@ thing it describes.
 | 2026-09-09 | **gitleaks binary, not the action** | The action builds an invalid revision range on a root-commit push: zero bytes scanned, job fails anyway. |
 | 2026-09-22 | **Partner mark is flattened to the local ink, not shown in Techne's own colours** | A second brand palette inside a product with exactly one accent reads as a pasted banner. `brightness(0)` in light, `brightness(0) invert(1)` in dark. |
 | 2026-09-22 | **`.partner-strip .eyebrow` overrides only colour and margin** | Restating the full `.eyebrow` rule matched the `[dir="rtl"] .eyebrow` specificity and, being later in the file, beat it — putting Latin letter-spacing back on the Arabic label. Caught at 375px before commit; Arabic is never tracked. |
+
+## 8 October 2026 — the pipeline put to work, and a page that sells it
+
+**Owner's decision, outside the v1.0 scope and recorded as such.** Masār is not being
+developed further as a product this year. It is being used two ways: as the proof behind
+job applications, and as the engine behind a paid content service. This entry records the
+second.
+
+- **Two more out-of-domain pipeline runs**, both DRAFT, both passing `validate.py` and the
+  concept log, neither rubric-scored (the only available judge authored them, as before):
+  `pipeline/out/lesson-cs-01/v1` (handling a customer complaint) and
+  `pipeline/out/lesson-prv-01/v1` (what counts as personal data; deliberately names no law
+  or regulator). With SEC-01 that is three domains beyond medical insurance. Each has its own
+  `STATUS.md` with the gate table and the limitations.
+- **`/commission`** — the one page on the site that sells something: the pipeline as a
+  per-lesson content service (L1 USD 150, L2 USD 250, L3 by quote, a 20-lesson pilot at 20%
+  off), the three sample drafts linked by file, and a no-commitment first step. Prices are an
+  offer, not a metric, and are the owner's to change. Linked from the header and footer.
+- **SCORM export does not exist** and the page says it is agreed in the first pilot rather
+  than promising it. It belongs in `LATER.md` until a buyer needs it.
+- **The failure log is at fourteen** as of the previous commit; `lib/failures.ts` carried the
+  count to both case-study locales with no edit, which is the mechanism working as intended.
