@@ -304,7 +304,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **thirteen** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **fourteen** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
@@ -315,7 +315,9 @@ palette shipped unconditionally and the light default had never rendered anywher
 negative tests passed throughout.
 
 The eleventh names a second sub-pattern — monolingual infrastructure under a bilingual
-claim — from two independent instances.
+claim — from two independent instances. The fourteenth closed the README's oldest untested
+sentence: the validator was domain-locked to the demo course's objective prefix in all three
+places the schema lives, found the first time the pipeline was run on another subject.
 
 **Both case-study locales now derive the count** from the document via `lib/failures.ts`,
 after `/ar/case-study` sat at "ستة إخفاقات" while every English surface said nine. Every
@@ -324,7 +326,7 @@ Arabic prose the one surface where a stale number could sit indefinitely. The me
 since earned itself twice: the pages moved to ten and then to eleven with no edit.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — four of the thirteen are hardcoded facts that silently stopped
+were true when written** — four of the fourteen are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
