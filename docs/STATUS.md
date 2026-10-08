@@ -659,5 +659,5 @@ second.
   depth comparison and page index are replaced by one "Who are you?" section with one
   destination per answer; the hero's two doors sit in a two-column grid (the third column
   was empty). The price table is gone from `/commission`: a fixed per-lesson figure read as
-  expensive to a startup in Egypt and arbitrary elsewhere. The page now names what moves the
-  price (depth, count, languages, timeline) and quotes per project; the free first lesson stays.
+  expensive to some buyers and arbitrary to others. The page now says, in one line, that
+  the price is quoted per project; the free first lesson stays.
