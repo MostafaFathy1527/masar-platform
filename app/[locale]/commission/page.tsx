@@ -33,10 +33,8 @@ export async function generateMetadata({
  * to were produced by exactly the process it describes — each with its own
  * STATUS.md saying what was and was not run.
  *
- * There is no price table. A fixed per-lesson figure read as expensive to a
- * startup or an Egyptian company and as arbitrary to everyone else, because the
- * real price depends on depth, volume, language pair and timeline. The page
- * names what moves the price and asks for the material instead.
+ * There is no price table and no explanation of one. The price is quoted per
+ * project; the page says that in one line and asks for the material.
  */
 
 const REPO = 'https://github.com/MostafaFathy1527/masar-platform'
@@ -172,11 +170,11 @@ export default async function CommissionPage({
           : 'The samples are drafts by definition: not published, and not rubric-scored, because the only available judge is the one who wrote them. In commissioned work an independent judge scores them before delivery, and the report ships with the lesson.'}
       </p>
 
-      <h2 className="admin-q">{ar ? 'كيف يُحدَّد السعر' : 'How the price is set'}</h2>
+      <h2 className="admin-q">{ar ? 'السعر' : 'Pricing'}</h2>
       <p className="max-w-prose leading-relaxed">
         {ar
-          ? 'لا توجد قائمة أسعار ثابتة، لأن ما يناسب شركة ناشئة في مصر لا يناسب جهة تدريب في الخليج، والعكس. السعر يُحدَّد لكل مشروع بحسب أربعة أشياء: عمق الدرس (قراءة منظمة، تفاعلي، أو تطبيق عملي)، وعدد الدروس، واللغات المطلوبة (لغة واحدة أم اثنتان)، والجدول الزمني. تصلك عروض السعر خلال يومي عمل من قراءة مادتكم، ويقلّ سعر الدرس كلما زاد العدد.'
-          : 'There is no fixed price list, because what fits a startup in Egypt does not fit a training house in the Gulf, and the reverse. Each project is priced on four things: the depth of the lesson (structured, interactive or applied practice), how many lessons, which languages (one or both), and the timeline. A quote reaches you within two working days of reading your material, and the per-lesson price falls as the count rises.'}
+          ? 'يُحدَّد لكل مشروع. أرسل درسًا واحدًا، وسيصلك مع المسودة عرض سعر.'
+          : 'Quoted per project. Send one lesson and the quote comes back with the draft.'}
       </p>
 
       <h2 className="admin-q">{ar ? 'ابدأ' : 'Start'}</h2>
