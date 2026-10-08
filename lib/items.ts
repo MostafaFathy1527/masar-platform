@@ -1,5 +1,11 @@
 import bank1 from '@/content/courses/rcm-foundations/items/mi-01-04-09-10-13.json'
 import bank2 from '@/content/courses/rcm-foundations/items/mi-05-06-07.json'
+// The pipeline drafts' formative items, so a draft read under /samples renders
+// its knowledge checks. Every item in these files is formative; the gate that
+// keeps scored items out of the browser still holds because none exist here.
+import draftSec from '@/pipeline/out/lesson-sec-01/v1/items.json'
+import draftCs from '@/pipeline/out/lesson-cs-01/v1/items.json'
+import draftPrv from '@/pipeline/out/lesson-prv-01/v1/items.json'
 
 /**
  * The item bank, as static content.
@@ -37,7 +43,13 @@ export type Item = {
   options: ItemOption[]
 }
 
-const ALL = [...(bank1.items as Item[]), ...(bank2.items as Item[])]
+const ALL = [
+  ...(bank1.items as Item[]),
+  ...(bank2.items as Item[]),
+  ...(draftSec.items as Item[]),
+  ...(draftCs.items as Item[]),
+  ...(draftPrv.items as Item[]),
+]
 
 const FORMATIVE = new Map<string, Item>(
   ALL.filter((i) => i.formative === true).map((i) => [i.key, i]),

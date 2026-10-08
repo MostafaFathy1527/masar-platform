@@ -142,7 +142,7 @@ export default async function CommissionPage({
             <tr>
               <th scope="col">{ar ? 'الدرس' : 'Lesson'}</th>
               <th scope="col">{ar ? 'المجال' : 'Domain'}</th>
-              <th scope="col">{ar ? 'الملفات' : 'Files'}</th>
+              <th scope="col">{ar ? 'افتح' : 'Open'}</th>
             </tr>
             {SAMPLES.map((s) => (
               <tr key={s.code}>
@@ -151,16 +151,12 @@ export default async function CommissionPage({
                 </th>
                 <td>{ar ? s.dirAr : s.dirEn}</td>
                 <td>
-                  <a href={`${REPO}/blob/main/${s.path}/lesson.json`} rel="noreferrer">
-                    {ar ? 'الدرس' : 'lesson'}
-                  </a>
-                  {' · '}
-                  <a href={`${REPO}/blob/main/${s.path}/items.json`} rel="noreferrer">
-                    {ar ? 'الأسئلة' : 'items'}
+                  <a href={`/${locale}/samples/${s.code}`}>
+                    {ar ? 'اقرأ الدرس' : 'Read the lesson'}
                   </a>
                   {' · '}
                   <a href={`${REPO}/blob/main/${s.path}/STATUS.md`} rel="noreferrer">
-                    {ar ? 'الحالة' : 'status'}
+                    {ar ? 'ملف الحالة' : 'status file'}
                   </a>
                 </td>
               </tr>

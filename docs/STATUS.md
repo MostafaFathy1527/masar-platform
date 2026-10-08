@@ -634,3 +634,17 @@ second.
   than promising it. It belongs in `LATER.md` until a buyer needs it.
 - **The failure log is at fourteen** as of the previous commit; `lib/failures.ts` carried the
   count to both case-study locales with no edit, which is the mechanism working as intended.
+
+### Same day, later — the drafts became readable and the landing page got two doors
+
+- **`/samples` and `/samples/[code]`** render the pipeline drafts with the course reader,
+  read from `pipeline/out` at build time (`lib/drafts.ts`). Each page carries the word DRAFT,
+  quotes the "Not run" line from its own `STATUS.md`, and links the files. `lib/items.ts`
+  now bundles the drafts' formative items so their knowledge checks answer. This was parked
+  in `LATER.md` behind rubric scoring; the owner wanted prospects to read a lesson rather
+  than a JSON file, and the DRAFT labelling is what makes that honest.
+- **Landing page:** the hero now offers two paths — try the demo course, or read the samples
+  and commission lessons — because a training buyer arriving at a single guest button saw an
+  unexplained demo. The header is ordered learner → buyer → reviewer; `/depth` lost its slot.
+- `/commission` links each sample to its page on the site; the GitHub status file remains
+  as the secondary link.
