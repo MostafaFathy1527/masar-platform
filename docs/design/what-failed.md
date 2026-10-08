@@ -3,16 +3,17 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Thirteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Fourteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
-of the thirteen are the same underlying defect wearing different clothes, and that
+of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
 three are **checks that could not do the thing they claimed** — one scanned nothing, one
 gated nothing, and one could not accept the input it existed to judge. The eleventh names a
 second pattern, and it took two independent instances to see it. The twelfth is the only one
 found by a person opening the product rather than by anyone testing it. **The thirteenth is
 the most serious in the record**: the other twelve undermined a feature or a metric, and it
-undermined the only proof of the central claim.
+undermined the only proof of the central claim. The fourteenth is the one that answers
+the README's oldest untested sentence: the method was general, and the gate was not.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -47,7 +48,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the thirteen to catch.
+testable. This is the easiest of the fourteen to catch.
 
 ---
 
@@ -526,6 +527,50 @@ asked for them. The run log stays at n = 1.
 test that fails when the date passes, or do not ship it — because on the day the work lands,
 nothing forces the sentence announcing it to leave.
 
+---
+
+## 14. The gate that enforced a general method was locked to one domain
+
+**The claim.** The README said, for months, that the method is not tied to the demo
+course's subject. Nothing in the repository tested that. Every lesson the pipeline had
+ever validated was about medical insurance.
+
+**What was actually true.** The pipeline was pointed at a subject about as far from
+claims adjudication as corporate training gets — recognising a phishing email — from a new
+source note. The lesson came out well: 11 blocks across L1 and L2, two formative items,
+independently written Arabic. **The project's own validator refused it.**
+
+Not because the lesson was bad. `ObjectiveId` was `^MI-\d{2}$` in all three places the
+schema lives — the Zod source of truth, the generated JSON Schema, and the Python mirror —
+so the gate built to enforce a general method rejected the first valid lesson from outside
+medical insurance, for a reason that had nothing to do with the lesson.
+
+**Why nothing caught it.** Every fixture, every test and every real input the validator
+had ever seen carried the same prefix. A gate that has only ever seen one input is not a
+general gate; it is a gate shaped like its first input. Reading the file did not find
+this — it had been read dozens of times. Pointing the thing somewhere new found it in one
+run.
+
+**What else the same run exposed.** The bare `out/` in `.gitignore` matched a directory of
+that name at any depth, so `pipeline/out` — cited by `docs/STATUS.md` as evidence and
+counted by `/how-it-was-built` — had never been in the repository. The live page had
+therefore been reporting "0 lessons generated through the pipeline" in the same paragraph
+that described the generated lesson in detail. Verified against production before the fix.
+
+**The repair.** The prefix is now a course namespace, `^[A-Z]{2,4}-\d{2}$`, in all three
+places; `MI-04` still validates and `SEC-01` now does too. The ignore rule is anchored to
+`/out/`, and the run outputs are committed so the citations resolve. The new lesson was
+deliberately **not** scored by `qa_gate.py`: the only available judge had authored the
+content, and that would be self-assessment wearing a rubric. The run's own `STATUS.md`
+says so.
+
+**Why it belongs beside entry 10.** Both are gates whose tests only ever encoded the
+assumption the bug depended on. Entry 10's suite proved the gate refuses bad verdicts and
+never asked whether it accepts good L1 lessons; this one's suite proved the validator
+refuses bad objective ids and never asked whether it accepts good ones from another course.
+**A negative test constrains what a gate rejects. Only a positive case over an input the
+gate has never seen constrains what it can accept.**
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:
@@ -567,7 +612,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Four of the thirteen are the same defect. The landing page carried a "Week 1 — under
+Four of the fourteen are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. The project's rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen. And the flagship lesson told every reader its

@@ -1,6 +1,6 @@
 # Masār (مسار)
 
-**I built a learning platform, then spent a week trying to break it. I found thirteen
+**I built a learning platform, then spent a week trying to break it. I found fourteen
 things that looked right and weren't.**
 
 Two of them:
@@ -11,7 +11,7 @@ Two of them:
 - The exam could be beaten without reading the questions. Authored banks put the correct
   answer first, so *always pick option A* scored **89%**.
 
-Both are fixed. All thirteen are written up, with what I got wrong and why, in
+Both are fixed. All fourteen are written up, with what I got wrong and why, in
 [`docs/design/what-failed.md`](docs/design/what-failed.md) — which is the part of this
 repository actually worth reading.
 
@@ -53,7 +53,7 @@ topic gets — recognising a phishing email — and the output is in
 [`pipeline/out/lesson-sec-01/v1/`](pipeline/out/lesson-sec-01/v1/STATUS.md), passing the
 same gates.
 
-That run found a fourteenth defect. The validator was itself domain-locked: objective
+That run found the fourteenth defect in the log. The validator was itself domain-locked: objective
 codes were hardcoded to `^MI-\d{2}$`, so the project's own gate refused the first valid
 lesson from outside medical insurance, for a reason that had nothing to do with the
 lesson. The prefix is now a course namespace. A gate that has only ever seen one domain is
@@ -89,7 +89,7 @@ python pipeline/validate.py --denylist .local/denylist.txt
 
 ## Documentation
 
-- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the thirteen failures
+- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the fourteen failures
 - [`docs/STATUS.md`](docs/STATUS.md) — current state and the decision log
 - [`SPEC.md`](SPEC.md) — the fourteen headings a client asked to see
 - [`HANDOVER.md`](HANDOVER.md) — architecture, runbook, ownership
