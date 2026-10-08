@@ -627,7 +627,7 @@ second.
   or regulator). With SEC-01 that is three domains beyond medical insurance. Each has its own
   `STATUS.md` with the gate table and the limitations.
 - **`/commission`** — the one page on the site that sells something: the pipeline as a
-  per-lesson content service (L1 USD 150, L2 USD 250, L3 by quote, a 20-lesson pilot at 20%
+  per-lesson content service (priced per project since 8 Oct — the fixed table
   off), the three sample drafts linked by file, and a no-commitment first step. Prices are an
   offer, not a metric, and are the owner's to change. Linked from the header and footer.
 - **SCORM export does not exist** and the page says it is agreed in the first pilot rather
@@ -654,3 +654,10 @@ second.
   at least 44px tall; transitions respect `prefers-reduced-motion`. The hero eyebrow no
   longer reads "Demonstration — v1.0": a version number is internal state and the word
   told a buyer the thing was not real. It now carries the positioning line instead.
+- **Orientation fix (8 Oct, later):** the owner tested the site as a visitor and got lost. The
+  header is down to four items (course, samples, commission, case study); the landing page's
+  depth comparison and page index are replaced by one "Who are you?" section with one
+  destination per answer; the hero's two doors sit in a two-column grid (the third column
+  was empty). The price table is gone from `/commission`: a fixed per-lesson figure read as
+  expensive to a startup in Egypt and arbitrary elsewhere. The page now names what moves the
+  price (depth, count, languages, timeline) and quotes per project; the free first lesson stays.

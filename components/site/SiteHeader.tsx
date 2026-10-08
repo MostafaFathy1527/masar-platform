@@ -11,16 +11,15 @@ import type { AppLocale } from '@/i18n/routing'
 // The guest CTA is the only filled button anywhere in the chrome. One filled
 // button per screen is what makes it mean "start here".
 //
-// Ordered by who arrives: a learner (course, practice), then a buyer (samples,
-// commission), then a reviewer (case study, how it was built). /depth is
-// reached from the landing page and the course; it earned no header slot.
+// Four items, one per visitor: a learner (course), a buyer (samples,
+// commission), a reviewer (case study). Six items read as six equal doors and
+// the owner himself got lost; practice, the depth model and how-it-was-built
+// are reached from the course, the landing page and the footer.
 const NAV = [
   { href: 'course', ar: 'الدورة', en: 'Course' },
-  { href: 'practice/claim-review', ar: 'التطبيق', en: 'Practice' },
   { href: 'samples', ar: 'العينات', en: 'Samples' },
   { href: 'commission', ar: 'اطلب دروسًا', en: 'Commission' },
   { href: 'case-study', ar: 'دراسة الحالة', en: 'Case study' },
-  { href: 'how-it-was-built', ar: 'كيف بُني', en: 'How it was built' },
 ] as const
 
 export function SiteHeader({ locale }: { locale: AppLocale }) {
