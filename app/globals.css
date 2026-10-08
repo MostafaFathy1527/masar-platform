@@ -16,17 +16,30 @@
   without touching a single class name.
 */
 @theme {
-  --color-canvas: #f6f4ef;
-  --color-surface: #fbfaf7;
-  --color-raise: #fbfaf7;
-  --color-ink: #14110d;
-  --color-ink-2: #3a3630;
-  --color-muted: #625b50;
-  --color-line: #d8d2c6;
+  /*
+    Warm monochrome. Bone canvas, near-white surface, charcoal ink — never pure
+    black — and one accent, amber, desaturated so it reads as a mark on paper
+    rather than a highlighter. The accent lives in eyebrows, rules and active
+    states; the filled button is ink, which is what makes it the one solid
+    object on a page of paper.
+  */
+  --color-canvas: #f7f5f0;
+  --color-surface: #fdfcfa;
+  --color-raise: #fdfcfa;
+  --color-ink: #1b1816;
+  --color-ink-2: #3f3a34;
+  --color-muted: #6b645a;
+  --color-line: #e4dfd5;
+  --color-line-strong: #cfc8ba;
 
-  --color-accent: #f4a93c;
-  --color-accent-ink: #8f5a00;
-  --color-on-accent: #14110d;
+  --color-accent: #d9952f;
+  --color-accent-ink: #875300;
+  --color-accent-wash: #f8efdd;
+  --color-on-accent: #1b1816;
+
+  /* The solid button: ink on paper in light, paper on ink in dark. */
+  --color-button: #1b1816;
+  --color-on-button: #f7f5f0;
 
   /*
     Exactly one semantic green and one red, used only for correct/incorrect in
@@ -34,61 +47,56 @@
     use is accompanied by words, which is the existing accessibility rule and
     the reason the palette can afford to be this quiet.
   */
-  --color-right: #1f7a43;
-  --color-wrong: #a33418;
+  --color-right: #2f6f48;
+  --color-wrong: #9b3a22;
 
   /*
     Self-hosted through next/font, which downloads the OFL faces at build time
     and serves them from this origin — no third-party request at runtime.
-    Archivo carries the display voice, Space Grotesk the body, JetBrains Mono
-    the eyebrows and data, Cairo the Arabic.
+    Newsreader for display, Instrument Sans for body and UI, JetBrains Mono for
+    eyebrows and data, IBM Plex Sans Arabic for Arabic.
   */
-  --font-display: var(--font-archivo), Georgia, serif;
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-body), system-ui, "Segoe UI", sans-serif;
   --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-arabic: var(--font-cairo), "Noto Sans Arabic", system-ui, sans-serif;
+  --font-arabic: var(--font-plex-arabic), "Noto Sans Arabic", system-ui, sans-serif;
 
-  --step-section: clamp(48px, 6vw, 92px);
-  --measure: 68ch;
-  --shell: 1240px;
+  --step-section: clamp(64px, 8vw, 128px);
+  --measure: 66ch;
+  --shell: 1200px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/*
-  The dark alternate overrides plain custom properties on :root, NOT a nested
-  @theme block.
-
-  Tailwind 4 hoists @theme at build time: an `@theme` inside a media query has
-  its variables lifted out and emitted unconditionally, so the media query stops
-  gating anything. The previous version of this file did exactly that, which is
-  why the site rendered dark for every visitor regardless of their system
-  setting — the "dark mode" was not a mode, it was the only mode, and the light
-  default it was supposedly an alternate to had never rendered anywhere.
-
-  Overriding the same variable names on :root works because every generated
-  utility resolves var(--color-*) at runtime.
-*/
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-canvas: #12100d;
-    --color-surface: #17140f;
-    --color-raise: #17140f;
-    --color-ink: #f3ede3;
-    --color-ink-2: #d9d2c6;
-    --color-muted: #a69e90;
-    --color-line: #2c2822;
+    --color-canvas: #141210;
+    --color-surface: #1a1714;
+    --color-raise: #1a1714;
+    --color-ink: #f1ece3;
+    --color-ink-2: #d6cfc3;
+    --color-muted: #a39b8e;
+    --color-line: #2a2621;
+    --color-line-strong: #3a352e;
 
-    --color-accent: #f4a93c;
-    --color-accent-ink: #f4a93c;
-    --color-on-accent: #14110d;
+    --color-accent: #d9952f;
+    --color-accent-ink: #e2a84a;
+    --color-accent-wash: #2a2213;
+    --color-on-accent: #141210;
 
-    --color-right: #6bc98f;
-    --color-wrong: #e8907a;
+    --color-button: #f1ece3;
+    --color-on-button: #141210;
+
+    --color-right: #7cc79a;
+    --color-wrong: #e39a85;
   }
 }
 
 body {
   font-family: var(--font-sans);
   font-synthesis-weight: none;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-canvas);
 }
 
 /* Arabic gets its own face; the dir attribute on <html> is the switch. */
@@ -102,13 +110,16 @@ h2,
 h3,
 .display {
   font-family: var(--font-display);
+  font-weight: 500;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 [dir="rtl"] h1,
 [dir="rtl"] h2,
 [dir="rtl"] h3,
 [dir="rtl"] .display {
   font-family: var(--font-arabic);
+  font-weight: 600;
   letter-spacing: 0;
 }
 
@@ -131,22 +142,23 @@ h3,
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    border-radius: 4px;
-    background: var(--color-accent);
-    padding-block: 0.625rem;
+    gap: 0.5rem;
+    border-radius: 6px;
+    background: var(--color-button);
+    color: var(--color-on-button);
+    border: 1px solid var(--color-button);
+    padding-block: 0.7rem;
     padding-inline: 1.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    /*
-      Dark ink on amber, not canvas. Amber is a light hue: white or near-white
-      text on it lands around 1.8:1, which fails at any size. Ink on amber is
-      about 9:1.
-    */
-    color: var(--color-on-accent);
-    border: 1px solid color-mix(in oklab, var(--color-accent) 70%, #000);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
   }
   .btn-primary:hover {
-    background: color-mix(in oklab, var(--color-accent) 88%, #000);
+    background: color-mix(in oklab, var(--color-button) 86%, var(--color-canvas));
+    border-color: color-mix(in oklab, var(--color-button) 86%, var(--color-canvas));
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
   }
   .btn-sm {
     padding-block: 0.4rem;
@@ -160,26 +172,35 @@ h3,
   .btn-secondary {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--color-line);
-    border-radius: 4px;
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
-    font-size: 0.875rem;
+    gap: 0.5rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 6px;
+    background: var(--color-surface);
+    padding-block: 0.7rem;
+    padding-inline: 1.15rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
     color: var(--color-ink);
+    text-decoration: none;
+  }
+  .btn-secondary:active {
+    transform: scale(0.98);
   }
 
   .link {
-    color: var(--color-muted);
-    text-underline-offset: 3px;
-  }
-  .link:hover {
     color: var(--color-ink);
     text-decoration: underline;
+    text-decoration-color: var(--color-line-strong);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  .link:hover {
+    text-decoration-color: var(--color-accent);
   }
 
   .card {
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
   }
 }
@@ -314,7 +335,7 @@ h3,
 
   .block-takeaways {
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
   }
   .block-takeaways h3 {
@@ -333,7 +354,7 @@ h3,
   .block-scenario,
   .block-sort {
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
     background: var(--color-raise);
   }
@@ -422,7 +443,7 @@ h3,
 
   .block-placeholder {
     border: 1px dashed var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
     color: var(--color-muted);
   }
@@ -591,7 +612,7 @@ h3,
     align-items: center;
     justify-content: space-between;
     border: 1px solid var(--color-accent);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-block-end: 1.5rem;
   }
@@ -664,7 +685,7 @@ h3,
       inset-block-start: 1rem;
       inset-block-end: auto;
       border: 1px solid var(--color-line);
-      border-radius: 0.75rem;
+      border-radius: 8px;
       max-block-size: none;
     }
     .sim-evidence > summary {
@@ -696,7 +717,7 @@ h3,
   .assess-items > li {
     counter-increment: q;
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
   }
   .assess-stem {
@@ -796,7 +817,7 @@ h3,
 
   .verify-card {
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1.25rem;
   }
   .verify-status {
@@ -842,11 +863,13 @@ h3,
   */
   .admin-q {
     font-family: var(--font-display);
-    font-size: clamp(19px, 2vw, 24px);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-block: clamp(36px, 4.5vw, 60px) 0.75rem;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-block: clamp(44px, 5.5vw, 76px) 0.9rem;
+    padding-block-start: 1.25rem;
+    border-block-start: 1px solid var(--color-line);
     max-inline-size: 38ch;
   }
   [dir="rtl"] .admin-q {
@@ -860,19 +883,23 @@ h3,
   */
   .page-shell {
     margin-inline: auto;
-    inline-size: min(100% - 3rem, var(--shell));
-    padding-block: clamp(40px, 5vw, 72px);
+    inline-size: min(100% - 2.5rem, var(--shell));
+    padding-block: clamp(56px, 7vw, 104px);
   }
   .page-shell-narrow {
     margin-inline: auto;
-    inline-size: min(100% - 3rem, 78ch);
-    padding-block: clamp(40px, 5vw, 72px);
+    inline-size: min(100% - 2.5rem, 74ch);
+    padding-block: clamp(56px, 7vw, 104px);
   }
   .page-title {
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.08;
-    font-weight: 700;
-    max-inline-size: 24ch;
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    max-inline-size: 22ch;
+  }
+  [dir="rtl"] .page-title {
+    letter-spacing: 0;
   }
   .admin-caveat {
     margin-block-start: 1.75rem;
@@ -960,7 +987,7 @@ h3,
   }
   .price-card {
     border: 1px solid var(--color-line);
-    border-radius: 0.75rem;
+    border-radius: 8px;
     padding: 1rem;
   }
   .price-amount {
@@ -1070,7 +1097,7 @@ h3,
 @layer components {
   .shell {
     margin-inline: auto;
-    inline-size: min(100% - 3rem, var(--shell));
+    inline-size: min(100% - 2.5rem, var(--shell));
   }
 
   .measure {
@@ -1085,6 +1112,26 @@ h3,
   .band-alt {
     background: var(--color-surface);
     border-block: 1px solid var(--color-line);
+  }
+  /*
+    A section never sits on a flat void. A radial of the accent at a few
+    percent gives the paper a direction of light; it is on the band itself,
+    not on a scrolling child, so it costs one paint.
+  */
+  .band-lit {
+    background-image: radial-gradient(
+      60% 50% at 85% 0%,
+      color-mix(in oklab, var(--color-accent) 9%, transparent),
+      transparent 70%
+    );
+  }
+  /* Gradients have no logical positions; the light source mirrors by hand. */
+  [dir="rtl"] .band-lit {
+    background-image: radial-gradient(
+      60% 50% at 15% 0%,
+      color-mix(in oklab, var(--color-accent) 9%, transparent),
+      transparent 70%
+    );
   }
   .band-tight {
     padding-block: clamp(32px, 4vw, 56px);
@@ -1114,9 +1161,10 @@ h3,
     each other, so nothing led and the eye had no entry point.
   */
   .h-display {
-    font-size: clamp(30px, 5vw, 52px);
-    line-height: 1.05;
-    font-weight: 700;
+    font-size: clamp(34px, 5.2vw, 60px);
+    line-height: 1.02;
+    font-weight: 500;
+    letter-spacing: -0.03em;
     /*
       Display type needs a tighter measure than prose — 68ch at 52px is most of
       a 1280px viewport and produces one enormous line — but not so tight that
@@ -1130,18 +1178,25 @@ h3,
     max-inline-size: 38ch;
   }
   .h-section {
-    font-size: clamp(22px, 2.6vw, 30px);
-    line-height: 1.15;
-    font-weight: 600;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.1;
+    font-weight: 500;
   }
   .h-item {
-    font-size: clamp(17px, 1.5vw, 20px);
-    line-height: 1.3;
+    font-family: var(--font-display);
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  [dir="rtl"] .h-item {
+    font-family: var(--font-arabic);
     font-weight: 600;
+    letter-spacing: 0;
   }
   .lede {
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.6;
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55;
     color: var(--color-ink-2);
   }
 
@@ -1169,18 +1224,19 @@ h3,
     gap: 0.35rem;
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--color-muted);
-    border: 1px solid var(--color-line);
-    border-radius: 3px;
-    padding-block: 0.15rem;
-    padding-inline: 0.4rem;
+    background: color-mix(in oklab, var(--color-ink) 5%, transparent);
+    border: 0;
+    border-radius: 999px;
+    padding-block: 0.25rem;
+    padding-inline: 0.6rem;
     white-space: nowrap;
   }
   .chip-accent {
     color: var(--color-accent-ink);
-    border-color: color-mix(in oklab, var(--color-accent) 55%, var(--color-line));
-    background: color-mix(in oklab, var(--color-accent) 10%, transparent);
+    background: var(--color-accent-wash);
   }
 
   .pull-quote {
@@ -1210,8 +1266,8 @@ h3,
     position: sticky;
     inset-block-start: 0;
     z-index: 40;
-    background: color-mix(in oklab, var(--color-canvas) 88%, transparent);
-    backdrop-filter: blur(8px);
+    background: color-mix(in oklab, var(--color-canvas) 82%, transparent);
+    backdrop-filter: blur(10px) saturate(1.1);
     border-block-end: 1px solid var(--color-line);
   }
   .site-header-inner {
@@ -1222,9 +1278,10 @@ h3,
   }
   .wordmark {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.0625rem;
-    letter-spacing: -0.01em;
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
     color: var(--color-ink);
     display: inline-flex;
     align-items: baseline;
@@ -1284,8 +1341,9 @@ h3,
   .site-footer {
     background: var(--color-surface);
     border-block-start: 1px solid var(--color-line);
-    padding-block: clamp(40px, 5vw, 64px);
-    margin-block-start: var(--step-section);
+    padding-block: clamp(48px, 6vw, 80px);
+    /* Bands carry their own ground; a margin here doubled it into a void. */
+    margin-block-start: 0;
   }
   .site-footer-grid {
     display: grid;
@@ -1547,10 +1605,6 @@ h3,
   @media (min-width: 900px) {
     .cs-depths {
       grid-template-columns: repeat(3, 1fr);
-    }
-    /* The hero's two doors share the grid; three columns left a third one empty. */
-    .cs-depths.cs-paths {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
   .cs-depths .cs-depth {
@@ -1986,5 +2040,238 @@ h3,
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------- redesign */
+/*
+  The landing page as a document, not a dashboard. An asymmetric hero — words
+  on the start side, a real gate report on the end side — so the first screen
+  shows the product's evidence instead of describing it. Everything collapses
+  to one column under 900px. Logical properties throughout.
+*/
+@layer components {
+  .hero {
+    display: grid;
+    gap: clamp(32px, 5vw, 72px);
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding-block: clamp(56px, 8vw, 120px);
+  }
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    }
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-block-start: 2rem;
+  }
+  .hero-note {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-block-start: 0.9rem;
+  }
+
+  /*
+    The document panel. A faux window with a title bar, showing one real
+    draft's gate report: the file names are the real gate scripts and the
+    not-run line is read from the draft's own STATUS.md. Nothing in it is
+    staged.
+  */
+  .doc {
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    background: var(--color-surface);
+    box-shadow:
+      0 1px 0 color-mix(in oklab, var(--color-ink) 4%, transparent),
+      0 24px 48px -32px color-mix(in oklab, var(--color-ink) 22%, transparent);
+    overflow: hidden;
+  }
+  .doc-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 0.6rem;
+    padding-inline: 0.9rem;
+    border-block-end: 1px solid var(--color-line);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+  }
+  .doc-bar i {
+    inline-size: 9px;
+    block-size: 9px;
+    border-radius: 999px;
+    background: var(--color-line-strong);
+  }
+  .doc-bar span {
+    margin-inline-start: 0.5rem;
+  }
+  .doc-body {
+    padding: clamp(18px, 2.2vw, 28px);
+    display: grid;
+    gap: 1rem;
+  }
+  .doc-title {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 1.8vw, 23px);
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  [dir="rtl"] .doc-title {
+    font-family: var(--font-arabic);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .doc-gates {
+    display: grid;
+    border-block-start: 1px solid var(--color-line);
+  }
+  .doc-gates li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding-block: 0.6rem;
+    border-block-end: 1px solid var(--color-line);
+    font-size: 0.875rem;
+  }
+  .doc-gates code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-ink-2);
+  }
+  .doc-gates small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-block-start: 0.15rem;
+  }
+  .doc-foot {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    line-height: 1.55;
+  }
+
+  /* Status words. Meaning is in the word; the tint only reinforces it. */
+  .status {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding-block: 0.2rem;
+    padding-inline: 0.55rem;
+    white-space: nowrap;
+  }
+  .status-pass {
+    color: var(--color-right);
+    background: color-mix(in oklab, var(--color-right) 10%, transparent);
+  }
+  .status-hold {
+    color: var(--color-accent-ink);
+    background: var(--color-accent-wash);
+  }
+  :where([lang="ar"], [dir="rtl"]) :is(.status, .doc-bar) {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 0.75rem;
+  }
+
+  /*
+    The who-are-you list. Numbered in the display face, the number large and
+    quiet: the row is an answer, and the numeral says there are three.
+  */
+  .who {
+    display: grid;
+    border-block-start: 1px solid var(--color-line);
+  }
+  .who > li {
+    display: grid;
+    gap: clamp(12px, 2vw, 32px);
+    grid-template-columns: 1fr;
+    padding-block: clamp(24px, 3vw, 40px);
+    border-block-end: 1px solid var(--color-line);
+  }
+  @media (min-width: 760px) {
+    .who > li {
+      grid-template-columns: 4rem minmax(0, 7fr) minmax(0, 5fr);
+      align-items: start;
+    }
+  }
+  .who-num {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    color: var(--color-accent-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .who-body {
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+  @media (min-width: 760px) {
+    .who-body {
+      padding-block-start: 0.35rem;
+    }
+  }
+
+  /* Section head: eyebrow and heading share one row on wide screens. */
+  .sec-head {
+    display: grid;
+    gap: 0.75rem 3rem;
+    grid-template-columns: 1fr;
+    align-items: end;
+    margin-block-end: clamp(28px, 3.5vw, 48px);
+  }
+  @media (min-width: 900px) {
+    .sec-head {
+      grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    }
+    .sec-head .eyebrow {
+      grid-column: 1 / -1;
+    }
+  }
+  .sec-head p {
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  /*
+    Scroll-entry. The server renders every element visible. Reveal marks an
+    element "wait" only when it starts observing it and "in" when it enters
+    the viewport, so nothing is hidden unless the code that shows it again is
+    running. Reduced-motion visitors are never marked.
+  */
+  [data-reveal="wait"] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  [data-reveal="in"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 600ms var(--ease-out),
+      transform 600ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+
+  /* Hover lift on discrete objects, so quiet it is felt more than seen. */
+  .doc,
+  .kcheck,
+  .verify-card {
+    transition: box-shadow 200ms ease, transform 200ms ease;
   }
 }

@@ -661,3 +661,15 @@ second.
   was empty). The price table is gone from `/commission`: a fixed per-lesson figure read as
   expensive to some buyers and arbitrary to others. The page now says, in one line, that
   the price is quoted per project; the free first lesson stays.
+- **Redesign (8 Oct, evening):** the whole surface, not a patch. Type: Newsreader for display,
+  Instrument Sans for body and UI, IBM Plex Sans Arabic in place of Cairo (Cairo made every
+  Arabic heading shout), JetBrains Mono kept for data. Colour: bone canvas, charcoal ink (no
+  pure black), the amber desaturated and demoted to eyebrows, rules and active states; the one
+  filled button is ink on paper, paper on ink in dark. Landing: an asymmetric hero — copy on
+  the start side, a real gate report for the first draft in `pipeline/out` on the end side,
+  read from its STATUS.md — then "Who are you?" and the three depths as numbered hairline rows
+  rather than boxes. Chips are quiet pills; sections breathe (64–128px); the footer no longer
+  doubles the band's ground. Motion: a single IntersectionObserver reveal (12px, 600ms,
+  staggered 80ms) that marks an element only when it is already observing it, so nothing is
+  hidden without JavaScript or under reduced motion; the first screen does not animate at all.
+  Measured at 375 and 1280, both directions, both schemes: no horizontal overflow, 44px targets.

@@ -1,23 +1,30 @@
 import type { Metadata } from 'next'
-import { Archivo, Cairo, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
+import { IBM_Plex_Sans_Arabic, Instrument_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { SiteHeader } from '@/components/site/SiteHeader'
+import { Reveal } from '@/components/site/Reveal'
 import { DIR, routing, type AppLocale } from '@/i18n/routing'
 import '../globals.css'
 
 // next/font downloads the OFL faces at build time and serves them from this
 // origin, so there is no third-party request at runtime and no layout shift.
 // Each exposes a CSS variable that app/globals.css maps onto a role.
-const archivo = Archivo({
+// Newsreader carries the display voice: a text serif, set tight, which is what
+// separates a document from a dashboard. Instrument Sans is the body and UI
+// face. IBM Plex Sans Arabic replaces Cairo: Cairo is rounded and heavy and
+// made every Arabic heading shout; Plex sits at the same optical weight as the
+// Latin and has a true 500/600 for labels.
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-archivo',
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
   display: 'swap',
 })
-const spaceGrotesk = Space_Grotesk({
+const instrument = Instrument_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-body',
@@ -29,14 +36,14 @@ const jetbrains = JetBrains_Mono({
   variable: '--font-mono-face',
   display: 'swap',
 })
-const cairo = Cairo({
+const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-cairo',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex-arabic',
   display: 'swap',
 })
 
-const FONTS = `${archivo.variable} ${spaceGrotesk.variable} ${jetbrains.variable} ${cairo.variable}`
+const FONTS = `${newsreader.variable} ${instrument.variable} ${jetbrains.variable} ${plexArabic.variable}`
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -77,6 +84,7 @@ export default async function LocaleLayout({
           <SiteHeader locale={l} />
           <main id="main">{children}</main>
           <SiteFooter locale={l} />
+          <Reveal />
         </NextIntlClientProvider>
       </body>
     </html>
