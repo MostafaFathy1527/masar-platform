@@ -1548,6 +1548,10 @@ h3,
     .cs-depths {
       grid-template-columns: repeat(3, 1fr);
     }
+    /* The hero's two doors share the grid; three columns left a third one empty. */
+    .cs-depths.cs-paths {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   .cs-depths .cs-depth {
     background: var(--color-surface);

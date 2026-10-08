@@ -16,12 +16,12 @@ export async function generateMetadata({
     ? {
         title: 'اطلب دروسًا — مسار',
         description:
-          'نحوّل مادة خبرائكم إلى دروس تطبيقية بالعربية والإنجليزية، كل درس يعبر ثلاث بوابات جودة موثّقة قبل التسليم. سعر ثابت للدرس.',
+          'نحوّل مادة خبرائكم إلى دروس تطبيقية بالعربية والإنجليزية، كل درس يعبر ثلاث بوابات جودة موثّقة قبل التسليم. السعر يُحدَّد لكل مشروع، وأول درس بلا مقابل.',
       }
     : {
         title: 'Commission lessons — Masār',
         description:
-          'Your experts’ material turned into practice-first lessons in Arabic and English, each passing three documented quality gates before delivery. Fixed price per lesson.',
+          'Your experts’ material turned into practice-first lessons in Arabic and English, each passing three documented quality gates before delivery. Priced per project; the first lesson is free.',
       }
 }
 
@@ -33,8 +33,10 @@ export async function generateMetadata({
  * to were produced by exactly the process it describes — each with its own
  * STATUS.md saying what was and was not run.
  *
- * Prices are an offer, not a metric, so hard rule 5 (no invented numbers) is
- * not in play; they are the owner's to change.
+ * There is no price table. A fixed per-lesson figure read as expensive to a
+ * startup or an Egyptian company and as arbitrary to everyone else, because the
+ * real price depends on depth, volume, language pair and timeline. The page
+ * names what moves the price and asks for the material instead.
  */
 
 const REPO = 'https://github.com/MostafaFathy1527/masar-platform'
@@ -84,8 +86,8 @@ export default async function CommissionPage({
       <h1 className="page-title">{ar ? 'اطلب دروسًا' : 'Commission lessons'}</h1>
       <p className="mt-3 max-w-prose leading-relaxed text-muted">
         {ar
-          ? 'توليد المحتوى التعليمي لم يعد صعبًا. معرفة ما إذا كان الناتج جيدًا لا تزال صعبة. هذه الصفحة تعرض الجزء الثاني: دروس تطبيقية من مادتكم، بالعربية والإنجليزية، لا يُسلَّم منها درس إلا بعد أن يعبر ثلاث بوابات جودة ومراجعة بشرية، بسعر ثابت للدرس.'
-          : 'Generating learning content is no longer hard. Knowing whether the output is any good still is. This page offers the second part: practice-first lessons from your material, in Arabic and English, none of which is delivered until it has passed three quality gates and a human review, at a fixed price per lesson.'}
+          ? 'توليد المحتوى التعليمي لم يعد صعبًا. معرفة ما إذا كان الناتج جيدًا لا تزال صعبة. هذه الصفحة تعرض الجزء الثاني: دروس تطبيقية من مادتكم، بالعربية والإنجليزية، لا يُسلَّم منها درس إلا بعد أن يعبر ثلاث بوابات جودة ومراجعة بشرية.'
+          : 'Generating learning content is no longer hard. Knowing whether the output is any good still is. This page offers the second part: practice-first lessons from your material, in Arabic and English, none of which is delivered until it has passed three quality gates and a human review.'}
       </p>
 
       <h2 className="admin-q">{ar ? 'لمن هذا' : 'Who this is for'}</h2>
@@ -170,37 +172,11 @@ export default async function CommissionPage({
           : 'The samples are drafts by definition: not published, and not rubric-scored, because the only available judge is the one who wrote them. In commissioned work an independent judge scores them before delivery, and the report ships with the lesson.'}
       </p>
 
-      <h2 className="admin-q">{ar ? 'الأسعار' : 'Pricing'}</h2>
-      <div className="block-table-scroll">
-        <table className="block-table">
-          <tbody>
-            <tr>
-              <th scope="col">{ar ? 'العمق' : 'Depth'}</th>
-              <th scope="col">{ar ? 'ما يحتويه' : 'What it includes'}</th>
-              <th scope="col">{ar ? 'للدرس' : 'Per lesson'}</th>
-            </tr>
-            <tr>
-              <th scope="row">L1 · {ar ? 'قراءة منظمة' : 'Structured'}</th>
-              <td>{ar ? 'شرح وبطاقات تعريف ونصيحة عمل وخلاصة، بلغتين' : 'Explanation, definition cards, a job tip and takeaways, in both languages'}</td>
-              <td>USD 150</td>
-            </tr>
-            <tr>
-              <th scope="row">L2 · {ar ? 'تفاعلي' : 'Interactive'}</th>
-              <td>{ar ? 'كل ما في L1، ومثال محلول، وسيناريو قرار، وفحصا معرفة' : 'Everything in L1, plus a worked example, a decision scenario and two knowledge checks'}</td>
-              <td>USD 250</td>
-            </tr>
-            <tr>
-              <th scope="row">L3 · {ar ? 'تطبيق عملي' : 'Applied practice'}</th>
-              <td>{ar ? 'محاكاة مهمة حقيقية تُصحَّح آليًا — تُسعَّر حسب المهمة' : 'A simulation of a real task, auto-scored — priced per task'}</td>
-              <td>{ar ? 'بعرض سعر' : 'By quote'}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p className="mt-3 max-w-prose leading-relaxed">
+      <h2 className="admin-q">{ar ? 'كيف يُحدَّد السعر' : 'How the price is set'}</h2>
+      <p className="max-w-prose leading-relaxed">
         {ar
-          ? 'التجربة الأولى: عشرون درسًا بخصم عشرين في المئة، وتسليم أول خمسة خلال أسبوعين من استلام المصادر. تشمل جولتي مراجعة لكل درس، وتقرير البوابات، وملف المصطلحات الذي يمنع إعادة تعريف المفاهيم عبر الدورة كلها.'
-          : 'First pilot: twenty lessons at twenty percent off, the first five delivered within two weeks of receiving the sources. Includes two review rounds per lesson, the gate report, and the concept log that stops a course re-defining its own terms.'}
+          ? 'لا توجد قائمة أسعار ثابتة، لأن ما يناسب شركة ناشئة في مصر لا يناسب جهة تدريب في الخليج، والعكس. السعر يُحدَّد لكل مشروع بحسب أربعة أشياء: عمق الدرس (قراءة منظمة، تفاعلي، أو تطبيق عملي)، وعدد الدروس، واللغات المطلوبة (لغة واحدة أم اثنتان)، والجدول الزمني. تصلك عروض السعر خلال يومي عمل من قراءة مادتكم، ويقلّ سعر الدرس كلما زاد العدد.'
+          : 'There is no fixed price list, because what fits a startup in Egypt does not fit a training house in the Gulf, and the reverse. Each project is priced on four things: the depth of the lesson (structured, interactive or applied practice), how many lessons, which languages (one or both), and the timeline. A quote reaches you within two working days of reading your material, and the per-lesson price falls as the count rises.'}
       </p>
 
       <h2 className="admin-q">{ar ? 'ابدأ' : 'Start'}</h2>

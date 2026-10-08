@@ -12,8 +12,6 @@ export default async function LandingPage({
   const t = await getTranslations()
   const ar = locale === 'ar'
 
-  const depths = ['l1', 'l2', 'l3'] as const
-
   // The page's own header, <main> and footer are gone: the locale layout now
   // supplies all three. Keeping them produced two stacked wordmarks, a second
   // locale switch, and two <main> landmarks on one page.
@@ -35,7 +33,7 @@ export default async function LandingPage({
             what it would produce for them. Before this split, the only door was
             the guest button, and a buyer saw an unexplained demo.
           */}
-          <div className="cs-depths" style={{ marginBlockStart: '2rem' }}>
+          <div className="cs-depths cs-paths" style={{ marginBlockStart: '2rem' }}>
             <div className="cs-depth">
               <h4>{ar ? 'جرّب المنصة' : 'Try the platform'}</h4>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-ink-2)' }}>
@@ -57,8 +55,8 @@ export default async function LandingPage({
               <h4>{ar ? 'اطلب دروسًا من مادتك' : 'Commission lessons from your material'}</h4>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-ink-2)' }}>
                 {ar
-                  ? 'نفس خط الإنتاج، على مادة خبرائكم: دروس تطبيقية بالعربية والإنجليزية، كل درس بتقرير بواباته، بسعر ثابت للدرس. اقرأ ثلاث عينات حقيقية أولًا.'
-                  : 'The same pipeline on your experts’ material: practice-first lessons in Arabic and English, each with its gate report, at a fixed price per lesson. Read three real samples first.'}
+                  ? 'نفس خط الإنتاج، على مادة خبرائكم: دروس تطبيقية بالعربية والإنجليزية، كل درس بتقرير بواباته، والسعر يُحدَّد لكل مشروع. اقرأ ثلاث عينات حقيقية أولًا.'
+                  : 'The same pipeline on your experts’ material: practice-first lessons in Arabic and English, each with its gate report, priced per project. Read three real samples first.'}
               </p>
               <p style={{ marginBlockStart: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>
                 <Link className="btn-secondary" href="/samples">
@@ -73,98 +71,62 @@ export default async function LandingPage({
         </div>
       </section>
 
-      {/* ------------------------------------------------------ three depths */}
+      {/* ------------------------------------------------------- who are you */}
+      {/*
+        The old second and third sections were a depth comparison and a list of
+        every page. Both described the site; neither told a visitor where to go.
+        Testing it on himself, the owner got lost. One question — who are you —
+        with one destination per answer replaces them. The depth model and the
+        practice workbench are still reachable, from the course and the footer.
+      */}
       <section className="band band-alt">
         <div className="shell">
-          <span className="eyebrow">{t('depth.title')}</span>
-          <h2 className="h-section">
-            {ar ? 'العمق خاصية للدرس، لا درس منفصل' : 'Depth is a property of a lesson, not a separate lesson'}
-          </h2>
+          <span className="eyebrow">{ar ? 'ابدأ من هنا' : 'Start here'}</span>
+          <h2 className="h-section">{ar ? 'من أنت؟' : 'Who are you?'}</h2>
 
-          <div className="cs-depths" style={{ marginBlockStart: '1.75rem' }}>
-            {depths.map((level) => (
-              <div key={level} className="cs-depth">
-                <h4>{t(`depth.${level}.name`)}</h4>
-                <p style={{ fontSize: '0.875rem', color: 'var(--color-ink-2)' }}>
-                  {t(`depth.${level}.body`)}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p style={{ marginBlockStart: '1.25rem' }}>
-            <Link className="link" href="/depth">
-              {ar ? 'انظر الفقرة نفسها بالمستويات الثلاثة' : 'See the same paragraph at all three levels'}
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------ index */}
-      <section className="band">
-        <div className="shell">
-          <span className="eyebrow">{t('explore')}</span>
-          <h2 className="h-section">{ar ? 'ما بداخل هذا العرض' : "What is inside this demo"}</h2>
-
-          {/*
-            Without a real index, a reviewer arriving here can reach the practice
-            workbench and nothing else. The guest button is the fast path, not
-            the only one.
-          */}
           <ul className="rule-list" style={{ marginBlockStart: '1.75rem' }}>
             <li>
               <h3 className="h-item">
-                <Link href="/course">{t('nav.course')}</Link>
+                <Link href="/course">{ar ? 'متعلّم أو معلّم: افتح الدورة' : 'A learner or a teacher: open the course'}</Link>
               </h3>
               <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
                 {ar
-                  ? 'خمسة دروس، كل درس بعمقه ولغته ومدته المعلنة.'
-                  : 'Five lessons, each with its depth, language and length declared.'}
+                  ? 'خمسة دروس في التأمين الطبي، ومحاكاة لمراجعة مطالبة، واختبار. ادخل كزائر ولا تسجّل شيئًا.'
+                  : 'Five lessons in medical insurance, a claim-review simulation and an exam. Enter as a guest and register nothing.'}
               </p>
             </li>
             <li>
               <h3 className="h-item">
-                <Link href="/practice/claim-review">{ar ? 'مراجعة مطالبة' : 'Claim review'}</Link>
+                <Link href="/samples">{ar ? 'مسؤول تدريب: اقرأ العينات' : 'A training lead: read the samples'}</Link>
               </h3>
               <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
                 {ar
-                  ? 'ستة أخطاء مزروعة، ودرجة بمقياس F1 تعاقب التعليم العشوائي.'
-                  : 'Six seeded errors, scored with F1 so indiscriminate flagging is penalised.'}
+                  ? 'ثلاثة دروس من خط الإنتاج في مجالات غير التأمين. إن أعجبتك، '
+                  : 'Three pipeline lessons in domains other than insurance. If they hold up, '}
+                <Link className="link" href="/commission">
+                  {ar ? 'أرسل درسًا من مادتك' : 'send one lesson of your material'}
+                </Link>
+                {ar ? ' وسيعود إليك مسودة بلا مقابل.' : ' and it comes back as a draft at no charge.'}
               </p>
             </li>
             <li>
               <h3 className="h-item">
-                <Link href="/samples">{ar ? 'عينات من خط الإنتاج' : 'Pipeline samples'}</Link>
+                <Link href="/case-study">{ar ? 'مراجع أو جهة توظيف: اقرأ دراسة الحالة' : 'A reviewer or an employer: read the case study'}</Link>
               </h3>
               <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
                 {ar
-                  ? 'ثلاثة دروس مسودّة في ثلاثة مجالات خارج الدورة، كما خرجت من البوابات.'
-                  : 'Three draft lessons in three domains outside the course, as they left the gates.'}
-              </p>
-            </li>
-            <li>
-              <h3 className="h-item">
-                <Link href="/case-study">{t('nav.caseStudy')}</Link>
-              </h3>
-              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
-                {ar
-                  ? 'القرارات التي أدافع عنها، وما الذي أخفق أثناء البناء.'
-                  : 'The decisions worth defending, and what failed along the way.'}
-              </p>
-            </li>
-            <li>
-              <h3 className="h-item">
-                <Link href="/how-it-was-built">{t('nav.built')}</Link>
-              </h3>
-              <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
-                {ar
-                  ? 'خط إنتاج المحتوى وبواباته، وما لم يُشغَّل بعد.'
-                  : 'The content pipeline, its gates, and what has not been run yet.'}
+                  ? 'لماذا بُنيت المنصة هكذا، وما الذي أخفق في الطريق، و'
+                  : 'Why the platform was built this way, what failed on the way, and '}
+                <Link className="link" href="/how-it-was-built">
+                  {ar ? 'كيف يعمل خط الإنتاج' : 'how the pipeline works'}
+                </Link>
+                .
               </p>
             </li>
           </ul>
         </div>
       </section>
+
     </>
   )
 }
