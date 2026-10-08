@@ -648,3 +648,9 @@ second.
   unexplained demo. The header is ordered learner → buyer → reviewer; `/depth` lost its slot.
 - `/commission` links each sample to its page on the site; the GitHub status file remains
   as the secondary link.
+- **UI/UX pass (8 Oct):** a real mobile menu in the header — a disclosure button with
+  `aria-expanded`, Escape to close, focus returned — where before 900px a phone visitor
+  could reach nothing but the guest button. Header controls, footer links and buttons are
+  at least 44px tall; transitions respect `prefers-reduced-motion`. The hero eyebrow no
+  longer reads "Demonstration — v1.0": a version number is internal state and the word
+  told a buyer the thing was not real. It now carries the positioning line instead.
