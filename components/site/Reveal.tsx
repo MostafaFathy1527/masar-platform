@@ -19,31 +19,33 @@ export function Reveal() {
       el.dataset.reveal = 'in'
       io.unobserve(el)
     }
+    // The root extends far above the viewport: an element the reader has
+    // already scrolled past counts as seen. Without that, one fast flick or a
+    // jump to an anchor can carry an element from below the fold to above it
+    // between two observer reports, and it would stay hidden.
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          // Intersecting, or already scrolled past: a jump to an anchor or one
-          // fast flick can carry an element from below the viewport to above
-          // it between two observer reports, and it must not stay hidden.
-          if (e.isIntersecting || e.boundingClientRect.bottom < 0) show(e.target as HTMLElement)
-        }
+        for (const e of entries) if (e.isIntersecting) show(e.target as HTMLElement)
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+      { rootMargin: '10000px 0px -8% 0px', threshold: 0.05 },
     )
 
     // Every element not yet shown is (re)observed — observe() is idempotent,
-    // and re-observing is what keeps an element from being stranded in "wait"
-    // when the effect is cleaned up and run again, as React does in development.
-    // The timer is insurance against anything else: an element the observer
-    // never reports is shown anyway after a few seconds rather than never.
+    // and re-observing is what keeps an element from being stranded when the
+    // effect is cleaned up and run again, as React does in development. The
+    // timer is insurance against anything else: an element the observer never
+    // reports is shown after a few seconds rather than never. It is armed per
+    // effect run, so a cleanup cannot leave an element without one.
+    const timed = new WeakSet<HTMLElement>()
     const timers: number[] = []
     const scan = () => {
       document.querySelectorAll<HTMLElement>('[data-reveal]:not([data-reveal="in"])').forEach((el) => {
-        if (el.dataset.reveal !== 'wait') {
-          el.dataset.reveal = 'wait'
+        el.dataset.reveal = 'wait'
+        io.observe(el)
+        if (!timed.has(el)) {
+          timed.add(el)
           timers.push(window.setTimeout(() => el.dataset.reveal === 'wait' && show(el), 4000))
         }
-        io.observe(el)
       })
     }
     scan()
