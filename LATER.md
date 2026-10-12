@@ -32,3 +32,8 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
 - **Render pipeline drafts in the lesson reader** (read from `pipeline/out`), so a prospect
   can open a sample on the site instead of on GitHub. Only worth it once drafts are
   rubric-scored by an independent judge.
+
+## Sentry (installed 13 Oct 2026)
+Error monitoring is wired (see `docs/STATUS.md`); still open:
+- `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_AUTH_TOKEN` are set on Vercel (13 Oct);
+  source maps upload from the next successful build.
