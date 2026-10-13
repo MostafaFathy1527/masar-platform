@@ -19,6 +19,16 @@ back on the partner's site. The strip lives in `SiteFooter`, above the footer co
 the link is on every page without a partner badge landing inside a lesson. The application
 form was submitted by the owner; if Techne does not confirm, this strip comes out.
 
+**Added 2026-10-13 — Sentry wired, not yet live in production.** `@sentry/nextjs` 11.7 is
+installed: `instrumentation.ts` (Node + edge init, `onRequestError`), `instrumentation-client.ts`
+(browser init, replay on error only with default masking, route transitions),
+`app/global-error.tsx`, and `withSentryConfig` from `@sentry/nextjs/config` wrapping the
+next-intl plugin in `next.config.ts`. The SDK is `enabled` only when `NODE_ENV` is production,
+browser events tunnel through `/api/monitoring` (under `/api` so the proxy matcher skips it),
+and source-map upload runs only when `SENTRY_AUTH_TOKEN` is set. One test event was sent
+straight to the DSN and accepted. Production reports once the env vars are on Vercel.
+The DSN lives in `.env` locally and in `.local/sentry.env`; never in a tracked file.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
