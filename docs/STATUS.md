@@ -673,3 +673,12 @@ second.
   staggered 80ms) that marks an element only when it is already observing it, so nothing is
   hidden without JavaScript or under reduced motion; the first screen does not animate at all.
   Measured at 375 and 1280, both directions, both schemes: no horizontal overflow, 44px targets.
+- **Hugging Face Space (13 Oct):** `demo/hf-space/` is a self-contained Gradio app that runs
+  the three gates in a browser: the validator on any sample or pasted lesson (three layers,
+  with the name denylist explicitly absent and said so), the concept log over the authored
+  course, and the rubric gate on a verdict plus the lesson it judged. `sync.py` snapshots the
+  gate scripts, the generated schema, the course lessons and `pipeline/out` drafts into the
+  folder; nothing in it is edited by hand. No model is called on the page. Purpose: a public,
+  runnable artefact for the open-source pipeline. Deployment to huggingface.co is the
+  owner's step (account + `huggingface-cli upload`).
+

@@ -1,0 +1,198 @@
+{
+  "slug": "recognising-a-phishing-email",
+  "titleAr": "كيف تتعرّف على رسالة تصيّد",
+  "titleEn": "Recognising a phishing email",
+  "estMinutes": 25,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "SEC-01"
+  ],
+  "conceptsIntroduced": [
+    "display_name",
+    "look_alike_domain",
+    "link_destination",
+    "one_time_code",
+    "engineered_urgency"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "sec1_h_intro",
+        "type": "heading",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "textAr": "الهجمة على القارئ، لا على النظام",
+          "textEn": "The attack is on the reader, not the system",
+          "level": 2
+        }
+      },
+      {
+        "id": "sec1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "mdAr": "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة. الدفاع هنا ليس أداة، بل **عادة**: التحقق من شيئين أو ثلاثة قبل التصرّف.\n\nوأضعف إشارة في أي رسالة هي **الاسم الظاهر للمُرسِل**، وهي أكثر ما يثق به الناس. الاسم الظاهر نص حر: يستطيع المُرسِل أن يكتب فيه اسم زميل، أو جهة داخلية، أو بنك، وسيظهر كما كُتب تماماً. ما لا يُكتب بحرية هو **العنوان** خلفه. قراءة العنوان نفسه، لا الاسم المعروض، هي الفحص الأول.",
+          "mdEn": "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting.\n\nThe weakest signal in any message is the sender's **display name**, and it is the one people trust most. A display name is free text: a sender can type a colleague's name, an internal department, or a bank, and it renders exactly as typed. What cannot be set freely is the **address** behind it. Reading the address rather than the name shown is the first check."
+        }
+      },
+      {
+        "id": "sec1_d_lookalike",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "نطاق مُشابِه",
+          "termEn": "Look-alike domain",
+          "defAr": "نطاق حقيقي مُسجَّل، اختير ليُقرأ خطأً لا ليُفحَص: زوج حروف يأخذ شكل حرف آخر عند المرور السريع، أو شرطة زائدة أو ناقصة، أو امتداد مختلف على اسم صحيح فيما عداه. ليس عطلاً تقنياً — يعتمد كلياً على أن القارئ يمسح بعينه بدل أن يقرأ.",
+          "defEn": "A genuine registered domain chosen to be misread rather than examined: a letter pair that takes another shape at a glance, an added or removed hyphen, a different top-level domain on an otherwise correct name. Not a technical failure — it relies entirely on a reader scanning instead of reading.",
+          "icon": "🔎"
+        }
+      },
+      {
+        "id": "sec1_d_otp",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "رمز المرة الواحدة",
+          "termEn": "One-time code",
+          "defAr": "رمز مؤقت يُرسَل إليك لإثبات هويتك. وُجِد تحديداً لأنه غير قابل للمشاركة. ومن يطلبه منك — بما في ذلك من يقول إنه الدعم الداخلي — يطلب الشيء الوحيد الفاصل بين مهاجم وحساب يملك كلمة سره بالفعل.",
+          "defEn": "A temporary code sent to you to prove who you are. It exists precisely because it is not shareable. Anyone asking for it — including someone claiming to be internal support — is asking for the only thing standing between an attacker and an account whose password they already have.",
+          "icon": "🔐"
+        }
+      },
+      {
+        "id": "sec1_tip",
+        "type": "job_tip",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "mdAr": "لا تسأل «هل تبدو هذه الرسالة مزيفة؟» — هذا سؤال عن الإحساس. اسأل **«ما العنوان الحقيقي، وإلى أين يذهب الرابط فعلاً؟»** هذان سؤالان لهما إجابة، ويُجابان في عشر ثوانٍ.",
+          "mdEn": "Do not ask whether the message feels fake — that is a question about instinct. Ask **what the actual address is, and where the link actually goes.** Those are two questions with answers, and they take ten seconds."
+        }
+      },
+      {
+        "id": "sec1_take",
+        "type": "takeaways",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemsAr": [
+            "الاسم الظاهر نص حر؛ العنوان خلفه هو الدليل.",
+            "نص الرابط لافتة، ووجهته شيء آخر — اكشف الوجهة قبل أن تتبعها.",
+            "الاستعجال مُهندَس: وُضِع ليمنع لحظة التحقق.",
+            "طلب كلمة سر أو رمز مرة واحدة يُنهي المحادثة، مهما كان الباقي مقنعاً.",
+            "التحقق يكون عبر قناة تملكها من قبل، لا عبر شيء داخل الرسالة."
+          ],
+          "itemsEn": [
+            "A display name is free text; the address behind it is the evidence.",
+            "Link text is a label and its destination is another thing — reveal the destination before following it.",
+            "Urgency is engineered: it is there to remove the pause in which you would check.",
+            "A request for a password or a one-time code ends the conversation, however convincing the rest is.",
+            "Verify through a channel you already had, never through anything inside the message."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "sec1_l2_h",
+        "type": "heading",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "textAr": "افحص رسالة، إشارة بإشارة",
+          "textEn": "Work one message, signal by signal",
+          "level": 2
+        }
+      },
+      {
+        "id": "sec1_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "promptAr": "وصلت رسالة اسمها الظاهر «IT Service Desk». تقول إن حسابك سيُغلق خلال ساعتين، وفيها زر «تأكيد الحساب»، وتطلب رمز التحقق الذي سيصلك. أجرِ الفحوص بالترتيب.",
+          "promptEn": "A message arrives with the display name “IT Service Desk”. It says your account closes in two hours, carries a “Confirm account” button, and asks for the verification code you are about to receive. Run the checks in order.",
+          "steps": [
+            {
+              "showAr": "اقرأ العنوان الحقيقي، لا الاسم الظاهر.",
+              "showEn": "Read the actual address, not the display name.",
+              "whyAr": "الاسم الظاهر نص حر ويُكتب كما يشاء المُرسِل. العنوان هو الشيء الوحيد الذي لم يختره بحرية.",
+              "whyEn": "The display name is free text, typed as the sender pleases. The address is the one thing they did not choose freely."
+            },
+            {
+              "showAr": "اكشف وجهة الزر قبل الضغط.",
+              "showEn": "Reveal where the button goes before pressing it.",
+              "whyAr": "النص المعروض لافتة مستقلة عن الوجهة. لافتة تسمّي جهة ووجهة تذهب لجهة أخرى ليست غموضاً — هذه هي النتيجة.",
+              "whyEn": "Displayed text is a label, independent of the destination. A label naming one place and a destination going to another is not ambiguity — that is the finding."
+            },
+            {
+              "showAr": "لاحظ أن المهلة ساعتان.",
+              "showEn": "Notice that the deadline is two hours.",
+              "whyAr": "الاستعجال وحده ليس دليلاً. لكن استعجالاً مع طلب تصرّف خارج المسار المعتاد قريب جداً من أن يكون دليلاً.",
+              "whyEn": "Urgency alone is not evidence. Urgency plus a request to act outside the normal route is very close to it."
+            },
+            {
+              "showAr": "قف عند طلب رمز التحقق.",
+              "showEn": "Stop at the request for the verification code.",
+              "whyAr": "هنا تنتهي المحادثة. لا جهة شرعية تطلب رمز مرة واحدة — وجوده كله قائم على أنه لا يُشارَك.",
+              "whyEn": "This is where it ends. No legitimate party asks for a one-time code — its entire purpose rests on not being shared."
+            }
+          ],
+          "answerAr": "طلب الرمز يحسم الأمر وحده. لا تضغط، لا تردّ، ولا تفتح أي مرفق. تحقّق عبر قناة كانت عندك قبل الرسالة، ثم أبلِغ — فنفس الرسالة نادراً ما تصل لشخص واحد.",
+          "answerEn": "The code request settles it on its own. Do not click, do not reply, do not open any attachment. Verify through a channel you had before the message, then report it — the same message almost never arrives at one person."
+        }
+      },
+      {
+        "id": "sec1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemRef": "SEC-01-KC-01"
+        }
+      },
+      {
+        "id": "sec1_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "situationAr": "رسالة من الاسم الظاهر لمديرك: هو في اجتماع ولا يستطيع الرد على الهاتف، ويحتاج تحويل دفعة لمورّد قبل نهاية اليوم. الأسلوب يشبه أسلوبه، ويوجد عنوان رد مختلف عن عنوان الإرسال.",
+          "situationEn": "A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "تردّ على الرسالة طالباً تأكيداً.",
+              "optionEn": "Reply to the message asking for confirmation.",
+              "isBest": false,
+              "consequenceAr": "ردّك يصل إلى عنوان الرد المختلف، أي إلى شخص غير المُرسِل الظاهر. التأكيد الذي يعود إليك يأتي ممن كتب الرسالة.",
+              "consequenceEn": "Your reply reaches the different reply-to address — someone other than the apparent sender. The confirmation that comes back is from whoever wrote the message."
+            },
+            {
+              "id": "d2",
+              "optionAr": "تتصل بالرقم الموجود في توقيع الرسالة.",
+              "optionEn": "Call the number in the message signature.",
+              "isBest": false,
+              "consequenceAr": "التوقيع جزء من الرسالة، والرسالة هي محل الشك. التحقق من داخل الشيء المشكوك فيه ليس تحققاً.",
+              "consequenceEn": "The signature is part of the message, and the message is what is in doubt. Verifying from inside the thing you doubt is not verification."
+            },
+            {
+              "id": "d3",
+              "optionAr": "تتصل به على رقم كان لديك قبل الرسالة، وتُبلِغ.",
+              "optionEn": "Call him on a number you had before the message, and report it.",
+              "isBest": true,
+              "consequenceAr": "الإجراء الصحيح. «لا يستطيع الرد على الهاتف» هو بالضبط الجزء المُهندَس ليمنعك من هذا الفحص تحديداً.",
+              "consequenceEn": "The correct action. “Cannot take calls” is precisely the part engineered to stop you making this one check."
+            }
+          ]
+        }
+      },
+      {
+        "id": "sec1_l2_kc2",
+        "type": "knowledge_check",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemRef": "SEC-01-KC-02"
+        }
+      }
+    ]
+  }
+}
