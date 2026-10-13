@@ -37,8 +37,6 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
 Error monitoring is wired (see `docs/STATUS.md`); still open:
 - `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_AUTH_TOKEN` are set on Vercel (13 Oct);
   source maps upload from the next successful build.
-- Add `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and a `SENTRY_AUTH_TOKEN` to the Vercel project,
-  so production reports and the build uploads source maps.
 - Uptime monitor on `masar.mostafafathy.com` and the Space; a cron monitor on the pipeline gates.
 - Surface real error/uptime numbers on the case study instead of the unmeasured "99% uptime" line,
   once a month of data exists.

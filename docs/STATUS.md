@@ -26,7 +26,8 @@ installed: `instrumentation.ts` (Node + edge init, `onRequestError`), `instrumen
 next-intl plugin in `next.config.ts`. The SDK is `enabled` only when `NODE_ENV` is production,
 browser events tunnel through `/api/monitoring` (under `/api` so the proxy matcher skips it),
 and source-map upload runs only when `SENTRY_AUTH_TOKEN` is set. One test event was sent
-straight to the DSN and accepted. Production reports once the env vars are on Vercel.
+straight to the DSN and accepted. The DSN and auth-token variables are on Vercel (13 Oct) and a production deployment
+followed.
 The DSN lives in `.env` locally and in `.local/sentry.env`; never in a tracked file.
 
 **What remains needs a person, not an agent**: the blind
