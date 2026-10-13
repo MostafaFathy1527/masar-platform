@@ -17,6 +17,11 @@ Sentry.init({
   replaysSessionSampleRate: 0,
   replaysOnErrorSampleRate: 1.0,
   integrations: [Sentry.replayIntegration()],
+  // "Object Not Found Matching Id" is thrown by Microsoft's link scanner
+  // (Outlook SafeLinks) when it opens a page, never by a real browser. It was
+  // the second issue the project ever received; dropping it keeps the quota
+  // for errors a learner could actually hit.
+  ignoreErrors: [/Object Not Found Matching Id/],
 })
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart
