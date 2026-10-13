@@ -40,6 +40,8 @@ Error monitoring is wired (see `docs/STATUS.md`); still open:
 - Uptime monitors exist (13 Oct): `masar.mostafafathy.com` and the HF Space, every minute,
   email on 3 consecutive failures. A cron monitor on the pipeline gates needs the gates to
   run on a schedule first (they run by hand today), otherwise it only reports misses.
+- Seer Autofix is on for masar-web (repo linked 13 Oct), set to stop after the plan so it
+  never pushes a PR; the owner applies any fix by hand, which keeps the attribution rule.
 - Surface real error/uptime numbers on the case study instead of the unmeasured "99% uptime" line,
   once a month of data exists.
 
