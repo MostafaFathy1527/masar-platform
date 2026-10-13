@@ -45,3 +45,6 @@ Error monitoring is wired (see `docs/STATUS.md`); still open:
 - Surface real error/uptime numbers on the case study instead of the unmeasured "99% uptime" line,
   once a month of data exists.
 
+- **Run the rubric judge on open Arabic-capable models** (Jais / Falcon / Qwen) inside the
+  Space and publish the comparison with the hosted judge. Needs GPU hardware the Space does
+  not have today; it is deliberately CPU-only until then.
