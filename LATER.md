@@ -37,7 +37,9 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
 Error monitoring is wired (see `docs/STATUS.md`); still open:
 - `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_AUTH_TOKEN` are set on Vercel (13 Oct);
   source maps upload from the next successful build.
-- Uptime monitor on `masar.mostafafathy.com` and the Space; a cron monitor on the pipeline gates.
+- Uptime monitors exist (13 Oct): `masar.mostafafathy.com` and the HF Space, every minute,
+  email on 3 consecutive failures. A cron monitor on the pipeline gates needs the gates to
+  run on a schedule first (they run by hand today), otherwise it only reports misses.
 - Surface real error/uptime numbers on the case study instead of the unmeasured "99% uptime" line,
   once a month of data exists.
 
