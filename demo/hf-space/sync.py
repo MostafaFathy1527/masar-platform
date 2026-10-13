@@ -20,12 +20,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 
+# Flat on purpose: the Hugging Face web uploader does not keep folders, so the
+# Space keeps everything at the root and encodes origin in the file name.
 COPY = {
-    "pipeline/validate.py": "pipeline/validate.py",
-    "pipeline/concept_log.py": "pipeline/concept_log.py",
-    "pipeline/qa_gate.py": "pipeline/qa_gate.py",
-    "pipeline/rubric.md": "pipeline/rubric.md",
-    "content/schema/lesson.schema.json": "pipeline/lesson.schema.json",
+    "pipeline/validate.py": "validate.py",
+    "pipeline/concept_log.py": "concept_log.py",
+    "pipeline/qa_gate.py": "qa_gate.py",
+    "pipeline/rubric.md": "rubric.md",
+    "content/schema/lesson.schema.json": "lesson.schema.json",
 }
 
 
@@ -35,26 +37,17 @@ def main() -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / src, target)
 
-    courses = HERE / "samples" / "courses"
-    if courses.exists():
-        shutil.rmtree(courses)
+    for old in HERE.glob("sample__*"):
+        old.unlink()
     for lesson in sorted(ROOT.glob("content/courses/*/lessons/*.json")):
         course = lesson.parents[1].name
-        dst = courses / course / lesson.name
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(lesson, dst)
-
-    drafts = HERE / "samples" / "drafts"
-    if drafts.exists():
-        shutil.rmtree(drafts)
+        shutil.copyfile(lesson, HERE / f"sample__course__{course}__{lesson.name}")
     for run in sorted(ROOT.glob("pipeline/out/*/v1")):
         name = run.parent.name
-        for fname in ("lesson.json", "verdict.json", "items.json", "STATUS.md"):
+        for fname in ("lesson.json", "verdict.json"):
             src = run / fname
             if src.exists():
-                dst = drafts / name / fname
-                dst.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(src, dst)
+                shutil.copyfile(src, HERE / f"sample__draft__{name}__{fname}")
 
     print("synced into", HERE)
 
