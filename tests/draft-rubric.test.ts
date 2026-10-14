@@ -22,3 +22,13 @@ describe('draftRubric', () => {
     expect(draftRubric('does-not-exist/v1')).toBeNull()
   })
 })
+
+describe('draft listing', () => {
+  it('lists only drafts whose objective statement was written by hand', async () => {
+    const { draftIndex, DRAFT_OBJECTIVES } = await import('@/lib/drafts')
+    const codes = draftIndex().map((d) => d.code)
+    expect(codes.length).toBeGreaterThan(0)
+    for (const c of codes) expect(DRAFT_OBJECTIVES[c]).toBeDefined()
+    expect(codes).not.toContain('OPS-01')
+  })
+})

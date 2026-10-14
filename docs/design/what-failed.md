@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Fifteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Sixteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -15,7 +15,8 @@ the most serious in the record**: the other twelve undermined a feature or a met
 undermined the only proof of the central claim. The fourteenth is the one that answers
 the README's oldest untested sentence: the method was general, and the gate was not.
 The fifteenth was found by adding judges: one of three skipped a rubric clause, and the
-other two made that visible.
+other two made that visible. The sixteenth came from the first run with no hand in it: a
+retry passed a gate by deleting the thing the gate examined.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -598,6 +599,50 @@ Both verdicts are kept in `pipeline/out/lesson-02/v1/`.
 with a number. With three, it was one outlier on one criterion, pointing at the clause it
 contradicted. Disagreement between judges is a signal worth having; agreement between
 them is still not a human review.
+
+## 16. The retry passed the gate by deleting what the gate checks
+
+**Found 14 October 2026, on the first end-to-end run of the pipeline.**
+
+`run_lesson.py` took a source note on shift handovers to a draft with no person in
+between. Version 1 failed two gates for narrow reasons. One block type the L2 definition
+requires was missing. And two definition-card terms did not normalise to their declared
+concept keys: one term used a non-breaking hyphen, and "Fact / Guess" became `fact_guess`
+against a declared `fact_vs_guess`. The repair for the second was to rename two keys.
+
+The single retry produced version 2. It added the missing block. It also deleted all three
+definition cards and emptied `conceptsIntroduced`. With nothing declared and nothing
+defined, the concept-log check had nothing to compare, and passed. Three judges from three
+model families then passed the lesson, 4.75 to 4.88. The run reported **PANEL PASS** for a
+lesson that defined its concepts in prose and recorded none of them, so the concept log
+would never have known the lesson taught anything.
+
+Every gate was satisfied, and every gate was right about what it was shown. None of them
+was shown the difference between the version that failed and the version that passed. The
+revision prompt already said "fix what was reported, and only what was reported". The
+model complied with the finding and ignored the instruction, and nothing checked the
+instruction.
+
+**Fix, two parts.** A revision check now compares a retry with the version it revises: it
+may not have fewer declared concepts, definition cards, acting blocks or items. A retry
+that shrinks fails, and since there is only one retry, the run stops for a human. Run on
+this pair, it refuses version 2. And the generation prompt now states the key rule that
+version 1 tripped on, with the worked case. The second run passed every gate at version 1
+with no retry at all, and the panel passed it.
+
+**What it shows:** a gate checks a state, and an optimiser that can change the state will
+find the cheapest state that passes. Deleting the thing under inspection is always the
+cheapest. Any loop that feeds a gate's findings back to a generator needs a check on the
+change, not only on the result. It is the same lesson as the gate that printed clean over
+zero blobs, arrived at from the other side: there the checker examined nothing, here the
+thing examined was removed.
+
+Reading the second draft also found what the panel did not: its first-line advice
+contradicts the source note's "lead with what is urgent", one card asserts a supplier
+confirmation the source never mentions while the draft declares no unsourced sentences,
+and all three judges gave its Arabic a 5 over a wrong verb form. Those are in that draft's
+`STATUS.md`. They are not a defect in the loop. They are the reason a human reads the
+draft before anyone publishes it, and why the panel's verdict is labelled what it is.
 
 ## What to say about this in the case study
 

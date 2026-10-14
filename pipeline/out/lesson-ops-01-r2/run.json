@@ -1,0 +1,45 @@
+{
+  "source": "pipeline/sources/ops-01-writing-a-shift-handover.md",
+  "objective": "OPS-01",
+  "generator": "openai.gpt-oss-120b-1:0",
+  "judges": [
+    "qwen.qwen3-32b-v1:0",
+    "us.meta.llama3-3-70b-instruct-v1:0",
+    "amazon.nova-pro-v1:0"
+  ],
+  "started": "2026-10-14T10:05:15.718403+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 37.1,
+      "usage": {
+        "inputTokens": 21627,
+        "outputTokens": 6810,
+        "totalTokens": 28437
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "PASS",
+      "seconds": 8.7,
+      "means": {
+        "us.meta.llama3-3-70b-instruct-v1:0": 4.75,
+        "amazon.nova-pro-v1:0": 4.75,
+        "qwen.qwen3-32b-v1:0": 4.62
+      },
+      "split": []
+    }
+  ],
+  "outcome": "PANEL PASS at v1: a draft for human review",
+  "finished": "2026-10-14T10:06:01.733254+00:00"
+}

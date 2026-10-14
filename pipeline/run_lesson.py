@@ -134,7 +134,10 @@ def build_generation_prompt(source: Path, objective: str, levels: list[str], slu
         f'- objective code: {objective} (the lesson declares exactly this objective)\n'
         f'- levels: {", ".join(levels)}\n'
         f'- slug: {slug}\n'
-        '- the lesson is new: its conceptsIntroduced must not repeat any key in the concept log\n',
+        '- the lesson is new: its conceptsIntroduced must not repeat any key in the concept log\n'
+        '- every definition_card termEn, lowercased with each run of characters other than a-z '
+        'and 0-9 replaced by one underscore, must appear in conceptsIntroduced exactly as that '
+        'key: "Fact / Guess" is fact_guess. Use plain ASCII hyphens in terms.\n',
         OUTPUT_SHAPE,
     ]
     return '\n\n'.join(parts)
@@ -215,9 +218,43 @@ def check_items(lesson: dict, bank: dict, name: str) -> list[str]:
     return out
 
 
-def mechanical_gates(lesson_path: Path, items_path: Path, denylist: list) -> dict:
-    """validate.py, the item check and concept_log.py, in that order. Returns the
-    findings per gate; an empty list is a pass."""
+ACTING = set(validate.ACTING_BLOCKS)
+
+
+def _count(doc: dict, types: set[str]) -> int:
+    return sum(1 for bs in (doc.get('blocks') or {}).values() for b in bs or [] if b.get('type') in types)
+
+
+def check_revision(before: dict, after: dict) -> list[str]:
+    """A retry may fix what was reported. It may not pass by deleting what the
+    gate examines.
+
+    Found on the first real run: v1 failed concept_log because two definition-card
+    terms did not match their declared keys. The repair was to rename two keys.
+    v2 instead deleted all three definition cards and emptied conceptsIntroduced,
+    so the check had nothing left to check, and three judges then passed it. Each
+    gate was satisfied. None of them could see the difference between versions,
+    so this compares them."""
+    out = []
+    pairs = (
+        ('conceptsIntroduced', len(before.get('conceptsIntroduced') or []),
+         len(after.get('conceptsIntroduced') or [])),
+        ('definition cards', _count(before, {'definition_card'}), _count(after, {'definition_card'})),
+        ('acting blocks', _count(before, ACTING), _count(after, ACTING)),
+        ('items', len(before.get('_items') or []), len(after.get('_items') or [])),
+    )
+    for what, b, a in pairs:
+        if a < b:
+            out.append(f'the revision has fewer {what} than the version it revises ({b} -> {a}). '
+                       f'Fix what the gate reported; do not remove what it checks.')
+    return out
+
+
+def mechanical_gates(lesson_path: Path, items_path: Path, denylist: list,
+                     previous: dict | None = None) -> dict:
+    """validate.py, the item check and concept_log.py, in that order, and on a
+    retry the comparison with the version it revises. Returns the findings per
+    gate; an empty list is a pass."""
     name = str(lesson_path).replace('\\', '/')
     schema = json.loads(Path(validate.SCHEMA_PATH).read_text(encoding='utf-8'))
     try:
@@ -244,6 +281,14 @@ def mechanical_gates(lesson_path: Path, items_path: Path, denylist: list) -> dic
     before = {str(f) for f in concept_log.check(course)}
     after = [str(f) for f in concept_log.check(course + [(lesson_path, doc)])]
     results['concept_log'] = [f for f in after if f not in before]
+
+    if previous is not None:
+        current = dict(doc)
+        try:
+            current['_items'] = json.loads(items_path.read_text(encoding='utf-8')).get('items')
+        except (OSError, json.JSONDecodeError, AttributeError):
+            current['_items'] = []
+        results['revision'] = check_revision(previous, current)
     return results
 
 
@@ -299,6 +344,7 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
                     'started': datetime.now(timezone.utc).isoformat(), 'steps': []}
     base_prompt = build_generation_prompt(source, objective, levels, slug)
     prompt, retried = base_prompt, False
+    previous_doc: dict | None = None
 
     def step(version: str, name: str, result: str, t0: float, **extra) -> None:
         record['steps'].append({'version': version, 'step': name, 'result': result,
@@ -325,7 +371,7 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
              needs_verification=len(raw.get('needsVerification') or []))
 
         t0 = time.monotonic()
-        gates = mechanical_gates(vdir / 'lesson.json', vdir / 'items.json', denylist)
+        gates = mechanical_gates(vdir / 'lesson.json', vdir / 'items.json', denylist, previous_doc)
         (vdir / 'gates.md').write_text(gates_markdown(gates), encoding='utf-8')
         failed = {g: f for g, f in gates.items() if f}
         step(tag, 'gates', 'PASS' if not failed else
@@ -365,6 +411,7 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
         previous = {'lesson': json.loads((vdir / 'lesson.json').read_text(encoding='utf-8')),
                     'items': json.loads((vdir / 'items.json').read_text(encoding='utf-8'))}
         prompt = build_revision_prompt(base_prompt, previous, findings)
+        previous_doc = dict(previous['lesson'], _items=(previous['items'] or {}).get('items'))
 
     record['finished'] = datetime.now(timezone.utc).isoformat()
     out.mkdir(parents=True, exist_ok=True)

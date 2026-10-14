@@ -1,0 +1,88 @@
+{
+  "courseSlug": "writing-a-shift-handover",
+  "note": "ops-01-writing-a-shift-handover.md",
+  "items": [
+    {
+      "key": "OPS-01-KC-01",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "أي من التالي ليس مكوّنًا موصى به في تسليم الوردية؟",
+      "stemEn": "Which of the following is NOT a recommended component of a shift hand‑over?",
+      "rationaleAr": "يجب أن يقتصر التسليم على معلومات قابلة للتنفيذ ولا يتضمن مشاعر شخصية.",
+      "rationaleEn": "The hand‑over should contain actionable information only and not personal feelings.",
+      "options": [
+        {
+          "textAr": "تحديد رقم التذكرة أو الطلب.",
+          "textEn": "Identify the ticket or order number.",
+          "isCorrect": false,
+          "feedbackAr": "هذا عنصر أساسي لتحديد العمل.",
+          "feedbackEn": "This is a core element for identifying the work."
+        },
+        {
+          "textAr": "ذكر ما تم تجربته بالفعل.",
+          "textEn": "State what has already been tried.",
+          "isCorrect": false,
+          "feedbackAr": "تجنب تكرار الجهد هو هدف التسليم.",
+          "feedbackEn": "Avoiding duplicate effort is a hand‑over goal."
+        },
+        {
+          "textAr": "إدراج مشاعرك الشخصية حول التذكرة.",
+          "textEn": "Include your personal feelings about the ticket.",
+          "isCorrect": true,
+          "feedbackAr": "المشاعر ليست معلومات تنفيذية وتشتت القارئ.",
+          "feedbackEn": "Feelings are not actionable information and distract the reader."
+        },
+        {
+          "textAr": "تحديد الإجراء التالي مع موعده.",
+          "textEn": "Specify the next action with a deadline.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يضمن المتابعة في الوقت المناسب.",
+          "feedbackEn": "This ensures timely follow‑up."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-02",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "كيف يجب تقديم التخمينات في تسليم الوردية؟",
+      "stemEn": "How should guesses be presented in a shift hand‑over?",
+      "rationaleAr": "التخمينات غير مؤكدة ويجب تمييزها لتجنب اتخاذ إجراءات بناءً على معلومات غير صحيحة.",
+      "rationaleEn": "Guesses are uncertain and must be labeled to avoid actions based on incorrect information.",
+      "options": [
+        {
+          "textAr": "كأنها حقائق مؤكدة.",
+          "textEn": "Treat them as confirmed facts.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يخلق خطر اتخاذ قرارات غير صحيحة.",
+          "feedbackEn": "This creates a risk of making wrong decisions."
+        },
+        {
+          "textAr": "وضع علامة \"تخمين\" أو \"ملاحظة\" بجانبها.",
+          "textEn": "Label them as \"guess\" or \"note\" alongside.",
+          "isCorrect": true,
+          "feedbackAr": "الوسم يوضح للزميل أن المعلومة غير مؤكدة.",
+          "feedbackEn": "Labeling makes clear the information is uncertain."
+        },
+        {
+          "textAr": "حذفها تمامًا من التسليم.",
+          "textEn": "Omit them entirely from the hand‑over.",
+          "isCorrect": false,
+          "feedbackAr": "قد تكون التخمينات ذات صلة إذا تم توضيحها.",
+          "feedbackEn": "Guesses can be relevant if clearly marked."
+        },
+        {
+          "textAr": "تركها للزميل القادم ليكتشفها بنفسه.",
+          "textEn": "Leave them for the next colleague to discover.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يضيف عبئًا غير ضروري على الزميل القادم.",
+          "feedbackEn": "This adds unnecessary burden to the next colleague."
+        }
+      ]
+    }
+  ]
+}

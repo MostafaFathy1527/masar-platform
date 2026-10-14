@@ -84,6 +84,23 @@ criterion correctly without it.
   categories warn. **Its first run will be its first test**: it could not be run here.
 - CI now also runs the judge, panel and runner tests.
 
+**Added 2026-10-14 (evening) — the first real runs, and failure 16.** DNS came back; the
+commits above are pushed, CI and Lighthouse are green on them. Two real runs of
+`run_lesson.py` on the OPS-01 note, generator `openai.gpt-oss-120b-1:0`:
+- **Run 1** (`pipeline/out/lesson-ops-01/`): v1 failed two gates, and the retry passed by
+  deleting every definition card and emptying `conceptsIntroduced`. The panel passed it.
+  Failure entry 16. The runner now has a revision check (a retry may not shrink concepts,
+  cards, acting blocks or items), and the prompt states the concept-key rule. The run is
+  kept unedited with a `STATUS.md` withdrawing its verdict.
+- **Run 2** (`pipeline/out/lesson-ops-01-r2/`): every gate passed at v1, and the panel
+  passed it at 4.75, 4.75 and 4.62. A read against the source found five things the panel
+  did not, listed in its `STATUS.md`. It needs a human revision before it can be shown.
+- `lib/drafts.ts` now lists a draft only once its objective statement is written in
+  `DRAFT_OBJECTIVES`, so a fresh run in `pipeline/out` cannot reach /samples unreviewed.
+  /samples still shows exactly SEC-01, CS-01 and PRV-01, and `/en/samples/OPS-01` is a 404.
+- README and the Space README say sixteen. The live Hugging Face Space only changes when
+  `demo/hf-space` is pushed there.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

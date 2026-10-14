@@ -80,6 +80,11 @@ function summarise(dir: string): DraftSummary | null {
   const code = String(raw.objectives?.[0] ?? '').toUpperCase()
   if (!code) return null
   const o = DRAFT_OBJECTIVES[code]
+  // A run lands in pipeline/out the moment it finishes, reviewed or not. Only a
+  // draft whose objective statement has been written by hand is listed: that is
+  // the step that says a person decided to show it, and without it the page would
+  // render knowledge checks whose items were never imported.
+  if (!o) return null
   return {
     code,
     dir: `${dir}/${v}`,

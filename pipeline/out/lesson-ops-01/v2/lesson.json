@@ -1,0 +1,165 @@
+{
+  "slug": "writing-a-shift-handover",
+  "titleAr": "كتابة تسليم الوردية",
+  "titleEn": "Writing a Shift Hand‑over",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "OPS-01"
+  ],
+  "conceptsIntroduced": [],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "ما هو تسليم الوردية؟",
+          "textEn": "What a shift hand‑over is",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "تسليم الوردية هو لحظة انتقال العمل بين شخصين بحيث لا يضيع السياق. الشخص الذي يغادر يوضح ما هو المفتوح، ما هو الوضع الحالي، ما تم تجربته، وما الخطوة التالية مع موعدها. القارئ القادم لا يعرف أي شيء مسبقًا؛ إذا كان بإمكانه المتابعة دون الاتصال بالكاتب، فإن التسليم ناجح.",
+          "mdEn": "A shift hand‑over is the moment work changes hands while context stays intact. The departing person notes what is open, the current state, what has already been tried, and the next action with a deadline. The arriving reader knows nothing beforehand; if they can act without contacting the writer, the hand‑over succeeded."
+        }
+      },
+      {
+        "id": "b_l1_text_defs",
+        "type": "rich_text",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**العنصر العاجل** هو أي شيء يحتاج إلى إجراء قبل نهاية الوردية الحالية ويُوضع في أعلى القائمة مع إشارة واضحة. **الحقيقة / التخمين**: يجب تمييز المعلومات المؤكدة (حقيقة) عن الافتراضات غير المؤكدة (تخمين) لتجنب اتخاذ إجراءات بناءً على معلومات غير صحيحة.",
+          "mdEn": "**Urgent item** is any item that requires action before the current shift ends; it is placed at the top of the hand‑over and clearly flagged. **Fact / Guess**: Separate confirmed information (Fact) from unverified assumptions (Guess) so the next colleague does not act on uncertain data."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemsAr": [
+            "اكتب أربعة أسئلة أساسية لكل عنصر مفتوح.",
+            "ضع العناصر العاجلة في أعلى القائمة.",
+            "افصل بين الحقائق والتخمينات بوضوح.",
+            "احفظ التسليم في السجل المشترك، لا في ملاحظة شخصية."
+          ],
+          "itemsEn": [
+            "Answer the four core questions for every open item.",
+            "Place urgent items at the top of the hand‑over.",
+            "Separate facts from guesses explicitly.",
+            "Store the hand‑over in the shared record, not a personal note."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "promptAr": "أنت تنهي ورديتك وتجد تذكرة دعم رقم 789 مفتوحة. العميل طلب ردًا قبل الساعة 14:00 اليوم. ما هو أفضل تسليم للوردية؟",
+          "promptEn": "You are ending your shift and find support ticket #789 still open. The customer asked for a response before 2 PM today. What is the best hand‑over?",
+          "steps": [
+            {
+              "showAr": "العنصر العاجل: الرد للعميل قبل 14:00.",
+              "showEn": "Urgent item: reply to the customer before 2 PM.",
+              "whyAr": "الوقت المحدد يجعل هذا العنصر أولوية للوردية القادمة.",
+              "whyEn": "The specific deadline makes this item a priority for the next shift."
+            },
+            {
+              "showAr": "الحالة: تم إرسال بريد أولي للعميل لكنه لم يرد.",
+              "showEn": "Status: an initial email was sent to the customer but no reply yet.",
+              "whyAr": "يظهر ما تم فعله بالفعل لتجنب تكرار الجهد.",
+              "whyEn": "Shows what has already been done to avoid duplicate effort."
+            },
+            {
+              "showAr": "ما تم تجربته: تم إرسال بريد تذكير مرة واحدة، لم يُستجب.",
+              "showEn": "What’s been tried: one reminder email sent, no response.",
+              "whyAr": "يمنع الزميل القادم من إرسال تذكير آخر بلا فائدة.",
+              "whyEn": "Prevents the next colleague from sending another useless reminder."
+            },
+            {
+              "showAr": "الإجراء التالي: اتصل بالعميل قبل 13:30 لتأكيد استلامه للرسالة.",
+              "showEn": "Next action: call the customer before 1:30 PM to confirm receipt.",
+              "whyAr": "يضمن الالتزام بالموعد النهائي ويعطي إشعارًا واضحًا للمتابعة.",
+              "whyEn": "Ensures the deadline is met and provides a clear follow‑up cue."
+            }
+          ],
+          "answerAr": "اكتب التسليم وفق النموذج أعلاه مع إبراز العنصر العاجل، الحالة، ما تم تجربته، والإجراء التالي مع موعده.",
+          "answerEn": "Write the hand‑over using the template above, highlighting the urgent item, status, what’s been tried, and the next action with its deadline."
+        }
+      },
+      {
+        "id": "b_l2_scenario_handover",
+        "type": "scenario",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "situationAr": "أنت تغادر ورديتك وتلاحظ أن تذكرة دعم رقم 321 لا تزال مفتوحة، والعميل ينتظر ردًا قبل نهاية الوردية الحالية. ما هو القرار الأفضل لتسليم الوردية؟",
+          "situationEn": "You are ending your shift and notice support ticket #321 is still open, with the customer expecting a response before the current shift ends. What is the best decision for the hand‑over?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اكتب ملاحظة عامة تقول إن التذكرة مفتوحة وتنتظر المتابعة.",
+              "optionEn": "Write a generic note saying the ticket is open and awaiting follow‑up.",
+              "consequenceAr": "الزميل القادم لا يعرف ما هو العاجل ولا يملك خطة واضحة، مما قد يسبب تأخيرًا.",
+              "consequenceEn": "The next colleague lacks a clear urgent item and plan, likely causing a delay.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "حدد العنصر العاجل، اذكر الحالة الحالية، ما تم تجربته، والإجراء التالي مع موعده قبل 15:00.",
+              "optionEn": "Identify the urgent item, state the current status, what’s been tried, and the next action with a deadline before 3 PM.",
+              "consequenceAr": "الزميل القادم يملك كل المعلومات اللازمة للتصرف فورًا دون الحاجة للاتصال بك.",
+              "consequenceEn": "The next colleague has all needed information to act immediately without contacting you.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "احذف التذكرة من السجل مؤقتًا لتجنب إرباك الزميل القادم.",
+              "optionEn": "Delete the ticket from the record temporarily to avoid confusing the next colleague.",
+              "consequenceAr": "التذكرة ستفقد وتصبح غير قابلة للمتابعة، مما يخلق مشكلة أكبر.",
+              "consequenceEn": "The ticket disappears and becomes untrackable, creating a bigger problem.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

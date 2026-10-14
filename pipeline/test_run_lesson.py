@@ -167,6 +167,26 @@ check(rec['outcome'].startswith('STOPPED: the generator') and (out / 'v1/generat
       'raw output kept for a person to read')
 t.cleanup()
 
+print('a retry may not pass by deleting what the gate checks')
+ops = Path('pipeline/out/lesson-ops-01')
+if (ops / 'v2/lesson.json').exists():
+    real_v1 = json.loads((ops / 'v1/lesson.json').read_text(encoding='utf-8'))
+    real_v2 = json.loads((ops / 'v2/lesson.json').read_text(encoding='utf-8'))
+    found = run_lesson.check_revision(real_v1, real_v2)
+    check(any('definition cards' in f for f in found) and any('conceptsIntroduced' in f for f in found),
+          'the first real run (OPS-01 v1 -> v2) is refused')
+stripped = copy.deepcopy(GOOD)
+stripped['lesson']['blocks']['l1'] = [b for b in stripped['lesson']['blocks']['l1']
+                                      if b['type'] != 'definition_card']
+stripped['lesson']['conceptsIntroduced'] = []
+call, _ = generator(broken_lesson(), stripped)
+judge, jcalls = judges({}, {})
+rec, out, t = go(call, judge)
+check(rec['outcome'].startswith('STOPPED after the one retry') and not jcalls,
+      'a retry that strips the cards stops for a human, unjudged')
+check('revision' in (out / 'v2/gates.md').read_text(encoding='utf-8'), 'the revision finding is reported')
+t.cleanup()
+
 print('a generator from a judge family never starts')
 call, prompts = generator(GOOD)
 try:

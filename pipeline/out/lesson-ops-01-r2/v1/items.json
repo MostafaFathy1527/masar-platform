@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "writing-a-shift-handover",
+  "items": [
+    {
+      "key": "OPS-01-KC-01",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "أي من الأسئلة الأربعة يجب أن يكون أول سطر في تسليم النوبة؟",
+      "stemEn": "Which of the four questions should appear as the first line in a shift hand‑over?",
+      "rationaleAr": "التسليم يبدأ بتحديد العنصر لتوفير السياق الفوري.",
+      "rationaleEn": "The hand‑over must start with identification to give immediate context.",
+      "options": [
+        {
+          "textAr": "ما هو؟",
+          "textEn": "What is it?",
+          "isCorrect": true,
+          "feedbackAr": "صحيح – التعريف يضمن أن القارئ يعرف ما يتعامل معه.",
+          "feedbackEn": "Correct – identification ensures the reader knows what they are dealing with."
+        },
+        {
+          "textAr": "ما هو التالي ومتى؟",
+          "textEn": "What happens next and by when?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ – وضع الإجراء قبل التعريف يترك القارئ في حيرة.",
+          "feedbackEn": "Incorrect – placing the action before identification leaves the reader guessing."
+        },
+        {
+          "textAr": "ما هو الوضع؟",
+          "textEn": "What is the status?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ – الحالة لا تعطي تعريفًا للعنصر.",
+          "feedbackEn": "Incorrect – status does not provide an item definition."
+        },
+        {
+          "textAr": "ما الذي تم فعله؟",
+          "textEn": "What has been done?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ – يجب معرفة العنصر أولًا قبل سرد ما تم فعله.",
+          "feedbackEn": "Incorrect – the item must be known before listing prior actions."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-02",
+      "objectiveId": "OPS-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "اختر جميع العبارات التي تمثل حقائق (ليست تخمينات).",
+      "stemEn": "Select all statements that are facts (not guesses).",
+      "rationaleAr": "التمييز بين الحقائق والتخمينات يضمن وضوح التسليم.",
+      "rationaleEn": "Distinguishing facts from guesses ensures hand‑over clarity.",
+      "options": [
+        {
+          "textAr": "فشل الدفع مرتين",
+          "textEn": "Payment failed twice",
+          "isCorrect": true,
+          "feedbackAr": "حقيقة – يمكن التحقق منها في سجل المعاملات.",
+          "feedbackEn": "Fact – can be verified in the transaction log."
+        },
+        {
+          "textAr": "أعتقد أن البطاقة منتهية الصلاحية",
+          "textEn": "I think the card is expired",
+          "isCorrect": false,
+          "feedbackAr": "تخمين – لا يوجد دليل واضح في النظام.",
+          "feedbackEn": "Guess – no clear evidence in the system."
+        },
+        {
+          "textAr": "المورد وعد بتسليم غدًا",
+          "textEn": "Supplier promised delivery tomorrow",
+          "isCorrect": true,
+          "feedbackAr": "حقيقة – تم استلام تأكيد مكتوب من المورد.",
+          "feedbackEn": "Fact – a written confirmation from the supplier was received."
+        },
+        {
+          "textAr": "من المحتمل أن تكون الشبكة معطلة",
+          "textEn": "Probably the network is down",
+          "isCorrect": false,
+          "feedbackAr": "تخمين – لم يتم اختبار الشبكة بعد.",
+          "feedbackEn": "Guess – the network has not been tested yet."
+        }
+      ]
+    }
+  ]
+}
