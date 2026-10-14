@@ -150,6 +150,8 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
   role's trust policy matched the old form `repo:MostafaFathy1527/masar-platform:*`. The
   trust policy's `sub` condition must use the new form; the claims step stays in the
   workflow so a refused role says why.
+- After the trust policy was updated, run #4 (14 Oct, manual) passed: all four samples PANEL
+  PASS with two judges, in about a minute. The job now runs every Monday.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
