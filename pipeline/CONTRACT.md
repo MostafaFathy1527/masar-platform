@@ -73,11 +73,13 @@ A judge earns a panel seat by passing `calibrate_judges.py`: given a lesson's re
 copies broken in ways rubric criterion 4 names, it must score the broken copies at least two
 points lower. The first panel failed this and was retired (what-failed entry 18). Every judge
 sees the items behind the lesson's knowledge checks, and refuses to run if one is missing.
-The seated panel is calibrated on knowledge checks and worked examples, and its third judge,
-GLM-5, also on English pasted into Arabic fields: it caught 4 of 4 where the other two caught
-1 each, so that defect now splits the panel and goes to a person. No judge tested is
-calibrated on scenario consequences: of nine tried, Kimi K3 came closest, catching three of
-four. Both defects are also refused by `validate.py`, and a person reads scenarios.
+The seated panel is calibrated on knowledge checks and worked examples, and two of its
+judges, GLM-5 and Kimi K3, also on English pasted into Arabic fields: each caught 4 of 4 where
+DeepSeek V3.2 caught 1, so that defect splits the panel and goes to a person. No judge tested
+is calibrated on scenario consequences: of nine tried, Kimi K3 came closest, catching three of
+four. Kimi K3 replaced Kimi K2.5 on 15 October; it runs at its own default temperature, and
+its verdicts record that. Both defects are also refused by `validate.py`, and a person reads
+scenarios.
 
 `run_lesson.py` runs the whole loop with one command: generate from a source note, the
 mechanical gates (including an item-bank check that mirrors `lib/schema/item.ts`), the

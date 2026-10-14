@@ -182,10 +182,13 @@ Nemotron Super 3 and Qwen3-VL caught 0 of 4. Kimi K3 caught 3 of 4, and on the f
 the defect in its note while taking one point off. Nine judges tested, none calibrated on
 scenarios; `validate.py` and a person still own them. K3 also caught 8 of 8 knowledge-check
 and 4 of 4 worked-example defects, and 4 of 4 pasted English on 14 October, so it is at least
-as good as Kimi K2.5 on every defect. **It is a candidate for K2.5's seat, not seated, and that
-is the owner's call:** it refuses temperature 0, its two runs on identical real lessons a day
-apart differed by one point on 10 of 32 criterion scores, and the weekly CI run would need
-access to it first. Separately, `judge_bedrock.py` and `calibrate_judges.py` now take
+as good as Kimi K2.5 on every defect. **Seated the same day, on the owner's decision, in K2.5's
+place** (K2.5's verdicts are in each sample's `retired-judges/`). The measured cost: it refuses
+temperature 0, and its two runs on identical real lessons a day apart differed by one point on
+10 of 32 criterion scores. Re-scored with the new panel, SEC-01, CS-01 and PRV-01 still PASS.
+**OPS-01 is now NEEDS HUMAN:** K3 scored its Arabic 3 against 5 and 5, and named two slips that
+are in the lesson («ثلاث سطور» for «ثلاثة سطور», and the coinage «المنتهي»). A fix would be a
+`v3`, by a person. The weekly CI run needs access to `us.moonshotai.kimi-k3`. Separately, `judge_bedrock.py` and `calibrate_judges.py` now take
 `--endpoint`: any OpenAI-compatible server (llama.cpp, vLLM, Ollama) serving an open model, so
 ALLaM, SILMA or Fanar can be calibrated on whatever hardware is to hand, with the same prompt,
 parsing and gate. The verdict records `provider: openai-compatible`. Tested end to end against

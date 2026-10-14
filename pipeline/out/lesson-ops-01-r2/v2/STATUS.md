@@ -48,7 +48,7 @@ The revision check in `run_lesson.py` guards the automatic retry, and would flag
 having one card fewer than v1. That is by design: a hand revision is a person's decision
 and becomes the baseline; an automatic retry is not allowed to make that decision.
 
-## Rubric gate: the calibrated panel, 14 October 2026
+## Rubric gate: the calibrated panel, 15 October 2026
 
 Scored by the three judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
 real items and copies broken in ways the rubric names, each scored the broken copies at
@@ -60,18 +60,27 @@ items its knowledge checks reference, in a fresh context, and its verdict went t
 | Judge | Mean | Criteria scored | Knowledge checks | Gate |
 |---|---|---|---|---|
 | deepseek.v3.2 | 4.62 | 8 | 4 | PASS |
-| moonshotai.kimi-k2.5 | 4.62 | 8 | 5 | PASS |
+| us.moonshotai.kimi-k3 | 4.25 | 8 | 4 | PASS |
 | zai.glm-5 | 5.00 | 8 | 5 | PASS |
 
-**Panel decision: PASS.** Every judge passes the lesson and no criterion splits them by more than one point.
+**Panel decision: NEEDS HUMAN.** Every judge passes the lesson, but Arabic quality splits them
+by two points: Kimi K3 gave it 3, the other two 5. K3's note names two slips, and both are in
+the lesson: «ثلاث سطور» should be «ثلاثة سطور», because سطر is masculine, and «المنتهي» is not
+idiomatic for the person whose shift ended. The two judges that scored it 5 did not see
+either. A person decides; the lesson is not edited in place, so a fix would be `v3`.
 
 Earlier the same day this lesson was scored by Qwen3-32B, Llama 3.3 70B and Nova Pro. In
 calibration those three caught 0, 1 and 0 of 8 planted knowledge-check defects, so their
 knowledge-check scores carried no information and they were retired from the panel
 (failure entry 18). Their verdicts are kept in `retired-judges/`.
 
-The panel is calibrated on knowledge checks and worked examples. It did not pass the same
-test on scenario consequences or on Arabic quality, so its scores there are reported, not
-relied on; `validate.py` guards the mechanical half of both. Two calibrated models agreeing
-is still not a human review; the blind inter-rater
-sample is still the open item.
+On 15 October Kimi K3 replaced Kimi K2.5 on the panel: in calibration it was at least as
+good on every defect, and with GLM-5 it is one of two judges that catch English pasted into
+Arabic fields. It refuses a fixed temperature, so it runs at its own default and its verdict
+records that. K2.5's verdict on this lesson is kept in `retired-judges/`.
+
+The panel is calibrated on knowledge checks and worked examples, and two of its three judges
+also on English pasted into Arabic fields. No judge is calibrated on scenario consequences or
+on Arabic quality more generally, so scores there are reported, not relied on; `validate.py`
+guards the mechanical half of both. Calibrated models agreeing is still not a human review;
+the blind inter-rater sample is still the open item.

@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T22:02:36.958521+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3430
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Every block serves PRV-01, but coverage is uneven: need-to-know, collection minimisation, and data-subject requests appear only as takeaway bullets, never taught in a dedicated block — yet KC-02 then tests DSR handling. The takeaways block is doing teaching work, not summarising.",
+    "level_fidelity": "L1 (recognise/define) and L2 (decide/apply) are genuinely what the learner experiences, and the definition cards are real term cards, not lists with borders. Held at 4 because the L1 takeaways smuggle three untaught concepts into the level, blurring what L1 actually covers before L2 applies them."
+  },
+  "verdict_notes": "Strong, authentic lesson: the worked example's steps each name the judgement and what would change it, both knowledge checks draw distractors from real misconceptions (name-equals-personal, internal-equals-not-personal, helpful-equals-compliant) with feedback that explains why, and the autocomplete/same-name/5pm scenario is instantly recognisable with real friction. The Arabic reads as written in Arabic — idiomatic, correct legal-adjacent terminology, no English word order — and the licensed-content constraint is turned into a teaching point via regime-neutral phrasing. The one soft spot is structural: minimisation, need-to-know, and data-subject requests live only in the takeaway list, so the first real teaching of DSR handling happens in KC-02's feedback rather than in a block."
+}

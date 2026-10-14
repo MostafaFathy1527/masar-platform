@@ -26,7 +26,7 @@ made for the commissioning page.
 | L2 prose budget | 4 words between acting blocks, against a ceiling of 180 |
 | Authored answer position | Varied deliberately (positions 2 and 4) |
 
-**`qa_gate.py`: run on 14 October 2026 by the calibrated judge panel — see below.**
+**`qa_gate.py`: run on 14 October 2026 by the calibrated judge panel, and again on 15 October after one judge was replaced — see below.**
 
 ## A deliberate constraint
 
@@ -45,7 +45,7 @@ note.
 - One lesson is a sample of the method, not evidence that it produces good content in
   every compliance topic.
 
-## Rubric gate: the calibrated panel, 14 October 2026
+## Rubric gate: the calibrated panel, 15 October 2026
 
 Scored by the three judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
 real items and copies broken in ways the rubric names, each scored the broken copies at
@@ -57,7 +57,7 @@ items its knowledge checks reference, in a fresh context, and its verdict went t
 | Judge | Mean | Criteria scored | Knowledge checks | Gate |
 |---|---|---|---|---|
 | deepseek.v3.2 | 4.62 | 8 | 4 | PASS |
-| moonshotai.kimi-k2.5 | 4.50 | 8 | 4 | PASS |
+| us.moonshotai.kimi-k3 | 4.75 | 8 | 5 | PASS |
 | zai.glm-5 | 5.00 | 8 | 5 | PASS |
 
 **Panel decision: PASS.** Every judge passes the lesson and no criterion splits them by more than one point.
@@ -67,10 +67,15 @@ calibration those three caught 0, 1 and 0 of 8 planted knowledge-check defects, 
 knowledge-check scores carried no information and they were retired from the panel
 (failure entry 18). Their verdicts are kept in `retired-judges/`.
 
-Kimi K2.5's first verdict on this lesson used a criterion name the rubric does not have, and the gate refused it. It was run once more and the second verdict is the one above; the refused one is kept in `refused-verdicts/`.
+On 15 October Kimi K3 replaced Kimi K2.5 on the panel: in calibration it was at least as
+good on every defect, and with GLM-5 it is one of two judges that catch English pasted into
+Arabic fields. It refuses a fixed temperature, so it runs at its own default and its verdict
+records that. K2.5's verdict on this lesson is kept in `retired-judges/`.
 
-The panel is calibrated on knowledge checks and worked examples. It did not pass the same
-test on scenario consequences or on Arabic quality, so its scores there are reported, not
-relied on; `validate.py` guards the mechanical half of both. Two calibrated models agreeing
-is still not a human review; the blind inter-rater
-sample is still the open item.
+Kimi K2.5's first verdict on this lesson used a criterion name the rubric does not have, and the gate refused it. It was run once more; that second verdict counted until K2.5 was retired and is now in `retired-judges/`. The refused one is kept in `refused-verdicts/`.
+
+The panel is calibrated on knowledge checks and worked examples, and two of its three judges
+also on English pasted into Arabic fields. No judge is calibrated on scenario consequences or
+on Arabic quality more generally, so scores there are reported, not relied on; `validate.py`
+guards the mechanical half of both. Calibrated models agreeing is still not a human review;
+the blind inter-rater sample is still the open item.

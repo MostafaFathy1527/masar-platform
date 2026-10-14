@@ -44,7 +44,7 @@ like its first input.
 | `test_qa_gate.py` | 20/20 |
 | `npm run check` | 134/134, including the schema drift test |
 
-**`qa_gate.py`: run on 14 October 2026 by the calibrated judge panel — see below.**
+**`qa_gate.py`: run on 14 October 2026 by the calibrated judge panel, and again on 15 October after one judge was replaced — see below.**
 
 ## What is genuinely different from the RCM lessons
 
@@ -63,7 +63,7 @@ like its first input.
 - The content is authored from public knowledge about phishing. It is training material,
   not a security policy, and it names no product, organisation or real incident.
 
-## Rubric gate: the calibrated panel, 14 October 2026
+## Rubric gate: the calibrated panel, 15 October 2026
 
 Scored by the three judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
 real items and copies broken in ways the rubric names, each scored the broken copies at
@@ -75,7 +75,7 @@ items its knowledge checks reference, in a fresh context, and its verdict went t
 | Judge | Mean | Criteria scored | Knowledge checks | Gate |
 |---|---|---|---|---|
 | deepseek.v3.2 | 5.00 | 8 | 5 | PASS |
-| moonshotai.kimi-k2.5 | 4.50 | 8 | 4 | PASS |
+| us.moonshotai.kimi-k3 | 4.38 | 8 | 5 | PASS |
 | zai.glm-5 | 5.00 | 8 | 5 | PASS |
 
 **Panel decision: PASS.** Every judge passes the lesson and no criterion splits them by more than one point.
@@ -85,8 +85,13 @@ calibration those three caught 0, 1 and 0 of 8 planted knowledge-check defects, 
 knowledge-check scores carried no information and they were retired from the panel
 (failure entry 18). Their verdicts are kept in `retired-judges/`.
 
-The panel is calibrated on knowledge checks and worked examples. It did not pass the same
-test on scenario consequences or on Arabic quality, so its scores there are reported, not
-relied on; `validate.py` guards the mechanical half of both. Two calibrated models agreeing
-is still not a human review; the blind inter-rater
-sample is still the open item.
+On 15 October Kimi K3 replaced Kimi K2.5 on the panel: in calibration it was at least as
+good on every defect, and with GLM-5 it is one of two judges that catch English pasted into
+Arabic fields. It refuses a fixed temperature, so it runs at its own default and its verdict
+records that. K2.5's verdict on this lesson is kept in `retired-judges/`.
+
+The panel is calibrated on knowledge checks and worked examples, and two of its three judges
+also on English pasted into Arabic fields. No judge is calibrated on scenario consequences or
+on Arabic quality more generally, so scores there are reported, not relied on; `validate.py`
+guards the mechanical half of both. Calibrated models agreeing is still not a human review;
+the blind inter-rater sample is still the open item.

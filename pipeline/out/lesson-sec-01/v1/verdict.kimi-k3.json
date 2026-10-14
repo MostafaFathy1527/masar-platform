@@ -1,0 +1,37 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T22:01:12.989713+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3447
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Every block serves SEC-01, but link_destination is listed as an introduced concept yet never gets the mechanics of how to reveal a destination — it appears only as an instruction in the worked example and a takeaway line, thinner than the treatment display_name and one_time_code receive.",
+    "level_fidelity": "L1/L2 split is real — concepts then application with a worked example and a decision scenario — but L1 asserts the checks without ever showing one being performed, leaving L2 to carry the entire demonstration load.",
+    "worked_example": "Reasoning is genuinely explanatory (step 3 even names what would change the judgement: urgency alone versus urgency plus an off-route request), but 'reveal where the button goes' never tells the learner how — no hover, no long-press — so a step asserts an action some learners cannot perform.",
+    "scenario_authenticity": "The BEC setup is recognisable and the engineered unavailability is a real, named friction, but the scene is compressed to three lines; the awkward part (verifying upward against a manager's apparent instruction, phone possibly unanswered) is stated rather than experienced."
+  },
+  "verdict_notes": "Strong, lean lesson: knowledge checks are the best element, with distractors drawn from real beliefs and per-option feedback that corrects rather than restates. Arabic is natural with only minor register variation in terminology. The recurring weakness is the same gap in three places — the lesson tells learners to reveal a link destination without ever showing how — and the scenario, though authentic, stays compressed where it could let the learner feel the friction."
+}

@@ -53,8 +53,15 @@ MAX_SPREAD = 1
 # the Arabic fields (4 of 4, every broken copy scored 1). The two seated judges
 # caught 1 of 4 each, and nine other candidates 0 of 4. Like every judge tested,
 # it misses scenario choices that all lead nowhere, which validate.py guards.
+#
+# On 15 October Kimi K3 replaced Kimi K2.5 in the same family's seat: at least as
+# good on every defect (knowledge checks 8 of 8, worked examples 4 of 4, pasted
+# English 4 of 4 against 1, empty scenarios 3 of 4 against 2). It refuses a fixed
+# temperature, so it runs at its own default and its verdicts say so; two runs on
+# identical lessons differed by one point on 10 of 32 scores. K2.5's verdicts
+# are kept in each sample's retired-judges/.
 PANEL_MODELS = (
-    ('moonshotai.kimi-k2.5', 'kimi-k2-5'),
+    ('us.moonshotai.kimi-k3', 'kimi-k3'),
     ('deepseek.v3.2', 'deepseek-v3-2'),
     ('zai.glm-5', 'glm-5'),
 )

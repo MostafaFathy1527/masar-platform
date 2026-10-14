@@ -744,10 +744,13 @@ defect ("every consequence field is the placeholder") while its score fell by on
 saw the problem and did not score it. Nine judges have now been tested on scenarios and none
 is calibrated on them. K3 then caught every knowledge-check and worked-example defect, 12 of
 12, which with the pasted English makes it the only judge tested that is at least as good as
-Kimi K2.5 on every defect. It is not seated, for reasons that were measured rather than
-assumed: it refuses a fixed temperature, and two of its runs on identical lessons a day apart
-disagreed by one point on 10 of 32 criterion scores; and the weekly run in CI would need
-access to it first.
+Kimi K2.5 on every defect. The case against seating it was measured rather than assumed: it
+refuses a fixed temperature, and two of its runs on identical lessons a day apart disagreed by
+one point on 10 of 32 criterion scores. The owner seated it anyway the same day, in K2.5's
+place, and its first panel run showed what the seat is for. On OPS-01 it scored the Arabic 3
+where both other judges gave 5, and its note named two slips that are really in the lesson:
+«ثلاث سطور», where سطر is masculine and the number should be «ثلاثة», and «المنتهي», a coinage
+for the person whose shift ended. The panel now sends OPS-01 to a person instead of passing it.
 
 ## What to say about this in the case study
 
