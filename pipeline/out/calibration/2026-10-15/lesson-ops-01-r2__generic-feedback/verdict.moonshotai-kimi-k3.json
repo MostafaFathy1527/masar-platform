@@ -1,0 +1,39 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:40:31.816082+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3636
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 and L2 are genuinely experienced as understand-then-apply, but the L2 interactive process_flow is largely the L1 flow restated as imperatives; its added value is thin beyond the worked example that follows.",
+    "worked_example": "Each step has a 'why' and several name the judgement being made (fact not feeling, keeping the promise), but the reasoning is one short line per step and never addresses what would change the judgement — between 'generic' and 'names the judgement'.",
+    "knowledge_check": "Distractors are plausible real misconceptions (order-by-arrival, short-is-fine, delete-the-mention overcorrection), but per-option feedback on both items is literally 'Correct.' / 'Not correct.' on every option — it names no misconception and explains nothing. The teaching content exists only in the rationale field, which is not what the learner sees per option. Thin on all options, not some, so below the 3 anchor; plausible distractors keep it off the 1 anchor.",
+    "bilingual_quality": "Arabic is natural and idiomatic in the prose blocks ('الوعد الآن عليك', 'الطول ليس المعيار'), with consistent terminology (عنصر مفتوح، عنصر عاجل، سجل مشترك). Minor stiffness in a few definition cards ('ما هو مجرد افتراض') reads as calqued on the English, keeping this short of a 5.",
+    "concision": "Prose earns its space, but the four-step content appears three times in near-identical form (L1 flow, L2 flow, worked example); one pass could be trimmed without loss.",
+    "accessibility_ip": "Compliant: no licensed code descriptors, no payer policy text, no denylisted terms, meaning never carried by colour alone. Minimal rather than exemplary — compliance is not used as a teaching point and the icon-bearing definition cards carry no stated decorative-informative handling."
+  },
+  "verdict_notes": "A well-built lesson: coherent objective coverage, a genuinely recognisable scenario with real friction, and natural Arabic. Its clear weak point is the knowledge checks — plausible distractors undermined by feedback that says only 'Correct.' or 'Not correct.' on every option, which is exactly the failure mode this rubric exists to catch. Mean 4.0 with one criterion at 2; the gate decides the outcome."
+}

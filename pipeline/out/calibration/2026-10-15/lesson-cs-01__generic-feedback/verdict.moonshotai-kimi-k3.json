@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:35:55.361463+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3402
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 2,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible and drawn from real agent failure modes (apologising for the feeling, cold transfer, over-promising, vague close, pushing the follow-up onto the customer), but per-option feedback is literally 'صحيح.'/'غير صحيح.' — 'Correct.'/'Not correct.' — on every option of both items. That names no misconception and teaches nothing; it is worse than restating the stem. The rationales do the explanatory work the feedback refuses to do, but the rubric scores per-option feedback, and it is uniformly empty."
+  },
+  "verdict_notes": "A strong, coherent lesson: every block serves the complaint-handling objective, the worked example's why-fields name the actual judgement being made, the scenario carries genuine friction (no authority, team unavailable tomorrow, a customer refusing to re-explain), and the Arabic is largely idiomatic with only occasional calques ('تجعله يحدث', 'هو حيث'). The one serious defect is the knowledge checks: plausible distractors paired with feedback that says nothing beyond Correct/Not correct, which is exactly the failure mode this criterion exists to catch. Mean 3.75 with one criterion at 2 — the gate will do what it does, but the checks need per-option feedback that names the misconception before this lesson is what it appears to be."
+}

@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:38:20.421279+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3330
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are genuinely drawn from real misconceptions (no-names-equals-not-personal, internal-employee-data-exempt, DIY fulfilment, parking the request), but the per-option feedback on every option of both items is literally 'Correct.' / 'Not correct.' — it names no misconception and explains nothing. The per-item rationale partially compensates for KC-02 ('neither partially fulfilled nor parked' covers two distractors) but never addresses, e.g., the internal-data-exemption distractor in KC-01 or the security-refusal distractor in KC-02. Empty per-option feedback is the specific failure this criterion exists to catch."
+  },
+  "verdict_notes": "A strong lesson undermined by hollow knowledge-check feedback: the scenarios, worked example, and prose are authentic and disciplined, but every option's feedback is a bare 'Correct/Not correct', which wastes well-built distractors. One criterion below the floor; mean 4.0. The gate decides."
+}

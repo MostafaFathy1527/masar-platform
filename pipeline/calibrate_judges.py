@@ -29,6 +29,8 @@ failure entry 18).
     python pipeline/calibrate_judges.py                    # the seated panel
     python pipeline/calibrate_judges.py --models a,b       # candidate judges
     python pipeline/calibrate_judges.py --dry-run          # build the copies only
+    python pipeline/calibrate_judges.py --endpoint http://localhost:8080/v1 --models <name>
+                                                           # an open model you serve yourself
 
 Writes pipeline/out/calibration/<date>/report.md and results.json. Rows for
 judges not in the current run are kept from earlier runs on the same day.
@@ -39,6 +41,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -138,10 +141,15 @@ MUTANTS = {
 }
 
 
-def tag_for(model: str) -> str:
+def tag_for(model: str, served: bool = False) -> str:
+    """A file-name-safe tag. Bedrock ids look like provider.model:version; a model served
+    on your own hardware is named however its server names it (a Hugging Face id with a
+    slash, a GGUF file name), so it is flattened whole rather than split on dots."""
     known = dict(panel.PANEL_MODELS)
     if model in known:
         return known[model]
+    if served:
+        return re.sub(r'[^a-z0-9]+', '-', model.lower()).strip('-')
     parts = model.split('.')
     return '-'.join(parts[1:] if len(parts) > 1 else parts).replace(':', '-').lower()
 
@@ -175,6 +183,8 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--region', default='us-east-1')
     ap.add_argument('--models', help='comma-separated Bedrock model ids (default: the seated panel)')
+    ap.add_argument('--endpoint',
+                    help='an OpenAI-compatible base URL; --models then names the served models')
     ap.add_argument('--defects', help=f'comma-separated subset of: {", ".join(MUTANTS)}')
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--report-only', action='store_true',
@@ -196,19 +206,23 @@ def main(argv: list[str] | None = None) -> int:
             write(dirs[name], *MUTANTS[name][1](lesson, bank))
         if args.dry_run:
             continue
+        served = bool(args.endpoint)
+        transport = ['--endpoint', args.endpoint] if served else ['--region', args.region]
         for d in ([] if args.report_only else dirs.values()):
             for model in models:
-                if not (d / f'verdict.{tag_for(model)}.json').exists():
+                tag = tag_for(model, served)
+                if not (d / f'verdict.{tag}.json').exists():
                     try:
                         judge_bedrock.main(['--lesson', str(d / 'lesson.json'), '--model', model,
-                                            '--tag', tag_for(model), '--region', args.region])
+                                            '--tag', tag, *transport])
                     except Exception as e:  # one refused model must not end the run for the rest
                         print(f'{model} on {d.name}: {type(e).__name__}: {str(e)[:160]}', file=sys.stderr)
         for model in models:
+            tag = tag_for(model, served)
             for name in defects:
                 criterion = MUTANTS[name][0]
-                before = score(dirs['real-items'] / f'verdict.{tag_for(model)}.json', criterion)
-                after = score(dirs[name] / f'verdict.{tag_for(model)}.json', criterion)
+                before = score(dirs['real-items'] / f'verdict.{tag}.json', criterion)
+                after = score(dirs[name] / f'verdict.{tag}.json', criterion)
                 rows.append({'sample': src.parent.name, 'defect': name, 'criterion': criterion,
                              'judge': model, 'real': before, 'broken': after,
                              'drop': None if before is None or after is None else before - after})

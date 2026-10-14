@@ -175,6 +175,22 @@ fine differences. Two robustness fixes came with it: `judge_bedrock.py` retries 
 the report from verdicts on disk. Only models AWS itself serves on Bedrock are used; a
 third-party marketplace model is not.
 
+**Added 2026-10-15 — scenarios tested on six more judges, and open models can be judges.**
+The empty-consequences calibration ran on six more models AWS serves on Bedrock
+(`pipeline/out/calibration/2026-10-15/report.md`). GLM-4.7, MiniMax M2.5, Mistral Large 3,
+Nemotron Super 3 and Qwen3-VL caught 0 of 4. Kimi K3 caught 3 of 4, and on the fourth named
+the defect in its note while taking one point off. Nine judges tested, none calibrated on
+scenarios; `validate.py` and a person still own them. K3 also caught 8 of 8 knowledge-check
+and 4 of 4 worked-example defects, and 4 of 4 pasted English on 14 October, so it is at least
+as good as Kimi K2.5 on every defect. **It is a candidate for K2.5's seat, not seated, and that
+is the owner's call:** it refuses temperature 0, its two runs on identical real lessons a day
+apart differed by one point on 10 of 32 criterion scores, and the weekly CI run would need
+access to it first. Separately, `judge_bedrock.py` and `calibrate_judges.py` now take
+`--endpoint`: any OpenAI-compatible server (llama.cpp, vLLM, Ollama) serving an open model, so
+ALLaM, SILMA or Fanar can be calibrated on whatever hardware is to hand, with the same prompt,
+parsing and gate. The verdict records `provider: openai-compatible`. Tested end to end against
+a stand-in server and in `test_judge_bedrock.py`.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:33:31.055470+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3310
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Per-option feedback on both items is empty: the correct option gets \"Correct.\" and every distractor gets \"Not correct.\" — nothing names the misconception each distractor represents (e.g., that formatting and logos are copyable, or that deleting the message destroys evidence and protects no one). The item-level rationale explains the correct principle but cannot substitute for per-option feedback. The distractors themselves are plausible and drawn from real behaviour, which is the only thing keeping this above 1."
+  },
+  "verdict_notes": "The lesson body is strong: the worked example's step rationales name the judgement and what would change it, the scenario is a recognisable BEC setup with real friction and consequence text that pinpoints the engineered pressure, and the Arabic reads as written in Arabic rather than translated. The single weak criterion is knowledge check quality — both items ship with placeholder-grade per-option feedback (\"Correct.\" / \"Not correct.\") that teaches nothing. Everything else I would leave unchanged."
+}

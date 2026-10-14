@@ -1,0 +1,88 @@
+{
+  "courseSlug": "privacy-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge; no law or regulator is named.",
+  "items": [
+    {
+      "key": "PRV-01-KC-01",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "جدول بلا أسماء فيه: المسمّى الوظيفي، القسم، تاريخ الالتحاق، وتقييم الأداء، لفريق من ستة أشخاص. هل هو بيانات شخصية؟",
+      "stemEn": "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?",
+      "rationaleAr": "المعيار إمكانية التعرّف لا وجود الاسم. في فريق من ستة، مسمّى وقسم وتاريخ التحاق تحدد الشخص بيقين، فتقييمه صار معلومة عنه.",
+      "rationaleEn": "The test is identifiability, not the presence of a name. In a team of six, title plus department plus start date pins down the person, so the rating is information about them.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "نعم، لأن المجموعة تحدد كل شخص في فريق بهذا الحجم.",
+          "textEn": "Yes, because the combination identifies each person in a team that size.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. حقائق عادية مجتمعةً تشير إلى شخص واحد، فهي بيانات شخصية والقواعد تنطبق عليها.",
+          "feedbackEn": "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "PRV-01-KC-02",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يكتب لك: «أريد نسخة من كل ما تحتفظون به عني، واحذفوا رقم هاتفي.» ما الإجراء الصحيح؟",
+      "stemEn": "A customer writes: \"I want a copy of everything you hold about me, and delete my phone number.\" What is the correct action?",
+      "rationaleAr": "هذا طلب صاحب بيانات، وعليه عدّاد في معظم الأنظمة يبدأ من يوم الوصول. يذهب إلى مسؤول الخصوصية في اليوم نفسه، ولا يُنفَّذ جزئياً ولا يُؤجَّل.",
+      "rationaleEn": "This is a data-subject request, and in most regimes it carries a clock that starts the day it arrives. It goes to the privacy owner the same day, neither partially fulfilled nor parked.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "تحوّله إلى مسؤول الخصوصية في اليوم نفسه، وتخبر العميل أن طلبه سُجّل.",
+          "textEn": "Pass it to the privacy owner the same day, and tell the customer it has been logged.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. طلب صاحب البيانات عليه عدّاد بدأ عند وصوله، والمسؤول عن الخصوصية هو من يملك عملية الرد.",
+          "feedbackEn": "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+        }
+      ]
+    }
+  ]
+}

@@ -736,6 +736,19 @@ person, where before the panel passed it. One limit is stated with it: GLM-5 gav
 samples a 5 on every criterion, so the test shows it can tell a broken lesson from a sound
 one, not that it can tell a good lesson from a very good one. The mechanical check stays.
 
+**On 15 October the scenario test was run on six more models.** Copies whose decisions all
+lead to the same empty sentence went to GLM-4.7, MiniMax M2.5, Mistral Large 3, Nemotron
+Super 3, Qwen3-VL and Kimi K3. Five of them took at most one point off on every sample. Kimi
+K3 took two or three off on three of the four, and on the fourth its own note named the
+defect ("every consequence field is the placeholder") while its score fell by one point: it
+saw the problem and did not score it. Nine judges have now been tested on scenarios and none
+is calibrated on them. K3 then caught every knowledge-check and worked-example defect, 12 of
+12, which with the pasted English makes it the only judge tested that is at least as good as
+Kimi K2.5 on every defect. It is not seated, for reasons that were measured rather than
+assumed: it refuses a fixed temperature, and two of its runs on identical lessons a day apart
+disagreed by one point on 10 of 32 criterion scores; and the weekly run in CI would need
+access to it first.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:

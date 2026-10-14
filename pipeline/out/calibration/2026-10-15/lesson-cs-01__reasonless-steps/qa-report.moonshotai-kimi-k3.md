@@ -1,0 +1,32 @@
+# QA gate report — handling-a-customer-complaint
+
+**Result: FAIL**
+
+Mean 4.12 over 8 scored criteria (threshold 4.0); lowest criterion 1 (floor 3).
+
+Lesson levels: L1, L2.
+
+> LLM rubric score, fresh-context judge, self-assessed — not human QA
+
+| Criterion | Score | Note |
+|---|---|---|
+| objective alignment | 5 |  |
+| level fidelity | 4 | L1 blocks are genuine (real definition cards, not bulleted lists in disguise) and L2 has the right applied structure, but the L2 worked example functions as a printed solution rather than a worked one — every 'why' field is the placeholder 'Because it is the next step' — so part of the L2 experience is thinner than its block types promise. |
+| worked example | 1 ⚠ | All four steps have identical, content-free reasoning: 'لأنها الخطوة التالية' / 'Because it is the next step.' The 'show' text is good, but no step names the judgement being made or what would change it — exactly the assert-without-why failure this criterion exists to catch. This is placeholder text shipped as reasoning. |
+| knowledge check | 5 |  |
+| scenario authenticity | 5 |  |
+| bilingual quality | 4 | Arabic is largely natural and idiomatic with correct gender agreement across the عميلة worked example, but there are occasional stiff calques: 'القسم الذي يملك الصلاحية يعمل غداً' ('the department works tomorrow'), 'غاضباً عن طلب', and 'الشكوى عليها اسم واحد'. Accurate throughout, occasionally translated-feeling. |
+| concision | 4 | Prose between acting blocks earns its space and the takeaways add the record/ownership points the cards omit. Minor redundancy only: the four-day unanswered email and the five-working-days refund line each appear three times across intro, worked example, scenario, and items. |
+| accessibility ip | 5 |  |
+
+**Judge independence:**
+
+> This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA.
+
+**Below the floor:** worked_example. A single unacceptable criterion fails the gate regardless of the mean.
+
+Judge's summary:
+
+> The lesson is strong almost everywhere: knowledge checks use distractors drawn from the exact misconceptions the teaching names, with per-option feedback that explains why; the scenario has real friction (no authority, the empowered team in tomorrow, a customer refusing to re-explain); and the Arabic is mostly natural. But the worked example is an automatic-type failure — every step's 'why' is the placeholder 'Because it is the next step,' which is no reasoning at all. A single criterion at 1 sits under an otherwise 4.6-mean lesson; the gate, not this score, decides what that means.
+
+The pipeline retries once with this report appended to the prompt, then stops for a human decision.

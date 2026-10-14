@@ -44,10 +44,12 @@ than the real ones.
 
 That test retired the first panel and chose the current one. It also showed where judges
 fail: nine of twelve models gave a lesson with English pasted into its Arabic fields full
-marks for Arabic quality, and no model tested could tell that every choice in a scenario led
-nowhere. The one judge that caught the pasted English now sits on the panel, and both
-defects are also refused by mechanical checks and read by a person.
-The scores are in [the calibration report](../pipeline/out/calibration/2026-10-14/report.md).
+marks for Arabic quality, and of nine models tested on scenarios whose choices all lead
+nowhere, the best caught three of four. One of the two judges that caught the pasted English
+now sits on the panel, and both defects are also refused by mechanical checks and read by a
+person. The scores are in the calibration reports for
+[14 October](../pipeline/out/calibration/2026-10-14/report.md) and
+[15 October](../pipeline/out/calibration/2026-10-15/report.md).
 
 ## What a person still has to do
 

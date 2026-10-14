@@ -1,0 +1,38 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:29:06.868095+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3386
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Data-subject requests are assessed in KC-02 (including identity verification and partial fulfilment) but taught only in a single takeaway bullet — the set slightly under-covers what it tests.",
+    "level_fidelity": "Both levels are genuinely what they claim and the definition cards are real cards, but the L2 experience is undercut by a scenario whose consequence fields are unfinished.",
+    "worked_example": "Each step shows the what and the why, but the whys do not consistently name what would change the judgement — step 2 explains the higher bar rather than the conditional, and step 1's why partly restates its show.",
+    "scenario_authenticity": "The setup is excellent — autocomplete mis-send to a same-named customer, unopened, at 5 pm is recognisable with real friction. But all three decision consequences read 'This choice has consequences' — placeholder text where the scenario's teaching content should be, which breaks the block on the page.",
+    "concision": "The prose earns its space, with slight redundancy between the intro's identifiability statement, worked-example step 1, and takeaway bullet 1."
+  },
+  "verdict_notes": "A strong, natural bilingual lesson with knowledge checks whose distractors name real misconceptions and per-option feedback that explains why. Its one serious defect is the scenario: an authentic, high-friction situation shipped with placeholder consequences on every decision. The worked example and coverage of data-subject requests are good but a step short of excellent."
+}

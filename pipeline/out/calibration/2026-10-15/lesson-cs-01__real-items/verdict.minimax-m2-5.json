@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T21:25:30.230235+00:00",
+    "usage": {
+      "inputTokens": 6613,
+      "outputTokens": 1224
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The feedback on incorrect options often restates what the answer should have been rather than naming the specific misconception the learner held. For example, 'This apologises for the feeling rather than the event' tells them what's wrong with that option but doesn't give a learner who chose it a conceptual hook to remember why it's wrong."
+  },
+  "verdict_notes": "Seven criteria scored 5, one at 3. The knowledge checks have plausible distractors and cover the right concepts, but the feedback explains the correct answer rather than naming the misconception behind each wrong choice. Mean is 4.75, well above the 4.0 threshold, and no single score falls below 3."
+}

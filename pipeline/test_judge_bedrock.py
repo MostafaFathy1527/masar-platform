@@ -133,6 +133,65 @@ def test_judge_sees_the_items_its_checks_reference():
     check(code == 0, 'dry run with items present still works')
 
 
+def test_served_model_uses_the_same_request():
+    print('an open model behind an OpenAI-compatible endpoint')
+    import os
+    import urllib.request
+
+    seen = {}
+
+    class Reply:
+        def __init__(self, payload: dict):
+            self.payload = json.dumps(payload).encode('utf-8')
+
+        def read(self):
+            return self.payload
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(req, timeout=None):
+        seen['url'] = req.full_url
+        seen['body'] = json.loads(req.data.decode('utf-8'))
+        seen['auth'] = req.get_header('Authorization')
+        seen['timeout'] = timeout
+        return Reply({'choices': [{'message': {'content': '{"scores": {}}'}}],
+                      'usage': {'prompt_tokens': 120, 'completion_tokens': 30}})
+
+    real, had_key = urllib.request.urlopen, os.environ.pop('JUDGE_API_KEY', None)
+    urllib.request.urlopen = fake_urlopen
+    try:
+        text, usage = judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1/')
+        check(seen['url'] == 'http://h:8080/v1/chat/completions', 'posts to <endpoint>/chat/completions')
+        check(seen['body']['messages'] == [{'role': 'user', 'content': 'PROMPT'}]
+              and seen['body']['temperature'] == 0 and seen['body']['model'] == 'open-model',
+              'same prompt, temperature 0, the served model named')
+        check(seen['auth'] is None, 'no key is sent when none is set')
+        check(text == '{"scores": {}}' and usage['inputTokens'] == 120 and usage['outputTokens'] == 30,
+              'text and token counts come back in the Bedrock shape')
+        check(seen['timeout'] >= 600, 'a slow CPU node is given minutes, not seconds')
+        os.environ['JUDGE_API_KEY'] = 'k'
+        judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1')
+        check(seen['auth'] == 'Bearer k', 'the key comes from the environment')
+    finally:
+        urllib.request.urlopen = real
+        os.environ.pop('JUDGE_API_KEY', None)
+        if had_key is not None:
+            os.environ['JUDGE_API_KEY'] = had_key
+    verdict = judge_bedrock.make_verdict({'scores': {}}, LESSON_L1, 'open-model', usage,
+                                         'openai-compatible')
+    check(verdict['judge']['provider'] == 'openai-compatible', 'the verdict says how it was judged')
+
+    import calibrate_judges
+    tag = calibrate_judges.tag_for('humain-ai/ALLaM-7B-Instruct-preview', served=True)
+    check(tag == 'humain-ai-allam-7b-instruct-preview', 'a served model name becomes a safe file tag')
+    check(calibrate_judges.tag_for('silma-9b.Q4_K_M.gguf', served=True) == 'silma-9b-q4-k-m-gguf',
+          'a GGUF file name is flattened whole, not split on its dots')
+
+
 if __name__ == '__main__':
     import tempfile
     for stream in (sys.stdout, sys.stderr):
@@ -147,5 +206,6 @@ if __name__ == '__main__':
         test_verdict_shape_passes_the_gate(Path(d))
     test_compare_reports_disagreement()
     test_judge_sees_the_items_its_checks_reference()
+    test_served_model_uses_the_same_request()
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)

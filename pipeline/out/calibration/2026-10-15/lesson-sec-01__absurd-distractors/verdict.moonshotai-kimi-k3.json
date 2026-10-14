@@ -1,0 +1,38 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:34:31.232984+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3684
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "Both levels are honestly delivered and the L2 is genuinely applied, but the worked example performs the checks on a message whose incriminating details (the actual sender address, the link destination) are never shown, so the learner watches the method rather than fully exercising it.",
+    "worked_example": "Every step has a real 'why' and step 3 explicitly calibrates the judgement ('urgency alone is not evidence'). Held at 4 because the steps ask the learner to read an address and reveal a link destination that the prompt never supplies — the core checks are asserted as performed rather than demonstrated on concrete evidence.",
+    "knowledge_check": "Both items fail the rubric's named failure mode. The three distractors are identical across KC-01 and KC-02 ('Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen') — joke options nobody would choose, so they name no real misconception. Feedback on every wrong option is the bare 'Not correct.' with no explanation, against stems that were otherwise well-constructed. A plausible distractor set exists in embryo in the lesson itself (trusting the display name, calling the number in the signature, waiting to see if anything happens, deleting the message) and was not used.",
+    "bilingual_quality": "The Arabic reads as written in Arabic, not rendered from English — idioms like 'يمسح بعينه بدل أن يقرأ' are natural. Held at 4 for inconsistent terminology for the one-time code ('رمز المرة الواحدة' in the definition card, 'رمز مرة واحدة' elsewhere, 'رمز التحقق' in the worked example) and for 'هذه هي النتيجة' as a slightly calqued rendering of 'that is the finding'.",
+    "accessibility_ip": "Compliant: no licensed code descriptors, no payer policy text, no denylisted terms, no colour-dependent meaning, and the only icons are decorative emoji adjacent to full text. Held at 4 rather than 5 because nothing in the lesson converts the constraint into a teaching point — it is simply clean."
+  },
+  "verdict_notes": "A well-built lesson carried down by its knowledge checks: both items reuse the same three absurd distractors with 'Not correct.' as the only feedback, which is a floor-level failure on that criterion whatever the other seven do. The prose, Arabic, worked example, and scenario are genuinely strong — the scenario's decision consequences in particular do the misconception-naming work the knowledge checks refused to do. The fix is small and obvious; the gap between the scenario's quality and the items' quality is the story of this lesson."
+}

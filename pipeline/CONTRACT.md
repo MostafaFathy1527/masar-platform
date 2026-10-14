@@ -61,7 +61,9 @@ The judge step can be run more than once with different models (`judge_bedrock.p
 `verdict.<tag>.json` beside the lesson), and `compare_verdicts.py` reports how far they
 disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not move.
 No model call sits in any request path; these are by-hand experiments with credentials
-kept outside the repository.
+kept outside the repository. A judge is either a Bedrock model or an open model served on
+your own hardware behind an OpenAI-compatible endpoint (`--endpoint`); the prompt, the
+parsing and the gate are the same for both, and the verdict records which it was.
 
 `panel.py` turns several verdicts into one decision: PASS only if every judge passes and no
 criterion splits them by more than one point; a split or a disagreement on the outcome is
@@ -74,8 +76,8 @@ sees the items behind the lesson's knowledge checks, and refuses to run if one i
 The seated panel is calibrated on knowledge checks and worked examples, and its third judge,
 GLM-5, also on English pasted into Arabic fields: it caught 4 of 4 where the other two caught
 1 each, so that defect now splits the panel and goes to a person. No judge tested is
-calibrated on scenario consequences. Both defects are also refused by `validate.py`, and a
-person reads scenarios.
+calibrated on scenario consequences: of nine tried, Kimi K3 came closest, catching three of
+four. Both defects are also refused by `validate.py`, and a person reads scenarios.
 
 `run_lesson.py` runs the whole loop with one command: generate from a source note, the
 mechanical gates (including an item-bank check that mirrors `lib/schema/item.ts`), the
@@ -119,6 +121,7 @@ pipeline/
   concept_log.py         re-definition and forward-reference checks
   qa_gate.py             applies the rubric thresholds, writes the report
   judge_bedrock.py       optional second judge: same rubric, a different model, fresh context
+                         (Bedrock, or an open model behind an OpenAI-compatible endpoint)
   compare_verdicts.py    criterion-by-criterion agreement between two verdicts
   panel.py               several judges, one decision; any split goes to a human
   run_lesson.py          the loop end to end: source note to judged draft, one retry

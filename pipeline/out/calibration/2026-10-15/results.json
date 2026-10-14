@@ -1,0 +1,326 @@
+[
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 3,
+    "broken": 1,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  }
+]

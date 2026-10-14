@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T21:26:36.624741+00:00",
+    "usage": {
+      "inputTokens": 6428,
+      "outputTokens": 1198
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The feedback for incorrect options in both knowledge checks often restates why the answer is wrong without naming the specific misconception the learner holds. For example, KC-01 option A says 'apologises for the feeling rather than the event' but doesn't name that the learner may be confusing empathy with apology. KC-02 option A says 'no name, no time, no way to verify' but doesn't name the misconception that vague closes are acceptable."
+  },
+  "verdict_notes": "Strong lesson with excellent Arabic, good worked examples, and authentic scenarios. Knowledge check feedback is functional but could be improved by naming specific misconceptions rather than just explaining why each answer is right or wrong. Mean 4.375, all criteria above 3. Passes."
+}

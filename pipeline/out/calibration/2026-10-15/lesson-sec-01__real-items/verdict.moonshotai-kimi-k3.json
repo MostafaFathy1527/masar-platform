@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:21:54.235015+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3344
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "accessibility_ip": "No images requiring alt text and no licensed content or denylisted terms — compliant. Score sits at 3 because the lesson never turns the constraint into a teaching point: the natural openings (why look-alike domains are described by shape rather than shown as a live example, why a simulated phish uses no real brand) go unnamed."
+  },
+  "verdict_notes": "A tight, well-built lesson: the knowledge checks draw every distractor from a real misconception (typo trust, logo trust, work-address trust, wait-and-see, helpful deletion, reply-to-verify) with feedback that names the error, and the scenario is the recognisable BEC script including the engineered unavailability — both earn their 5s. Worked example, level fidelity, and bilingual quality are solid 4s: the steps reason rather than assert but never show the mechanical act of revealing an address or link, three of five concepts get prose where two get cards, and the Arabic is idiomatic with occasional calqued compression. No criterion below 3; mean 4.0 — the floor and the mean both clear exactly, and the accessibility score is the one with headroom."
+}

@@ -27,14 +27,26 @@ What this script deliberately does NOT do:
 writes `verdict.<tag>.json` and `qa-report.<tag>.md` beside the lesson. Credentials
 come from the standard AWS environment (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
 / AWS_DEFAULT_REGION, or a profile). Nothing is read from the repository.
+
+An open model that runs on your own hardware is judged the same way. Serve it behind
+any OpenAI-compatible endpoint (llama.cpp's server, vLLM and Ollama all speak it) and
+pass the endpoint instead of a region:
+
+    python pipeline/judge_bedrock.py --lesson pipeline/out/lesson-sec-01/v1/lesson.json \
+        --endpoint http://localhost:8080/v1 --model <served model name> --tag model-b
+
+The prompt, the parsing and the gate are identical; only the transport differs. If the
+server wants a key, it is read from JUDGE_API_KEY in the environment, never from a file.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -168,14 +180,41 @@ def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int = 4000
     return text, usage
 
 
-def make_verdict(raw: dict, lesson: dict, model_id: str, usage: dict) -> dict:
+def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: int = 4000,
+                           timeout: float = 1800) -> tuple[str, dict]:
+    """The same judgement from a model served on your own hardware. The timeout is
+    long on purpose: an open model on a CPU node can take minutes per lesson."""
+    body = json.dumps({
+        'model': model,
+        'messages': [{'role': 'user', 'content': prompt}],
+        'max_tokens': max_tokens,
+        'temperature': 0,
+    }).encode('utf-8')
+    headers = {'Content-Type': 'application/json'}
+    key = os.environ.get('JUDGE_API_KEY')
+    if key:
+        headers['Authorization'] = f'Bearer {key}'
+    req = urllib.request.Request(endpoint.rstrip('/') + '/chat/completions', data=body,
+                                 headers=headers, method='POST')
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode('utf-8'))
+    text = data['choices'][0]['message'].get('content') or ''
+    raw_usage = data.get('usage') or {}
+    usage = {'inputTokens': raw_usage.get('prompt_tokens'),
+             'outputTokens': raw_usage.get('completion_tokens'),
+             'temperature': 0}
+    return text, usage
+
+
+def make_verdict(raw: dict, lesson: dict, model_id: str, usage: dict,
+                 provider: str = 'amazon-bedrock') -> dict:
     """Attach the provenance the gate and the report expect. The caveat is
     honest about what this judge is and is not."""
     verdict = {
         'lesson': raw.get('lesson') or lesson.get('slug', '(unnamed)'),
         'judge': {
             'label': SCORE_LABEL + '.',
-            'provider': 'amazon-bedrock',
+            'provider': provider,
             'model_id': model_id,
             'saw_generation_prompt': False,
             'saw_source_note': False,
@@ -208,9 +247,14 @@ def main(argv: list[str] | None = None) -> int:
 
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--lesson', type=Path, required=True)
-    ap.add_argument('--model', required=True, help='Bedrock model id (or inference profile id)')
+    ap.add_argument('--model', required=True,
+                    help='Bedrock model id (or inference profile id), or the served model name '
+                         'when --endpoint is given')
     ap.add_argument('--tag', required=True, help='short name used in the output file names')
     ap.add_argument('--region', default='us-east-1')
+    ap.add_argument('--endpoint',
+                    help='an OpenAI-compatible base URL (e.g. http://localhost:8080/v1) '
+                         'instead of Bedrock')
     ap.add_argument('--dry-run', action='store_true',
                     help='print the prompt and stop; no model call, nothing written')
     args = ap.parse_args(argv)
@@ -232,7 +276,12 @@ def main(argv: list[str] | None = None) -> int:
         print(prompt)
         return 0
 
-    text, usage = call_bedrock(prompt, args.model, args.region)
+    if args.endpoint:
+        text, usage = call_openai_compatible(prompt, args.model, args.endpoint)
+        provider = 'openai-compatible'
+    else:
+        text, usage = call_bedrock(prompt, args.model, args.region)
+        provider = 'amazon-bedrock'
     try:
         raw = extract_json(text)
     except (ValueError, json.JSONDecodeError) as e:
@@ -240,7 +289,7 @@ def main(argv: list[str] | None = None) -> int:
         (args.lesson.parent / f'verdict.{args.tag}.raw.txt').write_text(text, encoding='utf-8')
         return 2
 
-    verdict = make_verdict(raw, lesson, args.model, usage)
+    verdict = make_verdict(raw, lesson, args.model, usage, provider)
     out = args.lesson.parent / f'verdict.{args.tag}.json'
     out.write_text(json.dumps(verdict, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f'wrote {out}')

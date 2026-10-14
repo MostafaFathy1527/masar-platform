@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:41:58.790404+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3409
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 1,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "All four steps carry the identical why-text 'Because it is the next step.' That is assertion, not reasoning — none of the steps names the judgement being made (e.g., why failed retries are recorded so they are not repeated, why the deadline is derived from the customer promise). This is the exact failure mode the criterion exists to catch.",
+    "bilingual_quality": "Arabic is natural, idiomatic, and consistent in terminology, but slips once: 'وعليه علامة' in the L1 tip, where the plain choice is 'ومعه علامة'. One register break in an otherwise strong text keeps this at 4.",
+    "concision": "Prose between acting blocks earns its space and the takeaways add the shared-record point rather than repeating. The drag is structural: six definition cards front-load vocabulary, and the L2 interactive flow re-teaches the same four questions with near-identical detail text to the L1 flow. Removable without loss."
+  },
+  "verdict_notes": "The lesson is strong almost everywhere: real misconceptions in the checks, a scenario with genuine friction, and Arabic that reads as written, not translated. The worked example is the failure — four steps whose only justification is 'because it is the next step', which is a printed solution wearing a worked example's structure. That single block drags the floor far below what the rest of the lesson earns."
+}

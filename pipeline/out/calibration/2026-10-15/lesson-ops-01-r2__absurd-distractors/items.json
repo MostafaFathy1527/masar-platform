@@ -1,0 +1,88 @@
+{
+  "courseSlug": "operations",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain, revised by hand as v2. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "OPS-01-KC-01",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "في تسليمك ثلاثة عناصر مفتوحة. بأي ترتيب تكتبها؟",
+      "stemEn": "Your handover has three open items. In what order do you write them?",
+      "rationaleAr": "يُقرأ التسليم من الأعلى، فالعنصر الذي يحتاج إجراءً أولًا يُكتب أولًا وعليه علامة. الأسئلة الأربعة ترتّب ما تكتبه عن العنصر الواحد، لا ترتيب العناصر.",
+      "rationaleEn": "A handover is read from the top, so the item that needs action first is written first and marked. The four questions order what you write about one item, not the items.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "بحسب موعد احتياجها إلى إجراء، والعاجل في الأعلى بعلامة.",
+          "textEn": "By when they need action, with anything urgent first and marked.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. من يقرأ من الأعلى لا يُفاجأ في الأسفل.",
+          "feedbackEn": "Correct. A reader who starts at the top is never surprised at the bottom."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-02",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "تسليم زميلك يقول: «تذكرة 77: بطاقة العميل منتهية الصلاحية. اطلب بطاقة جديدة.» تفتح السجل: فشل الدفع مرتين، ولم يؤكد أحد السبب. ما المشكلة في هذا السطر؟",
+      "stemEn": "A colleague's handover reads: \"Ticket 77: the customer's card is expired. Ask for a new card.\" You open the record: the payment failed twice, and nobody has confirmed why. What is wrong with the line?",
+      "rationaleAr": "التخمين بلا علامة يصبح حقيقة النوبة التالية، لأن القادم يتصرّف بما يقرؤه على أنه صحيح. الحل ليس حذف التخمين بل وسمه.",
+      "rationaleEn": "An unlabelled guess becomes the next shift's fact, because the next person acts on what they read as true. The fix is not to delete the guess but to label it.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "يقدّم تخمينًا على أنه حقيقة، والزميل القادم سيتصرّف على أساسه.",
+          "textEn": "It presents a guess as a fact, and the next person will act on it.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. الحقيقة: فشل الدفع مرتين. التخمين: البطاقة منتهية. يُكتب الثاني بعلامة «تخمين».",
+          "feedbackEn": "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:23:29.354920+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3355
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The situation itself is recognisable and well-built — the classic payment-diversion pretext with the 'in a meeting, can't take calls' move that pre-empts the obvious verification channel, and a reply-to mismatch as the physical tell. But all three decision consequences are literal placeholder text ('This choice has consequences.'). The scenario is where the friction should be resolved into consequence, and the learner who chooses gets nothing back. The wrong options (reply to the message, call the number in the signature) are exactly the channels the lesson warns against, and the consequence fields are where that should land — instead they are empty. Plausible setup, unfinished playing-out of the awkward parts."
+  },
+  "verdict_notes": "A tight, well-aligned lesson: the worked example's whys name the judgement being made (urgency alone vs urgency plus an out-of-route request), and both knowledge checks use distractors drawn from real behaviour with feedback that explains the misconception rather than restating the answer. Arabic reads as written, not translated, with consistent terminology. The clear weakness is the scenario: a genuinely authentic situation whose decision consequences are unfilled placeholder text, which is where the learning in that block was supposed to happen."
+}

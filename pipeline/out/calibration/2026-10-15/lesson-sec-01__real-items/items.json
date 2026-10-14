@@ -1,0 +1,88 @@
+{
+  "courseSlug": "security-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "SEC-01-KC-01",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي تعرفه. ما الإشارة التي تُقدَّم على هذا الاسم؟",
+      "stemEn": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?",
+      "rationaleAr": "الاسم الظاهر نص حر يكتبه المُرسِل كما يشاء، فلا يحمل أي دليل. العنوان خلفه هو ما لم يخترْه بحرية.",
+      "rationaleEn": "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely.",
+      "options": [
+        {
+          "textAr": "عنوان المُرسِل الحقيقي.",
+          "textEn": "The sender's actual address.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. هذا هو الفحص الأول دائماً، لأنه الشيء الوحيد الذي لا يُكتب بحرية.",
+          "feedbackEn": "Correct. This is always the first check, because it is the one thing not freely typed."
+        },
+        {
+          "textAr": "جودة التنسيق وخلوّه من الأخطاء الإملائية.",
+          "textEn": "How well formatted and typo-free it is.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً.",
+          "feedbackEn": "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common."
+        },
+        {
+          "textAr": "وجود شعار الجهة في الرسالة.",
+          "textEn": "The organisation's logo appearing in the message.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الشعار صورة تُنسخ في ثوانٍ، وهو جزء من الرسالة محل الشك.",
+          "feedbackEn": "No. A logo is an image copied in seconds, and it is part of the very message in doubt."
+        },
+        {
+          "textAr": "أن الرسالة وصلت إلى بريد العمل لا البريد الشخصي.",
+          "textEn": "That it arrived at your work address rather than a personal one.",
+          "isCorrect": false,
+          "feedbackAr": "لا. عناوين العمل تُجمع وتُستهدف تحديداً؛ وصولها للعمل ليس تزكية.",
+          "feedbackEn": "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement."
+        }
+      ]
+    },
+    {
+      "key": "SEC-01-KC-02",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "اقتنعت أن رسالة تصيّد، وضغطت الرابط قبل أن تنتبه. ما الإجراء الصحيح؟",
+      "stemEn": "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?",
+      "rationaleAr": "البلاغ السريع قابل للاحتواء؛ الضغطة المخفية يومين غالباً لا. إخفاء الحادثة هو ما يحوّل خطأً صغيراً إلى خسارة.",
+      "rationaleEn": "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss.",
+      "options": [
+        {
+          "textAr": "تُبلِغ فوراً، حتى لو لم تُدخل أي بيانات.",
+          "textEn": "Report it immediately, even if you entered nothing.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. التوقيت هو كل شيء هنا، ونفس الرسالة نادراً ما تصل لشخص واحد.",
+          "feedbackEn": "Correct. Timing is everything here, and the same message almost never arrives at one person."
+        },
+        {
+          "textAr": "تنتظر لترى إن كان شيء سيحدث.",
+          "textEn": "Wait and see whether anything happens.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الانتظار يمنح المهاجم الوقت، ويُخفي عن الفريق أن الحملة بدأت.",
+          "feedbackEn": "No. Waiting gives the attacker time, and hides from the team that a campaign has started."
+        },
+        {
+          "textAr": "تحذف الرسالة حتى لا يضغطها أحد.",
+          "textEn": "Delete the message so nobody else clicks it.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الحذف يُتلف الدليل الذي يحتاجه من سيحدد مدى الحملة.",
+          "feedbackEn": "No. Deleting destroys the evidence needed by whoever has to size the campaign."
+        },
+        {
+          "textAr": "ترد على المُرسِل لتسأله إن كانت الرسالة حقيقية.",
+          "textEn": "Reply to the sender asking whether it was genuine.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الرد يؤكد أن العنوان حي ومقروء، ويصل لمن كتب الرسالة.",
+          "feedbackEn": "No. A reply confirms the address is live and read, and it reaches whoever wrote the message."
+        }
+      ]
+    }
+  ]
+}

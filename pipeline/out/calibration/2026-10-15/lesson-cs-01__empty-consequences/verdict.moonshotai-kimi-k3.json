@@ -1,0 +1,36 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:26:23.216614+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3521
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 2,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The situations themselves are authentic and full of friction (double charge plus an ignored four-day email; a fee waiver you cannot authorise, the owning team in tomorrow, a customer refusing to re-explain). But every one of the three decision options in the L2 scenario carries identical placeholder consequence text — 'لهذا الاختيار عواقب' / 'This choice has consequences' — so the decision exercise as shipped has no consequences in it. The learner chooses and receives nothing. That is unfinished content at the heart of the lesson's only decision block, and it caps this criterion low however good the setups are.",
+    "accessibility_ip": "No licensed code descriptors, payer policy text, or denylisted terms; no images requiring alt text; the definition-card icons are decorative and no meaning is carried by colour alone. Compliant, but minimal — the lesson does nothing to turn the constraint into a teaching point, which is what distinguishes a 5.",
+    "bilingual_quality": "Arabic is natural, idiomatic and concise throughout (e.g. 'الصمت على المكالمة يُقرأ تخلّياً', 'الحل الذي لم يطلبه العميل هو شكوى ثانية'), with consistent terminology and no English word order. Not a 5 only because the quality of what is written cannot offset that some of it is placeholder — see scenario note."
+  },
+  "verdict_notes": "Strong lesson on substance: worked-example steps each carry a real 'why', and both knowledge checks use distractors drawn from genuine agent behaviour with feedback that names the misconception rather than restating the stem. The decisive failure is the L2 scenario, whose decision consequences are placeholder strings on all three options, leaving the lesson's only practice decision with no feedback loop. One criterion below the floor at 2; mean 3.9 — the gate, not this judge, decides what that means."
+}

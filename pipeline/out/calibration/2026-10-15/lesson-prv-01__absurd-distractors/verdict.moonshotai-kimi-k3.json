@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:39:02.212358+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3483
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "In both items, three of the four options are nonsense distractors no learner would ever choose (\"Order lunch for the team first\", \"Restart your computer\", \"Change the colour of the screen\"), and their per-option feedback is merely \"Not correct.\" — it neither names a misconception nor explains anything. Only the correct option carries real feedback. The stems and rationales are good, which makes it worse: the real misconceptions were available and unused (KC-01 should have offered \"No — without names it is not personal data\"; KC-02 should have offered \"Delete the number yourself and send what you can\" and \"Reply asking the customer to put it in writing / it can wait\"). As written, each item is answerable by elimination without understanding anything, so the checks certify nothing.",
+    "accessibility_ip": "No images requiring alt text, no colour-dependent meaning, and no licensed code descriptors, payer policy text, or denylisted terms — the compliance floor is met. However it is only met minimally: the ⚠️ and 🚨 icons decorate the definition cards without stated text equivalents, and the constraint is never used as a teaching point (e.g., the lesson never notes it is teaching principles rather than quoting any one statute), which is what separates 3 from 5."
+  },
+  "verdict_notes": "The teaching content is strong: natural Arabic, a worked example whose steps explain the judgement, and a wrong-recipient scenario with genuine friction. But both knowledge checks are wrecked by placeholder-grade distractors (\"restart your computer\") with empty feedback, which is the rubric's named failure and earns the floor score on that criterion. The lesson's checks, as written, cannot distinguish a learner who understood from one who can eliminate jokes."
+}

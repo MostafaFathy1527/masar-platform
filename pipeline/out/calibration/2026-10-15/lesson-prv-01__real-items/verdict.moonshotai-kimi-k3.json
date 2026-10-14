@@ -1,0 +1,36 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:27:26.026404+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3442
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Every block earns PRV-01, but the data-subject request is tested in KC-02 without ever being taught: it appears only as one line in the L1 takeaways, so the learner first meets the concept as a term inside an assessment. One definition card or a worked-example step would close the gap.",
+    "worked_example": "Each why is case-specific and names the principle being applied (identifiability, irreversible harm, need-to-know, convenient channel), but no step states what would change the judgement — e.g., what to do if planning genuinely required the reasons. The hinge conditions are implied by the case facts rather than articulated, which is what separates this from a 5.",
+    "concision": "Nothing is padded and the takeaways earn their space by adding the DSR and just-in-case-copy points, but the intro rich text carries two sentences of list (name, employee number, email, phone, photo, plate, device ID, home address) that would tighten without loss."
+  },
+  "verdict_notes": "A strong lesson: both knowledge checks use distractors drawn from real, common misconceptions with per-option feedback that names the error, and the scenario has genuine friction (autocomplete same-name misfire, 5 pm, probably-unopened) rather than a textbook story. The Arabic reads as written in Arabic, not translated, and there is no licensed or colour-dependent content. The real weaknesses are that KC-02 tests a concept the lesson never teaches, and the worked example's reasoning leaves the decision hinges implicit."
+}

@@ -1,0 +1,37 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "nvidia.nemotron-super-3-120b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T21:22:49.397596+00:00",
+    "usage": {
+      "inputTokens": 5802,
+      "outputTokens": 383
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 heading declares level 2 but the worked example and knowledge checks are appropriately L2; however, the L1 block contains a definition card and job tip that are more substantive than typical L1, making the level label slightly aspirational for L1.",
+    "worked_example": "Steps show what to do and why, but the 'why' in step 3 ('Urgency alone is not evidence...') is somewhat generic and does not fully name the judgement being made or what would change it.",
+    "knowledge_check": "Distractors are plausible and feedback explains why rather than restating the answer, meeting the bar for 4; however, some feedback could more sharply name the misconception (e.g., feedback for KC-01 option 2 could explicitly state the misconception that formatting indicates legitimacy).",
+    "concision": "Prose is clear and earns its space, but some repetition exists (e.g., the idea that display name is free text appears in multiple blocks), making it slightly wordy."
+  },
+  "verdict_notes": "All criteria score at least 4 except level_fidelity, worked_example, knowledge_check, and concision which are 4 with minor reservations. Mean is 4.5. No automatic failures. Strong lesson with minor refinements possible."
+}

@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T21:41:24.874568+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3516
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 1,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "In both items, three of four options are joke distractors nobody would choose ('Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen') — identical across both stems and unrelated to either. Their feedback is bare 'Not correct.' with no misconception named. Only the correct option carries real feedback. This is the rubric's named failure: implausible distractors and feedback that restates the verdict.",
+    "bilingual_quality": "Mostly natural Arabic, but contains a number–gender agreement error ('ثلاث سطور' for masculine سطر; should be 'ثلاثة سطور') and several calques of English phrasing: 'وقد يقرأ الزميل الأول ويظن أن لا شيء عاجل' (for 'a reader who stops at the first assumes nothing is urgent'), 'هذا من الأخطاء الشائعة بعينه' (failing to carry 'word for word'), and 'تعلن افتراضًا' (for 'announces an assumption'). Reads as accurate translation, not as written in Arabic.",
+    "worked_example": "Each step shows what and why, and two whys name the judgment (status as fact not feeling; deadline protects the promise), but two are generic restatements ('lets the receiver locate the ticket quickly', 'prevents repeating the same attempts') and none state what would change the judgment."
+  },
+  "verdict_notes": "The lesson body is competent — aligned blocks, genuine L1/L2 separation, a worked example with real if uneven reasoning, and a scenario with authentic friction (arrival order versus urgency). It is failed by its knowledge checks, where every distractor is a throwaway joke option with empty feedback, the exact failure this rubric names. The Arabic is serviceable but shows translation artefacts and at least one grammatical error."
+}
