@@ -63,6 +63,10 @@ disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not m
 No model call sits in any request path; these are by-hand experiments with credentials
 kept outside the repository.
 
+`panel.py` turns several verdicts into one decision: PASS only if every judge passes and no
+criterion splits them by more than one point; a split or a disagreement on the outcome is
+NEEDS HUMAN, not an average. The latest verdict per model counts. One judge is refused.
+
 ## Known failure modes
 
 Recorded because they recur, and because a pipeline that does not write these down repeats
@@ -99,5 +103,6 @@ pipeline/
   qa_gate.py             applies the rubric thresholds, writes the report
   judge_bedrock.py       optional second judge: same rubric, a different model, fresh context
   compare_verdicts.py    criterion-by-criterion agreement between two verdicts
+  panel.py               several judges, one decision; any split goes to a human
   test_*.py              negative tests for each gate
 ```

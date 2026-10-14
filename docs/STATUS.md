@@ -54,6 +54,15 @@ count and mean range and keep the "LLM rubric scores, not human QA" label. Test:
 `bilingual` flag stated in the prompt passes (`verdict.llama33-70b-r2.json`). The failure
 log is at fifteen; `lib/failures.ts` carries the count to the case study with no edit.
 
+**Added 2026-10-14 (later) — the judge panel.** `pipeline/panel.py` loads every
+`verdict.<tag>.json` beside a lesson through `qa_gate.py`, keeps the latest verdict per model,
+and decides PASS (all pass, no criterion split above 1), NEEDS HUMAN (outcomes differ or a
+split above 1) or FAIL (all fail); it writes `panel-report.md`. Seven fixture tests in
+`pipeline/test_panel.py`. All four drafts: PANEL PASS with three judges. Lesson-02's first
+Llama verdict is superseded by the re-run and listed as such in its report. The Qwen and
+Nova verdicts predate the prompt line stating the `bilingual` flag; they scored that
+criterion correctly without it.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
