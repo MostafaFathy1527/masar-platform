@@ -144,6 +144,12 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
   GitHub OIDC (no stored key). It is skipped until the repository variable `AWS_ROLE_ARN`
   names an IAM role that trusts this repository and may invoke Bedrock; the owner creates
   that role in the console.
+- First manual runs (14 Oct) failed with "Not authorized to perform sts:AssumeRoleWithWebIdentity".
+  The workflow's claims step showed why: GitHub now sends the subject claim with immutable
+  ids, `repo:MostafaFathy1527@91095868/masar-platform@1362039151:ref:refs/heads/main`, and the
+  role's trust policy matched the old form `repo:MostafaFathy1527/masar-platform:*`. The
+  trust policy's `sub` condition must use the new form; the claims step stays in the
+  workflow so a refused role says why.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
