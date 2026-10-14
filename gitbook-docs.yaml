@@ -1,0 +1,15 @@
+# Documentation site structure (Git Sync). One English space whose content is the
+# repository itself: .gitbook.yaml and SUMMARY.md at the root define its pages.
+# Edit in the repository, not in the hosted editor, so changes pass the publish gate.
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Masār
+  structure:
+    - type: space
+      key: masar-docs
+      title: Masār documentation
+      path: docs
+      default: true
+      content:
+        directory: ./
+        language: en
