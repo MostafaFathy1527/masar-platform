@@ -9,27 +9,26 @@
     "saw_previous_verdicts": false,
     "authored_lesson": false,
     "temperature": 0,
-    "scored_at": "2026-10-14T09:06:42.848557+00:00",
+    "scored_at": "2026-10-14T10:36:08.644442+00:00",
     "usage": {
-      "inputTokens": 5078,
-      "outputTokens": 206
+      "inputTokens": 6636,
+      "outputTokens": 167
     },
     "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
   },
   "scores": {
     "objective_alignment": 5,
-    "level_fidelity": 4,
+    "level_fidelity": 5,
     "worked_example": 5,
     "knowledge_check": 4,
-    "scenario_authenticity": 4,
+    "scenario_authenticity": 5,
     "bilingual_quality": 5,
-    "concision": 4,
+    "concision": 5,
     "accessibility_ip": 5
   },
   "not_scored": {},
   "notes": {
-    "level_fidelity": "The L1 content is solid, but the L2 could benefit from more complex scenarios or questions to fully align with the level promise.",
-    "knowledge_check": "The distractors are plausible and the feedback is constructive, though one could be more specific about the misconception."
+    "knowledge_check": "One distractor in the first knowledge check restates the stem rather than naming a misconception."
   },
-  "verdict_notes": "Strong lesson with minor room for improvement in level fidelity and knowledge check specificity. Mean score is 4.5, indicating high quality."
+  "verdict_notes": "All criteria scored 4 or 5; mean 4.875. Passes with high marks across the board."
 }

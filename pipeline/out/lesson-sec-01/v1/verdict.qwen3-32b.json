@@ -9,26 +9,26 @@
     "saw_previous_verdicts": false,
     "authored_lesson": false,
     "temperature": 0,
-    "scored_at": "2026-10-14T09:06:07.035214+00:00",
+    "scored_at": "2026-10-14T10:35:38.312162+00:00",
     "usage": {
-      "inputTokens": 4731,
-      "outputTokens": 160
+      "inputTokens": 6079,
+      "outputTokens": 196
     },
     "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
   },
   "scores": {
     "objective_alignment": 5,
-    "level_fidelity": 4,
+    "level_fidelity": 5,
     "worked_example": 5,
     "knowledge_check": 3,
-    "scenario_authenticity": 4,
+    "scenario_authenticity": 5,
     "bilingual_quality": 5,
-    "concision": 4,
+    "concision": 5,
     "accessibility_ip": 5
   },
   "not_scored": {},
   "notes": {
-    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+    "knowledge_check": "Two of the four options in SEC-01-KC-01 restate the stem rather than naming a misconception. One option in SEC-01-KC-02 is weakly plausible but does not represent a real-world misconception."
   },
-  "verdict_notes": "One criterion at 3; mean 4.25. Passes, but the knowledge checks are the weakest part."
+  "verdict_notes": "One criterion at 3; mean 4.4. Passes, but the knowledge checks are the weakest part."
 }

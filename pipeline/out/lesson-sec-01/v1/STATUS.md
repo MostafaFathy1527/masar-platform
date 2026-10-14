@@ -44,7 +44,7 @@ like its first input.
 | `test_qa_gate.py` | 20/20 |
 | `npm run check` | 134/134, including the schema drift test |
 
-**`qa_gate.py`: run on 14 October 2026 by three independent judges — see below.**
+**`qa_gate.py`: run on 14 October 2026 by three independent judges; the panel sends a split to a human — see below.**
 
 ## What is genuinely different from the RCM lessons
 
@@ -63,18 +63,27 @@ like its first input.
 - The content is authored from public knowledge about phishing. It is training material,
   not a security policy, and it names no product, organisation or real incident.
 
-## Rubric gate, run 14 October 2026
+## Rubric gate, re-run 14 October 2026 with the items visible
 
-Scored by three judges from three model families, each in a fresh context that saw only
-the judge prompt, the rubric and this lesson (`pipeline/judge_bedrock.py`), then passed
-through `qa_gate.py` unchanged. Files beside this one: `verdict.<tag>.json`,
-`qa-report.<tag>.md`.
+Scored by three judges from three model families, each in a fresh context that saw the
+judge prompt, the rubric, this lesson and the items its knowledge checks reference
+(`pipeline/judge_bedrock.py`), then passed through `qa_gate.py` unchanged. Files beside
+this one: `verdict.<tag>.json`, `qa-report.<tag>.md`, `panel-report.md`.
 
-| Judge | Mean over 8 criteria | Gate |
-|---|---|---|
-| qwen.qwen3-32b-v1:0 | 4.38 | PASS |
-| us.meta.llama3-3-70b-instruct-v1:0 | 4.88 | PASS |
-| amazon.nova-pro-v1:0 | 4.88 | PASS |
+| Judge | Mean | Criteria scored | Knowledge checks | Gate |
+|---|---|---|---|---|
+| us.meta.llama3-3-70b-instruct-v1:0 | 5.00 | 8 | 5 | PASS |
+| amazon.nova-pro-v1:0 | 4.88 | 8 | 4 | PASS |
+| qwen.qwen3-32b-v1:0 | 4.75 | 8 | 3 | PASS |
 
-No pair of judges disagrees by more than one point on any criterion. That is agreement
-between models, not a human review; the blind inter-rater sample is still the open item.
+**Panel decision: NEEDS HUMAN.** Every judge passes the lesson, but they differ by more than one point on knowledge check, and the panel sends any split to a human rather than averaging it.
+
+The earlier scoring the same day showed the judges the lesson only. A knowledge-check
+block carries just a reference to its item, so those knowledge-check scores were given
+without the question, options or feedback (failure entry 17). They are replaced here;
+git history keeps them.
+
+The split has the same shape on all four samples (5, 4 and 3, always from the same
+three judges), which says more about the judges than about these items. That is for the
+human reviewer to settle. Agreement or disagreement between models is not a human
+review; the blind inter-rater sample is still the open item.

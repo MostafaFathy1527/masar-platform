@@ -101,6 +101,21 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
 - README and the Space README say sixteen. The live Hugging Face Space only changes when
   `demo/hf-space` is pushed there.
 
+**Added 2026-10-14 (night) — OPS-01 is the fourth sample, and failure 17.**
+- OPS-01 v2 (`pipeline/out/lesson-ops-01-r2/v2/`) fixes the five problems a read found in
+  the generated v1, plus a sixth (its item bank carried the RCM course slug). Made by hand
+  at the owner's direction; v1 kept unedited. Its objective is in `DRAFT_OBJECTIVES`, its
+  items are imported in `lib/items.ts`, and it is listed under /samples. The withdrawn run
+  `lesson-ops-01` is excluded by name in `lib/drafts.ts`.
+- **Failure 17:** the judge prompt never contained the items behind knowledge-check blocks,
+  so every knowledge-check score so far was blind. `judge_bedrock.py` now includes them and
+  refuses to run if one is missing. All four samples re-scored: every judge passes every
+  sample, but the judges split 5/4/3 on knowledge checks on all four, so **the panel says
+  NEEDS HUMAN on all four**. The earlier "All four drafts: PANEL PASS" above is superseded.
+- The pages now read the panel decision from `panel-report.md` and say when a sample goes
+  to a human. Sample and domain counts on the home and commission pages are derived
+  (`lib/count-words.ts`) instead of "three".
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

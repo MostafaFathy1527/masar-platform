@@ -1,6 +1,6 @@
 # OPS-01: writing a shift handover
 
-**Status: DRAFT.** Not seeded, not published, not listed on the site. The contract says
+**Status: DRAFT.** Not seeded, not published, not shown on the site; v2 is. The contract says
 the pipeline may not publish; a human does.
 
 ## How it was made
@@ -38,8 +38,8 @@ runner. That is not an independent reviewer and not a subject-matter review.
 5. Item KC-02 restates two of the sort cards word for word, so it checks recall of the
    previous block rather than the judgement.
 
-## Before this could ship
+## Superseded
 
-A human fixes the five points above as v2 by hand, which then becomes the baseline. Its
-objective statement is written in both languages, its items are imported in
-`lib/items.ts`, and only then does it appear under /samples.
+All five points, and a sixth (the item bank carried the medical course's slug), are fixed
+by hand in `../v2/`, which is the version shown on the site. This file is kept as the
+record of what the panel passed and a read did not.

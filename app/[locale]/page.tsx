@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
+import { countAr, countEn } from '@/lib/count-words'
 
 export default async function LandingPage({
   params,
@@ -18,6 +19,7 @@ export default async function LandingPage({
   // never describe a run that did not happen. The first draft in the directory
   // is whichever one sorts first; nothing is hand-picked.
   const first = draftIndex()[0]
+  const sampleCount = draftIndex().length
   const draft = first ? draftByCode(first.code) : null
   const notRun = draft ? notRunNote(draft.status) : null
   const rubric = draft ? draftRubric(draft.summary.dir) : null
@@ -107,10 +109,10 @@ export default async function LandingPage({
                       <small>{ar ? 'جودة التصميم التعليمي' : 'Instructional quality'}</small>
                     </div>
                     {rubric ? (
-                      <span className={`status ${rubric.allPassed ? 'status-pass' : 'status-hold'}`}>
+                      <span className={`status ${rubric.allPassed && rubric.panel === 'PASS' ? 'status-pass' : 'status-hold'}`}>
                         {ar
-                          ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} · ${rubric.judges.length} مقيّمين`
-                          : `${rubric.allPassed ? 'passed' : 'mixed'} · ${rubric.judges.length} judges`}
+                          ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} · ${rubric.judges.length} مقيّمين${rubric.panel === 'NEEDS HUMAN' ? ' · خلاف يُحال لمراجع' : ''}`
+                          : `${rubric.allPassed ? 'passed' : 'mixed'} · ${rubric.judges.length} judges${rubric.panel === 'NEEDS HUMAN' ? ' · split, to a human' : ''}`}
                       </span>
                     ) : (
                       <span className="status status-hold">{ar ? 'لم يُشغَّل' : 'not run'}</span>
@@ -180,8 +182,8 @@ export default async function LandingPage({
               </h3>
               <p className="who-body">
                 {ar
-                  ? 'ثلاثة دروس من خط الإنتاج في مجالات غير التأمين. إن أعجبتك، '
-                  : 'Three pipeline lessons in domains other than insurance. If they hold up, '}
+                  ? `${countAr(sampleCount, 'masculine')} دروس من خط الإنتاج في مجالات غير التأمين. إن أعجبتك، `
+                  : `${countEn(sampleCount, true)} pipeline lessons in domains other than insurance. If they hold up, `}
                 <Link className="link" href="/commission">
                   {ar ? 'أرسل درسًا من مادتك' : 'send one lesson of your material'}
                 </Link>

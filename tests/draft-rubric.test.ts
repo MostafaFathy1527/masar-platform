@@ -24,11 +24,22 @@ describe('draftRubric', () => {
 })
 
 describe('draft listing', () => {
+  it('reads the panel decision beside each draft', async () => {
+    const { draftIndex, draftRubric } = await import('@/lib/drafts')
+    for (const d of draftIndex()) {
+      const r = draftRubric(d.dir)
+      expect(r?.panel, d.code).toMatch(/^(PASS|NEEDS HUMAN|FAIL)$/)
+      if (r?.panel === 'NEEDS HUMAN') expect(r.split.length, d.code).toBeGreaterThan(0)
+    }
+  })
+
   it('lists only drafts whose objective statement was written by hand', async () => {
     const { draftIndex, DRAFT_OBJECTIVES } = await import('@/lib/drafts')
     const codes = draftIndex().map((d) => d.code)
     expect(codes.length).toBeGreaterThan(0)
     for (const c of codes) expect(DRAFT_OBJECTIVES[c]).toBeDefined()
-    expect(codes).not.toContain('OPS-01')
+    // The withdrawn OPS-01 run is evidence, not a sample: one code, one page.
+    expect(new Set(codes).size).toBe(codes.length)
+    expect(draftIndex().find((d) => d.code === 'OPS-01')?.dir).toBe('lesson-ops-01-r2/v2')
   })
 })

@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Sixteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Seventeen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -16,7 +16,8 @@ undermined the only proof of the central claim. The fourteenth is the one that a
 the README's oldest untested sentence: the method was general, and the gate was not.
 The fifteenth was found by adding judges: one of three skipped a rubric clause, and the
 other two made that visible. The sixteenth came from the first run with no hand in it: a
-retry passed a gate by deleting the thing the gate examined.
+retry passed a gate by deleting the thing the gate examined. The seventeenth: every judge
+had been scoring knowledge checks it could not see, and said so in notes nobody read.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -643,6 +644,36 @@ confirmation the source never mentions while the draft declares no unsourced sen
 and all three judges gave its Arabic a 5 over a wrong verb form. Those are in that draft's
 `STATUS.md`. They are not a defect in the loop. They are the reason a human reads the
 draft before anyone publishes it, and why the panel's verdict is labelled what it is.
+
+## 17. Every judge scored the knowledge checks without seeing a question
+
+**Found 14 October 2026, by reading the judges' notes on a lesson that had just passed.**
+
+A `knowledge_check` block holds one field: the key of an item in the item bank. The
+question, its options, which option is correct and the feedback on each one all live in
+`items.json`. The judge prompt was built from the lesson alone. So every knowledge-check
+score from every judge, on all four drafts, twelve verdicts that afternoon, was a score
+for questions the judge had never seen.
+
+Three of the judges said so, more or less. One wrote that it could not assess the checks
+"without the actual questions and answers" and gave a 3. Another gave a 4 with the same
+complaint. The third criticised specific distractors for restating the stem; there were
+no distractors in front of it. The gate accepted all three, because each was a
+well-formed integer with a note, and the panel passed all four drafts.
+
+**Fix:** the judge is now shown every item its lesson's knowledge checks reference, in
+full, and refuses to run if any referenced item cannot be found: a score for a question
+the judge cannot see is an invented score. All four drafts were re-scored. Every judge
+still passes every draft. On the knowledge checks, though, the three judges now split
+5, 4 and 3, on all four drafts, so the panel sends all four to a human. The pages say so.
+
+**What it shows:** the judges' own notes were the evidence, and nothing read them.
+A verdict that says "I cannot see the thing I am scoring" and then scores it is the
+clearest possible signal, and it passed every check because every check looked at the
+number. It is entry 13's pattern applied to a model instead of a page: the panel was
+evaluating a placeholder. And the identical split on four different lessons is its own
+warning. It says more about the three judges than about the items, which is exactly
+why a split goes to a person instead of being averaged.
 
 ## What to say about this in the case study
 

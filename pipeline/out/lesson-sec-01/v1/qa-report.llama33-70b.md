@@ -2,7 +2,7 @@
 
 **Result: PASS**
 
-Mean 4.88 over 8 scored criteria (threshold 4.0); lowest criterion 4 (floor 3).
+Mean 5.00 over 8 scored criteria (threshold 4.0); lowest criterion 5 (floor 3).
 
 Lesson levels: L1, L2.
 
@@ -10,14 +10,14 @@ Lesson levels: L1, L2.
 
 | Criterion | Score | Note |
 |---|---|---|
-| objective alignment | 5 |  |
-| level fidelity | 5 |  |
-| worked example | 5 |  |
-| knowledge check | 4 | While the knowledge checks are well-structured, one of the distractors in the scenario could be more plausible to better test the learner's understanding. |
-| scenario authenticity | 5 |  |
-| bilingual quality | 5 |  |
-| concision | 5 |  |
-| accessibility ip | 5 |  |
+| objective alignment | 5 | Every block clearly serves its declared objective, and the set covers it. |
+| level fidelity | 5 | The lesson does what its level promises, with no signs of level label being aspirational. |
+| worked example | 5 | Each step shows what to do and why, with reasoning that names the judgement being made. |
+| knowledge check | 5 | Distractors are drawn from real misconceptions, and per-option feedback explains why rather than restate the answer. |
+| scenario authenticity | 5 | The situation is recognisable, including the awkward parts, and would be familiar to someone who does this work. |
+| bilingual quality | 5 | The Arabic is natural and reads as though written in Arabic, not translated. |
+| concision | 5 | Nothing is longer than it needs to be, and the prose earns its space. |
+| accessibility ip | 5 | The lesson is compliant, with alt text on images and no meaning carried by colour alone. |
 
 **Judge independence:**
 
@@ -26,4 +26,4 @@ Lesson levels: L1, L2.
 
 Judge's summary:
 
-> The lesson is well-structured, and all criteria are met at a high level. The knowledge checks are the only area that could be improved, but they still effectively test the learner's understanding.
+> The lesson scores highly across all criteria, with no areas of concern. It is well-structured, informative, and effectively teaches the objective.

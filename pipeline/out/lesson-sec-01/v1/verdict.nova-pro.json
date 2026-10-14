@@ -9,9 +9,9 @@
     "saw_previous_verdicts": false,
     "authored_lesson": false,
     "temperature": 0,
-    "scored_at": "2026-10-14T09:06:15.875405+00:00",
+    "scored_at": "2026-10-14T10:35:47.658463+00:00",
     "usage": {
-      "inputTokens": 4659,
+      "inputTokens": 5944,
       "outputTokens": 181
     },
     "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
@@ -28,7 +28,7 @@
   },
   "not_scored": {},
   "notes": {
-    "knowledge_check": "The distractors in the knowledge checks are plausible and relevant, but one could be more distinct in its misconception."
+    "knowledge_check": "All distractors are plausible and feedback is relevant, though one could be more specific in addressing the misconception."
   },
-  "verdict_notes": "All criteria scored at 4 or 5, with strong alignment, fidelity, and authenticity. The knowledge checks are solid, though one distractor could be improved."
+  "verdict_notes": "All criteria scored 4 or 5. The lesson is well-aligned, faithful to its level, and authentic. Knowledge checks are strong with minor room for improvement."
 }

@@ -2,7 +2,7 @@
 
 **Result: PASS**
 
-Mean 4.50 over 8 scored criteria (threshold 4.0); lowest criterion 4 (floor 3).
+Mean 4.88 over 8 scored criteria (threshold 4.0); lowest criterion 4 (floor 3).
 
 Lesson levels: L1, L2.
 
@@ -11,12 +11,12 @@ Lesson levels: L1, L2.
 | Criterion | Score | Note |
 |---|---|---|
 | objective alignment | 5 |  |
-| level fidelity | 4 | The L1 content is solid, but the L2 could benefit from more complex scenarios or questions to fully align with the level promise. |
+| level fidelity | 5 |  |
 | worked example | 5 |  |
-| knowledge check | 4 | The distractors are plausible and the feedback is constructive, though one could be more specific about the misconception. |
-| scenario authenticity | 4 |  |
+| knowledge check | 4 | One distractor in the first knowledge check restates the stem rather than naming a misconception. |
+| scenario authenticity | 5 |  |
 | bilingual quality | 5 |  |
-| concision | 4 |  |
+| concision | 5 |  |
 | accessibility ip | 5 |  |
 
 **Judge independence:**
@@ -26,4 +26,4 @@ Lesson levels: L1, L2.
 
 Judge's summary:
 
-> Strong lesson with minor room for improvement in level fidelity and knowledge check specificity. Mean score is 4.5, indicating high quality.
+> All criteria scored 4 or 5; mean 4.875. Passes with high marks across the board.

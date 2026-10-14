@@ -116,6 +116,23 @@ def test_compare_reports_disagreement():
     check('different outcomes' in md, 'markdown names the disagreement')
 
 
+def test_judge_sees_the_items_its_checks_reference():
+    print('the judge is shown the knowledge-check items, not just their refs')
+    d = Path('pipeline/out/lesson-cs-01/v1')
+    lesson = json.loads((d / 'lesson.json').read_text(encoding='utf-8'))
+    items, missing = judge_bedrock.referenced_items(lesson, d)
+    check(not missing and [i['key'] for i in items] == judge_bedrock.item_refs(lesson),
+          'every itemRef resolves, in block order')
+    prompt = judge_bedrock.build_prompt(lesson, {'L1', 'L2'}, items)
+    check(items[0]['stemEn'] in prompt and items[0]['options'][0]['feedbackEn'] in prompt,
+          'stem and option feedback are in the prompt')
+    _, missing = judge_bedrock.referenced_items(lesson, Path('pipeline'))
+    check(missing == judge_bedrock.item_refs(lesson), 'no items.json: every ref reported missing')
+    code = judge_bedrock.main(['--lesson', str(Path('pipeline/out/lesson-cs-01/v1/lesson.json')),
+                               '--model', 'x', '--tag', 't', '--dry-run'])
+    check(code == 0, 'dry run with items present still works')
+
+
 if __name__ == '__main__':
     import tempfile
     for stream in (sys.stdout, sys.stderr):
@@ -129,5 +146,6 @@ if __name__ == '__main__':
     with tempfile.TemporaryDirectory() as d:
         test_verdict_shape_passes_the_gate(Path(d))
     test_compare_reports_disagreement()
+    test_judge_sees_the_items_its_checks_reference()
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)

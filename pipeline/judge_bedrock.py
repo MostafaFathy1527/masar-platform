@@ -62,9 +62,31 @@ def applicability(levels: set[str]) -> tuple[list[str], list[str], list[str]]:
     return scorable, substitute, unscorable
 
 
-def build_prompt(lesson: dict, levels: set[str]) -> str:
-    """The exact text the judge sees. Rubric + judge prompt + lesson, and the
-    applicability rules spelled out so the model cannot excuse itself."""
+def item_refs(lesson: dict) -> list[str]:
+    return [str((b.get('payload') or {}).get('itemRef', ''))
+            for bs in (lesson.get('blocks') or {}).values() for b in bs or []
+            if b.get('type') == 'knowledge_check']
+
+
+def referenced_items(lesson: dict, lesson_dir: Path) -> tuple[list[dict], list[str]]:
+    """The items the lesson's knowledge checks point at, from items.json beside it.
+
+    A knowledge_check block carries only an itemRef. Until 14 October 2026 the
+    judge was shown the lesson alone, so every knowledge-check score was given
+    without the question, the options or the feedback: one judge said so, and
+    another criticised distractors it had never seen. Returns the items found
+    and the refs that could not be resolved."""
+    refs = item_refs(lesson)
+    path = lesson_dir / 'items.json'
+    bank = json.loads(path.read_text(encoding='utf-8')).get('items', []) if path.exists() else []
+    by_key = {i.get('key'): i for i in bank if isinstance(i, dict)}
+    return [by_key[r] for r in refs if r in by_key], [r for r in refs if r not in by_key]
+
+
+def build_prompt(lesson: dict, levels: set[str], items: list[dict] | None = None) -> str:
+    """The exact text the judge sees. Rubric + judge prompt + lesson + the items
+    its knowledge checks reference, and the applicability rules spelled out so
+    the model cannot excuse itself."""
     scorable, substitute, unscorable = applicability(levels)
     level_text = ', '.join(sorted(levels))
     bilingual = lesson.get('bilingual')
@@ -96,12 +118,19 @@ def build_prompt(lesson: dict, levels: set[str]) -> str:
         '"not_scored" (criterion -> reason), and "verdict_notes" (two or three sentences). '
         'No markdown fences, no prose before or after the JSON.'
     )
-    return '\n\n'.join([
+    parts = [
         JUDGE_PROMPT.read_text(encoding='utf-8'),
         '---\n\n# The rubric\n\n' + RUBRIC.read_text(encoding='utf-8'),
         '---\n\n# Applicability (derived from the lesson, not negotiable)\n\n' + '\n'.join(f'- {r}' for r in rules),
         '---\n\n# The lesson\n\n```json\n' + json.dumps(lesson, ensure_ascii=False, indent=1) + '\n```',
-    ])
+    ]
+    if items:
+        parts.append(
+            '---\n\n# The items its knowledge checks reference\n\nEach knowledge_check block above '
+            'shows only an itemRef. These are those items, in full: stem, options, which option is '
+            'correct, the feedback on every option, and the rationale. Score knowledge_check on '
+            'them.\n\n```json\n' + json.dumps(items, ensure_ascii=False, indent=1) + '\n```')
+    return '\n\n'.join(parts)
 
 
 def extract_json(text: str) -> dict:
@@ -183,7 +212,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f'error: lesson declares no usable levels: {sorted(levels) or "[]"}', file=sys.stderr)
         return 2
 
-    prompt = build_prompt(lesson, levels)
+    items, missing = referenced_items(lesson, args.lesson.parent)
+    if missing:
+        # A score for a question the judge cannot see is an invented score.
+        print(f'error: knowledge checks reference items not found beside the lesson: '
+              f'{", ".join(missing)}', file=sys.stderr)
+        return 2
+    prompt = build_prompt(lesson, levels, items)
     if args.dry_run:
         print(prompt)
         return 0

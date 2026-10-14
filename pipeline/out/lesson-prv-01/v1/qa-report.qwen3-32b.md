@@ -13,7 +13,7 @@ Lesson levels: L1, L2.
 | objective alignment | 5 |  |
 | level fidelity | 4 |  |
 | worked example | 5 |  |
-| knowledge check | 3 | Two distractors restate the stem rather than naming a misconception. |
+| knowledge check | 3 | Two distractors in KC-01 and one in KC-02 restate the stem rather than naming a misconception. For example, in KC-01, the option 'No, because it contains no names' restates the stem rather than addressing a misconception about identifiability. |
 | scenario authenticity | 5 |  |
 | bilingual quality | 5 |  |
 | concision | 4 |  |
@@ -26,4 +26,4 @@ Lesson levels: L1, L2.
 
 Judge's summary:
 
-> One criterion at 3; mean 4.25. Passes, but the knowledge checks are the weakest part.
+> One criterion at 3; mean 4.3. Passes, but the knowledge checks are the weakest part.

@@ -9,10 +9,10 @@
     "saw_previous_verdicts": false,
     "authored_lesson": false,
     "temperature": 0,
-    "scored_at": "2026-10-14T09:06:33.397320+00:00",
+    "scored_at": "2026-10-14T10:36:02.141215+00:00",
     "usage": {
-      "inputTokens": 5247,
-      "outputTokens": 161
+      "inputTokens": 6901,
+      "outputTokens": 206
     },
     "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
   },
@@ -28,7 +28,7 @@
   },
   "not_scored": {},
   "notes": {
-    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+    "knowledge_check": "Two distractors in KC-01 and one in KC-02 restate the stem rather than naming a misconception. For example, in KC-01, the option 'No, because it contains no names' restates the stem rather than addressing a misconception about identifiability."
   },
-  "verdict_notes": "One criterion at 3; mean 4.25. Passes, but the knowledge checks are the weakest part."
+  "verdict_notes": "One criterion at 3; mean 4.3. Passes, but the knowledge checks are the weakest part."
 }

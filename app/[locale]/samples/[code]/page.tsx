@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { DepthView } from '@/components/player/DepthView'
 import { pick } from '@/lib/content-locale'
-import { DRAFT_OBJECTIVES, draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
+import { DRAFT_OBJECTIVES, criterionLabel, draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
 import { deepestLevel } from '@/lib/lessons'
 import type { AppLocale } from '@/i18n/routing'
 import type { Level } from '@/lib/schema/lesson'
@@ -120,13 +120,29 @@ export default async function SamplePage({
           </div>
           <p className="admin-caveat">
             {t.draftNote}
+            {/* A version past v1 was revised by hand; the page says so rather than
+                letting "left the pipeline" stand for an edited lesson. */}
+            {summary.dir.endsWith('/v1')
+              ? null
+              : ar
+                ? ' هذه النسخة عُدِّلت يدويًا بعد خروجها من خط الإنتاج؛ ملف الحالة يذكر كل تعديل، والنسخة الأصلية محفوظة بجانبها.'
+                : ' This version was revised by hand after it left the pipeline; the status file lists every change, and the original is kept beside it.'}
             {rubric ? (
               <>
                 {' '}
                 <strong>{ar ? 'بوابة المعيار' : 'Rubric gate'}:</strong>{' '}
                 {ar
-                  ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} مع ${rubric.judges.length} نماذج مستقلة، متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}، وأكبر اختلاف بينها على معيار واحد ${rubric.maxSpread} درجة. تقييم آلي، وليس مراجعة بشرية.`
+                  ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} مع ${rubric.judges.length} نماذج مستقلة، متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}، وأكبر اختلاف بينها على معيار واحد ${rubric.maxSpread === 0 ? 'لا شيء' : rubric.maxSpread === 1 ? 'درجة واحدة' : rubric.maxSpread === 2 ? 'درجتان' : `${rubric.maxSpread} درجات`}. تقييم آلي، وليس مراجعة بشرية.`
                   : `${rubric.allPassed ? 'passed' : 'mixed results'} with ${rubric.judges.length} independent models, means ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}, largest disagreement on any one criterion ${rubric.maxSpread} point${rubric.maxSpread === 1 ? '' : 's'}. LLM rubric scores, not human QA.`}
+                {rubric.panel === 'NEEDS HUMAN' && rubric.split.length ? (
+                  <>
+                    {' '}
+                    <strong>{ar ? 'قرار اللجنة: يُحال إلى مراجعة بشرية' : 'Panel decision: goes to a human'}</strong>
+                    {ar
+                      ? `، لأن النماذج تختلف بأكثر من درجة على ${rubric.split.map((c) => criterionLabel(c, true)).join('، ')}. الاختلاف إشارة لا تُحسم بمتوسط.`
+                      : `, because the models differ by more than a point on ${rubric.split.map((c) => criterionLabel(c, false)).join(', ')}. A split is a signal, not something to average away.`}
+                  </>
+                ) : null}
               </>
             ) : notRun ? (
               <>

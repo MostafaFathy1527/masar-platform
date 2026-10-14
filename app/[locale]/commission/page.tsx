@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
-import { draftIndex, draftRubric } from '@/lib/drafts'
+import { criterionLabel, draftIndex, draftRubric } from '@/lib/drafts'
+import { countAr, countEn } from '@/lib/count-words'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -30,7 +31,7 @@ export async function generateMetadata({
  * The one page on this site that sells something. It sells the pipeline, not
  * the platform: nobody needs another LMS, and training teams in the region do
  * need lessons at volume that someone can defend. Everything it promises is
- * something the repository already does, and the three sample drafts it links
+ * something the repository already does, and the sample drafts it links
  * to were produced by exactly the process it describes — each with its own
  * STATUS.md saying what was and was not run.
  *
@@ -82,6 +83,11 @@ export default async function CommissionPage({
   const scored = rubrics.every(Boolean) && rubrics.length > 0
   const judges = scored ? Math.min(...rubrics.map((r) => r!.judges.length)) : 0
   const allPassed = scored && rubrics.every((r) => r!.allPassed)
+  const samples = draftIndex()
+  const domains = new Set(samples.map((s) => s.domainEn)).size
+  // Criteria any sample's panel split on, so the copy names them rather than
+  // promising agreement the reports do not show.
+  const split = [...new Set(rubrics.flatMap((r) => (r?.panel === 'NEEDS HUMAN' ? r.split : [])))]
 
   const subject = encodeURIComponent(ar ? 'طلب دروس — مسار' : 'Commission lessons - Masar')
   const mailto = `mailto:${CONTACT}?subject=${subject}`
@@ -137,7 +143,11 @@ export default async function CommissionPage({
           : 'A behaviourally stated objective; tight explanation in Arabic and English (neither machine-translated from the other); definition cards for new concepts only; a worked example with the reasoning at each step; a decision scenario with the consequence of each choice; and knowledge checks in which every option names the misconception it represents. A lesson ships at the structured or the interactive depth, and can be raised to applied practice later without a rebuild.'}
       </p>
 
-      <h2 className="admin-q">{ar ? 'ثلاث عينات، في ثلاثة مجالات' : 'Three samples, in three domains'}</h2>
+      <h2 className="admin-q">
+        {ar
+          ? `${countAr(samples.length, 'feminine')} عينات، في ${countAr(domains, 'masculine')} مجالات`
+          : `${countEn(samples.length, true)} samples, in ${countEn(domains)} domains`}
+      </h2>
       <p className="max-w-prose leading-relaxed">
         {ar
           ? 'كل عينة مسودة حقيقية من الخط نفسه، خارج مجال الدورة التجريبية، ومعها ملف حالة يقول بالضبط ما شُغِّل عليها وما لم يُشغَّل. اقرأها كما سيقرأها مديرو التدريب عندكم.'
@@ -173,8 +183,8 @@ export default async function CommissionPage({
       </div>
       <p className="mt-3 max-w-prose text-sm text-muted">
         {ar
-          ? (scored ? `العينات مسودّات بالتعريف: لم تُنشر. قيّمها بالمعيار ${judges} نماذج لغوية مستقلة، كلٌّ في سياق لم يرَ تعليمات التوليد${allPassed ? '، وعبرت معها كلها' : ''}. هذا تقييم آلي وليس مراجعة بشرية. في عمل مدفوع، يُسلَّم تقرير التقييم مع كل درس، ويُراجَع ما تختلف عليه النماذج يدويًا.` : 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار بعد.')
-          : (scored ? `The samples are drafts by definition: not published. Each was scored against the rubric by ${judges} independent language models, each in a context that never saw the generation prompt${allPassed ? `, and passed with all ${judges}` : ''}. Those are LLM rubric scores, not human QA. In commissioned work the scoring report ships with every lesson, and anything the models disagree on is reviewed by hand.` : 'The samples are drafts by definition: not published, and not yet rubric-scored.')}
+          ? (scored ? `العينات مسودّات بالتعريف: لم تُنشر. قيّمها بالمعيار ${judges} نماذج لغوية مستقلة، كلٌّ في سياق لم يرَ تعليمات التوليد${allPassed ? '، وعبرت معها كلها' : ''}. هذا تقييم آلي وليس مراجعة بشرية. في عمل مدفوع، يُسلَّم تقرير التقييم مع كل درس، ويُراجَع ما تختلف عليه النماذج يدويًا.${split.length ? ` وفي هذه العينات نفسها تختلف النماذج بأكثر من درجة على ${split.map((c) => criterionLabel(c, true)).join('، ')}، فهي بقاعدة المشروع نفسه بانتظار مراجع بشري.` : ''}` : 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار بعد.')
+          : (scored ? `The samples are drafts by definition: not published. Each was scored against the rubric by ${judges} independent language models, each in a context that never saw the generation prompt${allPassed ? `, and passed with all ${judges}` : ''}. Those are LLM rubric scores, not human QA. In commissioned work the scoring report ships with every lesson, and anything the models disagree on is reviewed by hand.${split.length ? ` On these samples themselves the models differ by more than a point on ${split.map((c) => criterionLabel(c, false)).join(', ')}, so by the project's own rule they are waiting for a human reviewer.` : ''}` : 'The samples are drafts by definition: not published, and not yet rubric-scored.')}
       </p>
 
       <h2 className="admin-q">{ar ? 'السعر' : 'Pricing'}</h2>

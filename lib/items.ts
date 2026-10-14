@@ -6,6 +6,7 @@ import bank2 from '@/content/courses/rcm-foundations/items/mi-05-06-07.json'
 import draftSec from '@/pipeline/out/lesson-sec-01/v1/items.json'
 import draftCs from '@/pipeline/out/lesson-cs-01/v1/items.json'
 import draftPrv from '@/pipeline/out/lesson-prv-01/v1/items.json'
+import draftOps from '@/pipeline/out/lesson-ops-01-r2/v2/items.json'
 
 /**
  * The item bank, as static content.
@@ -49,6 +50,7 @@ const ALL = [
   ...(draftSec.items as Item[]),
   ...(draftCs.items as Item[]),
   ...(draftPrv.items as Item[]),
+  ...(draftOps.items as Item[]),
 ]
 
 const FORMATIVE = new Map<string, Item>(

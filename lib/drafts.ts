@@ -57,6 +57,12 @@ export const DRAFT_OBJECTIVES: Record<string, { en: string; ar: string; domainEn
     domainEn: 'Privacy and compliance',
     domainAr: 'الامتثال والخصوصية',
   },
+  'OPS-01': {
+    en: 'Given the end of a shift with work still open, write a handover that the next person can act on without having to contact you',
+    ar: 'يكتب، في نهاية نوبة فيها عمل مفتوح، تسليمًا يستطيع الزميل التالي أن يتصرّف بناءً عليه من دون أن يضطر إلى الاتصال به',
+    domainEn: 'Operations',
+    domainAr: 'العمليات',
+  },
 }
 
 function latestVersion(dir: string): string | null {
@@ -64,12 +70,16 @@ function latestVersion(dir: string): string | null {
   return versions.length ? versions[versions.length - 1] : null
 }
 
+const NOT_SAMPLES = new Set(['lesson-02', 'lesson-ops-01'])
+
 function draftDirs(): string[] {
   if (!existsSync(DRAFT_DIR)) return []
   // Only the runs made outside the demo course: lesson-02 is a regeneration of
-  // a course lesson and belongs to /course, not here.
+  // a course lesson and belongs to /course, not here. lesson-ops-01 is the run
+  // whose verdict was withdrawn (failure entry 16); it is kept as evidence and is
+  // not a sample.
   return readdirSync(DRAFT_DIR)
-    .filter((d) => d.startsWith('lesson-') && d !== 'lesson-02')
+    .filter((d) => d.startsWith('lesson-') && !NOT_SAMPLES.has(d))
     .sort()
 }
 
@@ -138,6 +148,14 @@ export type DraftRubric = {
   maxMean: number
   /** Largest gap between any two judges on any single criterion. */
   maxSpread: number
+  /**
+   * The panel's decision, read from `panel-report.md`: PASS only when every
+   * judge passes and no criterion splits them by more than a point. Every judge
+   * can pass while the panel sends the lesson to a human; the pages say both.
+   */
+  panel: 'PASS' | 'NEEDS HUMAN' | 'FAIL' | null
+  /** Criteria the judges split on, as the panel report names them. */
+  split: string[]
 }
 
 /**
@@ -179,11 +197,33 @@ export function draftRubric(dir: string): DraftRubric | null {
   if (!judges.length) return null
   const means = judges.map((j) => j.mean)
   const maxSpread = Math.max(0, ...Object.values(perCriterion).map((v) => Math.max(...v) - Math.min(...v)))
+  const panelPath = `${base}/panel-report.md`
+  const panelText = existsSync(panelPath) ? readFileSync(panelPath, 'utf-8') : ''
+  const decision = /\*\*Panel decision: (PASS|NEEDS HUMAN|FAIL)\*\*/.exec(panelText)?.[1] ?? null
+  const splitLine = /differ by more than \d+ on: ([^.;\n]+)/.exec(panelText)?.[1] ?? ''
   return {
     judges,
     allPassed: judges.every((j) => j.passed),
     minMean: Math.min(...means),
     maxMean: Math.max(...means),
     maxSpread,
+    panel: decision as DraftRubric['panel'],
+    split: splitLine ? splitLine.split(',').map((s) => s.trim()).filter(Boolean) : [],
   }
+}
+
+/** Criterion names as a reader would say them. */
+export function criterionLabel(c: string, ar: boolean): string {
+  const AR: Record<string, string> = {
+    objective_alignment: 'توافق الهدف',
+    level_fidelity: 'الالتزام بالمستوى',
+    worked_example: 'المثال المحلول',
+    knowledge_check: 'أسئلة التحقق',
+    scenario_authenticity: 'واقعية السيناريو',
+    bilingual_quality: 'جودة اللغتين',
+    concision: 'الإيجاز',
+    accessibility_ip: 'الإتاحة والملكية',
+  }
+  if (ar) return AR[c] ?? c.replace(/_/g, ' ')
+  return c === 'knowledge_check' ? 'the knowledge checks' : c.replace(/_/g, ' ')
 }

@@ -13,7 +13,7 @@ Lesson levels: L1, L2.
 | objective alignment | 5 |  |
 | level fidelity | 5 |  |
 | worked example | 5 |  |
-| knowledge check | 4 | The distractors in the knowledge checks are plausible and relevant, but one could be more distinct in its misconception. |
+| knowledge check | 4 | All distractors are plausible and feedback is generally explanatory, though some could be more specific in naming misconceptions. |
 | scenario authenticity | 5 |  |
 | bilingual quality | 5 |  |
 | concision | 5 |  |
@@ -26,4 +26,4 @@ Lesson levels: L1, L2.
 
 Judge's summary:
 
-> All criteria scored at 4 or 5; mean 4.875. The lesson is well-aligned, authentic, and concise, with high-quality bilingual content and accessibility.
+> All criteria scored at 4 or 5. The lesson is well-aligned, authentic, and bilingual quality is high. Knowledge checks are strong but could be improved by more specific feedback on misconceptions.
