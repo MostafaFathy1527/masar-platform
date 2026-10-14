@@ -31,6 +31,9 @@ COPY = {
 }
 
 
+WITHDRAWN = {"lesson-ops-01"}
+
+
 def main() -> None:
     for src, dst in COPY.items():
         target = HERE / dst
@@ -42,8 +45,13 @@ def main() -> None:
     for lesson in sorted(ROOT.glob("content/courses/*/lessons/*.json")):
         course = lesson.parents[1].name
         shutil.copyfile(lesson, HERE / f"sample__course__{course}__{lesson.name}")
-    for run in sorted(ROOT.glob("pipeline/out/*/v1")):
-        name = run.parent.name
+    for out in sorted(ROOT.glob("pipeline/out/*")):
+        # The latest version is the one the site shows; a withdrawn run is
+        # evidence in the repository, not a sample (see lib/drafts.ts).
+        versions = sorted((v for v in out.glob("v*") if v.name[1:].isdigit()), key=lambda v: int(v.name[1:]))
+        if out.name in WITHDRAWN or not versions:
+            continue
+        run, name = versions[-1], out.name
         for fname in ("lesson.json", "verdict.json"):
             src = run / fname
             if src.exists():
