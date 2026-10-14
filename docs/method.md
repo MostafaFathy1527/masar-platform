@@ -42,8 +42,11 @@ removed, scenarios whose choices all lead to the same sentence, English pasted i
 Arabic fields. A judge earns a panel seat only if it scores the broken copies clearly lower
 than the real ones.
 
-That test retired the first panel, and it showed which criteria no available judge can be
-trusted on. Those criteria are guarded by mechanical checks instead, and read by a person.
+That test retired the first panel and chose the current one. It also showed where judges
+fail: nine of twelve models gave a lesson with English pasted into its Arabic fields full
+marks for Arabic quality, and no model tested could tell that every choice in a scenario led
+nowhere. The one judge that caught the pasted English now sits on the panel, and both
+defects are also refused by mechanical checks and read by a person.
 The scores are in [the calibration report](../pipeline/out/calibration/2026-10-14/report.md).
 
 ## What a person still has to do

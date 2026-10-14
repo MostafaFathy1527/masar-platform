@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:31:06.689371+00:00",
+    "usage": {
+      "inputTokens": 7391,
+      "outputTokens": 242
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks contain distractors that are completely irrelevant to the lesson content (e.g., 'Order lunch for the team,' 'Restart your computer,' 'Change the colour of the screen'). These are not plausible misconceptions; they are nonsensical fillers that teach nothing. The feedback on these distractors merely restates 'Not correct' without explaining why or what the misconception is."
+  },
+  "verdict_notes": "The lesson content is strong, with a worked example that clearly explains the reasoning behind each step and a scenario with recognisable friction. However, the knowledge checks fail entirely, populated by distractors no learner would ever choose, which renders the assessment useless."
+}

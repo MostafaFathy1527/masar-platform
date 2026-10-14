@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:30:53.164233+00:00",
+    "usage": {
+      "inputTokens": 6833,
+      "outputTokens": 239
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 2,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The worked example fails to explain the reasoning behind its steps. Every step in both Arabic and English offers the same circular justification ('Because it is the next step'), which provides no pedagogical value and fails to show the learner *why* a decision is made, rendering the block a printed solution rather than a worked example."
+  },
+  "verdict_notes": "The lesson is strong in authenticity, bilingual quality, and knowledge-check design, with distractors that target specific misconceptions. However, the worked example is a critical failure; it asserts the correct steps without providing any reasoning, offering only a circular 'because it is the next step' explanation."
+}

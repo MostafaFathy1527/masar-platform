@@ -1,6 +1,366 @@
 [
   {
     "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-next-80b-a3b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "google.gemma-3-27b-it",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.deepseek.r1-v1:0",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-next-80b-a3b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "google.gemma-3-27b-it",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.deepseek.r1-v1:0",
+    "real": 5,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-next-80b-a3b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "google.gemma-3-27b-it",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.deepseek.r1-v1:0",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-4.7",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-vl-235b-a22b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "qwen.qwen3-next-80b-a3b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "google.gemma-3-27b-it",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "nvidia.nemotron-super-3-120b",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "minimax.minimax-m2.5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "us.deepseek.r1-v1:0",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
     "defect": "generic-feedback",
     "criterion": "knowledge_check",
     "judge": "moonshotai.kimi-k2.5",
@@ -85,6 +445,51 @@
     "defect": "empty-consequences",
     "criterion": "scenario_authenticity",
     "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
     "real": 5,
     "broken": 5,
     "drop": 0
@@ -175,6 +580,51 @@
     "defect": "empty-consequences",
     "criterion": "scenario_authenticity",
     "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
     "real": 5,
     "broken": 5,
     "drop": 0
@@ -270,6 +720,51 @@
     "drop": 0
   },
   {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
     "sample": "lesson-ops-01-r2",
     "defect": "generic-feedback",
     "criterion": "knowledge_check",
@@ -355,6 +850,51 @@
     "defect": "empty-consequences",
     "criterion": "scenario_authenticity",
     "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
     "real": 5,
     "broken": 5,
     "drop": 0

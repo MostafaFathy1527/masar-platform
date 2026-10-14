@@ -1,0 +1,37 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:27:45.697499+00:00",
+    "usage": {
+      "inputTokens": 5574,
+      "outputTokens": 452
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "The L1 blocks introduce concepts but do not explicitly connect them to the objective beyond the general theme; the L2 blocks directly apply the objective, making alignment mostly strong but not perfectly earned in every L1 element.",
+    "level_fidelity": "L1 introduces concepts through definitions and takeaways; L2 applies them through worked example and scenario. The progression is appropriate, but L1 lacks an active check or practice, making the level feel slightly thin.",
+    "worked_example": "Each step names the action and the reasoning, but the 'why' sometimes restates the definition rather than expanding on the judgment — e.g., 'The display name is free text' is true but doesn't explain why that matters in this context beyond what was already taught.",
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception. For KC-01, options about logo and address origin are plausible but do not reflect common real-world misconceptions — e.g., 'I trust it because it came from my work email' or 'It looked official so I didn't check'. For KC-02, 'delete the message' is plausible, but 'wait and see' and 'reply' are strong; however, feedback for 'delete' and 'reply' is good, while 'wait' lacks naming the misconception of underestimating campaign spread."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part. The lesson excels in scenario authenticity, bilingual quality, and concision, and the worked example is close to excellent but falls short of naming the deeper judgment in each step."
+}

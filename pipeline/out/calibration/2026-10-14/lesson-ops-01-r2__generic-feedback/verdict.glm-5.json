@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:31:01.958201+00:00",
+    "usage": {
+      "inputTokens": 7335,
+      "outputTokens": 211
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback on distractors is thin and unhelpful ('Not correct.'), failing to explain the misconception behind each wrong choice. The correct answer feedback merely restates 'Correct.' without reinforcing the rationale. This represents a significant missed opportunity to teach through the check."
+  },
+  "verdict_notes": "The lesson content is strong, with a realistic scenario and a worked example that clearly explains the reasoning behind each step. However, the knowledge checks fail to provide meaningful feedback for incorrect answers, scoring a 2 on that criterion."
+}

@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:28:04.637974+00:00",
+    "usage": {
+      "inputTokens": 6897,
+      "outputTokens": 239
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception. The feedback for incorrect options repeats the stem's phrasing ('no names' / 'not sensitive') instead of identifying the underlying misconception (e.g., that personal data is defined by identifiability, not presence of name; or that data-subject requests have strict timelines regardless of workload)."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.4. Passes, but the knowledge checks are the weakest part. All other criteria achieve excellence: the worked example is exemplary, the scenario is authentic with real friction, and the bilingual content reads naturally."
+}

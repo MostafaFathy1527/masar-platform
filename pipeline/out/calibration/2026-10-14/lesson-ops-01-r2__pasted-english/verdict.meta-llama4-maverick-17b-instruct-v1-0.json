@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:27:52.573100+00:00",
+    "usage": {
+      "inputTokens": 6957,
+      "outputTokens": 163
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Most blocks serve their declared objective, but some could be more directly aligned.",
+    "knowledge_check": "Feedback on one question could be more detailed."
+  },
+  "verdict_notes": "The lesson is well-structured and clear. Minor improvements could enhance objective alignment and knowledge check feedback."
+}

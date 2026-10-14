@@ -1,0 +1,37 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T18:33:26.936731+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3524
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 1,
+    "concision": 3,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step has a 'why', but the reasons are the lesson's rules restated rather than the judgement being made. Step 2's why ('shows the status as a fact, not a feeling') is circular, and no step addresses what would change the call — e.g., why 4 PM specifically (the customer's end-of-day request is in the prompt but never connected), or why a call rather than a message.",
+    "bilingual_quality": "The lesson declares bilingual: true, but every Arabic field (textAr, mdAr, defAr, labelAr, detailAr, promptAr, showAr, whyAr, answerAr, optionAr, consequenceAr, feedbackAr, stemAr, rationaleAr, itemsAr, titleAr) contains identical English text. There is no Arabic anywhere in the lesson. Scored against its own declaration, this is a total failure of the criterion — worse than literal translation, since no Arabic rendering exists at all.",
+    "concision": "The prose itself is lean, but content is duplicated: the four-question process flow appears in L1 and again in L2 with near-identical steps, and the definition card for 'shift handover' restates the intro's definition almost verbatim. That material is removable without loss.",
+    "accessibility_ip": "Compliant: no licensed code descriptors, payer policy text, or denylisted terms; no colour-dependent meaning. But the lesson contains no images, so the alt-text requirement is never exercised, and the constraint is not used as a teaching point. Minimal compliance."
+  },
+  "verdict_notes": "The instructional core is sound: the knowledge checks are the strongest element, with distractors drawn from real, recognisable misconceptions and feedback that names the error rather than restating the answer. The decisive failure is bilingual_quality: the lesson declares itself bilingual yet ships English in every Arabic field, which is an automatic gate failure on the floor threshold regardless of the other scores. The worked example's reasoning and the duplicated process flow are secondary weaknesses worth fixing on the same pass."
+}

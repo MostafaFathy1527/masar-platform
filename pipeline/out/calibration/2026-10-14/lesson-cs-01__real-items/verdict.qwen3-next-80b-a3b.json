@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:27:52.395388+00:00",
+    "usage": {
+      "inputTokens": 6959,
+      "outputTokens": 311
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes a scenario and worked example, but the definition cards in L1 are not explicitly framed as foundational for L2; the transition lacks explicit scaffolding that would make L2 feel like a natural progression rather than an addition.",
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception: 'سيتابع أحد الزملاء الموضوع قريباً' and 'تم. هل هناك شيء آخر أستطيع مساعدتك به؟' both describe poor closures but do not name the underlying misconception (e.g., 'thinking vague closure is sufficient' or 'believing ending the interaction resolves the complaint'). Feedback explains the flaw but does not identify the belief driving the wrong choice."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.4. The knowledge checks are the weakest part, as feedback describes errors without naming the cognitive misconception behind them. All other criteria are strong or exemplary, with bilingual quality, concision, and scenario authenticity being particularly well-executed."
+}

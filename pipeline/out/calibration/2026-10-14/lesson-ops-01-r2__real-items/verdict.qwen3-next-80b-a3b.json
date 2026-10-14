@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:28:15.824314+00:00",
+    "usage": {
+      "inputTokens": 7547,
+      "outputTokens": 266
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is rich with definitions and conceptual framing; L2 introduces interactivity but does not escalate complexity meaningfully — it repeats the same four questions as L1 with minimal procedural expansion. The level jump is thin.",
+    "knowledge_check": "Feedback for incorrect options in KC-01 and KC-02 restates the stem or describes consequences rather than naming the underlying misconception (e.g., 'arrival order feels fair' is not a misconception — the misconception is that order of arrival reflects priority). Feedback fails to articulate why the wrong choice reflects a flawed mental model."
+  },
+  "verdict_notes": "One criterion scored at 3 (knowledge_check), mean is 4.4. Passes, but knowledge check feedback is superficial and misses the opportunity to correct real cognitive errors by naming misconceptions."
+}

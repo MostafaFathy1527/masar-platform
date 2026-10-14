@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:27:42.020317+00:00",
+    "usage": {
+      "inputTokens": 5547,
+      "outputTokens": 252
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "The lesson declares bilingual: true, but the Arabic content is identical to the English content in every block (headings, prose, definition cards, takeaways, worked example steps, scenario situation, and knowledge check items). The Arabic text reads as English text placed in Arabic fields, rather than translated content. This fails the criterion that Arabic must be natural and not a literal rendering or, in this case, no rendering at all."
+  },
+  "verdict_notes": "The instructional design is strong, with a worked example that clearly explains the reasoning for each check and a scenario with realistic friction. However, the bilingual quality scores a 1 because the Arabic fields contain untranslated English text, which fails the declared bilingual requirement."
+}

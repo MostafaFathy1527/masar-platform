@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:29:42.242612+00:00",
+    "usage": {
+      "inputTokens": 6256,
+      "outputTokens": 1063
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The knowledge checks have plausible distractors based on real misconceptions, and the feedback explains why each is wrong. However, some feedback could more explicitly name the specific misconception (e.g., 'the misconception that internal data is not personal data' rather than just explaining the correct principle)."
+  },
+  "verdict_notes": "Passes comfortably with mean 4.125. All criteria meet threshold. The knowledge checks are the weakest element - while distractors are plausible and feedback is accurate, it could be more explicit about naming the specific misconception each distractor represents. The bilingual quality is strong, and the scenario includes realistic friction (end of day, same name, probably not opened yet)."
+}

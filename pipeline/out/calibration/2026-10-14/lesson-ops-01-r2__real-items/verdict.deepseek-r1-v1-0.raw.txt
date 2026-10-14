@@ -1,0 +1,8 @@
+
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity

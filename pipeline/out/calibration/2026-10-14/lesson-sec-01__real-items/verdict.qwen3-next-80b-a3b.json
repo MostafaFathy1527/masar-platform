@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:25:06.488749+00:00",
+    "usage": {
+      "inputTokens": 6075,
+      "outputTokens": 244
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception. For KC-01, 'quality of formatting' and 'logo presence' are plausible but do not name real, common misconceptions held by users — they are generic. For KC-02, 'delete the message' and 'wait to see' are plausible, but 'reply to sender' is the only distractor that reflects a real, frequent user error — the others are too vague to be diagnostic."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.6. Passes, but the knowledge checks lack diagnostic depth — distractors should reflect actual user errors, not just incorrect assumptions."
+}

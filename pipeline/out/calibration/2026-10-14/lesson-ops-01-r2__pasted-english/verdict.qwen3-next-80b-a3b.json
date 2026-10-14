@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-next-80b-a3b",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:28:21.454979+00:00",
+    "usage": {
+      "inputTokens": 7010,
+      "outputTokens": 278
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is rich with definitions and structure; L2 adds interactivity and application, but the transition lacks a clear cognitive leap — L2 feels like an extension of L1 rather than a distinct level of practice.",
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception: 'Nothing; it is short and gives a next action' and 'It needs more detail about the customer's history' are plausible but do not reflect real, common errors — they are surface-level misunderstandings, not deep misconceptions. The correct feedback is strong, but the distractors lack authentic error patterns."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.4. Passes, but the knowledge checks are weak on authentic misconception design. All other elements are exemplary, especially the scenario, worked example, and bilingual clarity."
+}

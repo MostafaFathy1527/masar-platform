@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T18:32:44.320577+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3488
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step carries a 'why', but the reasons are generic restatements of the rule ('prevents repeating the same attempts', 'shows the status as a fact, not a feeling') rather than reasoning about this case. Two real judgements go unexamined: the vague 'end of day' is converted to a concrete 16:00 with no comment, and 'no additional information' is asserted without explaining that it signals the record was checked. Neither why names what would change the step.",
+    "bilingual_quality": "Generally natural, but several phrases are English calques: 'اتصل بالعميل قبل 16:00 لتحديثه بالنتيجة' ('to update him with the result') mirrors English update-someone-with construction, and the L2 worked-example prompt was edited in English ('the customer asked for a response') while the Arabic still reads 'وُعد العميل بردّ' ('was promised a reply'), so the two versions diverge on whether a commitment was made — awkward in a lesson whose core point is tracking promises.",
+    "accessibility_ip": "No images, no colour-dependent meaning, no licensed code descriptors or payer text — clean. Scored below 5 because nothing in the lesson turns the constraint into a teaching point; compliance is minimal but complete."
+  },
+  "verdict_notes": "The knowledge checks are the strongest element: every distractor is a misconception someone actually holds, and the feedback names it rather than restating the stem. The worked example is the weakest — the 'why' lines restate the rules generically and skip the two genuine judgements the example contains. Arabic is mostly natural with a few English calques and one Ar/En divergence in the worked-example prompt."
+}

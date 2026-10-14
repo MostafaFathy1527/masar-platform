@@ -65,7 +65,7 @@ like its first input.
 
 ## Rubric gate: the calibrated panel, 14 October 2026
 
-Scored by the two judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
+Scored by the three judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
 real items and copies broken in ways the rubric names, each scored the broken copies at
 least two points lower. Each judge saw the judge prompt, the rubric, this lesson and the
 items its knowledge checks reference, in a fresh context, and its verdict went through
@@ -76,6 +76,7 @@ items its knowledge checks reference, in a fresh context, and its verdict went t
 |---|---|---|---|---|
 | deepseek.v3.2 | 5.00 | 8 | 5 | PASS |
 | moonshotai.kimi-k2.5 | 4.50 | 8 | 4 | PASS |
+| zai.glm-5 | 5.00 | 8 | 5 | PASS |
 
 **Panel decision: PASS.** Every judge passes the lesson and no criterion splits them by more than one point.
 

@@ -149,13 +149,22 @@ def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int = 4000
     import boto3  # imported here so the tests never need it
 
     client = boto3.client('bedrock-runtime', region_name=region)
-    resp = client.converse(
-        modelId=model_id,
-        messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-        inferenceConfig={'maxTokens': max_tokens, 'temperature': 0},
-    )
+    messages = [{'role': 'user', 'content': [{'text': prompt}]}]
+    temperature: int | None = 0
+    try:
+        resp = client.converse(modelId=model_id, messages=messages,
+                               inferenceConfig={'maxTokens': max_tokens, 'temperature': 0})
+    except client.exceptions.ValidationException as e:
+        # Some models refuse the field outright; they run at their own default, and the
+        # verdict records that rather than claiming temperature 0.
+        if 'temperature' not in str(e):
+            raise
+        temperature = None
+        resp = client.converse(modelId=model_id, messages=messages,
+                               inferenceConfig={'maxTokens': max_tokens})
     text = ''.join(part.get('text', '') for part in resp['output']['message']['content'])
-    usage = resp.get('usage', {})
+    usage = dict(resp.get('usage', {}))
+    usage['temperature'] = temperature
     return text, usage
 
 
@@ -172,7 +181,7 @@ def make_verdict(raw: dict, lesson: dict, model_id: str, usage: dict) -> dict:
             'saw_source_note': False,
             'saw_previous_verdicts': False,
             'authored_lesson': False,
-            'temperature': 0,
+            'temperature': usage.get('temperature', 0),
             'scored_at': datetime.now(timezone.utc).isoformat(),
             'usage': {k: usage.get(k) for k in ('inputTokens', 'outputTokens') if k in usage},
             'independence_caveat': (

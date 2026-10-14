@@ -47,9 +47,16 @@ MAX_SPREAD = 1
 # Nova Pro) caught 0, 1 and 0, and was retired: see failure entry 18. Two
 # families, neither the generator's, so agreement is not one model agreeing
 # with itself.
+#
+# GLM-5 joined on the same date, after the same test: 16 of 16 on knowledge
+# checks and worked examples, and the first judge to catch English pasted into
+# the Arabic fields (4 of 4, every broken copy scored 1). The two seated judges
+# caught 1 of 4 each, and nine other candidates 0 of 4. Like every judge tested,
+# it misses scenario choices that all lead nowhere, which validate.py guards.
 PANEL_MODELS = (
     ('moonshotai.kimi-k2.5', 'kimi-k2-5'),
     ('deepseek.v3.2', 'deepseek-v3-2'),
+    ('zai.glm-5', 'glm-5'),
 )
 
 

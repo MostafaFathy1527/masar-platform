@@ -177,6 +177,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument('--models', help='comma-separated Bedrock model ids (default: the seated panel)')
     ap.add_argument('--defects', help=f'comma-separated subset of: {", ".join(MUTANTS)}')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--report-only', action='store_true',
+                    help='rebuild the report from verdicts already on disk; call no model')
     args = ap.parse_args(argv)
 
     models = args.models.split(',') if args.models else [m for m, _ in panel.PANEL_MODELS]
@@ -194,11 +196,14 @@ def main(argv: list[str] | None = None) -> int:
             write(dirs[name], *MUTANTS[name][1](lesson, bank))
         if args.dry_run:
             continue
-        for d in dirs.values():
+        for d in ([] if args.report_only else dirs.values()):
             for model in models:
                 if not (d / f'verdict.{tag_for(model)}.json').exists():
-                    judge_bedrock.main(['--lesson', str(d / 'lesson.json'), '--model', model,
-                                        '--tag', tag_for(model), '--region', args.region])
+                    try:
+                        judge_bedrock.main(['--lesson', str(d / 'lesson.json'), '--model', model,
+                                            '--tag', tag_for(model), '--region', args.region])
+                    except Exception as e:  # one refused model must not end the run for the rest
+                        print(f'{model} on {d.name}: {type(e).__name__}: {str(e)[:160]}', file=sys.stderr)
         for model in models:
             for name in defects:
                 criterion = MUTANTS[name][0]

@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T18:30:36.246529+00:00",
+    "usage": {
+      "inputTokens": 6543,
+      "outputTokens": 256
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback on distractors is thin and unhelpful. For PRV-01-KC-01, the feedback for three options is merely 'Not correct' without explaining the misconception (e.g., that internal data is not personal, or that identifiability requires a name). For PRV-01-KC-02, the feedback for incorrect options is similarly bare, missing the opportunity to explain why partial fulfillment or delay is non-compliant."
+  },
+  "verdict_notes": "The lesson content is strong, with a realistic scenario and a worked example that models the decision process well. The knowledge checks fail to meet the rubric standard because the feedback does not name the misconceptions behind the distractors, offering only correctness statements."
+}

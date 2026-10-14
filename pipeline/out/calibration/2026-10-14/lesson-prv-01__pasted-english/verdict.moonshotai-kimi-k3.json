@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-14T18:32:01.235774+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 3360
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "The lesson declares bilingual: true, but every *Ar field — title, body, definition cards, worked example, scenario, takeaways, and both knowledge-check items with all feedback — contains the identical English text as the *En field. There is no Arabic on the page to assess; this is below even 'a literal rendering of English word order'. Scored 1 against the lesson's own bilingual declaration, per the applicability note.",
+    "accessibility_ip": "Compliant on IP: no licensed code descriptors, payer policy text, or denylisted terms, and no colour-only meaning. Held at 3 because there is nothing beyond compliance — no images or alt text present, and the opportunity to use the regime-neutral drafting ('in most regimes') as an explicit teaching point about jurisdiction-dependence is left implicit."
+  },
+  "verdict_notes": "In English this is a strong lesson: the worked example reasons through a real decision, the knowledge-check distractors are drawn from live misconceptions, and the autocomplete scenario has genuine friction. But the bilingual declaration is unmet in the most literal sense — every Arabic field is English — so bilingual_quality is a 1. Mean 4.0 with one criterion below the floor; the gate decides."
+}
