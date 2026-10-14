@@ -28,6 +28,23 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r pipeline/requirements.txt boto3
+      # Prints the claims AWS will match the role's trust policy against (never
+      # the token itself), so a refused role says why instead of only that.
+      - name: Show the OIDC claims AWS will see
+        run: |
+          python - <<'PY'
+          import base64, json, os, urllib.request
+          req = urllib.request.Request(os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=sts.amazonaws.com',
+                                       headers={'Authorization': 'bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
+          token = json.load(urllib.request.urlopen(req))['value']
+          body = token.split('.')[1]
+          claims = json.loads(base64.urlsafe_b64decode(body + '=' * (-len(body) % 4)))
+          for k in ('iss', 'aud', 'sub', 'repository', 'ref'):
+              print(f'{k}: {claims.get(k)}')
+          print('role:', os.environ.get('ROLE'))
+          PY
+        env:
+          ROLE: ${{ vars.AWS_ROLE_ARN }}
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
