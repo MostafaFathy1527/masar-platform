@@ -30,8 +30,8 @@ export default async function SamplesPage({ params }: { params: Promise<{ locale
       <h1 className="page-title">{ar ? 'عينات من خط الإنتاج' : 'Pipeline samples'}</h1>
       <p className="mt-3 max-w-prose leading-relaxed text-muted">
         {ar
-          ? 'كل درس هنا مسودّة حقيقية ولّدها خط الإنتاج من ملاحظة مصدر واحدة، في مجال غير مجال الدورة التجريبية، وعبر بوابتي البنية وترتيب المفاهيم. لم يُنشر أي منها في دورة، ولم يُقيَّم بالمعيار، وكل صفحة تقول ذلك في أولها. اقرأها كما سيقرأها مدير تدريب يقرّر هل يطلب عشرين مثلها.'
-          : 'Every lesson here is a real draft the pipeline produced from one source note, in a domain other than the demo course’s, and passed through the structure and concept-ordering gates. None is published in a course, none is rubric-scored, and each page says so at the top. Read them the way a training manager deciding whether to commission twenty would.'}
+          ? 'كل درس هنا مسودّة حقيقية ولّدها خط الإنتاج من ملاحظة مصدر واحدة، في مجال غير مجال الدورة التجريبية، وعبر بوابتي البنية وترتيب المفاهيم. لم يُنشر أي منها في دورة. قيّمتها بالمعيار نماذج لغوية مستقلة لا مراجِع بشري، وكل صفحة تقول نتيجتها في أولها. اقرأها كما سيقرأها مدير تدريب يقرّر هل يطلب عشرين مثلها.'
+          : 'Every lesson here is a real draft the pipeline produced from one source note, in a domain other than the demo course’s, and passed through the structure and concept-ordering gates. None is published in a course. Each was scored against the rubric by independent language models, not by a person, and each page states its result at the top. Read them the way a training manager deciding whether to commission twenty would.'}
       </p>
 
       <ul className="rule-list" style={{ marginBlockStart: '1.75rem' }}>

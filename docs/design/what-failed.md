@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Fourteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Fifteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -14,6 +14,8 @@ found by a person opening the product rather than by anyone testing it. **The th
 the most serious in the record**: the other twelve undermined a feature or a metric, and it
 undermined the only proof of the central claim. The fourteenth is the one that answers
 the README's oldest untested sentence: the method was general, and the gate was not.
+The fifteenth was found by adding judges: one of three skipped a rubric clause, and the
+other two made that visible.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -570,6 +572,32 @@ never asked whether it accepts good L1 lessons; this one's suite proved the vali
 refuses bad objective ids and never asked whether it accepts good ones from another course.
 **A negative test constrains what a gate rejects. Only a positive case over an input the
 gate has never seen constrains what it can accept.**
+
+## 15. A judge read past the clause written for exactly this lesson
+
+**Found 14 October 2026, by running a second and third judge.**
+
+Lesson-02 declares `bilingual: false`. Rubric criterion 6 says, in bold, that an
+English-only lesson is not penalised on bilingual quality and is scored against its own
+declaration. Three new judges scored the lesson in fresh contexts. Two gave that criterion
+a 5. One gave it a **1**, noting that the Arabic fields "appear to be a literal
+translation of the English", which is precisely what the lesson declares them to be.
+That one score took the mean to 4.00 and the gate failed the lesson.
+
+The gate behaved correctly: it applied fixed thresholds to the verdict it was given and
+logged a FAIL. The defect was in what the judge was shown. The clause existed, but it sat
+two thousand words up in a rubric, and a clause written for an edge case is the clause a
+reader is likeliest to skip.
+
+**Fix:** the judge prompt now states the lesson's `bilingual` flag next to the
+applicability rules, with the rubric's consequence spelled out. The same judge, same
+lesson, temperature 0, re-run: bilingual quality 5, gate PASS (4.57 over seven criteria).
+Both verdicts are kept in `pipeline/out/lesson-02/v1/`.
+
+**What it shows:** with one judge this would have been a failed lesson and an argument
+with a number. With three, it was one outlier on one criterion, pointing at the clause it
+contradicted. Disagreement between judges is a signal worth having; agreement between
+them is still not a human review.
 
 ## What to say about this in the case study
 

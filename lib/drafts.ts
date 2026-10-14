@@ -117,3 +117,68 @@ export function notRunNote(status: string): string | null {
   const m = status.match(/\*\*Not run: `([^`]+)`\.\*\*\s*([^\n]+(?:\n[^\n#]+)*)/)
   return m ? `${m[1]}: ${m[2].replace(/\s+/g, ' ').trim()}` : null
 }
+
+export type JudgeResult = {
+  /** Model id as recorded in the verdict's own provenance block. */
+  model: string
+  mean: number
+  scored: number
+  passed: boolean
+}
+
+export type DraftRubric = {
+  judges: JudgeResult[]
+  allPassed: boolean
+  minMean: number
+  maxMean: number
+  /** Largest gap between any two judges on any single criterion. */
+  maxSpread: number
+}
+
+/**
+ * The rubric results for a draft, read from the judge verdicts and the gate
+ * reports beside it. Pass or fail is taken from the gate's own report
+ * (`qa-report.<tag>.md`), not recomputed here, so this file never restates the
+ * thresholds that live in `pipeline/qa_gate.py`. Returns null when no judge has
+ * scored the draft, and the pages then say so.
+ *
+ * These pages used to say "not rubric-scored" as a fixed sentence. It was true
+ * when written and stopped being true the day three judges scored the drafts:
+ * failure entry 13 again, which is why the status is now derived.
+ */
+export function draftRubric(dir: string): DraftRubric | null {
+  const base = `${DRAFT_DIR}/${dir}`
+  if (!existsSync(base)) return null
+  const tags = readdirSync(base)
+    .map((f) => /^verdict\.([a-z0-9.-]+)\.json$/.exec(f)?.[1])
+    .filter((t): t is string => Boolean(t))
+    .sort()
+  const judges: JudgeResult[] = []
+  const perCriterion: Record<string, number[]> = {}
+  for (const tag of tags) {
+    const reportPath = `${base}/qa-report.${tag}.md`
+    if (!existsSync(reportPath)) continue
+    const verdict = JSON.parse(readFileSync(`${base}/verdict.${tag}.json`, 'utf-8'))
+    const scores: Record<string, number> = verdict.scores ?? {}
+    const values = Object.values(scores)
+    if (!values.length) continue
+    const report = readFileSync(reportPath, 'utf-8')
+    judges.push({
+      model: String(verdict.judge?.model_id ?? tag),
+      mean: Math.round((values.reduce((a, b) => a + b, 0) / values.length) * 100) / 100,
+      scored: values.length,
+      passed: /\*\*Result: PASS\*\*/.test(report),
+    })
+    for (const [c, v] of Object.entries(scores)) (perCriterion[c] ??= []).push(v)
+  }
+  if (!judges.length) return null
+  const means = judges.map((j) => j.mean)
+  const maxSpread = Math.max(0, ...Object.values(perCriterion).map((v) => Math.max(...v) - Math.min(...v)))
+  return {
+    judges,
+    allPassed: judges.every((j) => j.passed),
+    minMean: Math.min(...means),
+    maxMean: Math.max(...means),
+    maxSpread,
+  }
+}

@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { draftByCode, draftIndex, notRunNote } from '@/lib/drafts'
+import { draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
 
 export default async function LandingPage({
   params,
@@ -20,6 +20,7 @@ export default async function LandingPage({
   const first = draftIndex()[0]
   const draft = first ? draftByCode(first.code) : null
   const notRun = draft ? notRunNote(draft.status) : null
+  const rubric = draft ? draftRubric(draft.summary.dir) : null
 
   // The page's own header, <main> and footer are gone: the locale layout now
   // supplies all three. Keeping them produced two stacked wordmarks, a second
@@ -105,15 +106,27 @@ export default async function LandingPage({
                       <code>qa_gate.py</code>
                       <small>{ar ? 'جودة التصميم التعليمي' : 'Instructional quality'}</small>
                     </div>
-                    <span className="status status-hold">{ar ? 'لم يُشغَّل' : 'not run'}</span>
+                    {rubric ? (
+                      <span className={`status ${rubric.allPassed ? 'status-pass' : 'status-hold'}`}>
+                        {ar
+                          ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} · ${rubric.judges.length} مقيّمين`
+                          : `${rubric.allPassed ? 'passed' : 'mixed'} · ${rubric.judges.length} judges`}
+                      </span>
+                    ) : (
+                      <span className="status status-hold">{ar ? 'لم يُشغَّل' : 'not run'}</span>
+                    )}
                   </li>
                 </ul>
                 {/* The status file is written in English; the Arabic page states the
                     same fact in Arabic rather than quoting a Latin paragraph into RTL. */}
                 <p className="doc-foot">
-                  {ar
-                    ? 'مسودة: لم تُنشر، ولم تُقيَّم بالمعيار لأن المقيِّم الوحيد المتاح هو من كتبها. التفاصيل في ملف الحالة.'
-                    : (notRun ?? 'A draft. Not published and not rubric-scored.')}
+                  {rubric
+                    ? ar
+                      ? `مسودة لم تُنشر. قيّمها بالمعيار ${rubric.judges.length} نماذج لغوية مستقلة، كلٌّ في سياق جديد (متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}). تقييم آلي، وليس مراجعة بشرية. التفاصيل في ملف الحالة.`
+                      : `A draft, not published. Scored against the rubric by ${rubric.judges.length} independent language models, each in a fresh context (means ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}). LLM rubric scores, not human QA. Details in the status file.`
+                    : ar
+                      ? 'مسودة: لم تُنشر، ولم تُقيَّم بالمعيار لأن المقيِّم الوحيد المتاح هو من كتبها. التفاصيل في ملف الحالة.'
+                      : (notRun ?? 'A draft. Not published and not rubric-scored.')}
                 </p>
                 <p>
                   <Link className="link" href={`/samples/${draft.summary.code}`}>

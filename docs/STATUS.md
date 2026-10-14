@@ -45,6 +45,15 @@ rules. Per-lesson tables are in each `pipeline/out/*/v1/STATUS.md`; every run is
 `pipeline/memory/run-log.jsonl`, including the FAIL. Credentials come from the standard AWS
 environment, never from a tracked file.
 
+**Added 2026-10-14 (later) — the drafts' pages now read their rubric result.** `/`,
+`/samples`, `/samples/[code]` and `/commission` said "not rubric-scored" as fixed text; that
+stopped being true when the three judges ran. `draftRubric()` in `lib/drafts.ts` reads the
+verdicts and takes pass/fail from each `qa-report.<tag>.md`, so the pages state the judge
+count and mean range and keep the "LLM rubric scores, not human QA" label. Test:
+`tests/draft-rubric.test.ts`. The Llama finding is failure entry 15; the re-run with the
+`bilingual` flag stated in the prompt passes (`verdict.llama33-70b-r2.json`). The failure
+log is at fifteen; `lib/failures.ts` carries the count to the case study with no edit.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

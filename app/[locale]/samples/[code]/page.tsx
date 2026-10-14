@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { DepthView } from '@/components/player/DepthView'
 import { pick } from '@/lib/content-locale'
-import { DRAFT_OBJECTIVES, draftByCode, draftIndex, notRunNote } from '@/lib/drafts'
+import { DRAFT_OBJECTIVES, draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
 import { deepestLevel } from '@/lib/lessons'
 import type { AppLocale } from '@/i18n/routing'
 import type { Level } from '@/lib/schema/lesson'
@@ -50,7 +50,7 @@ const COPY = {
     blockCountTemplate: '{n} كتلة معروضة',
     englishOnlyNotice: 'هذا الدرس متاح بالإنجليزية فقط.',
     draft: 'مسودّة',
-    draftNote: 'هذا الدرس خرج من خط الإنتاج ولم ينشره أحد. عبر بوابتي البنية وترتيب المفاهيم؛ وما لم يُشغَّل عليه مكتوب أدناه كما في ملف حالته.',
+    draftNote: 'هذا الدرس خرج من خط الإنتاج ولم ينشره أحد. عبر بوابتي البنية وترتيب المفاهيم، ونتيجة بوابة المعيار مكتوبة أدناه كما في ملفات التقييم بجانبه.',
     notRun: 'لم يُشغَّل',
     files: 'الملفات في المستودع',
     allSamples: 'كل العينات',
@@ -71,7 +71,7 @@ const COPY = {
     blockCountTemplate: '{n} blocks shown',
     englishOnlyNotice: 'This lesson is English-only.',
     draft: 'DRAFT',
-    draftNote: 'This lesson left the pipeline and nobody published it. It passed the structure and concept-ordering gates; what was not run on it is quoted below from its status file.',
+    draftNote: 'This lesson left the pipeline and nobody published it. It passed the structure and concept-ordering gates; the rubric gate result below is read from the verdict files beside it.',
     notRun: 'Not run',
     files: 'Files in the repository',
     allSamples: 'All samples',
@@ -96,6 +96,7 @@ export default async function SamplePage({
   const { summary, lesson, status } = d
   const levels = lesson.levels as Level[]
   const notRun = notRunNote(status)
+  const rubric = draftRubric(summary.dir)
 
   return (
     <>
@@ -119,7 +120,15 @@ export default async function SamplePage({
           </div>
           <p className="admin-caveat">
             {t.draftNote}
-            {notRun ? (
+            {rubric ? (
+              <>
+                {' '}
+                <strong>{ar ? 'بوابة المعيار' : 'Rubric gate'}:</strong>{' '}
+                {ar
+                  ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} مع ${rubric.judges.length} نماذج مستقلة، متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}، وأكبر اختلاف بينها على معيار واحد ${rubric.maxSpread} درجة. تقييم آلي، وليس مراجعة بشرية.`
+                  : `${rubric.allPassed ? 'passed' : 'mixed results'} with ${rubric.judges.length} independent models, means ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}, largest disagreement on any one criterion ${rubric.maxSpread} point${rubric.maxSpread === 1 ? '' : 's'}. LLM rubric scores, not human QA.`}
+              </>
+            ) : notRun ? (
               <>
                 {' '}
                 <strong>{t.notRun}:</strong> <code>{notRun.split(':')[0]}</code>

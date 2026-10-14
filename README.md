@@ -1,6 +1,6 @@
 # Masār (مسار)
 
-**I built a learning platform, then spent a week trying to break it. I found fourteen
+**I built a learning platform, then kept trying to break it. So far I have found fifteen
 things that looked right and weren't.**
 
 Two of them:
@@ -11,7 +11,7 @@ Two of them:
 - The exam could be beaten without reading the questions. Authored banks put the correct
   answer first, so *always pick option A* scored **89%**.
 
-Both are fixed. All fourteen are written up, with what I got wrong and why, in
+Both are fixed. All fifteen are written up, with what I got wrong and why, in
 [`docs/design/what-failed.md`](docs/design/what-failed.md) — which is the part of this
 repository actually worth reading.
 
@@ -89,7 +89,7 @@ python pipeline/validate.py --denylist .local/denylist.txt
 
 ## Documentation
 
-- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the fourteen failures
+- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the fifteen failures
 - [`docs/STATUS.md`](docs/STATUS.md) — current state and the decision log
 - [`SPEC.md`](SPEC.md) — the fourteen headings a client asked to see
 - [`HANDOVER.md`](HANDOVER.md) — architecture, runbook, ownership

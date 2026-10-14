@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
+import { draftIndex, draftRubric } from '@/lib/drafts'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -75,6 +76,12 @@ export default async function CommissionPage({
   const { locale } = await params
   setRequestLocale(locale)
   const ar = (locale as AppLocale) === 'ar'
+  // How the samples were judged, read from the verdict files rather than stated
+  // here, so adding or removing a judge cannot leave this sentence behind.
+  const rubrics = draftIndex().map((d) => draftRubric(d.dir))
+  const scored = rubrics.every(Boolean) && rubrics.length > 0
+  const judges = scored ? Math.min(...rubrics.map((r) => r!.judges.length)) : 0
+  const allPassed = scored && rubrics.every((r) => r!.allPassed)
 
   const subject = encodeURIComponent(ar ? 'طلب دروس — مسار' : 'Commission lessons - Masar')
   const mailto = `mailto:${CONTACT}?subject=${subject}`
@@ -166,8 +173,8 @@ export default async function CommissionPage({
       </div>
       <p className="mt-3 max-w-prose text-sm text-muted">
         {ar
-          ? 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار، لأن المقيِّم الوحيد المتاح هو من كتبها. في عمل مدفوع، يقيّمها مقيِّم مستقل قبل التسليم، ويُسلَّم التقرير معها.'
-          : 'The samples are drafts by definition: not published, and not rubric-scored, because the only available judge is the one who wrote them. In commissioned work an independent judge scores them before delivery, and the report ships with the lesson.'}
+          ? (scored ? `العينات مسودّات بالتعريف: لم تُنشر. قيّمها بالمعيار ${judges} نماذج لغوية مستقلة، كلٌّ في سياق لم يرَ تعليمات التوليد${allPassed ? '، وعبرت معها كلها' : ''}. هذا تقييم آلي وليس مراجعة بشرية. في عمل مدفوع، يُسلَّم تقرير التقييم مع كل درس، ويُراجَع ما تختلف عليه النماذج يدويًا.` : 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار بعد.')
+          : (scored ? `The samples are drafts by definition: not published. Each was scored against the rubric by ${judges} independent language models, each in a context that never saw the generation prompt${allPassed ? `, and passed with all ${judges}` : ''}. Those are LLM rubric scores, not human QA. In commissioned work the scoring report ships with every lesson, and anything the models disagree on is reviewed by hand.` : 'The samples are drafts by definition: not published, and not yet rubric-scored.')}
       </p>
 
       <h2 className="admin-q">{ar ? 'السعر' : 'Pricing'}</h2>

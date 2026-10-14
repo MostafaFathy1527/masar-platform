@@ -1,0 +1,37 @@
+{
+  "lesson": "plans-benefits-and-member-liability",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.meta.llama3-3-70b-instruct-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T09:36:08.923723+00:00",
+    "usage": {
+      "inputTokens": 4465,
+      "outputTokens": 260
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5,
+    "worked_example": 4,
+    "scenario_authenticity": 4
+  },
+  "not_scored": {
+    "knowledge_check": "This criterion is not applicable at the declared level of the lesson."
+  },
+  "notes": {
+    "concision": "Some blocks are slightly wordy, but overall the content is well-organized and easy to follow.",
+    "worked_example": "The example in block b2_p_worked is clear, but could benefit from additional explanation of the reasoning behind the calculations.",
+    "scenario_authenticity": "The scenario presented is plausible, but lacks specific details that would make it more relatable to someone who does this work."
+  },
+  "verdict_notes": "The lesson is well-structured and effectively conveys the concepts, but could benefit from some improvements in concision and scenario authenticity. The worked example is clear, but could be enhanced with additional explanation."
+}
