@@ -1,30 +1,34 @@
 #!/usr/bin/env python3
-"""Can each judge tell a good knowledge check from a broken one?
+"""Can each judge tell a good lesson from one broken on purpose?
 
-On all four samples the three panel judges split 5, 4 and 3 on knowledge
-checks, the same way every time. That pattern says more about the judges than
-about the items, but "says more about the judges" is a hunch until it is
-measured. This measures it.
+A judge's score is a reading from an instrument, and an instrument is calibrated
+before its readings are trusted. This takes each sample, scores it as it is, and
+scores copies broken in one specific way each. Every defect is one the rubric
+names, and each targets one criterion:
 
-For each sample, the real item bank is copied three times: unchanged, and broken
-in one of two ways the rubric names explicitly (criterion 4):
+  generic-feedback    knowledge_check        every option's feedback becomes
+                                             "Correct." / "Not correct."
+  absurd-distractors  knowledge_check        every wrong option becomes something
+                                             no learner would pick
+  pasted-english      bilingual_quality      every Arabic field holds the English
+                                             text, while the lesson still claims
+                                             to be bilingual
+  reasonless-steps    worked_example         every step's reasoning becomes
+                                             "Because it is the next step."
+  empty-consequences  scenario_authenticity  every decision's consequence becomes
+                                             the same empty sentence
 
-  generic-feedback   every option's feedback becomes "Correct." / "Not correct.",
-                     so no option names the misconception it represents
-  absurd-distractors every wrong option becomes something no learner would pick
+A judge that sees the defect should score the target criterion at least two
+points lower on the broken copy than on the real one, in the same run. A judge
+that does not is not measuring that criterion, whatever its notes say.
 
-Each judge scores all three copies in fresh contexts, through the same gate, and
-its knowledge_check score on each broken copy is compared with its score on the
-real one from the same run. A judge that sees the defect should drop by at least
-two points. A judge that does not drop is not discriminating on that criterion,
-whatever its notes say.
+Nothing here changes a threshold or the panel. It is the evidence for who sits
+on it: a judge earns its seat by passing this (see PANEL_MODELS in panel.py and
+failure entry 18).
 
-Nothing here changes a threshold or the panel. It produces evidence for whoever
-decides which judges sit on it: a judge earns its seat by passing this.
-
-    python pipeline/calibrate_judges.py                       # the panel judges
-    python pipeline/calibrate_judges.py --models a,b          # candidate judges
-    python pipeline/calibrate_judges.py --dry-run             # build the copies only
+    python pipeline/calibrate_judges.py                    # the seated panel
+    python pipeline/calibrate_judges.py --models a,b       # candidate judges
+    python pipeline/calibrate_judges.py --dry-run          # build the copies only
 
 Writes pipeline/out/calibration/<date>/report.md and results.json. Rows for
 judges not in the current run are kept from earlier runs on the same day.
@@ -35,7 +39,6 @@ from __future__ import annotations
 import argparse
 import copy
 import json
-import shutil
 import sys
 from datetime import date
 from pathlib import Path
@@ -61,27 +64,78 @@ ABSURD = [
 ]
 
 
-def generic_feedback(bank: dict) -> dict:
-    out = copy.deepcopy(bank)
-    for item in out['items']:
+def _blocks(lesson: dict):
+    for bs in (lesson.get('blocks') or {}).values():
+        for b in bs or []:
+            yield b
+
+
+def generic_feedback(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    bank = copy.deepcopy(bank)
+    for item in bank['items']:
         for o in item['options']:
             o['feedbackEn'] = 'Correct.' if o['isCorrect'] else 'Not correct.'
             o['feedbackAr'] = 'صحيح.' if o['isCorrect'] else 'غير صحيح.'
-    return out
+    return lesson, bank
 
 
-def absurd_distractors(bank: dict) -> dict:
-    out = copy.deepcopy(bank)
-    for item in out['items']:
+def absurd_distractors(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    bank = copy.deepcopy(bank)
+    for item in bank['items']:
         wrong = [o for o in item['options'] if not o['isCorrect']]
         for o, (en, ar) in zip(wrong, ABSURD):
             o['textEn'], o['textAr'] = en, ar
             o['feedbackEn'], o['feedbackAr'] = 'Not correct.', 'غير صحيح.'
-    return out
+    return lesson, bank
 
 
-MUTANTS = {'generic-feedback': generic_feedback, 'absurd-distractors': absurd_distractors}
-VARIANTS = {'real-items': copy.deepcopy, **MUTANTS}
+def _paste_english(node):
+    """Every xAr field gets its xEn sibling's value, recursively."""
+    if isinstance(node, dict):
+        for k in list(node):
+            if k.endswith('Ar') and (k[:-2] + 'En') in node:
+                node[k] = copy.deepcopy(node[k[:-2] + 'En'])
+            else:
+                _paste_english(node[k])
+    elif isinstance(node, list):
+        for v in node:
+            _paste_english(v)
+
+
+def pasted_english(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    lesson, bank = copy.deepcopy(lesson), copy.deepcopy(bank)
+    lesson['bilingual'] = True
+    _paste_english(lesson)
+    _paste_english(bank)
+    return lesson, bank
+
+
+def reasonless_steps(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    lesson = copy.deepcopy(lesson)
+    for b in _blocks(lesson):
+        if b.get('type') == 'worked_example':
+            for s in b['payload'].get('steps', []):
+                s['whyEn'], s['whyAr'] = 'Because it is the next step.', 'لأنها الخطوة التالية.'
+    return lesson, bank
+
+
+def empty_consequences(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    lesson = copy.deepcopy(lesson)
+    for b in _blocks(lesson):
+        if b.get('type') == 'scenario':
+            for d in b['payload'].get('decisions', []):
+                d['consequenceEn'], d['consequenceAr'] = 'This choice has consequences.', 'لهذا الاختيار عواقب.'
+    return lesson, bank
+
+
+# defect -> (criterion it targets, the mutation)
+MUTANTS = {
+    'generic-feedback': ('knowledge_check', generic_feedback),
+    'absurd-distractors': ('knowledge_check', absurd_distractors),
+    'pasted-english': ('bilingual_quality', pasted_english),
+    'reasonless-steps': ('worked_example', reasonless_steps),
+    'empty-consequences': ('scenario_authenticity', empty_consequences),
+}
 
 
 def tag_for(model: str) -> str:
@@ -92,10 +146,10 @@ def tag_for(model: str) -> str:
     return '-'.join(parts[1:] if len(parts) > 1 else parts).replace(':', '-').lower()
 
 
-def kc_score(verdict_path: Path) -> int | None:
+def score(verdict_path: Path, criterion: str) -> int | None:
     if not verdict_path.exists():
         return None
-    return json.loads(verdict_path.read_text(encoding='utf-8')).get('scores', {}).get('knowledge_check')
+    return json.loads(verdict_path.read_text(encoding='utf-8')).get('scores', {}).get(criterion)
 
 
 def summarise(rows: list[dict], model: str) -> dict:
@@ -103,6 +157,13 @@ def summarise(rows: list[dict], model: str) -> dict:
     caught = sum(1 for r in mine if r['drop'] >= MIN_DROP)
     mean = sum(r['drop'] for r in mine) / len(mine) if mine else 0.0
     return {'judge': model, 'caught': caught, 'of': len(mine), 'mean_drop': round(mean, 2)}
+
+
+def write(d: Path, lesson: dict, bank: dict) -> None:
+    d.mkdir(parents=True, exist_ok=True)
+    dump = lambda o: json.dumps(o, ensure_ascii=False, indent=2) + '\n'  # noqa: E731
+    (d / 'lesson.json').write_text(dump(lesson), encoding='utf-8')
+    (d / 'items.json').write_text(dump(bank), encoding='utf-8')
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -113,72 +174,82 @@ def main(argv: list[str] | None = None) -> int:
             pass
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--region', default='us-east-1')
-    ap.add_argument('--models', help='comma-separated Bedrock model ids (default: the panel)')
+    ap.add_argument('--models', help='comma-separated Bedrock model ids (default: the seated panel)')
+    ap.add_argument('--defects', help=f'comma-separated subset of: {", ".join(MUTANTS)}')
     ap.add_argument('--dry-run', action='store_true')
     args = ap.parse_args(argv)
 
     models = args.models.split(',') if args.models else [m for m, _ in panel.PANEL_MODELS]
+    defects = args.defects.split(',') if args.defects else list(MUTANTS)
     root = Path('pipeline/out/calibration') / date.today().isoformat()
     rows: list[dict] = []
     for sample in SAMPLES:
         src = Path(sample)
+        lesson = json.loads((src / 'lesson.json').read_text(encoding='utf-8'))
         bank = json.loads((src / 'items.json').read_text(encoding='utf-8'))
-        dirs = {}
-        for name, make in VARIANTS.items():
-            d = dirs[name] = root / f'{src.parent.name}__{name}'
-            d.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(src / 'lesson.json', d / 'lesson.json')
-            (d / 'items.json').write_text(json.dumps(make(bank), ensure_ascii=False, indent=2) + '\n',
-                                          encoding='utf-8')
-            if args.dry_run:
-                continue
+        dirs = {'real-items': root / f'{src.parent.name}__real-items'}
+        write(dirs['real-items'], lesson, bank)
+        for name in defects:
+            dirs[name] = root / f'{src.parent.name}__{name}'
+            write(dirs[name], *MUTANTS[name][1](lesson, bank))
+        if args.dry_run:
+            continue
+        for d in dirs.values():
             for model in models:
                 if not (d / f'verdict.{tag_for(model)}.json').exists():
                     judge_bedrock.main(['--lesson', str(d / 'lesson.json'), '--model', model,
                                         '--tag', tag_for(model), '--region', args.region])
         for model in models:
-            before = kc_score(dirs['real-items'] / f'verdict.{tag_for(model)}.json')
-            for name in MUTANTS:
-                after = kc_score(dirs[name] / f'verdict.{tag_for(model)}.json')
-                rows.append({'sample': src.parent.name, 'defect': name, 'judge': model,
-                             'real_items': before, 'broken_items': after,
+            for name in defects:
+                criterion = MUTANTS[name][0]
+                before = score(dirs['real-items'] / f'verdict.{tag_for(model)}.json', criterion)
+                after = score(dirs[name] / f'verdict.{tag_for(model)}.json', criterion)
+                rows.append({'sample': src.parent.name, 'defect': name, 'criterion': criterion,
+                             'judge': model, 'real': before, 'broken': after,
                              'drop': None if before is None or after is None else before - after})
     if args.dry_run:
-        print(f'built {len(VARIANTS) * len(SAMPLES)} copies under {root}')
+        print(f'built copies for {len(SAMPLES)} samples x {len(defects) + 1} variants under {root}')
         return 0
 
     prev = root / 'results.json'
     if prev.exists():
-        rows += [r for r in json.loads(prev.read_text(encoding='utf-8'))
-                 if r['judge'] not in models and 'sample' in r]
+        seen = {(r['judge'], r['defect']) for r in rows}
+        for r in json.loads(prev.read_text(encoding='utf-8')):
+            r.setdefault('criterion', MUTANTS.get(r['defect'], ('knowledge_check',))[0])
+            r.setdefault('real', r.pop('real_items', None))
+            r.setdefault('broken', r.pop('broken_items', None))
+            if (r['judge'], r['defect']) not in seen:
+                rows.append(r)
     judges = sorted({r['judge'] for r in rows})
     (root / 'results.json').write_text(json.dumps(rows, indent=2) + '\n', encoding='utf-8')
 
+    seated = [m for m, _ in panel.PANEL_MODELS]
     lines = [
-        '# Judge calibration: can each judge see a broken knowledge check?', '',
-        f'Run {date.today().isoformat()}. Each sample\'s real item bank was scored as it is and '
-        'broken in one of two ways rubric criterion 4 names; each judge scored all three copies in '
-        f'fresh contexts. A judge that sees the defect should drop its knowledge_check score by at '
-        f'least {MIN_DROP}. Panel judges: '
-        + ', '.join(f'`{m}`' for m, _ in panel.PANEL_MODELS) + '.',
-        '', '## Per judge', '',
-        '| Judge | Defects caught | Mean drop |', '|---|---|---|',
+        '# Judge calibration: can each judge see a lesson broken on purpose?', '',
+        f'Run {date.today().isoformat()}. Each sample was scored as it is and as copies broken in one '
+        'way each, every defect one the rubric names and each aimed at one criterion. A judge that sees '
+        f'the defect should score that criterion at least {MIN_DROP} points lower on the broken copy. '
+        'Seated panel: ' + ', '.join(f'`{m}`' for m in seated) + '.',
+        '', '## Per judge and criterion', '',
+        '| Judge | Criterion | Defects caught | Mean drop |', '|---|---|---|---|',
     ]
     for j in judges:
-        s = summarise(rows, j)
-        lines.append(f'| `{j}` | {s["caught"]} of {s["of"]} | {s["mean_drop"]:.2f} |')
+        for crit in sorted({r['criterion'] for r in rows if r['judge'] == j}):
+            sub = [r for r in rows if r['judge'] == j and r['criterion'] == crit]
+            s = summarise(sub, j)
+            lines.append(f'| `{j}`{" (seated)" if j in seated else ""} | {crit} | '
+                         f'{s["caught"]} of {s["of"]} | {s["mean_drop"]:.2f} |')
     lines += ['', '## Every score', '',
-              '| Judge | Defect | Sample | Real items | Broken items | Drop |', '|---|---|---|---|---|---|']
+              '| Judge | Defect | Criterion | Sample | Real | Broken | Drop |', '|---|---|---|---|---|---|---|']
     for r in sorted(rows, key=lambda r: (r['judge'], r['defect'], r['sample'])):
-        lines.append(f'| `{r["judge"]}` | {r["defect"]} | {r["sample"]} | {r["real_items"]} | '
-                     f'{r["broken_items"]} | {r["drop"]} |')
-    lines += ['', 'This measures discrimination on one criterion with two kinds of defect. It does '
-              'not say which judge is right about the real items; it says which judges can tell '
-              'real items from broken ones.']
+        lines.append(f'| `{r["judge"]}` | {r["defect"]} | {r["criterion"]} | {r["sample"]} | '
+                     f'{r["real"]} | {r["broken"]} | {r["drop"]} |')
+    lines += ['', 'This measures whether a judge can tell a real lesson from one broken in a named '
+              'way. It does not say which judge is right about the real lesson.']
     (root / 'report.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    for j in judges:
-        s = summarise(rows, j)
-        print(f'{j}: caught {s["caught"]} of {s["of"]}, mean drop {s["mean_drop"]:.2f}')
+    for line in lines[6:6 + 2 * len(judges) + 12]:
+        if line.startswith('| `'):
+            print(line)
     return 0
 
 

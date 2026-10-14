@@ -1,0 +1,37 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:18:12.798196+00:00",
+    "usage": {
+      "inputTokens": 6272,
+      "outputTokens": 311
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is strong, but L2 is essentially a single worked example and scenario. It meets the requirement for L2 blocks but feels slightly thin compared to the depth of L1.",
+    "knowledge_check": "Distractors are plausible and target real misconceptions. Feedback is good but could be slightly more specific in naming the exact misconception for some options.",
+    "bilingual_quality": "Arabic is accurate and clear, but reads as a direct, professional translation. It is not stiff, but also does not fully read as though originally written in Arabic.",
+    "concision": "Prose is clear and purposeful, but some definitions and explanations are slightly dense and could be broken down further for easier reading."
+  },
+  "verdict_notes": "All criteria score 4 or 5. The lesson is well-aligned, authentic, and features a high-quality worked example. The Arabic is accurate but slightly formal, and the L2 level could be slightly more substantial."
+}

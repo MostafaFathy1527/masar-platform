@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:17:15.235321+00:00",
+    "usage": {
+      "inputTokens": 6391,
+      "outputTokens": 302
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "The Arabic is accurate but follows English word order and structure closely. Phrases like 'the chance the others did not give you' and 'the gap between what they expected and what they got' read as translations rather than natural Arabic prose. The lesson is declared bilingual but the Arabic lacks the idiomatic flow of native writing.",
+    "level_fidelity": "L1 is solid with definition cards and takeaways. L2 adds worked example, scenario, and knowledge checks as required. However, the 'visual cards' (definition cards) are essentially formatted text blocks rather than truly visual learning aids — they function but don't exploit visual design."
+  },
+  "verdict_notes": "Strong lesson overall with excellent worked examples and knowledge checks. The bilingual quality is the main weakness — technically accurate but stylistically English-forward. Level fidelity is competent but not exceptional; the definition cards are text-heavy rather than visually distinctive."
+}

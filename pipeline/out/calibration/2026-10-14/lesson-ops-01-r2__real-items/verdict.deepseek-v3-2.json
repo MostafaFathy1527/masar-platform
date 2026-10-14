@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:18:43.052447+00:00",
+    "usage": {
+      "inputTokens": 7654,
+      "outputTokens": 301
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 is a clear step up from L1 with interactive and scenario-based blocks, but the L2 process_flow is very similar to the L1 process_flow, just made interactive.",
+    "worked_example": "The 'why' explanations are present and good, but they are somewhat generic (e.g., 'prevents repeating the same attempts'). They could more explicitly name the specific judgement or principle being applied.",
+    "concision": "The prose is clear and purposeful, but some blocks (like the introductory rich_text) could be slightly more concise without losing meaning."
+  },
+  "verdict_notes": "All criteria score 4 or 5. The lesson is well-aligned, authentic, and features high-quality Arabic and knowledge checks. Minor points for improvement are in the similarity between L1 and L2 flows, the generic nature of some worked-example reasoning, and a slight tendency towards wordiness."
+}

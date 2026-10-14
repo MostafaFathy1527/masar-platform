@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:17:23.032423+00:00",
+    "usage": {
+      "inputTokens": 7279,
+      "outputTokens": 352
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 3,
+    "worked_example": 2,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "The L2 worked example is structurally present but its 'why' fields are completely hollow ('Because it is the next step' repeated four times). This is an L1 lesson with a worked example bolted on that fails to deliver the promised reasoning depth. The visual distinction between L1 and L2 is minimal beyond this one broken block.",
+    "worked_example": "Every single 'why' field contains only 'لأنها الخطوة التالية' / 'Because it is the next step'. This is not reasoning — it is assertion masquerading as explanation. The worked example promises to show 'what to do and why' but delivers only the former. This is a printed solution, not a worked example. The final answer paragraph is excellent, but the steps themselves fail the criterion entirely."
+  },
+  "verdict_notes": "Two criteria below 4, with worked_example at 2 due to completely hollow reasoning fields. The knowledge checks are genuinely strong with plausible distractors and specific misconception-naming feedback. The scenario is authentic with real friction. The bilingual quality is natural Arabic throughout. The worked example failure is severe and central to what L2 promises."
+}

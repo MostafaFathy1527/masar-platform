@@ -117,7 +117,7 @@ check(any('disagree' in f for f in run_lesson.check_items(GOOD['lesson'], bad, '
 
 print('feedback that only states the verdict is refused')
 import calibrate_judges  # noqa: E402
-broken = calibrate_judges.generic_feedback(GOOD['items'])
+_, broken = calibrate_judges.generic_feedback(GOOD['lesson'], GOOD['items'])
 found = run_lesson.check_items(GOOD['lesson'], broken, 'cs')
 check(any('only states the verdict' in f for f in found), '"Correct." / "Not correct." refused')
 check(any('share the same' in f for f in found), 'identical feedback across options refused')

@@ -1,0 +1,36 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:16:23.139121+00:00",
+    "usage": {
+      "inputTokens": 6228,
+      "outputTokens": 357
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 3,
+    "worked_example": 2,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "The L2 worked_example is structurally present but the 'why' steps are completely generic ('Because it is the next step'), making this thin L2 content. The level has the required blocks but the worked example fails to deliver on its promise.",
+    "worked_example": "Every single 'why' step restates 'Because it is the next step' in both languages. This is not reasoning — it is placeholder text. A worked example must explain the judgement being made at each step; this asserts without explaining why.",
+    "bilingual_quality": "Generally natural Arabic, but some constructions follow English patterns closely (e.g., 'الاسم الظاهر للمُرسِل' where 'المرسل الظاهر' would be more idiomatic). Occasional stiffness in technical phrasing."
+  },
+  "verdict_notes": "The worked example is the critical failure: four steps, all with identical vacuous 'why' explanations. This is a recurring pattern where structure is present but content is missing. Level fidelity suffers because L2 promises worked-example quality it does not deliver. Knowledge checks are actually strong with plausible distractors and good feedback."
+}

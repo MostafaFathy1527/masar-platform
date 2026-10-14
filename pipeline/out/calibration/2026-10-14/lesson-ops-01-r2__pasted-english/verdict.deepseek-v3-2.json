@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:19:07.603999+00:00",
+    "usage": {
+      "inputTokens": 7075,
+      "outputTokens": 275
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes interactive process flow and scenario, but the L1/L2 distinction is somewhat subtle; L2 could be more distinctly advanced.",
+    "worked_example": "Steps show 'what' and 'why', but the 'why' is occasionally generic (e.g., 'ensures the promise is kept').",
+    "bilingual_quality": "Arabic is accurate and consistent, but some phrases read as direct translations (e.g., 'Put it to work' as 'Put it to work' in Arabic)."
+  },
+  "verdict_notes": "All criteria score 4 or 5 except for three at 4. The lesson is well-aligned, authentic, and concise, with strong knowledge checks. Minor room for improvement in bilingual naturalness and L2 distinctiveness."
+}

@@ -64,5 +64,8 @@ calibration those three caught 0, 1 and 0 of 8 planted knowledge-check defects, 
 knowledge-check scores carried no information and they were retired from the panel
 (failure entry 18). Their verdicts are kept in `retired-judges/`.
 
-Two calibrated models agreeing is still not a human review; the blind inter-rater
+The panel is calibrated on knowledge checks and worked examples. It did not pass the same
+test on scenario consequences or on Arabic quality, so its scores there are reported, not
+relied on; `validate.py` guards the mechanical half of both. Two calibrated models agreeing
+is still not a human review; the blind inter-rater
 sample is still the open item.

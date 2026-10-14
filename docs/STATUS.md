@@ -130,8 +130,20 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
   identical feedback across options. The independence check treats Bedrock's two spellings
   of Moonshot as one family.
 - `pipeline/out/lesson-02/v1/` still carries the old panel's verdicts; it is not a sample.
-- The Space README says eighteen in the repo; the live Space still says seventeen until the
-  file is uploaded there again.
+- The Space README says eighteen in the repo and on the live Space (uploaded 14 Oct).
+
+**Added 2026-10-14 (night) — calibration widened; weekly panel in CI, waiting on AWS.**
+- `calibrate_judges.py` now plants five defects across four criteria. The seated panel passes
+  on knowledge checks (8/8, 7/8) and worked examples (4/4, 4/4), and fails on scenario
+  consequences (2/4, 0/4) and pasted English (1/4, 1/4). Report:
+  `pipeline/out/calibration/2026-10-14/report.md`.
+- `validate.py` has a new rule, `scenario-consequence`: every decision's consequence has at
+  least five words and no two are identical. Two negative tests; 20/20 pass; the five course
+  lessons and the four samples still pass.
+- `.github/workflows/judge-panel.yml` re-scores the four samples weekly on Bedrock through
+  GitHub OIDC (no stored key). It is skipped until the repository variable `AWS_ROLE_ARN`
+  names an IAM role that trusts this repository and may invoke Bedrock; the owner creates
+  that role in the console.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and

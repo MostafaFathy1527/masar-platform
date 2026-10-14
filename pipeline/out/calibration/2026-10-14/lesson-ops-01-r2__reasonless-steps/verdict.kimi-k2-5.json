@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:19:13.062764+00:00",
+    "usage": {
+      "inputTokens": 8040,
+      "outputTokens": 380
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 3,
+    "worked_example": 2,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "The L2 interactive process_flow is thin—it's the same four questions from L1 with no additional depth. The 'interactive' flag is set but the steps are identical to the non-interactive L1 version, making this L2 feel like L1 with a scenario bolted on rather than a genuine level progression.",
+    "worked_example": "Every 'why' in the worked example is identical: 'Because it is the next step.' This is assertion without reasoning—it does not explain the judgment being made or what would change it. The 'why' field exists but carries no explanatory weight.",
+    "bilingual_quality": "The Arabic is generally natural and idiomatic, but occasional stiffness appears: 'الاختبار البسيط لتسليم ناجح' reads slightly literal, and 'الوعد الآن عليك' in the scenario is contextually clear but not how a native speaker would typically phrase transferred responsibility. Solid but not flawless."
+  },
+  "verdict_notes": "The worked example is the critical weakness—repeated placeholder 'why' text defeats the purpose of the block. Level fidelity suffers because L2's interactive element adds no new cognitive demand. Knowledge checks are strong with plausible distractors naming real misconceptions. Mean 3.75 with one criterion at 2."
+}

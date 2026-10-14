@@ -712,6 +712,18 @@ plausible notes, a consistent split that even looked like healthy disagreement. 
 input with a known right answer could show that the readings did not depend on the input.
 The same test now decides which models sit on the panel.
 
+**Later the same day, the test was turned on the new panel.** Three more defects, each aimed
+at one criterion: the reasoning stripped from every worked-example step, every scenario
+decision given the same empty consequence, and English pasted into every Arabic field. Both
+seated judges caught all four stripped worked examples. On scenarios, DeepSeek V3.2 gave
+placeholder consequences a 5 on all four samples and Kimi K2.5 caught two of four. On the
+pasted English, both judges caught one of four, and their notes called it "a literal
+translation" without noticing it was not Arabic at all. So the panel is calibrated on two
+criteria, knowledge checks and worked examples, and not on the other two. Both of those
+defects are mechanical: pasted English was already refused by `validate.py`'s bilingual
+check, and scenarios whose consequences are empty or identical now are too. A panel score on
+an uncalibrated criterion is reported, not relied on, and a person reads those parts.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:

@@ -71,6 +71,9 @@ A judge earns a panel seat by passing `calibrate_judges.py`: given a lesson's re
 copies broken in ways rubric criterion 4 names, it must score the broken copies at least two
 points lower. The first panel failed this and was retired (what-failed entry 18). Every judge
 sees the items behind the lesson's knowledge checks, and refuses to run if one is missing.
+The seated panel is calibrated on knowledge checks and worked examples. It failed the same
+test on scenario consequences and on English pasted into Arabic fields, so those two are
+guarded by `validate.py` instead, and a person reads them.
 
 `run_lesson.py` runs the whole loop with one command: generate from a source note, the
 mechanical gates (including an item-bank check that mirrors `lib/schema/item.ts`), the

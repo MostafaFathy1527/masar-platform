@@ -217,6 +217,7 @@ def check_semantics(doc, file: str) -> list[Finding]:
     findings += check_bilingual_honesty(doc, file)
     findings += check_level_completeness(doc, file)
     findings += check_prose_budget(doc, file)
+    findings += check_scenario_consequences(doc, file)
     return findings
 
 
@@ -267,6 +268,40 @@ def check_bilingual_honesty(doc, file: str) -> list[Finding]:
                 "Arabic and English; set bilingual: false if this lesson is English-only",
             )
         )
+    return findings
+
+
+MIN_CONSEQUENCE_WORDS = 5
+
+
+def check_scenario_consequences(doc, file: str) -> list[Finding]:
+    """Every decision in a scenario shows what that choice leads to.
+
+    Added after the judge calibration of 14 October 2026: with every consequence
+    replaced by one empty sentence, one seated judge still scored scenario
+    authenticity 5 on all four samples. A consequence that says nothing, or the
+    same thing as another, is mechanical to find, so it no longer waits on a
+    judge that cannot see it.
+    """
+    findings: list[Finding] = []
+    for key in ("l1", "l2", "l3"):
+        for block in doc.get("blocks", {}).get(key) or []:
+            if block.get("type") != "scenario":
+                continue
+            decisions = (block.get("payload") or {}).get("decisions") or []
+            for field in ("consequenceEn", "consequenceAr"):
+                texts = [str(d.get(field, "")).strip() for d in decisions]
+                if len(set(texts)) != len(texts):
+                    findings.append(Finding(
+                        file, "scenario-consequence",
+                        f'block {block.get("id")}: two decisions share the same {field}, so the '
+                        f'choice makes no difference to what happens'))
+                for d, text in zip(decisions, texts):
+                    if word_count(text) < MIN_CONSEQUENCE_WORDS:
+                        findings.append(Finding(
+                            file, "scenario-consequence",
+                            f'block {block.get("id")}, decision {d.get("id")}: {field} has '
+                            f'{word_count(text)} words; it must show what the choice leads to'))
     return findings
 
 

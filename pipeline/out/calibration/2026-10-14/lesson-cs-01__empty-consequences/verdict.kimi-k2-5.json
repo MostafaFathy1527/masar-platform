@@ -1,0 +1,36 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:17:33.139413+00:00",
+    "usage": {
+      "inputTokens": 7341,
+      "outputTokens": 314
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes a worked example and scenario, but the scenario's decision consequences are placeholder text ('This choice has consequences') rather than specific outcomes. This is thin for L2.",
+    "scenario_authenticity": "The scenario situation is plausible (customer with repeated messages, waiver request beyond authority), but the decision consequences are generic placeholders that do not show the actual friction of each choice. The 'best' option is clearly signaled, reducing the authentic tension of real trade-offs.",
+    "concision": "The L1 rich_text block is dense and could be tighter. The 'first minute decides the next twenty' framing is effective, but the prose occasionally reaches for rhetorical effect over clarity."
+  },
+  "verdict_notes": "Strong lesson overall. The worked example is exemplary with clear why explanations. Knowledge checks have well-drawn distractors from real misconceptions. The scenario is the weak point—plausible setup but placeholder consequences that don't teach from the wrong choices. Mean 4.5."
+}

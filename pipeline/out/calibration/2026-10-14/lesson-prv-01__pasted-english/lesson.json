@@ -1,0 +1,199 @@
+{
+  "slug": "what-counts-as-personal-data",
+  "titleAr": "What counts as personal data, and what to do with it at work",
+  "titleEn": "What counts as personal data, and what to do with it at work",
+  "estMinutes": 25,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "PRV-01"
+  ],
+  "conceptsIntroduced": [
+    "personal_data",
+    "identifiability",
+    "sensitive_data",
+    "need_to_know",
+    "data_subject_request",
+    "potential_breach"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "prv1_h_intro",
+        "type": "heading",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "textAr": "The question is not \"is there a name on it?\"",
+          "textEn": "The question is not \"is there a name on it?\"",
+          "level": 2
+        }
+      },
+      {
+        "id": "prv1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "mdAr": "**Personal data** is any information that relates to an identified or identifiable living person. The test is **identifiability**, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person: a job title plus a department plus a start date identifies someone in a small team as surely as their name.\n\nThe question to ask is always: **\"could someone work out who this is about?\"** If the answer is yes, directly or by combining it with something else reasonably available, it is personal data and the rules apply.",
+          "mdEn": "**Personal data** is any information that relates to an identified or identifiable living person. The test is **identifiability**, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person: a job title plus a department plus a start date identifies someone in a small team as surely as their name.\n\nThe question to ask is always: **\"could someone work out who this is about?\"** If the answer is yes, directly or by combining it with something else reasonably available, it is personal data and the rules apply."
+        }
+      },
+      {
+        "id": "prv1_d_sensitive",
+        "type": "definition_card",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "termAr": "Sensitive data",
+          "termEn": "Sensitive data",
+          "defAr": "Personal data with a higher handling bar: health information, religion, ethnic origin, political opinions, trade-union membership, biometric and genetic data, sexual life, and criminal records in most regimes. Not because these facts are secret, but because their disclosure can cause harm that cannot be undone. A sick-leave reason, a dietary requirement that reveals a religion, a photograph that shows a disability — each is sensitive even when it arrives in an ordinary email.",
+          "defEn": "Personal data with a higher handling bar: health information, religion, ethnic origin, political opinions, trade-union membership, biometric and genetic data, sexual life, and criminal records in most regimes. Not because these facts are secret, but because their disclosure can cause harm that cannot be undone. A sick-leave reason, a dietary requirement that reveals a religion, a photograph that shows a disability — each is sensitive even when it arrives in an ordinary email.",
+          "icon": "⚠️"
+        }
+      },
+      {
+        "id": "prv1_d_breach",
+        "type": "definition_card",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "termAr": "Potential breach",
+          "termEn": "Potential breach",
+          "defAr": "Personal data that has gone somewhere it should not have: the wrong recipient, a lost device, a public link that should have been private. Reported the same day to whoever owns privacy, not when you get round to it. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does.",
+          "defEn": "Personal data that has gone somewhere it should not have: the wrong recipient, a lost device, a public link that should have been private. Reported the same day to whoever owns privacy, not when you get round to it. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does.",
+          "icon": "🚨"
+        }
+      },
+      {
+        "id": "prv1_tip",
+        "type": "job_tip",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "mdAr": "The most common breach in ordinary office work is not an attack — it is **the convenient channel**: sending a customer's details over a personal messaging app or a personal email address. The moment the data moves there, it is outside every control the organisation has. The convenient channel is usually the wrong one.",
+          "mdEn": "The most common breach in ordinary office work is not an attack — it is **the convenient channel**: sending a customer's details over a personal messaging app or a personal email address. The moment the data moves there, it is outside every control the organisation has. The convenient channel is usually the wrong one."
+        }
+      },
+      {
+        "id": "prv1_take",
+        "type": "takeaways",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemsAr": [
+            "The test is identifiability: could someone work out who this is about?",
+            "Sensitive data has a higher bar because its harm cannot be undone — even when it arrives in an ordinary email.",
+            "Collect and use only what the task needs; a \"just in case\" copy is data nobody is protecting.",
+            "Share on a need-to-know basis through approved channels; an internal forward without a need is still a disclosure.",
+            "A data-subject request and a potential breach are both reported the same day — the clock started with you."
+          ],
+          "itemsEn": [
+            "The test is identifiability: could someone work out who this is about?",
+            "Sensitive data has a higher bar because its harm cannot be undone — even when it arrives in an ordinary email.",
+            "Collect and use only what the task needs; a \"just in case\" copy is data nobody is protecting.",
+            "Share on a need-to-know basis through approved channels; an internal forward without a need is still a disclosure.",
+            "A data-subject request and a potential breach are both reported the same day — the clock started with you."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "prv1_l2_h",
+        "type": "heading",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "textAr": "Decide, case by case",
+          "textEn": "Decide, case by case",
+          "level": 2
+        }
+      },
+      {
+        "id": "prv1_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "promptAr": "A colleague in another department asks you for a \"quick list\" of employees who took sick leave this quarter, with the reasons, so he can plan cover. You have the file. Work the decision step by step.",
+          "promptEn": "A colleague in another department asks you for a \"quick list\" of employees who took sick leave this quarter, with the reasons, so he can plan cover. You have the file. Work the decision step by step.",
+          "steps": [
+            {
+              "showAr": "Is this personal data? Employee names with their leave — yes, and every row identifies a person.",
+              "showEn": "Is this personal data? Employee names with their leave — yes, and every row identifies a person.",
+              "whyAr": "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label.",
+              "whyEn": "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+            },
+            {
+              "showAr": "Is any of it sensitive? Sick-leave reasons are health information — yes.",
+              "showEn": "Is any of it sensitive? Sick-leave reasons are health information — yes.",
+              "whyAr": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant.",
+              "whyEn": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+            },
+            {
+              "showAr": "What does his task actually need? Planning cover needs dates and departments — not reasons.",
+              "showEn": "What does his task actually need? Planning cover needs dates and departments — not reasons.",
+              "whyAr": "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not.",
+              "whyEn": "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not."
+            },
+            {
+              "showAr": "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why.",
+              "showEn": "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why.",
+              "whyAr": "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow.",
+              "whyEn": "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+            }
+          ],
+          "answerAr": "Not a refusal — you give him what the task needs and withhold what it does not. And had he sent you the full list himself over a personal app, that would be a potential breach, reported the same day.",
+          "answerEn": "Not a refusal — you give him what the task needs and withhold what it does not. And had he sent you the full list himself over a personal app, that would be a potential breach, reported the same day."
+        }
+      },
+      {
+        "id": "prv1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemRef": "PRV-01-KC-01"
+        }
+      },
+      {
+        "id": "prv1_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "situationAr": "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm.",
+          "situationEn": "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Recall the message and watch whether anyone notices.",
+              "optionEn": "Recall the message and watch whether anyone notices.",
+              "isBest": false,
+              "consequenceAr": "Recall rarely works outside your own organisation, and waiting hides from the owner that the clock has started. A hidden breach is discovered later — by the person it harmed.",
+              "consequenceEn": "Recall rarely works outside your own organisation, and waiting hides from the owner that the clock has started. A hidden breach is discovered later — by the person it harmed."
+            },
+            {
+              "id": "d2",
+              "optionAr": "Report it now to the privacy owner with what was sent and to whom, and ask the wrong recipient to delete it and confirm.",
+              "optionEn": "Report it now to the privacy owner with what was sent and to whom, and ask the wrong recipient to delete it and confirm.",
+              "isBest": true,
+              "consequenceAr": "The correct action. A fast report is containable; the organisation's obligations are measured in hours, and 5 pm does not postpone them to tomorrow.",
+              "consequenceEn": "The correct action. A fast report is containable; the organisation's obligations are measured in hours, and 5 pm does not postpone them to tomorrow."
+            },
+            {
+              "id": "d3",
+              "optionAr": "Resend the statement to the right customer and consider it closed, since the information is not sensitive.",
+              "optionEn": "Resend the statement to the right customer and consider it closed, since the information is not sensitive.",
+              "isBest": false,
+              "consequenceAr": "An account statement is personal data even if not sensitive, and its arrival at the wrong recipient is the definition of a potential breach. Fixing the send does not undo what was disclosed.",
+              "consequenceEn": "An account statement is personal data even if not sensitive, and its arrival at the wrong recipient is the definition of a potential breach. Fixing the send does not undo what was disclosed."
+            }
+          ]
+        }
+      },
+      {
+        "id": "prv1_l2_kc2",
+        "type": "knowledge_check",
+        "objectiveId": "PRV-01",
+        "payload": {
+          "itemRef": "PRV-01-KC-02"
+        }
+      }
+    ]
+  }
+}

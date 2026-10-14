@@ -1,0 +1,49 @@
+name: Judge panel (weekly)
+
+# Re-scores every sample with the seated judge panel on Amazon Bedrock, once a
+# week and on demand. Model providers update their models without notice, and a
+# judge that passed calibration last month may not judge the same way today; a
+# sample that drops out of PANEL PASS here is the first sign.
+#
+# No AWS key is stored anywhere. GitHub's OIDC token is exchanged for short-lived
+# credentials on an IAM role that may only invoke Bedrock models. Until the
+# repository variable AWS_ROLE_ARN is set, the job is skipped rather than failed.
+on:
+  schedule:
+    - cron: '41 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  panel:
+    if: ${{ vars.AWS_ROLE_ARN != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt boto3
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Score every sample with the panel
+        run: |
+          set +e
+          status=0
+          echo "## Judge panel, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
+          for lesson in pipeline/out/lesson-sec-01/v1 pipeline/out/lesson-cs-01/v1 \
+                        pipeline/out/lesson-prv-01/v1 pipeline/out/lesson-ops-01-r2/v2; do
+            python pipeline/panel.py --lesson "$lesson/lesson.json" --run > panel.log 2>&1
+            code=$?
+            out=$(tail -1 panel.log)
+            echo "- \`$lesson\`: $out" >> "$GITHUB_STEP_SUMMARY"
+            echo "$lesson: $out"
+            [ $code -ne 0 ] && status=1
+          done
+          exit $status

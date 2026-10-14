@@ -200,6 +200,26 @@ def _(doc):
     assert "bilingual-claim" not in rules(run(doc))
 
 
+
+@case("scenario decisions that all lead to the same sentence are rejected")
+def _(doc):
+    for lv in ("l2", "l3"):
+        for b in doc["blocks"].get(lv) or []:
+            if b["type"] == "scenario":
+                for d in b["payload"]["decisions"]:
+                    d["consequenceEn"] = "This choice has consequences for the claim."
+                    d["consequenceAr"] = "لهذا الاختيار عواقب على المطالبة نفسها."
+    assert "scenario-consequence" in rules(run(doc))
+
+
+@case("a scenario consequence of two words is rejected")
+def _(doc):
+    for lv in ("l2", "l3"):
+        for b in doc["blocks"].get(lv) or []:
+            if b["type"] == "scenario":
+                b["payload"]["decisions"][0]["consequenceEn"] = "Bad outcome."
+    assert "scenario-consequence" in rules(run(doc))
+
 def main() -> int:
     passed = sum(1 for _, ok, _ in RESULTS if ok)
     for name, ok, err in RESULTS:

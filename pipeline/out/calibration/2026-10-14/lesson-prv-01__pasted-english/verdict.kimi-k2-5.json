@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:18:03.940456+00:00",
+    "usage": {
+      "inputTokens": 6260,
+      "outputTokens": 288
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is solid, but L2 could use more than two knowledge checks for a full L2 experience. The worked example and scenario are strong, but the knowledge check count is thin for the level promise.",
+    "concision": "The prose is clear and purposeful, but some blocks (particularly the rich_text intro) are dense. The definition cards and takeaways are tight. A few sentences in the worked example 'why' steps could be tighter without losing meaning."
+  },
+  "verdict_notes": "Strong lesson overall. The worked example is exemplary with genuine reasoning at each step. Knowledge checks have plausible distractors drawn from real misconceptions (name absence, internal-only, embarrassment test, DIY deletion, security refusal, delay). Scenario has authentic friction (5pm, autocomplete error). Arabic reads naturally with no English word-order artifacts. No licensed codes or policy text present."
+}

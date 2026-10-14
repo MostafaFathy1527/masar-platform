@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:18:35.793882+00:00",
+    "usage": {
+      "inputTokens": 6614,
+      "outputTokens": 255
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is strong, but L2's scenario and knowledge checks are the only interactive elements; it could benefit from more varied activity types to fully embody the L2 promise.",
+    "concision": "Prose is clear and purposeful, but some blocks (e.g., the introductory rich_text) are dense and could be broken into more digestible segments without losing meaning."
+  },
+  "verdict_notes": "All criteria score at or above 4, with a mean of 4.75. The lesson is exceptionally strong in objective alignment, worked examples, knowledge checks, scenario authenticity, and bilingual quality. Minor points for concision and level fidelity do not detract from a high-quality lesson."
+}

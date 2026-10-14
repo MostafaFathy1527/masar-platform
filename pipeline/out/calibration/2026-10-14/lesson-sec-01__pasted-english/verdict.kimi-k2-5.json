@@ -1,0 +1,36 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T12:16:13.122806+00:00",
+    "usage": {
+      "inputTokens": 5585,
+      "outputTokens": 361
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "The Arabic is accurate but follows English sentence structure closely. Phrases like 'الهجوم على القارئ، وليس على النظام' and 'الدفاع ليس أداة — إنها عادة' read as translations rather than natural Arabic prose. The glossary terms are consistent, but the Arabic lacks the idiomatic flow that would earn a 5.",
+    "concision": "The prose is clear and purposeful, but occasional redundancy exists. For example, 'The defence is not a tool — it is a habit: checking two or three things before acting' could be tighter. The worked example's 'why' explanations are slightly wordy in places.",
+    "accessibility_ip": "No licensed code descriptors or denylisted terms present. However, the definition cards use emoji icons (🔎, 🔐) without any text alternative or aria-label equivalent in the JSON structure. The scenario and worked example do not rely on color alone. The constraint is met but not used as a teaching point."
+  },
+  "verdict_notes": "Strong lesson with excellent worked examples and knowledge checks that name real misconceptions. The Arabic is serviceable but stiff. No IP violations. Mean score 4.375."
+}

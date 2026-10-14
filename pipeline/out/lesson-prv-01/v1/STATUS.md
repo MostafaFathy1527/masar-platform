@@ -68,5 +68,8 @@ knowledge-check scores carried no information and they were retired from the pan
 
 Kimi K2.5's first verdict on this lesson used a criterion name the rubric does not have, and the gate refused it. It was run once more and the second verdict is the one above; the refused one is kept in `refused-verdicts/`.
 
-Two calibrated models agreeing is still not a human review; the blind inter-rater
+The panel is calibrated on knowledge checks and worked examples. It did not pass the same
+test on scenario consequences or on Arabic quality, so its scores there are reported, not
+relied on; `validate.py` guards the mechanical half of both. Two calibrated models agreeing
+is still not a human review; the blind inter-rater
 sample is still the open item.
