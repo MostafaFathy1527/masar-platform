@@ -26,8 +26,7 @@ made for the commissioning page.
 | L2 prose budget | 4 words between acting blocks, against a ceiling of 180 |
 | Authored answer position | Varied deliberately (positions 2 and 4) |
 
-**Not run: `qa_gate.py`.** Same reason as SEC-01 and CS-01: the only available judge
-authored the content.
+**`qa_gate.py`: run on 14 October 2026 by three independent judges — see below.**
 
 ## A deliberate constraint
 
@@ -45,3 +44,19 @@ note.
   not legal advice, and the footer disclaimer applies.
 - One lesson is a sample of the method, not evidence that it produces good content in
   every compliance topic.
+
+## Rubric gate, run 14 October 2026
+
+Scored by three judges from three model families, each in a fresh context that saw only
+the judge prompt, the rubric and this lesson (`pipeline/judge_bedrock.py`), then passed
+through `qa_gate.py` unchanged. Files beside this one: `verdict.<tag>.json`,
+`qa-report.<tag>.md`.
+
+| Judge | Mean over 8 criteria | Gate |
+|---|---|---|
+| qwen.qwen3-32b-v1:0 | 4.50 | PASS |
+| us.meta.llama3-3-70b-instruct-v1:0 | 4.88 | PASS |
+| amazon.nova-pro-v1:0 | 4.50 | PASS |
+
+No pair of judges disagrees by more than one point on any criterion. That is agreement
+between models, not a human review; the blind inter-rater sample is still the open item.

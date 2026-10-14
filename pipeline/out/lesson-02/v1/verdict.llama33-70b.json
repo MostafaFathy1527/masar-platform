@@ -1,0 +1,35 @@
+{
+  "lesson": "plans-benefits-and-member-liability",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.meta.llama3-3-70b-instruct-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T09:05:57.942096+00:00",
+    "usage": {
+      "inputTokens": 4421,
+      "outputTokens": 296
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "bilingual_quality": 1,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {
+    "worked_example": "The lesson contains a block of type 'rich_text' that explains how to calculate a member's liability, but it does not provide a step-by-step example with reasoning. However, the lesson is at level L1, and this criterion is not applicable at this level.",
+    "scenario_authenticity": "The lesson does not contain a scenario, and this criterion is not applicable at level L1.",
+    "knowledge_check": "The lesson does not contain a knowledge check, and this criterion is not applicable at level L1."
+  },
+  "notes": {
+    "bilingual_quality": "The lesson is declared as not bilingual, but this criterion is scored because the lesson contains some Arabic text. However, the Arabic text is not consistent and appears to be a literal translation of the English text in some places."
+  },
+  "verdict_notes": "The lesson scores well on most criteria, but the bilingual quality is low due to inconsistent Arabic text. The lesson is at level L1, and some criteria are not applicable at this level."
+}

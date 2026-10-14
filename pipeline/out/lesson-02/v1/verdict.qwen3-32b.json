@@ -1,0 +1,39 @@
+{
+  "lesson": "plans-benefits-and-member-liability",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-32b-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T09:05:51.068795+00:00",
+    "usage": {
+      "inputTokens": 4448,
+      "outputTokens": 303
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {
+    "worked_example": "The lesson does not include a worked example block as defined in the rubric.",
+    "scenario_authenticity": "The lesson does not include a scenario block as defined in the rubric.",
+    "knowledge_check": "The lesson does not include a knowledge check block at this level."
+  },
+  "notes": {
+    "objective_alignment": "All blocks align tightly with their declared objectives. The content is focused and directly supports the learning goals.",
+    "level_fidelity": "The L1 level is fulfilled with appropriate content and structure. No evidence of bolted-on or aspirational content.",
+    "bilingual_quality": "The lesson is English-only and not penalized for this criterion.",
+    "concision": "The prose is concise and purposeful. No unnecessary repetition or padding.",
+    "accessibility_ip": "No licensed code descriptors or forbidden terms. Compliant with accessibility standards."
+  },
+  "verdict_notes": "All scored criteria are at 5. The lesson is well-aligned, concise, and compliant. Not scored criteria are absent at L1."
+}

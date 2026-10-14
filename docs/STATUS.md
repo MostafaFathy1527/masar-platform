@@ -30,16 +30,20 @@ straight to the DSN and accepted. The DSN and auth-token variables are on Vercel
 followed.
 The DSN lives in `.env` locally and in `.local/sentry.env`; never in a tracked file.
 
-**Added 2026-10-14 — a second judge.** `pipeline/judge_bedrock.py` scores a lesson against
-the unchanged rubric with a model on Amazon Bedrock, in a fresh context (judge prompt +
-rubric + lesson, nothing else), with applicability derived from the lesson's levels exactly
-as the gate does it, and writes `verdict.<tag>.json` + `qa-report.<tag>.md` beside the lesson.
-`pipeline/compare_verdicts.py` reports per-criterion deltas, mean absolute difference, and
-whether the two judges would send the lesson to different gate outcomes. 22 offline tests in
-`pipeline/test_judge_bedrock.py`; no network in tests. Not yet run against a model: the
-first runs are the four drafts (`lesson-02` re-scored, and `SEC-01`, `CS-01`, `PRV-01`,
-which have never been scored). Credentials come from the standard AWS environment, never
-from a tracked file.
+**Added 2026-10-14 — three more judges, four lessons scored.** `pipeline/judge_bedrock.py`
+scores a lesson against the unchanged rubric with a model on Amazon Bedrock in a fresh
+context (judge prompt + rubric + lesson, nothing else), with applicability derived from the
+lesson's levels exactly as the gate does it; `pipeline/compare_verdicts.py` reports
+per-criterion deltas. Run with Qwen3-32B, Llama 3.3 70B and Nova Pro on all four drafts.
+SEC-01, CS-01 and PRV-01, never scored before, pass with every judge (means 4.38 to 4.88
+over 8 criteria; no pair of judges more than one point apart on any criterion). Lesson-02
+exposed the finding: Llama scored bilingual quality 1 on a lesson that declares
+`bilingual: false`, which the rubric says is not penalised, and that single score failed
+the gate while the other two judges passed it. The gate did its job; the judge misread a
+clause. The judge prompt now states the lesson's `bilingual` flag next to the applicability
+rules. Per-lesson tables are in each `pipeline/out/*/v1/STATUS.md`; every run is in
+`pipeline/memory/run-log.jsonl`, including the FAIL. Credentials come from the standard AWS
+environment, never from a tracked file.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and

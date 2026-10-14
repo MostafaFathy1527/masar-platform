@@ -26,10 +26,7 @@ read a real draft rather than a description of one.
 | L2 prose budget | 7 words between acting blocks, against a ceiling of 180 |
 | Authored answer position | Varied deliberately (positions 2 and 3), so the bank is not keyed to one slot |
 
-**Not run: `qa_gate.py`.** The rubric gate needs a judge in a fresh context that did not
-author the lesson. This lesson was authored in the session that would have judged it, so
-scoring it here would be self-assessment wearing a rubric. Same rule as SEC-01 and the
-lesson-02 verdict.
+**`qa_gate.py`: run on 14 October 2026 by three independent judges — see below.**
 
 ## What is different from the earlier runs
 
@@ -45,3 +42,19 @@ lesson-02 verdict.
   content in every service context. A buyer should judge it as a draft.
 - The content is authored from public knowledge of frontline service work. It names no
   organisation, product or real incident.
+
+## Rubric gate, run 14 October 2026
+
+Scored by three judges from three model families, each in a fresh context that saw only
+the judge prompt, the rubric and this lesson (`pipeline/judge_bedrock.py`), then passed
+through `qa_gate.py` unchanged. Files beside this one: `verdict.<tag>.json`,
+`qa-report.<tag>.md`.
+
+| Judge | Mean over 8 criteria | Gate |
+|---|---|---|
+| qwen.qwen3-32b-v1:0 | 4.62 | PASS |
+| us.meta.llama3-3-70b-instruct-v1:0 | 4.75 | PASS |
+| amazon.nova-pro-v1:0 | 4.88 | PASS |
+
+No pair of judges disagrees by more than one point on any criterion. That is agreement
+between models, not a human review; the blind inter-rater sample is still the open item.

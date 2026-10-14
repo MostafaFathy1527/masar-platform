@@ -44,11 +44,7 @@ like its first input.
 | `test_qa_gate.py` | 20/20 |
 | `npm run check` | 134/134, including the schema drift test |
 
-**Not run: `qa_gate.py`.** That gate scores content against
-[`pipeline/rubric.md`](../../../rubric.md) and needs a judge in a fresh context that did
-not author the lesson. This lesson was authored in the same session that would have judged
-it, so scoring it here would be self-assessment wearing a rubric. It is left unscored and
-said so, which is the same rule applied to the lesson-02 verdict.
+**`qa_gate.py`: run on 14 October 2026 by three independent judges — see below.**
 
 ## What is genuinely different from the RCM lessons
 
@@ -66,3 +62,19 @@ said so, which is the same rule applied to the lesson-02 verdict.
   judge that did not write the lesson.
 - The content is authored from public knowledge about phishing. It is training material,
   not a security policy, and it names no product, organisation or real incident.
+
+## Rubric gate, run 14 October 2026
+
+Scored by three judges from three model families, each in a fresh context that saw only
+the judge prompt, the rubric and this lesson (`pipeline/judge_bedrock.py`), then passed
+through `qa_gate.py` unchanged. Files beside this one: `verdict.<tag>.json`,
+`qa-report.<tag>.md`.
+
+| Judge | Mean over 8 criteria | Gate |
+|---|---|---|
+| qwen.qwen3-32b-v1:0 | 4.38 | PASS |
+| us.meta.llama3-3-70b-instruct-v1:0 | 4.88 | PASS |
+| amazon.nova-pro-v1:0 | 4.88 | PASS |
+
+No pair of judges disagrees by more than one point on any criterion. That is agreement
+between models, not a human review; the blind inter-rater sample is still the open item.

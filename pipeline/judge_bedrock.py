@@ -67,8 +67,13 @@ def build_prompt(lesson: dict, levels: set[str]) -> str:
     applicability rules spelled out so the model cannot excuse itself."""
     scorable, substitute, unscorable = applicability(levels)
     level_text = ', '.join(sorted(levels))
+    bilingual = lesson.get('bilingual')
     rules = [
         f'The lesson declares levels: {level_text}.',
+        (f'The lesson declares bilingual: {str(bilingual).lower()}. '
+         + ('Score Arabic quality against that claim.' if bilingual else
+            'It is English-only by its own declaration: the rubric says this is NOT penalised on '
+            'bilingual quality, and Arabic fields that mirror the English are expected, not a fault.')),
         'Score these criteria with an integer 1-5: ' + ', '.join(scorable) + '.',
     ]
     if substitute:
