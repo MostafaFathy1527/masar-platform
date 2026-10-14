@@ -153,6 +153,14 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
 - After the trust policy was updated, run #4 (14 Oct, manual) passed: all four samples PANEL
   PASS with two judges, in about a minute. The job now runs every Monday.
 
+**Added 2026-10-14 (night) — documentation site.** `.gitbook.yaml` and `SUMMARY.md` at the
+root define a documentation site built from the files already in the repository (README as
+the front page; the contract, rubric, calibration report, failure log, sample statuses).
+Two new pages: `docs/method.md` (the loop in one page) and `docs/running-the-gates.md` (the
+commands). The repository is the source of truth: edit here, not in the hosted editor, so
+every change still passes the publish gate. English only, because the host's right-to-left
+support is partial; Arabic stays on the platform itself.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

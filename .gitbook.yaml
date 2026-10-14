@@ -1,0 +1,7 @@
+# Documentation site configuration (Git Sync).
+# The repository is the source of truth: edit these files here, not in the
+# hosted editor, so every change still passes the publish gate on push.
+root: ./
+structure:
+  readme: README.md
+  summary: SUMMARY.md
