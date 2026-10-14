@@ -111,7 +111,7 @@ export default async function LandingPage({
                     {rubric ? (
                       <span className={`status ${rubric.allPassed && rubric.panel === 'PASS' ? 'status-pass' : 'status-hold'}`}>
                         {ar
-                          ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} · ${rubric.judges.length === 2 ? 'مقيّمان' : `${rubric.judges.length} مقيّمين`}${rubric.panel === 'NEEDS HUMAN' ? ' · خلاف يُحال لمراجع' : ''}`
+                          ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} · ${rubric.judges.length === 2 ? 'مقيّمان' : `${countAr(rubric.judges.length, 'masculine')} مقيّمين`}${rubric.panel === 'NEEDS HUMAN' ? ' · خلاف يُحال لمراجع' : ''}`
                           : `${rubric.allPassed ? 'passed' : 'mixed'} · ${rubric.judges.length} judges${rubric.panel === 'NEEDS HUMAN' ? ' · split, to a human' : ''}`}
                       </span>
                     ) : (
@@ -124,7 +124,7 @@ export default async function LandingPage({
                 <p className="doc-foot">
                   {rubric
                     ? ar
-                      ? `مسودة لم تُنشر. قيّمها بالمعيار ${rubric.judges.length === 2 ? 'نموذجان لغويان مستقلان' : `${rubric.judges.length} نماذج لغوية مستقلة`}، كلٌّ في سياق جديد (متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}). تقييم آلي، وليس مراجعة بشرية. التفاصيل في ملف الحالة.`
+                      ? `مسودة لم تُنشر. قيّمها بالمعيار ${rubric.judges.length === 2 ? 'نموذجان لغويان مستقلان' : `${countAr(rubric.judges.length, 'masculine')} نماذج لغوية مستقلة`}، كلٌّ في سياق جديد (متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}). تقييم آلي، وليس مراجعة بشرية. التفاصيل في ملف الحالة.`
                       : `A draft, not published. Scored against the rubric by ${rubric.judges.length} independent language models, each in a fresh context (means ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}). LLM rubric scores, not human QA. Details in the status file.`
                     : ar
                       ? 'مسودة: لم تُنشر، ولم تُقيَّم بالمعيار لأن المقيِّم الوحيد المتاح هو من كتبها. التفاصيل في ملف الحالة.'
