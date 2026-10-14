@@ -94,6 +94,8 @@ python pipeline/validate.py --denylist .local/denylist.txt
 
 ## Documentation
 
+Read it as a site: [masar.gitbook.io/masar-docs](https://masar.gitbook.io/masar-docs/) (English).
+
 - [`docs/design/what-failed.md`](docs/design/what-failed.md) — the eighteen failures
 - [`docs/STATUS.md`](docs/STATUS.md) — current state and the decision log
 - [`SPEC.md`](SPEC.md) — the fourteen headings a client asked to see
