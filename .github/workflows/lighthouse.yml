@@ -1,0 +1,38 @@
+name: Lighthouse
+
+# Performance, accessibility, best practices and SEO, measured on every push
+# against a production build of that commit, so a regression is tied to the
+# change that caused it. Only pages that render without a database are audited:
+# CI has a placeholder connection string and never connects.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci?schema=public
+      AUTH_SECRET: lighthouse-ci-placeholder-not-a-secret
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Audit
+        run: npx -y @lhci/cli@0.14.0 autorun --config=lighthouserc.json
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 30

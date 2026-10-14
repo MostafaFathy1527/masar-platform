@@ -67,6 +67,13 @@ kept outside the repository.
 criterion splits them by more than one point; a split or a disagreement on the outcome is
 NEEDS HUMAN, not an average. The latest verdict per model counts. One judge is refused.
 
+`run_lesson.py` runs the whole loop with one command: generate from a source note, the
+mechanical gates (including an item-bank check that mirrors `lib/schema/item.ts`), the
+panel, and the single retry, then stops. It refuses a generator from any model family that
+sits on the panel, so no judge scores its own family's work. Each run keeps `run.json` and
+`run-report.md` beside its versions; no person edits anything between the note and the
+report, and the result is still a DRAFT.
+
 ## Known failure modes
 
 Recorded because they recur, and because a pipeline that does not write these down repeats
@@ -104,5 +111,6 @@ pipeline/
   judge_bedrock.py       optional second judge: same rubric, a different model, fresh context
   compare_verdicts.py    criterion-by-criterion agreement between two verdicts
   panel.py               several judges, one decision; any split goes to a human
+  run_lesson.py          the loop end to end: source note to judged draft, one retry
   test_*.py              negative tests for each gate
 ```

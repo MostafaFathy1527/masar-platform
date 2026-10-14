@@ -63,6 +63,27 @@ Llama verdict is superseded by the re-run and listed as such in its report. The 
 Nova verdicts predate the prompt line stating the `bilingual` flag; they scored that
 criterion correctly without it.
 
+**Added 2026-10-14 (later) — the loop end to end, and checks that run without anyone.**
+- `pipeline/run_lesson.py` runs source note → generate → `validate.py` + item check →
+  `concept_log.py` → panel → one retry → stop, and refuses a generator whose model family
+  sits on the panel. Twenty-six offline checks in `pipeline/test_run_lesson.py` drive it with
+  stand-in models: clean pass, gate failure then retry, second failure stops, split panel
+  goes to a human without a retry, unusable output stops. The three existing drafts pass the
+  new item check. **Not yet run against a real model**: the machine had no DNS when it was
+  written. The source note for that first run is
+  `pipeline/sources/ops-01-writing-a-shift-handover.md`. A run writes to `pipeline/out/`,
+  which `lib/drafts.ts` lists on the site automatically, so a new draft also needs its
+  objective in `DRAFT_OBJECTIVES` and its items imported in `lib/items.ts` before it ships.
+- `scripts/learner-flow.mjs` walks the live site in headless Chrome with no dependencies:
+  home in both locales, Arabic at 390px with no sideways scroll, course → lesson, a
+  knowledge check answered and explained, a draft from /samples, /commission. Read-only.
+  Daily via `.github/workflows/learner-flow.yml`. Passed 7/7 against the dev server and
+  failed 7/7 against a broken base URL.
+- `.github/workflows/lighthouse.yml` audits six database-free pages of each commit's
+  production build (`lighthouserc.json`): accessibility below 0.9 fails, the other three
+  categories warn. **Its first run will be its first test**: it could not be run here.
+- CI now also runs the judge, panel and runner tests.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

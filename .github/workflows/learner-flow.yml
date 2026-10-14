@@ -1,0 +1,29 @@
+name: Learner flow (production)
+
+# Walks a learner's path through the live site with a real browser, once a day
+# and on demand. Read-only: no account, no attempt, no row written. A failure
+# here means the deployment people actually open is broken, whatever the unit
+# tests say. See scripts/learner-flow.mjs.
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  walk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # No npm install: the script drives the runner's own Chrome over the
+      # DevTools protocol and has no dependencies.
+      - name: Walk the site
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/learner-flow.mjs https://masar.mostafafathy.com
