@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:39:25.049228+00:00",
+    "usage": {
+      "inputTokens": 5729,
+      "outputTokens": 219
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors in both checks are plausible, but feedback is minimal ('Not correct.' / 'غير صحيح.') and does not name the misconception. The rationale is good, but the feedback itself is thin."
+  },
+  "verdict_notes": "The lesson is strong on objective alignment, scenario authenticity, and bilingual quality. The worked example is excellent. The knowledge checks are the weak point, with feedback that merely states correctness without explaining why the distractors are wrong. The lesson is otherwise well-constructed and clear."
+}

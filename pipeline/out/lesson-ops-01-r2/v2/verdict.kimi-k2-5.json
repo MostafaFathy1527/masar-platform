@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:50:32.879920+00:00",
+    "usage": {
+      "inputTokens": 8087,
+      "outputTokens": 374
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 is solid but the 'process_flow' block (b_l2_flow_write) is thin interactivity—essentially the same four questions from L1 presented as 'interactive' without meaningful branching or decision points. The level distinction exists but the interactive claim is weak.",
+    "bilingual_quality": "Arabic is generally natural, but some phrasing follows English structure closely: 'الاختبار البسيط لتسليم ناجح' (the simple test of a successful handover) and 'صفحة من السرد التي تخفي العنصر العاجل' (a page of narrative that buries the urgent item) read as calques. The definition cards are cleaner than the prose blocks.",
+    "concision": "The rich_text intro and job_tip are well-crafted, but the definition_card sequence (six cards in a row) creates a density that could be consolidated. The 'four questions' concept appears in three separate blocks with slight variations—some redundancy in L2."
+  },
+  "verdict_notes": "Strong lesson with authentic scenarios and excellent worked example reasoning. Knowledge checks show genuine misconceptions with specific feedback. Level fidelity slightly thin on interactivity claims; Arabic occasionally stiff. Mean 4.5, no criterion below 4."
+}

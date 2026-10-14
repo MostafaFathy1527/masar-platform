@@ -1,0 +1,88 @@
+{
+  "courseSlug": "security-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "SEC-01-KC-01",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي تعرفه. ما الإشارة التي تُقدَّم على هذا الاسم؟",
+      "stemEn": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?",
+      "rationaleAr": "الاسم الظاهر نص حر يكتبه المُرسِل كما يشاء، فلا يحمل أي دليل. العنوان خلفه هو ما لم يخترْه بحرية.",
+      "rationaleEn": "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely.",
+      "options": [
+        {
+          "textAr": "عنوان المُرسِل الحقيقي.",
+          "textEn": "The sender's actual address.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. هذا هو الفحص الأول دائماً، لأنه الشيء الوحيد الذي لا يُكتب بحرية.",
+          "feedbackEn": "Correct. This is always the first check, because it is the one thing not freely typed."
+        },
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "SEC-01-KC-02",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "اقتنعت أن رسالة تصيّد، وضغطت الرابط قبل أن تنتبه. ما الإجراء الصحيح؟",
+      "stemEn": "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?",
+      "rationaleAr": "البلاغ السريع قابل للاحتواء؛ الضغطة المخفية يومين غالباً لا. إخفاء الحادثة هو ما يحوّل خطأً صغيراً إلى خسارة.",
+      "rationaleEn": "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss.",
+      "options": [
+        {
+          "textAr": "تُبلِغ فوراً، حتى لو لم تُدخل أي بيانات.",
+          "textEn": "Report it immediately, even if you entered nothing.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. التوقيت هو كل شيء هنا، ونفس الرسالة نادراً ما تصل لشخص واحد.",
+          "feedbackEn": "Correct. Timing is everything here, and the same message almost never arrives at one person."
+        },
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    }
+  ]
+}

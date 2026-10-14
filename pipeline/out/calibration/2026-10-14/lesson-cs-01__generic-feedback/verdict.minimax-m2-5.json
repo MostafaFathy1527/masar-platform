@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:42:54.945505+00:00",
+    "usage": {
+      "inputTokens": 6154,
+      "outputTokens": 1285
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks use minimal feedback - the correct answers say only 'صحيح'/'Correct' and incorrect answers say 'غير صحيح'/'Not correct'. This restates the answer rather than naming the misconception or explaining why the correct answer is right. A learner who chooses incorrectly gets no guidance on what they misunderstood."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.4. The knowledge checks are the weakest element - the scenario and worked example are strong, but the MCQ feedback is too thin to teach effectively. All other criteria show good to excellent quality."
+}

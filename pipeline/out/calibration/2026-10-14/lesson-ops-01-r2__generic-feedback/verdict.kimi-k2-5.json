@@ -1,0 +1,37 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:47:31.826378+00:00",
+    "usage": {
+      "inputTokens": 7665,
+      "outputTokens": 549
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both KC-01 and KC-02 have feedback that merely states 'Correct'/'Not correct' without naming misconceptions. The distractors in KC-01 (oldest first, hardest first, ticket number) are plausible errors someone might make, but the feedback explains nothing. In KC-02, the distractor 'nothing wrong' and 'needs more history' are real misconceptions that go unexplained. The 'delete the card mention' distractor is weak—nobody would think that—but the bigger failure is feedback that restates rather than teaches.",
+    "level_fidelity": "L2 has the required interactive elements (process_flow, worked_example, scenario, sort_buckets, knowledge_checks), but the process_flow in L2 is thin—it's the same four questions from L1 with no additional depth or complexity. The level distinction exists but is minimal.",
+    "bilingual_quality": "Arabic is generally natural, but some constructions follow English patterns. 'الاختبار البسيط لتسليم ناجح' (the simple test of a successful handover) reads slightly English-ordered; 'اختبار بسيط لنجاح التسليم' would be more natural. 'الوعد الآن عليك' (the promise is now yours) is vivid and good. Some definitional phrasing like 'اللحظة التي ينتقل فيها' is textbook-accurate but stiff.",
+    "concision": "The L1 definition cards are six in number and feel repetitive—each follows identical structure with no variation in depth. The rich_text intro is excellent and tight, but the block sequence could be condensed. The 'job_tip' block largely repeats the urgency point already made in the flow_questions detail."
+  },
+  "verdict_notes": "Knowledge checks are the critical weakness: feedback restates answers rather than naming misconceptions, which is a recurring failure pattern. Level fidelity is acceptable but L2's process_flow adds little. Bilingual quality is competent but not fully natural. Mean score is 4.25, but the floor at 2 on knowledge_check will trigger gate failure."
+}

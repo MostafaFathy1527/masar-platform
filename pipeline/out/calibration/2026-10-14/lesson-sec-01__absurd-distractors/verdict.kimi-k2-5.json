@@ -1,0 +1,36 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:40:18.168125+00:00",
+    "usage": {
+      "inputTokens": 6157,
+      "outputTokens": 388
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks contain three identical implausible distractors ('order lunch for the team first', 'restart your computer', 'change the colour of the screen') that nobody would ever choose in a phishing context. These are not drawn from real misconceptions about phishing — they appear to be placeholder nonsense. The feedback on incorrect options is purely 'Not correct' with no explanation of why someone might think that way or what misconception it represents. This is a severe failure of the knowledge check criterion.",
+    "level_fidelity": "L2 is genuinely more advanced than L1 with a proper worked example and scenario, but the knowledge check blocks are identical in structure and equally weak at both levels, slightly dragging down what would otherwise be a 5.",
+    "concision": "The prose is generally tight, but some redundancy exists between the L1 takeaways and the worked example steps in L2 — the same points about display names, urgency, and verification codes appear in both places with only slight rephrasing."
+  },
+  "verdict_notes": "The lesson is strong in most areas — excellent worked example with genuine 'why' at each step, authentic scenario with real friction, and natural Arabic. However, the knowledge checks are catastrophically weak with placeholder distractors that teach nothing and feedback that merely restates correctness. This is a recurring failure pattern of implausible distractors."
+}

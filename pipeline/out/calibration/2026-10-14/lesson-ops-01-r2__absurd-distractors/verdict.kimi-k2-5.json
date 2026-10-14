@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:48:11.844485+00:00",
+    "usage": {
+      "inputTokens": 7713,
+      "outputTokens": 329
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks contain three implausible distractors that are completely unrelated to the domain (ordering lunch, restarting computer, changing screen color). These are not drawn from real misconceptions and would never be chosen by anyone with basic reading comprehension. The feedback on incorrect options is merely 'Not correct' with no explanation of why the choice is wrong or what misconception it represents. This fails the criterion that distractors should name actual misconceptions someone holds.",
+    "bilingual_quality": "Arabic is generally natural and reads as written in Arabic, not translated. Minor stiffness in some phrases like 'الاختبار البسيط' for 'simple test' and 'صفحة من السرد' for 'page of narrative', but overall competent. The four-question framework translates well."
+  },
+  "verdict_notes": "Knowledge check criterion scores 2, which is below the floor of 3. This is an automatic gate failure. The worked example and scenario are strong, but the knowledge checks are essentially broken—three of four options are absurd non-sequiturs, making them useless for formative assessment."
+}

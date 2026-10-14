@@ -67,6 +67,11 @@ kept outside the repository.
 criterion splits them by more than one point; a split or a disagreement on the outcome is
 NEEDS HUMAN, not an average. The latest verdict per model counts. One judge is refused.
 
+A judge earns a panel seat by passing `calibrate_judges.py`: given a lesson's real items and
+copies broken in ways rubric criterion 4 names, it must score the broken copies at least two
+points lower. The first panel failed this and was retired (what-failed entry 18). Every judge
+sees the items behind the lesson's knowledge checks, and refuses to run if one is missing.
+
 `run_lesson.py` runs the whole loop with one command: generate from a source note, the
 mechanical gates (including an item-bank check that mirrors `lib/schema/item.ts`), the
 panel, and the single retry, then stops. It refuses a generator from any model family that
@@ -112,5 +117,6 @@ pipeline/
   compare_verdicts.py    criterion-by-criterion agreement between two verdicts
   panel.py               several judges, one decision; any split goes to a human
   run_lesson.py          the loop end to end: source note to judged draft, one retry
+  calibrate_judges.py    planted defects: which judges can tell real items from broken ones
   test_*.py              negative tests for each gate
 ```

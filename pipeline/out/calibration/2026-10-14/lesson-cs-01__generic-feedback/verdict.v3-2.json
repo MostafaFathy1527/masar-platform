@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:42:34.573615+00:00",
+    "usage": {
+      "inputTokens": 6503,
+      "outputTokens": 205
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible, but feedback is unacceptable: 'Not correct.' and 'Correct.' with no explanation of why. This restates the answer and does not name the misconception."
+  },
+  "verdict_notes": "The lesson is strong in most areas, with excellent scenario authenticity, bilingual quality, and worked examples. However, the knowledge-check feedback is severely lacking, providing no learning value. This is a critical failure in formative assessment design."
+}

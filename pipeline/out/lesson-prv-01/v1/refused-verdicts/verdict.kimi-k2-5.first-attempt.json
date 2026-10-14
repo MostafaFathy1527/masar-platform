@@ -1,0 +1,39 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:50:20.840723+00:00",
+    "usage": {
+      "inputTokens": 7433,
+      "outputTokens": 530
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "scenario_authenticity_notes": "The 5pm email scenario with autocomplete error is highly authentic — the 'probably hasn't opened it yet' hesitation and the time pressure are exactly the friction real workers face.",
+    "bilingual_quality": 4,
+    "bilingual_quality_notes": "Arabic is generally natural and idiomatic, but occasional stiffness appears: 'الوسم الظاهر' for 'obvious label' is slightly unnatural, and 'العدّاد بدأ منك' while vivid is calqued on English structure. Some sentences follow English word order more closely than native Arabic would prefer.",
+    "concision": 4,
+    "concision_notes": "The prose is clear and purposeful, but the L1 rich_text block is dense and could be broken for breath. The 'job title plus department plus start date' explanation appears twice in close proximity (intro and worked example step 1) — some redundancy.",
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is solid with definition cards and takeaways. L2 adds worked example, scenario, and two knowledge checks — the progression is real. However, the 'visual card' requirement is not clearly met; the definition_cards are text-heavy with icons, not truly visual. This is borderline 3/4; scored 4 because the level structure itself is genuine.",
+    "bilingual_quality": "Arabic is accurate and mostly natural, but 'الوسم الظاهر' and 'العدّاد بدأ منك' show English calque influence. Some complex sentences mirror English subordination patterns.",
+    "concision": "The identifiability example (job title + department + start date) is repeated almost verbatim between L1 intro and L2 worked example step 1. The L1 rich_text block is long for a single paragraph."
+  },
+  "verdict_notes": "Strong lesson with authentic scenarios and excellent worked example reasoning. Knowledge checks have plausible distractors drawn from real misconceptions. Minor bilingual stiffness and some redundancy in the identifiability example keep two criteria at 4. Mean is 4.5."
+}

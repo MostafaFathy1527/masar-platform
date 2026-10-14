@@ -1,0 +1,35 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:40:06.088443+00:00",
+    "usage": {
+      "inputTokens": 5767,
+      "outputTokens": 282
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are implausible and teach nothing (e.g., 'Order lunch for the team first', 'Change the colour of the screen'). Feedback is minimal and does not name a misconception.",
+    "level_fidelity": "L1 is a strong concept introduction, but L2's scenario and worked example are excellent, making the level fidelity high overall. Minor point: L1 is primarily declarative, but the rubric's concern about 'visual card as bulleted list' does not apply here."
+  },
+  "verdict_notes": "The lesson is strong in most areas, with excellent objective alignment, scenario authenticity, and bilingual quality. However, the knowledge checks are catastrophically poor, with distractors no one would choose and feedback that fails to teach. This results in an automatic gate failure due to the floor threshold."
+}

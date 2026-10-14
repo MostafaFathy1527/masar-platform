@@ -56,6 +56,8 @@ REFERENCE_LESSON = Path('content/courses/rcm-foundations/lessons/04-anatomy-of-a
 DEFAULT_GENERATOR = 'openai.gpt-oss-120b-1:0'
 MAX_TOKENS = 16000
 OBJECTIVE_RE = re.compile(r'^[A-Z]{2,4}-\d{2}$')
+# Bedrock spells some providers two ways; one company is one family.
+FAMILY_ALIASES = {'moonshot': 'moonshotai'}
 GEO_PREFIXES = {'us', 'eu', 'apac', 'global', 'us-gov', 'jp', 'au', 'ca'}
 
 ModelCall = Callable[[str, str, str], tuple[str, dict]]
@@ -74,7 +76,7 @@ def family(model_id: str) -> str:
     parts = model_id.split('.')
     if len(parts) > 1 and parts[0] in GEO_PREFIXES:
         parts = parts[1:]
-    return parts[0]
+    return FAMILY_ALIASES.get(parts[0], parts[0])
 
 
 def check_independence(generator: str, judges=panel.PANEL_MODELS) -> None:
@@ -158,6 +160,25 @@ def build_revision_prompt(base_prompt: str, previous: dict, findings: str) -> st
 # ---------------------------------------------------------------------- gates
 
 
+# A verdict word at the start of feedback, in either language. What follows it is
+# the explanation; feedback that is only the verdict explains nothing.
+VERDICT_WORDS = re.compile(
+    r'^[\W_]*(not correct|incorrect|correct|wrong|right|yes|no|غير صحيح|صحيح|خطأ|خاطئ|صح)[\W_]*',
+    re.IGNORECASE)
+
+
+def verdict_only(feedback: str) -> bool:
+    """True when feedback says right or wrong and nothing else.
+
+    Added after the judge calibration of 14 October 2026: with every option's
+    feedback replaced by "Correct." / "Not correct.", none of the three panel
+    judges lowered its knowledge-check score by two points. The defect is
+    mechanical, so it is now caught mechanically instead of being left to judges
+    that could not see it."""
+    rest = VERDICT_WORDS.sub('', feedback.strip(), count=1).strip()
+    return len(rest.split()) < 3
+
+
 def check_items(lesson: dict, bank: dict, name: str) -> list[str]:
     """The item rules lib/schema/item.ts enforces, with the objective prefix
     opened up the same way validate.py's was. Items have no Python gate of their
@@ -207,6 +228,13 @@ def check_items(lesson: dict, bank: dict, name: str) -> list[str]:
             for f in ('feedbackAr', 'feedbackEn'):
                 if len(str(o.get(f, '')).strip()) < 4:
                     out.append(f'{where}.options[{j}]: {f} missing; every option names its misconception')
+                elif verdict_only(str(o.get(f, ''))):
+                    out.append(f'{where}.options[{j}]: {f} only states the verdict ("{o.get(f)}"); '
+                               f'it must say why, naming the misconception')
+        for f in ('feedbackAr', 'feedbackEn'):
+            texts = [str(o.get(f, '')).strip() for o in opts if isinstance(o, dict)]
+            if len(texts) != len(set(texts)):
+                out.append(f'{where}: two options share the same {f}, so it names no particular misconception')
     for level in ('l1', 'l2', 'l3'):
         for b in (lesson.get('blocks') or {}).get(level) or []:
             if b.get('type') == 'knowledge_check':

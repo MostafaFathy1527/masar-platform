@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:50:26.059851+00:00",
+    "usage": {
+      "inputTokens": 6817,
+      "outputTokens": 241
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is strong, but L2 is essentially a single worked example and scenario with knowledge checks; it meets the block requirements but feels like a thin extension of L1 rather than a distinct, deeper level.",
+    "concision": "Prose is clear and purposeful, but some definitions and explanations could be slightly more succinct without loss of meaning."
+  },
+  "verdict_notes": "All criteria score 4 or 5. The lesson is well-aligned, authentic, and the Arabic is natural. The L2 level is present but feels somewhat thin, and the prose, while clear, has minor opportunities for tightening."
+}

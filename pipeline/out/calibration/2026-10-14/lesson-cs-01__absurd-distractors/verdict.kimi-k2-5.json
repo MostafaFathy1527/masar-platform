@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:43:22.002822+00:00",
+    "usage": {
+      "inputTokens": 7050,
+      "outputTokens": 264
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks use three identical implausible distractors ('order lunch', 'restart computer', 'change screen colour') that nobody would ever choose in a customer service context. These are not drawn from real misconceptions and teach nothing. The feedback on wrong answers merely states 'Not correct' without naming any misconception. This pattern repeats across both items, suggesting placeholder distractors that were never replaced with meaningful alternatives."
+  },
+  "verdict_notes": "The worked example and scenario are strong, with authentic friction and clear reasoning. The knowledge checks are severely compromised by nonsensical distractors that violate the core requirement of drawing from real misconceptions. The lesson would benefit from replacing these placeholder options with plausible errors an agent might actually make."
+}

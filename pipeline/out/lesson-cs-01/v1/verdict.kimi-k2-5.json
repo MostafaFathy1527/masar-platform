@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:50:09.498716+00:00",
+    "usage": {
+      "inputTokens": 7578,
+      "outputTokens": 326
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is strong with definition cards and takeaways. L2 adds worked example, scenario, and knowledge checks as required. However, the 'visual card' requirement is not clearly met—there is no distinct visual card block, though definition_cards serve a similar pedagogical function. The level distinction is present but the L2 could be more substantially differentiated from L1 beyond just adding interactivity.",
+    "concision": "The prose is generally tight and purposeful, but the L1 rich_text block runs long with two dense paragraphs that could be more scannable. Some definition_card text is also dense—excellent content but slightly more verbose than strictly necessary."
+  },
+  "verdict_notes": "Strong lesson across all criteria. Knowledge checks are exemplary with plausible distractors naming real misconceptions and feedback that explains why rather than restating. Worked example shows reasoning at every step. Scenario has authentic friction (the three-long-messages customer who won't repeat himself). Arabic reads naturally with proper sentence structure, not English word order. No licensed codes or policy text present."
+}

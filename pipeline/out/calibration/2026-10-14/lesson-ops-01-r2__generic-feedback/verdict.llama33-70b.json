@@ -1,0 +1,41 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.meta.llama3-3-70b-instruct-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:47:05.311438+00:00",
+    "usage": {
+      "inputTokens": 7247,
+      "outputTokens": 347
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Every block serves its declared objective, and the set covers it.",
+    "level_fidelity": "The level label matches the content, and the required blocks are present and well-developed.",
+    "worked_example": "Each step shows what to do and why, with clear reasoning and explanations.",
+    "knowledge_check": "Distractors are plausible, and feedback explains why each option is correct or incorrect.",
+    "scenario_authenticity": "The scenario is recognisable and includes realistic details.",
+    "bilingual_quality": "The Arabic is natural and reads as though written in Arabic.",
+    "concision": "The text is concise and nothing can be removed without loss.",
+    "accessibility_ip": "The lesson is compliant with accessibility standards and uses the constraint as a teaching point."
+  },
+  "verdict_notes": "This lesson scores highly on all criteria, with every block serving its objective and the level label matching the content. The worked examples are clear and well-explained, and the knowledge checks have plausible distractors with good feedback. The scenario is authentic, and the bilingual quality is high. The text is concise, and the lesson is accessible and compliant with IP standards."
+}

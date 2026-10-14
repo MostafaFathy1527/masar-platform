@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:41:46.615428+00:00",
+    "usage": {
+      "inputTokens": 7578,
+      "outputTokens": 345
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is solid with definition cards and takeaways. L2 adds worked example, scenario, and knowledge checks as promised. However, the 'visual cards' are text-based definition cards with icons — functional but not visually distinctive from rich text blocks. The level distinction is clear (L1 = concepts, L2 = application) but the 'visual card' promise is minimally fulfilled.",
+    "concision": "The prose is strong and purposeful, but the L1 intro block runs long with philosophical framing ('الشكوى فرصة لم يمنحها لك الآخرون') that, while elegant, could be tighter. Some sentences in both languages repeat the same idea in slightly different phrasing."
+  },
+  "verdict_notes": "Strong lesson across all criteria. The worked example is exemplary with clear 'why' at each step. Knowledge checks have plausible distractors drawn from real misconceptions with specific feedback. Scenario presents genuine friction (warm handover vs. broken promise). Arabic is natural and idiomatic. Only minor quibbles on visual distinction between levels and slight wordiness in the intro."
+}

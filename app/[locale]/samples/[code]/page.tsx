@@ -132,7 +132,7 @@ export default async function SamplePage({
                 {' '}
                 <strong>{ar ? 'بوابة المعيار' : 'Rubric gate'}:</strong>{' '}
                 {ar
-                  ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} مع ${rubric.judges.length} نماذج مستقلة، متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}، وأكبر اختلاف بينها على معيار واحد ${rubric.maxSpread === 0 ? 'لا شيء' : rubric.maxSpread === 1 ? 'درجة واحدة' : rubric.maxSpread === 2 ? 'درجتان' : `${rubric.maxSpread} درجات`}. تقييم آلي، وليس مراجعة بشرية.`
+                  ? `${rubric.allPassed ? 'عبر' : 'نتائج مختلفة'} مع ${rubric.judges.length === 2 ? 'نموذجين مستقلين' : `${rubric.judges.length} نماذج مستقلة`}، متوسطات ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}، وأكبر اختلاف بينها على معيار واحد ${rubric.maxSpread === 0 ? 'لا شيء' : rubric.maxSpread === 1 ? 'درجة واحدة' : rubric.maxSpread === 2 ? 'درجتان' : `${rubric.maxSpread} درجات`}. تقييم آلي، وليس مراجعة بشرية.`
                   : `${rubric.allPassed ? 'passed' : 'mixed results'} with ${rubric.judges.length} independent models, means ${rubric.minMean.toFixed(2)}–${rubric.maxMean.toFixed(2)}, largest disagreement on any one criterion ${rubric.maxSpread} point${rubric.maxSpread === 1 ? '' : 's'}. LLM rubric scores, not human QA.`}
                 {rubric.panel === 'NEEDS HUMAN' && rubric.split.length ? (
                   <>

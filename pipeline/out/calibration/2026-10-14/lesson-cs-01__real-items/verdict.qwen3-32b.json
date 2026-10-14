@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-32b-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:41:16.586600+00:00",
+    "usage": {
+      "inputTokens": 6963,
+      "outputTokens": 238
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two of the four options in KC-01 and KC-02 restate the stem or assert the answer without naming a misconception. For example, in KC-01, the first and third options are implausible distractors that do not reflect real customer service misconceptions. In KC-02, the first and fourth options are similarly weak in naming actual misconceptions."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.5. Passes. The knowledge checks are the weakest part, with distractors that often restate the stem rather than naming real misconceptions."
+}

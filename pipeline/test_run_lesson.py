@@ -80,9 +80,12 @@ def go(call, judge, generator_id='openai.gpt-oss-120b-1:0'):
 
 print('independence')
 check(run_lesson.family('us.meta.llama3-3-70b-instruct-v1:0') == 'meta', 'geography prefix stripped')
+check(run_lesson.family('deepseek.v3.2') == 'deepseek', 'a judge family')
+check(run_lesson.family('moonshot.kimi-k2-thinking') == run_lesson.family('moonshotai.kimi-k2.5'),
+      'one provider spelled two ways is one family')
 check(run_lesson.family('qwen.qwen3-32b-v1:0') == 'qwen', 'plain id')
 try:
-    run_lesson.check_independence('us.meta.llama3-1-8b-instruct-v1:0')
+    run_lesson.check_independence('us.deepseek.r1-v1:0')
     check(False, 'a generator from a judge family is refused')
 except run_lesson.RunError:
     check(True, 'a generator from a judge family is refused')
@@ -111,6 +114,21 @@ bad = copy.deepcopy(GOOD['items'])
 bad['items'][0]['formative'] = False
 check(any('disagree' in f for f in run_lesson.check_items(GOOD['lesson'], bad, 'cs')),
       'a -KC- key that is not formative refused')
+
+print('feedback that only states the verdict is refused')
+import calibrate_judges  # noqa: E402
+broken = calibrate_judges.generic_feedback(GOOD['items'])
+found = run_lesson.check_items(GOOD['lesson'], broken, 'cs')
+check(any('only states the verdict' in f for f in found), '"Correct." / "Not correct." refused')
+check(any('share the same' in f for f in found), 'identical feedback across options refused')
+for d in ('lesson-sec-01/v1', 'lesson-prv-01/v1', 'lesson-ops-01-r2/v2'):
+    p = Path('pipeline/out') / d
+    real = run_lesson.check_items(json.loads((p / 'lesson.json').read_text(encoding='utf-8')),
+                                  json.loads((p / 'items.json').read_text(encoding='utf-8')), d)
+    check(real == [], f'{d}: the real bank still passes')
+check(not run_lesson.verdict_only('Not correct. Arrival order can bury an item due within the hour.'),
+      'a verdict followed by a reason is accepted')
+check(run_lesson.verdict_only('غير صحيح.'), 'an Arabic verdict alone is refused')
 
 print('a clean draft goes straight to the panel and passes')
 call, prompts = generator(GOOD)
@@ -190,7 +208,7 @@ t.cleanup()
 print('a generator from a judge family never starts')
 call, prompts = generator(GOOD)
 try:
-    go(call, judges({}, {})[0], generator_id='amazon.nova-lite-v1:0')
+    go(call, judges({}, {})[0], generator_id='moonshot.kimi-k2-thinking')
     check(False, 'refused before any call')
 except run_lesson.RunError:
     check(not prompts, 'refused before any call')

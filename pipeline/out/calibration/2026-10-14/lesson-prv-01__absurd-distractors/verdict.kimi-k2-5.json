@@ -1,0 +1,36 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:46:03.047957+00:00",
+    "usage": {
+      "inputTokens": 6920,
+      "outputTokens": 360
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 3,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 is present with worked example and scenario, but the knowledge checks are broken — three of four distractors in each are nonsense options (order lunch, restart computer, change screen color). This makes L2's assessment component non-functional.",
+    "knowledge_check": "Both knowledge checks have three distractors that are absurd non-sequiturs ('order lunch for the team', 'restart your computer', 'change the colour of the screen'). These are not drawn from real misconceptions; nobody would choose them. The feedback on wrong answers is 'Not correct' with no explanation. This is a catastrophic failure of the knowledge-check construct.",
+    "bilingual_quality": "Arabic is generally natural, but occasional stiffness appears in phrases like 'العدّاد بدأ منك' and 'الحسّاس أعلى معياراً'. The 'why' explanations in the worked example flow better in English than Arabic."
+  },
+  "verdict_notes": "Knowledge check scores 1 due to absurd distractors and useless feedback. Level fidelity scores 3 because L2's assessment mechanism is broken despite other blocks functioning. Mean would be 3.43; with a floor of 1, automatic gate failure."
+}

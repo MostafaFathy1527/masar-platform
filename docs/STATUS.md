@@ -116,6 +116,23 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
   to a human. Sample and domain counts on the home and commission pages are derived
   (`lib/count-words.ts`) instead of "three".
 
+**Added 2026-10-14 (late) — failure 18: the judges were calibrated, and the panel changed.**
+- `pipeline/calibrate_judges.py` breaks each sample's items in two ways the rubric names and
+  checks which judges notice. The old panel caught 0, 1 and 0 of 8 (Qwen3-32B, Llama 3.3 70B,
+  Nova Pro). Kimi K2.5 caught 8 of 8, DeepSeek V3.2 7 of 8. Report and every score:
+  `pipeline/out/calibration/2026-10-14/`.
+- The panel (`PANEL_MODELS` in `pipeline/panel.py`) is now Kimi K2.5 and DeepSeek V3.2. All
+  four samples re-scored: **PANEL PASS on all four**, no criterion split above one. The
+  earlier "NEEDS HUMAN on all four" above is superseded. Old verdicts are in each sample's
+  `retired-judges/`. Kimi's first verdict on PRV-01 used an unknown criterion name, the gate
+  refused it, and the re-run is the one counted; the refused file is in `refused-verdicts/`.
+- The item check in `run_lesson.py` now refuses feedback that only states a verdict and
+  identical feedback across options. The independence check treats Bedrock's two spellings
+  of Moonshot as one family.
+- `pipeline/out/lesson-02/v1/` still carries the old panel's verdicts; it is not a sample.
+- The Space README says eighteen in the repo; the live Space still says seventeen until the
+  file is uploaded there again.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

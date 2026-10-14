@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Seventeen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Eighteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -17,7 +17,9 @@ the README's oldest untested sentence: the method was general, and the gate was 
 The fifteenth was found by adding judges: one of three skipped a rubric clause, and the
 other two made that visible. The sixteenth came from the first run with no hand in it: a
 retry passed a gate by deleting the thing the gate examined. The seventeenth: every judge
-had been scoring knowledge checks it could not see, and said so in notes nobody read.
+had been scoring knowledge checks it could not see, and said so in notes nobody read. The
+eighteenth: once they could see them, three of three judges failed to notice items broken on
+purpose.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -674,6 +676,41 @@ number. It is entry 13's pattern applied to a model instead of a page: the panel
 evaluating a placeholder. And the identical split on four different lessons is its own
 warning. It says more about the three judges than about the items, which is exactly
 why a split goes to a person instead of being averaged.
+
+## 18. Three judges could not tell a good question from a broken one
+
+**Found 14 October 2026, by planting defects and seeing who noticed.**
+
+Once the judges could see the knowledge-check items (entry 17), they split 5, 4 and 3 on
+all four samples, the same way every time. That looked like temperament rather than
+judgement, and it could be tested. `pipeline/calibrate_judges.py` takes each sample's real
+item bank and makes two broken copies, each with a defect rubric criterion 4 names: every
+option's feedback replaced by "Correct." or "Not correct.", or every wrong option replaced
+by something no learner would pick. Each judge scores the real bank and both broken ones in
+fresh contexts. A judge that can see the defect should score the broken copy at least two
+points lower.
+
+Of eight planted defects, Qwen3-32B caught none: it gave real and broken items the same 3.
+Llama 3.3 70B caught one, and kept a 5 for items whose only feedback was "Correct.". Nova
+Pro caught none, dropping a point at most. The three judges that had been gating every
+sample could not see the thing the criterion exists to catch. Their knowledge-check scores,
+and the 5/4/3 split the panel had sent to a human, carried no information.
+
+**Fix, three parts.** Four candidate judges from other families went through the same test.
+Kimi K2.5 caught 8 of 8 and DeepSeek V3.2 caught 7 of 8, scoring real items 4 or 5 and
+broken ones 1 to 3; Mistral Large 3 caught 1 and MiniMax M2.5 returned unusable output on
+three of its runs. The panel is now Kimi K2.5 and DeepSeek V3.2, and a judge earns a seat by
+passing calibration, not by being available. The retired verdicts are kept beside each
+sample. Re-scored by the new panel, all four samples pass with no criterion split above one
+point. And feedback that only states a verdict is now refused mechanically by the item
+check, because a defect a regular expression can catch should not depend on a judge.
+
+**What it shows:** a judge is an instrument, and an instrument is calibrated before its
+readings are trusted. Entries 15 and 17 found judges reading past a clause and scoring what
+they could not see. This one is worse because nothing looked wrong: well-formed verdicts,
+plausible notes, a consistent split that even looked like healthy disagreement. Only a known
+input with a known right answer could show that the readings did not depend on the input.
+The same test now decides which models sit on the panel.
 
 ## What to say about this in the case study
 

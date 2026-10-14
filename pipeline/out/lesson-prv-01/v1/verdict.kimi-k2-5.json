@@ -1,0 +1,36 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:50:50.856730+00:00",
+    "usage": {
+      "inputTokens": 7433,
+      "outputTokens": 352
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L1 is solid, but L2's knowledge checks are referenced by itemRef rather than embedded, making the level structure slightly less coherent than ideal. The progression from L1 to L2 is present but the L2 blocks feel more like a collection than a structured escalation.",
+    "bilingual_quality": "Arabic is generally natural and well-written, but occasional constructions follow English patterns closely (e.g., 'المعيار هو إمكانية التعرّف، لا الوسم الظاهر' mirrors English word order). Some phrases like 'العدّاد بدأ منك' are slightly calqued. Overall readable but not fully native.",
+    "concision": "The L1 rich_text block is dense and could be tightened. The 'takeaways' list repeats concepts already well-established. Some redundancy between definition cards and preceding prose."
+  },
+  "verdict_notes": "Strong lesson with excellent worked examples and authentic scenarios. Knowledge checks are well-designed with plausible distractors naming real misconceptions. Minor issues in bilingual naturalness and some prose density prevent higher scores on concision and bilingual quality. No IP concerns detected."
+}

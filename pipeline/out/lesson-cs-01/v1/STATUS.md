@@ -26,7 +26,7 @@ read a real draft rather than a description of one.
 | L2 prose budget | 7 words between acting blocks, against a ceiling of 180 |
 | Authored answer position | Varied deliberately (positions 2 and 3), so the bank is not keyed to one slot |
 
-**`qa_gate.py`: run on 14 October 2026 by three independent judges; the panel sends a split to a human — see below.**
+**`qa_gate.py`: run on 14 October 2026 by the calibrated judge panel — see below.**
 
 ## What is different from the earlier runs
 
@@ -43,27 +43,26 @@ read a real draft rather than a description of one.
 - The content is authored from public knowledge of frontline service work. It names no
   organisation, product or real incident.
 
-## Rubric gate, re-run 14 October 2026 with the items visible
+## Rubric gate: the calibrated panel, 14 October 2026
 
-Scored by three judges from three model families, each in a fresh context that saw the
-judge prompt, the rubric, this lesson and the items its knowledge checks reference
-(`pipeline/judge_bedrock.py`), then passed through `qa_gate.py` unchanged. Files beside
-this one: `verdict.<tag>.json`, `qa-report.<tag>.md`, `panel-report.md`.
+Scored by the two judges that passed `pipeline/calibrate_judges.py`: shown this lesson's
+real items and copies broken in ways the rubric names, each scored the broken copies at
+least two points lower. Each judge saw the judge prompt, the rubric, this lesson and the
+items its knowledge checks reference, in a fresh context, and its verdict went through
+`qa_gate.py` unchanged. Files beside this one: `verdict.<tag>.json`, `qa-report.<tag>.md`,
+`panel-report.md`.
 
 | Judge | Mean | Criteria scored | Knowledge checks | Gate |
 |---|---|---|---|---|
-| us.meta.llama3-3-70b-instruct-v1:0 | 5.00 | 8 | 5 | PASS |
-| amazon.nova-pro-v1:0 | 4.88 | 8 | 4 | PASS |
-| qwen.qwen3-32b-v1:0 | 4.50 | 8 | 3 | PASS |
+| deepseek.v3.2 | 4.88 | 8 | 5 | PASS |
+| moonshotai.kimi-k2.5 | 4.75 | 8 | 5 | PASS |
 
-**Panel decision: NEEDS HUMAN.** Every judge passes the lesson, but they differ by more than one point on knowledge check, and the panel sends any split to a human rather than averaging it.
+**Panel decision: PASS.** Every judge passes the lesson and no criterion splits them by more than one point.
 
-The earlier scoring the same day showed the judges the lesson only. A knowledge-check
-block carries just a reference to its item, so those knowledge-check scores were given
-without the question, options or feedback (failure entry 17). They are replaced here;
-git history keeps them.
+Earlier the same day this lesson was scored by Qwen3-32B, Llama 3.3 70B and Nova Pro. In
+calibration those three caught 0, 1 and 0 of 8 planted knowledge-check defects, so their
+knowledge-check scores carried no information and they were retired from the panel
+(failure entry 18). Their verdicts are kept in `retired-judges/`.
 
-The split has the same shape on all four samples (5, 4 and 3, always from the same
-three judges), which says more about the judges than about these items. That is for the
-human reviewer to settle. Agreement or disagreement between models is not a human
-review; the blind inter-rater sample is still the open item.
+Two calibrated models agreeing is still not a human review; the blind inter-rater
+sample is still the open item.

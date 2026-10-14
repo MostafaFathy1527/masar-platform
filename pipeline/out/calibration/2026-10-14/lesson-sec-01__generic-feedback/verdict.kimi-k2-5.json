@@ -1,0 +1,37 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:39:33.340577+00:00",
+    "usage": {
+      "inputTokens": 6124,
+      "outputTokens": 504
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks have critical failures. KC-01: three distractors (formatting quality, logo presence, work vs personal inbox) are implausible misconceptions — no one who understands phishing would think these outrank the actual sender address. The feedback on all options merely states 'Correct'/'Not correct' without naming any misconception. KC-02: 'Wait and see' and 'Reply to ask if genuine' are plausible, but 'Delete so nobody else clicks' is a distractor nobody would choose (deletion doesn't prevent others from already having it). Feedback again restates rather than explains. This is a pattern of feedback that repeats the answer, not naming the misconception.",
+    "level_fidelity": "L1 is solid. L2 adds the worked example and scenarios as required, but the knowledge checks are shared weak points that drag down the level experience. The 'visual card' requirement is met by actual definition cards with icons, not bulleted lists with borders.",
+    "concision": "The prose is generally tight, but the L1 rich_text block and some 'why' explanations in the worked example could be tighter without loss. 'Very close to it' in step 3's 'why' is slightly wordy.",
+    "accessibility_ip": "No licensed code descriptors or denylisted terms detected. Icons (🔎, 🔐) lack explicit alt text in the JSON structure — the 'icon' field carries emoji but no descriptive text for screen readers. This is minimal compliance rather than using the constraint as a teaching point."
+  },
+  "verdict_notes": "One criterion at 2 (knowledge_check), which fails the floor threshold. The knowledge checks are the critical weakness: implausible distractors and feedback that restates rather than educates. Mean would be 4.0 without the floor failure. The lesson is strong elsewhere — authentic scenario, excellent worked example with genuine 'why' reasoning, natural Arabic."
+}

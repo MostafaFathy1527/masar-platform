@@ -40,11 +40,16 @@ import qa_gate  # noqa: E402
 MIN_JUDGES = 2
 MAX_SPREAD = 1
 
-# Three model families, so agreement is not one model agreeing with itself.
+# A judge earns its seat by passing pipeline/calibrate_judges.py: shown a
+# sample's real items and copies broken in ways the rubric names, it must score
+# the broken ones at least two points lower. On 14 October 2026 these two caught
+# 8 of 8 and 7 of 8 planted defects. The first panel (Qwen3-32B, Llama 3.3 70B,
+# Nova Pro) caught 0, 1 and 0, and was retired: see failure entry 18. Two
+# families, neither the generator's, so agreement is not one model agreeing
+# with itself.
 PANEL_MODELS = (
-    ('qwen.qwen3-32b-v1:0', 'qwen3-32b'),
-    ('us.meta.llama3-3-70b-instruct-v1:0', 'llama33-70b'),
-    ('amazon.nova-pro-v1:0', 'nova-pro'),
+    ('moonshotai.kimi-k2.5', 'kimi-k2-5'),
+    ('deepseek.v3.2', 'deepseek-v3-2'),
 )
 
 

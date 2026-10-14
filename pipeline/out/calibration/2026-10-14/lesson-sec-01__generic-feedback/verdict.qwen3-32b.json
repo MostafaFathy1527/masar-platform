@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "qwen.qwen3-32b-v1:0",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:39:12.224747+00:00",
+    "usage": {
+      "inputTokens": 5763,
+      "outputTokens": 192
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two of the distractors in SEC-01-KC-01 are implausible (formatting and logo presence are not common phishing misconceptions). Feedback on incorrect options restates the answer rather than naming the misconception."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.25. Passes, but the knowledge checks are the weakest part."
+}

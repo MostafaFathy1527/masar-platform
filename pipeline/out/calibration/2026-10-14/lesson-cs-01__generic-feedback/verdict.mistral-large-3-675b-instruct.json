@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "mistral.mistral-large-3-675b-instruct",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:42:37.422317+00:00",
+    "usage": {
+      "inputTokens": 6200,
+      "outputTokens": 205
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback for incorrect options in both knowledge checks restates the stem or simply states 'Not correct' without naming the misconception or explaining why the option is wrong."
+  },
+  "verdict_notes": "All criteria score 5 except knowledge_check, which scores 3 due to thin feedback. Mean is 4.75. Passes comfortably, but the knowledge checks could be improved by addressing the misconceptions more explicitly."
+}

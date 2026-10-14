@@ -1,0 +1,450 @@
+[
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "deepseek.v3.2",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "deepseek.v3.2",
+    "real_items": 4,
+    "broken_items": 1,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 3,
+    "broken_items": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": null,
+    "broken_items": 3,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": null,
+    "broken_items": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 5,
+    "broken_items": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "qwen.qwen3-32b-v1:0",
+    "real_items": 3,
+    "broken_items": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "us.meta.llama3-3-70b-instruct-v1:0",
+    "real_items": 5,
+    "broken_items": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "amazon.nova-pro-v1:0",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "deepseek.v3.2",
+    "real_items": 5,
+    "broken_items": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "mistral.mistral-large-3-675b-instruct",
+    "real_items": 4,
+    "broken_items": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "moonshotai.kimi-k2.5",
+    "real_items": 4,
+    "broken_items": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 5,
+    "broken_items": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "judge": "minimax.minimax-m2.5",
+    "real_items": 5,
+    "broken_items": 3,
+    "drop": 2
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:45:30.169590+00:00",
+    "usage": {
+      "inputTokens": 6053,
+      "outputTokens": 1409
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks use feedback that only says 'Correct' or 'Not correct' without explaining the misconception behind each distractor. For example, KC01 option 1 ('No, because it contains no names') reflects a real misconception about the identifiability test, but the feedback 'Not correct' doesn't tell the learner WHY that reasoning is wrong. Same issue in KC02."
+  },
+  "verdict_notes": "One criterion scores 2 (knowledge_check) due to feedback that merely restates correctness rather than naming the misconception. The mean is 4.625, which passes, but the knowledge checks are significantly weaker than the rest of the lesson."
+}

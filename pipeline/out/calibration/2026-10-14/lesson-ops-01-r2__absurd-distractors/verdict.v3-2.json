@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:48:01.746514+00:00",
+    "usage": {
+      "inputTokens": 7342,
+      "outputTokens": 226
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two distractors in each question are nonsensical and nobody would ever choose them (e.g., 'Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen'). Feedback for incorrect options is minimal ('Not correct') and does not explain the misconception."
+  },
+  "verdict_notes": "The lesson is strong in most areas, with clear objectives, authentic scenarios, and high-quality Arabic. However, the knowledge checks are severely flawed with implausible distractors and unhelpful feedback, dragging down the overall quality."
+}

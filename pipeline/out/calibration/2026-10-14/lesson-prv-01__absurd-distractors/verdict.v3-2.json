@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:45:47.161858+00:00",
+    "usage": {
+      "inputTokens": 6378,
+      "outputTokens": 232
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two of the four distractors in each question are nonsensical ('Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen'). These are not plausible misconceptions; nobody would ever choose them. This violates the core requirement for distractors to be drawn from real misconceptions."
+  },
+  "verdict_notes": "The lesson is strong in most areas, with excellent objective alignment, worked examples, scenario authenticity, and bilingual quality. However, the knowledge checks are critically flawed, containing distractors that are not plausible misconceptions, resulting in an automatic low score."
+}

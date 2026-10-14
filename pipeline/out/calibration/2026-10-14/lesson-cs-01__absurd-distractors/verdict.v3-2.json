@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:43:09.181410+00:00",
+    "usage": {
+      "inputTokens": 6533,
+      "outputTokens": 246
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two of the four knowledge checks contain distractors that are nonsensical and nobody would ever choose (e.g., 'Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen'). This is a recurring failure pattern and violates the rubric's definition of a 1."
+  },
+  "verdict_notes": "The lesson is strong in most areas, with excellent objective alignment, scenario authenticity, bilingual quality, and concision. However, the knowledge checks are critically flawed with implausible distractors, resulting in an automatic low score for that criterion. The gate will fail due to a criterion score below 3."
+}

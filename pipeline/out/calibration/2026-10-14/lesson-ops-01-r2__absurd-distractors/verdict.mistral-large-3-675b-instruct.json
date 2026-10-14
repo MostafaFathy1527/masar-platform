@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "mistral.mistral-large-3-675b-instruct",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:48:04.799239+00:00",
+    "usage": {
+      "inputTokens": 7094,
+      "outputTokens": 211
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors in both knowledge checks include irrelevant options ('Order lunch for the team', 'Restart your computer', 'Change the colour of the screen') that nobody would ever choose. Feedback for incorrect options is minimal and does not name misconceptions."
+  },
+  "verdict_notes": "All criteria score 4 or 5 except knowledge_check, which scores 3 due to weak distractors and feedback. Mean score is 4.75. Passes."
+}

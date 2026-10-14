@@ -1,0 +1,35 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "moonshotai.kimi-k2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:45:13.532378+00:00",
+    "usage": {
+      "inputTokens": 6899,
+      "outputTokens": 472
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both KC-01 and KC-02 have critical flaws. In KC-01, three of four distractors receive only 'Not correct'/'غير صحيح' feedback that restates the stem rather than naming misconceptions. The distractor 'No, because it contains no names' is a real misconception, but the feedback fails to explain why identifiability matters. The distractor 'Yes, but only if the rating is negative' is implausible—nobody holds this view. In KC-02, all three incorrect options receive only 'Not correct'/'غير صحيح' with zero explanation of why partial fulfillment, refusal, or delay are wrong. These are real errors people make, but the feedback teaches nothing. The 'Not correct'/'صحيح' pattern violates the rubric's requirement for per-option feedback that explains why rather than restating the answer.",
+    "bilingual_quality": "Arabic is generally natural and reads as written in Arabic, not translated. Minor stiffness in some constructions (e.g., 'العدّاد بدأ منك' in takeaways is slightly abrupt). The definition cards and worked example flow well. One awkward spot: 'احتياطاً' in quotes for 'just in case' is understandable but not idiomatic; 'للاحتياط' would be more natural."
+  },
+  "verdict_notes": "Knowledge checks are the critical weakness: feedback is minimal to absent, with three distractors per item receiving only 'Not correct' and no misconception naming. This is a systematic failure of criterion 4. Worked example is strong with genuine 'why' at each step. Scenario has authentic friction (5pm timing, autocomplete error). No licensed codes or denylisted terms detected."
+}

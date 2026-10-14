@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "minimax.minimax-m2.5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-14T11:39:50.156451+00:00",
+    "usage": {
+      "inputTokens": 5493,
+      "outputTokens": 1042
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Both knowledge checks use 'Correct'/'Not correct' feedback that merely restates whether the answer is right, rather than explaining the misconception behind each distractor. For example, the feedback on 'quality of formatting' as a distractor should explain why professional appearance doesn't indicate legitimacy."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.4. Passes. The knowledge checks have plausible distractors but thin feedback that doesn't name misconceptions. Everything else is strong, particularly the worked example which consistently explains the 'why' for each step, and the scenario which captures the social-engineering friction realistically."
+}
