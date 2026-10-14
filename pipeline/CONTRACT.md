@@ -57,6 +57,12 @@ source note  →  generate  →  validate.py  →  concept_log.py  →  judge  �
 Each gate is a hard fail. They are ordered cheapest-first on purpose: there is no point
 paying for a judgement on a document that does not parse.
 
+The judge step can be run more than once with different models (`judge_bedrock.py` writes
+`verdict.<tag>.json` beside the lesson), and `compare_verdicts.py` reports how far they
+disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not move.
+No model call sits in any request path; these are by-hand experiments with credentials
+kept outside the repository.
+
 ## Known failure modes
 
 Recorded because they recur, and because a pipeline that does not write these down repeats
@@ -91,5 +97,7 @@ pipeline/
   validate.py            structure, semantics, forbidden content
   concept_log.py         re-definition and forward-reference checks
   qa_gate.py             applies the rubric thresholds, writes the report
+  judge_bedrock.py       optional second judge: same rubric, a different model, fresh context
+  compare_verdicts.py    criterion-by-criterion agreement between two verdicts
   test_*.py              negative tests for each gate
 ```
