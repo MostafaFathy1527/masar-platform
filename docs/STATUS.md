@@ -162,8 +162,9 @@ every change still passes the publish gate. English only, because the host's rig
 support is partial; Arabic stays on the platform itself.
 
 **Added 2026-10-14 (night) — a third judge, for Arabic.** The pasted-English calibration was
-run on twelve more Bedrock models. Nine gave every broken copy a 5 for bilingual quality, one
-(DeepSeek R1) returned unparseable output, and two caught all four: Kimi K3 and GLM-5. GLM-5
+run on eleven more Bedrock models. Seven gave every broken copy a 5 for bilingual quality,
+GLM-4.7 caught two of four, one (DeepSeek R1) returned unparseable output, and two caught all
+four: Kimi K3 and GLM-5 (counts corrected 15 October from "twelve" and "nine"). GLM-5
 also caught all twelve knowledge-check and worked-example defects, missed empty scenario
 consequences like every judge, and now sits on the panel (`panel.py`). All four samples still
 pass with three judges. On the four pasted-English copies, the two-judge panel passed three

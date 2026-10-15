@@ -724,11 +724,13 @@ defects are mechanical: pasted English was already refused by `validate.py`'s bi
 check, and scenarios whose consequences are empty or identical now are too. A panel score on
 an uncalibrated criterion is reported, not relied on, and a person reads those parts.
 
-**Then the Arabic test was run on twelve more models**, because Arabic quality is the
-criterion this project most needs a judge for. Nine of the twelve gave every lesson with
+**Then the Arabic test was run on eleven more models**, because Arabic quality is the
+criterion this project most needs a judge for. Seven of the eleven gave every lesson with
 English pasted into its Arabic fields a 5 for bilingual quality, the same score as the real
-lesson. One returned output that could not be parsed. Two caught all four: Kimi K3 and
-GLM-5. GLM-5 was then put through the other four defects and caught every knowledge-check
+lesson. GLM-4.7 caught two of four. One returned output that could not be parsed. Two caught
+all four: Kimi K3 and GLM-5. (This paragraph first said twelve models and nine full marks;
+the report it cites shows eleven and seven. Corrected on 15 October, and the count is now
+read from `results.json` rather than restated.) GLM-5 was then put through the other four defects and caught every knowledge-check
 and worked-example defect (12 of 12), scoring each broken copy 1 or 2 against a real 5. It
 missed empty scenario consequences like every judge tested. GLM-5 now sits on the panel as
 its third judge, so a lesson with English in its Arabic fields splits the panel and goes to a
