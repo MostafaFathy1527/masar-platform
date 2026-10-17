@@ -195,6 +195,25 @@ ALLaM, SILMA or Fanar can be calibrated on whatever hardware is to hand, with th
 parsing and gate. The verdict records `provider: openai-compatible`. Tested end to end against
 a stand-in server and in `test_judge_bedrock.py`.
 
+**Added 2026-10-15 (night) — an open Arabic model, and judges that copy the example
+(what-failed entry 19).**
+- **The run:** `pipeline/kaggle_open_judges.ipynb` runs the full calibration on Kaggle's free
+  T4 GPUs. It builds llama.cpp, serves a GGUF model, and checks the chat format before any
+  judgement.
+- **The models:** QCRI's Fanar-2-27B-Instruct (Q4_K_M, thinking off), with Gemma 3 27B, its
+  base model, as a control.
+- **The result:** Fanar-2 handed back the example verdict printed in `rubric.md` for 24 of 24
+  lessons, and Gemma 3 27B for 23 of 24. On Bedrock, Gemma 3 27B had done the same on 5 of 8
+  on 14 October.
+- **The fix:** `judge_bedrock.py` refuses a verdict whose scores, notes and closing note all
+  equal the example. `calibrate_judges.py` counts one as no score, lists copies in the report
+  and takes `--audit-copies` and `--date`. The 14 October report keeps its rows, with a note.
+- **Context limits:** ALLaM-7B and Fanar-1-9B were not run; their 4,096-token context is
+  shorter than the judge prompt.
+- **Still open:** whether Fanar-2 can judge when it cannot copy (thinking on, or a rubric
+  example without numbers).
+- **The live HF Space README** still says eighteen until it is re-uploaded.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

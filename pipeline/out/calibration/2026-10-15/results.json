@@ -3,6 +3,366 @@
     "sample": "lesson-sec-01",
     "defect": "generic-feedback",
     "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": 5,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Fanar-2-27B-Instruct.Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gemma-3-27b-it-Q4_K_M.gguf",
+    "real": null,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
     "judge": "us.moonshotai.kimi-k3",
     "real": 5,
     "broken": 2,

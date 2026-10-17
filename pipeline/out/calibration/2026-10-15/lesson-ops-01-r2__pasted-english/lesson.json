@@ -1,0 +1,372 @@
+{
+  "slug": "writing-a-shift-handover",
+  "titleAr": "Writing a Shift Handover",
+  "titleEn": "Writing a Shift Handover",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "OPS-01"
+  ],
+  "conceptsIntroduced": [
+    "shift_handover",
+    "open_item",
+    "urgent_item",
+    "fact_vs_guess",
+    "commitment",
+    "shared_record"
+  ],
+  "bilingual": true,
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "What is a shift handover?",
+          "textEn": "What is a shift handover?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you. The simple test of a successful handover is: **Can the next person act on it without contacting you?**\n\nLength is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines.",
+          "mdEn": "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you. The simple test of a successful handover is: **Can the next person act on it without contacting you?**\n\nLength is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines."
+        }
+      },
+      {
+        "id": "b_l1_def_shift_handover",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Shift handover",
+          "termEn": "Shift handover",
+          "defAr": "The moment work changes hands at the end of a shift, with all relevant details recorded.",
+          "defEn": "The moment work changes hands at the end of a shift, with all relevant details recorded.",
+          "icon": "↔"
+        }
+      },
+      {
+        "id": "b_l1_def_open_item",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Open item",
+          "termEn": "Open item",
+          "defAr": "A ticket, order, or task that is not yet resolved when the shift ends.",
+          "defEn": "A ticket, order, or task that is not yet resolved when the shift ends.",
+          "icon": "✏️"
+        }
+      },
+      {
+        "id": "b_l1_def_urgent_item",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Urgent item",
+          "termEn": "Urgent item",
+          "defAr": "An open item that requires action before the next shift ends, usually marked with a deadline.",
+          "defEn": "An open item that requires action before the next shift ends, usually marked with a deadline.",
+          "icon": "⚡"
+        }
+      },
+      {
+        "id": "b_l1_def_fact_vs_guess",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Fact vs guess",
+          "termEn": "Fact vs guess",
+          "defAr": "Separate verified statements (facts) from assumptions (guesses).",
+          "defEn": "Separate verified statements (facts) from assumptions (guesses).",
+          "icon": "✔️/❓"
+        }
+      },
+      {
+        "id": "b_l1_def_commitment",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Commitment",
+          "termEn": "Commitment",
+          "defAr": "A promise to complete a specific action for a customer, colleague, or manager by a certain time.",
+          "defEn": "A promise to complete a specific action for a customer, colleague, or manager by a certain time.",
+          "icon": "🤝"
+        }
+      },
+      {
+        "id": "b_l1_def_shared_record",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "Shared record",
+          "termEn": "Shared record",
+          "defAr": "The central system (ticket, log, channel) where the handover is written so anyone covering the shift can find it.",
+          "defEn": "The central system (ticket, log, channel) where the handover is written so anyone covering the shift can find it.",
+          "icon": "📂"
+        }
+      },
+      {
+        "id": "b_l1_flow_questions",
+        "type": "process_flow",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "q1",
+              "labelAr": "What is it?",
+              "labelEn": "What is it?",
+              "detailAr": "One line that precisely identifies the item (ticket, order, customer).",
+              "detailEn": "One line that precisely identifies the item (ticket, order, customer)."
+            },
+            {
+              "id": "q2",
+              "labelAr": "What is the status?",
+              "labelEn": "What is the status?",
+              "detailAr": "Current state as a fact, not a feeling.",
+              "detailEn": "Current state as a fact, not a feeling."
+            },
+            {
+              "id": "q3",
+              "labelAr": "What has been done?",
+              "labelEn": "What has been done?",
+              "detailAr": "What has already been tried and failed, so the next person does not repeat it.",
+              "detailEn": "What has already been tried and failed, so the next person does not repeat it."
+            },
+            {
+              "id": "q4",
+              "labelAr": "What happens next and by when?",
+              "labelEn": "What happens next and by when?",
+              "detailAr": "Specific next action with a clear deadline.",
+              "detailEn": "Specific next action with a clear deadline."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_urgent",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**Lead with the urgent item.** Order items by when they need action, not by when they arrived. Anything with a deadline inside the next shift goes first and is marked as such. The four questions order what you write about one item; urgency orders the items.",
+          "mdEn": "**Lead with the urgent item.** Order items by when they need action, not by when they arrived. Anything with a deadline inside the next shift goes first and is marked as such. The four questions order what you write about one item; urgency orders the items."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemsAr": [
+            "Write the handover in a shared record, not on a personal scrap.",
+            "Order items by urgency, then answer the four questions for each item, in order.",
+            "Separate facts from guesses; label guesses clearly."
+          ],
+          "itemsEn": [
+            "Write the handover in a shared record, not on a personal scrap.",
+            "Order items by urgency, then answer the four questions for each item, in order.",
+            "Separate facts from guesses; label guesses clearly."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "Put it to work",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_flow_write",
+        "type": "process_flow",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "interactive": true,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "Identify the item",
+              "labelEn": "Identify the item",
+              "detailAr": "Write the ticket number or customer name.",
+              "detailEn": "Write the ticket number or customer name."
+            },
+            {
+              "id": "s2",
+              "labelAr": "State the status",
+              "labelEn": "State the status",
+              "detailAr": "Use phrases like \"waiting for supplier\".",
+              "detailEn": "Use phrases like \"waiting for supplier\"."
+            },
+            {
+              "id": "s3",
+              "labelAr": "Log what has been done",
+              "labelEn": "Log what has been done",
+              "detailAr": "List attempts that have already failed.",
+              "detailEn": "List attempts that have already failed."
+            },
+            {
+              "id": "s4",
+              "labelAr": "Define next action and deadline",
+              "labelEn": "Define next action and deadline",
+              "detailAr": "Example: \"Call the customer before 10:00\".",
+              "detailEn": "Example: \"Call the customer before 10:00\"."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "promptAr": "Ticket #4523 concerns a customer payment failure. Two retry attempts have already been made without success. The customer asked for a response before the end of the day. Write the appropriate handover.",
+          "promptEn": "Ticket #4523 concerns a customer payment failure. Two retry attempts have already been made without success. The customer asked for a response before the end of the day. Write the appropriate handover.",
+          "steps": [
+            {
+              "showAr": "What is it? – Ticket #4523: customer payment failure.",
+              "showEn": "What is it? – Ticket #4523: customer payment failure.",
+              "whyAr": "A clear identifier lets the receiver locate the ticket quickly.",
+              "whyEn": "A clear identifier lets the receiver locate the ticket quickly."
+            },
+            {
+              "showAr": "What is the status? – Awaiting payment resolution after two failed retries.",
+              "showEn": "What is the status? – Awaiting payment resolution after two failed retries.",
+              "whyAr": "Shows the status as a fact, not a feeling.",
+              "whyEn": "Shows the status as a fact, not a feeling."
+            },
+            {
+              "showAr": "What has been done? – Two retry attempts made; no additional information.",
+              "showEn": "What has been done? – Two retry attempts made; no additional information.",
+              "whyAr": "Prevents repeating the same attempts.",
+              "whyEn": "Prevents repeating the same attempts."
+            },
+            {
+              "showAr": "What happens next and by when? – Call the customer before 4 PM with an update.",
+              "showEn": "What happens next and by when? – Call the customer before 4 PM with an update.",
+              "whyAr": "A clear action with a deadline ensures the promise is kept.",
+              "whyEn": "A clear action with a deadline ensures the promise is kept."
+            }
+          ],
+          "answerAr": "What is it? Ticket #4523: customer payment failure.\nWhat is the status? Awaiting payment resolution after two failed retries.\nWhat has been done? Two retry attempts made; no additional information.\nWhat happens next and by when? Call the customer before 4 PM with an update.",
+          "answerEn": "What is it? Ticket #4523: customer payment failure.\nWhat is the status? Awaiting payment resolution after two failed retries.\nWhat has been done? Two retry attempts made; no additional information.\nWhat happens next and by when? Call the customer before 4 PM with an update."
+        }
+      },
+      {
+        "id": "b_l2_scenario_best_line",
+        "type": "scenario",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "situationAr": "You are ending your shift with two open items: a ticket from customer \"Ali\" about a login issue, who was promised a reply before 14:00 today; and an order waiting for the supplier to confirm a delivery date, with no deadline today. The order arrived first. Which line opens your handover?",
+          "situationEn": "You are ending your shift with two open items: a ticket from customer \"Ali\" about a login issue, who was promised a reply before 14:00 today; and an order waiting for the supplier to confirm a delivery date, with no deadline today. The order arrived first. Which line opens your handover?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Order waiting for the supplier to confirm a delivery date.",
+              "optionEn": "Order waiting for the supplier to confirm a delivery date.",
+              "consequenceAr": "You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+              "consequenceEn": "You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "URGENT, before 14:00: Ali's ticket (login issue). He was promised a reply by 14:00; that promise is now yours.",
+              "optionEn": "URGENT, before 14:00: Ali's ticket (login issue). He was promised a reply by 14:00; that promise is now yours.",
+              "consequenceAr": "Best. The deadline is seen before anything else, and the promise travels with the work in words. Under this line you answer the four questions for this ticket.",
+              "consequenceEn": "Best. The deadline is seen before anything else, and the promise travels with the work in words. Under this line you answer the four questions for this ticket.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "All good, nothing major; two tickets open.",
+              "optionEn": "All good, nothing major; two tickets open.",
+              "consequenceAr": "This is one of the common failures word for word: \"nothing major\" with an item on a deadline. Ali's promise will be broken, and to him the organisation made it.",
+              "consequenceEn": "This is one of the common failures word for word: \"nothing major\" with an item on a deadline. Ali's promise will be broken, and to him the organisation made it.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_fact_guess",
+        "type": "sort_buckets",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "fact",
+              "labelAr": "Fact",
+              "labelEn": "Fact"
+            },
+            {
+              "id": "guess",
+              "labelAr": "Guess",
+              "labelEn": "Guess"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "Payment failed twice",
+              "textEn": "Payment failed twice",
+              "bucketId": "fact",
+              "whyAr": "Can be verified in the transaction log.",
+              "whyEn": "Can be verified in the transaction log."
+            },
+            {
+              "id": "c2",
+              "textAr": "I think the card is expired",
+              "textEn": "I think the card is expired",
+              "bucketId": "guess",
+              "whyAr": "No clear evidence in the system.",
+              "whyEn": "No clear evidence in the system."
+            },
+            {
+              "id": "c3",
+              "textAr": "Waiting for the supplier to confirm a delivery date",
+              "textEn": "Waiting for the supplier to confirm a delivery date",
+              "bucketId": "fact",
+              "whyAr": "It states where the item stands now, as a fact rather than a feeling.",
+              "whyEn": "It states where the item stands now, as a fact rather than a feeling."
+            },
+            {
+              "id": "c4",
+              "textAr": "Probably the network is down",
+              "textEn": "Probably the network is down",
+              "bucketId": "guess",
+              "whyAr": "\"Probably\" announces an assumption nobody has checked.",
+              "whyEn": "\"Probably\" announces an assumption nobody has checked."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

@@ -65,6 +65,11 @@ kept outside the repository. A judge is either a Bedrock model or an open model 
 your own hardware behind an OpenAI-compatible endpoint (`--endpoint`); the prompt, the
 parsing and the gate are the same for both, and the verdict records which it was.
 
+A verdict whose scores, notes and closing note all equal the example printed in the rubric is
+refused like unparseable output: the judge handed the example back instead of reading the
+lesson (what-failed entry 19). `kaggle_open_judges.ipynb` runs the calibration on open models
+served by llama.cpp on Kaggle's free GPUs.
+
 `panel.py` turns several verdicts into one decision: PASS only if every judge passes and no
 criterion splits them by more than one point; a split or a disagreement on the outcome is
 NEEDS HUMAN, not an average. The latest verdict per model counts. One judge is refused.
@@ -128,5 +133,6 @@ pipeline/
   panel.py               several judges, one decision; any split goes to a human
   run_lesson.py          the loop end to end: source note to judged draft, one retry
   calibrate_judges.py    planted defects: which judges can tell real items from broken ones
+  kaggle_open_judges.ipynb  the same calibration for open models on Kaggle's free GPUs
   test_*.py              negative tests for each gate
 ```

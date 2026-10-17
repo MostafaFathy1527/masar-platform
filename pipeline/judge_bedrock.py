@@ -145,6 +145,22 @@ def build_prompt(lesson: dict, levels: set[str], items: list[dict] | None = None
     return '\n\n'.join(parts)
 
 
+def rubric_example() -> dict:
+    """The example verdict printed in the rubric's output section."""
+    text = RUBRIC.read_text(encoding='utf-8')
+    m = re.search(r'## Output the judge must return.*?```json\s*(\{.*?\})\s*```', text, re.S)
+    return json.loads(m.group(1)) if m else {}
+
+
+def copies_rubric_example(verdict: dict) -> bool:
+    """True when the scores, the notes and the closing note all match the rubric's example.
+    A judge that hands the example back has not scored the lesson in front of it
+    (what-failed entry 19). Scores alone can match by chance; all three cannot."""
+    example = rubric_example()
+    return bool(example) and all(verdict.get(k) == example.get(k)
+                                 for k in ('scores', 'notes', 'verdict_notes'))
+
+
 def extract_json(text: str) -> dict:
     """Models sometimes wrap JSON in fences or a sentence. Take the outermost object."""
     text = text.strip()
@@ -286,6 +302,11 @@ def main(argv: list[str] | None = None) -> int:
         raw = extract_json(text)
     except (ValueError, json.JSONDecodeError) as e:
         print(f'error: could not parse the model output as JSON: {e}', file=sys.stderr)
+        (args.lesson.parent / f'verdict.{args.tag}.raw.txt').write_text(text, encoding='utf-8')
+        return 2
+    if copies_rubric_example(raw):
+        print("error: the judge returned the rubric's example verdict unchanged, not a score "
+              'for this lesson', file=sys.stderr)
         (args.lesson.parent / f'verdict.{args.tag}.raw.txt').write_text(text, encoding='utf-8')
         return 2
 

@@ -192,6 +192,25 @@ def test_served_model_uses_the_same_request():
           'a GGUF file name is flattened whole, not split on its dots')
 
 
+def test_a_copy_of_the_rubric_example_is_not_a_verdict(tmp: Path):
+    print('a judge that hands back the rubric example has not scored the lesson')
+    example = judge_bedrock.rubric_example()
+    check(set(example.get('scores', {})) == set(qa_gate.CRITERIA),
+          'the example is read from rubric.md and names every criterion')
+    check(judge_bedrock.copies_rubric_example(dict(example)), 'the example itself is a copy')
+    own_notes = dict(example, notes={'knowledge_check': 'Item 2 restates its stem.'})
+    check(not judge_bedrock.copies_rubric_example(own_notes),
+          'the same scores with notes about this lesson are a reading, not a copy')
+    import calibrate_judges
+    copy_path, real_path = tmp / 'verdict.copy.json', tmp / 'verdict.real.json'
+    copy_path.write_text(json.dumps(example), encoding='utf-8')
+    real_path.write_text(json.dumps(own_notes), encoding='utf-8')
+    check(calibrate_judges.score(copy_path, 'bilingual_quality') is None,
+          'calibration counts a copy as no score')
+    check(calibrate_judges.score(real_path, 'bilingual_quality') == example['scores']['bilingual_quality'],
+          'and a real reading as its score')
+
+
 if __name__ == '__main__':
     import tempfile
     for stream in (sys.stdout, sys.stderr):
@@ -207,5 +226,7 @@ if __name__ == '__main__':
     test_compare_reports_disagreement()
     test_judge_sees_the_items_its_checks_reference()
     test_served_model_uses_the_same_request()
+    with tempfile.TemporaryDirectory() as d:
+        test_a_copy_of_the_rubric_example_is_not_a_verdict(Path(d))
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)

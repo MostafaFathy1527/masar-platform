@@ -47,7 +47,10 @@ fail: seven of thirteen models gave every lesson with English pasted into its Ar
 full marks for Arabic quality, and of nine models tested on scenarios whose choices all lead
 nowhere, the best caught three of four. The two judges that caught the pasted English every
 time now sit on the panel, and both defects are also refused by mechanical checks and read
-by a person. The scores are in the calibration reports for
+by a person. Some judges fail by not reading at all: an open Arabic model, Fanar-2-27B, run
+on Kaggle's free GPUs, handed back the example verdict printed in the rubric for all 24
+lessons, and Gemma 3 27B did the same on most of its verdicts. Those are now refused, and
+counted as no score (what-failed entry 19). The scores are in the calibration reports for
 [14 October](../pipeline/out/calibration/2026-10-14/report.md) and
 [15 October](../pipeline/out/calibration/2026-10-15/report.md).
 

@@ -155,9 +155,28 @@ def tag_for(model: str, served: bool = False) -> str:
 
 
 def score(verdict_path: Path, criterion: str) -> int | None:
+    """A verdict that hands back the rubric's example is not a reading of the lesson, so it
+    counts as no score at all (what-failed entry 19)."""
     if not verdict_path.exists():
         return None
-    return json.loads(verdict_path.read_text(encoding='utf-8')).get('scores', {}).get(criterion)
+    verdict = json.loads(verdict_path.read_text(encoding='utf-8'))
+    if judge_bedrock.copies_rubric_example(verdict):
+        return None
+    return verdict.get('scores', {}).get(criterion)
+
+
+def audit_copies(root: Path) -> list[str]:
+    """Every verdict under root that is the rubric's example handed back, as report lines."""
+    found: dict[str, list[str]] = {}
+    for p in sorted(root.glob('*/*/verdict.*.json')):
+        try:
+            verdict = json.loads(p.read_text(encoding='utf-8'))
+        except json.JSONDecodeError:
+            continue
+        if judge_bedrock.copies_rubric_example(verdict):
+            tag = p.name[len('verdict.'):-len('.json')]
+            found.setdefault(f'{p.parent.parent.name} · {tag}', []).append(p.parent.name)
+    return [f'| {k} | {len(v)} | {", ".join(v)} |' for k, v in sorted(found.items())]
 
 
 def summarise(rows: list[dict], model: str) -> dict:
@@ -187,13 +206,21 @@ def main(argv: list[str] | None = None) -> int:
                     help='an OpenAI-compatible base URL; --models then names the served models')
     ap.add_argument('--defects', help=f'comma-separated subset of: {", ".join(MUTANTS)}')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--date', default=date.today().isoformat(),
+                    help='the calibration folder to write or rebuild (YYYY-MM-DD; default today)')
+    ap.add_argument('--audit-copies', action='store_true',
+                    help='list every verdict so far that hands back the rubric example; call no model')
     ap.add_argument('--report-only', action='store_true',
                     help='rebuild the report from verdicts already on disk; call no model')
     args = ap.parse_args(argv)
 
     models = args.models.split(',') if args.models else [m for m, _ in panel.PANEL_MODELS]
     defects = args.defects.split(',') if args.defects else list(MUTANTS)
-    root = Path('pipeline/out/calibration') / date.today().isoformat()
+    if args.audit_copies:
+        found = audit_copies(Path('pipeline/out/calibration'))
+        print('\n'.join(found) if found else 'no verdict hands back the rubric example')
+        return 0
+    root = Path('pipeline/out/calibration') / args.date
     rows: list[dict] = []
     for sample in SAMPLES:
         src = Path(sample)
@@ -245,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
     seated = [m for m, _ in panel.PANEL_MODELS]
     lines = [
         '# Judge calibration: can each judge see a lesson broken on purpose?', '',
-        f'Run {date.today().isoformat()}. Each sample was scored as it is and as copies broken in one '
+        f'Run {args.date}. Each sample was scored as it is and as copies broken in one '
         'way each, every defect one the rubric names and each aimed at one criterion. A judge that sees '
         f'the defect should score that criterion at least {MIN_DROP} points lower on the broken copy. '
         'Seated panel: ' + ', '.join(f'`{m}`' for m in seated) + '.',
@@ -263,6 +290,12 @@ def main(argv: list[str] | None = None) -> int:
     for r in sorted(rows, key=lambda r: (r['judge'], r['defect'], r['sample'])):
         lines.append(f'| `{r["judge"]}` | {r["defect"]} | {r["criterion"]} | {r["sample"]} | '
                      f'{r["real"]} | {r["broken"]} | {r["drop"]} |')
+    copies = [line for line in audit_copies(root.parent) if line.startswith(f'| {root.name} ·')]
+    if copies:
+        lines += ['', "## Verdicts that hand back the rubric's example", '',
+                  'Scores, notes and closing note identical to the example printed in `rubric.md`. '
+                  'They count as no score above: the judge did not read the lesson (what-failed entry 19).',
+                  '', '| Run · judge | Verdicts | Copies |', '|---|---|---|', *copies]
     lines += ['', 'This measures whether a judge can tell a real lesson from one broken in a named '
               'way. It does not say which judge is right about the real lesson.']
     (root / 'report.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')

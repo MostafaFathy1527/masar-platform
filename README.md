@@ -1,6 +1,6 @@
 # Masār (مسار)
 
-**I built a learning platform, then kept trying to break it. So far I have found eighteen
+**I built a learning platform, then kept trying to break it. So far I have found nineteen
 things that looked right and weren't.**
 
 Two of them:
@@ -11,7 +11,7 @@ Two of them:
 - The exam could be beaten without reading the questions. Authored banks put the correct
   answer first, so *always pick option A* scored **89%**.
 
-Both are fixed. All eighteen are written up, with what I got wrong and why, in
+Both are fixed. All nineteen are written up, with what I got wrong and why, in
 [`docs/design/what-failed.md`](docs/design/what-failed.md) — which is the part of this
 repository actually worth reading.
 
@@ -96,7 +96,7 @@ python pipeline/validate.py --denylist .local/denylist.txt
 
 Read it as a site: [masar.gitbook.io/masar-docs](https://masar.gitbook.io/masar-docs/) (English).
 
-- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the eighteen failures
+- [`docs/design/what-failed.md`](docs/design/what-failed.md) — the nineteen failures
 - [`docs/STATUS.md`](docs/STATUS.md) — current state and the decision log
 - [`SPEC.md`](SPEC.md) — the fourteen headings a client asked to see
 - [`HANDOVER.md`](HANDOVER.md) — architecture, runbook, ownership

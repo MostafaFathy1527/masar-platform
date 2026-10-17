@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Eighteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Nineteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -19,7 +19,8 @@ other two made that visible. The sixteenth came from the first run with no hand 
 retry passed a gate by deleting the thing the gate examined. The seventeenth: every judge
 had been scoring knowledge checks it could not see, and said so in notes nobody read. The
 eighteenth: once they could see them, three of three judges failed to notice items broken on
-purpose.
+purpose. The nineteenth: some judges never read the lesson at all, and handed back the example
+verdict printed in the rubric, which the calibration had been counting as a reading.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -753,6 +754,46 @@ place, and its first panel run showed what the seat is for. On OPS-01 it scored 
 where both other judges gave 5, and its note named two slips that are really in the lesson:
 «ثلاث سطور», where سطر is masculine and the number should be «ثلاثة», and «المنتهي», a coinage
 for the person whose shift ended. The panel now sends OPS-01 to a person instead of passing it.
+
+## 19. Some judges handed back the rubric's example instead of a verdict
+
+**Found 15 October 2026, by running an open Arabic model through the calibration.**
+
+QCRI's Fanar-2-27B-Instruct, an Arabic-English model continually pretrained from Gemma 3 27B,
+went through the full calibration on Kaggle's free GPUs, served by llama.cpp at Q4_K_M with
+its thinking mode off (`pipeline/kaggle_open_judges.ipynb`). Every one of its 24 verdicts,
+real lessons and broken copies alike, had a mean of 4.12. That is the mean of the example
+verdict printed at the end of `rubric.md`, and the verdicts were that example: the same eight
+scores, the same note about distractors that restate the stem, the same closing sentence,
+with only the lesson's name changed. Gemma 3 27B, run the same way as a control, did the same
+on 23 of 24.
+
+Looking back, Gemma 3 27B had done it on Bedrock too: five of its eight verdicts on 14
+October were the example, scores, note and closing sentence. The calibration had counted
+them as readings. So three of its four pasted-English rows compared a copy with a copy or
+with a reading, and the one real comparison, on SEC-01, did give the pasted English full
+marks. Three other models matched the example's scores with notes that were about the lesson
+in front of them (MiniMax M2.5 twice, Llama 4 Maverick and DeepSeek R1 once each). That is
+anchoring, and it is recorded, not refused.
+
+**Why nothing caught it.** A copied verdict is well-formed. It is valid JSON, it scores every
+criterion, it explains its one score below 4, and its numbers look like a fair verdict on a
+decent lesson. The gate checks a verdict's shape, not whether it came from reading anything,
+and the calibration compared numbers without asking where they came from.
+
+**Fix.** `judge_bedrock.py` now refuses a verdict whose scores, notes and closing note all
+equal the rubric's example, the same way it refuses output it cannot parse. Scores alone can
+match the example by chance; all three together cannot. `calibrate_judges.py` counts such a
+verdict as no score, lists the copies at the end of each report, and `--audit-copies` lists
+every copy in every run. The 14 October report keeps its rows as computed, with a note
+naming Gemma 3 27B's copies.
+
+**What it shows:** a judge can fail without being wrong about anything, by not looking. The
+calibration was built to catch a judge that cannot see a defect, and it reported Fanar-2 and
+Gemma 3 27B as judges that could not see one. That was true, but for a reason no score could
+show: they were not reading. Whether Fanar-2 can judge Arabic when it cannot copy is still
+open. The example in the rubric has not been changed, because the seated panel was calibrated
+with it, and no seated judge has ever handed it back.
 
 ## What to say about this in the case study
 

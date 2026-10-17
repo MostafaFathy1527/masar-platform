@@ -180,3 +180,17 @@ Run 2026-10-14. Each sample was scored as it is and as copies broken in one way 
 | `zai.glm-5` | reasonless-steps | worked_example | lesson-sec-01 | 5 | 2 | 3 |
 
 This measures whether a judge can tell a real lesson from one broken in a named way. It does not say which judge is right about the real lesson.
+
+## Added 15 October: verdicts that hand back the rubric's example
+
+Five Gemma 3 27B verdicts in this run are the example printed in `rubric.md`, unchanged:
+scores, note and closing sentence. They are not readings of those lessons (what-failed entry
+19). So three of Gemma 3 27B's four pasted-English rows above compare a copy with a copy or with
+a reading; only lesson-sec-01 is a real comparison, and it gave the pasted English full marks.
+
+| Judge | Copies |
+|---|---|
+| `google.gemma-3-27b-it` | lesson-cs-01 real and pasted-english, lesson-ops-01-r2 real and pasted-english, lesson-prv-01 real |
+
+The rows above are left as this run computed them. `python pipeline/calibrate_judges.py
+--audit-copies` lists every copy in every run.
