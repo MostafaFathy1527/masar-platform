@@ -67,6 +67,9 @@ This measures whether a judge can tell a real lesson from one broken in a named 
 QCRI's Fanar-2-27B-Instruct at Q8_0 (8-bit), served by llama.cpp on two V100 32 GB cards. The
 model file's hash, the server command and both chat templates are in `environment.json`.
 
+The GPU time for this run, and for the run in `../2026-10-17-no-values-in-example/`, was provided
+by [CloudRift](https://www.cloudrift.ai/). Thank you.
+
 - **`Fanar-2-27B-Instruct.Q8_0.gguf`**: thinking off, temperature 0, 4,000 tokens, as on Kaggle on
   15 October. All 24 verdicts were the rubric's example and were refused, so every row for it is
   empty; each refused reply is kept as `verdict.<tag>.raw.txt`. At Q4_K_M it was 24 of 24 too, so
