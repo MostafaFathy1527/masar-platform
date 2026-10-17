@@ -1,0 +1,39 @@
+<think>
+Okay, let's tackle this. I need to score the lesson based on the rubric provided. First, I'll go through each criterion one by one. The key is to only look at what's on the page and not infer anything about the prompt. The judge is a fresh context, so no previous info.
+
+Starting with Objective Alignment (1). The lesson's blocks have objectives like CS-01. The intro block says a complaint is a chance. The first minute decides the next twenty. The content seems aligned. The definition cards and takeaways all relate to complaint handling. The L2 worked example and scenarios tie back to the objectives. So probably a 5 here.
+
+Level Fidelity (2). The lesson says it's L1 and L2. The L1 blocks have a heading, intro text, definitions, job tip, and takeaways. The L2 has a heading, worked example, KCs, and scenarios. The definition cards are visual, but they're not bulleted lists. The worked example in L2 is detailed. The level seems consistent with what's promised. So 5 here.
+
+Worked Example Quality (3). The L2 example steps show actions and reasoning. Each step's 'why' explains why that action is taken. For example, acknowledging in the customer's words to make them feel heard. The reasoning isn't generic; it's specific to the situation. The answer at the end explains why the customer's question about responsibility is answered by action. So 5.
+
+Knowledge Check Quality (4). The KCs have distractors. Let's check KC1. The correct answer is the acknowledgement one. The distractors include apologizing for the feeling, transferring, and promising a fix. The feedback for each explains why they're wrong. For example, apologizing for the feeling rather than the event. The KC2 has similar structure. The distractors are plausible but incorrect, and the feedback explains the misconception. So 5.
+
+Scenario Authenticity (5). The scenarios are plausible. The L2 scenario has a customer asking to waive a fee, which can't be done. The options include transferring, promising a waiver, and handling it properly. The consequences are realistic, like making the customer explain again. The L1 scenarios in the worked example and KCs also seem authentic. So 5.
+
+Bilingual Quality (6). The lesson is bilingual, and the Arabic is provided. Looking at the definitions and scenarios, the Arabic seems natural. The example in the worked example is translated correctly. The Arabic in the KCs is also proper. No English word order issues. So 5.
+
+Concision and Reading Level (7). The lesson is concise. The prose isn't wordy. The definitions are clear. The scenarios are to the point. The takeaways are bulleted. The worked example steps are concise. No unnecessary padding. So 5.
+
+Accessibility and IP (8). The lesson doesn't have real code descriptors or payer policy text. The denylist check is needed. Looking at the lesson, no forbidden terms. The images have alt text. The definitions have icons but no color-only meaning. The Arabic is natural, not machine-translated. So 5.
+
+Now, check if any criterion is below 3. All are 5. The mean is 5, which is above 4.0. No issues. The verdict notes should mention the lesson's strengths, like clear objectives, authentic scenarios, and concise content. No need to mention the scores in the notes. The lesson seems well-structured and effective.
+</think>
+
+```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This lesson effectively meets all criteria, providing clear and authentic scenarios, concise explanations, and well-structured knowledge checks. The bilingual content is natural, and the lesson maintains strong alignment with its objectives while ensuring accessibility and IP compliance. Overall, the lesson demonstrates high quality and fidelity to its intended level."
+}
+```

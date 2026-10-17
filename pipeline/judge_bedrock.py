@@ -37,6 +37,8 @@ pass the endpoint instead of a region:
 
 The prompt, the parsing and the gate are identical; only the transport differs. If the
 server wants a key, it is read from JUDGE_API_KEY in the environment, never from a file.
+With JUDGE_KEEP_OUTPUT set, the model's whole reply, any reasoning included, is kept
+beside the verdict as `verdict.<tag>.output.txt`.
 """
 
 from __future__ import annotations
@@ -146,10 +148,17 @@ def build_prompt(lesson: dict, levels: set[str], items: list[dict] | None = None
 
 
 def rubric_example() -> dict:
-    """The example verdict printed in the rubric's output section."""
+    """The example verdict printed in the rubric's output section. An example written
+    with placeholders instead of values is not JSON, has nothing to copy, and so turns
+    the copy check off rather than breaking every judgement."""
     text = RUBRIC.read_text(encoding='utf-8')
     m = re.search(r'## Output the judge must return.*?```json\s*(\{.*?\})\s*```', text, re.S)
-    return json.loads(m.group(1)) if m else {}
+    if not m:
+        return {}
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return {}
 
 
 def copies_rubric_example(verdict: dict) -> bool:
@@ -162,8 +171,9 @@ def copies_rubric_example(verdict: dict) -> bool:
 
 
 def extract_json(text: str) -> dict:
-    """Models sometimes wrap JSON in fences or a sentence. Take the outermost object."""
-    text = text.strip()
+    """Models sometimes wrap JSON in fences or a sentence, and a reasoning model may
+    think aloud first. Drop any think block, then take the outermost object."""
+    text = re.sub(r'<think>.*?</think>', '', text, flags=re.S).strip()
     fenced = re.search(r'```(?:json)?\s*(\{.*\})\s*```', text, re.S)
     if fenced:
         text = fenced.group(1)
@@ -196,15 +206,23 @@ def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int = 4000
     return text, usage
 
 
-def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: int = 4000,
+def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: int | None = None,
                            timeout: float = 1800) -> tuple[str, dict]:
     """The same judgement from a model served on your own hardware. The timeout is
-    long on purpose: an open model on a CPU node can take minutes per lesson."""
+    long on purpose: an open model on a CPU node can take minutes per lesson.
+
+    JUDGE_MAX_TOKENS and JUDGE_TEMPERATURE (environment) exist for reasoning models,
+    whose thinking counts against the token budget and can loop when decoding is greedy.
+    The defaults are the ones every other judge runs with, and the verdict records the
+    temperature actually used."""
+    if max_tokens is None:
+        max_tokens = int(os.environ.get('JUDGE_MAX_TOKENS', '4000'))
+    temperature = float(os.environ.get('JUDGE_TEMPERATURE', '0'))
     body = json.dumps({
         'model': model,
         'messages': [{'role': 'user', 'content': prompt}],
         'max_tokens': max_tokens,
-        'temperature': 0,
+        'temperature': temperature,
     }).encode('utf-8')
     headers = {'Content-Type': 'application/json'}
     key = os.environ.get('JUDGE_API_KEY')
@@ -218,7 +236,7 @@ def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: i
     raw_usage = data.get('usage') or {}
     usage = {'inputTokens': raw_usage.get('prompt_tokens'),
              'outputTokens': raw_usage.get('completion_tokens'),
-             'temperature': 0}
+             'temperature': temperature}
     return text, usage
 
 
@@ -298,6 +316,10 @@ def main(argv: list[str] | None = None) -> int:
     else:
         text, usage = call_bedrock(prompt, args.model, args.region)
         provider = 'amazon-bedrock'
+    if os.environ.get('JUDGE_KEEP_OUTPUT'):
+        # A reasoning judge's trace is the evidence of whether it read the lesson; the
+        # verdict alone keeps only the JSON it ended with.
+        (args.lesson.parent / f'verdict.{args.tag}.output.txt').write_text(text, encoding='utf-8')
     try:
         raw = extract_json(text)
     except (ValueError, json.JSONDecodeError) as e:

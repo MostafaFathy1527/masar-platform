@@ -1,0 +1,42 @@
+<think>
+Okay, I need to score this lesson against the given rubric. Let me go through each criterion one by one.
+
+First, **Objective Alignment (1)**. The lesson has multiple objectives and concepts. I need to check if each block serves the declared objective. Looking at the blocks for L1, they all seem to relate to teaching how to recognize phishing emails, which aligns with the objectives. The L2 blocks also focus on applying this knowledge. So I think they mostly align. Maybe a 3 or 5? Wait, the rubric says 1 if blocks don't match, 3 if mostly aligned, 5 if every block earns its objective. Since the blocks all seem relevant, maybe a 5. But need to check if there's any misalignment. The blocks introduce terms like display_name, look_alike_domain, etc., which are part of the objectives. So yes, probably 5.
+
+**Level Fidelity (2)**. The lesson is L1 and L2. The rubric says a "visual card" that's a bulleted list with a border fails this. The lesson uses definition_cards and rich_text, which are standard. The L2 has worked_examples and knowledge_checks. There's no mention of a visual card that's just a list. So level fidelity should be 5.
+
+**Worked-example quality (3)**. Each step should show what to do and why. The example in L2 has steps with show and why. For example, "Read the actual address, not the display name" with the why explaining the difference between display name and address. The reasoning seems to name the judgment being made. So each step explains why, which should be a 5.
+
+**Knowledge-check quality (4)**. Distractors need to be real misconceptions. The options in the knowledge_checks. The first MCQ has options like "How well formatted and typo-free it is", which is a plausible misconception. The feedback explains why it's wrong. The second MCQ has options like "Wait and see whether anything happens", which is a plausible misconception. The feedback addresses that. So every distractor seems to name a real misconception. Feedback explains why. So 5.
+
+**Scenario authenticity (5)**. The scenarios in L2 and the ones in the knowledge_checks. The scenarios are about phishing emails, which is authentic. The example in L2 has a manager's display name, a meeting, a supplier payment. That's plausible. The decisions in the scenario have consequences. So 5.
+
+**Bilingual quality (6)**. The lesson is bilingual. The Arabic must be natural. The example provided in the prompt shows some Arabic blocks. Since the lesson declares bilingual, and the Arabic is present, but need to check if it's natural or translated. The rubric says Arabic that reads as machine output is bad. The example in the prompt has Arabic that looks okay, not machine-translated. So 5.
+
+**Concision and reading level (7)**. The lesson is concise. The prose isn't padded. The blocks are to the point. The takeaways are bulleted. The examples are clear. No unnecessary words. So 5.
+
+**Accessibility and IP (8)**. The lesson doesn't have any licensed code or payer policy text. The forbidden terms? The denylist would include terms like specific software names or real companies. The lesson uses examples like "supplier payment", which is generic. So no red flags here. The images might have alt text, but not specified. The rubric says any licensed code or denylisted term is 1. Since there's none, it's 5.
+
+Now, notes for any criterion below 4. All are 5. So no notes needed.
+
+The verdict notes: The lesson effectively teaches how to recognize phishing emails, with clear examples and knowledge checks. It's concise and uses authentic scenarios. The Arabic is natural. Overall, it meets all criteria.
+
+So the scores should all be 5. No failures. The gate passes if the mean is 4.0 and no criterion below 3. Mean is 5.0, so passes.
+</think>
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson effectively teaches how to recognize phishing emails, with clear examples and knowledge checks. It is concise, uses authentic scenarios, and the Arabic is natural."
+}
+```

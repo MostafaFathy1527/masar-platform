@@ -1,0 +1,65 @@
+<think>
+Okay, let's tackle this. I need to evaluate the lesson "writing-a-shift-handover" against the provided rubric. The key points are to check each criterion from 1 to 5, and note any issues for scores below 4. I can't look at the prompt or source note, just what's on the page.
+
+First, the lesson has L1 and L2 levels, is bilingual, and has various blocks. Let's go through each criterion one by one.
+
+**1. Objective Alignment**: Each block has an objective ID OPS-01. Looking at the blocks, each one seems to relate to the objectives. For example, the heading "What is a shift handover?" aligns with OPS-01. The definitions and flows all connect to shift handover elements. The L2 blocks like the worked example and scenario also tie into the objective. I don't see any blocks that teach something unrelated. So, maybe 5 here.
+
+**2. Level Fidelity**: The lesson is labeled L1 and L2. In L1, there are definitions and process flows, which are foundational. L2 has interactive steps, worked examples, and scenarios. The L2 is more application-based. The "visual card" thing is a distractor, but the lesson doesn't use bulleted lists with borders; the definition cards are structured with icons, which seems okay. So L2 isn't just L1 with a question bolted on. The fidelity to the levels looks good. Score 5.
+
+**3. Worked-Example Quality**: The L2 worked example has steps showing what to do and why. Each step explains why, like "A clear identifier lets the receiver locate the ticket quickly." The reasoning names the judgment being made and what would change it. So, 5 here.
+
+**4. Knowledge-Check Quality**: The two knowledge checks have options with distractors. The first MCQ asks about order, with options like ordering by arrival time. The correct answer is about urgency. The feedback for incorrect options says "Not correct," which is weak. The correct answer's feedback is better, like "A reader who starts at the top is never surprised at the bottom." The second knowledge check's distractors are about changing computer settings, which aren't related. The correct answer is about presenting a guess as a fact. The feedback for the correct option is good. However, two distractors are unrelated, and feedback for incorrect options is minimal. So, maybe 3 here, with a note.
+
+**5. Scenario Authenticity**: The scenarios use realistic situations like a customer with a login issue and a payment failure. The scenarios aren't textbook examples; they have specific details. The best-line scenario has plausible details like deadlines. So, 5.
+
+**6. Bilingual Quality**: The lesson is bilingual. The Arabic translations seem natural. The terms are consistent with the glossary. The Arabic doesn't read like machine translation. So, 5.
+
+**7. Concision and Reading Level**: The prose is concise. The takeaways are bullet points, and the definitions are brief. The Arabic and English texts are parallel. No unnecessary repetition. So, 5.
+
+**8. Accessibility and IP**: The lesson uses icons, alt text isn't mentioned, but maybe assumed. No real code descriptors or policy text. The denylist terms aren't present. So, 5.
+
+Now, for notes on scores below 4:
+
+- Knowledge-check: Two distractors restate the stem rather than naming misconceptions. The feedback for incorrect options is minimal. So note that two distractors are weak, and feedback is thin.
+
+The verdict notes would mention the mean is 4.1 and one criterion at 3. The knowledge checks are the weakest part.
+
+I need to make sure I didn't miss anything. The lesson seems well-aligned, levels are good, examples and scenarios are authentic. The bilingual part is solid. Concision is good. Accessibility seems okay. The knowledge checks are the main issue with weak distractors and minimal feedback. So the scores should reflect that.
+</think>The lesson "writing-a-shift-handover" has been evaluated against the provided rubric. Here is the detailed breakdown:
+
+### Scores
+- **Objective Alignment**: 5
+- **Level Fidelity**: 5
+- **Worked-Example Quality**: 5
+- **Knowledge-Check Quality**: 3
+- **Scenario Authenticity**: 5
+- **Bilingual Quality**: 5
+- **Concision and Reading Level**: 5
+- **Accessibility and IP**: 5
+
+### Notes
+- **Knowledge-Check Quality**: Two distractors restate the stem rather than naming a misconception. Feedback for incorrect options is minimal.
+
+### Verdict Notes
+The mean score is 4.1, with one criterion (knowledge-check) scoring 3. The lesson passes, but the knowledge checks are the weakest part.
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception. Feedback for incorrect options is minimal."
+  },
+  "verdict_notes": "Mean score 4.1; passes. Knowledge checks are the weakest part."
+}
+```

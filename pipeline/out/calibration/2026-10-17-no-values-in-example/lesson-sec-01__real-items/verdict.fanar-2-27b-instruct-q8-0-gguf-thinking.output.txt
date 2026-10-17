@@ -1,0 +1,39 @@
+<think>
+Okay, let's tackle this lesson evaluation. First, I need to remember that I'm in a fresh context, so I shouldn't know what the generator was asked to produce. My job is to score based on the provided rubric. The lesson is about recognizing phishing emails, with both L1 and L2 levels.
+
+Starting with objective alignment (criterion 1). The objectives listed are SEC-01, and the concepts introduced include display_name, look_alike_domain, etc. Each block in L1 and L2 should align with these objectives. Looking at the blocks, the L1 blocks have objectives and payloads that seem to cover topics like the attack on the reader, the display name, look-alike domains, one-time codes, engineered urgency, and takeaways. The L2 blocks include a worked example, knowledge checks, and a scenario. All these seem directly related to SEC-01, so I think this criterion is a 5.
+
+Next, level fidelity (criterion 2). The lesson claims levels L1 and L2. The L1 blocks include headings, rich text, definition cards, a job tip, and takeaways. The L2 has a heading, worked example, knowledge checks, and a scenario. The problem here is whether the L2 is just an L1 with more depth or if it actually meets L2 requirements. The rubric mentions that a visual card that's secretly a bulleted list would fail. The definition cards in L1 and L2 are visual cards with icons, but they're not just bulleted lists—they have definitions and examples. The worked example in L2 is more detailed, showing steps and reasoning. The scenario is interactive, asking for decisions. So, while it's a progression from L1, it's not just an L1 with a question. I think this meets L2 standards. So maybe a 5 here.
+
+Worked-example quality (criterion 3). The worked example in L2 has four steps, each with a "show" and "why." For example, the first step is to read the actual address, and the "why" explains that the display name is free text. Each step has a reason, not just a solution. The "why" mentions judgments and what would change them. So this is good. Criterion 3 is 5.
+
+Knowledge-check quality (criterion 4). The knowledge checks have plausible distractors. For example, in KC-01, options include checking the address, formatting, logo, or work address. The correct answer is the address, but others are plausible misconceptions. The feedback for each distractor explains why they're wrong. For example, the feedback for formatting says typos can be in both phishing and legitimate emails. Similarly, KC-02 has options like reporting, waiting, deleting, or replying, with feedback explaining each. The distractors aren't "nobody would choose" options. So criterion 4 is 5.
+
+Scenario authenticity (criterion 5). The scenario in L2 is about a message from a manager, which is plausible. The situation includes details like a meeting and a payment. The options are to reply, call the signature number, or call on a prior number. The consequences for each are realistic, like replying reaching a different address. The correct answer is to call the prior number, which makes sense. The scenario is recognizable, not textbook. So criterion 5 is 5.
+
+Bilingual quality (criterion 6). The lesson is bilingual, and the Arabic translations are provided. Looking at the Arabic text, it doesn't seem like machine translation. The sentences are natural, and the terminology is consistent with the glossary. For example, "نطاق مُشابِه" for "look-alike domain." So it's not following English word order. The Arabic reads well. So criterion 6 is 5.
+
+Concision and reading level (criterion 7). The lesson avoids padding. The prose in the rich text blocks is clear and to the point. The takeaways are concise. The worked example and scenario don't have extra fluff. So criterion 7 is 5.
+
+Accessibility and IP (criterion 8). The lesson has alt text for images (the icon in definition cards), no color-only meaning, and no forbidden terms. The Arabic is natural, not machine-translated. No licensed code or payer policy text. So criterion 8 is 5.
+
+Now, checking for any criterion below 4. All scores are 5. The mean is 5.0, so no failures. The verdict notes would mention that all criteria met the 5, so it's a successful lesson.
+</think>
+
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson consistently meets or exceeds all criteria, demonstrating strong alignment, fidelity, and quality across all components. The Arabic translation is natural, and the content is concise and free from IP violations."
+}
+```

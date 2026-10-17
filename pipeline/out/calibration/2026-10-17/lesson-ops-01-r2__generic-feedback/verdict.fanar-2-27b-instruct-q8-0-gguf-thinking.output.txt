@@ -1,0 +1,51 @@
+<think>
+Okay, let's see. I need to score this lesson based on the rubric and return the JSON with the scores and notes. First, I should remember the criteria: objective alignment, level fidelity, worked example quality, knowledge check quality, scenario authenticity, bilingual quality, concision, and accessibility.
+
+Starting with objective alignment. The lesson has a clear objective stated, and each block seems to support it. The definitions and process flows relate to the handover process. The example is about a payment failure ticket, which fits the objective. So probably a 4 or 5. Since the blocks are well-aligned, maybe 5.
+
+Level fidelity. The lesson is for L1 and L2. Looking at the blocks, they seem to cover the basics in L1 and then apply it in L2 with the worked example and scenario. The L2 content isn't just L1 with a question bolted on. The interactive flow in L2 is more hands-on. So maybe a 5 here too.
+
+Worked example quality. The example shows steps with reasons. Each step explains why that step is important. For example, "shows the status as a fact, not a feeling." That's good. So 5.
+
+Knowledge check quality. The first question's distractors: the first option is about arrival time, which is incorrect. The feedback says "Not correct." The correct answer is about urgency. The second knowledge check's options: the first distractor says "Nothing; it is short and gives a next action," which is wrong. The feedback says "Not correct." The correct answer is about presenting a guess as fact. Both distractors seem plausible but wrong. Feedback is minimal, just "Not correct." The correct feedback should explain why the distractor is wrong. For example, the first question's correct answer is about urgency, but the feedback doesn't mention why urgency is important. Similarly, the second knowledge check's correct feedback is "Correct." but doesn't explain why the other options are wrong. The rubric says feedback should name the misconception. So maybe score 3 here because feedback is thin. Need to note that.
+
+Scenario authenticity. The scenario about ending the shift with two items: a customer ticket and an order. The distractors are plausible. The correct answer is to lead with the urgent item. The consequences explain why the other options are wrong. This seems authentic. So 5.
+
+Bilingual quality. The Arabic is translated but reads naturally. The terminology is consistent. Since the lesson is bilingual, and the Arabic is accurate without being stiff, maybe 5.
+
+Concision. The prose is clear and to the point. No unnecessary padding. The takeaways and tips are concise. So 5.
+
+Accessibility and IP. The lesson has alt text on images (though the blocks don't mention images, but assuming they're there). No real code or policy text. So 5.
+
+So the scores would be:
+
+Objective alignment: 5
+Level fidelity: 5
+Worked example: 5
+Knowledge check: 3 (notes: feedback restates answer instead of naming misconception)
+Scenario authenticity: 5
+Bilingual quality: 5
+Concision: 5
+Accessibility: 5
+
+Mean would be (5+5+5+3+5+5+5+5)/8 = 4.125. Since the mean is 4.1 and no criteria below 3, it passes. But the notes should mention the knowledge check feedback being thin.
+</think>
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback on incorrect options restates the answer instead of naming the misconception."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+}
+```

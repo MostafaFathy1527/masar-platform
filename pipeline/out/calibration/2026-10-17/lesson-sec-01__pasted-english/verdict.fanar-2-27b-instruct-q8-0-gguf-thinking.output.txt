@@ -1,0 +1,140 @@
+<think>
+Okay, let's start by looking at the rubric and the lesson provided. First, the rubric has eight criteria, each scored 1-5. The gate fails if any criterion is below 3 or the mean is below 4.0. I need to check each criterion against the lesson content.
+
+Starting with objective alignment (1). The lesson's blocks have objectives like SEC-01. Each block in L1 and L2 should serve their declared objective. Looking at the blocks, the definitions, tips, and takeaways all relate to recognizing phishing emails, which aligns with SEC-01. The worked example and scenarios also focus on checking details like sender addresses and links, which directly relate to phishing detection. So, each block seems to support its objective. The lesson covers the objective well. I might give this a 5.
+
+Next, level fidelity (2). The lesson is for L1 and L2. L1 introduces concepts like display name and look-alike domains with definitions and tips. L2 has a worked example and scenarios. However, the lesson doesn't explicitly state that L2 builds on L1. For level fidelity, it needs to ensure the level promised is what the learner experiences. The L1 is foundational, L2 applies the concepts. The lesson might be thin on some blocks, like the L2 knowledge checks. But overall, the levels seem appropriate. Maybe a 4 here because L2 could be more robust. But since the rubric says "the required blocks are present but thin" gets a 3, and the lesson does have the required blocks, maybe a 4 is okay.
+
+Worked-example quality (3). The L2 worked example shows the steps with reasons. For each step, there's a "show" and "why". The reasoning names the judgment being made and explains why. For example, checking the address because the display name can be faked. The answer also gives a clear reason. So each step explains the reasoning. This should be a 5.
+
+Knowledge-check quality (4). The two knowledge checks have distractors. The first MCQ has options about address, formatting, logo, and work address. The correct answer is the address. The feedback for the correct one is clear. However, the feedback for the incorrect options restates the stem rather than naming a misconception. For example, the option about formatting says "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." This doesn't name a specific misconception but just restates the stem. The rubric says restating the answer instead of naming the misconception is bad. So this criterion would get a 3. The notes should mention that two distractors restate the stem.
+
+Scenario authenticity (5). The scenarios are plausible. The first scenario in L2 is about a message from a manager, which is a common phishing scenario. The decisions include options like replying, calling the number, etc. The consequences make sense. The L2 scenario also has a plausible situation. The lesson avoids textbook examples and includes real-world friction. This should be a 5.
+
+Bilingual quality (6). The lesson is marked as bilingual. The Arabic translation seems to follow the English word order, which is a problem. The rubric says Arabic that follows English word order is a 1. However, the lesson is supposed to be scored against its own declaration. The lesson claims to be bilingual, but the Arabic might be machine translated. The rubric says if Arabic follows English word order, it's a 1. So even though the lesson claims bilingual, if the Arabic is poor, the score is 1. But the lesson's Arabic might not be natural. Wait, the payload has mdAr and mdEn. Let me check the Arabic text. The definitions and other blocks have both English and Arabic. The Arabic text might be literal translations. For example, the term "Look-alike domain" is translated as "A genuine registered domain chosen to be misread..." which reads awkwardly. The Arabic in the worked example also seems to follow English structure. So the bilingual quality would be a 1. But the lesson claims to be bilingual, so the score should reflect that. The rubric says automatic 1 if Arabic is literal. So criterion 8 is accessibility and IP, but bilingual is criterion 6. Wait, criterion 6 is bilingual quality. If the Arabic is not natural, then even though the lesson claims bilingual, the score is low. So this would be a 1.
+
+Concision and reading level (7). The lesson seems concise. The prose is clear and doesn't repeat. The blocks are straightforward. There's no padding. The takeaways are concise. The worked example steps are clear. So this should be a 5.
+
+Accessibility and IP (8). The lesson has no licensed code or forbidden terms. It uses images but doesn't rely on color alone. Alt text is not mentioned in the lesson data, but maybe the images have alt text. The problem is about licensed code or forbidden terms. The lesson doesn't mention any, so this is a 5.
+
+Now compiling the scores:
+
+Objective alignment: 5
+
+Level fidelity: 4
+
+Worked example: 5
+
+Knowledge check: 3 (notes: two distractors restate the stem)
+
+Scenario authenticity: 5
+
+Bilingual quality: 1
+
+Concision: 5
+
+Accessibility and IP: 5
+
+Mean is (5+4+5+3+5+1+5+5)/8 = 34/8 = 4.25. The mean is above 4.0. All criteria except knowledge check (3) and bilingual quality (1) are above 4. The gate fails if any criterion is below 3, but 3 and 1 are both below 4. However, the mean is above 4.0. Wait, the gate fails if any criterion scores below 3 or the mean is below 4.0. Here, the mean is 4.25, which is above 4.0, so it doesn't fail on the mean. But the criterion 6 (bilingual quality) is 1, which is below 3, so that's a failure. But the rubric says the gate fails if any criterion is below 3, regardless of the mean. Wait, the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." So if any single criterion is below 3, it fails, regardless of the mean. Here, bilingual quality is 1, which is below 3, so the lesson fails the gate.
+
+But let me double-check. The lesson claims bilingual, but the Arabic is poor. The rubric says if Arabic follows English word order, it's a 1. So that's a failure on criterion 6, which would trigger a gate failure. Even though the mean is high, the gate fails because of the 1 on bilingual quality. The judge's job is to score, not decide pass/fail. But in the JSON output, we need to include the verdict notes. The verdict notes should mention that the mean is 4.25, but the gate fails due to bilingual quality being 1.
+
+But wait, the lesson's bilingual declaration is true, but the Arabic quality is bad. So the lesson claims bilingual, but the Arabic is not natural, so the score is 1. The rubric says if the lesson claims bilingual and the Arabic is bad, it's a 1. So the score is 1 for bilingual quality. But the lesson's mean is 4.25, which is over 4.0, so the gate fails due to the 1 on bilingual. So the verdict is fail.
+
+But according to the rubric, the gate fails if any criterion is below 3. Here, bilingual is 1, which is below 3, so it's a gate failure. The judge's job is to return the scores and notes, not decide pass/fail. The qa_gate.py will handle that. But in the output, the verdict notes should mention that.
+
+So the final scores:
+
+Objective alignment: 5
+
+Level fidelity: 4
+
+Worked example: 5
+
+Knowledge check: 3 (notes: two distractors restate the stem)
+
+Scenario authenticity: 5
+
+Bilingual quality: 1
+
+Concision: 5
+
+Accessibility and IP: 5
+
+Mean is 4.25. The verdict notes should mention that the mean is 4.25 but the gate fails due to bilingual quality being 1.
+
+But the output must be in JSON as specified. The notes are required for any criterion below 4. So for knowledge_check (3) and bilingual_quality (1), notes are needed. The knowledge_check note is about the distractors. The bilingual_quality note would explain that the Arabic is machine-translated.
+
+So the JSON output:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception.",
+    "bilingual_quality": "Arabic translation follows English word order and is machine-like."
+  },
+  "verdict_notes": "Mean score is 4.25. However, the gate fails due to bilingual_quality scoring 1, which is below the threshold. The knowledge checks are the weakest part."
+}
+</think>To evaluate the lesson "Recognising a phishing email" against the specified rubric, I will follow the guidelines provided. The rubric consists of eight criteria, each scored from 1 to 5. The lesson fails the gate if any criterion scores below 3 or if the mean score is below 4.0.
+
+### Detailed Evaluation:
+
+1. **Objective Alignment (5/5)**:
+   - The lesson's objectives (SEC-01) are clearly aligned with the content. Each block (definitions, tips, worked examples, scenarios) directly supports the objective of recognizing phishing emails.
+
+2. **Level Fidelity (4/5)**:
+   - The lesson is structured into L1 and L2 levels. L1 introduces foundational concepts, while L2 applies them in a worked example and scenarios. Although the levels are present, they could be more robust, particularly in L2's knowledge checks.
+
+3. **Worked-Example Quality (5/5)**:
+   - The worked example in L2 clearly demonstrates each step with a "show" and "why" explanation, making the reasoning transparent.
+
+4. **Knowledge-Check Quality (3/5)**:
+   - The knowledge checks have plausible distractors, but some feedback restates the stem rather than naming a specific misconception. For example, the option about formatting says, "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common," which doesn't name a misconception.
+
+5. **Scenario Authenticity (5/5)**:
+   - The scenarios are plausible and include real-world friction, such as a manager's display name being used in a phishing attempt. The consequences of decisions are well-explained.
+
+6. **Bilingual Quality (1/5)**:
+   - The Arabic translation follows English word order and lacks natural phrasing, indicating machine translation. This fails the criterion, despite the lesson claiming to be bilingual.
+
+7. **Concision and Reading Level (5/5)**:
+   - The lesson is concise and free from unnecessary repetition. The prose is clear and to the point.
+
+8. **Accessibility and IP (5/5)**:
+   - The lesson avoids licensed code, forbidden terms, and uses images without relying on color alone. Alt text is not mentioned, but the lesson does not violate any IP constraints.
+
+### Final Scores and Notes:
+
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception.",
+    "bilingual_quality": "Arabic translation follows English word order and is machine-like."
+  },
+  "verdict_notes": "The mean score is 4.25, but the gate fails due to the bilingual_quality scoring 1, which is below the threshold. The knowledge checks are the weakest part."
+}
+```
+
+### Verdict:
+The lesson fails the gate due to the bilingual_quality criterion scoring 1, which is below the required threshold. The mean score is 4.25, which is above 4.0, but the gate fails if any criterion is below 3.

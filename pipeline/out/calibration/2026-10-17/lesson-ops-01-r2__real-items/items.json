@@ -1,0 +1,88 @@
+{
+  "courseSlug": "operations",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain, revised by hand as v2. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "OPS-01-KC-01",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "في تسليمك ثلاثة عناصر مفتوحة. بأي ترتيب تكتبها؟",
+      "stemEn": "Your handover has three open items. In what order do you write them?",
+      "rationaleAr": "يُقرأ التسليم من الأعلى، فالعنصر الذي يحتاج إجراءً أولًا يُكتب أولًا وعليه علامة. الأسئلة الأربعة ترتّب ما تكتبه عن العنصر الواحد، لا ترتيب العناصر.",
+      "rationaleEn": "A handover is read from the top, so the item that needs action first is written first and marked. The four questions order what you write about one item, not the items.",
+      "options": [
+        {
+          "textAr": "بحسب وقت وصولها، الأقدم أولًا.",
+          "textEn": "By when they arrived, oldest first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. ترتيب الوصول يبدو منصفًا، لكنه قد يدفن عنصرًا موعده بعد ساعة تحت عنصر لا موعد له.",
+          "feedbackEn": "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+        },
+        {
+          "textAr": "بحسب موعد احتياجها إلى إجراء، والعاجل في الأعلى بعلامة.",
+          "textEn": "By when they need action, with anything urgent first and marked.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. من يقرأ من الأعلى لا يُفاجأ في الأسفل.",
+          "feedbackEn": "Correct. A reader who starts at the top is never surprised at the bottom."
+        },
+        {
+          "textAr": "الأصعب أو الأكثر إثارة للاهتمام أولًا.",
+          "textEn": "The hardest or most interesting first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. ما شغلك أنت خلال النوبة ليس بالضرورة ما يحتاجه القادم أولًا.",
+          "feedbackEn": "Not correct. What occupied you during the shift is not necessarily what the next person needs first."
+        },
+        {
+          "textAr": "بحسب رقم التذكرة، حتى يسهل البحث.",
+          "textEn": "By ticket number, so they are easy to find.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. ترتيب مرتّب لكنه لا يقول للقارئ شيئًا عن الاستعجال.",
+          "feedbackEn": "Not correct. It is tidy, but it tells the reader nothing about urgency."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-02",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "تسليم زميلك يقول: «تذكرة 77: بطاقة العميل منتهية الصلاحية. اطلب بطاقة جديدة.» تفتح السجل: فشل الدفع مرتين، ولم يؤكد أحد السبب. ما المشكلة في هذا السطر؟",
+      "stemEn": "A colleague's handover reads: \"Ticket 77: the customer's card is expired. Ask for a new card.\" You open the record: the payment failed twice, and nobody has confirmed why. What is wrong with the line?",
+      "rationaleAr": "التخمين بلا علامة يصبح حقيقة النوبة التالية، لأن القادم يتصرّف بما يقرؤه على أنه صحيح. الحل ليس حذف التخمين بل وسمه.",
+      "rationaleEn": "An unlabelled guess becomes the next shift's fact, because the next person acts on what they read as true. The fix is not to delete the guess but to label it.",
+      "options": [
+        {
+          "textAr": "لا شيء؛ السطر قصير وفيه إجراء تالٍ.",
+          "textEn": "Nothing; it is short and gives a next action.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. القِصر ووجود إجراء لا يكفيان إذا كان الإجراء مبنيًا على افتراض قُدِّم كحقيقة.",
+          "feedbackEn": "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+        },
+        {
+          "textAr": "يحتاج إلى تفاصيل أكثر عن تاريخ العميل.",
+          "textEn": "It needs more detail about the customer's history.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. الطول ليس المقياس؛ المشكلة في ما يقدّمه السطر على أنه مؤكد.",
+          "feedbackEn": "Not correct. Length is not the measure; the problem is what the line presents as certain."
+        },
+        {
+          "textAr": "يقدّم تخمينًا على أنه حقيقة، والزميل القادم سيتصرّف على أساسه.",
+          "textEn": "It presents a guess as a fact, and the next person will act on it.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. الحقيقة: فشل الدفع مرتين. التخمين: البطاقة منتهية. يُكتب الثاني بعلامة «تخمين».",
+          "feedbackEn": "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+        },
+        {
+          "textAr": "كان يجب حذف ذكر البطاقة تمامًا.",
+          "textEn": "The card should not be mentioned at all.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح. التخمين قد يفيد القادم إذا وُسم بوضوح؛ حذفه يضيّع ما تعلّمته في نوبتك.",
+          "feedbackEn": "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "courseSlug": "customer-service",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "CS-01-KC-01",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يفتتح المكالمة غاضباً عن طلب وصل متأخراً ومكسوراً. ما أول جملة ينبغي أن تقولها؟",
+      "stemEn": "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?",
+      "rationaleAr": "من لا يشعر أنه مسموع لا يسمع. الإقرار يسمّي التجربة بكلمات العميل قبل أي كلام عن السبب أو الحل، وهو ليس اعترافاً بخطأ لم يثبت.",
+      "rationaleEn": "A person who does not feel heard cannot hear. Acknowledgement names the experience in the customer's words before any cause or fix, and it is not an admission of a fault not yet established.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب.»",
+          "textEn": "\"Your order arrived late and broken, and I can see why you are angry.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. سمّيت ما حدث بكلماته، ووافقت على أن تجربته سيئة — وهي حقيقة يملكها — من دون أن تحكم بعد على من أخطأ.",
+          "feedbackEn": "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "CS-01-KC-02",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "حدّدت المشكلة واتفقتما على استرداد المبلغ. أي إغلاق هو الخطوة التالية المتفق عليها؟",
+      "stemEn": "You have established the facts and agreed on a refund. Which close is an agreed next step?",
+      "rationaleAr": "الخطوة المتفق عليها تحتاج ثلاثة أشياء: إجراء محدد، ووقت محدد، وطريقة يعرف بها العميل أنها تمّت. ما ينقصه أي منها يعيد العميل إلى الاتصال ليصنعه بنفسه.",
+      "rationaleEn": "An agreed next step needs three things: a specific action, a specific time, and a way the customer will know it happened. Anything missing one of them sends the customer back to call and create it.",
+      "options": [
+        {
+          "textAr": "اطلب الغداء للفريق أولًا.",
+          "textEn": "Order lunch for the team first.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أعد تشغيل جهاز الكمبيوتر.",
+          "textEn": "Restart your computer.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«رفعت الاسترداد الآن؛ يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم.»",
+          "textEn": "\"I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. إجراء، ووقت، وطريقة يعرف بها العميل أنه حدث — ثلاثة أشياء يمكنه أن يحاسبك عليها.",
+          "feedbackEn": "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+        },
+        {
+          "textAr": "غيّر لون الشاشة.",
+          "textEn": "Change the colour of the screen.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    }
+  ]
+}

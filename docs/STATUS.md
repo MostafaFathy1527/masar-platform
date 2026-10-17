@@ -210,9 +210,22 @@ a stand-in server and in `test_judge_bedrock.py`.
   and takes `--audit-copies` and `--date`. The 14 October report keeps its rows, with a note.
 - **Context limits:** ALLaM-7B and Fanar-1-9B were not run; their 4,096-token context is
   shorter than the judge prompt.
-- **Still open:** whether Fanar-2 can judge when it cannot copy (thinking on, or a rubric
-  example without numbers).
-- **The live HF Space README** still says eighteen until it is re-uploaded.
+- **The live HF Space README** says nineteen since 17 October.
+
+**Added 2026-10-17: Fanar-2 re-tested at 8-bit, thinking off and on (what-failed entry 19).**
+- **The run:** Fanar-2 at Q8_0 on two V100 cards, four ways: thinking off and on, each with the
+  committed rubric (`pipeline/out/calibration/2026-10-17`) and with a copy whose example verdict
+  has no values (`2026-10-17-no-values-in-example`, with `rubric-used.md`). Settings, model hash
+  and templates are in `2026-10-17/environment.json`.
+- **The result:** thinking off, it returned the example 24 of 24 times at 8-bit too, and with
+  nothing to copy it gave 5 on every criterion to every lesson. Thinking on, it read some
+  lessons: 5 of 14 scorable defects caught with the example present, 4 of 20 without. With the
+  example present, 14 of its 22 verdicts carried the example's knowledge-check note word for
+  word. Not seated.
+- **The code:** `judge_bedrock.py` reads `JUDGE_MAX_TOKENS` and `JUDGE_TEMPERATURE` for a
+  served reasoning model (defaults unchanged: 4,000 and 0, and the verdict records the
+  temperature), drops a think block before reading the JSON, and with `JUDGE_KEEP_OUTPUT` keeps
+  the whole reply beside the verdict as `verdict.<tag>.output.txt`.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and

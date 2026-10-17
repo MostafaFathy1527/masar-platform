@@ -1,0 +1,123 @@
+<think>
+Okay, let's tackle this rubric judgment step by step. First, I need to focus only on the lesson provided and not the original prompt or any previous context. The lesson is about writing a shift handover, with blocks in L1 and L2 levels.
+
+Starting with the first criterion: Objective Alignment. Each block has an objective ID and payload. I need to check if each block's content aligns with its declared objective. The lesson has several blocks, like definitions, process flows, job tips, takeaways, etc. Each seems to be contributing to the overall objective of understanding shift handover practices. For example, the definition cards introduce key terms like "open item," "urgent item," etc. The process flows explain what to include in a handover. The worked example in L2 applies the concepts. The takeaways summarize the key points. The scenario tests application. The knowledge checks assess understanding of the concepts. All these seem to directly serve the objective of teaching effective handover writing. So I think objective alignment is high, maybe a 5. But wait, the rubric says to be strict with 5s. Maybe a 4 is more appropriate if there's a minor misalignment. Let me check if any block deviates. The L2 scenario is about choosing the right line to start with based on urgency, which aligns with the objective of prioritizing urgent items. The knowledge checks reference the concepts. So perhaps it's a solid 5 here. Wait, the rubric says to read the lesson and not infer. The lesson content seems tightly aligned. So 5 is okay here.
+
+Next, Level Fidelity. The lesson declares L1 and L2. L1 is more introductory with definitions and process flows, while L2 has interactive steps, a worked example, and scenarios. The L1 blocks are foundational, and L2 builds on them with application. The L2 blocks are more interactive and require application. There's no mention of any visual cards being bulleted lists, which would fail this criterion. The levels seem appropriate. The L1 is basic concepts, L2 applies them. So 5 here.
+
+Worked-Example Quality. The worked example in L2 shows how to apply the concepts step-by-step. Each step includes "why" explanations. For example, the first step shows "What is it?" with "A clear identifier lets the receiver locate the ticket quickly." The second step explains the status as a fact. The third step mentions avoiding repeating failed attempts. The fourth step explains the deadline ensures the promise is kept. So the "why" is present and names the reasoning. So 5 here.
+
+Knowledge-Check Quality. The two knowledge checks have distractors that are real misconceptions. For example, in the first check, one distractor is "By when they arrived, oldest first," and the feedback explains why that's not correct. Another is "The hardest or most interesting first," which the feedback also addresses. The second check has a distractor about needing more customer history, and the correct answer is about presenting a guess as a fact. The feedback explains why each distractor is wrong. The feedback for the correct answers also explains why they are correct. So every distractor is plausible and the feedback names misconceptions. So 5 here.
+
+Scenario Authenticity. The scenarios presented are plausible. For example, the L2 scenario about ending a shift with two items, one urgent, one not. The options are realistic choices. The consequence of choosing the non-urgent first is explained. The L1 scenario isn't mentioned, but the L2 scenario is plausible. So 5 here.
+
+Bilingual Quality. The lesson is declared bilingual, and the Arabic is provided. I need to check if it's natural or translated. Looking at the Arabic content, it flows well. For example, the definitions are clear and not word-for-word translations. The explanations in the process flows and tips are coherent. The Arabic uses correct word order and terminology. There's no indication of machine translation issues. So 5 here.
+
+Concision and Reading Level. The lesson is concise. The prose is to the point. The job tips and takeaways are brief but cover the key points. The worked example is concise. There's no padding. The definitions are clear. The scenarios are straightforward. The knowledge checks are short. So 5 here.
+
+Accessibility and IP. The lesson includes alt text on images? The lesson doesn't mention images, so that's okay. There's no mention of any licensed code or payer policy text. The denylist terms—I need to check if any forbidden terms are used. The concepts mentioned are safe like "shift handover," "open item," etc. The Arabic terms are consistent with the glossary provided. So 5 here.
+
+Wait, let me confirm the knowledge checks again. For example, in the first knowledge check, the correct answer is "By when they need action, with anything urgent first and marked." The feedback explains why. The other distractors are plausible but incorrect. The feedback for each distractor explains why they are wrong. So the distractors are not implausible, and the feedback explains the misconceptions. So knowledge check is 5.
+
+The lesson's blocks all seem to align, and there's no mention of any real licensed code or payer policy text. The Arabic is natural. The scenarios are authentic. The worked example explains the why. So all criteria except for knowledge check? Wait, the knowledge check is 3 in the example. But in this case, the lesson's knowledge checks are good. The example provided in the problem statement had a knowledge check scored 3 because two distractors restated the stem. But in this lesson, the distractors are different and explain misconceptions. So perhaps in this case, knowledge check is 5.
+
+Wait, but let me double-check the knowledge checks. For the first check, the options are:
+
+- By arrival order (feedback: can bury urgent items)
+- By urgency (correct)
+- Hardest first (feedback: not about what's needed next)
+- Ticket number (feedback: doesn't indicate urgency)
+
+All distractors are plausible misconceptions. The feedback explains why each is wrong. So yes, 5.
+
+Second check: The correct answer is about presenting a guess as a fact. The distractor "needs more customer history" is a plausible misconception. The feedback explains why length isn't the issue. So 5.
+
+Therefore, all criteria can be 5 except for any notes. The example given in the problem statement had a 3 on knowledge check. But in this case, the lesson's knowledge checks are better. So maybe the judge's JSON would have all 5s. But the original example in the problem had a 3 on knowledge check. So perhaps in this case, if the knowledge checks are better, then maybe the judge would score 5. But I need to make sure.
+
+Wait, the judge's example in the problem statement has a note on the knowledge check: "Two distractors restate the stem rather than naming a misconception." But in this lesson, the knowledge checks do name misconceptions. So this lesson's knowledge checks would be 5.
+
+Therefore, the scores would be all 5s. However, the example given in the problem had a knowledge check at 3, but that was a different lesson. This lesson's knowledge checks are better. So the judge should score 5 for knowledge check. Therefore, all criteria would be 5. But the judge must be strict on 5s. If the lesson is excellent in all areas, then 5 is appropriate. Since the lesson seems to meet all criteria, the scores would be 5 across the board. But let me check if there's anything I missed.
+
+Wait, the lesson has two knowledge checks. Each one has four options, with correct answers and feedback. The distractors are plausible misconceptions, and the feedback explains why. So each knowledge check is high quality. Therefore, knowledge check criterion is 5.
+
+So the scores would be all 5s. But in the example problem, the judge scored knowledge check at 3. However, that was based on the lesson provided in the example, which had issues. In this case, the lesson's knowledge checks are better. So the judge should score 5 for knowledge check. Therefore, the JSON would have all 5s.
+
+But wait, the judge's example had a note on knowledge check. In this case, since the distractors are good, there's no note needed. Therefore, the notes section would be empty.
+
+Therefore, the JSON would have all 5s and empty notes. The verdict notes would mention all criteria are 5, so passes.
+</think>To evaluate the lesson titled "Writing a Shift Handover" against the provided rubric, I will carefully score each criterion based on the content provided. Below is the detailed evaluation:
+
+### 1. Objective Alignment
+Each block in the lesson serves its declared objective. For example, the definition cards introduce key terms, the process flows explain handover procedures, and the worked example applies the concepts. All blocks align with the objective of teaching effective handover practices.
+
+**Score**: 5
+
+### 2. Level Fidelity
+The lesson is structured into L1 and L2 levels. L1 provides foundational concepts through definitions and process flows, while L2 builds on these with interactive steps, a worked example, and scenarios. There is no indication of a "visual card" being a bulleted list, and the levels are appropriate for the content.
+
+**Score**: 5
+
+### 3. Worked-Example Quality
+The worked example in L2 shows how to apply the concepts step-by-step, with each step including "why" explanations. For instance, "A clear identifier lets the receiver locate the ticket quickly." The reasoning is clear and names the judgment being made.
+
+**Score**: 5
+
+### 4. Knowledge-Check Quality
+The two knowledge checks have distractors drawn from real misconceptions, and the feedback explains why each distractor is incorrect. For example, one distractor is "By when they arrived, oldest first," and the feedback explains why this is not correct. The feedback for correct answers also explains why they are correct.
+
+**Score**: 5
+
+### 5. Scenario Authenticity
+The scenarios presented are plausible and realistic. For example, the L2 scenario about ending a shift with two items, one urgent and one not, is a common situation. The options are realistic choices, and the consequences are explained.
+
+**Score**: 5
+
+### 6. Bilingual Quality
+The Arabic content is natural and flows well, without indicating machine translation. Terminology is consistent with the glossary provided.
+
+**Score**: 5
+
+### 7. Concision and Reading Level
+The lesson is concise, with prose to the point. Definitions, tips, and scenarios are brief but cover the key points without padding.
+
+**Score**: 5
+
+### 8. Accessibility and IP
+The lesson includes no real licensed code descriptors or payer policy text. There are no forbidden terms, and the Arabic content is consistent with the glossary.
+
+**Score**: 5
+
+### Summary of Scores
+- **Objective Alignment**: 5
+- **Level Fidelity**: 5
+- **Worked-Example Quality**: 5
+- **Knowledge-Check Quality**: 5
+- **Scenario Authenticity**: 5
+- **Bilingual Quality**: 5
+- **Concision and Reading Level**: 5
+- **Accessibility and IP**: 5
+
+### Notes
+No notes are required as all criteria scored 5.
+
+### Verdict Notes
+All criteria scored 5, indicating a high-quality lesson. The mean score is 5.0, and no criterion is below 3. The lesson passes the rubric.
+
+### Final JSON Output
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5, indicating a high-quality lesson. The mean score is 5.0, and no criterion is below 3. The lesson passes the rubric."
+}
+```

@@ -1,0 +1,78 @@
+<think>
+Okay, let's tackle this lesson evaluation. First, I need to remember the rubric and the criteria. The main points are the eight criteria: objective alignment, level fidelity, worked example quality, knowledge check quality, scenario authenticity, bilingual quality, concision, and accessibility/IP. Each is scored from 1 to 5, with thresholds for passing. The judge is supposed to be strict, especially on 4 and 5.
+
+Starting with objective alignment. Each block should align with its stated objective. The lesson's objective is OPS-01, which seems to be about shift handover. Looking at the blocks, they all have the objective OPS-01, but I need to check if each block actually serves that objective. The definitions for shift handover, open/urgent items, etc., are part of explaining the process, which aligns. The flow questions and tips also relate to the handover process. So, every block seems to be relevant. So maybe a 5 here.
+
+Level fidelity: The lesson is for L1 and L2. The rubric mentions a "visual card" failing this if it's a bulleted list. Looking at the blocks, there are definition cards and process flows. The L1 blocks introduce concepts and flow, and L2 has a worked example and scenarios. The L1 isn't just a simple list, but actual content. The L2 builds on that with examples and scenarios. So the level fidelity seems good. Maybe a 5 here.
+
+Worked example quality: Each step should show what to do and why. In the L2 worked example, the steps show the answer and explain the reasoning. For example, "What is it? – Ticket #4523: customer payment failure. Why: A clear identifier lets the receiver locate the ticket quickly." Each step has a "why" explaining the purpose. So that's good. Score 5.
+
+Knowledge check quality: The distractors need to come from real misconceptions, and feedback should explain why, not restate. Looking at the two knowledge checks. The first MCQ has options about ordering items by arrival vs urgency. The feedback for the correct answer explains why urgency is better. The distractors are plausible misconceptions. The second question's correct answer is about presenting a guess as a fact, and the feedback explains that. The distractors mention details or deleting the guess, which are wrong. So both knowledge checks seem to have plausible distractors and good feedback. Maybe 5 here.
+
+Scenario authenticity: The scenario should be realistic. The example in L2 has a situation where a colleague's handover has a guess presented as fact. The scenario asks which line is best, with options like leading with urgent items. The correct answer is about the urgent item. The scenario feels realistic, as handover mistakes are common. So 5 here.
+
+Bilingual quality: The lesson is bilingual. The Arabic should be natural, not word-for-word translations. Looking at the definitions and examples, the Arabic seems to follow a natural order. The translation isn't word-for-word, like the example "اتصل بالعميل قبل 16:00 لتحديثه بالنتيجة" which is a proper Arabic structure. The Arabic is consistent and doesn't follow English word order. So 5 here.
+
+Concision: The lesson should be concise. The prose is checked, but the blocks are structured. The definitions are concise, the flow questions are brief. The takeaways are bullet points. The lesson doesn't seem padded. The L2 worked example and scenarios are to the point. So 5.
+
+Accessibility/IP: No licensed code, no forbidden terms. The lesson has alt text on images if any, but the provided blocks don't mention images. The lesson uses terms from the glossary, so no IP issues. The definitions are original. So 5 here.
+
+Now checking each criterion for scores below 4. All are 5, so no notes needed. The verdict notes should mention the lesson's strengths, maybe that it's well-structured with good examples and clear explanations. But the rubric says two sentences.
+
+Wait, the rubric says "Read pipeline/rubric.md and return exactly the JSON shape it specifies". The output should be JSON with lesson slug, scores, notes for each criterion below 4, and verdict notes. Since all scores are 5, the notes section would be empty. The verdict notes can mention the lesson's strengths.
+
+But wait, the rubric says if any criterion below 3, it fails. All here are 5, so pass. But the judge doesn't decide pass/fail, just scores. The gate does. But in the JSON, the judge just returns the scores. The verdict_notes should be two sentences. Let me check the example output.
+
+The example JSON has "verdict_notes": "<one or two sentences about this lesson>" So maybe something like "The lesson effectively covers shift handover procedures with clear definitions and practical examples. The Arabic translation is natural and aligns well with the English content." That's two sentences.
+
+So putting it all together: lesson slug is "writing-a-shift-handover", scores all 5, notes empty, verdict_notes as above.
+</think>To determine the score for the provided lesson, I will evaluate it against the eight criteria outlined in the rubric.
+
+### Objective Alignment (5/5)
+Each block in the lesson serves the objective it declares. The lesson focuses on teaching the concept of shift handover, including definitions, flow questions, tips, and examples. All blocks are directly relevant to the objective.
+
+### Level Fidelity (5/5)
+The lesson is designed for levels L1 and L2. The content is structured appropriately for each level. L1 introduces core concepts, while L2 applies them through examples and scenarios. There is no indication that the level labels are aspirational or that the required blocks are thin.
+
+### Worked-Example Quality (5/5)
+Each step in the worked example shows what to do and explains the reasoning. For instance, the example for ticket #4523 includes steps like identifying the item, stating the status, listing actions taken, and defining the next steps with deadlines. Each step includes a clear "why" explanation.
+
+### Knowledge-Check Quality (5/5)
+The knowledge checks include distractors based on realistic misconceptions and provide feedback that explains the reasoning behind the correct answer. For example, one knowledge check asks about the order of items in a handover, with distractors like ordering by arrival time or ticket number, and the correct answer explaining the importance of urgency.
+
+### Scenario Authenticity (5/5)
+The scenarios presented are realistic and relatable to the context of shift handover. For example, one scenario involves a handover with an urgent item (a customer promise) and a less urgent one, asking which should be prioritized. The scenario reflects common challenges in handover processes.
+
+### Bilingual Quality (5/5)
+The Arabic translation is natural and does not follow English word order. The definitions and explanations are consistent with the glossary and read as if written in Arabic. For example, "اتصل بالعميل قبل 16:00 لتحديثه بالنتيجة" is a natural Arabic phrase.
+
+### Concision (5/5)
+The lesson is concise and avoids unnecessary padding. Definitions, flow questions, and examples are brief and to the point. The prose is clear and focused, with no extraneous information.
+
+### Accessibility and IP (5/5)
+The lesson includes alt text for any images (though none are present in the provided blocks) and does not contain any licensed code descriptors or forbidden terms. The content is original and adheres to accessibility guidelines.
+
+### Notes
+No criteria scored below 4, so no notes are required.
+
+### Verdict Notes
+The lesson effectively covers shift handover procedures with clear definitions and practical examples. The Arabic translation is natural and aligns well with the English content.
+
+### JSON Output
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson effectively covers shift handover procedures with clear definitions and practical examples. The Arabic translation is natural and aligns well with the English content."
+}
+```

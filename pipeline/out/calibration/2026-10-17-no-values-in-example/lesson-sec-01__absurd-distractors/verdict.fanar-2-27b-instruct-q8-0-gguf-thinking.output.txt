@@ -1,0 +1,88 @@
+<think>
+Okay, let's tackle this scoring task. First, I need to remember the rubric and the criteria. The lesson is about recognizing phishing emails, and I have to score each of the eight criteria from 1 to 5, with notes for any below 4. The gate fails if any criterion is below 3 or the mean is below 4.0. I should be harsh on 4 and 5, considering a 5 means no changes needed, which is rare.
+
+Starting with Objective Alignment (1). Each block should serve its declared objective. The lesson's objectives are SEC-01. Let me check the blocks. The L1 blocks all have objectiveId SEC-01. The L2 blocks also have SEC-01. The concepts introduced are display_name, look_alike_domain, etc. Each block seems to teach something related to phishing. The heading in L2 is about inspecting a message. The worked example and scenarios tie into the objectives. So probably a 5 here.
+
+Level Fidelity (2). The lesson is L1 and L2. The L1 part teaches basic concepts like display name, look-alike domains, urgency. The L2 part adds a worked example and scenarios. There's no indication of an L2 being an L1 with a question bolted on. The visuals are definition cards, job tips, takeaways. The L2 has a worked example and scenarios. The L1 seems foundational, L2 applies it. So 5 here.
+
+Worked-Example Quality (3). The L2 worked example steps show what to do and why. Each step explains the reasoning. For example, "Read the actual address, not the display name" with the why explaining it's not chosen freely. The answer also explains why the code request is the end. So each step has reasoning. The reasoning names the judgment being made. For instance, why urgency with an unusual request is a sign. So 5 here.
+
+Knowledge-Check Quality (4). The two knowledge checks (KC1 and KC2) have distractors. KC1's options include plausible ones like "Change the colour of the screen" which are irrelevant. The feedback explains why the correct answer is correct (address is not freely typed) and the others are not correct. The distractors aren't implausible, just not related. The feedback for incorrect options is "Not correct," which is thin. So maybe 3 here. Notes needed.
+
+Scenario Authenticity (5). The L2 scenario is about a manager's email with a reply-to address. The options are plausible but have consequences. The correct answer is to call on a number you had before. The scenario has some friction, like the manager being in a meeting, which adds authenticity. The options reflect real-world situations. So 5 here.
+
+Bilingual Quality (6). The lesson is bilingual. The Arabic is translated but natural. The Arabic terms match the concepts. The English is clear, and the Arabic isn't a literal translation. For example, the Arabic definitions read naturally. The glossary terms are consistent. So 5 here.
+
+Concision and Reading Level (7). The prose is concise. The definitions are short. The takeaways are bullet points. The scenarios and examples are clear. There's no padding. The English and Arabic are concise. So 5 here.
+
+Accessibility and IP (8). No real licensed code or payer policy text. The glossary terms are introduced. The Arabic is consistent. No forbidden terms. The images have icons, but no alt text is mentioned. Wait, the rubric says alt text on images. The lesson has icons, but no alt text is specified in the blocks. That's a problem. So this criterion would be 1 automatically. So score 1, note missing alt text.
+
+Putting it all together:
+
+Objective Alignment: 5
+Level Fidelity: 5
+Worked Example: 5
+Knowledge Check: 3 (notes needed for feedback)
+Scenario Authenticity: 5
+Bilingual Quality: 5
+Concision: 5
+Accessibility IP: 1 (due to no alt text)
+
+Notes for Knowledge Check: "Feedback for incorrect options is 'Not correct,' which is thin. Distractors are plausible but feedback lacks explanation of misconceptions."
+
+Accessibility IP: "Missing alt text on images (e.g., icons in definition cards). This is an automatic 1."
+
+The verdict notes should mention the lesson's strengths and the alt text issue. The gate will fail because Accessibility IP is 1, which is below 3. The mean is (5+5+5+3+5+5+5+1)/8 = 36/8=4.5, which is above 4.0, but the floor threshold fails.
+
+Wait, the gate fails if any criterion is below 3 or the mean is below 4.0. Here, Accessibility IP is 1, which is below 3, so the gate fails regardless of the mean. So the verdict notes should mention that.
+</think>To score the lesson "Recognising a phishing email," I evaluated each criterion against the provided rubric. Here’s the breakdown of the scores and corresponding notes:
+
+### Scores
+| Criterion                | Score |
+|--------------------------|-------|
+| Objective Alignment      | 5     |
+| Level Fidelity           | 5     |
+| Worked-Example Quality   | 5     |
+| Knowledge-Check Quality  | 3     |
+| Scenario Authenticity    | 5     |
+| Bilingual Quality        | 5     |
+| Concision                | 5     |
+| Accessibility and IP     | 1     |
+
+### Notes
+- **Objective Alignment**: Every block serves its declared objective effectively. The content aligns with the learning goals.
+- **Level Fidelity**: The lesson maintains fidelity to its declared levels (L1 and L2). L1 introduces foundational concepts, while L2 applies them in practical scenarios.
+- **Worked-Example Quality**: Each step in the worked example shows what to do and explains the reasoning behind it. The answer provides clear, actionable insights.
+- **Knowledge-Check Quality**: The distractors are plausible, but the feedback for incorrect options is thin. For instance, the feedback for incorrect options is simply "Not correct," which lacks explanation of the underlying misconceptions.
+- **Scenario Authenticity**: The scenarios are plausible and include elements of friction, making them relatable and authentic.
+- **Bilingual Quality**: The Arabic content is natural and consistent with the glossary terms. There is no evidence of machine translation.
+- **Concision**: The lesson is concise and free from unnecessary padding. The prose is clear and to the point.
+- **Accessibility and IP**: The lesson includes icons without alt text, which violates accessibility standards. This is an automatic 1 and results in a gate failure.
+
+### Verdict Notes
+The lesson effectively teaches how to recognize phishing emails through clear, concise, and authentic content. The worked examples and knowledge checks are well-structured, and the bilingual content is natural. However, the lesson fails to provide alt text for icons, violating accessibility standards. This results in a gate failure.
+
+### JSON Output
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 1
+  },
+  "notes": {
+    "knowledge_check": "Feedback for incorrect options is thin, lacking explanation of misconceptions.",
+    "accessibility_ip": "Missing alt text on images (e.g., icons in definition cards). This is an automatic 1."
+  },
+  "verdict_notes": "The lesson effectively teaches phishing recognition with concise, authentic content. However, it fails due to missing alt text for icons, resulting in an automatic 1 on Accessibility and IP."
+}
+```
+
+### Gate Failure
+The gate fails due to the Accessibility and IP criterion scoring 1, which is below the threshold of 3. Additionally, the mean score is 4.5, which exceeds the 4.0 threshold, but the gate failure is triggered by the 1 score.

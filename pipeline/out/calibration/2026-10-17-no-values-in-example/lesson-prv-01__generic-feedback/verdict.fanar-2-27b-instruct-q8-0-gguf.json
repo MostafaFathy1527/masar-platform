@@ -1,0 +1,32 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Fanar-2-27B-Instruct.Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T10:52:16.925066+00:00",
+    "usage": {
+      "inputTokens": 6618,
+      "outputTokens": 189
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {},
+  "verdict_notes": "This lesson effectively meets all criteria, providing clear and concise information on personal data and its handling. The content is well-aligned with the objectives, and the bilingual quality is excellent. The knowledge checks and scenarios are authentic and well-crafted, and the lesson is accessible and free from any IP issues."
+}

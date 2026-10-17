@@ -1,0 +1,98 @@
+<think>
+Okay, let me start by carefully reading the instructions and the rubric. The task is to judge a lesson using the provided rubric, focusing solely on the content presented. I need to remember not to infer any missing information or make assumptions about what the lesson was supposed to achieve beyond what's on the page. The final output should be a JSON object with eight integer scores from 1 to 5, plus notes on any criteria below 4.
+
+First, I'll go through each of the eight criteria and evaluate them based on the lesson details.
+
+**1. Objective Alignment:** The lesson declares objectives like SEC-01, and the blocks seem to cover topics like display names, look-alike domains, one-time codes, etc. The introductory text explains why phishing is an attack on the reader, not the system, and the takeaway points align with the concepts introduced. The L1 and L2 sections each have blocks with specific objectives. The definition cards for terms like "look-alike domain" and "one-time code" directly relate to the objective. The worked example in L2 walks through specific steps to check a phishing email, which ties into the SEC-01 objective. The takeaways also list actions like checking the actual address, link destination, and avoiding sharing one-time codes. So each block seems to serve the objective it declares. There's no block that teaches something true but unrelated. So this might be a 5.
+
+**2. Level Fidelity:** The lesson is declared as L1 and L2. The L1 section introduces basic concepts through rich text, definition cards, and takeaways. The L2 section provides a worked example and knowledge checks, which are more advanced. The level labels seem appropriate. There's no indication of an L2 that's just an L1 with a question, and the content for each level builds on the previous. For example, L1 introduces concepts, and L2 applies them in a scenario. The worked example in L2 is detailed, which suggests it's a higher level. The knowledge checks and scenarios also fit the L2 level. So this might be a 5.
+
+**3. Worked-Example Quality:** The worked example in L2 is structured with steps that explain not only what to do but also why. Each step has a "show" (what to do) and a "why" (the reasoning). For instance, the first step says to read the actual address, explaining that the display name is free text and the address isn't. The reasoning names the judgment being made (address is the key, not the name) and what would change it (if the address were chosen freely). The answer also emphasizes stopping at the code request because it's a unique identifier. The steps don't just state the answer but provide the reasoning. So this might be a 5.
+
+**4. Knowledge-Check Quality:** Each knowledge check has four options, one correct and three distractors. The first knowledge check (SEC-01-KC-01) asks about the signal that outranks the display name. The correct answer is the sender's actual address, with feedback explaining why. The distractors include options like "order lunch for the team" and "restart your computer," which are implausible. The second knowledge check (SEC-01-KC-02) asks about what to do if you clicked a phishing link. The correct answer is to report it immediately, with feedback about timing and the message not usually reaching one person. The distractors again include irrelevant options. However, the feedback for the incorrect options just says "Not correct" without explaining the misconception. The correct answer's feedback explains the rationale. So some distractors restate the stem rather than naming a misconception. This would score a 3 because the feedback is thin on some.
+
+**5. Scenario Authenticity:** The scenario in L2 is about a message from the manager's display name, needing a payment moved. The options involve replying to the message, calling the number in the signature, or calling the manager's known number. The correct action is to call the known number and report it. The scenario is plausible, as phishing often involves impersonating superiors with urgent requests. The friction is that the manager's known number is needed, and the scenario explains why the other options are wrong (replying sends to a different address, calling the signature number is part of the message). It's recognizable and includes awkward parts like the manager's unavailability. So this might be a 5.
+
+**6. Bilingual Quality:** The lesson is declared bilingual, so I need to check the Arabic text. The Arabic definitions, tips, and takeaways are provided. The Arabic text isn't a direct translation but seems natural. For example, the term "نطاق مُشابِه" (look-alike domain) is translated accurately, and the definitions in Arabic flow well. The lesson is marked as bilingual, and the Arabic content is present and consistent with the glossary. There's no indication of machine-translated text. So this might be a 5.
+
+**7. Concision and Reading Level:** The lesson is concise. The L1 section has a heading, rich text, definition cards, a tip, and takeaways. L2 has a heading, worked example, knowledge checks, scenarios, and another knowledge check. The text is clear and to the point. The prose is not padded, and each block serves a purpose. The language is straightforward, avoiding unnecessary complexity. So this might be a 5.
+
+**8. Accessibility and IP:** The lesson mentions no real licensed code descriptors or payer policy text. The alt text is not mentioned, but the lesson includes images with icons like 🔍 and 🔐, which should have alt text. However, the instruction says "no real licensed code descriptor or payer policy text" would be an automatic 1. Since there's no mention of such things, and the lesson uses general icons, this should be a 5, assuming alt text is present (even if not specified in the provided JSON). However, the problem statement says "any real licensed code descriptor or payer policy text — automatic 1 on criterion 8". Since the lesson doesn't include any, and uses generic icons, it's compliant. So this might be a 5.
+
+**Notes for criteria below 4:**
+- **Knowledge Check (3):** The feedback for incorrect options just says "Not correct" instead of explaining the misconception. For example, in SEC-01-KC-01, the incorrect options have "غير صحيح" (Not correct) feedback, not explaining why they're wrong. Similarly, SEC-01-KC-02's incorrect options also have the same generic feedback.
+
+Now, compiling the scores and notes:
+
+- **Objective Alignment**: 5
+- **Level Fidelity**: 5
+- **Worked Example**: 5
+- **Knowledge Check**: 3 (notes: Two distractors restate the stem rather than naming a misconception.)
+- **Scenario Authenticity**: 5
+- **Bilingual Quality**: 5
+- **Concision**: 5
+- **Accessibility IP**: 5
+
+Check mean: (5+5+5+3+5+5+5+5)/8 = 39/8 = 4.875. The mean is above 4.0, and all criteria are 3 or above, so the gate passes.
+
+Final notes for verdict: One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part.
+</think>To determine the quality of the lesson, I evaluated it against the provided rubric, focusing solely on the content presented in the lesson. Here is the breakdown of the assessment:
+
+### 1. Objective Alignment
+- **Score: 5**
+- **Rationale:** Each block in the lesson serves the declared objectives effectively. The introductory text explains why phishing is an attack on the reader, not the system, and the takeaway points align with the concepts introduced. The L1 and L2 sections each have blocks with specific objectives that directly relate to the SEC-01 objective. For example, the definition cards for "look-alike domain" and "one-time code" are directly relevant, and the worked example in L2 walks through specific steps to check a phishing email. The takeaways list actions like checking the actual address, link destination, and avoiding sharing one-time codes, which align with the objectives.
+
+### 2. Level Fidelity
+- **Score: 5**
+- **Rationale:** The lesson is declared as L1 and L2, and the content for each level builds appropriately. The L1 section introduces basic concepts through rich text, definition cards, and takeaways. The L2 section provides a worked example and knowledge checks, which are more advanced. The level labels are appropriate, and there's no indication of an L2 that's just an L1 with a question. The worked example in L2 is detailed, and the knowledge checks and scenarios fit the L2 level.
+
+### 3. Worked-Example Quality
+- **Score: 5**
+- **Rationale:** The worked example in L2 is structured with steps that explain not only what to do but also why. Each step has a "show" (what to do) and a "why" (the reasoning). For instance, the first step says to read the actual address, explaining that the display name is free text and the address isn't. The reasoning names the judgment being made (address is the key, not the name) and what would change it (if the address were chosen freely). The answer also emphasizes stopping at the code request because it's a unique identifier. The steps don't just state the answer but provide the reasoning.
+
+### 4. Knowledge-Check Quality
+- **Score: 3**
+- **Rationale:** Each knowledge check has four options, one correct and three distractors. The first knowledge check (SEC-01-KC-01) asks about the signal that outranks the display name. The correct answer is the sender's actual address, with feedback explaining why. The distractors include options like "order lunch for the team" and "restart your computer," which are implausible. The second knowledge check (SEC-01-KC-02) asks about what to do if you clicked a phishing link. The correct answer is to report it immediately, with feedback about timing and the message not usually reaching one person. However, the feedback for the incorrect options just says "Not correct" instead of explaining the misconception. For example, in SEC-01-KC-01, the incorrect options have "غير صحيح" (Not correct) feedback, not explaining why they're wrong. Similarly, SEC-01-KC-02's incorrect options also have the same generic feedback.
+
+### 5. Scenario Authenticity
+- **Score: 5**
+- **Rationale:** The scenario in L2 is about a message from the manager's display name, needing a payment moved. The options involve replying to the message, calling the number in the signature, or calling the manager's known number. The correct action is to call the known number and report it. The scenario is plausible, as phishing often involves impersonating superiors with urgent requests. The friction is that the manager's known number is needed, and the scenario explains why the other options are wrong (replying sends to a different address, calling the signature number is part of the message). It's recognizable and includes awkward parts like the manager's unavailability.
+
+### 6. Bilingual Quality
+- **Score: 5**
+- **Rationale:** The lesson is declared bilingual, and the Arabic text is natural and consistent with the glossary. The Arabic definitions, tips, and takeaways are provided, and there's no indication of machine-translated text. The lesson is marked as bilingual, and the Arabic content is present and consistent.
+
+### 7. Concision and Reading Level
+- **Score: 5**
+- **Rationale:** The lesson is concise. The L1 section has a heading, rich text, definition cards, a tip, and takeaways. L2 has a heading, worked example, knowledge checks, scenarios, and another knowledge check. The text is clear and to the point. The prose is not padded, and each block serves a purpose. The language is straightforward, avoiding unnecessary complexity.
+
+### 8. Accessibility and IP
+- **Score: 5**
+- **Rationale:** The lesson mentions no real licensed code descriptors or payer policy text. The lesson uses generic icons like 🔍 and 🔐, which are accessible. Since the lesson does not include any real licensed code descriptors or payer policy text, and uses generic icons, it is compliant with accessibility and IP guidelines.
+
+### Notes for Criteria Below 4
+- **Knowledge Check (3):** Two distractors restate the stem rather than naming a misconception.
+
+### Final Verdict Notes
+- One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part.
+
+### Final JSON Output
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+}
+```

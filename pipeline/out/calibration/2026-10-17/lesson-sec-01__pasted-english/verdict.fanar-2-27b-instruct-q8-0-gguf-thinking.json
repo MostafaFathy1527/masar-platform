@@ -1,0 +1,35 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Fanar-2-27B-Instruct.Q8_0.gguf+thinking",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.7,
+    "scored_at": "2026-10-17T10:59:52.217311+00:00",
+    "usage": {
+      "inputTokens": 5984,
+      "outputTokens": 2861
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception.",
+    "bilingual_quality": "Arabic translation follows English word order and is machine-like."
+  },
+  "verdict_notes": "The mean score is 4.25, but the gate fails due to the bilingual_quality scoring 1, which is below the threshold. The knowledge checks are the weakest part."
+}

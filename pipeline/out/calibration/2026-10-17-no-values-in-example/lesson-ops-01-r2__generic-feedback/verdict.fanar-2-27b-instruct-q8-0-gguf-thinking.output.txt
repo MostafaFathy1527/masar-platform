@@ -1,0 +1,41 @@
+<think>
+Okay, so I need to judge this lesson on writing a shift handover. The rubric has eight criteria, each scored from 1 to 5. The lesson has two levels, L1 and L2. Let me go through each criterion step by step.
+
+First, Objective Alignment. Each block should serve the objective it declares. The lesson's objectives are OPS-01. Looking at the blocks, the L1 blocks introduce definitions and a process flow. The L2 blocks have a worked example, scenario, and knowledge checks. All the content seems related to shift handover. There are definitions for shift handover, open item, urgent item, fact vs guess, commitment, shared record. The process flow explains the four questions. The L2 part applies the concepts with examples. The objectives are OPS-01, which aligns with the content. So I think this scores a 5 here.
+
+Next, Level Fidelity. The lesson is supposed to be L1 and L2. The L1 blocks introduce concepts through definitions and a process flow. The L2 part has interactive steps, a worked example, scenario, and knowledge checks. The level promises are met. There's no visual card that's a bulleted list, which is a common failure. The L2 has interactive elements and application, so it's not just L1 with a question. So level fidelity is 5.
+
+Worked Example quality. Each step should show what to do and why. The worked example in L2 has four steps. Each step shows the answer and the reason. For example, the first step shows "What is it?" and why it's important. The reasoning names the judgement being made, like preventing repetition. So this is a good example. Score 5.
+
+Knowledge Check quality. The distractors should be real misconceptions. Looking at the two knowledge checks. The first asks about the order of writing handover items, with options like time of arrival vs urgency. The feedback explains why urgency is correct. The second check is about presenting a guess as a fact. The correct answer is that presenting a guess as fact is a problem because the next person acts on it. Feedback explains the rationale. The distractors are plausible misconceptions. So knowledge checks are good. Score 5.
+
+Scenario Authenticity. The scenarios should be realistic. The L1 has a tip about leading with the urgent item. The L2 scenario has a situation where there's an urgent deadline and a non-urgent item. The options are about how to present the urgent one. The best answer is to lead with the urgent item. The consequences explain why leading with urgency is better. The scenario is realistic because shift handovers often have deadlines. So score 5.
+
+Bilingual Quality. The lesson is bilingual. The Arabic text needs to be natural, not a direct translation. Looking at the Arabic blocks, the definitions and process steps. For example, the term "تسليم النوبة" is defined as "اللحظة التي ينتقل فيها العمل من شخص إلى آخر في نهاية نوبته". The definitions are clear and not word-for-word translations. The flow steps are in Arabic. The interactive part in L2 is in Arabic. The Arabic reads naturally, not like machine output. So score 5.
+
+Concision and Reading Level. The lesson should be concise. The prose isn't padded. The text is clear and to the point. The definitions are concise. The blocks are structured well. The interactive elements are brief. There's no unnecessary repetition. So score 5.
+
+Accessibility and IP. The lesson has no real licensed code, no payer policy text, and no forbidden terms. All images have alt text (though there are no images in the provided JSON, but the lesson mentions icons which should have alt text). The lesson doesn't mention any real code or policies. So score 5.
+
+Now checking if any criterion is below 4. All scores are 5. The mean is 5.0, which is above 4.0. No criteria are below 3. So the lesson passes the gate.
+
+The notes for each criterion scored below 4 are required, but since all are 5, there's no need for notes. The verdict notes should summarize. The lesson effectively teaches shift handover with clear objectives, concise content, and realistic scenarios. The bilingual aspect is well-executed, and the knowledge checks target common misconceptions.
+</think>
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This lesson effectively teaches shift handover with clear objectives, concise content, and realistic scenarios. The bilingual aspect is well-executed, and the knowledge checks target common misconceptions. All criteria are met with high quality."
+}
+```

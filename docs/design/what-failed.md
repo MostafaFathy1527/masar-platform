@@ -791,9 +791,32 @@ naming Gemma 3 27B's copies.
 **What it shows:** a judge can fail without being wrong about anything, by not looking. The
 calibration was built to catch a judge that cannot see a defect, and it reported Fanar-2 and
 Gemma 3 27B as judges that could not see one. That was true, but for a reason no score could
-show: they were not reading. Whether Fanar-2 can judge Arabic when it cannot copy is still
-open. The example in the rubric has not been changed, because the seated panel was calibrated
-with it, and no seated judge has ever handed it back.
+show: they were not reading. The example in the rubric has not been changed, because the seated
+panel was calibrated with it, and no seated judge has ever handed it back.
+
+**Re-tested 17 October, at 8-bit and with thinking on.** The same calibration, with Fanar-2 at
+Q8_0 on two V100 cards, run four ways: thinking off and on, each with the rubric as committed and
+with a copy of it whose example verdict has placeholders where its values were
+(`pipeline/out/calibration/2026-10-17` and `2026-10-17-no-values-in-example`).
+
+- **Thinking off, rubric as committed:** the example again, 24 of 24. The 4-bit quantisation was
+  not the cause.
+- **Thinking off, nothing to copy:** 24 verdicts of 5 on every criterion, with closing notes that
+  praised the Arabic of the lessons whose Arabic fields held English. With no example to return,
+  it approved everything instead.
+- **Thinking on, rubric as committed:** no full copies, but 14 of its 22 verdicts carried the
+  example's knowledge-check note word for word. In one trace it calls the example "the user's
+  note" and lowers its own knowledge-check score from 5 to 3 to agree with it. It caught 5 of 14
+  scorable defects, and only one with a note that names the defect.
+- **Thinking on, nothing to copy:** 4 of 20 caught, each with a note about what was changed;
+  none of the pasted English or the empty scenarios, and two scores of 1 for faults the copies
+  did not have.
+
+Fanar-2 does not earn a seat in any of the four. The finding that outlasts it is about the
+example: a model can read an example verdict as evidence about the lesson in front of it. The
+copy check refuses a verdict that is the example; it does not refuse one with its own scores and
+a borrowed note, because part of that verdict is still a reading. Such verdicts are counted in
+the report and recorded here, the same way anchoring on the example's scores is.
 
 ## What to say about this in the case study
 

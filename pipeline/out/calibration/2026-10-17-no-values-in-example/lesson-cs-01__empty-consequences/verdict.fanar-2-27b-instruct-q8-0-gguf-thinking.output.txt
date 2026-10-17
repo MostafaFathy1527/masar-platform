@@ -1,0 +1,80 @@
+<think>
+Okay, let's tackle this scoring task step by step. The lesson is about handling customer complaints, and I need to evaluate it against the rubric provided. First, I'll read through the lesson's structure and content to understand each section.
+
+Starting with the objectives and concepts introduced. The objectives listed are CS-01, which seems to cover acknowledgment, establishing facts, complaint ownership, warm handover, and agreed next steps. The blocks are divided into L1 and L2 levels. The lesson claims to be bilingual, so I'll need to check the Arabic quality.
+
+Now, the rubric has eight criteria. Let's go through each one.
+
+First, Objective alignment. Each block should serve its declared objective. Looking at the L1 blocks, the first is an intro heading. The payload has text in both English and Arabic. The next is a rich text block explaining the first minute's importance. Then there are definition cards for acknowledgment and agreed next step. A job tip, then takeaways. The L2 part has another heading, a worked example, two knowledge checks, and a scenario. Each block's objective is CS-01. I need to check if the content in each block aligns with its objective. For example, the definition card for acknowledgment explains what it is, which matches the objective. Similarly, the worked example and scenario seem relevant. The takeaways list specific actions. So, I think this criterion might be 5 because everything seems to align.
+
+Next, Level fidelity. The lesson is supposed to be L1 and L2. A "visual card" that's a bulleted list with a border would be a problem here. The lesson uses definition cards and worked examples, which don't look like bullet lists. The L2 part includes a scenario and more advanced examples. The level descriptions seem to match the content. So, level fidelity should be 5.
+
+Worked example quality. Each step should show what to do and why. The L2 worked example has steps with show and why sections. The show explains the action, and the why gives the reasoning. For example, the first step in the worked example acknowledges the customer's words and explains why. The rationale for each step is provided. So, this criterion is 5.
+
+Knowledge check quality. The distractors should be based on real misconceptions, and feedback explains why. Looking at the two knowledge checks, each has four options. The correct answer is justified in the feedback. For example, the first knowledge check's correct answer is acknowledging in the customer's words, and the feedback explains that it names the experience without blaming. The distractors like apologizing for the feeling or transferring the customer are common mistakes. The feedback for incorrect options explains why they're wrong. So, knowledge check quality is 5.
+
+Scenario authenticity. The scenario should be plausible. The L2 scenario describes a customer in a chat who wants to waive a fee, but the team that can do it is unavailable. The customer has already sent three messages. The decisions given are plausible: transferring, promising a waiver, or handling it correctly. The consequences for each choice are realistic. So, this is a 5.
+
+Bilingual quality. The lesson claims to be bilingual. The Arabic text needs to be natural, not a direct translation. Looking at the L1 intro's Arabic text: "الشكوى فرصة لم يمنحها لك الآخرون" which translates to "A complaint is an opportunity that others didn't give you." The English version is "A complaint is the chance the others did not give you." The wording is slightly different but conveys the same idea. The Arabic seems natural, not a word-for-word translation. The rest of the Arabic blocks also look natural. So, bilingual quality is 5.
+
+Concision and reading level. The lesson should be concise. The prose is checked mechanically, but this criterion is about whether the content is clear and not wordy. The lesson uses bullet points and clear definitions. The text is straightforward. So, this is 5.
+
+Accessibility and IP. No licensed code descriptors, payer policy text, or forbidden terms. The lesson doesn't mention any of those. It uses alt text for icons (like 🗣️). So, this is 5.
+
+Now, looking at the notes. If any criterion is below 4, I need to add notes explaining why. All the criteria above seem to be 5, so there's no need for notes.
+
+The verdict notes are two sentences about the lesson. Since all scores are high, I can mention that the lesson effectively aligns with objectives and is concise, with good examples.
+
+Wait, let me double-check the knowledge checks. The feedback for incorrect options does explain why they're wrong. For example, in the first knowledge check, the first distractor's feedback says it apologizes for the feeling instead of the event. That's correct. The distractors are plausible misconceptions. So knowledge check quality is 5.
+
+Also, the bilingual quality: the Arabic text is not a direct translation. For example, in the L1 intro, the English says "A complaint is the chance the others did not give you," and the Arabic is "الشكوى فرصة لم يمنحها لك الآخرون." The structure is different but conveys the same meaning naturally. So, the Arabic is not a word-for-word translation but a natural phrasing. So, that's good.
+
+All criteria are 5. Therefore, the mean is 5, and no criterion is below 3. The lesson would pass according to the rubric.
+</think>To score the lesson titled "Handling a customer complaint," I evaluated it against the provided rubric, focusing on the eight criteria and ensuring that each block serves its declared objective, adheres to the specified levels, and provides high-quality examples and knowledge checks. Here is the detailed scoring:
+
+### Scoring Breakdown
+1. **Objective Alignment**: Each block effectively serves its declared objective (CS-01), covering acknowledgment, establishing facts, complaint ownership, warm handover, and agreed next steps. The content aligns with the objectives, and there are no blocks that teach unrelated content.
+   - **Score**: 5
+
+2. **Level Fidelity**: The lesson consistently meets the L1 and L2 levels. The L1 blocks provide foundational knowledge, while the L2 blocks offer more advanced examples and scenarios. The content does not resemble a bulleted list or a simple question bolted onto an L1 lesson.
+   - **Score**: 5
+
+3. **Worked-Example Quality**: The worked example in the L2 block shows what to do and why. Each step includes a clear action and a rationale explaining the reasoning behind it. The reasoning names the judgment being made and what would change it.
+   - **Score**: 5
+
+4. **Knowledge-Check Quality**: The knowledge checks use plausible distractors based on real misconceptions. The feedback for each option explains why the answer is correct or incorrect, rather than simply restating the answer.
+   - **Score**: 5
+
+5. **Scenario Authenticity**: The scenario in the L2 block is plausible and includes realistic friction. The customer's frustration and the constraints of the situation (e.g., a team being unavailable) make the scenario recognizable to someone in the field.
+   - **Score**: 5
+
+6. **Bilingual Quality**: The Arabic text is natural and not a direct translation of the English. Terminology is consistent with the glossary, and the Arabic reads as though it was written natively.
+   - **Score**: 5
+
+7. **Concision and Reading Level**: The lesson is concise and clear, with no unnecessary repetition. The prose is straightforward and efficient.
+   - **Score**: 5
+
+8. **Accessibility and IP**: The lesson includes alt text for icons and avoids any licensed code descriptors, payer policy text, or forbidden terms.
+   - **Score**: 5
+
+### Notes and Verdict
+All criteria scored 5, indicating that the lesson effectively aligns with its objectives, is concise, and provides high-quality examples and knowledge checks. The Arabic translation is natural, and the scenarios are authentic.
+
+### JSON Output
+```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This lesson effectively aligns with its objectives, providing concise and clear content. The examples and scenarios are authentic, and the Arabic translation is natural. All criteria are scored 5."
+}
+```

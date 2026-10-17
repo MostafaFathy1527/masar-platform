@@ -1,0 +1,39 @@
+<think>
+Okay, let's start scoring this lesson. The lesson is called "What counts as personal data, and what to do with it at work." First, I need to check each of the eight criteria based on the rubric provided.
+
+Starting with Objective Alignment (criterion 1). The lesson has two levels, L1 and L2. Looking at the objectives, each block in L1 and L2 has an objectiveId "PRV-01". The blocks in L1 include headings, rich text, definition cards, a job tip, and takeaways. Each of these seems to support the objective. For example, the rich text explains what personal data is, the definition cards define sensitive data and potential breach, and the takeaways summarize key points. Similarly, in L2, the worked example and knowledge checks relate to the same objective. There's no block that seems out of place or unrelated. So, I think this scores a 5 because every block aligns with the objective, and the set covers it comprehensively.
+
+Next, Level Fidelity (criterion 2). The lesson is described as levels L1 and L2. However, the rubric mentions that a "visual card" that is secretly a bulleted list fails this criterion. Looking at the blocks, the definition cards and job tips use icons and structured text but don't seem like bulleted lists hidden as cards. The examples and scenarios are clear. The L2 worked example includes a step-by-step scenario with reasoning. The knowledge checks are MCQs with correct options and feedback. The scenarios in L2 are plausible. So, the level fidelity seems appropriate. There's no indication that the lesson is aspirational or thin. Therefore, this should be a 5.
+
+Worked Example Quality (criterion 3). The L2 worked example has four steps. Each step shows what to do and explains why. For instance, the first step checks if it's personal data, the second checks for sensitive data, the third determines the actual need, and the fourth explains sending necessary information. The reasoning is clear, naming the judgment being made. Each "why" explains the next step. There's no assertion without explanation. So, this is a 5.
+
+Knowledge Check Quality (criterion 4). Both knowledge checks in L2 are MCQs with four options. Each distractor seems plausible. For example, in the first KC, one option says it's not personal data because it doesn't have names, which is a common misconception. The feedback explains why that's incorrect. The second KC's distractors include not providing copies, adding to a to-do list, etc., all plausible but wrong. The feedback names the misconception. There's no "all of the above" and no implausible distractors. So, this is a 5.
+
+Scenario Authenticity (criterion 5). The scenarios in L2 are plausible. The first scenario is a colleague asking for a list with reasons, which is a realistic situation. The second scenario involves an email mistake, which is relatable. The decisions in the scenarios are realistic, including consequences like potential breaches. There's no textbook example here; the scenarios feel genuine. So, this is a 5.
+
+Bilingual Quality (criterion 6). The lesson is marked as bilingual. The Arabic text is present alongside English. Looking at the Arabic, it doesn't seem like a direct translation. For example, the Arabic definitions for sensitive data and potential breach are natural and not word-for-word translations. The terminology is consistent with the glossary. There's no English word order in the Arabic. Therefore, this is a 5.
+
+Concision and Reading Level (criterion 7). The lesson's prose is concise. The blocks are to the point, with definitions and takeaways. There's no padding. The Arabic and English versions are similarly concise. The prose isn't wordy. So, this is a 5.
+
+Accessibility and IP (criterion 8). The lesson doesn't mention any licensed code descriptors or payer policy text. The alt text isn't mentioned, but since there's no image, that's okay. The denylist isn't mentioned either. The Arabic quality is good, and no real code or policy text is used. So, this is a 5.
+
+Now, checking for any notes required. All scores are 5, so no notes are needed for criteria below 4. The verdict notes should mention that the lesson effectively aligns with the objective, uses authentic scenarios, and maintains high concision and bilingual quality, with all criteria meeting the standard. The gate would pass since all scores are 5 and the mean is 5.0, which is above 4.0, and no score is below 3.
+</think>
+
+```json
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson effectively aligns with the objective, using authentic scenarios, concise language, and high-quality bilingual content. All criteria meet the standard, demonstrating strong adherence to the rubric."
+}
+```

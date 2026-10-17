@@ -50,9 +50,12 @@ time now sit on the panel, and both defects are also refused by mechanical check
 by a person. Some judges fail by not reading at all: an open Arabic model, Fanar-2-27B, run
 on Kaggle's free GPUs, handed back the example verdict printed in the rubric for all 24
 lessons, and Gemma 3 27B did the same on most of its verdicts. Those are now refused, and
-counted as no score (what-failed entry 19). The scores are in the calibration reports for
-[14 October](../pipeline/out/calibration/2026-10-14/report.md) and
-[15 October](../pipeline/out/calibration/2026-10-15/report.md).
+counted as no score (what-failed entry 19). Run again at 8-bit with its thinking on, Fanar-2
+read some lessons, but caught 5 of 14 defects with the example in the rubric and 4 of 20 without
+it, and with the example there, 14 of its 22 verdicts borrowed the example's note. The scores are
+in the calibration reports for [14 October](../pipeline/out/calibration/2026-10-14/report.md),
+[15 October](../pipeline/out/calibration/2026-10-15/report.md) and
+[17 October](../pipeline/out/calibration/2026-10-17/report.md).
 
 ## What a person still has to do
 

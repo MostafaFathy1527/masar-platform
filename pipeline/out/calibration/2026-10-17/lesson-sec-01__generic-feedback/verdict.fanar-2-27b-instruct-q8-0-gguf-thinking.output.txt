@@ -1,0 +1,96 @@
+<think>
+Okay, let me start by carefully reading through the lesson and the rubric criteria to score each part. The lesson is about recognizing phishing emails, and it's split into L1 and L2 levels. The rubric has eight criteria, each scored from 1 to 5, with the goal being not to infer the original prompt but to assess based solely on the lesson's content.
+
+First, I need to check each criterion one by one. Let's start with the first one: Objective Alignment. Each block should serve its declared objective. The lesson's objectives are SEC-01, which covers recognizing phishing. The blocks in L1 and L2 need to align with that. Looking at the L1 blocks, they introduce concepts like display name, look-alike domain, engineered urgency, and so on. The L2 blocks have a worked example and scenario. The objectives seem to match the content. For example, the first L1 block introduces the attack on the reader, which aligns with SEC-01. The definition cards explain the introduced concepts. The L2 worked example applies the concepts to a scenario. The takeaways and scenario in L2 reinforce the learning. I don't see any blocks that don't relate to the objective. So maybe a 4 or 5 here. Since the blocks are mostly aligned, but I need to check if there's any stretch. The first L1 block's objective is SEC-01, and the content is about the attack on the reader and checking two or three things. That matches the objective. The definition cards introduce terms that are part of phishing tactics. So I think it's mostly aligned. Maybe a 4.
+
+Next, Level Fidelity. The lesson claims L1 and L2. A "visual card" that's a bulleted list would fail this. Looking at the blocks, the L1 has a rich_text block with bulleted takeaways. However, the definition cards and worked example in L2 seem appropriate for the level. The L2 worked example has steps with reasoning. The L1 blocks might have some text, but the L2 parts are more interactive. The L2 knowledge checks and scenario are good for L2. The lesson doesn't seem to have any visual cards that are just lists. So maybe a 4 here. The L2 blocks are present but maybe a bit thin. For example, the L2 worked example is good, but there's only one knowledge check and one scenario. But since the required blocks are there, maybe a 4.
+
+Worked-Example Quality: Each step should show what to do and why. The L2 worked example has steps with "show" and "why" explanations. For example, the first step says "Read the actual address, not the display name. Why: The display name is free text..." The reasoning names the judgment being made. The other steps do the same. The reasoning explains why checking the address is important. So each step has reasoning. The feedback here would be that the reasoning is present but perhaps not naming specific misconceptions. But the criterion says "reasoning names the judgment being made and what would change it." For example, in the first step, the why explains that the display name isn't reliable, but it doesn't name a specific misconception. However, the criterion says "reasoning present but generic" would be a 3. Since the reasoning is present and explains why, but doesn't specifically name the misconception. So maybe a 3 here. But wait, the example's "why" does explain the reasoning behind each step, but does it name the misconception? The first step's why is about why the display name is not evidence. So maybe that's naming the misconception. Let me check the second step's why: "Displayed text is a label, independent of the destination. A label naming one place and a destination going to another is not ambiguity — that is the finding." Here, the reasoning explains that the text is a label, but the destination is different. So maybe the misconception is that the link text is the same as the destination. The feedback here does explain the reasoning, so maybe it's a 4. Hmm, maybe I need to check each step. The first step's why does name the misconception (that the display name is trustworthy), and the second step's why explains that the link text is a label, which is a misconception. So each step does name the misconception. Therefore, the score might be 5. But the criterion says "names the judgment being made and what would change it." So the "why" in each step does explain why that specific action is important and how it addresses the misconception. For example, the first step's why explains that the address is the evidence, countering the misconception that the display name is evidence. So each step's reasoning does name the misconception. So maybe a 5 here.
+
+Knowledge-Check Quality: Distractors from real misconceptions, feedback explains why. The knowledge checks have four options each. Let's check the first one (KC-01). The stem is about a message with a display name matching an internal department. The options are the sender's actual address, formatting, logo, and arriving at work address. The correct answer is the actual address. The feedback for the correct answer is "Correct." The distractors' feedback is "Not correct." The rationale says the display name is free text, so the address is the evidence. The distractors are plausible misconceptions. For example, someone might think the formatting or logo makes it legitimate. The feedback for the correct answer is just "Correct," which restates the answer. The feedback for distractors is "Not correct," which doesn't explain why. So two issues: feedback for correct answer restates the stem, and feedback for distractors is too generic. Therefore, the score here would be 1. The second knowledge check (KC-02) has the same issue. The stem is about clicking the link and then realizing it's phishing. The correct answer is to report immediately. The feedback for correct is "Correct," and for others, "Not correct." So same problem. Therefore, both knowledge checks have feedback that restates the answer instead of naming the misconception. So score 1 here, but the rubric says 1 if there are implausible distractors or feedback repeats the stem. Since the distractors are plausible, but the feedback is restating, so the score would be 1. But the criterion says "Are distractors drawn from real misconceptions, and does per-option feedback explain why rather than restate the answer?" So if the feedback restates the answer, that's a 1. Even if the distractors are plausible. So even though the distractors are plausible, the feedback is restating, so score 1.
+
+Scenario Authenticity: The scenario in L2 has a message from a manager's display name, saying he's in a meeting and needs payment moved. The options are to reply asking for confirmation, call the number in the signature, or call a number you had before. The consequences explain why each is wrong. The scenario seems plausible. The friction is that the manager's in a meeting, so you can't call, but the scenario uses this to explain why calling the signature number is bad. The scenario is recognizable. The "reply-to" address is different. So the scenario is plausible and includes friction. So score 5.
+
+Bilingual Quality: The lesson is bilingual. The Arabic is natural. The terms are translated correctly. The Arabic content doesn't follow English word order. For example, the L1 block's rich_text in Arabic is written in proper Arabic syntax. The definition cards' terms and definitions are in Arabic. The worked example's prompts and steps are in Arabic. The scenario's situation and options are in Arabic. The Arabic reads naturally. So score 5.
+
+Concision and Reading Level: The prose is concise. The L1 blocks have bulleted takeaways which are concise. The worked example and scenario are also concise. The Arabic and English versions don't have unnecessary repetition. The prose budget is checked, but the criterion is about whether the prose earns its space. The blocks are clear and to the point. For example, the takeaways in L1 list concise points. The L2 worked example's steps are short and explain why. The scenario's options are concise. So score 5.
+
+Accessibility and IP: No licensed code, no forbidden terms, alt text on images (though there are no images in this lesson). The lesson is compliant. The criterion says to score 5 if compliant and uses the constraint as a teaching point. The lesson doesn't use the constraint as a teaching point, but it's still compliant. So score 5.
+
+Now, check for any criteria scored below 4. The knowledge_check is scored 1 due to feedback restating the answer. Also, the worked_example was initially considered 5, but if the reasoning doesn't name the misconception, maybe it's 4. Wait, the worked example's "why" does explain the reasoning behind each step, which does name the misconception. For example, in the first step, the why explains that the display name is free text, so it's not evidence. That's naming the misconception. Similarly, the second step explains why the link text is a label. So the reasoning does name the misconception. Therefore, the worked_example should be 5. The knowledge_check is 1. So the notes would mention the knowledge_check criterion. The verdict notes would mention that one criterion is at 3 (if any) but in this case, the lowest is 1. The mean would be (4+4+5+1+5+5+5+5)/8 = 36/8=4.5. But according to the rubric, the gate fails if any criterion is below 3 or mean is below 4.0. Here, the mean is 4.5, so it passes. But the knowledge_check is 1. The verdict notes should mention that one criterion is at 3 (but in this case, it's 1). The notes for knowledge_check would explain the issue.
+</think>To determine the score for the lesson, I will evaluate each criterion based on the provided rubric and the lesson content.
+
+### Objective Alignment
+- **Criterion**: Does every block serve the objective it declares?
+- **Evaluation**: The lesson's objectives are SEC-01, which aligns with the content. Blocks introduce phishing tactics, explain concepts, and provide examples and scenarios. The content matches the objectives, and no blocks are unrelated.
+- **Score**: 4
+
+### Level Fidelity
+- **Criterion**: Does the lesson do what its level promises?
+- **Evaluation**: The lesson is marked as L1 and L2. The L2 blocks include a worked example and scenario, which are appropriate for the level. The L1 blocks provide foundational information, and the L2 blocks build upon it. There are no "visual cards" that are just bulleted lists.
+- **Score**: 4
+
+### Worked-Example Quality
+- **Criterion**: Does each step show what to do *and why*?
+- **Evaluation**: The L2 worked example includes steps with clear "show" and "why" explanations. Each step explains the reasoning behind the action, naming the specific misconception being addressed.
+- **Score**: 5
+
+### Knowledge-Check Quality
+- **Criterion**: Are distractors drawn from real misconceptions, and does per-option feedback explain *why* rather than restate the answer?
+- **Evaluation**: The knowledge checks use plausible distractors, but the feedback for both correct and incorrect answers restates the answer instead of explaining the misconception.
+- **Score**: 1
+- **Notes**: "Two distractors restate the stem rather than naming a misconception."
+
+### Scenario Authenticity
+- **Criterion**: Would someone who does this work recognize the situation?
+- **Evaluation**: The scenario in L2 is plausible and includes realistic friction. The situation is recognizable, and the options reflect real-world decisions.
+- **Score**: 5
+
+### Bilingual Quality
+- **Criterion**: Is the Arabic natural, or translated? Terminology consistent with the glossary?
+- **Evaluation**: The Arabic content is natural and consistent with the glossary. The terms are translated accurately, and the syntax is correct for Arabic.
+- **Score**: 5
+
+### Concision and Reading Level
+- **Criterion**: Is anything longer than it needs to be?
+- **Evaluation**: The prose is concise and to the point. The takeaways and steps are brief and clear, with no unnecessary repetition.
+- **Score**: 5
+
+### Accessibility and IP
+- **Criterion**: Alt text on any image. No meaning carried by color alone. No real licensed code descriptors or payer policy text.
+- **Evaluation**: The lesson has no images, and there are no licensed code descriptors or forbidden terms. The lesson is compliant.
+- **Score**: 5
+
+### Summary
+- **Scores**:
+  - Objective Alignment: 4
+  - Level Fidelity: 4
+  - Worked Example: 5
+  - Knowledge Check: 1
+  - Scenario Authenticity: 5
+  - Bilingual Quality: 5
+  - Concision: 5
+  - Accessibility and IP: 5
+- **Notes**: "Knowledge Check: Two distractors restate the stem rather than naming a misconception."
+- **Verdict Notes**: "One criterion at 1; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+### Final JSON Output
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+  },
+  "verdict_notes": "One criterion at 1; mean 4.1. Passes, but the knowledge checks are the weakest part."
+}
+```

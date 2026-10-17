@@ -1,0 +1,98 @@
+<think>
+The user wants me to act as a judge for a lesson on writing shift handovers. I need to score the lesson based on the provided rubric, focusing only on the content of the lesson and not on the generation prompt or any external factors. I must return a JSON object with eight scores (1-5) and notes for any criterion scored below 4.
+
+Here are the steps I'll take:
+
+1. **Understand the Rubric:** I will carefully review each of the eight criteria in the rubric to know exactly what is being assessed.
+2. **Analyze the Lesson Content:** I will go through each block of the lesson, paying close attention to the L1 and L2 sections, objectives, concepts, blocks, knowledge checks, and the scenario.
+3. **Score Each Criterion:** For each criterion, I will assign a score from 1 to 5 based on the rubric definitions. I will also note down specific reasons for any score below 4.
+4. **Construct the JSON Output:**  I will format the output as specified in the rubric, including the lesson slug, the scores, notes, and verdict notes.
+
+Let's start by analyzing each criterion in detail.
+
+**1. Objective Alignment (OPS-01)**
+The lesson has a single objective: OPS-01. I need to check if each block serves this objective. The objective is about writing a shift handover. The lesson covers definitions, a process flow, tips, takeaways, and examples. It seems the lesson is focused on explaining how to write a shift handover, which aligns with the objective. The L2 section provides examples and scenarios to apply the knowledge. The knowledge checks are also related to handover writing. The definitions of shift handover, open item, urgent item, fact vs guess, commitment, and shared record are all relevant to understanding how to write a handover. The process flow in L1 and the interactive one in L2 are directly teaching the steps. The tips and takeaways are reinforcing the key points. The scenario in L2 is about prioritizing items in a handover based on urgency, which is crucial for effective handover writing. The sort_buckets activity is about distinguishing facts from guesses, another important aspect of handover writing. The knowledge checks are also aligned with the objective.
+
+Score: 5
+
+**2. Level Fidelity (L1, L2)**
+The lesson declares levels L1 and L2. L1 provides foundational knowledge through definitions and a process flow. L2 builds on this with interactive activities, worked examples, and scenarios for application. This progression is appropriate. The lesson isn't just L1 content with a question added; L2 genuinely adds practical application and deeper understanding. The visual cards are definition cards, which are not bulleted lists. The process flows and scenarios are also not visual cards. The lesson seems to do what its levels promise.
+
+Score: 5
+
+**3. Worked-Example Quality**
+The worked example in L2 is about writing a handover for a customer payment failure. The steps show the answer and provide a 'why' for each step. The 'why' explains the reasoning behind each part of the handover, connecting it to the four questions and the importance of urgency. The 'why' is not generic but specific to the example and the handover process.
+
+Score: 5
+
+**4. Knowledge-Check Quality**
+There are two knowledge checks. Let's analyze each:
+
+* **OPS-01-KC-01:** The stem asks about the order of open items in a handover. The options are plausible. The correct answer is "By when they need action, with anything urgent first and marked." The feedback for the correct answer is good. The feedback for incorrect options explains why they are wrong, focusing on the importance of urgency and clear communication.
+* **OPS-01-KC-02:** The stem describes a colleague's handover and asks about the problem with the line. The options are plausible. The correct answer is "It presents a guess as a fact, and the next person will act on it." The feedback for the correct answer is good. The feedback for incorrect options explains why they are wrong, focusing on the importance of distinguishing facts from guesses.
+
+Both knowledge checks have plausible distractors and feedback that explains why the correct answer is right and why the other options are wrong.
+
+Score: 5
+
+**5. Scenario Authenticity**
+The scenario in L2 is about a shift handover with two open items, one urgent and one non-urgent. The situation is realistic for someone ending a shift. The options are plausible and represent common mistakes. The consequences are realistic and explain the negative impact of the mistakes.
+
+Score: 5
+
+**6. Bilingual Quality**
+The lesson declares `bilingual: true`. The Arabic text is provided for each block. I need to check if the Arabic is natural and follows Arabic word order. I don't speak Arabic, but I can look for obvious signs of machine translation. The Arabic text in the lesson is consistent and appears to be correctly translated. The terms are consistent with the provided definitions.
+
+Score: 5
+
+**7. Concision and Reading Level**
+The lesson is concise. The definitions are brief and to the point. The process flows are structured. The tips and takeaways are short. The worked example is clear and focused. The prose is easy to understand and doesn't contain unnecessary words.
+
+Score: 5
+
+**8. Accessibility and IP**
+No licensed code descriptors or payer policy text is present. The lesson uses icons like ↔, ✏️, ⚡, ✔️/❓, and 🤝 which are not licensed code or payer policy. Alt text is not explicitly mentioned, but images are not used in the provided lesson content. The denylist is not mentioned in the prompt or lesson.
+
+Score: 5
+
+**Notes (for any criterion < 4):** Since all criteria are 5, there are no notes required.
+
+**Verdict Notes:** The lesson effectively teaches the objective of writing a shift handover. It uses clear definitions, process flows, examples, and scenarios to build understanding. The knowledge checks are well-designed, and the scenario is authentic. The lesson is concise and accessible.
+
+**Final JSON Output:**
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This lesson effectively teaches the objective of writing a shift handover. It uses clear definitions, process flows, examples, and scenarios to build understanding. The knowledge checks are well-designed, and the scenario is authentic. The lesson is concise and accessible."
+}
+```
+</think>
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This lesson effectively teaches the objective of writing a shift handover. It uses clear definitions, process flows, examples, and scenarios to build understanding. The knowledge checks are well-designed, and the scenario is authentic. The lesson is concise and accessible."
+}
+```

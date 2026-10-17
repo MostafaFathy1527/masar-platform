@@ -1,0 +1,58 @@
+{
+  "what": "Fanar-2-27B-Instruct through calibrate_judges.py at 8-bit, thinking off and on, with the rubric as committed and with a rubric whose example has no values",
+  "date": "2026-10-17",
+  "hardware": "2 x Tesla V100-SXM3-32GB, driver 580.178.04, CUDA 12.9",
+  "llama_cpp_commit": "83f9389419ef93117d1444f87adfcd9f03ec0509",
+  "llama_cpp_build": "cmake -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=70 -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release",
+  "model": {
+    "file": "Fanar-2-27B-Instruct.Q8_0.gguf",
+    "repository": "mradermacher/Fanar-2-27B-Instruct-GGUF",
+    "quantisation_of": "QCRI/Fanar-2-27B-Instruct (Apache-2.0)",
+    "bytes": 28707972800,
+    "sha256": "7e029d7409693dc2d4644c950d679f2c2376265e697d7828585a2549a226670d"
+  },
+  "server": "llama-server -m Fanar-2-27B-Instruct.Q8_0.gguf -ngl 999 -c 163840 -np 8 --jinja --chat-template-file <template>",
+  "templates": {
+    "thinking off": "{%- for m in messages -%}{%- if m['role'] == 'assistant' -%}{{ m['content'] + '<end_of_turn>\\n' }}{%- else -%}{{ '<start_of_turn>user\\n' + m['content'] + '<end_of_turn>\\n<start_of_turn>model\\n' }}{%- endif -%}{%- endfor -%}{{ '<think>\\n\\n</think>\\n\\n' }}",
+    "thinking on": "{%- for m in messages -%}{%- if m['role'] == 'assistant' -%}{{ m['content'] + '<end_of_turn>\\n' }}{%- else -%}{{ '<start_of_turn>user\\n' + m['content'] + '<end_of_turn>\\n<start_of_turn>model\\n' }}{%- endif -%}{%- endfor -%}",
+    "checked": "each renders what QCRI's own chat_template.jinja renders for one user message (no_thinking true / unset), minus the literal <bos> that llama.cpp adds itself; /apply-template was checked on the server before any judgement"
+  },
+  "conditions": [
+    {
+      "served_name": "Fanar-2-27B-Instruct.Q8_0.gguf",
+      "thinking": false,
+      "rubric": "pipeline/rubric.md as committed",
+      "temperature": 0,
+      "max_tokens": 4000,
+      "folder": "pipeline/out/calibration/2026-10-17"
+    },
+    {
+      "served_name": "Fanar-2-27B-Instruct.Q8_0.gguf+thinking",
+      "thinking": true,
+      "server_extra": "--reasoning-format none, so the reasoning stays in the reply and is kept as verdict.<tag>.output.txt (JUDGE_KEEP_OUTPUT=1)",
+      "rubric": "pipeline/rubric.md as committed",
+      "temperature": 0.7,
+      "temperature_why": "the value in QCRI's own usage example; greedy decoding can loop inside a reasoning trace",
+      "max_tokens": 12000,
+      "folder": "pipeline/out/calibration/2026-10-17"
+    },
+    {
+      "served_name": "Fanar-2-27B-Instruct.Q8_0.gguf",
+      "thinking": false,
+      "rubric": "rubric-used.md in the folder: the committed rubric with the example's values replaced by placeholders",
+      "temperature": 0,
+      "max_tokens": 4000,
+      "folder": "pipeline/out/calibration/2026-10-17-no-values-in-example"
+    },
+    {
+      "served_name": "Fanar-2-27B-Instruct.Q8_0.gguf+thinking",
+      "thinking": true,
+      "server_extra": "--reasoning-format none",
+      "rubric": "rubric-used.md in the folder",
+      "temperature": 0.7,
+      "max_tokens": 12000,
+      "folder": "pipeline/out/calibration/2026-10-17-no-values-in-example"
+    }
+  ],
+  "concurrency": "eight judgements in flight at once against one server with eight slots; each judgement is its own judge_bedrock.py call with the same prompt, parsing and gate as a sequential calibrate_judges.py run"
+}

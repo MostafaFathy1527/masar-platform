@@ -1,0 +1,32 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Fanar-2-27B-Instruct.Q8_0.gguf+thinking",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.7,
+    "scored_at": "2026-10-17T11:10:59.999114+00:00",
+    "usage": {
+      "inputTokens": 8043,
+      "outputTokens": 1180
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {},
+  "verdict_notes": "The lesson effectively meets all criteria, with clear alignment to objectives, appropriate level progression, high-quality worked examples and knowledge checks, authentic scenarios, natural bilingual translation, concise content, and adherence to accessibility standards. The mean score is 5.0, and no criteria scored below 4."
+}

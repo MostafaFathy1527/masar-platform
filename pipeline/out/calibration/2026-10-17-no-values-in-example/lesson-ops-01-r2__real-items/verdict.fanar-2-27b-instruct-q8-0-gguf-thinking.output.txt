@@ -1,0 +1,49 @@
+<think>
+Okay, let's tackle this. I need to judge the lesson "Writing a Shift Handover" using the provided rubric. First, I'll read through the lesson and the rubric criteria to make sure I understand what each section is supposed to cover.
+
+Starting with the lesson structure. It has two levels: L1 and L2. The L1 blocks cover definitions of terms like shift handover, open item, urgent item, and so on. There are also process flows and takeaways. L2 has more interactive process flows, a worked example, a scenario, and knowledge checks. The lesson is in both Arabic and English, which is important for the bilingual quality criterion.
+
+Now, looking at the rubric. The gate fails if any criterion scores below 3, or the mean is below 4.0. That means I need to score each criterion from 1 to 5, and note any below 4 with specific issues.
+
+Let's go through each criterion step by step.
+
+1. **Objective Alignment**: Each block should serve its declared objective. The lesson's objectives are OPS-01. I need to check if each block (heading, rich text, definition cards, process flows, etc.) aligns with that. The L1 blocks introduce terms and concepts, which match the objectives. The L2 blocks apply the concepts with examples and scenarios. The takeaways and knowledge checks reinforce the objectives. So, all blocks seem to serve the objective. Maybe a 5 here.
+
+2. **Level Fidelity**: L1 should be basic, L2 more advanced. The lesson claims to be L1 and L2. The L1 blocks define terms and provide an introduction. L2 has interactive elements, a worked example, and a scenario. The structure seems to progress from definitions to application. No mention of a visual card, which is a recurring issue. So, this should be a 5.
+
+3. **Worked Example Quality**: The worked example in L2. It explains each step and why. For example, the first step shows "What is it? – Ticket #4523: customer payment failure." Then the 'why' is about clear identification. Each step has a reason. The feedback is solid. So 5 here.
+
+4. **Knowledge Check Quality**: The two knowledge checks. The distractors need to be plausible misconceptions. Let's look at the first KC. The options include arranging by arrival, urgency with marking, etc. The feedback explains why the correct answer is correct and why the others are wrong. The second KC has similar structure. The distractors aren't obviously wrong, and feedback explains misconceptions. So 5 here.
+
+5. **Scenario Authenticity**: The scenario in L2. The situation is about ending a shift with two open items. The best line is about leading with the urgent one. The scenario is plausible for someone in that role. There are no unrealistic elements. So 5 here.
+
+6. **Bilingual Quality**: The lesson is marked as bilingual. The Arabic text should be natural, not word-for-word translations. I need to check a few examples. Looking at the Arabic translations in the blocks. For example, in L1_text_intro, the Arabic is coherent and not a direct translation. The definitions also seem natural. The interactive elements like process flows have labels in Arabic that make sense. So 5 here.
+
+7. **Concision and Reading Level**: The prose should be concise. The lesson uses bullet points, definitions, and examples. The takeaways are short. The worked example is concise. The knowledge checks are direct. No unnecessary padding. So 5 here.
+
+8. **Accessibility and IP**: Check for alt text on images (but the lesson doesn't mention images, so maybe no issues). No licensed code or payer policy text. The denylist should be checked. The lesson uses terms like "shift handover" and "open item" which are not from the denylist. So 5 here.
+
+Now, checking for any criteria below 4. All seem to be 5. The lesson looks well-structured, objectives are aligned, no visual cards, no distractor issues, scenarios are authentic, no forbidden terms. So all criteria should be 5.
+
+Wait, but the rubric says to be harsh on 4 and 5. A 5 means no changes needed. The lesson seems thorough. The knowledge checks have good distractors and feedback. The scenario is plausible. The Arabic is natural. The worked example explains why each step. So all 5s.
+
+No criteria below 3. Mean is 5.0, which meets the threshold. So verdict notes can mention that the lesson is well-structured, meets all criteria, and the mean is high.
+</think>
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson effectively meets all criteria, with clear alignment to objectives, appropriate level progression, high-quality worked examples and knowledge checks, authentic scenarios, natural bilingual translation, concise content, and adherence to accessibility standards. The mean score is 5.0, and no criteria scored below 4."
+}
+```

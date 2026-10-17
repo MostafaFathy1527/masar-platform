@@ -1,0 +1,107 @@
+<think>
+Okay, let's tackle this rubric scoring for the lesson "recognising-a-phishing-email". The prompt is pretty clear: I need to evaluate each of the eight criteria, give a score from 1 to 5 for each, and provide notes for any criterion scored below 4. Also, I have to make sure I don't infer anything about the lesson's objectives or what it was supposed to achieve. The score must be based solely on what's in the lesson.
+
+First, I'll go through each criterion step by step. Let me start with Objective Alignment (1). The lesson has blocks with objectives like SEC-01. Looking at the blocks, each seems to align with the objectives. For example, the intro block explains why phishing is an attack on the reader, not the system, which matches the objective. The definitions (look-alike domain, one-time code) are introduced as concepts. The tips and takeaways reinforce the concepts. The L2 blocks have worked examples and scenarios that relate to the objectives. So, all blocks seem to serve their declared objectives. No blocks are teaching something unrelated. So I think this is a 5.
+
+Next, Level Fidelity (2). The lesson declares L1 and L2. The L1 blocks are more foundational, explaining the attack on the reader, definitions, tips, and takeaways. The L2 blocks add a worked example and scenarios with decisions. The L1 blocks are pretty standard, but the L2 adds more complexity and application. There's no sign of a "visual card" that's just a bulleted list with a border, which would be a 1 here. The L2 is more advanced, with scenarios and knowledge checks. The lesson does seem to deliver what each level promises, so that's a 5.
+
+Third, Worked-Example Quality (3). The L2 worked example shows the steps to check a suspicious email. Each step has a "show" and a "why". For example, "Read the actual address, not the display name" with the why being "because it is the next step". But wait, the "why" here is just restating the step. It doesn't explain the reasoning behind why that step is crucial. The rationale should explain the judgment being made. So, even though there's a "why", it's not naming the judgment. The steps don't explain why that specific action is important. So the reasoning is present but generic, which would be a 3.
+
+Fourth, Knowledge-Check Quality (4). The two knowledge checks have distractors. Let's look at the first one: options about what signal outranks the display name. The correct answer is the actual address. The distractors include formatting, typos, logo, and work address. The feedback for the correct answer is "This is always the first check...". The distractors' feedback explains why they are incorrect. For example, typos being a weak signal in both directions, logo being easily copied, etc. The distractors seem plausible. The second knowledge check has similar options. So each distractor is a real misconception. The feedback explains why each is wrong. So this should be a 5.
+
+Fifth, Scenario Authenticity (5). The scenarios in L2 include a message from a manager's display name with a request. The options include replying, calling the number, or calling a known number. The consequences are plausible: replying goes to a different address, calling the number is part of the message, and the correct answer is to call a known number. The scenario is realistic, including details like the manager being in a meeting. The friction is that the correct action might be inconvenient (calling a known number instead of the provided one). So this is a 5.
+
+Sixth, Bilingual Quality (6). The lesson claims to be bilingual. The Arabic and English versions are provided. I need to check if the Arabic is natural or translated. The Arabic text in the payload is provided for each block. Let's look at a sample. For example, the first rich text block: the Arabic starts with "الهجمة على القارئ، لا على النظام" which is a direct translation of "The attack is on the reader, not the system". The structure follows English word order. For instance, "الاسم الظاهر نص حر" translates to "display name is free text". The English phrases are structured in a way that mirrors English syntax. So the Arabic is likely a literal translation rather than natural Arabic phrasing. For example, in Arabic, the verb usually comes before the subject, but here it's the other way around. So this would be a 1.
+
+Seventh, Concision and Reading Level (7). The prose between acting blocks is checked mechanically, but this criterion is about the prose's quality. The lesson is concise. The definitions are short, the tips are bullet points, and the takeaways are concise. The L2 worked example has clear steps. The scenarios are straightforward. There's no padding or repetition. The prose is clear and to the point. So this is a 5.
+
+Eighth, Accessibility and IP (8). The lesson has alt text on images (though none are provided in the example, but the rubric says to check if there are any images), no color-only meaning. There's no mention of real licensed code or payer policy text, and the denylist check. The lesson only introduces terms like "display_name", "look_alike_domain", etc., which are not real licensed code or policy terms. So this is a 5.
+
+Now, compiling the scores and notes.
+
+Objective Alignment: 5
+Level Fidelity: 5
+Worked Example: 3 (reasoning is present but generic)
+Knowledge Check: 5
+Scenario Authenticity: 5
+Bilingual Quality: 1 (Arabic is translated, not natural)
+Concision: 5
+Accessibility/IP: 5
+
+Since the mean is (5+5+3+5+5+1+5+5)/8 = 31/8 = 3.875. The mean is 3.875, which is above 4.0, but there's a criterion below 3? Wait, no, the Bilingual Quality is 1, which is below 3. So even though the mean is above 4, the gate fails if any criterion is below 3. So the gate fails due to the bilingual quality score.
+
+But wait, the lesson declares bilingual=true. So the Arabic must be of good quality. Since the Arabic is a literal translation, that's a problem. So the score for Bilingual Quality is 1.
+
+Thus, the gate fails because of the 1 in criterion 6. The verdict notes should mention the bilingual quality issue and the worked example's reasoning being generic.
+
+Also, the notes for each criterion scored below 4 would be:
+
+For Bilingual Quality (6): "Arabic is a literal translation of English word order, lacks natural phrasing."
+
+For Worked Example (3): "Reasoning in the worked example is generic and does not explain the judgment being made, merely restates the step."
+
+The verdict notes should mention these two issues.
+
+So the final JSON output would have scores with 1 in criterion 6 and 3 in 3, and notes for those two. The mean is 3.875, but since one criterion is below 3, the gate fails. But the judge's job is to report the scores and notes, not decide pass/fail. The gate will handle that.
+</think>To determine the rubric scores for the lesson "recognising-a-phishing-email", we will evaluate each of the eight criteria based solely on the content provided in the lesson. The scores range from 1 to 5, and notes are required for any criterion scored below 4.
+
+### Evaluation
+
+1. **Objective Alignment (5)**
+   - Each block serves its declared objective. For example, the intro block explains why phishing is an attack on the reader, not the system, which aligns with the SEC-01 objective. Definitions, tips, and takeaways reinforce the concepts. The L2 blocks add complexity with worked examples and scenarios.
+   - **Score**: 5
+
+2. **Level Fidelity (5)**
+   - The lesson declares L1 and L2 levels. L1 blocks provide foundational content, while L2 blocks offer more advanced scenarios and knowledge checks. The lesson delivers what each level promises without any "visual card" or other issues.
+   - **Score**: 5
+
+3. **Worked-Example Quality (3)**
+   - The L2 worked example shows steps with "show" and "why" explanations. However, the "why" explanations are generic and do not name the judgment being made. For example, "because it is the next step" rather than explaining the specific reasoning behind each step.
+   - **Score**: 3
+   - **Notes**: "Reasoning in the worked example is generic and does not explain the judgment being made, merely restates the step."
+
+4. **Knowledge-Check Quality (5)**
+   - The knowledge checks have plausible distractors drawn from real misconceptions. Feedback for each distractor explains why it is incorrect. For example, the first knowledge check's distractors include formatting, typos, logo, and work address, each with specific feedback.
+   - **Score**: 5
+
+5. **Scenario Authenticity (5)**
+   - Scenarios in L2 are realistic, including details like a manager being in a meeting. The friction is plausible, such as the need to call a known number instead of the provided one.
+   - **Score**: 5
+
+6. **Bilingual Quality (1)**
+   - The Arabic content is a literal translation of English word order, lacking natural phrasing. For example, "الهجمة على القارئ، لا على النظام" (direct translation of "The attack is on the reader, not the system") and "الاسم الظاهر نص حر" (direct translation of "display name is free text").
+   - **Score**: 1
+   - **Notes**: "Arabic is a literal translation of English word order, lacks natural phrasing."
+
+7. **Concision and Reading Level (5)**
+   - The lesson is concise with short definitions, bullet points, and straightforward scenarios. There is no padding or repetition.
+   - **Score**: 5
+
+8. **Accessibility and IP (5)**
+   - The lesson has no real licensed code descriptors, payer policy text, or denylisted terms. There is no color-only meaning, and the terms introduced are not restricted.
+   - **Score**: 5
+
+### Mean Score Calculation
+- Mean score = (5 + 5 + 3 + 5 + 5 + 1 + 5 + 5) / 8 = 31 / 8 = 3.875
+
+### Final JSON Output
+```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "Reasoning in the worked example is generic and does not explain the judgment being made, merely restates the step.",
+    "bilingual_quality": "Arabic is a literal translation of English word order, lacks natural phrasing."
+  },
+  "verdict_notes": "The lesson generally meets most criteria, but the worked example's reasoning is generic and the Arabic translation lacks natural phrasing, leading to a gate failure due to the bilingual quality score below 3."
+}
+```

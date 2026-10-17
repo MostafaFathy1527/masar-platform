@@ -1,0 +1,169 @@
+<think>
+Okay, let's start by going through each criterion one by one, making sure to follow the rubric exactly. 
+
+First, Objective Alignment. Looking at the blocks, each one seems to tie back to the objective. The intro explains what personal data is, the definition cards cover sensitive data and potential breaches, the job tip talks about common breaches, and the takeaways summarize key points. The L2 section includes a worked example and knowledge checks. All of these align with the objective PRV-01. So I'll give this a 4.
+
+Next, Level Fidelity. The lesson is labeled L1 and L2. The L1 blocks look like foundational content with explanations and definitions. The L2 adds a worked example and scenario, which is typical for a higher level. However, I should check if the L2 content is actually more advanced. The worked example steps through a decision process, which seems appropriate for L2. The scenario and knowledge checks also build on the initial concepts. So I'll score this a 5.
+
+Worked-example quality. The L2 worked example shows each step with a "show" and "why". The "why" explains the reasoning, like identifiability vs. label. The steps are clear and each includes an explanation. So that's a 5.
+
+Knowledge-check quality. Let's look at the two knowledge checks. The first one's distractors include options about names being present or not. The feedback explains why the combination identifies the person. The second one's distractors include deleting the number immediately or not providing copies. The feedback explains the data-subject request process. The key here is whether the distractors are real misconceptions. The first one might not be a common misconception, but it's plausible. The second one about not providing copies is a common misconception. However, the feedback for the second one's options (like replying that data isn't provided) doesn't name the misconception. Instead, it says "No. Access to your own personal data is a fixture..." which restates the answer. So two distractors here restate the stem rather than naming a misconception. That's a problem. So score here would be 3 with a note.
+
+Scenario authenticity. The scenarios, like the one about sending the wrong customer's data, are plausible and include friction like the time of day (5 pm) and the potential for a breach. So that's a 5.
+
+Bilingual quality. The Arabic translations are provided for each block. Since the lesson is bilingual, I need to check if the Arabic reads naturally. The examples given in the blocks are translated, but the prompt says the Arabic should be natural. However, I can't really assess the quality without being fluent. But the lesson claims bilingual, so maybe assume the Arabic is natural. But the rubric says not to penalize English-only if it's not claimed. Wait, the lesson does claim bilingual, so I need to check. If the Arabic is machine-translated, that's a problem. But since the lesson is provided, and the Arabic is present, maybe it's okay. The rubric says if it's a literal rendering of English word order, it's a 1. Since I don't have the expertise, but the lesson is bilingual, perhaps the Arabic is okay. So I'll tentatively give it a 5, but note that if the Arabic is machine-translated, that's an issue. But since the lesson is presented as bilingual, maybe the Arabic is correct.
+
+Concision and reading level. The blocks are concise. The prose is clear and to the point. The job tip and takeaways are bulleted, which is good. So 5.
+
+Accessibility and IP. The lesson mentions alt text and no color-only meaning. Also, no real licensed code or payer policy text. The denylist isn't mentioned. So 5.
+
+Now check the notes for the knowledge check criterion. Two distractors restate the stem instead of naming misconceptions. That's the note for criterion 4.
+
+Verdict notes: One criterion at 3 (knowledge check), mean is 4.1. Passes but knowledge checks are weakest.
+</think>The gate — not the judge — decides pass or fail. `pipeline/qa_gate.py` applies the
+thresholds, writes the report, and appends the run to `memory/run-log.jsonl` **including
+the failures**, because a pipeline whose logged history contains only successes is not
+evidence of anything.
+
+
+---
+
+# Applicability (derived from the lesson, not negotiable)
+
+- The lesson declares levels: L1, L2.
+- The lesson declares bilingual: true. Score Arabic quality against that claim.
+- Score these criteria with an integer 1-5: objective_alignment, level_fidelity, worked_example, knowledge_check, scenario_authenticity, bilingual_quality, concision, accessibility_ip.
+- Return ONE JSON object and nothing else: keys "lesson" (the slug), "scores" (criterion -> integer 1-5), "notes" (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored), "not_scored" (criterion -> reason), and "verdict_notes" (two or three sentences). No markdown fences, no prose before or after the JSON.
+
+---
+
+# The lesson
+
+```json
+{
+ "slug": "what-counts-as-personal-data",
+ "titleAr": "What counts as personal data, and what to do with it at work",
+ "titleEn": "What counts as personal data, and what to do with it at work",
+ "estMinutes": 25,
+ "bilingual": true,
+ "levels": [
+  "L1",
+  "L2"
+ ],
+ "objectives": [
+  "PRV-01"
+ ],
+ "conceptsIntroduced": [
+  "personal_data",
+  "identifiability",
+  "sensitive_data",
+  "need_to_know",
+  "data_subject_request",
+  "potential_breach"
+ ],
+ "blocks": {
+  "l1": [
+   {
+    "id": "prv1_h_intro",
+    "type": "heading",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "textAr": "The question is not \"is there a name on it?\"",
+     "textEn": "The question is not \"is there a name on it?\"",
+     "level": 2
+    }
+   },
+   {
+    "id": "prv1_p_intro",
+    "type": "rich_text",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "mdAr": "**Personal data** is any information that relates to an identified or identifiable living person. The test is **identifiability**, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person: a job title plus a department plus a start date identifies someone in a small team as surely as their name.\n\nThe question to ask is always: **\"could someone work out who this is about?\"** If the answer is yes, directly or by combining it with something else reasonably available, it is personal data and the rules apply.",
+     "mdEn": "**Personal data** is any information that relates to an identified or identifiable living person. The test is **identifiability**, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person: a job title plus a department plus a start date identifies someone in a small team as surely as their name.\n\nThe question to ask is always: **\"could someone work out who this is about?\"** If the answer is yes, directly or by combining it with something else reasonably available, it is personal data and the rules apply."
+    }
+   },
+   {
+    "id": "prv1_d_sensitive",
+    "type": "definition_card",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "termAr": "Sensitive data",
+     "termEn": "Sensitive data",
+     "defAr": "Personal data with a higher handling bar: health information, religion, ethnic origin, political opinions, trade-union membership, biometric and genetic data, sexual life, and criminal records in most regimes. Not because these facts are secret, but because their disclosure can cause harm that cannot be undone. A sick-leave reason, a dietary requirement that reveals a religion, a photograph that shows a disability — each is sensitive even when it arrives in an ordinary email.",
+     "defEn": "Personal data with a higher handling bar: health information, religion, ethnic origin, political opinions, trade-union membership, biometric and genetic data, sexual life, and criminal records in most regimes. Not because these facts are secret, but because their disclosure can cause harm that cannot be undone. A sick-leave reason, a dietary requirement that reveals a religion, a photograph that shows a disability — each is sensitive even when it arrives in an ordinary email.",
+     "icon": "⚠️"
+    }
+   },
+   {
+    "id": "prv1_d_breach",
+    "type": "definition_card",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "termAr": "Potential breach",
+     "termEn": "Potential breach",
+     "defAr": "Personal data that has gone somewhere it should not have: the wrong recipient, a lost device, a public link that should have been private. Reported the same day to whoever owns privacy, not when you get round to it. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does.",
+     "defEn": "Personal data that has gone somewhere it should not have: the wrong recipient, a lost device, a public link that should have been private. Reported the same day to whoever owns privacy, not when you get round to it. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does.",
+     "icon": "🚨"
+    }
+   },
+   {
+    "id": "prv1_tip",
+    "type": "job_tip",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "mdAr": "The most common breach in ordinary office work is not an attack — it is **the convenient channel**: sending a customer's details over a personal messaging app or a personal email address. The moment the data moves there, it is outside every control the organisation has. The convenient channel is usually the wrong one.",
+     "mdEn": "The most common breach in ordinary office work is not an attack — it is **the convenient channel**: sending a customer's details over a personal messaging app or a personal email address. The moment the data moves there, it is outside every control the organisation has. The convenient channel is usually the wrong one."
+    }
+   },
+   {
+    "id": "prv1_take",
+    "type": "takeaways",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "itemsAr": [
+      "The test is identifiability: could someone work out who this is about?",
+      "Sensitive data has a higher bar because its harm cannot be undone — even when it arrives in an ordinary email.",
+      "Collect and use only what the task needs; a \"just in case\" copy is data nobody is protecting.",
+      "Share on a need-to-know basis through approved channels; an internal forward without a need is still a disclosure.",
+      "A data-subject request and a potential breach are both reported the same day — the clock started with you."
+     ],
+     "itemsEn": [
+      "The test is identifiability: could someone work out who this is about?",
+      "Sensitive data has a higher bar because its harm cannot be undone — even when it arrives in an ordinary email.",
+      "Collect and use only what the task needs; a \"just in case\" copy is data nobody is protecting.",
+      "Share on a need-to-know basis through approved channels; an internal forward without a need is still a disclosure.",
+      "A data-subject request and a potential breach are both reported the same day — the clock started with you."
+     ]
+    }
+   }
+  ],
+  "l2": [
+   {
+    "id": "prv1_l2_h",
+    "type": "heading",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "textAr": "Decide, case by case",
+     "textEn": "Decide, case by case",
+     "level": 2
+    }
+   },
+   {
+    "id": "prv1_l2_worked",
+    "type": "worked_example",
+    "objectiveId": "PRV-01",
+    "payload": {
+     "promptAr": "A colleague in another department asks you for a \"quick list\" of employees who took sick leave this quarter, with the reasons, so he can plan cover. You have the file. Work the decision step by step.",
+     "promptEn": "A colleague in another department asks you for a \"quick list\" of employees who took sick leave this quarter, with the reasons, so he can plan cover. You have the file. Work the decision step by step.",
+     "steps": [
+      {
+       "showAr": "Is this personal data? Employee names with their leave — yes, and every row identifies a person.",
+       "showEn": "Is this personal data? Employee names with their leave — yes, and every row identifies a person.",
+       "whyAr": "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label.",
+       "whyEn": "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+      },
+      {
+       "showAr": "Is any of it sensitive? Sick-leave reasons are health information — yes.",
+       "showEn": "Is any of it sensitive? Sick-leave reasons are health information — yes.",
+       "whyAr": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant.",
+       "whyEn": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well

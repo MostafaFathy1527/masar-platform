@@ -1,0 +1,108 @@
+<think>
+Okay, I need to score this lesson based on the provided rubric. Let me go through each criterion step by step and make sure I'm following the instructions correctly. The lesson is about handling customer complaints, with objectives like acknowledgement, establishing facts, complaint ownership, and agreed next steps. It has two levels, L1 and L2, and is bilingual.
+
+First, Objective Alignment (1): Each block should serve its objective. Looking at the L1 blocks, they introduce concepts through headings and rich text. The definition cards (ack, next step) explain terms. The tip and takeaways reinforce the objectives. The L2 blocks have a worked example, knowledge checks, and a scenario. The L2 heading is about working a complaint from open to close. The worked example steps show each part of handling the complaint. The knowledge checks are MCQs with distractors. The scenario presents a situation and options with consequences. All blocks seem aligned to the objectives, so maybe 5 for this.
+
+Level Fidelity (2): The lesson has two levels, L1 and L2. L1 introduces the concepts, L2 applies them through a worked example and scenario. The blocks at each level are appropriate. The worked example in L2 isn't just a bulleted list but a step-by-step guide with reasoning. The knowledge checks are MCQs with explanations. The scenario has three options with realistic consequences. The lesson doesn't seem aspirational; the levels are well-defined. So maybe 5 here.
+
+Worked-Example Quality (3): Each step in the worked example shows what to do and why. For example, the first step is acknowledging the customer's words, and the 'why' explains it's the next step. The steps in L2 also have reasoning. Each 'why' names the judgement being made. The answer at the end connects the steps to the main objective. So that's a 5.
+
+Knowledge-Check Quality (4): The distractors in the knowledge checks should be real misconceptions. Let's look at the first KC. The options include apologizing for feelings, transferring the call, promising a fix, etc. The feedback explains why each is wrong. The second KC also has distractors like a vague close or telling them to email. The feedback on each distractor explains the misconception. However, the note says two distractors restate the stem. Wait, in the first KC, one distractor is "I'm sorry you feel that way" which might restate the stem but the feedback explains why it's wrong. Hmm, the note says "two distractors restate the stem". Let me check. In KC1, the first distractor is "I'm sorry you feel that way; let me explain our shipping policy." The feedback says it apologizes for the feeling rather than the event, so it's not restating the stem. The third option is transferring without a handover, which is a distractor. The fourth is promising a fix without authority. So maybe the note is mistaken? Wait, the note says "two distractors restate the stem". But looking at the options, none of them directly restate the stem. The stem is about arriving late and broken. The distractors are different approaches. So maybe the note is incorrect, but I need to stick to the lesson on the page. The distractors explain real misconceptions. So I might score this 4, but the note says two distractors restate the stem. Wait, maybe the note is part of the judge's score. Wait, no, the note in the example JSON has a note for criterion 4. Let me check the example. The example has notes for criterion 4: "Two distractors restate the stem rather than naming a misconception." So the judge is supposed to check if the distractors are real misconceptions. If two distractors restate the stem instead of naming a misconception, that's a low score. But in this case, looking at the options, none of them restate the stem. The stem is about the customer's problem. The distractors are different approaches. So perhaps the note is incorrect, but as the judge, I have to follow the rubric. Wait, the example JSON has a note for criterion 4 saying two distractors restate the stem, but in reality, the distractors are plausible. But in this lesson, the distractors in KC1 and KC2 are plausible. For example, in KC1, the options are different approaches, each with a consequence. The feedback explains why they are wrong. So maybe the note is wrong here. But since the example JSON includes a note for criterion 4, but in this case, the distractors are actually good. So perhaps the judge should note that the distractors are correct, but according to the example, the judge should note if there's an issue. Wait, the example JSON has a note for criterion 4. So if the judge scores 3, they should note the issue. But in this case, the distractors are good. So maybe the lesson's distractors are correct. So I should score 5 here? But the example JSON has a note. Wait, perhaps in the example, the lesson had two distractors that restated the stem, hence the note. But in this lesson, the distractors are different. So maybe this criterion is 5. But the example JSON had a note, so maybe the judge needs to check. Let me check the lesson's knowledge checks again.
+
+First KC:
+
+Options:
+
+1. "I'm sorry you feel that way; let me explain our shipping policy." – Feedback: apologizes for feeling, goes to defend policy. This is a real misconception (that apologizing for the feeling is sufficient).
+
+2. "Your order arrived late and broken, and I can see why you are angry." – Correct.
+
+3. "I'll transfer you to shipping; they handle deliveries." – Feedback: transferring without handover is bad.
+
+4. "We'll make it all up to you, don't worry." – Feedback: promising without authority.
+
+So none of these restate the stem. The stem is about the order being late and broken. The options are different approaches. So maybe the note in the example is incorrect. But according to the lesson here, the distractors are correct, so score 5. But the example JSON had a note, so maybe in this case, the judge should note that the distractors are correct. Wait, no. The example JSON has a note when the score is 3. If the judge scores 5, there's no note. So in this case, since the distractors are good, score 5. So the note in the example is for a different lesson. So I should score this 5.
+
+Scenario Authenticity (5): The scenario in L2 presents a customer in a chat with a problem the agent can't solve. The options are transferring without handover, promising a fix they can't deliver, or handling it properly. The consequences explain why each is bad. This is realistic. So 5.
+
+Bilingual Quality (6): The lesson is bilingual. The Arabic is translated but natural. The terms are consistent with the glossary. The Arabic doesn't read like machine translation. So 5.
+
+Concision (7): The lesson is concise. The prose isn't wordy. The blocks are to the point. So 5.
+
+Accessibility and IP (8): No licensed code, no payer policy text, no forbidden terms. Alt text on images. So 5.
+
+Putting it all together:
+
+Objective_alignment: 5
+Level_fidelity: 5
+Worked_example: 5
+Knowledge_check: 5
+Scenario_authenticity: 5
+Bilingual_quality: 5
+Concision: 5
+Accessibility_ip: 5
+
+Mean: 5.0, all criteria 5. So passes. No need for notes.
+</think>To score the lesson based on the provided rubric, I will evaluate each of the eight criteria and assign a score from 1 to 5. The final scores will be based on the content of the lesson, strictly adhering to the rubric's guidelines.
+
+### Criteria and Scores
+
+1. **Objective Alignment**  
+   **Score: 5**  
+   All blocks serve their declared objectives. The lesson introduces concepts like acknowledgement, establishing facts, complaint ownership, and agreed next steps. Each block, whether a heading, rich text, definition card, job tip, or takeaway, aligns with the objective of handling customer complaints effectively.
+
+2. **Level Fidelity**  
+   **Score: 5**  
+   The lesson has two levels (L1 and L2) and each level delivers what it promises. L1 introduces concepts, while L2 applies them through a worked example and scenarios. The worked example is detailed, and the knowledge checks are well-constructed, ensuring that the lesson meets the expectations of each level.
+
+3. **Worked-Example Quality**  
+   **Score: 5**  
+   Each step in the worked example shows what to do and why. The reasoning is explicit and names the judgment being made. For example, the first step acknowledges the customer's words, and the 'why' explains why this is the next step. This level of detail ensures that the worked example is more than just a solution; it explains the underlying reasoning.
+
+4. **Knowledge-Check Quality**  
+   **Score: 5**  
+   The knowledge checks include distractors that represent real misconceptions. Each distractor is followed by feedback that explains why it is incorrect. For example, in the first knowledge check, the options include apologizing for feelings, transferring the call, promising a fix, etc., each with a detailed explanation of why it is a misconception.
+
+5. **Scenario Authenticity**  
+   **Score: 5**  
+   The scenario is realistic and includes plausible options with realistic consequences. The customer's situation is relatable, and the options reflect common challenges in handling customer complaints. The consequences of each option are clearly explained, making the scenario authentic and practical.
+
+6. **Bilingual Quality**  
+   **Score: 5**  
+   The Arabic text is natural and consistent with the glossary. The lesson is bilingual, and the Arabic content does not read like machine translation. The terminology is used appropriately, ensuring that the lesson maintains high quality in both languages.
+
+7. **Concision and Reading Level**  
+   **Score: 5**  
+   The lesson is concise and free from unnecessary padding. The prose is clear and to the point, making it easy to read and understand. There is no extraneous information, and each part of the lesson serves a clear purpose.
+
+8. **Accessibility and IP**  
+   **Score: 5**  
+   The lesson adheres to accessibility standards with no reliance on color alone for meaning. There is no use of licensed code descriptors, payer policy text, or terms from the forbidden list. The content is original and compliant with all guidelines.
+
+### Final Scores and Notes
+
+The mean score is 5.0, and all criteria are scored 5. Therefore, the lesson passes the rubric's thresholds.
+
+### JSON Output
+
+```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5. The lesson meets all the required standards and passes the rubric's thresholds."
+}
+```
+
+### Verdict
+
+The lesson meets all the criteria of the rubric, with all scores at 5. The mean score is 5.0, which exceeds the threshold of 4.0, and none of the criteria score below 3. Therefore, the lesson passes the rubric.

@@ -1,0 +1,103 @@
+<think>
+Okay, let me tackle this rubric scoring step by step. First, I need to remember all the criteria from the rubric. There are eight, each scored from 1 to 5. The lesson is about "What counts as personal data, and what to do with it at work." I need to score it based on each criterion without knowing what the generator was supposed to produce. The key is to assess what's on the page, not infer intent.
+
+Starting with Objective Alignment (1). Each block should serve its stated objective. The lesson has blocks with IDs like prv1_h_intro, prv1_p_intro, etc. Each has an objectiveId of PRV-01. The text in the blocks seems to explain personal data, sensitive data, potential breaches, job tips, and takeaways. The objectives mentioned in the lesson's objectives list are PRV-01, which aligns with the blocks. The blocks cover concepts like personal data, identifiability, need-to-know, etc. So each block seems to match its objective. So maybe a 5 here. But wait, I need to check if there's any block that doesn't align. The blocks all seem to explain the concepts introduced, so probably 5.
+
+Level Fidelity (2). The lesson declares levels L1 and L2. The blocks are separated into l1 and l2 sections. The L1 blocks include definitions, examples, and tips. The L2 section includes a worked example, knowledge checks, and a scenario. A visual card that's a bulleted list would be bad, but here the definition cards are structured with terms, definitions, and icons. The level label isn't aspirational. The L2 seems to build on L1 with a more practical example. So maybe 5 here as well.
+
+Worked-Example Quality (3). The L2 worked example has steps with show/why for each. The steps explain what to do and why, naming the judgment. For example, the first step explains why a spreadsheet with job titles and departments is personal data because of identifiability. The reasoning names the judgment being made. The last step explains that sending data through a convenient channel is wrong. So each step has a show and a why. So probably 5 here.
+
+Knowledge-Check Quality (4). The knowledge checks have distractors. The first one has options like "Order lunch for the team first," "Restart your computer," and "Change the colour of the screen." These are implausible, but the correct answer is there. The feedback for incorrect options says "Not correct." The second knowledge check has similar distractors. The feedback doesn't name misconceptions, just says "Not correct." So the distractors are implausible, and the feedback restates the answer. So maybe a 1 or 3? Wait, the rubric says 1 for implausible distractors or feedback that repeats the answer. Here, the distractors are implausible, and the feedback doesn't explain why. So maybe a 1. But maybe some parts are okay. Let me check the options. In the first knowledge check, the correct option is the one that explains the combination of facts. The incorrect options are irrelevant. The feedback for the incorrect ones just says "Not correct." So yes, that's restating the answer. So criterion 4 would be 1.
+
+Scenario Authenticity (5). The scenario is about sending an email with a customer's account statement to the wrong recipient. The situation is plausible. The decisions include recalling the message, reporting to privacy, and resending. The consequences explain why recalling doesn't work outside the organization and that reporting is necessary. The scenario is realistic, not textbook. So maybe 5 here.
+
+Bilingual Quality (6). The lesson is bilingual. The Arabic is present. The rubric says not to penalize English-only if not declared. Here it's declared bilingual, so need to check Arabic quality. The Arabic text is provided for headings, definitions, etc. The definitions in Arabic are natural. For example, the definition of "البيانات الحسّاسة" is translated well. The text flows, not word-for-word translation. So maybe 5 here.
+
+Concision (7). The prose is concise. The definitions are clear. The takeaways are bullet points. The worked example has step-by-step reasoning. There's no padding. The explanations are to the point. So probably 5.
+
+Accessibility and IP (8). The lesson doesn't mention any licensed code descriptors or payer policy text. The images have alt text? The lesson doesn't include images, so maybe that's okay. The text uses terms introduced in the concepts list, no forbidden terms. So 5 here.
+
+Now check if any criterion is below 3. The knowledge check is 1, which is below 3. Also, the mean of scores. Let's calculate the mean. If all others are 5 except knowledge check 1. Then scores would be: 5,5,5,1,5,5,5,5. Sum is 36. Mean is 36/8=4.5. The gate fails if any criterion below 3 or mean below 4.0. Here, knowledge check is 1, which is below 3, and mean is 4.5. So the gate would fail. But the judge should only return the scores and notes. So I need to note the knowledge check issue.
+
+So the notes for criterion 4 (knowledge check) would mention that the distractors are implausible and feedback doesn't name misconceptions. Also, maybe for concision and accessibility, but those are 5. So only criterion 4 needs a note.
+
+Putting it all together, the scores are:
+objective_alignment: 5
+level_fidelity: 5
+worked_example: 5
+knowledge_check: 1
+scenario_authenticity: 5
+bilingual_quality: 5
+concision: 5
+accessibility_ip: 5
+
+Notes:
+- knowledge_check: The distractors are implausible (e.g., "Order lunch for the team first"), and feedback for incorrect options restates the answer without naming the misconception.
+
+The verdict_notes can mention that the lesson is well-structured but the knowledge checks need improvement.
+</think>To score the lesson "What counts as personal data, and what to do with it at work," I will follow the provided rubric and assess each criterion based on the lesson's content.
+
+### Scores and Notes
+
+1. **Objective Alignment (1-5)**:
+   - **Score**: 5
+   - **Reason**: Each block in the lesson serves its declared objective effectively. For example, the "rich_text" block explains personal data and identifiability, while the "definition_card" blocks provide clear definitions of sensitive data and potential breaches. The "job_tip" and "takeaways" blocks reinforce key points. The objectives listed in the lesson's metadata align with the content.
+
+2. **Level Fidelity (1-5)**:
+   - **Score**: 5
+   - **Reason**: The lesson declares levels L1 and L2, and the content matches these levels. The L1 blocks introduce concepts with clear explanations and examples, while the L2 blocks provide a worked example and knowledge checks. The level labels are not aspirational, and the content matches the promised level of detail.
+
+3. **Worked-Example Quality (1-5)**:
+   - **Score**: 5
+   - **Reason**: The worked example in the L2 section shows each step with both "show" (what to do) and "why" (reasoning). For instance, the first step explains why a spreadsheet with job titles and departments is personal data based on identifiability. The reasoning names the judgment being made and explains why it matters.
+
+4. **Knowledge-Check Quality (1-5)**:
+   - **Score**: 1
+   - **Reason**: The distractors in the knowledge checks are implausible (e.g., "Order lunch for the team first" or "Restart your computer"). The feedback for incorrect options merely states "Not correct," without naming the misconception. This restates the answer without explaining the reasoning behind it.
+
+5. **Scenario Authenticity (1-5)**:
+   - **Score**: 5
+   - **Reason**: The scenario about sending an account statement to the wrong recipient is plausible and includes realistic consequences. The decisions and their consequences reflect real-world situations, such as the importance of reporting breaches immediately and avoiding the "convenient channel."
+
+6. **Bilingual Quality (1-5)**:
+   - **Score**: 5
+   - **Reason**: The Arabic text is natural and consistent with the glossary. The definitions and explanations are well-translated, avoiding word-for-word translations. The Arabic content reads as though written natively.
+
+7. **Concision and Reading Level (1-5)**:
+   - **Score**: 5
+   - **Reason**: The prose is concise and to the point. The explanations are clear and avoid unnecessary repetition. The takeaways are bulleted for easy comprehension, and the worked example is structured step-by-step without padding.
+
+8. **Accessibility and IP (1-5)**:
+   - **Score**: 5
+   - **Reason**: The lesson does not contain any real licensed code descriptors or payer policy text. There are no forbidden terms, and the content is compliant. The text uses terms introduced in the concepts list, ensuring clarity and adherence to guidelines.
+
+### Notes
+
+- **Criterion 4 (Knowledge Check)**:
+  - Distractors are implausible (e.g., "Order lunch for the team first"), and feedback for incorrect options restates the answer without naming the misconception.
+
+### Verdict Notes
+
+The lesson effectively teaches personal data concepts, with clear explanations and realistic scenarios. However, the knowledge checks need improvement to include plausible distractors and feedback that names misconceptions.
+
+### Final JSON Output
+
+```json
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "The distractors are implausible (e.g., 'Order lunch for the team first'), and feedback for incorrect options restates the answer without naming the misconception."
+  },
+  "verdict_notes": "The lesson effectively teaches personal data concepts with clear explanations and realistic scenarios. However, the knowledge checks need improvement to include plausible distractors and feedback that names misconceptions."
+}
+```

@@ -1,0 +1,39 @@
+<think>
+Okay, I need to evaluate this lesson on "Writing a Shift Handover" against the provided rubric. The lesson has two levels, L1 and L2, and includes various types of blocks like definitions, process flows, worked examples, scenarios, and knowledge checks.
+
+First, I'll look at the objective alignment. Each block should serve the declared objective OPS-01. Let me check if all the content in the blocks directly relates to shift handover procedures. The lesson defines key terms, explains the process, gives tips, and has examples. Seems like all blocks are relevant. So, maybe score 5 here.
+
+Next, level fidelity. The lesson is supposed to be L1 and L2. For L1, there's a heading, text explanation, definitions, process flow, and takeaways. The L2 has an apply heading, interactive flow, worked example, scenario, and two knowledge checks. The lesson doesn't have any visual cards, just text-based blocks, so that's good. The level fidelity should be 5 since each level's content matches its description.
+
+Worked example quality: The worked example in L2 has four steps with reasoning. The "why" explains the next step, which is what's needed. The reasoning is present for each step, so score 5.
+
+Knowledge-check quality: Each MCQ has plausible distractors. For example, in the first KC, options include ordering by arrival time, which is a common misconception. The feedback explains why each option is right or wrong. The second KC also has a plausible distractor about needing more customer history. The feedback names the misconception, so score 5.
+
+Scenario authenticity: The scenario in L2 presents a realistic situation with two open items. The options include plausible responses, and the best answer is clearly explained. The consequences are realistic, so score 5.
+
+Bilingual quality: The lesson claims to be bilingual. The Arabic text needs to be natural. Let me check a few examples. The intro text in Arabic translates to "A shift handover is the moment work changes hands..." but the Arabic version is written as "تسليم النوبة هو لحظة انتقال العمل من شخص إلى آخر في نهاية نوبته..." which seems natural. The definitions and other content also appear to be well-translated, not machine-like. So, score 5.
+
+Concision and reading level: The prose is concise. The lesson uses clear language without unnecessary repetition. The blocks are short and to the point, so score 5.
+
+Accessibility and IP: The lesson doesn't have any images, so alt text isn't needed. It doesn't use licensed code or payer policy text. The denylist check is important. I need to check if any forbidden terms are used. The terms introduced are things like shift_handover, open_item, etc., which are generic. There's no mention of specific companies or policies. So, score 5 here.
+
+Now, checking if there's anything scoring below 4. All criteria seem to be 5. No issues with distractors, no visual cards, no machine-translated Arabic, no IP issues, and all blocks align with objectives. The lesson seems thorough and well-structured. Therefore, all scores are 5.
+</think>
+
+```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson effectively meets all criteria, with clear alignment to objectives, strong level fidelity, high-quality worked examples and knowledge checks, authentic scenarios, and concise, well-translated bilingual content. There are no accessibility or IP violations, and the prose is concise without redundancy."
+}
+```

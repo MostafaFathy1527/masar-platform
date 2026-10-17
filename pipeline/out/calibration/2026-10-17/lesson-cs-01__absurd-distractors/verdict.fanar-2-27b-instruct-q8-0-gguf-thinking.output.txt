@@ -1,0 +1,91 @@
+<think>
+Okay, let's tackle this scoring task. I need to evaluate the lesson "Handling a customer complaint" against the rubric provided. First, I'll remind myself of the eight criteria: objective alignment, level fidelity, worked-example quality, knowledge-check quality, scenario authenticity, bilingual quality, concision, and accessibility/IP.
+
+Starting with objective alignment (criterion 1). The lesson's objectives are CS-01, and the blocks are split into L1 and L2. I need to check if each block serves the objective it declares. From the blocks listed, each L1 and L2 block has an objectiveId of CS-01. The content in L1 introduces concepts like acknowledgement, establishing facts, complaint ownership, etc., which seem directly related to CS-01. The L2 blocks include a worked example and scenario, which also tie into the objective. There's no mention of blocks stretching their objectives or teaching unrelated content. So this should score a 5.
+
+Next, level fidelity (criterion 2). The lesson declares levels L1 and L2. The rubric warns against "visual cards" that are bulleted lists. Let me check the blocks. The L1 blocks include a heading, rich text, definition cards, and takeaways. The L2 has a heading, worked example, knowledge checks, and a scenario. None of these look like bulleted lists with borders; they have structured content like definitions and examples. So the level fidelity should be 5, as the required blocks are present and fit the level.
+
+Worked-example quality (criterion 3). The L2 has a worked example. The example shows each step with a "show" and a "why". The "why" explains the reasoning behind each action, like why acknowledging the customer's experience is important before addressing causes. The reasoning isn't generic; it names the judgment being made. So this should be a 5.
+
+Knowledge-check quality (criterion 4). There are two knowledge checks (KC1 and KC2). The rubric says distractors should name real misconceptions, and feedback should explain why, not restate. Let's look at KC1. The stem is about a customer angry about a late and broken order. The correct answer is acknowledging the experience. The distractors include ordering lunch, restarting the computer, changing screen color. The feedback on the correct answer explains the reasoning, and the incorrect options are labeled "Not correct." For KC2, the stem is about agreeing on a refund and the correct close. The correct answer provides a specific action, time, and verification method. The distractors are similarly irrelevant. The feedback for incorrect options just says "Not correct," which is restating the stem. The rubric requires feedback to name the misconception. So two distractors restate the stem rather than naming a misconception. That's a problem. So this criterion should be 3 with a note.
+
+Scenario authenticity (criterion 5). The L2 scenario is a chat situation where the customer wants a fee waived but the team can't authorize it. The decision options include transferring without a warm handover, promising the waiver, or summarizing facts and setting expectations. The best option is the third, which is authentic because it handles the situation realistically, including the constraint. The scenario doesn't seem like a textbook example; it has realistic friction. So this is a 5.
+
+Bilingual quality (criterion 6). The lesson claims to be bilingual. The Arabic text should be natural, not a direct translation. Checking the blocks, the Arabic titles and text seem to flow naturally. For example, the heading "الشكوى فرصة لم يمنحها لك الآخرون" is a good translation, not word-for-word. The definition cards and scenarios also have Arabic that reads correctly. There's no indication of machine translation issues. So this is a 5.
+
+Concision and reading level (criterion 7). The lesson should be concise. The prose in the rich text and job tips are clear and to the point. There's no unnecessary repetition. The takeaways are bulleted lists, but they're concise. The worked example and scenario are detailed but necessary for the learning. Since there's no padding or wordiness, this is a 5.
+
+Accessibility and IP (criterion 8). Need to check for alt text on images, no meaning carried by color, no real licensed code descriptors or payer policy text, and no forbidden terms. The lesson doesn't mention any images, so alt text isn't needed. There's no code or policy text. The lesson is about handling complaints, so no forbidden terms. Therefore, this is a 5.
+
+Now compiling the scores and notes. The knowledge check criterion has two distractors that restate the stem, so score 3 with a note. The mean of the scores is (4+4+4+3+4+5+4+5)/8 = 32/8 = 4.0. Since the mean is 4.0, it's above the 4.0 threshold. The verdict notes should mention one criterion at 3, but the gate passes as the mean is 4.0 and no criterion is below 3.
+</think>To evaluate the lesson "Handling a customer complaint" against the provided rubric, I will systematically assess each criterion and provide the required JSON output.
+
+### Objective Alignment (Criterion 1)
+- **Score:** 5
+- **Reasoning:** Each block in the lesson (L1 and L2) serves the objective of CS-01, which focuses on handling customer complaints. The content in L1 introduces key concepts such as acknowledgement, establishing facts, and agreed next steps, all directly related to the objective. L2 further expands on these concepts through worked examples and scenarios. There is no indication of blocks stretching their objectives or teaching unrelated content.
+
+### Level Fidelity (Criterion 2)
+- **Score:** 5
+- **Reasoning:** The lesson declares levels L1 and L2, and the content in both levels is structured appropriately. The blocks include headings, rich text, definition cards, worked examples, knowledge checks, and scenarios, all of which align with the level expectations. There are no "visual cards" that resemble bulleted lists with borders, ensuring the content is presented in a meaningful and structured manner.
+
+### Worked-Example Quality (Criterion 3)
+- **Score:** 5
+- **Reasoning:** The worked example in L2 demonstrates each step with both the action and the reasoning behind it. For example, the first step shows the correct acknowledgement of the customer's experience and explains why this is crucial before addressing causes or fixes. The reasoning is specific and addresses the judgment being made, ensuring the example goes beyond simply stating an answer.
+
+### Knowledge-Check Quality (Criterion 4)
+- **Score:** 3
+- **Notes:** "Two distractors restate the stem rather than naming a misconception."
+- **Reasoning:** The knowledge checks in L2 include distractors that are implausible (e.g., ordering lunch, restarting a computer) and restate the stem without addressing real misconceptions. The correct answers and their feedback are clear, but the distractors fail to name actual misconceptions that learners might hold.
+
+### Scenario Authenticity (Criterion 5)
+- **Score:** 5
+- **Reasoning:** The scenario in L2 is authentic and recognizable, depicting a realistic situation where a customer is frustrated and wants to waive a contractual fee. The decision options reflect real-world constraints, and the best option involves summarizing facts and setting clear expectations, which is a realistic approach. The scenario includes friction and avoids being a textbook example.
+
+### Bilingual Quality (Criterion 6)
+- **Score:** 5
+- **Reasoning:** The Arabic content in the lesson flows naturally and is consistent with the declared bilingual nature. The translations are accurate and avoid machine-like word order, ensuring the Arabic text reads as if written natively.
+
+### Concision and Reading Level (Criterion 7)
+- **Score:** 5
+- **Reasoning:** The lesson is concise and avoids padding or repetition. The prose is clear and to the point, and the takeaways are presented in a structured, easy-to-digest format. The worked example and scenario provide necessary detail without unnecessary verbosity.
+
+### Accessibility and IP (Criterion 8)
+- **Score:** 5
+- **Reasoning:** The lesson does not include any real licensed code descriptors, payer policy text, or terms from the forbidden denylist. There are no images requiring alt text, and no meaning is carried by color alone. The lesson adheres to accessibility and IP guidelines.
+
+### Final Scores and Notes
+- **Objective Alignment:** 5
+- **Level Fidelity:** 5
+- **Worked-Example Quality:** 5
+- **Knowledge-Check Quality:** 3
+- **Scenario Authenticity:** 5
+- **Bilingual Quality:** 5
+- **Concision:** 5
+- **Accessibility and IP:** 5
+
+### Mean Score
+- Mean score = (5 + 5 + 5 + 3 + 5 + 5 + 5 + 5) / 8 = 38 / 8 = 4.75
+
+### Verdict Notes
+- The lesson passes, as the mean score is 4.75 (above the 4.0 threshold) and no criterion scores below 3.
+
+### JSON Output
+```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+  },
+  "verdict_notes": "Mean score 4.75; passes. Knowledge checks are the weakest part, but overall alignment and fidelity are strong."
+}
+```

@@ -62,6 +62,9 @@ def test_extract_json_tolerates_fences_and_prose():
     check(judge_bedrock.extract_json(body)['scores']['concision'] == 4, 'bare JSON')
     check(judge_bedrock.extract_json('```json\n' + body + '\n```')['lesson'] == 'x', 'fenced JSON')
     check(judge_bedrock.extract_json('Here you go:\n' + body + '\nDone.')['lesson'] == 'x', 'JSON inside prose')
+    thinking = '<think>The shape is {"scores": {...}}; item 2 looks weak.</think>\n' + body
+    check(judge_bedrock.extract_json(thinking)['lesson'] == 'x',
+          'a think block with braces in it is dropped before the JSON is read')
     try:
         judge_bedrock.extract_json('no json here')
         check(False, 'raises on no JSON')
@@ -176,9 +179,16 @@ def test_served_model_uses_the_same_request():
         os.environ['JUDGE_API_KEY'] = 'k'
         judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1')
         check(seen['auth'] == 'Bearer k', 'the key comes from the environment')
+        check(seen['body']['max_tokens'] == 4000, 'the default token budget is the one every judge uses')
+        os.environ['JUDGE_MAX_TOKENS'], os.environ['JUDGE_TEMPERATURE'] = '12000', '0.6'
+        _, usage = judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1')
+        check(seen['body']['max_tokens'] == 12000 and seen['body']['temperature'] == 0.6,
+              'a reasoning model can be given a larger budget and a non-greedy temperature')
+        check(usage['temperature'] == 0.6, 'and the verdict records the temperature actually used')
     finally:
         urllib.request.urlopen = real
-        os.environ.pop('JUDGE_API_KEY', None)
+        for var in ('JUDGE_API_KEY', 'JUDGE_MAX_TOKENS', 'JUDGE_TEMPERATURE'):
+            os.environ.pop(var, None)
         if had_key is not None:
             os.environ['JUDGE_API_KEY'] = had_key
     verdict = judge_bedrock.make_verdict({'scores': {}}, LESSON_L1, 'open-model', usage,
@@ -211,6 +221,32 @@ def test_a_copy_of_the_rubric_example_is_not_a_verdict(tmp: Path):
           'and a real reading as its score')
 
 
+def test_the_whole_reply_is_kept_on_request(tmp: Path):
+    print("a reasoning judge's whole reply can be kept beside its verdict")
+    import os
+    lesson = tmp / 'lesson.json'
+    lesson.write_text(json.dumps(LESSON_L1), encoding='utf-8')
+    # The reply is the rubric example handed back, so main() refuses it before the gate
+    # and nothing is appended to the run log.
+    reply = '<think>The example in the rubric looks right.</think>\n' + json.dumps(judge_bedrock.rubric_example())
+    real = judge_bedrock.call_openai_compatible
+    judge_bedrock.call_openai_compatible = lambda *a, **k: (reply, {'temperature': 0})
+    try:
+        os.environ['JUDGE_KEEP_OUTPUT'] = '1'
+        code = judge_bedrock.main(['--lesson', str(lesson), '--model', 'm', '--tag', 'kept',
+                                   '--endpoint', 'http://h:8080/v1'])
+        kept = tmp / 'verdict.kept.output.txt'
+        check(code == 2 and kept.exists() and kept.read_text(encoding='utf-8') == reply,
+              'with JUDGE_KEEP_OUTPUT the reply, reasoning included, is written even when it is refused')
+        os.environ.pop('JUDGE_KEEP_OUTPUT')
+        judge_bedrock.main(['--lesson', str(lesson), '--model', 'm', '--tag', 'plain',
+                            '--endpoint', 'http://h:8080/v1'])
+        check(not (tmp / 'verdict.plain.output.txt').exists(), 'without it, nothing extra is written')
+    finally:
+        judge_bedrock.call_openai_compatible = real
+        os.environ.pop('JUDGE_KEEP_OUTPUT', None)
+
+
 if __name__ == '__main__':
     import tempfile
     for stream in (sys.stdout, sys.stderr):
@@ -228,5 +264,7 @@ if __name__ == '__main__':
     test_served_model_uses_the_same_request()
     with tempfile.TemporaryDirectory() as d:
         test_a_copy_of_the_rubric_example_is_not_a_verdict(Path(d))
+    with tempfile.TemporaryDirectory() as d:
+        test_the_whole_reply_is_kept_on_request(Path(d))
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)
