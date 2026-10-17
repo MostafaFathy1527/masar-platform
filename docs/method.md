@@ -54,8 +54,8 @@ counted as no score (what-failed entry 19). Run again at 8-bit with its thinking
 read some lessons, but caught 5 of 14 defects with the example in the rubric and 4 of 20 without
 it, and with the example there, 14 of its 22 verdicts borrowed the example's note. Four more
 open Arabic models did no better: SILMA-9B and Jais-30B gave no verdict at all, AceGPT-v2-32B
-handed back the example 18 times in 24, and Falcon-H1-7B scored every lesson but caught 1 of 20
-defects. The scores are in the calibration reports for
+handed back the example 22 times in 24, four of them with one score changed, and Falcon-H1-7B
+scored every lesson but caught 1 of 20 defects. The scores are in the calibration reports for
 [14 October](../pipeline/out/calibration/2026-10-14/report.md),
 [15 October](../pipeline/out/calibration/2026-10-15/report.md),
 [17 October](../pipeline/out/calibration/2026-10-17/report.md) and

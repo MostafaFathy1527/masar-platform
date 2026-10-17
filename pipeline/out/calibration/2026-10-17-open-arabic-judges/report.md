@@ -7,9 +7,9 @@ Run 2026-10-17-open-arabic-judges. Each sample was scored as it is and as copies
 | Judge | Criterion | Defects caught | Mean drop |
 |---|---|---|---|
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | bilingual_quality | 0 of 1 | 0.00 |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | knowledge_check | 0 of 1 | 0.00 |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | scenario_authenticity | 0 of 1 | 0.00 |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | worked_example | 0 of 1 | 0.00 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | knowledge_check | 0 of 0 | 0.00 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | scenario_authenticity | 0 of 0 | 0.00 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | worked_example | 0 of 0 | 0.00 |
 | `Falcon-H1-7B-Instruct-Q8_0.gguf` | bilingual_quality | 0 of 4 | 0.00 |
 | `Falcon-H1-7B-Instruct-Q8_0.gguf` | knowledge_check | 0 of 8 | 0.12 |
 | `Falcon-H1-7B-Instruct-Q8_0.gguf` | scenario_authenticity | 0 of 4 | 0.00 |
@@ -31,19 +31,19 @@ Run 2026-10-17-open-arabic-judges. Each sample was scored as it is and as copies
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | absurd-distractors | knowledge_check | lesson-ops-01-r2 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | absurd-distractors | knowledge_check | lesson-prv-01 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | absurd-distractors | knowledge_check | lesson-sec-01 | None | None | None |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | empty-consequences | scenario_authenticity | lesson-cs-01 | 4 | 4 | 0 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | empty-consequences | scenario_authenticity | lesson-cs-01 | 4 | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | empty-consequences | scenario_authenticity | lesson-ops-01-r2 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | empty-consequences | scenario_authenticity | lesson-prv-01 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | empty-consequences | scenario_authenticity | lesson-sec-01 | None | None | None |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | generic-feedback | knowledge_check | lesson-cs-01 | 4 | 4 | 0 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | generic-feedback | knowledge_check | lesson-cs-01 | 4 | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | generic-feedback | knowledge_check | lesson-ops-01-r2 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | generic-feedback | knowledge_check | lesson-prv-01 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | generic-feedback | knowledge_check | lesson-sec-01 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | pasted-english | bilingual_quality | lesson-cs-01 | 5 | 5 | 0 |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | pasted-english | bilingual_quality | lesson-ops-01-r2 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | pasted-english | bilingual_quality | lesson-prv-01 | None | None | None |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | pasted-english | bilingual_quality | lesson-sec-01 | None | 5 | None |
-| `AceGPT-v2-32B-Chat.Q8_0.gguf` | reasonless-steps | worked_example | lesson-cs-01 | 4 | 4 | 0 |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | pasted-english | bilingual_quality | lesson-sec-01 | None | None | None |
+| `AceGPT-v2-32B-Chat.Q8_0.gguf` | reasonless-steps | worked_example | lesson-cs-01 | 4 | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | reasonless-steps | worked_example | lesson-ops-01-r2 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | reasonless-steps | worked_example | lesson-prv-01 | None | None | None |
 | `AceGPT-v2-32B-Chat.Q8_0.gguf` | reasonless-steps | worked_example | lesson-sec-01 | None | None | None |
@@ -108,6 +108,14 @@ Run 2026-10-17-open-arabic-judges. Each sample was scored as it is and as copies
 | `jais-family-30b-16k-chat.Q6_K.gguf` | reasonless-steps | worked_example | lesson-prv-01 | None | None | None |
 | `jais-family-30b-16k-chat.Q6_K.gguf` | reasonless-steps | worked_example | lesson-sec-01 | None | None | None |
 
+## Verdicts that hand back the rubric's example
+
+The example printed in `rubric.md`, handed back: its scores, notes and closing note, or its notes and closing note (numbers aside) with at most one score changed. They count as no score above: the judge did not read the lesson (what-failed entry 19).
+
+| Run · judge | Verdicts | Copies |
+|---|---|---|
+| 2026-10-17-open-arabic-judges · acegpt-v2-32b-chat-q8-0-gguf | 4 | lesson-cs-01__empty-consequences, lesson-cs-01__generic-feedback, lesson-cs-01__reasonless-steps, lesson-sec-01__pasted-english |
+
 This measures whether a judge can tell a real lesson from one broken in a named way. It does not say which judge is right about the real lesson.
 
 ## How this run was made, and what the rows above cannot show
@@ -117,7 +125,7 @@ it ships with, at temperature 0 and 4,000 tokens: every judge's default here, an
 since none of their generation configs sets sampling. The files, their hashes, the server commands
 and the rendered templates are in `environment.json`. Before any judgement, each server was checked
 with `/apply-template` and a one-line reply, and every prompt was counted with the model's own
-tokenizer, so that no slot was too short for it.
+tokenizer, so that every prompt fit its slot.
 
 The GPU time for this run was provided by [CloudRift](https://www.cloudrift.ai/). Thank you.
 
@@ -137,9 +145,11 @@ The GPU time for this run was provided by [CloudRift](https://www.cloudrift.ai/)
 - **`AceGPT-v2-32B-Chat.Q8_0.gguf`**: 18 of 24 replies were the example and were refused. Four of
   the other six are the example with one score changed, knowledge check 3 to 4, its note kept word
   for word and its closing note with one digit changed, "mean 4.1" included, beside scores whose
-  mean is 4.25. The copy check refuses only an exact copy, so those four were scored, and the
-  AceGPT rows above compare them: they are not readings. Its two other verdicts, CS-01 as written
-  and CS-01 with pasted English, are not copies; it gave the pasted English 5.
+  mean is 4.25. The copy check first refused only an exact copy, so these four were scored. The
+  same night it was widened: a verdict that keeps the example's note and closing note, numbers
+  aside, and changes at most one score is refused as a copy too, and the four now count as no
+  score (listed above). Its two other verdicts, CS-01 as written and CS-01 with pasted English,
+  are not copies; it gave the pasted English 5.
 - **`jais-family-30b-16k-chat.Q6_K.gguf`**: no verdict in 24. Sixteen replies were "I'm sorry, but
   as an AI, I can't provide the information you're looking for.", seven described the rubric
   instead of scoring the lesson, and one declined and then wrote unscored prose about it. It read

@@ -211,6 +211,16 @@ def test_a_copy_of_the_rubric_example_is_not_a_verdict(tmp: Path):
     own_notes = dict(example, notes={'knowledge_check': 'Item 2 restates its stem.'})
     check(not judge_bedrock.copies_rubric_example(own_notes),
           'the same scores with notes about this lesson are a reading, not a copy')
+    one_changed = dict(example, scores=dict(example['scores'], knowledge_check=4),
+                       verdict_notes=example['verdict_notes'].replace('at 3', 'at 4', 1))
+    check(judge_bedrock.copies_rubric_example(one_changed),
+          'the example with one score and its closing number changed is still a copy')
+    two_changed = dict(one_changed, scores=dict(one_changed['scores'], concision=5))
+    check(not judge_bedrock.copies_rubric_example(two_changed),
+          "scores of its own with the example's words are a borrowed note, not refused")
+    own_close = dict(one_changed, verdict_notes='Item 2 is the weakest part of this lesson.')
+    check(not judge_bedrock.copies_rubric_example(own_close),
+          'one score changed with a closing note of its own is not a copy')
     import calibrate_judges
     copy_path, real_path = tmp / 'verdict.copy.json', tmp / 'verdict.real.json'
     copy_path.write_text(json.dumps(example), encoding='utf-8')

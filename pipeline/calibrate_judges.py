@@ -293,8 +293,9 @@ def main(argv: list[str] | None = None) -> int:
     copies = [line for line in audit_copies(root.parent) if line.startswith(f'| {root.name} ·')]
     if copies:
         lines += ['', "## Verdicts that hand back the rubric's example", '',
-                  'Scores, notes and closing note identical to the example printed in `rubric.md`. '
-                  'They count as no score above: the judge did not read the lesson (what-failed entry 19).',
+                  'The example printed in `rubric.md`, handed back: its scores, notes and closing note, or '
+                  'its notes and closing note (numbers aside) with at most one score changed. They count '
+                  'as no score above: the judge did not read the lesson (what-failed entry 19).',
                   '', '| Run · judge | Verdicts | Copies |', '|---|---|---|', *copies]
     lines += ['', 'This measures whether a judge can tell a real lesson from one broken in a named '
               'way. It does not say which judge is right about the real lesson.']

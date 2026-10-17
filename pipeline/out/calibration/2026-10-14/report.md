@@ -194,3 +194,8 @@ a reading; only lesson-sec-01 is a real comparison, and it gave the pasted Engli
 
 The rows above are left as this run computed them. `python pipeline/calibrate_judges.py
 --audit-copies` lists every copy in every run.
+
+Added 17 October: a sixth, lesson-prv-01 pasted-english, is the example with one score changed
+(worked example 4 to 5) and its note and closing note kept. The copy check widened that day
+counts it as a copy too, so the lesson-prv-01 pasted-English row above compares a copy with a
+copy.

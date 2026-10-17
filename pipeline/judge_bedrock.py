@@ -162,12 +162,24 @@ def rubric_example() -> dict:
 
 
 def copies_rubric_example(verdict: dict) -> bool:
-    """True when the scores, the notes and the closing note all match the rubric's example.
-    A judge that hands the example back has not scored the lesson in front of it
-    (what-failed entry 19). Scores alone can match by chance; all three cannot."""
+    """True when the verdict is the rubric's example handed back: the scores, the notes and
+    the closing note all match it, or the notes match, the closing note matches but for its
+    numbers, and at most one score differs. A judge that hands the example back has not scored
+    the lesson in front of it (what-failed entry 19). Scores alone can match by chance; the
+    example's words with its scores all but unchanged cannot. A verdict with scores of its own
+    and a borrowed note is still partly a reading, so it is not refused here."""
     example = rubric_example()
-    return bool(example) and all(verdict.get(k) == example.get(k)
-                                 for k in ('scores', 'notes', 'verdict_notes'))
+    if not example:
+        return False
+    if all(verdict.get(k) == example.get(k) for k in ('scores', 'notes', 'verdict_notes')):
+        return True
+    def numbers_aside(text) -> str:
+        return re.sub(r'\d+(?:\.\d+)?', '#', str(text or ''))
+    scores, theirs = verdict.get('scores') or {}, example.get('scores') or {}
+    changed = sum(1 for k in theirs if scores.get(k) != theirs[k])
+    return (verdict.get('notes') == example.get('notes')
+            and numbers_aside(verdict.get('verdict_notes')) == numbers_aside(example.get('verdict_notes'))
+            and changed <= 1)
 
 
 def extract_json(text: str) -> dict:

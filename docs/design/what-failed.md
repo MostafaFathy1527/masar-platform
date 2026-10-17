@@ -828,17 +828,22 @@ decoding and with the chat template it ships with
   described the rubric. Both read the prompt (asked, each named the lesson's subject) and both
   return JSON to a short request, so this is the model, not the server.
 - **AceGPT-v2-32B:** the example, word for word, 18 times in 24. Four of its other six verdicts
-  are the example with one score changed and the note kept, and the copy check, which refuses
-  only an exact copy, let them through.
+  are the example with one score changed and the note kept, and the copy check, which then
+  refused only an exact copy, let them through.
 - **Falcon-H1-7B:** a verdict for every lesson and 1 of 20 defects caught. It gave the Arabic 5 in
   all 24, the copies with English in their Arabic fields included, and 7 verdicts carry the
   example's note word for word.
 
 Five open Arabic models have now been through this calibration, and none gave a judge that could
 be seated. The two judges that caught pasted English every time, Kimi K3 and GLM-5, have open
-weights too, but are far too large for the two cards these runs used. The four near-copies leave
-one question open: whether the copy check should also refuse a verdict that keeps the example's
-note and changes a score. The report marks the four; the rule is not decided.
+weights too, but are far too large for the two cards these runs used.
+
+The four near-copies were settled the same night. The copy check now also refuses a verdict that
+keeps the example's note and closing note, numbers aside, and changes at most one score. Across
+every run that is five verdicts: AceGPT's four and one Gemma 3 27B verdict from 14 October. A
+verdict with scores of its own and a borrowed note is still counted, and named in the report,
+because part of it is a reading. A rule that refused those too would also have dropped eight of
+Fanar-2's thinking verdicts and six from 14 and 15 October.
 
 ## What to say about this in the case study
 
