@@ -227,6 +227,17 @@ a stand-in server and in `test_judge_bedrock.py`.
   temperature), drops a think block before reading the JSON, and with `JUDGE_KEEP_OUTPUT` keeps
   the whole reply beside the verdict as `verdict.<tag>.output.txt`.
 
+**Added 2026-10-17 (night): four more open Arabic models (what-failed entry 19).**
+- **The run:** SILMA-9B-Instruct, Falcon-H1-7B-Instruct, AceGPT-v2-32B-Chat and
+  Jais-family-30B-16k-chat on two V100 cards, each with its own chat template and default
+  decoding (`pipeline/out/calibration/2026-10-17-open-arabic-judges`; files, hashes and server
+  commands in its `environment.json`).
+- **The result:** SILMA and Jais gave no verdict in 24. AceGPT handed back the example 18 times,
+  and four of its other six verdicts are the example with one score changed. Falcon-H1 scored
+  all 24, caught 1 of 20 defects and gave every lesson's Arabic 5. None is seated.
+- **Open:** the copy check refuses only an exact copy, so the four AceGPT near-copies were scored.
+  Whether to refuse a verdict that keeps the example's note and changes one score is undecided.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

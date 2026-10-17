@@ -1,0 +1,66 @@
+{
+ "what": "Four open Arabic models through calibrate_judges.py: SILMA-9B-Instruct, Falcon-H1-7B-Instruct, AceGPT-v2-32B-Chat and Jais-family-30B-16k-chat, each at its own default decoding with its own chat template",
+ "date": "2026-10-17",
+ "hardware": "2 x Tesla V100-SXM3-32GB, driver 580.178.04, CUDA 12.9",
+ "llama_cpp_commit": "9d1878a4354e743529fbe09e7350a957f5e39e9a",
+ "llama_cpp_build": "cmake -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=70 -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release",
+ "models": [
+  {
+   "file": "SILMA-9B-Instruct-v1.0.Q8_0.gguf",
+   "repository": "mradermacher/SILMA-9B-Instruct-v1.0-GGUF",
+   "quantisation_of": "silma-ai/SILMA-9B-Instruct-v1.0 (Gemma licence)",
+   "bytes": 9827149216,
+   "sha256": "988c3fa41d054230fabda059316b848b442a36c6661a996cfd7ba4ba5f838244"
+  },
+  {
+   "file": "Falcon-H1-7B-Instruct-Q8_0.gguf",
+   "repository": "tiiuae/Falcon-H1-7B-Instruct-GGUF",
+   "quantisation_of": "tiiuae/Falcon-H1-7B-Instruct (Falcon LLM licence); TII's own GGUF",
+   "bytes": 8069006816,
+   "sha256": "6e426c8ee9ecc6627f3a50bfc05b6263b95ada8a01716160597b60ef6b222ba7"
+  },
+  {
+   "file": "AceGPT-v2-32B-Chat.Q8_0.gguf",
+   "repository": "mradermacher/AceGPT-v2-32B-Chat-GGUF",
+   "quantisation_of": "FreedomIntelligence/AceGPT-v2-32B-Chat (Apache-2.0)",
+   "bytes": 34554807904,
+   "sha256": "c4923fd5f4af602964b1d49898204e87f39c42b880673587ba910b164442fec1"
+  },
+  {
+   "file": "jais-family-30b-16k-chat.Q6_K.gguf",
+   "repository": "mradermacher/jais-family-30b-16k-chat-GGUF",
+   "quantisation_of": "inceptionai/jais-family-30b-16k-chat (Apache-2.0); 6-bit because Q6_K is the largest file in that repository, which has no 8-bit one",
+   "bytes": 33058335008,
+   "sha256": "90b36b2cdd697a612529ff9c40a29c42b39765ace3d4901f7c41c2d16a992f1a"
+  }
+ ],
+ "hashes_checked": "every sha256 above was computed on the server after download and equals the LFS hash Hugging Face lists for the file",
+ "servers": {
+  "SILMA-9B-Instruct-v1.0.Q8_0.gguf": "llama-server -ngl 999 -c 65536 -np 8 --jinja (8,192 tokens a slot, the model's trained context)",
+  "Falcon-H1-7B-Instruct-Q8_0.gguf": "llama-server -ngl 999 -c 98304 -np 8 --jinja (12,288 a slot)",
+  "AceGPT-v2-32B-Chat.Q8_0.gguf": "llama-server -ngl 999 -c 49152 -np 4 --jinja (12,288 a slot)",
+  "jais-family-30b-16k-chat.Q6_K.gguf": "llama-server -ngl 999 -c 20480 -np 2 --jinja -ctk q8_0 -ctv q8_0 -fa on (10,240 a slot; 8-bit key-value cache)"
+ },
+ "prompt_tokens": {
+  "how": "each of the 24 judge prompts tokenised by the served model's own tokenizer (/tokenize), before any judgement",
+  "SILMA-9B-Instruct-v1.0.Q8_0.gguf": "5,970 to 8,034",
+  "Falcon-H1-7B-Instruct-Q8_0.gguf": "6,501 to 8,779",
+  "AceGPT-v2-32B-Chat.Q8_0.gguf": "5,585 to 7,558",
+  "jais-family-30b-16k-chat.Q6_K.gguf": "5,635 to 7,367"
+ },
+ "templates": {
+  "source": "each GGUF's embedded tokenizer.chat_template, unchanged; no template file was passed",
+  "checked": "/apply-template on each server rendered the following for one user message 'PROMPT'. SILMA, Falcon-H1 and AceGPT match the chat template in the source repository (tokenizer_config.json, or chat_template.jinja for Falcon-H1). The source files for Jais need a sign-in to read, so its template is the one carried in the GGUF's metadata; it differs from the prompt format on the Jais model card only in spacing and two words ('Complete the conversation below', '### Response:' for '### Response :')",
+  "SILMA-9B-Instruct-v1.0.Q8_0.gguf": "<start_of_turn>user\nPROMPT<end_of_turn>\n<start_of_turn>model\n (BOS added by the tokenizer)",
+  "Falcon-H1-7B-Instruct-Q8_0.gguf": "<|im_start|>user\nPROMPT<|im_end|>\n<|im_start|>assistant\n (BOS added by the tokenizer)",
+  "AceGPT-v2-32B-Chat.Q8_0.gguf": "<|im_start|>system\nYou are a helpful assistant<|im_end|>\n<|im_start|>user\nPROMPT<|im_end|>\n<|im_start|>assistant\n",
+  "jais-family-30b-16k-chat.Q6_K.gguf": "### Instruction: Your name is 'Jais', and you are named after Jebel Jais, the highest mountain in UAE. You were made by 'Inception' in the UAE. You are a helpful, respectful, and honest assistant. Always answer as helpfully as possible, while being safe. Complete the conversation below between [|Human|] and [|AI|]:\n### Input: [|Human|] PROMPT \n[|AI|]\n### Response:"
+ },
+ "decoding": {
+  "temperature": 0,
+  "max_tokens": 4000,
+  "why": "the default for every judge in this project, and the default in each model's own generation_config.json, none of which sets sampling"
+ },
+ "rubric": "pipeline/rubric.md as committed",
+ "concurrency": "as many judgements in flight as the server had slots (8, 8, 4, 2); each judgement is its own judge_bedrock.py call with the same prompt, parsing and gate as a sequential calibrate_judges.py run"
+}

@@ -818,6 +818,28 @@ copy check refuses a verdict that is the example; it does not refuse one with it
 a borrowed note, because part of that verdict is still a reading. Such verdicts are counted in
 the report and recorded here, the same way anchoring on the example's scores is.
 
+**Four more open Arabic models, 17 October (night).** SILMA-9B-Instruct, TII's
+Falcon-H1-7B-Instruct, AceGPT-v2-32B-Chat and Jais-family-30B-16k-chat, each at its own default
+decoding and with the chat template it ships with
+(`pipeline/out/calibration/2026-10-17-open-arabic-judges`).
+
+- **SILMA-9B and Jais-30B:** no verdict in 24, either of them. SILMA mostly answered «هو رأي
+  سلبي» ("it is a negative opinion") or stopped after `{`; Jais mostly said it could not help, or
+  described the rubric. Both read the prompt (asked, each named the lesson's subject) and both
+  return JSON to a short request, so this is the model, not the server.
+- **AceGPT-v2-32B:** the example, word for word, 18 times in 24. Four of its other six verdicts
+  are the example with one score changed and the note kept, and the copy check, which refuses
+  only an exact copy, let them through.
+- **Falcon-H1-7B:** a verdict for every lesson and 1 of 20 defects caught. It gave the Arabic 5 in
+  all 24, the copies with English in their Arabic fields included, and 7 verdicts carry the
+  example's note word for word.
+
+Five open Arabic models have now been through this calibration, and none gave a judge that could
+be seated. The two judges that caught pasted English every time, Kimi K3 and GLM-5, have open
+weights too, but are far too large for the two cards these runs used. The four near-copies leave
+one question open: whether the copy check should also refuse a verdict that keeps the example's
+note and changes a score. The report marks the four; the rule is not decided.
+
 ## What to say about this in the case study
 
 Not "we found three bugs". The point is narrower and more useful:

@@ -52,10 +52,14 @@ on Kaggle's free GPUs, handed back the example verdict printed in the rubric for
 lessons, and Gemma 3 27B did the same on most of its verdicts. Those are now refused, and
 counted as no score (what-failed entry 19). Run again at 8-bit with its thinking on, Fanar-2
 read some lessons, but caught 5 of 14 defects with the example in the rubric and 4 of 20 without
-it, and with the example there, 14 of its 22 verdicts borrowed the example's note. The scores are
-in the calibration reports for [14 October](../pipeline/out/calibration/2026-10-14/report.md),
-[15 October](../pipeline/out/calibration/2026-10-15/report.md) and
-[17 October](../pipeline/out/calibration/2026-10-17/report.md).
+it, and with the example there, 14 of its 22 verdicts borrowed the example's note. Four more
+open Arabic models did no better: SILMA-9B and Jais-30B gave no verdict at all, AceGPT-v2-32B
+handed back the example 18 times in 24, and Falcon-H1-7B scored every lesson but caught 1 of 20
+defects. The scores are in the calibration reports for
+[14 October](../pipeline/out/calibration/2026-10-14/report.md),
+[15 October](../pipeline/out/calibration/2026-10-15/report.md),
+[17 October](../pipeline/out/calibration/2026-10-17/report.md) and
+[17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md).
 
 ## What a person still has to do
 
