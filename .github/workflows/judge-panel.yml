@@ -85,6 +85,8 @@ jobs:
             code=$?
             out=$(tail -1 panel.log)
             echo "- \`$lesson\`: $out" >> "$GITHUB_STEP_SUMMARY"
+            # The judge-by-judge table, so a split can be read on the run page.
+            [ -f "$lesson/panel-report.md" ] && { echo; echo "<details><summary>$lesson, judge by judge</summary>"; echo; sed -n '/^| Criterion/,/^| \*\*gate/p' "$lesson/panel-report.md"; echo; echo "</details>"; echo; } >> "$GITHUB_STEP_SUMMARY"
             echo "$lesson: $out"
             [ $code -ne 0 ] && status=1
           done
