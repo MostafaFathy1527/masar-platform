@@ -63,13 +63,13 @@ def mine() -> list[dict]:
 
 def down() -> int:
     if not mine():
-        print('nothing to terminate')
+        print('nothing to terminate', file=sys.stderr)
         return 0
     call('instances/terminate', {'selector': {'ByTags': {'any': [TAG]}}})
     for _ in range(30):
         left = [i for i in mine() if i.get('status') != 'Deactivating']
         if not left:
-            print('terminated')
+            print('terminated', file=sys.stderr)
             return 0
         time.sleep(10)
     print('error: an instance is still active after terminate; check the console', file=sys.stderr)
@@ -77,6 +77,8 @@ def down() -> int:
 
 
 def up(public_key: Path) -> int:
+    # stdout carries one thing, the address, because the workflow captures it;
+    # every status line goes to stderr.
     down()  # a machine a cancelled run left behind is not reused, it is ended
     variant, dc = pick_variant()
     ids = call('instances/rent', {

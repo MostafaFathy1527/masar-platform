@@ -66,7 +66,10 @@ jobs:
           ssh-keygen -q -t ed25519 -N '' -f run_key
           ip=$(python pipeline/served_judge_vm.py up --public-key run_key.pub)
           ssh_opts="-i run_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ConnectTimeout=30"
-          for i in $(seq 1 40); do ssh $ssh_opts riftuser@"$ip" true 2>/dev/null && break; sleep 15; done
+          echo "rented machine at $ip"
+          up=0
+          for i in $(seq 1 40); do ssh $ssh_opts riftuser@"$ip" true 2>/dev/null && { up=1; break; }; sleep 15; done
+          [ $up -eq 1 ] || { echo "no SSH to $ip after 10 minutes"; exit 1; }
           ssh $ssh_opts riftuser@"$ip" 'bash -s' < pipeline/served_judge_setup.sh
           ssh $ssh_opts -fN -L 18080:127.0.0.1:8080 riftuser@"$ip"
           curl -sf http://127.0.0.1:18080/health
