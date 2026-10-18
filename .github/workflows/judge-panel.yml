@@ -89,6 +89,18 @@ jobs:
             [ $code -ne 0 ] && status=1
           done
           exit $status
+      # The verdicts and panel reports are kept with the run, so a split can be
+      # read judge by judge; they are not committed.
+      - name: Keep the verdicts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: panel-verdicts
+          path: |
+            pipeline/out/lesson-*/v*/verdict.*.json
+            pipeline/out/lesson-*/v*/panel-report.md
+          if-no-files-found: ignore
+          retention-days: 90
       - name: Give the GPU back
         if: always()
         env:
