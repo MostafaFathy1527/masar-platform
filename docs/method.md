@@ -24,9 +24,10 @@ source note → generate → mechanical gates → judge panel → one retry → 
    - every scenario choice leads somewhere different;
    - no concept is taught twice, or used before it is taught.
 4. **The judge panel.** Independent models score the draft against [the rubric](../pipeline/rubric.md),
-   each in a fresh context that never saw the generation prompt. The panel passes a lesson
-   only if every judge passes it and no criterion splits them by more than one point. A split
-   goes to a person; it is never averaged away.
+   each in a fresh context that never saw the generation prompt: three hosted judges and, since
+   18 October, one open judge served on rented hardware. The panel passes a lesson only if every
+   seat has scored, every judge passes it and no criterion splits them by more than one point. A
+   split goes to a person; it is never averaged away. So does an empty seat.
 5. **One retry, then a person.** A failed draft gets one revision with the findings
    attached. The revision may fix what was reported; it may not pass by deleting what the
    gate checks. If the retry fails too, the run stops.
@@ -57,10 +58,11 @@ open Arabic models did no better: SILMA-9B and Jais-30B gave no verdict at all, 
 handed back the example 22 times in 24, four of them with one score changed, and Falcon-H1-7B
 scored every lesson but caught 1 of 20 defects. Five smaller general models that fit one or two
 rented cards were tried next: two of them, gpt-oss-20b and Qwen3-30B-A3B-Thinking-2507, caught
-every knowledge-check and worked-example defect and most of the pasted English, which is the bar
-the seated judges cleared; the first shares the generator's family and is ruled out, the second is
-an open question for the owner. The scores are in the calibration reports for
-[14 October](../pipeline/out/calibration/2026-10-14/report.md),
+every knowledge-check and worked-example defect, which is the bar the seated judges cleared, and
+three and two of the four pasted-English copies respectively; the first shares the generator's family and is
+ruled out, the second was seated on 18 October as the panel's fourth judge, the one open model on
+it. What remains open is an endpoint the weekly run can reach. The scores are in the calibration
+reports for [14 October](../pipeline/out/calibration/2026-10-14/report.md),
 [15 October](../pipeline/out/calibration/2026-10-15/report.md),
 [17 October](../pipeline/out/calibration/2026-10-17/report.md) and
 [17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md)

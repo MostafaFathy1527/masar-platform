@@ -51,5 +51,8 @@ Error monitoring is wired (see `docs/STATUS.md`); still open:
   - **Done outside the Space, 15–18 October,** on Kaggle and on rented V100 cards: Fanar-2,
     Gemma 3 27B, SILMA, Falcon-H1 7B and 34B, AceGPT, Jais, Mistral Small 3.2, gpt-oss-20b,
     GLM-4.7-Flash and Qwen3-30B-A3B-Thinking (reports under `pipeline/out/calibration/`). One
-    candidate came out of it, Qwen3-30B-A3B-Thinking-2507. **Still open:** the owner's seating
-    decision, and an endpoint the weekly run can call; the Space itself stays CPU-only.
+    candidate came out of it, Qwen3-30B-A3B-Thinking-2507, seated on 18 October as the panel's
+    fourth judge: three hosted judges and one open judge served on rented hardware
+    (`SERVED_JUDGES` in `pipeline/panel.py`). **Still open:** an endpoint the weekly run can
+    reach (`JUDGE_QWEN3_ENDPOINT`); until it is set the seat is empty and every sample reports
+    NEEDS HUMAN. The Space itself stays CPU-only.

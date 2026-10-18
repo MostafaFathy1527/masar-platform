@@ -1,0 +1,517 @@
+<think>
+We are scoring the lesson "what-counts-as-personal-data" against the rubric.
+
+Let's go through each criterion one by one, using the rubric and the lesson content.
+
+### Criterion 1: Objective alignment
+- The lesson has one objective: PRV-01.
+- We need to check if every block serves that objective.
+- The objective is about what counts as personal data and what to do with it at work.
+
+Blocks in L1:
+- Heading: "The question is not 'is there a name on it?'" -> Sets the stage for the objective.
+- Rich text: Defines personal data and the test of identifiability -> directly addresses the objective.
+- Definition card for "Sensitive data": Explains what sensitive data is and why it's treated differently -> part of the objective (what to do with it).
+- Definition card for "Potential breach": Defines what a potential breach is and the reporting requirement -> part of the objective (what to do with it).
+- Job tip: About the convenient channel being a common breach -> part of the objective (what to do with it).
+- Takeaways: Summarizes key points about identifying personal data, sensitive data, and actions to take -> directly related to the objective.
+
+Blocks in L2:
+- Heading: "Decide, case by case" -> Sets up the application of the objective.
+- Worked example: Steps through a scenario to decide if data is personal and sensitive, and how to handle it -> directly applies the objective.
+- Two knowledge checks: The first (PRV-01-KC-01) tests understanding of personal data (identifiability), and the second (PRV-01-KC-02) tests handling a data subject request (which is part of the objective). The scenarios are designed to apply the objective.
+- Scenario: A real-world situation about an email mistake and the correct reporting procedure -> applies the objective (what to do when a potential breach occurs).
+
+Every block is aligned with the objective. There are no blocks that teach something unrelated.
+
+Score: 5
+
+### Criterion 2: Level fidelity
+- The lesson declares levels L1 and L2.
+- L1: Should be introductory. The L1 blocks are definitions, explanations, and a job tip. It's setting the foundation without complex scenarios.
+- L2: Should be more advanced. The L2 has a worked example (step-by-step decision) and a scenario that requires applying the concepts. It's more complex than L1.
+
+Check for "a visual card that is secretly a bulleted list" - none of the blocks are described as such. The definition cards and takeaways are designed as cards, but they are not bulleted lists with a border (they are properly formatted as cards).
+
+L1: The content is foundational and matches the L1 level (introducing concepts).
+L2: The content is applied (worked example, scenario) and matches the L2 level.
+
+No evidence that the level label is aspirational. The lesson delivers what it promises.
+
+Score: 5
+
+### Criterion 3: Worked-example quality
+- The worked example (in L2) has steps that show what to do and why.
+
+Steps in the worked example:
+1. Step: "Is this personal data? ... yes, and every row identifies a person." Why: "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+   - Explains the why: the test is identifiability, not the label.
+
+2. Step: "Is any of it sensitive? ... yes." Why: "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+   - Explains the why: harm cannot be undone, so higher bar.
+
+3. Step: "What does his task actually need? ... dates and departments — not reasons." Why: "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not."
+   - Explains the why: the reasons don't serve the task, so including them is unnecessary disclosure.
+
+4. Step: "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why." Why: "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+   - Explains the why: avoiding the convenient channel and explaining prevents future problems.
+
+Each step shows the reasoning, and the why names the judgment (identifiability, harm, need to know) and what would change it (e.g., if the team were larger, the identifiability might not hold).
+
+Score: 5
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks: PRV-01-KC-01 and PRV-01-KC-02.
+
+First, let's look at PRV-01-KC-01 (the first knowledge check):
+
+Stem: "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?"
+
+Options:
+- A: "No, because it contains no names." (Incorrect) -> Feedback: "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+- B: "Yes, because the combination identifies each person in a team that size." (Correct) -> Feedback: "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply."
+- C: "Yes, but only if the rating is negative." (Incorrect) -> Feedback: "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person."
+- D: "No, because employee data is internal and does not count as personal." (Incorrect) -> Feedback: "No. Employees are people, and their data is personal whether it stays inside the organisation or not. 'Internal' describes the channel, not the classification."
+
+The distractors are plausible:
+- A: A common misconception (thinking that if there's no name, it's not personal data).
+- C: Another misconception (thinking it depends on the content being negative).
+- D: Misunderstanding that internal data is not personal.
+
+Feedback for each:
+- For A: Explains the misconception (absence of name doesn't mean absence of identity) and gives the correct reasoning.
+- For B: Correct, and feedback states the principle.
+- For C: Explains the misconception (it's not about embarrassment).
+- For D: Explains the misconception (internal vs. personal).
+
+All feedback names a real misconception. The feedback is not restating the answer but explaining the why.
+
+Now PRV-01-KC-02:
+
+Stem: "A customer writes: 'I want a copy of everything you hold about me, and delete my phone number.' What is the correct action?"
+
+Options:
+- A: Delete phone number and send what you find. (Incorrect) -> Feedback: "No. What you can find is not 'everything the organisation holds', and deleting before identity is verified can itself be a problem. The request has a route."
+- B: Reply you don't provide copies for security. (Incorrect) -> Feedback: "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it."
+- C: Add to to-do list for when work quiets down. (Incorrect) -> Feedback: "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure."
+- D: Pass to privacy owner same day, tell customer it's logged. (Correct) -> Feedback: "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+
+Distractors:
+- A: Common mistake (acting on the request without following the process).
+- B: Misconception (thinking they can refuse for security).
+- C: Misconception (delaying the request).
+
+Feedback:
+- For A: Explains why it's wrong (not everything, and deleting without verification is a problem).
+- For B: Explains why it's wrong (right to access is a fixture of modern regimes).
+- For C: Explains why it's wrong (the clock starts on arrival, so delay is a failure).
+- For D: Correct and explains the principle.
+
+All feedback names a misconception. However, note the rubric says: "feedback that restates the answer instead of naming the misconception". In both knowledge checks, the feedback for the incorrect options does name the misconception.
+
+But let's look at the feedback for the first knowledge check, option A: 
+  "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+
+This is naming the misconception (thinking absence of name means no identity) and explaining why it's wrong.
+
+Similarly, for option D in the first knowledge check:
+  "No. Employees are people, and their data is personal whether it stays inside the organisation or not. 'Internal' describes the channel, not the classification."
+
+This names the misconception (thinking internal data isn't personal) and explains.
+
+However, note the rubric says: "a distractor nobody would ever choose" — all distractors here are plausible.
+
+But wait: the rubric also says "feedback that restates the answer". The feedback for the correct option is stating the principle, which is good. The feedback for the incorrect options is explaining why they are wrong, which is what we want.
+
+So, why might this be a 3 instead of 5? Let me check again.
+
+Looking at the feedback for the first knowledge check, option A: 
+  "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+
+This is good. It's not restating the answer (which would be "Yes, it is personal data") but explaining the misconception.
+
+Similarly, for option D in the first knowledge check:
+  "No. Employees are people, and their data is personal whether it stays inside the organisation or not. 'Internal' describes the channel, not the classification."
+
+This is good.
+
+Now, the second knowledge check: 
+  Option A feedback: "No. What you can find is not 'everything the organisation holds', and deleting before identity is verified can itself be a problem. The request has a route."
+
+This explains the misconception (thinking they can delete without following the process and that what they have is everything).
+
+But note: the rubric says "per-option feedback explains why rather than restates the answer". Here, it does explain why.
+
+However, let me look at the feedback for the correct option in the second knowledge check: 
+  "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+
+This is a restatement of the principle, but that's acceptable for the correct option. The rubric is concerned about the feedback for incorrect options not restating the answer.
+
+But the rubric says: "feedback that restates the answer instead of naming the misconception" — meaning for the incorrect options. For the correct option, we want a positive statement.
+
+So, the feedback for the incorrect options is naming the misconception.
+
+However, note that in the first knowledge check, option A feedback: 
+  "No. The absence of a name is not the absence of identity."
+
+This is naming the misconception. Similarly for the others.
+
+But wait: the rubric says "a distractor nobody would ever choose". In this case, all distractors are chosen by people who have misconceptions.
+
+So, why would I score below 5? The rubric says: "5 — every distractor names a misconception someone actually holds."
+
+I think it's 5. But let me double-check the instructions: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+I don't see a problem. However, note that the rubric says: "be harsh on 4 and 5. A 5 means you would not change it."
+
+But wait: the note in the example output says for knowledge_check: "Two distractors restate the stem rather than naming a misconception." — but in the provided knowledge checks, that's not the case.
+
+Wait, the example output (in the rubric) has a note for knowledge_check: "Two distractors restate the stem rather than naming a misconception." — but that's an example, not the actual lesson we are scoring.
+
+In our lesson, the feedback for the incorrect options does name the misconception.
+
+However, let's look at the actual feedback for the first knowledge check, option A:
+
+  "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+
+This is not restating the stem. The stem is "Is it personal data?" and the feedback is explaining why the answer is yes, and why the option (no) is wrong.
+
+Similarly, for the second knowledge check, option A:
+
+  "No. What you can find is not 'everything the organisation holds', and deleting before identity is verified can itself be a problem. The request has a route."
+
+This is explaining why the option is wrong.
+
+But note: the rubric says "feedback that restates the answer". The feedback for the incorrect option is not restating the answer (which would be "The answer is yes" for the first one), but explaining the misconception.
+
+So, it should be 5.
+
+However, I recall that in the lesson, the knowledge_check blocks only reference the itemRef, and we are given the full items. So we are scoring on the full items.
+
+But wait: the rubric says "a distractor nobody would ever choose". In the first knowledge check, option D: "No, because employee data is internal and does not count as personal." — this is a common misconception (that internal data isn't personal), so it's plausible.
+
+Similarly, option C: "Yes, but only if the rating is negative." — that's a misconception (thinking it depends on the content being negative).
+
+So, all distractors are plausible.
+
+Therefore, knowledge_check should be 5.
+
+But let me check the example output in the rubric: it says for knowledge_check: 3 and the note says two distractors restate the stem.
+
+So, in this lesson, we have to see if there are any distractors that restate the stem.
+
+Looking at the feedback for the incorrect options, the feedback does not restate the stem. It explains the misconception.
+
+However, note that in the first knowledge check, option A feedback starts with "No." — that's restating the answer? But the rubric says "feedback that restates the answer" meaning for the incorrect option, the feedback should not just say "wrong" but explain. And here, it does explain.
+
+I think it's 5.
+
+But let me see if there's a mistake. The rubric says: "feedback that restates the answer instead of naming the misconception". The feedback for option A in the first knowledge check does not restate the answer (which would be "it is personal data") but explains why the option is wrong.
+
+So, I think it's 5.
+
+However, to be safe, let's look at the feedback for the second knowledge check, option C:
+
+  "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure."
+
+This is explaining why the option (delaying) is wrong. It's naming the misconception (that the clock starts when you have time) and explaining.
+
+So, I think knowledge_check is 5.
+
+But wait: the example output in the rubric has a note for knowledge_check at 3. Why? Because in the example, the feedback might have been restating the stem. But in our lesson, it's not.
+
+So, I'll score knowledge_check as 5.
+
+But let me re-read the rubric: "feedback that restates the answer instead of naming the misconception". The feedback for the incorrect options is not restating the answer (the answer is "yes" for the first one, but the feedback doesn't say "the answer is yes", it explains why the option is wrong). So it's good.
+
+Therefore, knowledge_check: 5.
+
+### Criterion 5: Scenario authenticity
+- The scenario in L2: "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm."
+
+This is a realistic scenario: common in office work (autocomplete mistakes), and the time (5 pm) is a realistic detail. The fact that the recipient hasn't opened it yet is a common situation. The scenario includes friction (the mistake and the need to act quickly).
+
+The scenario is recognisable, including the awkward part (the mistake and the time pressure).
+
+Score: 5
+
+### Criterion 6: Bilingual quality
+- The lesson is bilingual (bilingual: true).
+- We need to check if the Arabic is natural.
+
+Check the Arabic in the lesson:
+
+- The title: "ما الذي يُعدّ بيانات شخصية، وماذا تفعل بها في العمل" — natural Arabic.
+- The content: 
+  - "البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها." — natural.
+  - "السؤال الذي تسأله دائماً: «هل يستطيع أحد أن يعرف عمّن تتحدث هذه المعلومة؟»" — natural.
+
+Check for English word order: 
+  - "البيانات الشخصية" is the standard term, not a translation of "personal data" as a phrase.
+  - The sentence structure is Arabic.
+
+Compare to a machine translation: 
+  - A literal translation might be: "Personal data is any information related to a person identified or identifiable living." But the Arabic provided is: "البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها." — which is natural.
+
+Another example: 
+  - "الضرر من كشف سبب مرضي لا يُستردّ" — natural.
+
+The Arabic reads as though written in Arabic, not translated.
+
+Score: 5
+
+### Criterion 7: Concision and reading level
+- Check for padding or repetition.
+
+The lesson is concise. Each block is to the point.
+
+- The heading: short and punchy.
+- Rich text: clear and to the point.
+- Definition cards: concise definitions.
+- Job tip: short and impactful.
+- Takeaways: bullet points that are concise.
+
+In L2:
+- Worked example: step-by-step without fluff.
+- Scenario: brief and to the point.
+
+No padding or repetition.
+
+Score: 5
+
+### Criterion 8: Accessibility and IP
+- Check for alt text on images: there are no images in the lesson (the blocks don't include any image elements).
+- No meaning carried by color alone (no color used in the text).
+- No real licensed code descriptors or payer policy text.
+
+The lesson uses generic terms (like "employee number", "email address") that are not from a specific policy.
+
+No denylisted terms.
+
+So, it's compliant.
+
+Score: 5
+
+But note: the rubric says "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." — we don't see any.
+
+Therefore, accessibility_ip: 5
+
+Now, let's summarize the scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 5
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+But wait, the example output in the rubric had a note for knowledge_check at 3. Why? Because in the example, the feedback was restating the answer. But in our lesson, it's not.
+
+However, let me double-check the knowledge_check feedback for any restatement.
+
+Look at PRV-01-KC-01, option A feedback:
+  "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+
+This is not restating the answer. The answer is "yes", but the feedback doesn't say "yes", it explains.
+
+Similarly, for option D:
+  "No. Employees are people, and their data is personal whether it stays inside the organisation or not. 'Internal' describes the channel, not the classification."
+
+This is explaining the misconception.
+
+So, it's 5.
+
+But note: the rubric says "a distractor nobody would ever choose" — we have four options, and all are plausible. The distractors are chosen by people with misconceptions.
+
+Therefore, I think all criteria are 5.
+
+However, the problem says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+But in this case, I think the lesson is excellent.
+
+But let me check for any flaw.
+
+Wait: in the worked example, the "answer" section says: "Not a refusal — you give him what the task needs and withhold what it does not. And had he sent you the full list himself over a personal app, that would be a potential breach, reported the same day."
+
+This is good.
+
+Another point: in the scenario, the scenario says "the recipient probably has not opened it yet". This is a realistic detail.
+
+So, I think it's 5 on all.
+
+But the instruction says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one." — and here, it achieves everything.
+
+Therefore, all scores are 5.
+
+But the example output in the rubric had a note for knowledge_check. Why? Because the example was just an example. We are scoring the actual lesson.
+
+So, for this lesson, I'll score all 5.
+
+But wait: the rubric says "the gate fails if any criterion scores below 3". So if all are 5, it passes.
+
+However, the problem says: "Score what is on the page. If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+I don't see any reaching for something unachieved.
+
+But let me check the knowledge_check again, specifically for the feedback.
+
+In the first knowledge check, option A feedback: 
+  "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+
+This is good.
+
+Option D feedback:
+  "No. Employees are people, and their data is personal whether it stays inside the organisation or not. 'Internal' describes the channel, not the classification."
+
+This is also good.
+
+But note: the rubric says "feedback that restates the answer". The feedback for the incorrect options does not restate the answer (the correct answer is "yes" for the first one, but the feedback doesn't say "yes", it explains). So it's not restating.
+
+Therefore, I think knowledge_check is 5.
+
+However, I recall that in the lesson, the knowledge_check block only has the itemRef, and the feedback is part of the item. So we are scoring based on the full item.
+
+So, I'll go with 5 for knowledge_check.
+
+But let's see if there's a mistake in the Arabic of the feedback.
+
+For example, in PRV-01-KC-01, option A feedback in Arabic:
+  "لا. غياب الاسم لا يعني غياب الهوية. السؤال هو: هل يستطيع أحد أن يعرف عمّن هذا؟ وفي فريق من ستة، نعم."
+
+This is natural Arabic.
+
+So, I think it's 5.
+
+But to be absolutely sure, let's consider if any of the feedback options are restating the stem.
+
+The stem for PRV-01-KC-01 is: "جدول بلا أسماء فيه: المسمّى الوظيفي، القسم، تاريخ الالتحاق، وتقييم الأداء، لفريق من ستة أشخاص. هل هو بيانات شخصية؟"
+
+Option A says: "لا، لأنه لا يحتوي على أسماء."
+
+Feedback for A: "لا. غياب الاسم لا يعني غياب الهوية. السؤال هو: هل يستطيع أحد أن يعرف عمّن هذا؟ وفي فريق من ستة، نعم."
+
+This feedback does not restate the stem. It explains the misconception.
+
+Similarly, for the others.
+
+So, I think it's 5.
+
+Therefore, all scores are 5.
+
+But the problem says: "Be harsh on 4 and 5." — so if it's not perfect, it might be 4. But I think it is perfect.
+
+However, let's look at the takeaways in L1:
+
+In the takeaways, the Arabic says: "الحسّاس أعلى معياراً لأن ضرره لا يُستردّ — حتى لو وصل في بريد عادي."
+
+This is natural.
+
+So, I think all are 5.
+
+But note: the example output in the rubric had a note for knowledge_check. That was just an example. We have to score based on the actual lesson.
+
+Therefore, the scores:
+
+objective_alignment: 5
+level_fidelity: 5
+worked_example: 5
+knowledge_check: 5
+scenario_authenticity: 5
+bilingual_quality: 5
+concision: 5
+accessibility_ip: 5
+
+Now, the notes: since all are 5, there are no criteria scored below 4, so the "notes" object should be empty (or not present? But the rubric says: "required for every criterion scored below 4 and for every substitute-evidence criterion you scored". Since none are below 4, we don't have to add any notes.
+
+But the example output had a "notes" object with a key for knowledge_check even though it was 3. We don't have any below 4, so we won't have any notes.
+
+The "verdict_notes" should be two or three sentences.
+
+Since all are 5, the mean is 5.0, which is above 4.0, and no criterion below 3, so it passes.
+
+Verdict notes: "All criteria scored at 5. The lesson is excellent in every aspect. Passes the gate."
+
+But the rubric says: "the gate — not the judge — decides pass or fail." So we don't say "pass", but we can say it passes.
+
+The example output had: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+We don't have that.
+
+So for our case: "All criteria scored at 5. The lesson is flawless. Passes the gate."
+
+But the instruction says: "verdict_notes" should be two or three sentences.
+
+So: "All eight criteria scored 5. The lesson is exemplary across the board. It meets the gate threshold with a mean of 5.0."
+
+Now, the JSON structure:
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All eight criteria scored 5. The lesson is exemplary across the board. It meets the gate threshold with a mean of 5.0."
+}
+
+But the rubric says: "Return exactly the JSON shape it specifies — eight integer scores from 1 to 5, plus notes on any criterion you scored below 4."
+
+We have no criteria below 4, so "notes" is empty.
+
+However, the example output had a "notes" object with a key for the criterion that was below 4. We don't have any, so we return an empty object.
+
+Now, the lesson slug: "what-counts-as-personal-data" (from the lesson slug).
+
+Let me confirm the lesson slug in the lesson: "slug": "what-counts-as-personal-data"
+
+Yes.
+
+So, the JSON.
+
+But note: the rubric says "Do not adjust a score because of what it would do to the outcome". We are scoring 5 because it's excellent.
+
+I think that's it.
+
+However, I have a doubt: in the knowledge_check, is there any feedback that restates the answer? Let me check the second knowledge check, option A feedback:
+
+  "No. What you can find is not 'everything the organisation holds', and deleting before identity is verified can itself be a problem. The request has a route."
+
+This is not restating the answer (the correct answer is to pass to privacy owner). It's explaining why deleting immediately is wrong.
+
+So, it's good.
+
+Therefore, I'm confident.
+
+But to be thorough, let's check the rubric again: "feedback that restates the answer instead of naming the misconception". The feedback for the incorrect options does name the misconception, so it's not restating.
+
+So, I'll go with 5 for knowledge_check.
+
+Final scores: all 5.
+
+Now, write the JSON.
+</think>
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All eight criteria scored 5. The lesson is exemplary across every dimension. It meets the gate threshold with a mean of 5.0 and requires no changes to the content."
+}

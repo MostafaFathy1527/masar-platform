@@ -1,0 +1,45 @@
+{
+ "what": "Second pass of Qwen3-30B-A3B-Thinking-2507 over the same 24 lessons, the drift check Kimi K3 had before its seat",
+ "date": "2026-10-18",
+ "hardware": "2 x Tesla V100-SXM3-32GB, driver 580.178.04, CUDA 12.9; a fresh VM, llama.cpp built at the same commit, the same GGUF (sha256 checked again)",
+ "llama_cpp_commit": "797de63b2fa7396dcc8caca76834c699ac84e1c3",
+ "llama_cpp_build": "cmake -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=70 -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release",
+ "models": [
+  {
+   "file": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+   "repository": "unsloth/Qwen3-30B-A3B-Thinking-2507-GGUF",
+   "quantisation_of": "Qwen/Qwen3-30B-A3B-Thinking-2507 (apache-2.0)",
+   "bytes": 32483932576,
+   "sha256": "6326967c7bad05e9820421a593d48e315416b214cef56f1ca3c1f9d9a6e0f1c6",
+   "generation_config_sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "do_sample": true
+   }
+  }
+ ],
+ "hashes_checked": "every sha256 above was computed on the server after download and equals the LFS hash Hugging Face lists for the file",
+ "servers": {
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": "llama-server -ngl 999 -c 98304 -np 4 --jinja --reasoning-format none (24,576 a slot)"
+ },
+ "prompt_tokens": {
+  "how": "each of the 24 judge prompts tokenised by the served model's own tokenizer (/tokenize), before any judgement",
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": "5,566 to 7,539"
+ },
+ "templates": {
+  "source": "each GGUF's embedded tokenizer.chat_template, unchanged",
+  "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf": "Mistral's own system prompt from the GGUF template ('You are Mistral-Small-3.2-24B-Instruct-2506 ... created by Mistral AI'), then [INST]PROMPT[/INST]; 563 prompt tokens before the judge prompt"
+ },
+ "decoding": {
+  "rule": "a model's own documented default where it has one (generation_config.json or the model card), otherwise the project default of temperature 0; 4,000 tokens for a model that answers directly, 12,000 for one that reasons first, as in the Fanar-2 run",
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": {
+   "temperature": 0.6,
+   "max_tokens": 12000,
+   "reasoning": "--reasoning-format none; top_p and top_k from the generation config are not sent, the judge sends temperature only"
+  }
+ },
+ "family_note": "gpt-oss-20b shares a family with the pipeline's generator (gpt-oss-120b), so it is calibrated here for the record and can never be seated",
+ "rubric": "pipeline/rubric.md as committed",
+ "concurrency": "four judgements in flight at once against one server with four slots; each judgement is its own judge_bedrock.py call"
+}

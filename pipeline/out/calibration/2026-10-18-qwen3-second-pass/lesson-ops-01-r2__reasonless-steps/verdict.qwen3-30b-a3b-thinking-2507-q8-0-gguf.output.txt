@@ -1,0 +1,619 @@
+<think>
+We are scoring a lesson against the rubric without knowing the prompt. We must be harsh on 4 and 5.
+
+ The lesson: "writing-a-shift-handover" (slug: "writing-a-shift-handover")
+
+ We'll go through each criterion and assign a score from 1 to 5.
+
+ Criterion 1: Objective alignment
+   - The lesson has one objective: "OPS-01"
+   - We need to check if every block serves that objective.
+
+   Blocks in L1:
+     - heading: "What is a shift handover?" -> serves objective.
+     - rich_text: explains shift handover -> serves objective.
+     - definition cards: all define terms related to shift handover -> serve objective.
+     - process_flow (questions): the four questions are about writing a handover -> serve objective.
+     - job_tip: about leading with urgent item -> serves objective.
+     - takeaways: summarize key points for writing handover -> serves objective.
+
+   Blocks in L2:
+     - heading: "Put it to work" -> serves objective.
+     - process_flow (steps to write): the four steps are for writing the handover -> serves objective.
+     - worked_example: shows how to write a handover -> serves objective.
+     - scenario: about ordering items by urgency -> serves objective.
+     - sort_buckets: about fact vs guess -> serves objective.
+     - knowledge_check: two multiple choice questions that test the objective.
+
+   All blocks are aligned with OPS-01. There's no block that teaches something unrelated.
+
+   Score: 5
+
+ Criterion 2: Level fidelity
+   - The lesson declares L1 and L2.
+
+   L1: 
+     - It's an introductory lesson that defines terms and gives a process flow (questions) and a tip. 
+     - It doesn't require the learner to write anything, just understand the concepts.
+
+   L2:
+     - It has a process flow (interactive) for writing, a worked example, a scenario (with a knowledge check), and a sort buckets activity.
+     - The activities are more applied: writing, applying the process, and evaluating a scenario.
+
+   We must check if the level label is what the learner experiences.
+
+   For L1: The learner is being taught the concepts, not expected to do any application. The level label "L1" (which we assume is introductory) is appropriate.
+
+   For L2: The learner is applying the concepts (writing a handover, ordering items, sorting fact vs guess). This is appropriate for L2 (which we assume is application level).
+
+   There's no "visual card" that is a bulleted list (the definition cards are not bulleted lists but cards with icons and definitions). The process flows are not bulleted lists.
+
+   Score: 5
+
+ Criterion 3: Worked-example quality
+   - The lesson has one worked example (in L2, block "b_l2_worked_example").
+
+   Steps:
+     - Each step shows "showAr" (what is written) and "whyAr" (why that step is done).
+
+   Example step:
+     - "What is it? – Ticket #4523: customer payment failure." 
+        why: "Because it is the next step."
+
+   This is a bit weak because the "why" is very generic. It should name the judgment being made and what would change it.
+
+   But note: the rubric says for 5: "reasoning names the judgement being made and what would change it."
+
+   In this worked example, the "why" is the same for every step: "Because it is the next step." 
+   It doesn't explain the judgment (e.g., why we start with "What is it?"). 
+
+   However, the example is showing the structure of the handover. The reasoning is minimal but present.
+
+   Let's compare to 5: 
+     - A 5 would have: "We start with identifying the item because that is the foundation for the entire handover. If we didn't, the next person might not know what we are talking about. If the item was not clearly identified, we would have to go back and add it."
+
+   This example doesn't do that.
+
+   But note: the rubric says for 3: "reasoning present but generic." This is generic (same for every step).
+
+   However, the worked example is for a specific context (the payment failure) and the steps are standard. The "why" might be intended to be a placeholder for the lesson's own explanation, but it's written as "Because it is the next step." which is not insightful.
+
+   We should score it as 3? But let's see: the rubric says 3 is "reasoning present but generic", and 4 would be better.
+
+   Actually, the example does have reasoning (even if generic). We don't want to be too harsh because the reasoning is there.
+
+   However, the rubric says: "a worked example whose steps assert without explaining why" -> that would be 1. This has an explanation, but it's not good.
+
+   So 3 is the best we can give for this.
+
+   But wait: the rubric says for 5: "reasoning names the judgement being made and what would change it." This example doesn't do that.
+
+   Let's see if it's 3 or 4? The rubric says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+   This explanation is weak. I would change it to be more insightful. So it's not a 4 or 5.
+
+   However, note that the worked example is for a specific scenario and the steps are the four questions. The "why" might be intended to be a reminder that the steps are in order. But the reasoning is still too generic.
+
+   I think 3 is the right score.
+
+   But let's check the other criterion: knowledge check is scored below 4, so we can be a bit more lenient here? No, we must score strictly.
+
+   Alternatively, note that the lesson has two knowledge checks that are good, but the worked example is weak.
+
+   However, we are scoring the worked example block only.
+
+   I think 3 is too low? Let's see:
+
+     - 1: no reasoning (just the steps without why)
+     - 3: reasoning present but generic (like "because it's the next step")
+     - 5: the reasoning is good.
+
+   This is generic, so 3.
+
+   But wait: the rubric says "the 'why' is what separates a worked example from a printed solution." So the example is not just the steps but the reasoning. The reasoning here is present but weak.
+
+   I'll go with 3.
+
+   However, note that the lesson has two knowledge checks that are well written, but the worked example is the only one. We are scoring the worked example block.
+
+   But let me double-check: the rubric says "each step", so every step must have a why.
+
+   In this worked example, each step has a "why", so it's not 1. It's 3 because the why is generic.
+
+   Score: 3
+
+   Wait: the rubric says for 3: "reasoning present but generic." And for 5: "reasoning names the judgement being made and what would change it." This example does not name a judgment or what would change it. So 3 is correct.
+
+   But note: the example might be intended to be simple. However, the rubric expects more.
+
+   However, let's compare to the example in the rubric: "a worked example whose steps assert without explaining why" -> that's 1. This at least has an explanation, so it's not 1.
+
+   So 3.
+
+   But wait: the lesson also has a "process_flow" in L2 that is interactive. That is not a worked example, it's a different block type. The worked example is the block with type "worked_example", which we are scoring.
+
+   So for criterion 3, we are scoring the worked example block. It has a generic why.
+
+   I'll score it 3.
+
+   However, I see that in the worked example, the "why" field says "Because it is the next step." for every step. That's not helpful. So 3.
+
+ Criterion 4: Knowledge-check quality
+   - We have two knowledge checks (OPS-01-KC-01 and OPS-01-KC-02).
+
+   We are to check:
+     - Distractors drawn from real misconceptions.
+     - Per-option feedback explains why (not restates the stem).
+
+   Let's look at the first knowledge check (OPS-01-KC-01):
+
+     Stem: "Your handover has three open items. In what order do you write them?"
+
+     Options:
+       A: By when they arrived, oldest first. (incorrect)
+          Feedback: "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+       B: By when they need action, with anything urgent first and marked. (correct)
+          Feedback: "Correct. A reader who starts at the top is never surprised at the bottom."
+
+       C: The hardest or most interesting first. (incorrect)
+          Feedback: "Not correct. What occupied you during the shift is not necessarily what the next person needs first."
+
+       D: By ticket number, so they are easy to find. (incorrect)
+          Feedback: "Not correct. It is tidy, but it tells the reader nothing about urgency."
+
+     Analysis:
+        - Distractors: 
+            A: Real misconception? Yes, people often think of ordering by arrival (like in a list of tasks). 
+            C: Real misconception? Yes, people might order by what was hardest for them (but that's not the next person's need).
+            D: Real misconception? Yes, people might order by ticket number to be tidy, but that's not the right way.
+
+        - Feedback:
+            A: Explains why it's wrong (buried item).
+            B: Correct feedback (explains why it's correct).
+            C: Explains why it's wrong (not what the next person needs).
+            D: Explains why it's wrong (doesn't convey urgency).
+
+        All feedbacks explain why, not just restate the stem.
+
+     Now the second knowledge check (OPS-01-KC-02):
+
+        Stem: "A colleague's handover reads: 'Ticket 77: the customer's card is expired. Ask for a new card.' You open the record: the payment failed twice, and nobody has confirmed why. What is wrong with the line?"
+
+        Options:
+          A: Nothing; it is short and gives a next action. (incorrect)
+             Feedback: "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+
+          B: It needs more detail about the customer's history. (incorrect)
+             Feedback: "Not correct. Length is not the measure; the problem is what the line presents as certain."
+
+          C: It presents a guess as a fact, and the next person will act on it. (correct)
+             Feedback: "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a 'guess' label."
+
+          D: The card should not be mentioned at all. (incorrect)
+             Feedback: "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift."
+
+        Analysis:
+          - Distractors:
+              A: Real misconception? Yes, people might think that short and having an action is enough.
+              B: Real misconception? Yes, people might think the problem is lack of detail (but it's actually the presentation of a guess as fact).
+              D: Real misconception? Yes, people might think the solution is to remove the guess.
+
+          - Feedback:
+              A: Explains why (the action rests on an assumption).
+              B: Explains why (the problem isn't length, but what is presented as certain).
+              C: Explains why (correctly identifies the fact vs guess).
+              D: Explains why (the guess can be helpful if labeled).
+
+        Both knowledge checks have:
+          - Distractors that are real misconceptions.
+          - Feedback that explains why (not just restating the answer).
+
+        However, note the rubric says: "a distractor nobody would ever choose teaches nothing." None of these distractors are implausible.
+
+        So this should be a 5.
+
+        But wait: the rubric says for 5: "every distractor names a misconception someone actually holds."
+
+        In the feedback for the correct answer in KC-02, it says: "The fact: the payment failed twice. The guess: the card is expired." This is good.
+
+        So why would the score be below 5? It seems to be 5.
+
+        However, let's check the provided example in the rubric: the example for 5 says "every distractor names a misconception someone actually holds." This is true.
+
+        But note: the rubric says "be harsh on 4 and 5". Is there any flaw?
+
+        I think it's 5.
+
+        But wait: the lesson has two knowledge checks. We are to score the knowledge_check criterion based on the quality of the knowledge checks. Both are excellent.
+
+        However, the rubric says: "score the knowledge_check criterion", meaning the entire knowledge_check block (which includes multiple questions). Since both questions are well done, we can score 5.
+
+        But note: the rubric says "every distractor" (for each question). We have two questions, and each has multiple distractors. We've checked both.
+
+        So score: 5.
+
+        However, the sample output in the rubric says for the example: "knowledge_check": 3, and then a note about two distractors restating the stem. In our case, we don't have that.
+
+        But wait: in the knowledge checks provided, the feedback for the correct answer in KC-01 says "Correct." and then an explanation. The incorrect ones have feedback that explains why. So it's good.
+
+        Why did I think it might be 3? I don't see any flaw.
+
+        Let me read the rubric again: "feedback that restates the answer instead of naming the misconception"
+
+        In KC-01, option B's feedback: "Correct. A reader who starts at the top is never surprised at the bottom." 
+          - This is not restating the stem. The stem was about order. This feedback explains why the correct answer is good.
+
+        Similarly, for the incorrect ones, they explain why.
+
+        So it's 5.
+
+        But wait: the rubric says "per-option feedback explains why". This is done.
+
+        Therefore, score: 5.
+
+        However, note that the lesson has two knowledge check blocks (b_l2_check_1 and b_l2_check_2). But the knowledge_check criterion is about the quality of the knowledge checks, and we are given the full items. So we are scoring based on the items.
+
+        So 5.
+
+ Criterion 5: Scenario authenticity
+   - The scenario (block "b_l2_scenario_best_line"):
+
+        Situation: 
+          "You are ending your shift with two open items: a ticket from customer 'Ali' about a login issue, who was promised a reply before 14:00 today; and an order waiting for the supplier to confirm a delivery date, with no deadline today. The order arrived first. Which line opens your handover?"
+
+        The scenario has:
+          - Realistic details: customer name, specific time (14:00), promise made.
+          - Friction: The order arrived first but has no deadline, while the ticket has a deadline. The learner must choose to put the urgent item first.
+
+        The consequences of the wrong choices are realistic:
+          - Option d1: "You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent." -> This is a real risk.
+          - Option d3: "This is one of the common failures word for word: 'nothing major' with an item on a deadline. Ali's promise will be broken, and to him the organisation made it." -> This is a common real-world failure.
+
+        This scenario is recognizable and includes the awkward part (the order arrived first but is less urgent).
+
+        Score: 5
+
+ Criterion 6: Bilingual quality
+   - The lesson is bilingual (bilingual: true).
+
+   We need to check if the Arabic is natural.
+
+   Let's look at a few examples:
+
+     - "تسليم النوبة هو لحظة انتقال العمل من شخص إلى آخر في نهاية نوبته، مع توثيق كل السياق الضروري حتى يتمكن القادم من المتابعة دون الحاجة للاتصال بالمنتهي."
+
+        This is a bit literal? But it's clear and natural. The phrase "المنتهي" (the one who ended) is a bit formal, but in Arabic business contexts, it's acceptable.
+
+     - "الطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة."
+
+        "الطول" (length) is used correctly. "السرد" (narrative) is good. "العنصر العاجل" (urgent item) is the term used in the lesson.
+
+     - The definitions: 
+          "العنصر العاجل: عنصر مفتوح يحتاج إلى إجراء قبل انتهاء النوبة التالية، عادةً ما يُحدَّد بموعد نهائي."
+
+        This is natural.
+
+     - The scenario: 
+          "تنهي نوبتك وأمامك عنصران مفتوحان: تذكرة العميل «علي» عن خلل في تسجيل الدخول، وقد وُعد بردّ قبل الساعة 14:00 اليوم؛ وطلب ينتظر أن يؤكد المورد موعد التسليم، ولا موعد نهائي له اليوم. الطلب وصل أولًا."
+
+        This is natural and uses common business terms.
+
+     - The feedback in the knowledge checks: 
+          "غير صحيح. ترتيب الوصول يبدو منصفًا، لكنه قد يدفن عنصرًا موعده بعد ساعة تحت عنصر لا موعد له."
+
+        This is natural.
+
+     - The worked example: 
+          "ما هو؟ – تذكرة 4523: فشل دفع العميل."
+
+        This is natural.
+
+     I don't see any English word order. The Arabic is written as a native speaker would.
+
+     Score: 5
+
+ Criterion 7: Concision and reading level
+   - We need to check if the prose is concise and earns its space.
+
+   Let's look at the rich_text block:
+
+        "تسليم النوبة هو لحظة انتقال العمل من شخص إلى آخر في نهاية نوبته، مع توثيق كل السياق الضروري حتى يتمكن القادم من المتابعة دون الحاجة للاتصال بالمنتهي. الاختبار البسيط لتسليم ناجح هو: **هل يستطيع الشخص التالي اتخاذ إجراء مباشرةً دون سؤالك؟**\n\nالطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة."
+
+        This is concise. It's 2 sentences. The bolded test is memorable.
+
+   The definition cards: each has a term and a definition. The definitions are short and to the point.
+
+   The process_flow in L1: the four questions are stated in one line each.
+
+   The job_tip: short and to the point.
+
+   The takeaways: bullet points that are concise.
+
+   In L2, the process_flow for writing: each step is one line.
+
+   The worked example: the steps are concise.
+
+   The scenario: the situation is stated concisely.
+
+   The sort_buckets: the cards are short.
+
+   The knowledge checks: the stems and feedback are concise.
+
+   I don't see any padding or repetition.
+
+   Score: 5
+
+ Criterion 8: Accessibility and IP
+   - We must check for:
+        - Alt text on any image (there are no images in this lesson, so we don't need alt text).
+        - No meaning carried by color alone (there are no colors used in the text, so it's safe).
+        - No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist.
+
+   The lesson does not contain any real code, policy text, or forbidden terms.
+
+   So it's compliant.
+
+   The rubric says: 
+        "1 — any licensed code set or denylisted term present. *This is an automatic 1 and therefore an automatic gate failure*"
+
+   We don't have any of that.
+
+   The lesson is compliant, and the constraint is used as a teaching point? Well, the lesson doesn't explicitly use the constraint as a teaching point, but it's not required for 5. The rubric says 5 is "compliant, and the constraint is used as a teaching point." However, the lesson does not have a constraint (like a note about accessibility) that uses the constraint as a teaching point. But note: the constraint is about not having real code or policy, which the lesson avoids. So it's compliant.
+
+   The rubric says for 5: "compliant, and the constraint is used as a teaching point." 
+
+   But the constraint here is about avoiding real code. The lesson doesn't have any real code, so it's compliant. However, it doesn't use the constraint as a teaching point (i.e., it doesn't say, "We avoid real code because of X"). But the rubric doesn't require that for 5? It says "compliant, and the constraint is used as a teaching point." So if it's compliant and doesn't use it as a teaching point, it might be 3? 
+
+   However, note the rubric says for 3: "compliant but minimal." and for 5: "compliant, and the constraint is used as a teaching point."
+
+   The lesson is compliant, but it doesn't use the constraint as a teaching point. So it should be 3? 
+
+   But wait: the constraint is "no real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." The lesson avoids these, but it doesn't mention why. So it's compliant but minimal (3).
+
+   However, the rubric says for 5: "compliant, and the constraint is used as a teaching point." 
+
+   We don't have any teaching point about the constraint. So we cannot give 5.
+
+   But note: the lesson is about shift handovers, and the constraint is about avoiding real code. There's no need to teach about the constraint. So it's acceptable to be minimal.
+
+   The rubric says 5 is "compliant, and the constraint is used as a teaching point." Since it's not used as a teaching point, it's 3.
+
+   However, let's see the example: the rubric says for 5: "compliant, and the constraint is used as a teaching point." This means that if the lesson had a note saying "We avoid including real policy text because it's not our business to copy it," then it would be 5. But the lesson doesn't have that.
+
+   Therefore, we must score 3.
+
+   But note: the lesson doesn't have any images, so alt text is not needed. And there are no colors. So it's compliant.
+
+   The rubric says for 3: "compliant but minimal." So 3.
+
+   However, the rubric also says: "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." -> The lesson has none of these, so it's compliant. But the "minimal" part means it's just compliant without extra effort.
+
+   So score: 3.
+
+   But wait: the rubric says "compliant but minimal" for 3. And we don't have any violation, so it's compliant. Therefore, 3.
+
+   However, note that the rubric says for 5: "compliant, and the constraint is used as a teaching point." Since it's not used as a teaching point, we cannot give 5.
+
+   So 3.
+
+   But let me check: the lesson has no images, so no alt text needed. No colors. No real code. So it's compliant. The only thing missing is the teaching point about the constraint.
+
+   Therefore, 3.
+
+   However, note that the constraint (avoiding real code) is not relevant to the topic. The lesson is about shift handovers, so it's not expected to have a teaching point about the constraint. But the rubric requires it for 5.
+
+   So we must give 3.
+
+   But wait: the rubric says "compliant" for 3 and 5. The difference is the teaching point.
+
+   Since the lesson does not have a teaching point about the constraint, it's 3.
+
+   So score: 3.
+
+ Now, let's summarize:
+
+   objective_alignment: 5
+   level_fidelity: 5
+   worked_example: 3
+   knowledge_check: 5
+   scenario_authenticity: 5
+   bilingual_quality: 5
+   concision: 5
+   accessibility_ip: 3
+
+ However, note that the worked_example score we set to 3, and accessibility_ip to 3.
+
+ But wait: the rubric says for knowledge_check we scored 5, but the sample output in the rubric had a note for knowledge_check. We have no note for knowledge_check because we scored it 5.
+
+ But the worked_example we scored 3, so we must have a note for it.
+
+ The rubric says: "notes on any criterion you scored below 4." So for worked_example (3) and accessibility_ip (3), we need to provide notes.
+
+ However, the sample output in the rubric had a note for knowledge_check even though it was scored 3? But we scored knowledge_check 5, so no note.
+
+ But we have two criteria below 4: worked_example and accessibility_ip.
+
+ Now, let's write the notes:
+
+   For worked_example: 
+        The "why" for each step is generic ("Because it is the next step.") and does not name the judgment or what would change it.
+
+   For accessibility_ip:
+        The lesson is compliant but does not use the constraint as a teaching point.
+
+ However, note: the rubric says for accessibility_ip: 
+        "3 — compliant but minimal."
+
+   So the note should be: "Compliant but minimal; constraint not used as teaching point."
+
+ But the rubric says: "notes on any criterion you scored below 4." So we write a note for each.
+
+ Now, the verdict_notes: 
+        "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." -> but wait, we have two criteria at 3.
+
+        Actually, we have two at 3: worked_example and accessibility_ip.
+
+        The mean: (5+5+3+5+5+5+5+3) = 36 / 8 = 4.5? Wait, let me calculate:
+
+          5,5,3,5,5,5,5,3 -> sum = 5*6 + 3*2 = 30+6 = 36 -> 36/8 = 4.5
+
+        But wait, we have 8 criteria.
+
+        The rubric says the gate fails if any criterion below 3 (we have two at 3, which is acceptable) or mean below 4.0 (4.5 is above).
+
+        So it passes.
+
+        But the verdict_notes should be: 
+          "Two criteria scored 3; mean 4.5. Passes."
+
+        However, the sample output said "One criterion at 3", but we have two.
+
+        But note: the sample output was an example. We have to write what is true.
+
+        So: "Two criteria scored below 4; mean 4.5. Passes."
+
+        But the rubric says: "the mean is below 4.0" fails. 4.5 is above.
+
+        So: "Two criteria scored 3; mean 4.5. Passes."
+
+ Now, let's write the JSON.
+
+ Important: The rubric says "return exactly the JSON shape it specifies".
+
+ We have:
+
+   "lesson": "writing-a-shift-handover" (from the slug in the lesson)
+
+   "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 3,
+        "knowledge_check": 5,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 3
+   }
+
+   "notes": {
+        "worked_example": "The 'why' for each step is generic ('Because it is the next step.') and does not name the judgment or what would change it.",
+        "accessibility_ip": "Compliant but minimal; constraint not used as teaching point."
+   }
+
+   "verdict_notes": "Two criteria scored 3; mean 4.5. Passes."
+
+ But note: the rubric says "notes on any criterion you scored below 4" — we have two, so we list both.
+
+ However, the rubric says: "required for every criterion scored below 4 and for every substitute-evidence criterion you scored". We don't have any substitute-evidence.
+
+ Now, let's check the sample output: it had a note for knowledge_check even though it was 3, but we have knowledge_check at 5 so we don't need a note.
+
+ We are good.
+
+ But wait: the rubric says "not_scored" is also a key, but the lesson has no criteria that are not scored. The applicability says we score all eight. So we don't have a not_scored.
+
+ The rubric says: "not_scored" (criterion -> reason) is a key we can include if we didn't score a criterion. We are scoring all, so we omit it.
+
+ Now, write the JSON.
+
+ Important: The lesson slug is "writing-a-shift-handover", as given in the lesson.
+
+ Let me double-check the lesson slug: in the lesson JSON, "slug": "writing-a-shift-handover"
+
+ So we use that.
+
+ Now, the JSON:
+
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step is generic ('Because it is the next step.') and does not name the judgment or what would change it.",
+    "accessibility_ip": "Compliant but minimal; constraint not used as teaching point."
+  },
+  "verdict_notes": "Two criteria scored 3; mean 4.5. Passes."
+}
+
+ However, note: the rubric says "the gate fails if any criterion scores below 3" — we have two at 3, which is acceptable (not below 3). So it passes.
+
+ But wait: the rubric says "below 3", so 3 is acceptable.
+
+ Now, let's make sure we didn't miss anything.
+
+ One more thing: the rubric says for criterion 8, we scored 3 because the constraint is not used as a teaching point. But note that the constraint (avoiding real code) is not relevant to the lesson topic, so it's not expected to be used as a teaching point. However, the rubric explicitly states that for 5, it must be used as a teaching point. So we must score 3.
+
+ But let's see: the rubric says "compliant, and the constraint is used as a teaching point." for 5. Since it's not used as a teaching point, 3 is correct.
+
+ I think we are good.
+
+ However, note that the sample output in the rubric had a note for knowledge_check, but we have knowledge_check at 5 so we don't have a note for it.
+
+ We have two notes: for worked_example and accessibility_ip.
+
+ Now, write the JSON.
+
+ Important: the rubric says "No markdown fences, no prose before or after the JSON."
+
+ So we output only the JSON.
+
+ But note: the rubric example had "verdict_notes" as a string of two or three sentences.
+
+ We have: "Two criteria scored 3; mean 4.5. Passes."
+
+ Let's count: 
+   Two criteria scored 3 -> true (worked_example and accessibility_ip)
+   mean 4.5 -> true (36/8=4.5)
+   Passes -> true.
+
+ So we are set.
+
+ However, note: the rubric says "the mean is below 4.0" fails. Our mean is 4.5, so it passes.
+
+ But the rubric says: "the gate fails if any criterion scores below 3, or if the mean is below 4.0."
+
+ We have no criterion below 3 (we have two at 3, which is not below) and mean 4.5 is above 4.0.
+
+ So it passes.
+
+ Now, the JSON.
+
+ Let me write it exactly.
+
+ Note: the rubric says "accessibility_ip" (not "accessibility_ip" but the key is "accessibility_ip" as per the rubric).
+
+ The rubric has: 
+   "accessibility_ip"
+
+ So we use that.
+
+ We are ready.
+</think>
+
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations are generic ('Because it is the next step.') and do not name the specific judgment or what would change the step order.",
+    "accessibility_ip": "Compliant but minimal; constraint (no real code/policy) not used as teaching point."
+  },
+  "verdict_notes": "Two criteria scored 3; mean 4.5. Passes."
+}

@@ -1,0 +1,537 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+First, let's recall the rubric criteria and what to look for.
+
+We have to score 8 criteria on a scale of 1-5, and note any below 4.
+
+We are not to infer what the generator was asked for, only look at what is on the page.
+
+Let's go through each criterion one by one.
+
+### 1. Objective alignment
+- The lesson declares objective CS-01.
+- We check each block to see if it serves CS-01.
+
+Blocks:
+- l1: 
+  - heading: about complaint being a chance -> supports CS-01 (which is about handling a complaint, so this sets the stage).
+  - rich_text: explains complaint as a chance, and the first minute is critical -> supports CS-01.
+  - definition_card (acknowledgement): defines the concept that is part of the concepts introduced (acknowledgement) -> serves the objective.
+  - definition_card (agreed next step): defines another concept (agreed_next_step) -> serves the objective.
+  - job_tip: about asking "what do you want now?" -> this is a key step in handling complaint, so serves the objective.
+  - takeaways: summarizes the key points for CS-01 -> serves the objective.
+
+- l2:
+  - heading: "Work one complaint from open to close" -> directly about handling the complaint end-to-end, so supports CS-01.
+  - worked_example: step-by-step for a complaint scenario, using the concepts (acknowledgement, agreed next step) -> serves the objective.
+  - knowledge_check (two): the questions are about the concepts (acknowledgement and agreed next step) -> serve the objective.
+  - scenario: presents a realistic situation and asks for the correct action (using the concepts) -> serves the objective.
+
+All blocks are aligned with CS-01. There are no blocks that seem unrelated.
+
+Score: 5 (every block earns its objective, and the set covers it)
+
+### 2. Level fidelity
+- The lesson declares levels L1 and L2.
+
+L1: 
+  - The L1 blocks are introductory: heading, rich text, two definition cards, a job tip, and takeaways. 
+  - It introduces the concepts (acknowledgement, establishing_the_facts, etc.) without going into complex scenarios.
+
+L2:
+  - The L2 blocks are more advanced: a worked example (step-by-step handling of a complaint), a knowledge check (applied), and a scenario (with a realistic problem to solve).
+  - The worked example is a step-by-step application of the L1 concepts in a more complex situation.
+
+We have to check if the level label matches the content.
+
+- L1 is for beginners: it explains the basic concepts. The content is appropriate for L1 (simple, foundational).
+- L2 is for more advanced: it requires applying the concepts in a scenario and working through a complaint end-to-end. This is appropriate for L2.
+
+Also, note the rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion." 
+- The definition cards are not bulleted lists; they are defined as cards with an icon and a definition. So they are not a bulleted list. The takeaways are a list, but it's a "takeaways" block which is intended to be a list. The rubric doesn't say that a list in a takeaways block is bad, and it's not a "visual card" (which is a specific type). The rubric mentions "a visual card that is a bulleted list" as a failure. Here, the definition cards are not bulleted lists (they have a term and a definition) and the takeaways are a list but are labeled as "takeaways", so that's acceptable.
+
+So, L1 and L2 are appropriately differentiated.
+
+Score: 5
+
+### 3. Worked-example quality
+- The worked example in L2 (cs1_l2_worked) has steps with "why" explanations.
+
+Let's look at the steps:
+
+Step 1: 
+  - show: "Acknowledge in her words: ... "
+  - why: "Because it is the next step."
+
+Step 2:
+  - show: "Open the record and say so ..."
+  - why: "Because it is the next step."
+
+Step 3:
+  - show: "State what the record shows ..."
+  - why: "Because it is the next step."
+
+Step 4:
+  - show: "Close with an agreed next step ..."
+  - why: "Because it is the next step."
+
+The "why" here is too generic. It says "because it is the next step" but doesn't explain *why* that step is important or what judgment is being made.
+
+For a 5, we need: "reasoning names the judgement being made and what would change it."
+
+Here, the why doesn't name the judgment. It just says it's the next step. It doesn't explain the reasoning behind the step.
+
+Example of what would be better: 
+  - Why step 1? Because acknowledging the customer's words first addresses the emotional need (feeling heard) before the factual issue, which is critical for de-escalation.
+
+But here, it's too vague.
+
+So, it's not a 5. It's at best a 3? But let's see.
+
+The rubric says:
+- 1: steps assert without reasoning.
+- 3: reasoning present but generic.
+- 5: reasoning names the judgment.
+
+Here, the reasoning is generic: "because it is the next step". It doesn't explain the judgment or the why.
+
+So, it's a 3.
+
+But note: the rubric says "the 'why' is what separates a worked example from a printed solution." Here, the why is provided but it's not meaningful.
+
+So, score for worked_example: 3
+
+Wait, but let me double-check. The rubric example for 5: "reasoning names the judgement being made and what would change it."
+
+This example doesn't do that. It just says "next step". So it's generic.
+
+So, 3.
+
+But note: the worked example also has an answer that explains the rationale. However, the criterion is about the steps in the worked example. The steps are the ones that are being scored.
+
+So, worked_example: 3
+
+### 4. Knowledge-check quality
+We have two knowledge checks: CS-01-KC-01 and CS-01-KC-02.
+
+We have the items for both.
+
+For KC-01:
+
+Stem: Customer opens call angry about late/broken order. What first thing to say?
+
+Options:
+- A: "I'm sorry you feel that way..." -> incorrect. Feedback: "This apologizes for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off." -> This explains why it's wrong (misconception: confusing apology for feeling vs event).
+
+- B: "Your order arrived late and broken, and I can see why you are angry." -> correct. Feedback: "You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault." -> This names the misconception (confusing apology for feeling) and explains why it's correct.
+
+- C: "I'll transfer you to shipping..." -> incorrect. Feedback: "Transferring an angry customer before he is heard, and without a handover, makes him explain everything again — which is the road to escalation." -> This names the misconception (transferring without acknowledging first).
+
+- D: "We'll make it all up to you..." -> incorrect. Feedback: "A promise of an outcome whose facts are not yet established and which you may not have authority over. If it does not happen, the complaint becomes about a broken promise." -> This names the misconception (making promises without authority).
+
+All feedbacks explain why the option is wrong (or right) by naming a misconception.
+
+For KC-02:
+
+Stem: You've established facts and agreed on a refund. Which close is an agreed next step?
+
+Options:
+- A: "One of my colleagues will follow up soon." -> incorrect. Feedback: "No name, no time, no way to verify. This is the close that manufactures the repeat complaint." -> names the misconception (vague close leads to repeat complaints).
+
+- B: "Done. Is there anything else I can help with?" -> incorrect. Feedback: "No. 'Done' says neither what was done nor when the customer will see it. Tomorrow he will discover he has no idea whether anything happened." -> names the misconception (vague closure).
+
+- C: "I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today." -> correct. Feedback: "An action, a time, and a way the customer will know it happened — three things he can hold you to." -> explains the correct concept.
+
+- D: "Email us if the refund doesn't arrive." -> incorrect. Feedback: "This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes." -> names the misconception (shifting burden to customer).
+
+All feedbacks are good: they name the misconception and explain why.
+
+Therefore, the knowledge checks are of high quality.
+
+But note: the rubric says "a distractor nobody would ever choose teaches nothing". Here, all distractors are plausible. For example, in KC-01, option A (apologizing for feeling) is a common mistake. Option C (transferring) is also common. Similarly for KC-02.
+
+So, knowledge_check: 5
+
+But wait, the rubric says "every distractor names a misconception someone actually holds." And that's true here.
+
+However, note the lesson has two knowledge_check blocks, each referencing one item (with one correct answer and three distractors). The items are provided and they are good.
+
+But the rubric says: "Score what is on the page." The knowledge_check block in the lesson just references the item, and the item is provided. So we are scoring the items as part of the lesson.
+
+Therefore, knowledge_check: 5.
+
+But wait, in the lesson, the knowledge_check blocks are just:
+
+{
+  "id": "cs1_l2_kc1",
+  "type": "knowledge_check",
+  "objectiveId": "CS-01",
+  "payload": {
+    "itemRef": "CS-01-KC-01"
+  }
+}
+
+And similarly for KC-02. The actual item is provided separately. We are told to score the knowledge checks on those items.
+
+So, the items are good -> 5.
+
+But note: the rubric says "per-option feedback explain why rather than restate the stem." Here, the feedback does explain why, so it's good.
+
+So, knowledge_check: 5
+
+However, in the initial instruction, the example verdict had a note for knowledge_check. But in this case, it seems perfect.
+
+But let me re-read the knowledge_check criterion: "Are distractors drawn from real misconceptions, and does per-option feedback explain why rather than restate the answer?"
+
+All feedbacks explain why, and distractors are real.
+
+So, 5.
+
+### 5. Scenario authenticity
+- The lesson has a scenario block in L2: "scenario" with a situation and decisions.
+
+Situation: 
+  - A customer in chat asks for something you can't authorise (waiving a fee), the team that can is in tomorrow, customer has written three long messages and says he won't explain again.
+
+This is a realistic situation in customer service. It's not a textbook example; it's a real-world friction: the customer is frustrated because they've had to explain multiple times, and the agent must handle it without transferring without a warm handover.
+
+The scenario includes friction (the customer's frustration, the fact that the agent can't do it now, and the customer doesn't want to repeat).
+
+So, it's authentic.
+
+Score: 5
+
+### 6. Bilingual quality
+- The lesson is bilingual (bilingual: true).
+
+We have to check if the Arabic is natural and not a literal translation.
+
+Let's look at some Arabic:
+
+- In the heading: "الشكوى فرصة لم يمنحها لك الآخرون" -> "A complaint is the chance the others did not give you" -> This is a bit awkward in Arabic? Let's see: 
+  - Literally: "Complaint is an opportunity that others did not give you." 
+  - But in Arabic, it's common to say "الشكوى فرصة لم يمنحك إياها الآخرون" (a more natural phrasing). However, the lesson says "لم يمنحها لك" which is acceptable but a bit stiff.
+
+But let's look at the definition_card:
+
+"الإقرار": 
+  - "أن تسمّي ما حدث بكلمات العميل، وتقول إنك تفهم لماذا يهمّه — قبل أي كلام عن الأسباب أو الحلول."
+
+This is natural Arabic. It's not a word-for-word translation.
+
+Another example: 
+  - "الخطوة التالية المتفق عليها": 
+    "إجراء محدد، في وقت محدد، وطريقة محددة يعرف بها العميل أنه حدث."
+
+This is natural.
+
+The job tip: 
+  - "السؤال الذي يتخطّاه معظم الموظفين هو الذي يوفّر أكبر وقت: **«ما الذي تريده الآن؟»**"
+
+This is natural.
+
+The takeaways: 
+  - "أقرّ بالتجربة أولاً، بكلمات العميل، قبل الأسباب والحلول."
+
+This is natural.
+
+The worked example in Arabic:
+  - "أقرّ بما حدث بكلماتها: «خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد. أفهم لماذا أنتِ غاضبة.»"
+
+This is natural.
+
+The scenario:
+  - "عميل في المحادثة النصية يطلب شيئاً لا تملك صلاحيته: إلغاء رسوم تعاقدية. القسم الذي يملك الصلاحية يعمل غداً. العميل كتب حتى الآن ثلاث رسائل طويلة ويقول إنه لن يشرح الموضوع مرة أخرى لأحد."
+
+This is natural.
+
+I don't see any Arabic that is a literal translation (like English word order). It reads as though written in Arabic.
+
+Score: 5
+
+### 7. Concision and reading level
+- Check if anything is longer than needed.
+
+The lesson is well-written. The rich text is a bit long but it's a key concept. The definition cards are concise. The worked example steps are clear and not wordy.
+
+The takeaways are a list of 5 points (in each language) and they are concise.
+
+The scenario is concise.
+
+Overall, the prose is clear and not padded.
+
+Score: 5
+
+### 8. Accessibility and IP
+- Check for any real licensed code, payer policy text, or forbidden terms.
+
+The lesson is about handling customer complaints. It doesn't contain any code, policy text, or forbidden terms.
+
+It also has no images (so no alt text needed) and no color-based meaning.
+
+The rubric says: "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist."
+
+This lesson doesn't have any of these.
+
+So, it's compliant.
+
+Score: 5
+
+But note: the rubric says "automatic 1" if any of those are present. Here, none are.
+
+So, 5.
+
+Now, let's summarize the scores:
+
+1. Objective alignment: 5
+2. Level fidelity: 5
+3. Worked-example quality: 3 (because the "why" in the worked example steps is too generic)
+4. Knowledge-check quality: 5
+5. Scenario authenticity: 5
+6. Bilingual quality: 5
+7. Concision: 5
+8. Accessibility_ip: 5
+
+Wait, but we have a 3 for worked_example. The rest are 5.
+
+But note: the worked_example criterion is scored on the worked example block. The worked example block has steps with "why" that are generic. So 3 is correct.
+
+Now, the mean: (5+5+3+5+5+5+5+5)/8 = 38/8 = 4.75 -> above 4.0, and no score below 3, so it passes.
+
+But we have to note the worked_example as below 4 (it's 3).
+
+Now, the verdict_notes: "One criterion at 3; mean 4.75. Passes."
+
+But note: the example in the rubric output says "mean 4.1", but we have 4.75.
+
+We are to write two or three sentences.
+
+Now, the notes: only for criteria below 4. So only worked_example.
+
+But wait, the knowledge_check we scored 5, but in the initial thought I thought maybe there's an issue? But I don't see one.
+
+Wait, the rubric says: "a distractor nobody would ever choose" — but in our case, all distractors are plausible.
+
+So, knowledge_check is 5.
+
+But in the lesson, the knowledge_check blocks are just references. The actual items are provided and they are good. So we score 5.
+
+Now, the only note we have is for worked_example.
+
+So, notes: 
+  "worked_example": "The 'why' explanations in the worked example steps are generic (e.g., 'because it is the next step') and do not name the judgment being made."
+
+But note: the rubric says "reasoning names the judgement being made and what would change it." Here, the why doesn't do that.
+
+So, we'll note that.
+
+Now, let's write the JSON.
+
+The lesson slug is "handling-a-customer-complaint".
+
+Scores:
+  objective_alignment: 5
+  level_fidelity: 5
+  worked_example: 3
+  knowledge_check: 5
+  scenario_authenticity: 5
+  bilingual_quality: 5
+  concision: 5
+  accessibility_ip: 5
+
+Notes: only for worked_example.
+
+verdict_notes: "One criterion scored below 4 (worked_example at 3); mean score is 4.75. Passes."
+
+But note: the rubric says "mean is below 4.0" for failure. 4.75 is above 4.0.
+
+Now, the example in the rubric output had a note for knowledge_check, but we don't have one.
+
+We must not add notes for criteria that are 4 or above.
+
+So, only worked_example.
+
+Let's write the JSON.
+
+Important: The rubric says "Return exactly the JSON shape it specifies".
+
+We have to have:
+  "lesson": "handling-a-customer-complaint",
+  "scores": { ... },
+  "notes": { "worked_example": "..." },
+  "verdict_notes": "..."
+
+And no other keys.
+
+So, the JSON:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations in the worked example steps are generic and do not name the judgment being made."
+  },
+  "verdict_notes": "One criterion at 3; mean score 4.75. Passes."
+}
+
+But note: the example in the rubric output had "knowledge_check" as 3 in the example, but we have 5. So we are scoring correctly.
+
+Wait, I just noticed: in the lesson, the worked_example block has steps with "whyAr" and "whyEn", but they are all the same: "لأنها الخطوة التالية." and "Because it is the next step." So it's generic.
+
+Therefore, the score for worked_example is 3.
+
+Now, let's confirm the other criteria again.
+
+Level fidelity: 
+  - The L1 is introductory and L2 is applied. The worked example in L2 is a step-by-step application. It's appropriate. So 5.
+
+Bilingual: 
+  - The Arabic is natural. We checked a few examples and they are good. So 5.
+
+Concision: 
+  - The lesson is concise. The rich text is a bit long but it's necessary for the concept. The rest is to the point. So 5.
+
+Accessibility: 
+  - No issues. 5.
+
+So, the only below-4 is worked_example.
+
+Now, write the JSON.
+
+Note: the rubric says "return exactly the JSON shape".
+
+We must not have any extra spaces or anything.
+
+Let's format the JSON.
+
+But note: the example in the rubric output had the keys in a specific order? The rubric says the keys must be as in the example.
+
+The example had:
+  "objective_alignment", "level_fidelity", "worked_example", "knowledge_check", "scenario_authenticity", "bilingual_quality", "concision", "accessibility_ip"
+
+So we'll use that order.
+
+Now, the verdict_notes: two or three sentences. We have: "One criterion at 3; mean score 4.75. Passes."
+
+But note: the mean is 4.75, which is above 4.0, so it passes.
+
+We don't say "passes" in the verdict_notes? The rubric says: "the gate fails if ...", but the judge doesn't decide pass or fail. The verdict_notes is just for the report.
+
+So, we can say "Passes" because it does pass.
+
+But the example in the rubric output said: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." (but in that example, knowledge_check was 3).
+
+In our case, it's worked_example at 3, and the rest are 5.
+
+So, we'll write: "One criterion scored 3; mean score 4.75. Passes."
+
+Now, let's write the JSON.
+
+Important: The rubric says "no markdown", so just plain JSON.
+
+We'll write:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations in the worked example steps are generic (e.g., 'because it is the next step') and do not name the judgment being made."
+  },
+  "verdict_notes": "One criterion scored 3; mean score 4.75. Passes."
+}
+
+But note: the example in the rubric output had the key "not_scored" but we don't have any not_scored. The rubric says "not_scored" is required for criteria we didn't score (but we scored all). So we don't include "not_scored".
+
+The rubric says: "and 'not_scored' (criterion -> reason), and 'verdict_notes'"
+
+But we don't have any not_scored, so we omit it.
+
+The example output did not have "not_scored" in the example.
+
+So, we don't include it.
+
+Now, let's check the scores again.
+
+Wait, I think I made a mistake: the worked_example score is 3, but is it really?
+
+The rubric says for 5: "reasoning names the judgement being made and what would change it."
+
+The worked_example in the lesson has:
+
+  "whyAr": "لأنها الخطوة التالية.",
+  "whyEn": "Because it is the next step."
+
+This does not name the judgment. It's just stating the step. So it's generic.
+
+Therefore, 3 is correct.
+
+But let me compare to the example of 5: 
+  "reasoning names the judgement being made and what would change it."
+
+For example, a good why might be: "Because acknowledging the customer's words first addresses the emotional need (feeling heard) before the factual issue, which is critical for de-escalation."
+
+This is not provided.
+
+So, 3 is right.
+
+Now, for the knowledge_check, we have 5, but let's double-check the rubric: "feedback that restates the answer instead of naming the misconception".
+
+In the knowledge_check items, the feedback does name the misconception. For example, for the wrong answer in KC-01, option A: feedback says "This apologises for the feeling rather than the event" — which is naming the misconception.
+
+So, it's good.
+
+Therefore, the scores are as above.
+
+One more thing: the rubric says "a distractor nobody would ever choose" — we don't have that.
+
+So, we are good.
+
+Now, write the JSON.
+
+Note: The lesson slug is "handling-a-customer-complaint", as per the lesson.
+
+We'll output exactly that JSON.
+
+But note: the example in the rubric output had the scores for knowledge_check as 3, but we have 5. So we are different.
+
+But that's because we are scoring correctly.
+
+Let's output the JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations in the worked example steps are generic (e.g., 'because it is the next step') and do not name the judgment being made or what would change it."
+  },
+  "verdict_notes": "One criterion scored 3; mean score 4.75. Passes."
+}

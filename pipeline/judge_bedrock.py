@@ -39,6 +39,13 @@ The prompt, the parsing and the gate are identical; only the transport differs. 
 server wants a key, it is read from JUDGE_API_KEY in the environment, never from a file.
 With JUDGE_KEEP_OUTPUT set, the model's whole reply, any reasoning included, is kept
 beside the verdict as `verdict.<tag>.output.txt`.
+
+Decoding defaults to temperature 0 and a 4,000-token reply. Kimi K3 refuses a fixed
+temperature and runs at its own default; the open seat runs at its own 0.6. A reasoning model's thinking counts against that budget and can loop when decoding is
+greedy, so `--temperature` and `--max-tokens` set a seat's own values (panel.py passes
+them for the open seat). Without them a served model reads JUDGE_TEMPERATURE and
+JUDGE_MAX_TOKENS from the environment, and without those the defaults apply. The
+verdict records the temperature actually used.
 """
 
 from __future__ import annotations
@@ -195,41 +202,48 @@ def extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
-def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int = 4000) -> tuple[str, dict]:
+def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int | None = None,
+                 temperature: float | None = None) -> tuple[str, dict]:
     import boto3  # imported here so the tests never need it
 
+    if max_tokens is None:
+        max_tokens = 4000
+    if temperature is None:
+        temperature = 0
     client = boto3.client('bedrock-runtime', region_name=region)
     messages = [{'role': 'user', 'content': [{'text': prompt}]}]
-    temperature: int | None = 0
+    used: float | None = temperature
     try:
         resp = client.converse(modelId=model_id, messages=messages,
-                               inferenceConfig={'maxTokens': max_tokens, 'temperature': 0})
+                               inferenceConfig={'maxTokens': max_tokens, 'temperature': temperature})
     except client.exceptions.ValidationException as e:
         # Some models refuse the field outright; they run at their own default, and the
-        # verdict records that rather than claiming temperature 0.
+        # verdict records that rather than claiming the temperature asked for.
         if 'temperature' not in str(e):
             raise
-        temperature = None
+        used = None
         resp = client.converse(modelId=model_id, messages=messages,
                                inferenceConfig={'maxTokens': max_tokens})
     text = ''.join(part.get('text', '') for part in resp['output']['message']['content'])
     usage = dict(resp.get('usage', {}))
-    usage['temperature'] = temperature
+    usage['temperature'] = used
     return text, usage
 
 
 def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: int | None = None,
-                           timeout: float = 1800) -> tuple[str, dict]:
+                           timeout: float = 1800, temperature: float | None = None) -> tuple[str, dict]:
     """The same judgement from a model served on your own hardware. The timeout is
     long on purpose: an open model on a CPU node can take minutes per lesson.
 
     JUDGE_MAX_TOKENS and JUDGE_TEMPERATURE (environment) exist for reasoning models,
-    whose thinking counts against the token budget and can loop when decoding is greedy.
-    The defaults are the ones every other judge runs with, and the verdict records the
-    temperature actually used."""
+    whose thinking counts against the token budget and can loop when decoding is greedy;
+    an explicit max_tokens or temperature (the --max-tokens and --temperature options)
+    overrides them. The defaults are the ones every other judge runs with, and the
+    verdict records the temperature actually used."""
     if max_tokens is None:
         max_tokens = int(os.environ.get('JUDGE_MAX_TOKENS', '4000'))
-    temperature = float(os.environ.get('JUDGE_TEMPERATURE', '0'))
+    if temperature is None:
+        temperature = float(os.environ.get('JUDGE_TEMPERATURE', '0'))
     body = json.dumps({
         'model': model,
         'messages': [{'role': 'user', 'content': prompt}],
@@ -301,6 +315,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument('--endpoint',
                     help='an OpenAI-compatible base URL (e.g. http://localhost:8080/v1) '
                          'instead of Bedrock')
+    ap.add_argument('--temperature', type=float,
+                    help='decoding temperature for this judge; default 0 (a served model: '
+                         'JUDGE_TEMPERATURE, then 0)')
+    ap.add_argument('--max-tokens', type=int, dest='max_tokens',
+                    help='reply budget, reasoning included; default 4000 (a served model: '
+                         'JUDGE_MAX_TOKENS, then 4000)')
     ap.add_argument('--dry-run', action='store_true',
                     help='print the prompt and stop; no model call, nothing written')
     args = ap.parse_args(argv)
@@ -323,10 +343,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.endpoint:
-        text, usage = call_openai_compatible(prompt, args.model, args.endpoint)
+        text, usage = call_openai_compatible(prompt, args.model, args.endpoint,
+                                             max_tokens=args.max_tokens, temperature=args.temperature)
         provider = 'openai-compatible'
     else:
-        text, usage = call_bedrock(prompt, args.model, args.region)
+        text, usage = call_bedrock(prompt, args.model, args.region,
+                                   max_tokens=args.max_tokens, temperature=args.temperature)
         provider = 'amazon-bedrock'
     if os.environ.get('JUDGE_KEEP_OUTPUT'):
         # A reasoning judge's trace is the evidence of whether it read the lesson; the

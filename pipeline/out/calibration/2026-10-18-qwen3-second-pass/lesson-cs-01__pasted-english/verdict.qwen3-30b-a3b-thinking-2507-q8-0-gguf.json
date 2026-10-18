@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.6,
+    "scored_at": "2026-10-18T06:58:57.633930+00:00",
+    "usage": {
+      "inputTokens": 6383,
+      "outputTokens": 9724
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 3,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "Block in L1 section has level 2, inconsistent with L1 promise.",
+    "bilingual_quality": "Arabic fields contain English text, not Arabic."
+  },
+  "verdict_notes": "Bilingual quality is 1 and level fidelity is 3. The gate fails because a criterion is below 3. Mean score is 4.25."
+}

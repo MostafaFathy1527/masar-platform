@@ -1,9 +1,10 @@
 name: Judge panel (weekly)
 
-# Re-scores every sample with the seated judge panel on Amazon Bedrock, once a
-# week and on demand. Model providers update their models without notice, and a
-# judge that passed calibration last month may not judge the same way today; a
-# sample that drops out of PANEL PASS here is the first sign.
+# Re-scores every sample with the seated judge panel, once a week and on demand:
+# three judges on Amazon Bedrock and one open judge behind an OpenAI-compatible
+# endpoint. Model providers update their models without notice, and a judge that
+# passed calibration last month may not judge the same way today; a sample that
+# drops out of PANEL PASS here is the first sign.
 #
 # No AWS key is stored anywhere. GitHub's OIDC token is exchanged for short-lived
 # credentials on an IAM role that may only invoke Bedrock models. Until the
@@ -49,7 +50,14 @@ jobs:
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: us-east-1
+      # The open seat (SERVED_JUDGES in pipeline/panel.py) is not on Bedrock. It
+      # needs a reachable OpenAI-compatible endpoint serving that exact GGUF,
+      # Qwen3-30B-A3B-Thinking-2507-Q8_0, on hardware rented for the run. Until
+      # the repository secret JUDGE_QWEN3_ENDPOINT is set the seat is empty, and
+      # every sample reports NEEDS HUMAN because of it, never PASS.
       - name: Score every sample with the panel
+        env:
+          JUDGE_QWEN3_ENDPOINT: ${{ secrets.JUDGE_QWEN3_ENDPOINT }}
         run: |
           set +e
           status=0

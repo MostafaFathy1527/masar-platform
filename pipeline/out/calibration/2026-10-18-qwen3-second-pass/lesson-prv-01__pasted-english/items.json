@@ -1,0 +1,88 @@
+{
+  "courseSlug": "privacy-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge; no law or regulator is named.",
+  "items": [
+    {
+      "key": "PRV-01-KC-01",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?",
+      "stemEn": "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?",
+      "rationaleAr": "The test is identifiability, not the presence of a name. In a team of six, title plus department plus start date pins down the person, so the rating is information about them.",
+      "rationaleEn": "The test is identifiability, not the presence of a name. In a team of six, title plus department plus start date pins down the person, so the rating is information about them.",
+      "options": [
+        {
+          "textAr": "No, because it contains no names.",
+          "textEn": "No, because it contains no names.",
+          "isCorrect": false,
+          "feedbackAr": "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can.",
+          "feedbackEn": "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+        },
+        {
+          "textAr": "Yes, because the combination identifies each person in a team that size.",
+          "textEn": "Yes, because the combination identifies each person in a team that size.",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply.",
+          "feedbackEn": "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply."
+        },
+        {
+          "textAr": "Yes, but only if the rating is negative.",
+          "textEn": "Yes, but only if the rating is negative.",
+          "isCorrect": false,
+          "feedbackAr": "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person.",
+          "feedbackEn": "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person."
+        },
+        {
+          "textAr": "No, because employee data is internal and does not count as personal.",
+          "textEn": "No, because employee data is internal and does not count as personal.",
+          "isCorrect": false,
+          "feedbackAr": "No. Employees are people, and their data is personal whether it stays inside the organisation or not. \"Internal\" describes the channel, not the classification.",
+          "feedbackEn": "No. Employees are people, and their data is personal whether it stays inside the organisation or not. \"Internal\" describes the channel, not the classification."
+        }
+      ]
+    },
+    {
+      "key": "PRV-01-KC-02",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A customer writes: \"I want a copy of everything you hold about me, and delete my phone number.\" What is the correct action?",
+      "stemEn": "A customer writes: \"I want a copy of everything you hold about me, and delete my phone number.\" What is the correct action?",
+      "rationaleAr": "This is a data-subject request, and in most regimes it carries a clock that starts the day it arrives. It goes to the privacy owner the same day, neither partially fulfilled nor parked.",
+      "rationaleEn": "This is a data-subject request, and in most regimes it carries a clock that starts the day it arrives. It goes to the privacy owner the same day, neither partially fulfilled nor parked.",
+      "options": [
+        {
+          "textAr": "Delete the phone number straight away and send him whatever you can find in your system.",
+          "textEn": "Delete the phone number straight away and send him whatever you can find in your system.",
+          "isCorrect": false,
+          "feedbackAr": "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route.",
+          "feedbackEn": "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route."
+        },
+        {
+          "textAr": "Reply that you do not provide copies of data for security reasons.",
+          "textEn": "Reply that you do not provide copies of data for security reasons.",
+          "isCorrect": false,
+          "feedbackAr": "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it.",
+          "feedbackEn": "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it."
+        },
+        {
+          "textAr": "Add it to your to-do list for when work quiets down.",
+          "textEn": "Add it to your to-do list for when work quiets down.",
+          "isCorrect": false,
+          "feedbackAr": "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure.",
+          "feedbackEn": "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure."
+        },
+        {
+          "textAr": "Pass it to the privacy owner the same day, and tell the customer it has been logged.",
+          "textEn": "Pass it to the privacy owner the same day, and tell the customer it has been logged.",
+          "isCorrect": true,
+          "feedbackAr": "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it.",
+          "feedbackEn": "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+        }
+      ]
+    }
+  ]
+}

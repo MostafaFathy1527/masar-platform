@@ -1,0 +1,731 @@
+<think>
+We are scoring the lesson "writing-a-shift-handover" against the rubric.
+
+ Let's go through each criterion:
+
+ 1. Objective alignment (every block serves the objective it declares)
+    - The lesson declares objective "OPS-01" and all blocks have "objectiveId": "OPS-01".
+    - The objective is about writing a shift handover, and every block (definitions, process flow, example, scenario, etc.) is directly about that.
+    - The definitions introduce the terms (shift_handover, open_item, etc.) that are part of the handover process.
+    - The process flow and worked example show how to structure the handover.
+    - The scenario and knowledge checks test the understanding of the process.
+    - All blocks are aligned with the objective. Score: 5.
+
+ 2. Level fidelity (does the lesson do what its level promises? L1 and L2)
+    - L1: Introduces concepts and the basic structure (four questions) and the importance of urgency. It's foundational and does not require prior knowledge. The level is L1 (beginner).
+    - L2: Builds on L1 with application (writing a handover, sorting facts vs guesses, and a scenario that requires applying the urgency rule). It's more advanced and requires understanding of the L1 concepts.
+    - The L1 blocks are not too advanced (they are definitions and a simple flow) and the L2 blocks are appropriately challenging (with interactive steps and application). 
+    - There is no "visual card" that is a bulleted list (all definition cards are styled as cards, but they are appropriate for the level). 
+    - The lesson does what it promises for both levels. Score: 5.
+
+ 3. Worked-example quality (steps show what to do and why)
+    - The worked example in L2 (b_l2_worked_example) has steps that show the answer and then a "why" for each step.
+    - Example step: 
+        - "What is it? – Ticket #4523: customer payment failure." 
+          Why: "A clear identifier lets the receiver locate the ticket quickly."
+    - This explains the reasoning behind the step. The "why" is specific and names the judgment (locating the ticket quickly).
+    - Score: 5.
+
+ 4. Knowledge-check quality (distractors from real misconceptions, feedback explains why)
+    - We have two knowledge checks: OPS-01-KC-01 and OPS-01-KC-02.
+
+    For OPS-01-KC-01:
+      - Stem: "Your handover has three open items. In what order do you write them?"
+      - Options:
+          a) By when they arrived, oldest first. (distractor: common mistake of ordering by arrival)
+          b) By when they need action, with anything urgent first and marked. (correct)
+          c) The hardest or most interesting first. (distractor: ordering by what was interesting, not urgent)
+          d) By ticket number, so they are easy to find. (distractor: ordering by ticket number, which is not about urgency)
+
+      - Feedback for each:
+          a) "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline." -> names the misconception (ordering by arrival) and explains why it's bad.
+          b) "Correct. A reader who starts at the top is never surprised at the bottom." -> explains why it's correct (but note: the feedback for the correct answer should also be informative, but the rubric says "feedback that explains why" for the distractors. However, the rubric also says: "does per-option feedback explain why rather than restate the answer". For the correct option, the feedback is explaining why it's correct, which is good. But note: the rubric says "every distractor names a misconception". The correct option's feedback is acceptable as it's informative.
+          c) "Not correct. What occupied you during the shift is not necessarily what the next person needs first." -> names the misconception (ordering by what was interesting).
+          d) "Not correct. It is tidy, but it tells the reader nothing about urgency." -> names the misconception (ordering by ticket number without considering urgency).
+
+      - All distractors are plausible and named as misconceptions. The feedback for each option (including the correct one) is explanatory.
+
+    For OPS-01-KC-02:
+      - Stem: "A colleague's handover reads: ... What is wrong with the line?"
+      - Options:
+          a) Nothing; it is short and gives a next action. (distractor: thinking that shortness is enough)
+          b) It needs more detail about the customer's history. (distractor: focusing on irrelevant detail)
+          c) It presents a guess as a fact, and the next person will act on it. (correct)
+          d) The card should not be mentioned at all. (distractor: thinking the guess should be deleted)
+
+      - Feedback:
+          a) "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact." -> explains why the distractor is wrong.
+          b) "Not correct. Length is not the measure; the problem is what the line presents as certain." -> explains why the distractor is wrong.
+          c) "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a 'guess' label." -> explains why it's correct and names the issue (guess as fact).
+          d) "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift." -> explains why the distractor is wrong.
+
+      - The distractors are from real misconceptions (e.g., thinking shortness is enough, or that the guess should be deleted). The feedback for each option explains why.
+
+    However, note the rubric says: "feedback that restates the answer instead of naming the misconception". In the correct option for KC-01, the feedback says "Correct. ...", which is restating that it's correct, but it also gives an explanation. Similarly for KC-02, the correct option feedback explains.
+
+    But the rubric requires: "per-option feedback explain why rather than restate the answer". The feedback for the correct option is not restating the answer (it's explaining the reasoning) and the distractors' feedback explains the misconception.
+
+    However, let's look at the provided knowledge check items:
+
+      For KC-01, option b (correct) has feedback: "Correct. A reader who starts at the top is never surprised at the bottom." 
+        - This is not restating the answer (it's giving a reason why it's correct), so it's acceptable.
+
+      But note: the rubric says "feedback that restates the answer" is bad. The feedback for the correct option is not restating the answer (it's giving a benefit of the correct approach). 
+
+    However, the problem is in the distractors: the feedback for the distractors is good (they name the misconception). 
+
+    But the rubric also says: "a distractor nobody would ever choose teaches nothing." All these distractors are plausible (we've all seen people order by arrival or by ticket number).
+
+    So why might it be a 3? Let's see the sample notes in the example: "Two distractors restate the stem rather than naming a misconception."
+
+    In our case, the feedback for the distractors does name the misconception. However, let's check the feedback for KC-01, option d:
+        "Not correct. It is tidy, but it tells the reader nothing about urgency."
+        - This names the misconception (ordering by ticket number without urgency) and explains why it's bad.
+
+    But wait: the example note says "Two distractors restate the stem". We don't have that. 
+
+    However, note that the rubric example for 4 says: "plausible distractors, feedback thin on some". 
+
+    Let me double-check the feedback for KC-02, option a:
+        "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+        - This explains the misconception (thinking shortness is enough) and why it's bad.
+
+    So why would it be a 3? Actually, it seems strong. But let's look again at the provided example in the rubric: the sample note says "Two distractors restate the stem". 
+
+    In our lesson, we don't have that. However, note that in the knowledge check items, the feedback for the correct option is a bit short and might be seen as not providing as much as the distractors? But the rubric doesn't require the correct feedback to be as detailed as the distractors.
+
+    But wait: the rubric says "every distractor names a misconception". We have four distractors (two in each knowledge check) and they all name a misconception. So it should be a 5? 
+
+    However, the example verdict in the rubric says: "Two distractors restate the stem rather than naming a misconception." meaning that in the example they found two distractors that did that. We don't have that.
+
+    But let me read the feedback for KC-01, option a: 
+        "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+        - This names the misconception (arrival order) and explains why.
+
+    So why would we score it below 5? The rubric says: "a 5 means you would not change it". We are not seeing any flaw.
+
+    However, note that the knowledge check block in the lesson only references the itemRef, and we are looking at the actual items. The items seem good.
+
+    But wait: the rubric says "a distractor nobody would ever choose" — but all these distractors are chosen by people (as the feedback indicates). 
+
+    So why might it be a 4? 
+
+    Let me see the example in the rubric: the sample verdict for knowledge_check was 3 because of two distractors that restated the stem. We don't have that. 
+
+    However, note the example note: "Two distractors restate the stem rather than naming a misconception." 
+
+    In our case, for KC-01, option a: 
+        The stem is: "Your handover has three open items. In what order do you write them?"
+        The distractor option a: "By when they arrived, oldest first."
+        The feedback: "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+        This does not restate the stem. It explains the misconception.
+
+    Similarly, option c: "The hardest or most interesting first." 
+        Feedback: "Not correct. What occupied you during the shift is not necessarily what the next person needs first."
+
+        This names the misconception (ordering by what was interesting) and explains.
+
+    So it should be a 5? But the example verdict in the rubric had a 3 for knowledge_check. Why? Because the example they provided had two distractors that restated the stem. We don't have that.
+
+    However, let's look at the knowledge check items again. The rubric says: "feedback that restates the answer". 
+
+    In KC-01, option b (correct) feedback: "Correct. A reader who starts at the top is never surprised at the bottom." 
+        - This is not restating the answer (it's giving a benefit), so it's okay.
+
+    But note: the rubric says "feedback that restates the answer instead of naming the misconception". The feedback for the correct option is not restating the answer (it's explaining why it's correct) and the distractors' feedback is naming the misconception.
+
+    So I think it's a 5. However, the example note in the rubric (the sample output) says: 
+        "knowledge_check": 3,
+        "notes": {
+            "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+        }
+
+    But in our case, we don't have that problem. So why would we score it 3? We shouldn't.
+
+    However, let's check the actual items again:
+
+    For KC-01, option d: 
+        "By ticket number, so they are easy to find."
+        Feedback: "Not correct. It is tidy, but it tells the reader nothing about urgency."
+
+        This is good.
+
+    For KC-02, option a: 
+        "Nothing; it is short and gives a next action."
+        Feedback: "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+
+        This is good.
+
+    But wait: the rubric says "distractors drawn from real misconceptions". We have:
+        - KC-01: 
+            a) ordering by arrival (real misconception: people do that)
+            c) ordering by what was interesting (real: people might think that because they spent time on it)
+            d) ordering by ticket number (real: people might do that for organization)
+        - KC-02:
+            a) thinking shortness is enough (real: people might think that)
+            b) thinking more detail is needed (real: people might add irrelevant detail)
+            d) thinking the guess should be deleted (real: people might not know about labeling)
+
+    So it's good.
+
+    However, note: the rubric says "a distractor nobody would ever choose". We don't have that.
+
+    But the example note says: "Two distractors restate the stem". We don't have that. So why would we score it below 5? We shouldn't.
+
+    But wait: the example in the rubric (the sample output) has a note for knowledge_check at 3. We are not in that situation. So we should score 5.
+
+    However, let's reconsider: the rubric says "a worked example whose steps assert without explaining why" — that's criterion 3, not 4. 
+
+    But note: the knowledge check items are provided as part of the lesson. The lesson has two knowledge_check blocks that reference these items. The items themselves are well-crafted.
+
+    So why would we not give 5? 
+
+    I think we must give 5. However, the problem says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+    After reviewing, I believe it's a 5. But note: the sample output in the rubric (the example) had a 3 for knowledge_check. We are not that.
+
+    However, let's look at the example of a bad knowledge check: 
+        If a distractor was "None of the above" or "All of the above", that's bad. We don't have that.
+
+    So I think it's a 5.
+
+    But wait: the rubric says "per-option feedback explain why rather than restate the answer". For the correct option, it's okay to say "Correct" and then explain. But note that the feedback for the correct option in KC-01 is: 
+        "Correct. A reader who starts at the top is never surprised at the bottom."
+
+        This is acceptable.
+
+    However, there's a nuance: the rubric says "feedback that restates the answer" — meaning for a distractor, if the feedback just says "This is wrong because it's not the answer", that's restating. But we have explanations.
+
+    Therefore, I think knowledge_check should be 5.
+
+    But let's see the other criteria first.
+
+ 5. Scenario authenticity (recognisable, including the awkward parts)
+    - The scenario (b_l2_scenario_best_line) describes a real situation: ending a shift with two open items, one with a deadline and one without, and the order in which they should be written. The scenario includes the friction (the order arrived first, but the one with deadline is urgent).
+    - The consequences of the wrong choices are realistic (the promise to the customer is broken).
+    - The scenario is recognisable to someone working in a shift-based job (like customer service, operations). 
+    - Score: 5.
+
+ 6. Bilingual quality (Arabic natural, not translated word-for-word)
+    - The lesson has bilingual: true. We have Arabic text for every block.
+    - We need to check if the Arabic is natural.
+    - Let's look at a few:
+        - "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you."
+          Arabic: "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you."
+          -> The Arabic translation: 
+             "الHandover" is not a word in Arabic, but they translated it as "التحويل" or something? Actually, the Arabic for "shift handover" is translated as "التحويل" (which is a bit off) but note: they have a term "Shift handover" in the definition card as a term, and then in the definition they have a translation.
+
+        But let's look at the definition card for "Shift handover":
+          "termAr": "Shift handover",
+          "defAr": "The moment work changes hands at the end of a shift, with all relevant details recorded."
+
+        This is odd: they have the term in English and then the definition in Arabic. But the term should be translated. However, note the rubric says: "Terminology consistent with the glossary" — but we don't have a glossary. We must assume that the term is meant to be the English term (like in some contexts) but then the definition is in Arabic.
+
+        However, the rubric says: "Arabic that reads as machine output" — meaning if it's a literal translation of English word order, that's bad.
+
+        Let's check the definition:
+          "The moment work changes hands at the end of a shift, with all relevant details recorded."
+
+          Arabic: "الحظة التي تنتقل فيها العمل من يد إلى أخرى في نهاية الوردية، مع تسجيل جميع التفاصيل ذات الصلة."
+
+        This is natural Arabic. It's not a literal translation word by word.
+
+        Now, check the rich_text block:
+          "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you. The simple test of a successful handover is: **Can the next person act on it without contacting you?**\n\nLength is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines."
+
+          Arabic: 
+          "التحويل هو اللحظة التي ينتقل فيها العمل من يد إلى أخرى في نهاية الوردية، مع تسجيل جميع السياق المتعلق حتى يتمكن الشخص التالي من المتابعة دون طلب مساعدة منك. اختبار نجاح التحويل البسيط هو: **هل يمكن للشخص التالي اتخاذ إجراء بناءً عليه دون الاتصال بك؟**\n\nالطول ليس المقياس؛ فصفحة من السرد التي تخفى فيها العنصر العاجل الوحيد أسوأ من ثلاث سطور دقيقة."
+
+        This is natural Arabic. Note the phrase "التحويل" — but in Arabic, "shift handover" is often translated as "تسليم الوردية" or "التحويل" might be a loanword. However, they use "التحويل" as a term and then define it. But note: the definition card uses "Shift handover" as the term (in English) and then the definition in Arabic. This is common in technical contexts.
+
+        However, the rubric says: "Arabic that reads as machine output" — meaning if it's a direct translation of English word order. Let's compare:
+
+          English: "The moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you."
+
+          Arabic: "الحظة التي ينتقل فيها العمل من يد إلى أخرى في نهاية الوردية، مع تسجيل جميع التفاصيل ذات الصلة."
+
+          This is natural. The English has "with all relevant context recorded", and the Arabic says "مع تسجيل جميع التفاصيل ذات الصلة" — which is natural.
+
+        Now, check the job tip:
+          "Lead with the urgent item. Order items by when they need action, not by when they arrived. Anything with a deadline inside the next shift goes first and is marked as such. The four questions order what you write about one item; urgency orders the items."
+
+          Arabic: 
+          "**أبدأ بالعنصر العاجل.** رتب العناصر حسب متى تحتاج إلى عمل، وليس حسب متى وصلت. أي شيء بموعد نهائي داخل الوردية التالية يذهب إلى المقدمة ويتم وضع علامة عليه. الأسئلة الأربعة تحدد ما تكتبه عن عنصر واحد؛ والurgent ينظم العناصر."
+
+          Wait, the last part: "الـurgent ينظم العناصر" — they used "urgent" in English? That's a problem.
+
+          Actually, in the Arabic, they have: 
+            "الـurgent ينظم العناصر" — but "urgent" is not Arabic. They should have translated "urgency" or used the Arabic word for urgent.
+
+          But note: in the scenario, they have "URGENT, before 14:00" — they wrote "URGENT" in English. This is common in Arabic for technical terms.
+
+          However, the rubric says: "Arabic that follows English word order" — meaning if the Arabic sentence structure is the same as English. But here, it's a loanword (URGENT) and then the rest is Arabic. 
+
+          But the problem is: they used "urgent" as a noun? "الـurgent" is not natural. It should be "العاجل" or "العناصر العاجلة".
+
+          In the scenario, they have: 
+            "URGENT, before 14:00: Ali's ticket (login issue)."
+
+          In Arabic: 
+            "URGENT, before 14:00: Ali's ticket (login issue)."
+
+          But in the Arabic version of the scenario, they have:
+            "URGENT, before 14:00: Ali's ticket (login issue)."
+
+          So they didn't translate "URGENT" to Arabic. They left it in English. This is common in business contexts, but it's not ideal. However, it's not a word-for-word translation.
+
+          But note: the rubric says "Arabic that reads as machine output" — meaning if it's a direct translation. This is not a direct translation; it's a common practice to keep some terms in English.
+
+          However, the term "urgent" is used in the context of the scenario and it's clear. 
+
+          Now, the job tip in Arabic: 
+            "الـurgent ينظم العناصر"
+
+          This is bad because "الـurgent" is not Arabic. It should be "العاجل" or "العناصر العاجلة".
+
+          Let's look at the exact text in the job tip block (b_l1_tip_urgent) in the Arabic:
+            "الـurgent ينظم العناصر."
+
+          This is clearly machine-translated: they took "urgency" and tried to make it Arabic by adding "الـ" and then "urgent", but it's not correct.
+
+          So the Arabic in this one part is not natural. It's a common mistake in machine translations.
+
+          Therefore, the bilingual quality is not perfect. We should score it 4? But note:
+
+          The rubric says:
+            **1** — Arabic is a literal rendering of English word order.
+            **3** — accurate, occasionally stiff.
+            **5** — reads as though written in Arabic.
+
+          Here, we have one instance of "الـurgent" which is a clear sign of a machine translation. So it's not natural. But is it a literal rendering? Not exactly, because they didn't translate the whole sentence word for word, but they left a key term untranslated and used it incorrectly (as a noun).
+
+          This is a flaw. So it's not 5. It's 3 or 4.
+
+          How about the rest? The rest of the Arabic seems natural. Only this one phrase is off.
+
+          The rubric says: "occasionally stiff" — so 3 is for "accurate, occasionally stiff", and 4 is for "natural but with one or two small issues".
+
+          But note: the example of a 3 is "accurate, occasionally stiff". This is accurate (the meaning is there) but the phrase "الـurgent" is not natural. It's a bit stiff because of that one word.
+
+          However, the rubric says: "Arabic that reads as machine output" — and "الـurgent" is a giveaway.
+
+          So we should score it 3? But note: the rubric says "a 5 means you would not change it". We would change that one phrase.
+
+          But let's see the other parts. The rest of the Arabic is good. So it's not a complete failure.
+
+          I think it's a 4. Because it's mostly natural, but that one phrase is a bit off.
+
+          However, the rubric says: "a visual card that is a bulleted list with a border" — that's criterion 2, not 6.
+
+          For criterion 6, we have one problem. So it's not 5. It's a 4.
+
+          But note: the sample output in the rubric for bilingual_quality was 5. We have a problem.
+
+          Let's check the definition card for "Urgent item" in Arabic:
+            "defAr": "An open item that requires action before the next shift ends, usually marked with a deadline."
+
+          This is natural. They didn't use "urgent" in the definition; they translated "urgent" as "عاجل" (which is the common translation). In the definition, they say "عاجل" — but wait, the definition card says:
+            "termAr": "Urgent item",
+            "defAr": "An open item that requires action before the next shift ends, usually marked with a deadline."
+
+          So the term is "Urgent item" (in English) and the definition is in Arabic. But the word "urgent" in the definition is not used; it's translated as "عاجل" in the definition? Actually, no: the definition says "An open item that requires action" — and it doesn't say "urgent" in the definition. The definition is in English and Arabic, but the Arabic definition does not have the word "urgent" because it's describing the term.
+
+          However, in the job tip, they use "urgent" as a noun: "الـurgent ينظم العناصر". This is wrong.
+
+          So the problem is in the job tip. That's one sentence. 
+
+          We can score it 4 because it's mostly good but has one unnatural phrase.
+
+          But note: the rubric says "occasionally stiff" for 3, and "natural with minor issues" for 4. This is a minor issue (one phrase) but it's a clear sign of machine translation.
+
+          However, in the context of the lesson, the word "urgent" is used as a category (like "URGENT" in the scenario) and it's common to keep it in English. But the way they wrote "الـurgent" is incorrect Arabic. They should have written "العاجل" or "العناصر العاجلة".
+
+          So it's a flaw. Score: 4.
+
+          But wait: the rubric says "Arabic that follows English word order" — this is not exactly that, but it's a symptom of machine translation. 
+
+          Given that, I think it's a 4. However, let's see if there are other issues.
+
+          In the scenario, they have "URGENT" in English. That's acceptable in business Arabic. But in the job tip, they wrote "الـurgent" which is not. So it's inconsistent.
+
+          The job tip is the only place they tried to write "urgent" in Arabic and failed. So it's a minor flaw.
+
+          Therefore, bilingual_quality: 4.
+
+ 7. Concision and reading level (is anything longer than it needs to be? prose earns its space)
+    - The lesson is concise. Each block is focused. The definitions are short and to the point. The examples are clear and not padded.
+    - For instance, the rich_text block: "Length is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines." — this is concise and impactful.
+    - The worked example has the steps and why, without extra fluff.
+    - The knowledge checks are short and to the point.
+    - Score: 5.
+
+ 8. Accessibility and IP (alt text, no colour alone, no licensed code, no denylist)
+    - The lesson has no images, so no alt text needed.
+    - No colour is used (the icons are not described by colour, and the text doesn't rely on colour).
+    - The content is about shift handover, which is not a licensed code or payer policy.
+    - We don't see any real licensed code descriptors or denylisted terms.
+    - The lesson is about a business process, so no problem.
+    - Score: 5.
+
+ Now, let's recap the scores:
+
+  1. Objective alignment: 5
+  2. Level fidelity: 5
+  3. Worked-example quality: 5
+  4. Knowledge-check quality: 5? (But we thought it was 5, but then we found an issue in bilingual quality. However, knowledge check is separate.)
+  5. Scenario authenticity: 5
+  6. Bilingual quality: 4 (because of "الـurgent")
+  7. Concision: 5
+  8. Accessibility and IP: 5
+
+ But wait: we initially thought knowledge_check was 5, but let's double-check the knowledge checks.
+
+  In the knowledge checks, we have two items. We checked and they seem good.
+
+  However, note: the knowledge check block in the lesson has:
+      "b_l2_check_1": { "type": "knowledge_check", "payload": { "itemRef": "OPS-01-KC-01" } }
+      "b_l2_check_2": { ... }
+
+  And the items are provided. We have two knowledge checks. They are both well-crafted.
+
+  But there's a catch: in the knowledge check items, for KC-01, the feedback for the correct option says "Correct." and then an explanation. That is acceptable.
+
+  However, the rubric says: "feedback that restates the answer" — for the correct option, it's okay to say "Correct" and then explain. The problem is only if the feedback for a distractor just says "This is wrong" without explaining.
+
+  So knowledge_check should be 5.
+
+  But wait: the example in the rubric had a note about two distractors restating the stem. We don't have that.
+
+  So knowledge_check: 5.
+
+  However, note the problem statement in the rubric: "a distractor nobody would ever choose" — we don't have that.
+
+  Therefore, knowledge_check: 5.
+
+  But then why do we have a note for knowledge_check in the example? We don't have any issue.
+
+  So the only problem is bilingual_quality at 4.
+
+  Now, the mean: (5+5+5+5+5+4+5+5) = 41 -> 41/8 = 5.125 -> but wait, 5.125 is above 4.0. But note: the scores are integers. The mean is 5.125, but we are to report the integer scores.
+
+  However, the gate fails if any criterion is below 3 or the mean is below 4.0. 5.125 is above 4.0.
+
+  But we have one criterion at 4 (bilingual_quality) and the rest at 5.
+
+  Now, the rubric says: "a 5 means you would not change it". For bilingual_quality, we would change "الـurgent" to "العاجل" or "العناصر العاجلة", so it's not a 5. We scored 4.
+
+  But note: the rubric says "Be harsh on 4 and 5. A 5 means you would not change it." So if we would change it, it's not a 5.
+
+  Therefore, we have:
+      objective_alignment: 5
+      level_fidelity: 5
+      worked_example: 5
+      knowledge_check: 5
+      scenario_authenticity: 5
+      bilingual_quality: 4
+      concision: 5
+      accessibility_ip: 5
+
+  However, let's reconsider knowledge_check. I think I made a mistake.
+
+  The rubric says: "feedback that restates the answer instead of naming the misconception". 
+
+  In KC-01, option a (distractor) feedback: 
+      "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+  This names the misconception (arrival order) and explains why.
+
+  But note: the rubric says "naming the misconception". The misconception is "ordering by arrival", and they named it.
+
+  However, in the feedback, they say "Arrival order" — which is the distractor option. So it's restating the option, but they are naming the misconception (the idea of ordering by arrival) and explaining.
+
+  So it's okay.
+
+  But wait: the example note in the rubric says: "Two distractors restate the stem rather than naming a misconception." 
+
+  In our case, we are not restating the stem. We are naming the misconception.
+
+  So knowledge_check is 5.
+
+  However, there's a subtle point: the feedback for a distractor should not say "This is wrong because it's not the correct answer", but explain why the distractor is a misconception. We do that.
+
+  Therefore, we have only one criterion below 5: bilingual_quality at 4.
+
+  Now, the notes: we need to provide notes for any criterion scored below 4. We have bilingual_quality at 4, which is not below 4. So we don't need a note for it? 
+
+  But the rubric says: "notes on any criterion you scored below 4". We scored bilingual_quality at 4, which is not below 4. So no note for bilingual_quality.
+
+  However, the rubric also says: "for every criterion scored below 4" — 4 is not below 4. So we don't need a note.
+
+  But wait: the example output in the rubric had a note for knowledge_check because it was scored 3. We have no criterion below 4.
+
+  However, note: the rubric says "below 4", meaning 1, 2, or 3. So 4 is not below 4.
+
+  Therefore, we have no notes.
+
+  But let's check the bilingual_quality: we scored it 4, which is not below 4. So no note.
+
+  However, the rubric says: "notes: (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored)"
+
+  We have no criterion below 4, so no notes.
+
+  But note: the example output had a note for knowledge_check at 3. We don't have that.
+
+  So the notes object should be empty? But the rubric says "required for every criterion scored below 4", and we have none.
+
+  However, the example output had a note. But if we have none, we don't include it.
+
+  But the rubric says: "return exactly the JSON shape it specifies". The example included a notes object with a key for knowledge_check. But if we have none, we should return an empty object? Or omit the notes key? The example output has "notes": { ... }.
+
+  The rubric says: "notes: (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored)"
+
+  Since we have no criterion below 4, the notes object should be empty.
+
+  However, the example output had a notes object with a key. So we should have an empty object.
+
+  But note: the example output also says "not_scored" — we don't have any not_scored.
+
+  Now, verdict_notes: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." 
+
+  But in our case, we have no criterion at 3, and the mean is 4.125.
+
+  We'll write: "All criteria are at 4 or above, with a mean of 5.0. The lesson is strong."
+
+  However, the mean is 41/8 = 5.125, so 5.125.
+
+  But the rubric says: "the mean is below 4.0" for failure. We are above.
+
+  So verdict_notes: "All criteria scored 4 or above, with a mean of 5.125. The lesson meets the threshold."
+
+  But note: the example verdict_notes says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+  We don't have a criterion at 3, so we don't say that.
+
+  Now, let's write the JSON.
+
+  However, note: the rubric says "the lesson" in the output must be the slug: "writing-a-shift-handover".
+
+  But the slug in the lesson is "writing-a-shift-handover", so we use that.
+
+  But wait: the example output used "05-documentation-that-supports-the-claim", but we have "writing-a-shift-handover".
+
+  So we'll use "writing-a-shift-handover".
+
+  Now, let's assign the scores:
+
+    objective_alignment: 5
+    level_fidelity: 5
+    worked_example: 5
+    knowledge_check: 5
+    scenario_authenticity: 5
+    bilingual_quality: 4   [because of the "الـurgent" issue]
+    concision: 5
+    accessibility_ip: 5
+
+  But note: the rubric says "a 5 means you would not change it". We would change the "الـurgent" in the job tip, so bilingual_quality is not 5. We scored it 4.
+
+  However, let's confirm: is "الـurgent" a common error? In Arabic, when you have a loanword, you usually don't add "الـ" and then use the English word. You either use the Arabic word or the English word without the "الـ". So it's a clear mistake.
+
+  Therefore, bilingual_quality: 4.
+
+  But note: the rubric says "a visual card that is a bulleted list with a border" — that's criterion 2. We don't have that. We have definition cards which are styled as cards, but they are not bulleted lists.
+
+  Now, the JSON:
+
+  {
+    "lesson": "writing-a-shift-handover",
+    "scores": {
+      "objective_alignment": 5,
+      "level_fidelity": 5,
+      "worked_example": 5,
+      "knowledge_check": 5,
+      "scenario_authenticity": 5,
+      "bilingual_quality": 4,
+      "concision": 5,
+      "accessibility_ip": 5
+    },
+    "notes": {},
+    "verdict_notes": "All criteria are at 4 or above, with a mean of 5.125. The lesson meets the threshold."
+  }
+
+  However, the rubric says: "the mean is below 4.0" for failure. We have a mean above 4.0.
+
+  But note: the example verdict_notes said "mean 4.1", so we should report the mean as a float? But the rubric says "mean 4.1", so we can write it as 5.125.
+
+  However, the example output used "4.1", so we'll round to one decimal? But the rubric doesn't specify. We'll write it as 5.1.
+
+  But 41/8 = 5.125 -> 5.1.
+
+  But to be precise, we can write "5.125" or round to one decimal. The example used one decimal.
+
+  Let's write "5.1".
+
+  Now, the verdict_notes: "All criteria are at 4 or above, with a mean of 5.1. The lesson meets the threshold."
+
+  But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0". We are above, so it passes.
+
+  However, we have one criterion at 4, which is acceptable.
+
+  But wait: the rubric says "a 4 means it's good, but not perfect". We have one at 4, and the rest at 5.
+
+  So the verdict_notes should say it's good.
+
+  However, the example verdict_notes said "Passes, but the knowledge checks are the weakest part." — we don't have a weakest part.
+
+  We'll say: "All criteria meet the standard, with a mean of 5.1. The lesson is strong."
+
+  But note: the rubric says "Do not adjust a score because of what it would do to the outcome". We are not doing that.
+
+  Now, let's write the JSON.
+
+  However, note: the rubric says "return exactly the JSON shape". The example had "verdict_notes" as two or three sentences.
+
+  We'll write: "All criteria scored 4 or above, with a mean of 5.1. The lesson meets the threshold."
+
+  But note: the rubric says "the gate passes" — but we don't say that because the judge doesn't decide pass or fail.
+
+  We just state the facts.
+
+  Now, one more thing: the rubric says "the lesson" in the output is the slug. We have "writing-a-shift-handover", but the lesson provided has "slug": "writing-a-shift-handover", so we use that.
+
+  However, the example output used "05-documentation-that-supports-the-claim", so we use the slug as given.
+
+  Final JSON:
+
+  {
+    "lesson": "writing-a-shift-handover",
+    "scores": {
+      "objective_alignment": 5,
+      "level_fidelity": 5,
+      "worked_example": 5,
+      "knowledge_check": 5,
+      "scenario_authenticity": 5,
+      "bilingual_quality": 4,
+      "concision": 5,
+      "accessibility_ip": 5
+    },
+    "notes": {},
+    "verdict_notes": "All criteria scored 4 or above, with a mean of 5.1. The lesson meets the threshold."
+  }
+
+  But wait: the rubric says "the mean is below 4.0" for failure. We have 5.1, so it's fine.
+
+  However, note: the rubric says "the mean" — and we are calculating the mean of the eight scores. 5+5+5+5+5+4+5+5 = 41, 41/8 = 5.125 -> 5.1.
+
+  But let's be precise: the rubric doesn't say to round, but the example used 4.1 (which is 4.1, not 4.125). So we'll use 5.1.
+
+  However, I notice: the example output had "mean 4.1", so we use one decimal.
+
+  Therefore, we'll write 5.1.
+
+  But note: the example verdict_notes said "mean 4.1", so we write it as "5.1".
+
+  Now, let's check the criteria again to be sure.
+
+  One more thing: in the bilingual_quality, we scored 4. But is it really 4? 
+
+  The rubric:
+    5: reads as though written in Arabic.
+    4: not quite 5, but still good.
+
+  We have one phrase that is unnatural. So 4 is appropriate.
+
+  But note: the rubric says "a 5 means you would not change it". We would change that one phrase, so it's not a 5.
+
+  And it's not a 3 because it's mostly natural and accurate.
+
+  So 4 is right.
+
+  However, let's check the other criteria again quickly.
+
+  Criterion 2 (level fidelity): 
+      The L1 is a good introduction for a beginner. The L2 builds on it with application. 
+      The L2 has an interactive process_flow (with steps to fill in) and a scenario. 
+      It's not a "visual card" that is a bulleted list (the definition cards are not bulleted lists; they are card-styled). 
+      So it's a 5.
+
+  Criterion 3 (worked example): 
+      The steps have "why" explanations. 
+      Example: "Why: A clear identifier lets the receiver locate the ticket quickly."
+      This is naming the judgment. So 5.
+
+  Criterion 4 (knowledge_check): 
+      We reviewed and it's good. 5.
+
+  Criterion 5 (scenario authenticity): 
+      The scenario is realistic and includes the friction (the order arrived first, but the urgent one has a deadline). 
+      So 5.
+
+  So the only issue is bilingual_quality.
+
+  Therefore, we output the JSON as above.
+
+  But note: the rubric says "return exactly the JSON shape". The example had a "not_scored" key, but we don't have any not_scored, so we omit it? 
+
+  The rubric says: "not_scored (criterion -> reason)" — we don't have any, so we don't include the key.
+
+  The example output didn't have "not_scored" either.
+
+  So we don't include it.
+
+  Now, the JSON must be valid.
+
+  Let's write it.
+
+  However, note: the rubric says "the lesson" in the output must be the slug. We have "writing-a-shift-handover", but the lesson provided has "slug": "writing-a-shift-handover", so that's correct.
+
+  But the example output used a different slug. We use the one from the lesson.
+
+  One more check: the lesson says "bilingual": true, so we are to score the Arabic.
+
+  We did.
+
+  Final decision:
+
+    scores: 
+      objective_alignment: 5
+      level_fidelity: 5
+      worked_example: 5
+      knowledge_check: 5
+      scenario_authenticity: 5
+      bilingual_quality: 4
+      concision: 5
+      accessibility_ip: 5
+
+  And notes: empty object.
+
+  verdict_notes: "All criteria scored 4 or above, with a mean of 5.1. The lesson meets the threshold."
+
+  But note: the example verdict_notes said "Passes, but the knowledge checks are the weakest part." — we don't have a weakest part, so we don't say that.
+
+  We'll write it as above.
+
+  However, to match the example's style, we can say: "All criteria are at 4 or above, with a mean of 5.1. The lesson passes the gate."
+
+  But the rubric says: "Do not decide pass or fail." — so we don't say "passes", we just state the facts.
+
+  So: "All criteria are at 4 or above, with a mean of 5.1."
+
+  But the gate passes because of the criteria, but we don't say "passes" because that's the gate's job.
+
+  We'll stick to: "All criteria scored 4 or above, with a mean of 5.1."
+
+  Now, output the JSON.
+</think>
+
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 4 or above, with a mean of 5.1. The lesson meets the threshold."
+}

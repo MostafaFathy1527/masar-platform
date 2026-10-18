@@ -1,0 +1,35 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.6,
+    "scored_at": "2026-10-18T06:53:19.027735+00:00",
+    "usage": {
+      "inputTokens": 5784,
+      "outputTokens": 7426
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are implausible (e.g., 'Order lunch for the team first') and nobody would choose them, with minimal feedback ('Not correct.') for incorrect options.",
+    "accessibility_ip": "Compliant but without using the constraint as a teaching point."
+  },
+  "verdict_notes": "Knowledge_check scored 1 due to implausible distractors. Accessibility_ip scored 3 as the lesson is compliant but lacks the constraint teaching point. Mean score 4.25."
+}

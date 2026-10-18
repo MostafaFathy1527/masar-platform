@@ -1,0 +1,717 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+We have to score 8 criteria: objective_alignment, level_fidelity, worked_example, knowledge_check, scenario_authenticity, bilingual_quality, concision, accessibility_ip.
+
+We must return exactly the JSON structure as specified.
+
+Let's go through each criterion:
+
+1. **Objective alignment**: 
+   - The lesson declares objective CS-01.
+   - We look at each block to see if it serves CS-01.
+   - L1 blocks: 
+        - heading: sets the stage for the objective.
+        - rich_text: explains the concept (complaint as a chance, first minute matters) -> aligns with CS-01.
+        - two definition cards (acknowledgement, agreed next step) -> directly related to the concepts introduced (acknowledgement, agreed_next_step).
+        - job_tip: about asking what the customer wants -> aligns with CS-01.
+        - takeaways: summarize the key points for the objective.
+   - L2 blocks:
+        - heading: "Work one complaint from open to close" -> aligns with the objective (which is about handling a complaint).
+        - worked_example: step-by-step for a complaint scenario, using the concepts (acknowledgement, agreed next step) -> aligns.
+        - two knowledge checks: testing the concepts (from the referenced items, which are about acknowledgement and agreed next step).
+        - scenario: a realistic scenario that requires applying the concepts.
+   - All blocks serve the objective. So score 5.
+
+2. **Level fidelity**:
+   - The lesson has L1 and L2.
+   - L1: The L1 blocks are introductory, defining key terms and the first steps. It's not too advanced for L1 (which is typically introductory).
+   - L2: The L2 blocks are more complex: a worked example that requires applying the concepts step by step, a scenario that requires judgment, and knowledge checks that test application (not just recall).
+   - The L2 is not just L1 with a question bolted on. It's a deeper dive.
+   - The level is what the learner experiences. So score 5.
+
+3. **Worked-example quality**:
+   - The worked example in L2 has steps with "show" (what to do) and "why" (why it's done that way).
+   - Let's check the "why" for each step:
+        Step 1: "Why" explains that without acknowledging the experience, the customer won't hear anything.
+        Step 2: Explains that silence reads as abandonment and asking what the customer wants prevents a fix they didn't ask for.
+        Step 3: Explains that arguing policy lengthens the call and doesn't change anything.
+        Step 4: Explains the three elements of an agreed next step and the importance of promising only what you can do.
+   - The "why" is specific and names the judgment (e.g., "without that, she will not hear anything that follows"). 
+   - So it meets the 5 criteria.
+
+4. **Knowledge-check quality**:
+   - We have two knowledge checks (CS-01-KC-01 and CS-01-KC-02) from the referenced items.
+   - Let's check the distractors and feedback for each.
+
+   For CS-01-KC-01 (first knowledge check):
+     - Correct answer: "وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب." 
+        Feedback: Correct. ... (explains why it's correct)
+     - Distractors:
+        Option 1: "آسف لأنك تشعر بهذا الشكل، دعني أشرح سياسة الشحن." 
+            Feedback: "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+            -> This feedback names the misconception (apologizing for feeling instead of event, and then defending policy) which is a real misconception.
+        Option 2: "سأحوّلك إلى قسم الشحن فهم المسؤولون عن التوصيل."
+            Feedback: "لا. نقل عميل غاضب قبل أن يُسمَع، وبلا تسليم، يجعله يشرح كل شيء من جديد — وهذا طريق التصعيد."
+            -> Names the misconception (transferring before being heard, without handover) which is a real one.
+        Option 3: "سنعوّضك عن كل شيء، لا تقلق."
+            Feedback: "لا. وعد بنتيجة لم تثبت حقائقها بعد ولا تملك أنت بالضرورة صلاحيتها. إن لم يتحقق صارت الشكوى عن وعد مكسور."
+            -> Names the misconception (promising without authority, leading to broken promise).
+
+     All distractors are plausible and feedback explains the misconception.
+
+   For CS-01-KC-02 (second knowledge check):
+     - Correct answer: "رفعت الاسترداد الآن؛ يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم."
+        Feedback: "صحيح. إجراء، ووقت، وطريقة يعرف بها العميل أنه حدث — ثلاثة أشياء يمكنه أن يحاسبك عليها."
+     - Distractors:
+        Option 1: "سيتابع أحد الزملاء الموضوع قريباً."
+            Feedback: "لا. لا اسم، ولا وقت، ولا طريقة تحقق. هذا هو الإغلاق الذي يصنع الشكوى المتكررة."
+            -> Names the misconception (vague closure leads to repeat complaints).
+        Option 2: "تم. هل هناك شيء آخر أستطيع مساعدتك به؟"
+            Feedback: "لا. «تم» لا تقول ماذا تم ولا متى يراه العميل. سيكتشف غداً أنه لا يعرف ما إذا كان شيء قد حدث فعلاً."
+            -> Names the misconception (vague "done" without details).
+        Option 3: "راسلنا على البريد إن لم يصلك المبلغ."
+            Feedback: "لا. هذا ينقل عبء المتابعة إلى العميل الذي اشتكى أصلاً من أن بريده لم يُجَب. الاسم على الشكوى اسمك حتى تُغلق."
+            -> Names the misconception (transferring the burden to the customer who was already ignored).
+
+   However, note: the rubric says "feedback that restates the answer instead of naming the misconception" is bad. 
+   In this case, the feedback for the distractors does name the misconception (e.g., "apologising for the feeling" for option 1 in KC-01).
+
+   But wait: in the knowledge check block for L2, we have:
+        "id": "cs1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+            "itemRef": "CS-01-KC-01"
+        }
+
+   And the referenced item (CS-01-KC-01) has feedback that is good.
+
+   However, the rubric says: "a distractor nobody would ever choose" is bad. Here, all distractors are plausible.
+
+   But note: the rubric also says "feedback that restates the answer" is bad. In the referenced items, the feedback for the correct answer is not restating but explaining. The feedback for the distractors is explaining why they are wrong.
+
+   However, the problem: the knowledge_check block in the lesson does not include the feedback. We are only given the "itemRef". We have to score based on the referenced items (which we are provided separately).
+
+   We are told: "Score knowledge_check on them." meaning the referenced items.
+
+   So the knowledge checks are well done. But wait, the rubric says: "a distractor nobody would ever choose" is bad. Are any of these distractors implausible? 
+
+   - Option 1 in KC-01: apologizing for the feeling is a common mistake (so plausible).
+   - Option 2: transferring before being heard is common (plausible).
+   - Option 3: promising to make it up without authority is common (plausible).
+
+   Similarly for KC-02, all distractors are common.
+
+   However, note the rubric says: "feedback that restates the answer instead of naming the misconception". 
+
+   Let's look at the feedback for the correct answer in the referenced items: 
+      KC-01: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+      This is not restating the answer (which would be "You said the right thing") but explaining why it's correct.
+
+   For the distractors, the feedback names the misconception.
+
+   So why would we score below 5? 
+
+   But wait: the rubric says "every distractor names a misconception someone actually holds." and that's true here.
+
+   However, note the rubric also says: "No 'all of the above'." — we don't have that.
+
+   So why did I initially think 5? But let me double-check the rubric for knowledge_check:
+
+   **1** — implausible distractors, or feedback that repeats the stem.
+   **3** — plausible distractors, feedback thin on some.
+   **5** — every distractor names a misconception someone actually holds.
+
+   Here, the feedback for the distractors does name the misconception. So it should be 5.
+
+   But wait: the lesson's knowledge_check block does not have the feedback. We are scoring based on the referenced items. And the referenced items are provided. They are well done.
+
+   However, the instruction says: "Score what is on the page." The lesson has a knowledge_check block with an itemRef. The feedback is in the referenced item, which we are provided. So we can score it.
+
+   But note: the rubric says "feedback that restates the answer" — the feedback for the distractors does not restate the answer; it explains the misconception.
+
+   So I think it's 5.
+
+   However, let me check the actual lesson's knowledge_check block: it only says "itemRef", so the feedback is not in the lesson block. But we are given the full items. We are to score based on the items.
+
+   But the rubric says: "Score what is on the page." The lesson page has the itemRef, and the itemRef points to the full item (which we are provided). So we have to assume that the feedback is as provided.
+
+   Therefore, knowledge_check should be 5.
+
+   But wait: the example in the rubric says "a distractor nobody would ever choose" is bad. We don't have that. And the feedback is good.
+
+   However, I notice: in the lesson, the knowledge_check block for L2 (cs1_l2_kc1) is just the itemRef. The actual feedback is in the referenced item. So the lesson does not have the feedback? But the lesson is structured to use the referenced item, so the feedback is part of the lesson (via the itemRef). 
+
+   So I think it's 5.
+
+   But let me look at the provided items: they are well written. So why would I score it below 5? 
+
+   However, note: the rubric says "the lesson" — the lesson we are scoring is the JSON we are given. The lesson does not have the feedback in the block, but the referenced item is provided to us as part of the context. So we are to score the lesson based on the referenced item.
+
+   Since the referenced item is provided and it's good, we score 5.
+
+   But wait: the rubric says "a feedback that restates the answer" — in the referenced items, the feedback for the distractors does not restate the answer. It explains the misconception.
+
+   However, I see a potential issue: in the lesson, the knowledge_check block does not have the feedback. But the lesson is designed to use the referenced item, so the feedback is present in the system. We are to assume it's there. 
+
+   Given that, I think it's 5.
+
+   But let me check the example in the rubric: it says "feedback that restates the answer" is bad. The example feedback in the referenced item for the distractors does not restate the answer; it explains the misconception.
+
+   So I'll score it 5.
+
+   However, note: the rubric says "per-option feedback". And in the referenced items, each option has feedback. So it's good.
+
+   But wait: the problem says "the lesson" — and the lesson's knowledge_check block only has the itemRef. So the feedback is not in the lesson block, but in the system. The lesson is using the itemRef to refer to the item. So we have to score the lesson as if the feedback is present (because it is, via the reference). 
+
+   Therefore, knowledge_check: 5.
+
+   However, I see in the example verdict provided in the rubric: 
+        "notes": {
+            "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+        }
+
+   But in our case, the feedback doesn't restate the stem. It names the misconception.
+
+   So why would we score below 5? 
+
+   Let me read the feedback in the referenced items again:
+
+   For KC-01, option 1 feedback: 
+        "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+
+   This is naming the misconception (apologizing for feeling, not event, and then defending policy) so it's good.
+
+   Similarly, the others.
+
+   So I think it's 5.
+
+   But wait: the rubric says "a distractor nobody would ever choose" — are any of these distractors not plausible? 
+   - Option 1: people do say "I'm sorry you feel that way" — so it's a common mistake.
+   - Option 2: transferring before being heard is a common mistake (especially if the agent feels out of their depth).
+   - Option 3: promising to make it up without authority is common.
+
+   So they are plausible.
+
+   Therefore, knowledge_check: 5.
+
+   However, I see that in the lesson, the knowledge_check block for L2 (cs1_l2_kc1) is just a reference. The lesson does not have the feedback. But the rubric says "score what is on the page". The page (the lesson JSON) has the itemRef, and we are provided the full item. So we have to assume the feedback is there. 
+
+   But note: the rubric also says "a 'visual card' that is a bulleted list with a border" — that's a different issue. We are not dealing with that.
+
+   So I'll score knowledge_check as 5.
+
+   However, let me check the other criteria to see if I made a mistake.
+
+5. **Scenario authenticity**:
+   - The scenario in L2: "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone."
+   - This is a very common situation in customer service. The details are realistic: 
+        - The customer is frustrated (three long messages, says won't explain again).
+        - The agent can't authorize the waiver (so they have to transfer or handle appropriately).
+        - The team that can is not available until tomorrow.
+   - It includes friction: the customer is angry and has already written three messages, and is refusing to explain again. The agent must handle that.
+   - So it's authentic. Score 5.
+
+6. **Bilingual quality**:
+   - The lesson is bilingual (bilingual: true).
+   - We need to check the Arabic for naturalness and consistency with the glossary (but we don't have a glossary, so we check for naturalness).
+   - Let's look at the Arabic:
+        - The heading: "الشكوى فرصة لم يمنحها لك الآخرون" -> natural.
+        - The rich_text: "الشكوى ليست هجوماً، وليست طلباً لاعتذار. هي عميل يخبرك أن الفجوة بين ما توقّعه وما حصل عليه صارت تستحق وقته ليبلّغ عنها." -> natural.
+        - The definition cards: "الإقرار" -> "Naming what happened in the customer's own words" -> the Arabic is: "أن تسمّي ما حدث بكلمات العميل، وتقول إنك تفهم لماذا يهمّه — قبل أي كلام عن الأسباب أو الحلول." -> This is natural.
+        - The job tip: "السؤال الذي يتخطّاه معظم الموظفين هو الذي يوفّر أكبر وقت: **«ما الذي تريده الآن؟»**" -> natural.
+        - The takeaways: the list is in natural Arabic.
+        - The L2 worked example: the Arabic for the steps and why are natural.
+        - The scenario: "عميل في المحادثة النصية يطلب شيئاً لا تملك صلاحيته: إلغاء رسوم تعاقدية. القسم الذي يملك الصلاحية يعمل غداً. العميل كتب حتى الآن ثلاث رسائل طويلة ويقول إنه لن يشرح الموضوع مرة أخرى لأحد." -> natural.
+        - The knowledge check options: natural.
+
+   - It does not read like a machine translation. The word order is Arabic, not English word order.
+   - So score 5.
+
+7. **Concision and reading level**:
+   - Let's check for padding or wordiness.
+   - The lesson is concise. 
+        - The heading: short and punchy.
+        - The rich_text: explains the concept without fluff.
+        - The definition cards: concise definitions.
+        - The job tip: one sentence with a key point.
+        - The takeaways: bullet points, concise.
+        - The worked example: steps are clear and to the point.
+        - The scenario: concise description of the situation.
+   - We don't see any unnecessary words. Each sentence serves a purpose.
+   - So score 5.
+
+8. **Accessibility and IP**:
+   - The lesson does not have any images (so no alt text needed).
+   - It has no color-coding (so no issue with color alone).
+   - It does not contain any real licensed code descriptors or payer policy text.
+   - It does not contain any forbidden terms (we don't see any).
+   - So it's compliant. We don't have any text that is a real code descriptor (like "CPT code 99213" or something) or payer policy (like "Medicare Part B covers...").
+   - Therefore, score 5.
+
+But wait: the rubric says "no real licensed code descriptors or payer policy text" — we don't see any. So it's 5.
+
+However, note: the rubric says "automatic 1 if any is present". We don't see any, so 5.
+
+So all criteria are 5? But the example verdict in the rubric has a note for knowledge_check. 
+
+Wait, I think I made a mistake in knowledge_check. Let me reexamine the knowledge checks.
+
+In the referenced item for CS-01-KC-01, the correct answer is:
+   "وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب."
+
+But the feedback for the correct answer is:
+   "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+This is good.
+
+For the distractor (option 1):
+   "آسف لأنك تشعر بهذا الشكل، دعني أشرح سياسة الشحن."
+   Feedback: "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+
+This feedback names the misconception: the agent is apologizing for the feeling (which is wrong) and then defending policy (which is also wrong). This is a real misconception.
+
+Similarly, the other distractors.
+
+But note: the rubric says "feedback that restates the answer" — the feedback for the distractors does not restate the answer. It explains why it's wrong.
+
+So why would we score below 5? 
+
+I think I have to stick with 5.
+
+However, the example verdict provided in the rubric (in the output example) has:
+   "knowledge_check": 3, with note: "Two distractors restate the stem rather than naming a misconception."
+
+But in our case, they don't.
+
+Wait, let me look at the actual lesson's knowledge check block: it doesn't have the feedback. But the referenced item does. So we have to assume the feedback is as provided.
+
+But note: the rubric says "score what is on the page". The lesson page (the JSON we are scoring) does not have the feedback in the block. It only has the itemRef. So we are not seeing the feedback on the page. 
+
+This is a critical point.
+
+The lesson's knowledge_check block is defined as:
+   {
+    "id": "cs1_l2_kc1",
+    "type": "knowledge_check",
+    "objectiveId": "CS-01",
+    "payload": {
+        "itemRef": "CS-01-KC-01"
+    }
+   }
+
+The lesson does not include the feedback. The feedback is in the referenced item, which is provided to us as context. But the lesson itself (the JSON) does not have the feedback. 
+
+The rubric says: "score what is on the page". The page (the lesson JSON) does not have the feedback, so we cannot verify it. However, the rubric also says: "You are scoring a lesson you did not write, against `pipeline/rubric.md`." and "Read `pipeline/rubric.md` and return exactly the JSON shape it specifies".
+
+And the rubric for knowledge_check says: "per-option feedback explain why rather than restate the answer".
+
+But we don't see the feedback in the lesson. We are provided the full item separately. The instruction says: "Score what is on the page." — meaning the lesson JSON. 
+
+The lesson JSON does not contain the feedback, so we have to assume that the feedback is not present? But that would be a problem. 
+
+However, the problem states: "Each knowledge_check block above shows only an itemRef. These are those items, in full: stem, options, which option is correct, the feedback on every option, and the rationale."
+
+So the feedback is provided to us as part of the context. We are to use it to score.
+
+But the rubric says "score what is on the page" — the page of the lesson. The lesson page does not have the feedback. However, the lesson is designed to use the referenced item, and the referenced item is part of the system. So the feedback is part of the lesson (via the reference). 
+
+In the context of the pipeline, the lesson would be rendered with the feedback from the item. So we are to score the lesson as if the feedback is present.
+
+Given that, and since the feedback is provided and good, we score 5.
+
+But to be safe, let's check if there's any issue in the feedback that we might have missed.
+
+In the referenced item for CS-01-KC-01, the feedback for the correct answer is:
+   "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+This is good.
+
+For the distractors, the feedback is also good.
+
+So I think it's 5.
+
+However, I recall that the rubric says "a feedback that restates the answer" is bad. In the feedback for the distractors, it does not restate the answer. It explains the misconception.
+
+Therefore, I think knowledge_check is 5.
+
+But wait: the rubric says "no 'all of the above'", which we don't have.
+
+So all criteria are 5.
+
+But the example verdict in the rubric has a note for knowledge_check. And the problem says "Be harsh on 4 and 5. A 5 means you would not change it."
+
+So if it's perfect, it's 5.
+
+However, let me double-check the scenario authenticity.
+
+Scenario in L2: 
+   "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone."
+
+This is authentic. The friction is that the customer has already written three messages and is refusing to explain again, and the agent cannot do the waiver. So it's realistic.
+
+Now, let's consider level fidelity: L2 is for a higher level. The L2 block includes a worked example and a scenario that requires application (not just knowledge). So it's appropriate.
+
+But note: the rubric says "a 'visual card' that is secretly a bulleted list fails this criterion". We don't have any visual card that is a bulleted list. The definition cards are not bulleted lists; they are defined as "definition_card" type. The takeaways are a list, but it's a "takeaways" block, not a visual card. So it's fine.
+
+So I think all are 5.
+
+But wait: the rubric says "a visual card that is a bulleted list with a border" — we don't have any visual card. The "definition_card" is a specific type, and it's not a bulleted list. The takeaways are a block of items, but it's not a visual card (it's a "takeaways" type). So no issue.
+
+Therefore, the scores should be:
+
+  objective_alignment: 5
+  level_fidelity: 5
+  worked_example: 5
+  knowledge_check: 5
+  scenario_authenticity: 5
+  bilingual_quality: 5
+  concision: 5
+  accessibility_ip: 5
+
+But the example verdict has a note for knowledge_check. And the problem says "Be harsh on 4 and 5". However, if it's perfect, it's 5.
+
+But let me check the worked_example again.
+
+In the worked example, the "why" for each step is provided and it's good. For step 4, it says: "And promise only what you can personally make true; promise what you will do and when you will report back." This is specific and names the judgment.
+
+So it's 5.
+
+However, I notice: in the rubric for worked_example, it says "steps show what to do *and why*". The "why" in the worked example is provided as "whyAr" and "whyEn", so it's there.
+
+So I think it's 5.
+
+But the instruction says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+This lesson achieves all.
+
+So why would we have any note below 4? We don't have any.
+
+But the rubric says: "return exactly the JSON shape" and "notes" is required for every criterion scored below 4. Since all are 5, we don't need any notes.
+
+However, the example verdict has a note for knowledge_check even though it was scored 3. In our case, we don't have any below 4.
+
+So the notes field should be empty? But the example has a notes field with a key for knowledge_check.
+
+The rubric says: "notes on any criterion you scored below 4". So if none are below 4, we don't have to include any notes.
+
+But the example output includes a notes object with a key for knowledge_check even though it was scored 3. So for criteria scored below 4, we include a note.
+
+Since we have all 5s, the notes object should be empty? But the example output has a non-empty notes object when there is a below-4.
+
+The rubric says: "notes: (criterion -> string; required for every criterion scored below 4"
+
+So if there are no criteria below 4, the notes object should be empty.
+
+But the JSON structure in the example has "notes": { ... } even when there are no below-4 scores? Actually, the example has a note for knowledge_check because it was scored 3.
+
+In our case, we have no below-4, so notes should be an empty object.
+
+However, the rubric example output has "notes" as an object. It doesn't say it must be non-empty. So we can have an empty object.
+
+But let's look at the required JSON shape in the rubric:
+
+```json
+{
+  "lesson": "05-documentation-that-supports-the-claim",
+  "scores": { ... },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+}
+```
+
+It shows a notes object with one key. But if there are no below-4, then notes should be empty.
+
+So for us, notes should be an empty object.
+
+But the rubric says: "required for every criterion scored below 4". So if none, then notes is an empty object.
+
+Now, verdict_notes: two or three sentences. We can write: "All criteria scored 5. The lesson meets the rubric perfectly."
+
+But let's calculate the mean: (5*8)/8 = 5.0, which is above 4.0. And no criterion below 3.
+
+So it passes.
+
+But the problem says: "You do not decide pass or fail." — we are only to return the JSON.
+
+Now, I have to consider: did I miss something?
+
+Let me re-read the lesson for any potential issue.
+
+In the L2 worked example, step 4 says: "أرفع الاسترداد الآن، يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم."
+
+The feedback says: "إجراء، ووقت، وطريقة تحقق. ولا تعِد بما لا تستطيع أنت أن تجعله يحدث؛ عِد بما ستفعله وبالموعد الذي ستعود فيه بالخبر."
+
+This is good.
+
+Another thing: the lesson has a "conceptsIntroduced" list. The blocks in L1 cover "acknowledgement", "establishing_the_facts", "complaint_ownership", "warm_handover", "agreed_next_step". 
+
+Wait, the concepts introduced include "warm_handover", but I don't see a definition for "warm_handover" in the lesson. 
+
+The concepts introduced: 
+   "acknowledgement",
+   "establishing_the_facts",
+   "complaint_ownership",
+   "warm_handover",
+   "agreed_next_step"
+
+In the lesson, we have:
+   - definition_card for "acknowledgement"
+   - definition_card for "agreed_next_step"
+   - takeaways mention "complaint_ownership" (in the takeaways: "الشكوى عليها اسم واحد حتى تُغلق")
+   - "establishing_the_facts": mentioned in the takeaways: "الحقائق من السجل لا من ذاكرة أي طرف — وافحص السجل والعميل معك، وقل ما تفعله."
+   - "warm_handover": I don't see this term. 
+
+Let me look for "warm_handover" in the lesson:
+
+   The takeaways: 
+        "الشكوى عليها اسم واحد حتى تُغلق، وإن نقلتها فانقل الحقائق معها."
+
+   This is about complaint ownership and passing the complaint, but not specifically "warm handover".
+
+   The term "warm handover" is not defined or used in the lesson.
+
+   The concept "warm_handover" is listed in the conceptsIntroduced but not covered.
+
+   This might be a problem for objective_alignment.
+
+   The objective is CS-01, and the concepts introduced include "warm_handover", but it's not in any block.
+
+   So the block that declares the objective might be claiming to cover a concept that is not covered.
+
+   Let's check the objective_id: all blocks have "objectiveId": "CS-01".
+
+   The concepts introduced are for the lesson, not per block. The lesson declares it will introduce these concepts.
+
+   But the lesson does not cover "warm_handover". 
+
+   Therefore, the lesson is not covering all the concepts it claims.
+
+   This affects objective_alignment.
+
+   How?
+
+   The objective_alignment criterion: "Does every block serve the objective it declares?"
+
+   The lesson declares the objective CS-01, and the concepts introduced are part of the objective.
+
+   But the lesson does not cover "warm_handover", so the objective (which includes teaching warm_handover) is not fully served.
+
+   However, the blocks are all for CS-01, but one of the concepts (warm_handover) is not taught.
+
+   So the lesson is not fully aligned.
+
+   But note: the objective might be "Handling a customer complaint", and the concepts are the components. If warm_handover is part of it, then the lesson should teach it.
+
+   Since it's not taught, the lesson is missing a part of the objective.
+
+   Therefore, objective_alignment might be 4 (not 5) because one concept is missing.
+
+   Let's see the rubric for objective_alignment:
+
+   **5** — every block earns its objective, and the set covers it.
+
+   The set (the lesson) does not cover all the concepts (warm_handover is missing), so it doesn't cover the objective.
+
+   Therefore, objective_alignment should be 4.
+
+   How many blocks? The blocks are there, but they don't cover all the concepts.
+
+   So it's not 5.
+
+   Now, is warm_handover a key concept? In customer service, a warm handover is when you transfer the customer to another department while providing a summary, so they don't have to repeat themselves. It's important.
+
+   The lesson does have a part about passing the complaint: "الشكوى عليها اسم واحد حتى تُغلق، وإن نقلتها فانقل الحقائق معها." — this is about complaint ownership and passing the facts, but not specifically a warm handover (which usually implies a verbal handover or a smooth transfer).
+
+   The term "warm_handover" is not used, and the concept is not taught explicitly.
+
+   So the lesson is missing this concept.
+
+   Therefore, objective_alignment: 4.
+
+   But wait, the concepts introduced are listed as part of the lesson, but the lesson might not have to cover all in every block. However, the lesson as a whole should cover the concepts.
+
+   Since it's missing one, it's not fully covering the objective.
+
+   So we reduce objective_alignment from 5 to 4.
+
+   Now, what about the other criteria? We still have:
+
+   - level_fidelity: 5 (we think)
+   - worked_example: 5
+   - knowledge_check: 5
+   - scenario_authenticity: 5
+   - bilingual_quality: 5
+   - concision: 5
+   - accessibility_ip: 5
+
+   But we have one criterion at 4.
+
+   Now, let's check if there are others.
+
+   For knowledge_check, we had thought 5, but let's see if the missing concept affects the knowledge checks. The knowledge checks are about acknowledgement and agreed next step, not warm handover. So the knowledge checks are still good.
+
+   But the objective_alignment is now 4.
+
+   So we have one criterion at 4.
+
+   The mean: (4 + 5*7)/8 = (4+35)/8 = 39/8 = 4.875, which is above 4.0.
+
+   And no criterion below 3.
+
+   So it passes.
+
+   Now, for the notes, we have to provide a note for objective_alignment (scored 4).
+
+   What should the note say? "The lesson claims to introduce 'warm_handover' as a concept but does not cover it in any block."
+
+   But the concepts are listed in "conceptsIntroduced", and the lesson does not have a block that teaches warm_handover.
+
+   So we note that.
+
+   Now, let's confirm the other criteria:
+
+   level_fidelity: 
+        L1: covers the basics (acknowledgement, agreed next step, etc.) -> appropriate for L1.
+        L2: covers the application (worked example, scenario) -> appropriate for L2.
+        So 5.
+
+   worked_example: 5.
+
+   knowledge_check: 5.
+
+   scenario_authenticity: 5.
+
+   bilingual_quality: 5.
+
+   concision: 5.
+
+   accessibility_ip: 5.
+
+   So scores:
+        objective_alignment: 4
+        level_fidelity: 5
+        worked_example: 5
+        knowledge_check: 5
+        scenario_authenticity: 5
+        bilingual_quality: 5
+        concision: 5
+        accessibility_ip: 5
+
+   Now, notes: only for objective_alignment.
+
+   Note: "The lesson lists 'warm_handover' in conceptsIntroduced but does not cover it in any block."
+
+   verdict_notes: "One criterion at 4; mean 4.875. Passes, but the lesson misses one of the declared concepts."
+
+   However, the mean is 4.875, which is above 4.0.
+
+   But let's double-check: is "warm_handover" really missing?
+
+   In the takeaways, there is: "الشكوى عليها اسم واحد حتى تُغلق، وإن نقلتها فانقل الحقائق معها."
+
+   This is about passing the complaint (which is part of a warm handover), but it doesn't use the term "warm handover", and it's not a full explanation of what a warm handover is.
+
+   The concept "warm_handover" might be considered covered by this, but the term is not used and the concept is not explicitly taught.
+
+   The rubric says: "the set covers it" — meaning the objective. The objective is to handle a complaint, and warm handover is part of it. But if the lesson doesn't explain it, it's not covered.
+
+   Given that the concept is listed as one of the introduced concepts, and it's not taught, it's a gap.
+
+   So I think 4 is correct.
+
+   Now, let's see if there's any other issue.
+
+   Another thing: in the L2 worked example, the "answer" says: "Question 'who is responsible' is answered by an action, not a name: you are, from this moment, for closing it."
+
+   This is good.
+
+   But the concept "complaint_ownership" is covered in the takeaways (in the L1 block) and in the worked example.
+
+   And "warm_handover" is not.
+
+   So yes.
+
+   Therefore, we adjust objective_alignment to 4.
+
+   Now, write the JSON.
+
+   Note: the lesson slug is "handling-a-customer-complaint".
+
+   scores:
+        objective_alignment: 4
+        level_fidelity: 5
+        worked_example: 5
+        knowledge_check: 5
+        scenario_authenticity: 5
+        bilingual_quality: 5
+        concision: 5
+        accessibility_ip: 5
+
+   notes: { "objective_alignment": "The lesson lists 'warm_handover' in conceptsIntroduced but does not cover it in any block." }
+
+   verdict_notes: "One criterion at 4; mean 4.875. Passes, but the lesson misses one of the declared concepts."
+
+   But the mean is (4 + 5*7)/8 = (4+35)/8 = 39/8 = 4.875, which is 4.875.
+
+   However, the rubric says "mean is below 4.0" for failure. 4.875 is above 4.0.
+
+   We'll write "mean 4.875".
+
+   But the example verdict says "mean 4.1", so we can write it as a float.
+
+   However, the rubric doesn't specify the format, but 4.875 is fine.
+
+   But note: the example has "mean 4.1", so we can write it as "4.875".
+
+   Now, let's write the JSON.
+
+   Important: the notes object must only include criteria scored below 4. We have one: objective_alignment.
+
+   So notes: { "objective_alignment": ... }
+
+   And verdict_notes: two or three sentences.
+
+   Let's write it.
+
+   Note: the example verdict says "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+   We'll say: "One criterion at 4; mean 4.875. Passes, but the lesson misses one of the declared concepts."
+
+   But the mean is 4.875, which is above 4.0, so it passes.
+
+   Now, I think that's it.
+
+   However, let's confirm the knowledge_check again. We have it as 5, but is there any issue?
+
+   The knowledge_check items are good. So 5.
+
+   So final scores.
+
+   But wait: the concepts introduced include "warm_handover", but the lesson might have covered it implicitly. However, the rubric says "score what is on the page". The page does not have a block that teaches "warm_handover", so it's not covered.
+
+   Therefore, we stick with 4 for objective_alignment.
+
+   Let's output the JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "objective_alignment": "The lesson lists 'warm_handover' in conceptsIntroduced but does not cover it in any block, leaving a gap in the declared objective."
+  },
+  "verdict_notes": "One criterion at 4; mean 4.875. Passes, but the lesson misses one of the declared concepts."
+}

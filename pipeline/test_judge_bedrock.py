@@ -231,6 +231,79 @@ def test_a_copy_of_the_rubric_example_is_not_a_verdict(tmp: Path):
           'and a real reading as its score')
 
 
+def test_explicit_decoding_overrides_the_environment(tmp: Path):
+    print('--temperature and --max-tokens override JUDGE_TEMPERATURE and JUDGE_MAX_TOKENS')
+    import os
+    import urllib.request
+
+    seen: dict = {}
+
+    class Reply:
+        payload = json.dumps({'choices': [{'message': {'content': '{"scores": {}}'}}],
+                              'usage': {}}).encode('utf-8')
+
+        def read(self):
+            return self.payload
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(req, timeout=None):
+        seen['body'] = json.loads(req.data.decode('utf-8'))
+        return Reply()
+
+    real_open = urllib.request.urlopen
+    saved = {v: os.environ.pop(v, None) for v in ('JUDGE_MAX_TOKENS', 'JUDGE_TEMPERATURE')}
+    urllib.request.urlopen = fake_urlopen
+    try:
+        os.environ['JUDGE_MAX_TOKENS'], os.environ['JUDGE_TEMPERATURE'] = '4000', '0'
+        _, usage = judge_bedrock.call_openai_compatible('PROMPT', 'm', 'http://h:8080/v1',
+                                                        max_tokens=12000, temperature=0.6)
+        check(seen['body']['max_tokens'] == 12000 and seen['body']['temperature'] == 0.6,
+              'explicit arguments win over the environment')
+        check(usage['temperature'] == 0.6, 'and the verdict records the temperature used')
+        judge_bedrock.call_openai_compatible('PROMPT', 'm', 'http://h:8080/v1')
+        check(seen['body']['max_tokens'] == 4000 and seen['body']['temperature'] == 0,
+              'without them the environment still decides')
+    finally:
+        urllib.request.urlopen = real_open
+        for v, had in saved.items():
+            os.environ.pop(v, None)
+            if had is not None:
+                os.environ[v] = had
+
+    # Through main(): the options arrive at call_openai_compatible as arguments. The
+    # reply is the rubric example, so main() refuses it before the gate and nothing is
+    # appended to the run log.
+    got: dict = {}
+    reply = json.dumps(judge_bedrock.rubric_example())
+
+    def fake_call(prompt, model, endpoint, max_tokens=None, timeout=1800, temperature=None):
+        got.update(model=model, endpoint=endpoint, max_tokens=max_tokens, temperature=temperature)
+        return reply, {'temperature': temperature}
+
+    lesson = tmp / 'lesson.json'
+    lesson.write_text(json.dumps(LESSON_L1), encoding='utf-8')
+    real_call = judge_bedrock.call_openai_compatible
+    judge_bedrock.call_openai_compatible = fake_call
+    try:
+        judge_bedrock.main(['--lesson', str(lesson), '--model', 'open-model', '--tag', 'opt',
+                            '--endpoint', 'http://h:8080/v1', '--temperature', '0.6',
+                            '--max-tokens', '12000'])
+        check(got == {'model': 'open-model', 'endpoint': 'http://h:8080/v1', 'max_tokens': 12000,
+                      'temperature': 0.6}, '--temperature 0.6 and --max-tokens 12000 arrive as arguments')
+        got.clear()
+        judge_bedrock.main(['--lesson', str(lesson), '--model', 'open-model', '--tag', 'opt',
+                            '--endpoint', 'http://h:8080/v1'])
+        check(got['max_tokens'] is None and got['temperature'] is None,
+              'without the options nothing is forced, so the environment defaults apply')
+    finally:
+        judge_bedrock.call_openai_compatible = real_call
+
+
 def test_the_whole_reply_is_kept_on_request(tmp: Path):
     print("a reasoning judge's whole reply can be kept beside its verdict")
     import os
@@ -274,6 +347,8 @@ if __name__ == '__main__':
     test_served_model_uses_the_same_request()
     with tempfile.TemporaryDirectory() as d:
         test_a_copy_of_the_rubric_example_is_not_a_verdict(Path(d))
+    with tempfile.TemporaryDirectory() as d:
+        test_explicit_decoding_overrides_the_environment(Path(d))
     with tempfile.TemporaryDirectory() as d:
         test_the_whole_reply_is_kept_on_request(Path(d))
     print('\nFAILS:', FAILS)

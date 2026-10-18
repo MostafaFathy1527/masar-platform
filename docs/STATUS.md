@@ -256,6 +256,28 @@ a stand-in server and in `test_judge_bedrock.py`.
   CPU-only; a rented card costs about $0.30 an hour while judging), the family check in
   `panel.py`, and the same drift check K3 got (two runs of identical lessons).
 
+**Added 2026-10-18 (later): Qwen3-30B-A3B-Thinking-2507 seated as the fourth judge, the first open one.**
+- **The decision:** the owner's, on the first pass (14 of 20). The seat is the exact file that passed,
+  `Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf`, served by llama.cpp at the model's own temperature 0.6
+  with 12,000 tokens (`panel.SERVED_JUDGES`).
+- **The drift check K3 got** (`pipeline/out/calibration/2026-10-18-qwen3-second-pass`): 11 of 20
+  on the second pass; worked examples 4 of 4 both times, knowledge checks 6 of 8 against 8 of 8,
+  pasted English 1 of 4 against 2 of 4. 12 of 192 scores moved (10 by two or more), 2 of 32 on
+  the real lessons, and 4 of 24 gate outcomes flipped, three on pasted English. Steady on worked
+  examples, not on pasted English; K3 and GLM-5 still catch that, and a split goes to a person.
+- **The four samples with four judges:** SEC-01, CS-01 and PRV-01 PANEL PASS; OPS-01 NEEDS HUMAN
+  on its Arabic, as before (K3 3 against 5, 5 and 5).
+- **The code:** `panel.py` has `SERVED_JUDGES` and `SEATS`; an empty seat is NEEDS HUMAN, never
+  PASS or FAIL; `run_judges()` scores every seat and leaves a served seat empty, with one line on
+  stderr, when its endpoint is unset, unreachable or not a chat completion. `judge_bedrock.py`
+  takes `--temperature` and `--max-tokens`. `run_lesson.py` refuses a generator from any seat's
+  family, Qwen included.
+- **Still open:** an endpoint the weekly run can reach (`JUDGE_QWEN3_ENDPOINT`); until it exists the
+  weekly job is red every week by construction, which hides a hosted judge drifting. Two smaller
+  gaps a reviewer showed: nothing checks that the endpoint serves the seated file (llama.cpp
+  ignores the request's model name), and a served verdict the gate refuses stops the whole panel
+  for that lesson.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

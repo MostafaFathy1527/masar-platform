@@ -1,0 +1,535 @@
+<think>
+We are scoring the lesson "recognising-a-phishing-email" against the rubric.
+
+We must score each criterion from 1 to 5, and only return the JSON as specified.
+
+Let's break down each criterion:
+
+### 1. Objective alignment
+- The lesson has one objective: SEC-01.
+- Every block (heading, rich_text, definition_card, job_tip, takeaways, worked_example, knowledge_check, scenario) declares objectiveId "SEC-01".
+- We need to check if each block serves that objective.
+  - The introductory blocks set the context for the objective (phishing attack on the reader, not the system).
+  - The definition cards introduce the concepts (look_alike_domain, one_time_code) which are part of the objective.
+  - The job tip gives a tip that aligns with the objective (checking the address, not the display name).
+  - The takeaways summarize the key points for the objective.
+  - The L2 worked example shows how to apply the checks for a phishing email.
+  - The knowledge checks and scenario test the application of the objective.
+
+All blocks are aligned with SEC-01. So, we can score 5.
+
+### 2. Level fidelity
+- The lesson declares levels L1 and L2.
+- L1: Introduction and foundational concepts (display name, look-alike domain, one-time code, engineered urgency). This is introductory (L1) material.
+- L2: Applied work (worked example, scenario, knowledge checks). This is more advanced, requiring application.
+
+The L1 block is not too advanced (it's the basics) and the L2 block is appropriately applied. The level labels are not aspirational. So, 5.
+
+### 3. Worked-example quality
+- The worked example in L2 has steps with "show" and "why". The "why" explains the reasoning (e.g., "The display name is free text, typed as the sender pleases. The address is the one thing they did not choose freely.").
+
+Each step shows what to do and why. The reasoning names the judgment (e.g., the display name is free text, so we must check the address). So, 5.
+
+### 4. Knowledge-check quality
+- We have two knowledge checks (SEC-01-KC-01 and SEC-01-KC-02). We must check the distractors and feedback.
+
+For SEC-01-KC-01:
+- Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+- Options:
+  1. The sender's actual address. (Correct) -> Feedback: "Correct. This is always the first check, because it is the one thing not freely typed."
+  2. How well formatted and typo-free it is. (Incorrect) -> Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common."
+  3. The organisation's logo appearing in the message. (Incorrect) -> Feedback: "No. A logo is an image copied in seconds, and it is part of the very message in doubt."
+  4. That it arrived at your work address rather than a personal one. (Incorrect) -> Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement."
+
+Distractors are plausible (people might think about formatting, logo, or work address). Feedback explains why the distractor is wrong (names the misconception: e.g., thinking that a logo or formatting is a sign of legitimacy). So, this knowledge check is good.
+
+For SEC-01-KC-02:
+- Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+- Options:
+  1. Report it immediately, even if you entered nothing. (Correct) -> Feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person."
+  2. Wait and see whether anything happens. (Incorrect) -> Feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started."
+  3. Delete the message so nobody else clicks it. (Incorrect) -> Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign."
+  4. Reply to the sender asking whether it was genuine. (Incorrect) -> Feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message."
+
+Distractors are plausible (people might wait, delete, or reply). Feedback explains why the distractor is wrong (names the misconception: e.g., thinking that waiting is safe, or that deleting is helpful).
+
+However, note the rubric says: "feedback that restates the answer instead of naming the misconception". In KC-01, the feedback for the correct option says "This is always the first check", which is restating the answer. But the feedback for the distractors does name the misconception.
+
+But let's check the rubric: "does per-option feedback explain why rather than restate the answer". The feedback for the correct option is explaining why it's correct (it's the first check because the address is not freely typed). The feedback for the distractors explains why they are wrong.
+
+However, the rubric also says: "a distractor nobody would ever choose teaches nothing". All distractors here are plausible.
+
+But note: the rubric says "feedback that restates the answer instead of naming the misconception". The feedback for the correct option is not restating the answer in a way that doesn't explain; it does explain (it says it's the first check because of the address). The feedback for the distractors names the misconception.
+
+So, why might we give a 4 instead of 5? Let's see if there's any flaw.
+
+Wait, in the knowledge_check block in the lesson, we only see the itemRef. The actual items are provided in the "items" section. We are to score on the provided items.
+
+But the rubric criterion 4 says: "feedback that restates the answer instead of naming the misconception". In KC-01, the correct feedback says "This is always the first check, because it is the one thing not freely typed." — that is explaining why, so it's not restating.
+
+However, the rubric also says: "a distractor nobody would ever choose" — but all distractors are plausible.
+
+But let me look at the feedback for the correct option in KC-02: "Correct. Timing is everything here, and the same message almost never arrives at one person." — that's good.
+
+Wait, the note in the prompt says: "Two distractors restate the stem rather than naming a misconception." — but in the provided items, I don't see that.
+
+Wait, the prompt says: "the lesson" and then the "items its knowledge checks reference". We are to score based on the items.
+
+But let's look at the items:
+
+For KC-01, option 2: 
+  feedbackAr: "لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً."
+  This explains that typos are weak evidence (so the misconception is that people think typos indicate fake, but actually a polished message is common).
+
+Similarly, option 3: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." — explains that the logo is not a reliable indicator.
+
+Option 4: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." — explains that getting it at work doesn't mean it's legitimate.
+
+So, all feedback for distractors names the misconception.
+
+But the rubric says: "feedback that restates the answer" — meaning if the feedback for a distractor says "This is wrong because it's not the correct answer", that's restating. But here, the feedback for the distractors explains why they are wrong.
+
+However, in the correct feedback, it says "Correct. This is always the first check..." — which is restating the answer? But the rubric says "per-option feedback", so for the correct option, the feedback is explaining why it's correct, which is good.
+
+So why would we score below 5? Let's see if there's a flaw.
+
+Wait, the rubric says: "a feedback that restates the answer instead of naming the misconception". The feedback for the correct option is not restating the answer in a bad way. It's giving a reason.
+
+But note: the rubric says "feedback that restates the answer" — meaning for a distractor, if the feedback says "This is wrong because the correct answer is X", that's restating. But in the provided items, the feedback for the distractors does not do that. It explains why the distractor is wrong.
+
+So, why might it be a 3? The rubric says "3" is "plausible distractors, feedback thin on some". But here, the feedback is not thin.
+
+Wait, the prompt says: "Two distractors restate the stem rather than naming a misconception." — but we don't see that in the items. So we must not assume.
+
+But the lesson's knowledge checks are the ones we have in the items. Let's read the items again.
+
+In KC-01, option 2 feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." — this names the misconception (that typos are a sign of fake, but actually a polished message is common).
+
+Similarly, option 3: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." — names the misconception (that a logo is a sign of legitimacy).
+
+Option 4: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." — names the misconception (that work address means it's legitimate).
+
+So, all feedback for distractors is good.
+
+But wait, the rubric says: "feedback that restates the answer" — meaning if the feedback for a distractor says "This is wrong because it's not the correct answer", that's bad. But here, they are not.
+
+So why would we score below 5? 
+
+Wait, the rubric says: "a distractor nobody would ever choose" — but all are plausible.
+
+However, let me think: in KC-02, option 3: "Delete the message so nobody else clicks it." — is this a common misconception? Yes, people might think deleting it stops others from clicking. The feedback explains that deleting destroys evidence.
+
+But note: the rubric says "naming the misconception someone actually holds". The feedback for option 3 says: "No. Deleting destroys the evidence needed by whoever has to size the campaign." — so it names the misconception (that deleting is helpful) and explains why it's bad.
+
+So, it seems good.
+
+But wait, the prompt says: "Two distractors restate the stem rather than naming a misconception." — but I don't see that. So maybe it's a 5.
+
+However, the lesson has a note in the example output: "notes": { "knowledge_check": "Two distractors restate the stem rather than naming a misconception." } — but that was for the example, not for this lesson.
+
+In this lesson, we don't see that. So we must score based on what we have.
+
+But let me double-check the items:
+
+For KC-01, option 2: 
+  feedbackAr: "لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً."
+
+This is not restating the stem. The stem is about the display name matching, and the feedback is about typos being weak evidence. It's explaining why the distractor (typos) is not a good signal.
+
+Similarly, option 3: feedback is about the logo, which is a distractor.
+
+So, no restating of the stem.
+
+Therefore, knowledge_check should be 5.
+
+But wait, the rubric says: "feedback that restates the answer instead of naming the misconception". The feedback for the distractors does not restate the answer; it explains why the distractor is wrong.
+
+So, why would we score it 3? We wouldn't.
+
+But the example output in the rubric had a note for knowledge_check at 3. We must be careful.
+
+Wait, let's look at the lesson's knowledge_check block: it only has "itemRef". The actual content is in the provided items. We are to score on the provided items.
+
+In the provided items, the feedback for the distractors is good.
+
+However, note that in the lesson, the knowledge_check block for KC-01 and KC-02 are present, and we have the items. So we can score the knowledge_check criterion.
+
+But wait, the rubric says: "a feedback that restates the answer". Let's look at the feedback for the correct option in KC-01: 
+  "Correct. This is always the first check, because it is the one thing not freely typed."
+
+This is not restating the answer in a bad way. It's giving the reason.
+
+So, I think knowledge_check should be 5.
+
+But let's consider: the rubric says "a feedback that restates the answer" — meaning for a distractor, if the feedback says "This is wrong because the correct answer is X", that's bad. But in the items, the feedback for distractors does not do that.
+
+Therefore, I think knowledge_check is 5.
+
+However, the prompt says: "the rubric pass. Run in a fresh context". And the example output had a note for knowledge_check at 3. But that was an example.
+
+But in this lesson, we don't see any problem.
+
+Wait, I see a potential issue: in KC-02, option 2: 
+  feedbackAr: "لا. الانتظار يمنح المهاجم الوقت، ويُخفي عن الفريق أن الحملة بدأت."
+
+This is good: it explains why waiting is bad.
+
+Option 3: 
+  feedbackAr: "لا. الحذف يُتلف الدليل الذي يحتاجه من سيحدد مدى الحملة."
+
+Good.
+
+Option 4: 
+  feedbackAr: "لا. الرد يؤكد أن العنوان حي ومقروء، ويصل لمن كتب الرسالة."
+
+Good.
+
+So, I think knowledge_check is 5.
+
+But wait, the prompt says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+So, we must be strict.
+
+However, I don't see a flaw.
+
+But let's read the rubric again: "feedback that restates the answer instead of naming the misconception". The feedback for the distractors does name the misconception (e.g., for option 2 in KC-01, the misconception is that people think formatting/typos are a sign of legitimacy, but actually a polished message is common).
+
+So, it's good.
+
+Therefore, I think knowledge_check is 5.
+
+But wait, the example lesson in the rubric had a note for knowledge_check at 3. Maybe this lesson has an issue we're missing.
+
+Let me check the lesson's knowledge_check blocks:
+
+In the lesson, there is:
+  "id": "sec1_l2_kc1",
+  "type": "knowledge_check",
+  "objectiveId": "SEC-01",
+  "payload": {
+    "itemRef": "SEC-01-KC-01"
+  }
+
+and similarly for KC-02.
+
+The items are provided, and they seem good.
+
+But note: the rubric says "no 'all of the above'". We don't have that.
+
+So, I think it's 5.
+
+However, the problem says: "the rubric pass" and the example output had a note for knowledge_check at 3. But that was an example.
+
+We must score this lesson.
+
+But let's consider: the rubric says "a distractor nobody would ever choose". Are any of the distractors implausible?
+
+In KC-01, option 4: "That it arrived at your work address rather than a personal one." — this is a common misconception (people think if it's work email, it's legitimate). So it's plausible.
+
+Similarly, in KC-02, option 3: deleting the message — people might do that.
+
+So, all are plausible.
+
+Therefore, knowledge_check should be 5.
+
+But wait, the prompt says: "Two distractors restate the stem rather than naming a misconception." — but we don't see that in the items. So we cannot assume.
+
+So, we'll score knowledge_check as 5.
+
+However, the example output in the rubric had a note for knowledge_check at 3. But that was for a different lesson.
+
+We are scoring this lesson.
+
+### 5. Scenario authenticity
+- The L2 scenario: "A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a common phishing scenario (impersonating a manager). The friction is the manager being in a meeting (which prevents the employee from verifying by calling the manager) — but the correct action is to call the manager on a number they had before. The scenario includes the "engineered urgency" (needs payment moved before end of day) and the reply-to address mismatch.
+
+It's authentic: real phishing attacks use this. The "engineered urgency" is part of the scenario.
+
+So, 5.
+
+### 6. Bilingual quality
+- The lesson is bilingual (bilingual: true).
+- We must check if the Arabic is natural.
+
+Let's look at the Arabic:
+
+- "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة."
+
+This is natural Arabic.
+
+- "الاسم الظاهر نص حر: يستطيع المُرسِل أن يكتب فيه اسم زميل، أو جهة داخلية، أو بنك، وسيظهر كما كُتب تماماً."
+
+Natural.
+
+- In the worked example: "اقرأ العنوان الحقيقي، لا الاسم الظاهر." — natural.
+
+- The feedback in the knowledge checks: "لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً."
+
+This is natural.
+
+- The takeaways: "الاسم الظاهر نص حر؛ العنوان خلفه هو الدليل." — natural.
+
+No English word order. For example, in English, we say "the actual address", and in Arabic, it's structured naturally.
+
+So, 5.
+
+### 7. Concision and reading level
+- The prose is concise. Each block is brief and to the point.
+- The intro: "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting."
+
+This is concise.
+
+- The definition cards are short.
+
+- The takeaways are bullet points, which are concise.
+
+- The worked example steps are concise.
+
+No padding. So, 5.
+
+### 8. Accessibility and IP
+- The lesson has no images, so no alt text needed.
+- No color used for meaning.
+- No real licensed code descriptors or payer policy text.
+- The terms are made up (like "look_alike_domain", "one_time_code") — not real.
+
+So, 5.
+
+But wait, the rubric says: "any real licensed code descriptor or payer policy text — automatic 1 on criterion 8". We don't have any.
+
+So, 5.
+
+Now, let's tally:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 5
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+All 5s.
+
+But the rubric says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+Is there any flaw we missed?
+
+Let me double-check the knowledge_check.
+
+In KC-01, the stem is: "رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي تعرفه. ما الإشارة التي تُقدَّم على هذا الاسم؟"
+
+The stem is about the display name matching an internal department. The correct answer is the sender's actual address.
+
+The distractor options:
+
+- Option 2: "جودة التنسيق وخلوّه من الأخطاء الإملائية." -> Feedback: "لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً."
+
+This is good.
+
+But note: the feedback says "الرسالة مصقولة تماماً شائعة تماماً" — meaning a perfectly polished message is entirely common. This is correct.
+
+However, the rubric says: "feedback that restates the answer". The feedback for the distractor doesn't restate the answer; it explains why the distractor is wrong.
+
+So, it's fine.
+
+But wait, the rubric says: "a feedback that restates the answer instead of naming the misconception". The feedback for the distractor should name the misconception. Here, it says: "Typos are weak evidence in both directions" — which is naming the misconception (that people think typos indicate fake, but actually they are weak evidence and polished messages are common).
+
+So, it's good.
+
+Therefore, I think all are 5.
+
+But the example output in the rubric had a note for knowledge_check at 3. We must not be influenced by that.
+
+However, the problem says: "the rubric pass" and we are to score this lesson.
+
+But let's consider: is there any block that is not aligned? I don't see any.
+
+Wait, the lesson has a "job_tip" block and "takeaways". Are they aligned? Yes, they are part of the objective.
+
+Also, the worked example in L2 is for L2, which is appropriate.
+
+So, I think all 5.
+
+But the rubric says: "the mean is below 4.0" for failure, but 5*8/8=5.0.
+
+However, the problem says: "Do not adjust a score because of what it would do to the outcome". So we must score what we see.
+
+But wait, the prompt says: "the rubric pass. Run in a fresh context". And the example output had a 3 for knowledge_check. But in this lesson, we don't see the flaw.
+
+Perhaps we missed something.
+
+Let me look at the knowledge_check items again.
+
+In KC-01, the feedback for the correct option says: "Correct. This is always the first check, because it is the one thing not freely typed."
+
+This is good.
+
+But the rubric says: "feedback that restates the answer". The feedback for the correct option is not restating the answer in a bad way. It's explaining.
+
+However, the rubric might consider that for the correct option, the feedback should not say "Correct" and then explain, but that's standard.
+
+I think it's fine.
+
+But let's consider the possibility that the feedback for the distractors might be restating the stem.
+
+For example, in KC-01, option 2 feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common."
+
+The stem is about the display name matching, and the feedback is about typos. It's not restating the stem; it's addressing the distractor.
+
+So, I think it's good.
+
+Therefore, all scores should be 5.
+
+But the rubric says: "Be harsh on 4 and 5." So if we think it's perfect, it's 5.
+
+However, let's check the example of a 5: "A 5 means you would not change it."
+
+We would not change this lesson.
+
+So, scores: all 5.
+
+But the rubric also says: "Most good work is a 4." — but this seems perfect.
+
+Wait, the lesson has a "scenario" block. In the scenario, the correct action is to call the manager on a number they had before the message. The feedback for the correct option says: "The correct action. 'Cannot take calls' is precisely the part engineered to stop you making this one check."
+
+This is good.
+
+So, I think it's 5.
+
+But let's look at the "bilingual_quality" criterion: it says "Arabic that follows English word order" is 1. We don't see that.
+
+In the Arabic, the word order is natural.
+
+For example, in the intro: "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة."
+
+This is natural Arabic.
+
+So, 5.
+
+Given that, I think the scores are all 5.
+
+But the problem says: "the rubric pass", and we are to return the JSON.
+
+However, the example output in the rubric had a note for knowledge_check. But in this case, we don't have a note because all are 5.
+
+The rubric says: "notes on any criterion you scored below 4". Since none are below 4, notes should be empty.
+
+But the example output had a notes object with "knowledge_check" even though it was 3. For us, since all are 5, the notes object should be empty.
+
+But the rubric says: "required for every criterion scored below 4 and for every substitute-evidence criterion you scored". Since we have none below 4, notes should be an empty object.
+
+The example output had "notes" with one key, but that was because it was scored below 4.
+
+So for us, notes: {}
+
+Now, the verdict_notes: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — but we don't have any at 3, so we write something else.
+
+The rubric says: "verdict_notes: two or three sentences".
+
+We can say: "All criteria scored 5. The lesson is excellent."
+
+But to be precise: "All eight criteria scored 5. The lesson is perfect."
+
+Now, let's write the JSON.
+
+But wait, the rubric says: "the lesson" slug is "05-documentation-that-supports-the-claim", but the lesson we are scoring has slug "recognising-a-phishing-email". So we must use that.
+
+In the lesson JSON, the slug is "recognising-a-phishing-email".
+
+So, "lesson": "recognising-a-phishing-email"
+
+Now, the JSON structure:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5. The lesson is excellent and requires no changes."
+}
+
+But the rubric says: "the rubric pass" — but we are not to say pass or fail, only to return the JSON.
+
+The verdict_notes should be two or three sentences.
+
+We'll write: "All criteria achieved the maximum score of 5. The lesson is well-aligned, authentic, and concisely presented without any flaws."
+
+But to be safe, let's make it two sentences.
+
+However, the example had: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+We have no such thing.
+
+So, we'll say: "All criteria are scored at 5. The lesson is flawless and meets the highest standard."
+
+But the rubric says: "Do not decide pass or fail." — so we don't say "passes", but the verdict_notes is for the gate, but the gate is decided by `qa_gate.py`.
+
+The rubric says: "verdict_notes: two or three sentences."
+
+So, we can say: "The lesson scores 5 on all eight criteria. The mean is 5.0, and the lesson is of the highest quality."
+
+But to be neutral: "All eight criteria received a score of 5. The lesson is exemplary in every aspect."
+
+Now, let's confirm: is there any flaw we missed?
+
+One more thing: the rubric says "a 'visual card' that is a bulleted list with a border" — but the lesson uses "definition_card", which is not a bulleted list. It's a card with a term and definition. So it's not a bulleted list.
+
+Also, no distractor nobody would choose.
+
+So, I think we are good.
+
+But wait, in the worked example, the steps are:
+
+  {
+    "showAr": "اقرأ العنوان الحقيقي، لا الاسم الظاهر.",
+    "showEn": "Read the actual address, not the display name.",
+    "whyAr": "الاسم الظاهر نص حر ويُكتب كما يشاء المُرسِل. العنوان هو الشيء الوحيد الذي لم يختره بحرية.",
+    "whyEn": "The display name is free text, typed as the sender pleases. The address is the one thing they did not choose freely."
+  }
+
+This is good, not asserting without explanation.
+
+So, worked_example is 5.
+
+Therefore, I think all are 5.
+
+But let's consider: is the level fidelity 5? The L1 is for beginners, and L2 is for applying. The L2 block is a worked example and a scenario, which is appropriate for L2. So, 5.
+
+So, we'll go with all 5.
+
+However, the problem says: "Be harsh on 4 and 5." — but if it's perfect, it's 5.
+
+So, final scores.
+
+But note: the rubric says "a 'visual card' that is secretly a bulleted list fails". The "definition_card" is not a bulleted list; it's a card with a term and definition. So it's fine.
+
+Therefore, the JSON.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All eight criteria achieved the maximum score of 5. The lesson is perfectly aligned, authentically presented, and demonstrates flawless bilingual quality. Every element serves its declared objective without redundancy or flaw."
+}

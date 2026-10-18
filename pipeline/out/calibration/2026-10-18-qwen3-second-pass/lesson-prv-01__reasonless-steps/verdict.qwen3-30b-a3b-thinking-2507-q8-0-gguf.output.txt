@@ -1,0 +1,506 @@
+<think>
+We are scoring the lesson "what-counts-as-personal-data" against the rubric.
+
+Let's go through each criterion one by one.
+
+### Criterion 1: Objective alignment
+- The lesson declares objective "PRV-01" for all blocks.
+- We need to check if every block serves that objective.
+
+Blocks in L1:
+- Heading: "The question is not 'is there a name on it?'" -> sets up the objective.
+- Rich text: Explains personal data, identifiability, and gives examples. This directly supports the objective.
+- Definition cards (sensitive data, potential breach): These are key concepts that are part of the objective (they are in the "conceptsIntroduced" list for PRV-01).
+- Job tip: About convenient channels leading to breaches -> relates to handling personal data.
+- Takeaways: Summarizes the key points for the objective.
+
+Blocks in L2:
+- Heading: "Decide, case by case" -> sets up the application of the objective.
+- Worked example: Step-by-step decision on a scenario (sick leave list) -> applies the concepts (identifiability, sensitive data, etc.) to a real case. This directly serves the objective.
+- Knowledge checks (two): These are multiple-choice questions that test understanding of the objective (PRV-01).
+- Scenario: A real-world scenario (email mistake) that requires applying the concepts.
+
+All blocks are aligned with PRV-01. The objective is covered comprehensively.
+
+Score: 5
+
+### Criterion 2: Level fidelity
+- The lesson declares levels L1 and L2.
+- We must check if the L1 and L2 blocks are appropriate for their level.
+
+L1 (beginner):
+- The L1 blocks are introductory: definitions, examples, and takeaways. They explain the core concepts without complex application. 
+- The level is described as "L1", meaning it should be foundational. The content is indeed foundational and not too advanced.
+
+L2 (intermediate):
+- The L2 blocks include a worked example (step-by-step decision) and a scenario. 
+- The worked example breaks down a decision process, which is more advanced than L1. 
+- The scenario requires applying the concepts in a realistic situation, which is appropriate for L2.
+
+The lesson does not have an L1 block that is too advanced or an L2 block that is too basic. The level labels match the content.
+
+Score: 5
+
+### Criterion 3: Worked-example quality
+- The worked example in L2 (id: prv1_l2_worked) has steps with "show" (what is done) and "why" (reasoning).
+
+Steps:
+1. "Is this personal data? ... yes, and every row identifies a person." -> "Because it is the next step." (This is weak; the why should explain the reasoning, not just say "next step".)
+2. "Is any of it sensitive? ... yes." -> "Because it is the next step." (Same issue.)
+3. "What does his task actually need? ... not reasons." -> "Because it is the next step."
+4. "Send counts and dates ... through the approved channel, and tell him why." -> "Because it is the next step."
+
+The "why" for each step is consistently "Because it is the next step." This does not explain *why* the step is being taken. It's a restatement of the step, not reasoning.
+
+For a 5, the "why" should name the judgment and what would change it. Here, it's not doing that.
+
+However, note that the example has a clear structure and the steps are logical. But the "why" is inadequate.
+
+This is a problem. We should score it lower.
+
+Let's compare:
+- 1: Steps assert without explaining why (this is the case).
+- 3: Reasoning present but generic (here, the reasoning is not just generic, it's non-existent beyond "next step").
+- 5: Requires naming the judgment.
+
+Since the "why" is just a placeholder and doesn't explain the reasoning, this is closer to a 1 or 2. But note: the example does have a "why" field, so it's not entirely absent. However, the reasoning is not meaningful.
+
+But wait: the rubric says "steps show what to do *and why*". The "why" here is not explaining the why. It's just saying "next step". So it's not a good example.
+
+However, looking at the lesson, it's possible that the "why" was meant to be filled with actual reasoning but was left as a placeholder. But we have to score what is on the page.
+
+The "why" for each step is "Because it is the next step." which is not a valid explanation. So it fails to show why.
+
+This should be a 1? But note: the example does have a structure, and the steps are correct. However, the reasoning is missing.
+
+But the rubric says: "steps assert an answer with no reasoning" for a 1.
+
+Here, the steps are asserting the answer and the "why" is a placeholder that doesn't explain. So it's not giving reasoning.
+
+Therefore, this is a 1 for the worked example.
+
+But wait: let's read the rubric again for worked example quality:
+
+**1** — steps assert an answer with no reasoning.
+**3** — reasoning present but generic.
+**5** — reasoning names the judgement being made and what would change it.
+
+In this case, the "why" is present but it's not reasoning (it's a placeholder). So it's not even generic reasoning. It's just a phrase that doesn't explain.
+
+So it should be a 1.
+
+However, note that the example is intended to be a worked example, and the "why" field is meant to be filled. But as written, it's not. So we must score it as is.
+
+But let's double-check the lesson: the "why" for each step is "لأنها الخطوة التالية" (Because it is the next step) in Arabic and similarly in English. This is not a valid explanation. It's circular.
+
+Therefore, this is a 1.
+
+But wait: the rubric says "a worked example whose steps assert without explaining why" is a 1. This is exactly that.
+
+So for worked_example, score: 1.
+
+But let's see if we can be more generous? The example does have a structure and the steps are in order, but without the reasoning, it's not a good worked example.
+
+I think 1 is correct.
+
+However, note that the rubric also says: "the 'why' is what separates a worked example from a printed solution." Here, there is no real why.
+
+So I'll score it 1.
+
+But wait: the lesson might be using a placeholder for the "why" in the template, but the actual generated text should have the reasoning. Since we are scoring what is on the page, we have to go by what's written.
+
+So: worked_example = 1.
+
+But let's check the other criteria first and then come back.
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks (PRV-01-KC-01 and PRV-01-KC-02). We must check the distractors and the feedback.
+
+For PRV-01-KC-01:
+
+Stem: "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?"
+
+Options:
+- A: "No, because it contains no names." -> Feedback: "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can." (This is good: it names the misconception that absence of name means not personal data.)
+- B: "Yes, because the combination identifies each person in a team that size." -> Feedback: "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply." (This is correct and the feedback explains the concept.)
+- C: "Yes, but only if the rating is negative." -> Feedback: "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person." (This names the misconception: confusing the sensitivity with identifiability.)
+- D: "No, because employee data is internal and does not count as personal." -> Feedback: "No. Employees are people, and their data is personal whether it stays inside the organisation or not. \"Internal\" describes the channel, not the classification." (This names the misconception: thinking internal data isn't personal.)
+
+All distractors are plausible and the feedback explains why the distractor is wrong (by naming the misconception).
+
+For PRV-01-KC-02:
+
+Stem: "A customer writes: 'I want a copy of everything you hold about me, and delete my phone number.' What is the correct action?"
+
+Options:
+- A: "Delete the phone number straight away and send him whatever you can find in your system." -> Feedback: "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route." (Names the misconception: that you can delete without verifying and that you can send partial data.)
+- B: "Reply that you do not provide copies of data for security reasons." -> Feedback: "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it." (Names the misconception: that you can refuse the request for security reasons.)
+- C: "Add it to your to-do list for when work quiets down." -> Feedback: "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure." (Names the misconception: that you can delay.)
+- D: "Pass it to the privacy owner the same day, and tell the customer it has been logged." -> Feedback: "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it." (Correct and the feedback explains.)
+
+All distractors are plausible and the feedback names the misconception.
+
+So knowledge_check: 5
+
+But note: the rubric says "a distractor nobody would ever choose teaches nothing." Here, all distractors are plausible.
+
+Also, feedback does not restate the answer but explains the misconception.
+
+So 5.
+
+### Criterion 5: Scenario authenticity
+- The scenario in L2 (id: prv1_l2_scenario) is: "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm."
+
+This is a very common real-world scenario in offices. The details (autocomplete, 5 pm, not opened yet) are realistic. It includes friction (the mistake was made, and now the user has to fix it quickly).
+
+The scenario is authentic: it's something that happens, and the time pressure (5 pm) adds to the authenticity.
+
+Also, the scenario has a "friction" (the mistake and the need to act quickly) so it's not frictionless.
+
+Score: 5
+
+### Criterion 6: Bilingual quality
+- The lesson is bilingual (declared as true). We must check the Arabic.
+
+We'll look at the Arabic for naturalness and consistency.
+
+- The Arabic in the lesson is provided. Let's check a few examples.
+
+Example from L1 intro:
+"البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها. المعيار هو **إمكانيّة التعرّف**، لا الوسم الظاهر."
+
+This is natural Arabic. The terms are consistent with the glossary (we don't have a glossary, but the terms seem standard).
+
+Another example: "السؤال الذي تسأله دائماً: **«هل يستطيع أحد أن يعرف عمّن تتحدث هذه المعلومة؟»**"
+
+This is natural and uses common Arabic phrasing.
+
+In the worked example:
+"هل هذه بيانات شخصية؟ أسماء موظفين مع إجازاتهم — نعم، وكل سطر يحدد شخصاً."
+
+This is natural.
+
+In the scenario:
+"أرسلت بريداً فيه كشف حساب عميل، ثم انتبهت بعد دقيقة أن الإكمال التلقائي اختار عميلاً آخر بالاسم نفسه."
+
+This is natural.
+
+The Arabic does not follow English word order (e.g., "البيانات الشخصية" is the standard term, not a literal translation). The sentences are constructed in natural Arabic.
+
+We don't see any machine-like translation. The Arabic reads as though written in Arabic.
+
+Score: 5
+
+### Criterion 7: Concision and reading level
+- We have to check if the prose is concise and every part earns its space.
+
+Looking at the blocks:
+
+- The L1 rich text is a bit long but it's necessary to explain the concept. It's not padded.
+
+- The definition cards are concise and to the point.
+
+- The job tip is short and clear.
+
+- The takeaways are bullet points that are concise.
+
+- In L2, the worked example steps are a bit repetitive (the "why" is weak, but the text is not wordy).
+
+- The scenario is a short paragraph.
+
+Overall, the prose is clear and not wordy. There's no fluff.
+
+The rubric says: "nothing removable without loss" for 5.
+
+We don't see anything that can be removed without losing meaning.
+
+Score: 5
+
+### Criterion 8: Accessibility and IP
+- We must check for:
+  - Alt text on images? (But there are no images in the lesson, so no alt text needed.)
+  - No meaning carried by color alone? (No colors used for meaning.)
+  - No real licensed code descriptors, payer policy text, or forbidden terms.
+
+The lesson is about personal data and privacy. The content is generic and does not copy any real policy. The terms are standard (like "sensitive data", "potential breach", etc.) and are not from a specific license.
+
+We don't see any real code or policy text. The example in the scenario is fictional.
+
+So it's compliant.
+
+Score: 5
+
+Now, going back to Criterion 3 (worked-example quality): we thought it was a 1 because the "why" is not explanatory.
+
+But let's re-read the rubric: "steps assert without explaining why" -> 1.
+
+In the worked example, the steps are:
+
+Step 1: "Is this personal data? ... yes, and every row identifies a person." and the "why" is "Because it is the next step."
+
+This is not explaining why it's personal data. It's just saying it's the next step in the example. So it's asserting without explaining.
+
+Therefore, it's a 1.
+
+But note: the rubric says "a worked example whose steps assert without explaining why" is a 1. So we must score it 1.
+
+However, let's check the other criteria again because we have a 1 here which would cause a gate failure (since 1 < 3).
+
+But wait: the rubric says "the gate fails if any criterion scores below 3". So a 1 would fail.
+
+But let's double-check the worked example. Is there any chance we are being too harsh?
+
+The "why" field is meant to be the reasoning, but it's filled with "Because it is the next step." which is not a valid reason. It's a placeholder.
+
+In a good lesson, the "why" would be something like: "Because the combination of employee names and leave reasons allows the colleague to identify specific individuals, which meets the definition of personal data."
+
+But here, it's not. So it's a 1.
+
+But note: the rubric says "a worked example whose steps assert without explaining why" is a 1. This is exactly that.
+
+So worked_example = 1.
+
+But wait: the rubric also says "Be harsh on 4 and 5. A 5 means you would not change it." but for 1, it's clear.
+
+However, let's consider: is there any explanation at all? The step says "Is this personal data? ... yes" and then the "why" is "Because it is the next step." which is not an explanation. So it's a 1.
+
+But let's look at the entire structure. The example is intended to be a worked example, but the reasoning is missing. So it's a low score.
+
+Now, let's summarize the scores:
+
+1. Objective alignment: 5
+2. Level fidelity: 5
+3. Worked-example quality: 1
+4. Knowledge-check quality: 5
+5. Scenario authenticity: 5
+6. Bilingual quality: 5
+7. Concision: 5
+8. Accessibility and IP: 5
+
+But wait, we have a 1 in worked_example. This would cause the gate to fail because a criterion score below 3.
+
+However, note that the rubric says: "the gate fails if any criterion scores below 3". So we must report the 1.
+
+But let's double-check the knowledge check. We scored it 5, but let's see if there's any issue.
+
+We looked at the knowledge check items and they seem good.
+
+But note: the lesson has two knowledge_check blocks, and we are scoring the knowledge_check criterion on the quality of the knowledge checks. We found them to be good.
+
+Now, the worked_example is 1. We must note that in the "notes".
+
+Also, the rubric says: "return exactly the JSON shape it specifies — eight integer scores from 1 to 5, plus notes on any criterion you scored below 4."
+
+We scored worked_example at 1 (below 4).
+
+So we need to put a note for worked_example.
+
+But note: the rubric says "notes" is a dictionary of criterion -> string for every criterion scored below 4.
+
+So we'll have a note for worked_example.
+
+Now, let's write the JSON.
+
+But wait: is there any chance that the worked_example is not a 1? Let's see if the "why" might be misinterpreted.
+
+The "why" field in the lesson is:
+
+"whyAr": "لأنها الخطوة التالية.",
+"whyEn": "Because it is the next step."
+
+This is clearly a placeholder and not a valid explanation. So it's a 1.
+
+But note: in the context of the lesson, the "why" might be intended to be filled by the generator, but we are scoring what is on the page. So we must score it as 1.
+
+Therefore, the scores are:
+
+objective_alignment: 5
+level_fidelity: 5
+worked_example: 1
+knowledge_check: 5
+scenario_authenticity: 5
+bilingual_quality: 5
+concision: 5
+accessibility_ip: 5
+
+But note: the rubric says "the gate fails if any criterion scores below 3", so this lesson fails.
+
+However, we are not deciding pass/fail, only scoring.
+
+Now, for the "notes" field, we must have a note for worked_example (scored 1).
+
+What to write? "The 'why' for each step in the worked example is a placeholder ('next step') and does not explain the reasoning."
+
+But let's be precise.
+
+Also, note that the rubric says: "notes on any criterion you scored below 4". We have only one: worked_example.
+
+So:
+
+notes: {
+  "worked_example": "The 'why' for each step is a placeholder ('next step') and does not explain the reasoning."
+}
+
+Now, the verdict_notes: two or three sentences.
+
+"Two criteria at 5, one at 1; mean 4.5. The worked example fails to explain the reasoning, making it a low score."
+
+But the mean is (5+5+1+5+5+5+5+5)/8 = 36/8 = 4.5.
+
+However, the rubric says: "the gate fails if any criterion scores below 3", so this lesson fails the gate, but we don't say that in the verdict_notes. We just state the facts.
+
+The rubric says: "the gate — not the judge — decides pass or fail."
+
+So verdict_notes should be factual.
+
+"Worked-example quality is a 1 due to inadequate reasoning. All other criteria are at 5. The mean score is 4.5."
+
+But note: the rubric says "return exactly the JSON shape", so we must output the JSON.
+
+Now, let's write the JSON.
+
+Important: The "lesson" key is "what-counts-as-personal-data".
+
+The scores:
+
+{
+  "objective_alignment": 5,
+  "level_fidelity": 5,
+  "worked_example": 1,
+  "knowledge_check": 5,
+  "scenario_authenticity": 5,
+  "bilingual_quality": 5,
+  "concision": 5,
+  "accessibility_ip": 5
+}
+
+Notes: only for worked_example.
+
+Verdict_notes: two or three sentences.
+
+But note: the example in the rubric had a note for knowledge_check (scored 3). Here, we have a note for worked_example (scored 1).
+
+So:
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 1,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step in the worked example is a placeholder ('next step') and does not explain the reasoning."
+  },
+  "verdict_notes": "The worked-example quality is a 1 due to the absence of meaningful reasoning in the step explanations. All other criteria are scored at 5. The mean score is 4.5."
+}
+
+But wait: the rubric says "the mean is below 4.0" for the gate to fail? No, the gate fails if any criterion below 3 OR mean below 4.0. Here, the mean is 4.5, so the mean is above 4.0, but the worked_example is 1 (below 3) so it fails.
+
+But we don't have to say that in verdict_notes.
+
+Now, let's check if we missed any criterion.
+
+Criterion 8: accessibility and IP. We said 5. But note the rubric says: "No real licensed code descriptor or payer policy text — automatic 1 on criterion 8". We don't see any, so it's 5.
+
+Also, note: the rubric says "any real licensed code descriptor ... automatic 1". We don't have any, so 5.
+
+Now, is there any other issue?
+
+In the L2 scenario, the option D (correct) says: "Report it now to the privacy owner with what was sent and to whom, and ask the wrong recipient to delete it and confirm." and the feedback says: "The correct action. A fast report is containable; the organisation's obligations are measured in hours, and 5 pm does not postpone them to tomorrow."
+
+This is good.
+
+But note: the rubric says "a scenario with no friction in it" is bad for 1. This scenario has friction (the mistake, the time pressure), so it's good.
+
+So we are confident.
+
+But the worked_example is a problem.
+
+However, let's consider: is it possible that the "why" was meant to be something else? But we have to score what is written.
+
+So we'll go with 1 for worked_example.
+
+But note: the rubric says "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4." But for 1, it's clear.
+
+So final scores.
+
+But wait: the rubric in the example had a note for knowledge_check. We have a note for worked_example.
+
+Now, output the JSON.
+
+Important: The JSON must be exactly as specified, no extra fields.
+
+We have:
+- lesson: string
+- scores: dict of 8 criteria
+- notes: dict (only for criteria below 4, so only worked_example)
+- verdict_notes: string
+
+We don't have "not_scored" because we scored all.
+
+So the JSON:
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 1,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step is a placeholder ('next step') and does not explain the reasoning."
+  },
+  "verdict_notes": "Worked-example quality is a 1 due to inadequate reasoning in step explanations. All other criteria are at 5. The mean score is 4.5."
+}
+
+But note: the rubric says "return exactly the JSON shape it specifies", and the example had "notes" as a dictionary with only the criteria below 4.
+
+We have only one note.
+
+Now, let's write it without markdown.
+
+However, note: in the example, the verdict_notes was a string of two or three sentences.
+
+We have: "Worked-example quality is a 1 due to inadequate reasoning in step explanations. All other criteria are at 5. The mean score is 4.5."
+
+That's three sentences.
+
+Now, we output only the JSON.
+
+But note: the rubric says "No markdown fences, no prose before or after the JSON."
+
+So we output the JSON as a string.
+
+But in the response, we must output the JSON.
+
+Let's write it.
+</think>
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 1,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step is a placeholder ('next step') with no actual reasoning explaining the decision-making process."
+  },
+  "verdict_notes": "Worked-example quality is a 1 due to absent reasoning in step explanations. All other criteria are at 5. The mean score is 4.5."
+}

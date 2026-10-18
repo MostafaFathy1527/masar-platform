@@ -8,12 +8,17 @@ This is the loop in CONTRACT.md, run end to end:
                 -> one retry with the findings appended -> stop for a human
 
 Every gate is the existing gate, called unchanged; this file only orders them and
-keeps the record. Cheapest first: there is no point paying three judges to score
+keeps the record. Cheapest first: there is no point paying four judges to score
 a document that does not parse.
 
 The generator must come from a model family that sits on none of the judge
-seats. A model grading its own family's work is the conflict the panel exists to
-avoid, so the run refuses to start rather than warn.
+seats, hosted or served. A model grading its own family's work is the conflict
+the panel exists to avoid, so the run refuses to start rather than warn.
+
+The open seat (panel.SERVED_JUDGES) is scored through the endpoint named by its
+environment variable, JUDGE_QWEN3_ENDPOINT. With none set, or none reachable,
+that seat stays empty and the panel stops for a person rather than passing the
+draft on the hosted judges alone.
 
 Outputs, under --out:
     v1/  lesson.json  items.json  needs-verification.md  generation.json
@@ -79,8 +84,12 @@ def family(model_id: str) -> str:
     return FAMILY_ALIASES.get(parts[0], parts[0])
 
 
-def check_independence(generator: str, judges=panel.PANEL_MODELS) -> None:
-    taken = {family(m) for m, _ in judges}
+def check_independence(generator: str, judges=panel.PANEL_MODELS,
+                       served=panel.SERVED_JUDGES) -> None:
+    """Hosted seats are known by their Bedrock id; a served seat's family comes
+    from its seat spec, since a GGUF file name carries no provider family() can
+    read."""
+    taken = {family(m) for m, _ in judges} | {spec['family'] for _, _, spec in served}
     if family(generator) in taken:
         raise RunError(
             f'the generator ({generator}) is from the "{family(generator)}" family, which also '
@@ -365,10 +374,13 @@ def gates_markdown(results: dict) -> str:
 
 def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str,
         generator: str, region: str, denylist: list, call: ModelCall,
-        judge: Callable[[Path], None]) -> dict:
+        judge: Callable[[Path], None], seats: tuple[str, ...] = panel.SEATS) -> dict:
+    """`judge` scores a version in place and `seats` names the models the panel then
+    expects a verdict from; the two go together, so a stand-in judge (the tests) names
+    its own seats. A real run uses every seat."""
     check_independence(generator)
     record: dict = {'source': str(source).replace('\\', '/'), 'objective': objective,
-                    'generator': generator, 'judges': [m for m, _ in panel.PANEL_MODELS],
+                    'generator': generator, 'judges': list(seats),
                     'started': datetime.now(timezone.utc).isoformat(), 'steps': []}
     base_prompt = build_generation_prompt(source, objective, levels, slug)
     prompt, retried = base_prompt, False
@@ -412,7 +424,7 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
             lv = {str(x).upper() for x in lesson.get('levels', [])}
             try:
                 entries, superseded = panel.collect(vdir, lv)
-                decision = panel.decide(entries)
+                decision = panel.decide(entries, seats)
             except panel.PanelError as e:
                 step(tag, 'panel', f'could not decide: {e}', t0)
                 record['outcome'] = 'STOPPED: the panel could not decide'
@@ -471,10 +483,10 @@ def run_markdown(record: dict) -> str:
 
 
 def judge_with_panel(region: str) -> Callable[[Path], None]:
+    """Every seat, hosted and served, through panel.run_judges, which leaves an open
+    seat empty rather than raising when its endpoint is unset or unreachable."""
     def judge(lesson_path: Path) -> None:
-        for model, tag in panel.PANEL_MODELS:
-            judge_bedrock.main(['--lesson', str(lesson_path), '--model', model, '--tag', tag,
-                                '--region', region])
+        panel.run_judges(lesson_path, region)
     return judge
 
 

@@ -1,0 +1,388 @@
+<think>
+We are scoring the provided lesson against the rubric. We are a fresh-context judge, so we only look at what is on the page.
+
+Let's break down each criterion:
+
+### 1. Objective alignment
+The lesson declares objective SEC-01. We must check that every block serves that objective.
+
+- The L1 blocks:
+  - Heading: "The attack is on the reader, not the system" -> aligns with SEC-01 (teaching about phishing being about the person, not the system).
+  - Rich text: explains phishing attacks on the person and the two checks (display name vs address, link destination) -> aligns.
+  - Definition cards: look-alike domain, one-time code -> both are concepts introduced (conceptsIntroduced) and relevant to SEC-01.
+  - Job tip: about asking the right questions (address and link destination) -> aligns.
+  - Takeaways: list of key points that match the objective.
+
+- The L2 blocks:
+  - Heading: "Work one message, signal by signal" -> aligns (teaching to check step by step).
+  - Worked example: walks through checking a message step by step -> aligns.
+  - Knowledge check 1: about outranking the display name with the actual address -> aligns (directly from the concept).
+  - Scenario: about a manager's phishing attempt, which requires applying the checks -> aligns.
+  - Knowledge check 2: about what to do after clicking a phishing link -> aligns.
+
+All blocks seem to serve the declared objective. There are no blocks that stretch the objective.
+
+Score: 5? But let's see if there's any misalignment.
+
+Wait, the rubric says: "every block earns its objective". We have to check each block's objectiveId is SEC-01 and the content is about that.
+
+All blocks have objectiveId: "SEC-01". And the content is about recognizing phishing emails by checking the address, link destination, etc.
+
+So, 5.
+
+But note: the rubric says "a block that teaches something true but unrelated to its objective scores low". We don't see any unrelated content.
+
+However, the worked example in L2 has a step that says "Because it is the next step" in the 'why' for each step. This is a bit weak, but it's about the process of checking, so it's aligned. It doesn't teach something unrelated.
+
+So, objective_alignment: 5.
+
+### 2. Level fidelity
+The lesson declares levels L1 and L2. We must check that the L1 is actually L1 and L2 is actually L2.
+
+- L1: 
+  - Has a heading, rich text, definition cards, job tip, and takeaways. 
+  - It explains the core concepts (display name vs address, look-alike domain, one-time code) and the habit of checking.
+  - The level is introductory: it's teaching the basic concepts without going into complex scenarios.
+
+- L2:
+  - Has a heading, a worked example (with steps and an answer), a scenario, and two knowledge checks.
+  - The worked example walks through a specific message and the checks step by step. The scenario is a realistic situation (manager's phishing) that requires applying the L1 concepts in a more complex way.
+
+The L1 is not just L1 with a question bolted on; it's a proper L1. The L2 builds on it with a worked example and a scenario.
+
+The rubric says: "a 'visual card' that is secretly a bulleted list fails this criterion". We don't see any visual card that is a bulleted list. The definition cards are labeled as such and are not bulleted lists (they have a term and definition). The takeaways are a list, but they are presented as a list of key points and are part of the structure.
+
+So, level fidelity: 5.
+
+### 3. Worked-example quality
+The worked example (in L2) has steps and a 'why' for each step.
+
+Steps:
+1. Read the actual address, not the display name. Why: "Because it is the next step."
+2. Reveal where the button goes before pressing it. Why: "Because it is the next step."
+3. Notice that the deadline is two hours. Why: "Because it is the next step."
+4. Stop at the request for the verification code. Why: "Because it is the next step."
+
+The 'why' is too generic. It doesn't explain *why* that step is important. It should explain the reason: e.g., "because the display name can be faked and the address cannot" for step 1.
+
+The rubric says: "reasoning names the judgement being made and what would change it." Here, the reasoning is just "because it is the next step" — which doesn't name the judgement or what would change it.
+
+This is a problem. The worked example is not as strong as it could be.
+
+Score: 3? Because the reasoning is present but generic (it doesn't explain the why in a meaningful way).
+
+But note: the rubric says "reasoning present but generic" for 3. And "reasoning names the judgement ... and what would change it" for 5.
+
+This example doesn't do that. It's generic.
+
+So, worked_example: 3.
+
+### 4. Knowledge-check quality
+We have two knowledge checks, each with multiple choices. We must check:
+- Distractors are drawn from real misconceptions.
+- Feedback explains why (not restates the answer).
+
+Let's look at KC-01:
+
+Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+
+Options:
+- Correct: "The sender's actual address." Feedback: "Correct. This is always the first check, because it is the one thing not freely typed."
+- Distractor 1: "How well formatted and typo-free it is." Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." -> This is good: it explains why that distractor is wrong (typos are weak, and polished messages are common).
+- Distractor 2: "The organisation's logo appearing in the message." Feedback: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." -> Good.
+- Distractor 3: "That it arrived at your work address rather than a personal one." Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." -> Good.
+
+All distractors are plausible and the feedback explains why.
+
+KC-02:
+
+Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+
+Options:
+- Correct: "Report it immediately, even if you entered nothing." Feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person." -> Good.
+- Distractor 1: "Wait and see whether anything happens." Feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started." -> Good.
+- Distractor 2: "Delete the message so nobody else clicks it." Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." -> Good.
+- Distractor 3: "Reply to the sender asking whether it was genuine." Feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message." -> Good.
+
+All feedback explains why, and distractors are plausible (real misconceptions: waiting, deleting, replying).
+
+But note: the rubric says "a distractor nobody would choose" is bad. Here, the distractors are plausible.
+
+So, knowledge_check: 5? 
+
+Wait, but the rubric says "every distractor names a misconception someone actually holds." We have four options, and the feedback for each distractor names a misconception. 
+
+However, the rubric also says: "feedback that restates the answer instead of naming the misconception" — but here, the feedback for the distractors does name the misconception.
+
+So, knowledge_check: 5.
+
+But wait: the lesson has two knowledge checks, and we are scoring the knowledge_check criterion on the two checks. Both seem good.
+
+However, note the lesson's knowledge_check blocks reference the items, and we are to score the items. We have the items and they are well done.
+
+But the rubric says: "a distractor nobody would choose" — we don't see that.
+
+So, knowledge_check: 5.
+
+### 5. Scenario authenticity
+The scenario (in L2) is: 
+"A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a realistic scenario. It has friction: the manager is in a meeting (so you can't call him immediately to verify) and the reply-to address is different (which is a sign of phishing). The scenario includes the awkward part (being told he can't take calls, which is engineered to prevent verification).
+
+The rubric says: "recognisable, including the awkward parts." This scenario is recognisable to someone who has worked in an office.
+
+So, scenario_authenticity: 5.
+
+### 6. Bilingual quality
+The lesson is bilingual (bilingual: true). We must check the Arabic.
+
+The Arabic in the lesson:
+- The title: "كيف تتعرّف على رسالة تصيّد" -> natural.
+- The content: "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة." -> natural, not a literal translation.
+
+We don't see Arabic that follows English word order. The Arabic flows naturally.
+
+The rubric says: "Arabic that reads as though written in Arabic" for 5.
+
+We don't see any stiffness or literal translation.
+
+So, bilingual_quality: 5.
+
+### 7. Concision and reading level
+We need to check if the prose is concise and earns its space.
+
+- The L1 rich text: explains the concept clearly and concisely.
+- The definition cards: short and to the point.
+- The job tip: very concise.
+- The takeaways: a list of key points, each very short.
+- The L2 worked example: the steps are short and to the point (though the 'why' is weak, but that's a separate criterion).
+- The scenario: concise.
+
+We don't see any padding or repetition.
+
+The rubric says: "nothing removable without loss" for 5.
+
+The lesson seems to be written with every word earning its place.
+
+So, concision: 5.
+
+### 8. Accessibility and IP
+We must check for:
+- Alt text on images? The lesson doesn't have any images (no image tags, no alt text mentioned). But note: the rubric says "alt text on any image", and if there are no images, then it's not an issue. So it's compliant.
+- No meaning carried by color alone? There are no color references (the lesson doesn't mention color).
+- No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist.
+
+The lesson has:
+- Concepts: "display_name", "look_alike_domain", etc. — these are made up for the lesson, not real.
+- The items are made up (SEC-01-KC-01, etc.) — not real.
+
+We don't see any real licensed code or policy text.
+
+So, accessibility_ip: 5.
+
+But note: the rubric says "no real licensed code descriptors" — we don't have any. So, 5.
+
+Now, let's reconsider the worked-example quality (criterion 3) because we scored it 3. But note that the rubric says: "a worked example whose steps assert without explaining why" is 1. Here, the steps do have a 'why', but it's weak. So 3.
+
+But let's double-check the rubric: 
+- **1** — steps assert an answer with no reasoning.
+- **3** — reasoning present but generic.
+- **5** — reasoning names the judgement being made and what would change it.
+
+The reasoning in the worked example is "Because it is the next step." This is generic. It doesn't explain the judgment (e.g., "because the display name can be faked, so we must check the address") or what would change it (e.g., if the display name matched the actual address, then it would be safe? but note: the actual address might still be fake).
+
+So, it's generic. Hence, 3.
+
+Now, let's list the scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 3
+- knowledge_check: 5
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+But wait, the rubric says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+We are scoring 3 on worked_example, which is the only one below 4.
+
+However, note that the worked_example in the lesson is part of the L2. We have to be strict.
+
+But let's look again at the worked_example steps:
+
+Steps:
+1. Read the actual address, not the display name. Why: "Because it is the next step."
+2. Reveal where the button goes before pressing it. Why: "Because it is the next step."
+3. Notice that the deadline is two hours. Why: "Because it is the next step."
+4. Stop at the request for the verification code. Why: "Because it is the next step."
+
+This is clearly generic. The 'why' should have explained the importance of each step. For example, for step 1: "Because the display name can be easily faked by the attacker, so you must check the actual email address behind it."
+
+So, it's not meeting the 5 standard. And it's not 1 (because there is reasoning). So 3 is correct.
+
+Now, the mean: (5+5+3+5+5+5+5+5)/8 = 38/8 = 4.75 -> above 4.0.
+
+But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." Here, the lowest is 3, which is above 3, and the mean is 4.75.
+
+So it passes.
+
+But we are only to score the criteria.
+
+Now, note the rubric says: "Return exactly the JSON shape it specifies".
+
+We must have:
+- "lesson": the slug (which is "recognising-a-phishing-email")
+- "scores": an object with the eight criteria (as strings) and integer scores.
+- "notes": an object with criteria scored below 4 and the reason. Only one criterion is below 4: worked_example (scored 3). We must provide a note for it.
+
+The rubric says: "notes on any criterion you scored below 4". So for worked_example, we must have a note.
+
+Also, note the example output has "knowledge_check" in notes, but in our case, we have worked_example at 3.
+
+So, notes: 
+{
+  "worked_example": "The 'why' for each step in the worked example is generic ('Because it is the next step.') and does not explain the judgment or what would change it."
+}
+
+But the example in the rubric says: "Two distractors restate the stem rather than naming a misconception." for knowledge_check. We don't have that, but we have a problem in worked_example.
+
+Now, the verdict_notes: "One criterion at 3; mean 4.75. Passes, but the worked example is the weakest part."
+
+But note: the example output says "mean 4.1", but we have 4.75. We'll compute the mean: (5*7 + 3) / 8 = 38/8 = 4.75.
+
+Now, let's write the JSON.
+
+Important: the keys in the scores must be exactly:
+  "objective_alignment"
+  "level_fidelity"
+  "worked_example"
+  "knowledge_check"
+  "scenario_authenticity"
+  "bilingual_quality"
+  "concision"
+  "accessibility_ip"
+
+We have:
+  objective_alignment: 5
+  level_fidelity: 5
+  worked_example: 3
+  knowledge_check: 5
+  scenario_authenticity: 5
+  bilingual_quality: 5
+  concision: 5
+  accessibility_ip: 5
+
+So, scores object.
+
+Notes: only for worked_example.
+
+verdict_notes: two or three sentences.
+
+Now, let's write the JSON.
+
+Note: the rubric says "Return ONE JSON object and nothing else".
+
+So, the output must be a JSON string, but we are to output the JSON.
+
+We are to output:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step is generic ('Because it is the next step.') and fails to explain the judgment or what would change it."
+  },
+  "verdict_notes": "One criterion scored 3; the mean is 4.75. Passes, but the worked example needs improvement in the reasoning for each step."
+}
+
+But note: the rubric says "the gate fails if any criterion scores below 3" — we have one at 3, which is not below 3, so it's okay.
+
+However, the rubric also says: "the mean is below 4.0" — 4.75 is above 4.0.
+
+So, it passes.
+
+But note: the example output had a note for knowledge_check, but we don't have that. We have a note for worked_example.
+
+Now, let's check for any other issues.
+
+Wait: the rubric says "a visual card that is a bulleted list with a border" — we don't have any visual card that is a bulleted list. The definition cards are not bulleted lists (they have a term and a definition, and an icon). The takeaways are a list, but they are a takeaways block, not a visual card. So that's fine.
+
+Also, no distractor nobody would choose: we checked the knowledge checks and they are good.
+
+Feedback in knowledge checks: we checked and they explain why.
+
+Worked example: we have the issue.
+
+Scenario: it's authentic.
+
+Bilingual: natural.
+
+Concision: good.
+
+Accessibility: no issues.
+
+So, we are confident.
+
+But note: the worked_example score is 3, which is the only one below 4.
+
+Let's write the JSON.
+
+Important: the rubric says "Return exactly the JSON shape it specifies".
+
+We must not have any extra fields.
+
+Also, note the example output had "not_scored" but the rubric says: "not_scored (criterion -> reason)" — but we didn't score any criterion as not scored (we scored all eight). So we don't include "not_scored".
+
+The rubric says: "not_scored (criterion -> reason)" — but if we don't have any not_scored, we omit it.
+
+So, we don't include "not_scored".
+
+Now, let's format the JSON.
+
+We'll write it as a JSON object.
+
+Note: the example output had:
+  "notes": { ... }
+
+But note: the rubric says "required for every criterion scored below 4". We have one.
+
+So, we output the JSON.
+
+One more thing: the rubric says "the lesson slug" — the lesson slug is "recognising-a-phishing-email".
+
+Let me confirm: the lesson has "slug": "recognising-a-phishing-email".
+
+Yes.
+
+So, final JSON:
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' for each step is generic ('Because it is the next step.') and fails to explain the judgment or what would change it."
+  },
+  "verdict_notes": "One criterion scored 3; the mean is 4.75. Passes, but the worked example requires stronger reasoning to explain the judgment behind each step."
+}

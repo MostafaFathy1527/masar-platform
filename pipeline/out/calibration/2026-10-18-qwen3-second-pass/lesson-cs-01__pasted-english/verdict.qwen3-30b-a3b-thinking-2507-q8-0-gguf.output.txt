@@ -1,0 +1,730 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+ The lesson has two levels: L1 and L2.
+
+ We are to score 8 criteria: objective_alignment, level_fidelity, worked_example, knowledge_check, scenario_authenticity, bilingual_quality, concision, accessibility_ip.
+
+ We must return exactly the JSON structure as specified, with integer scores 1-5, and notes for any criterion scored below 4.
+
+ Let's go through each criterion:
+
+ 1. Objective alignment:
+    - The lesson declares objective CS-01.
+    - We need to check if every block serves CS-01.
+    - The L1 blocks:
+        - heading: sets context for CS-01.
+        - rich_text: explains the concept of a complaint and the importance of the first minute (aligns with CS-01).
+        - definition_card for "Acknowledgement": defines a key concept for CS-01.
+        - definition_card for "Agreed next step": defines another key concept for CS-01.
+        - job_tip: gives a tip that aligns (asking what the customer wants).
+        - takeaways: summarizes the key points for CS-01.
+    - The L2 blocks:
+        - heading: "Work one complaint from open to close" (aligns with CS-01).
+        - worked_example: shows the steps for handling a complaint (aligns with CS-01).
+        - knowledge_check (two): test the concepts from CS-01.
+        - scenario: presents a realistic scenario that requires applying CS-01 concepts.
+    - All blocks seem to serve the objective. Score: 5.
+
+ 2. Level fidelity:
+    - The lesson declares L1 and L2.
+    - L1: should be for a beginner (L1) and L2 for a bit more advanced.
+    - L1 blocks: 
+        - The heading, rich_text, and definition cards are introductory and foundational. The takeaways are clear and concise for a beginner.
+        - It does not have any advanced elements. It's about the core concepts without complex scenarios.
+    - L2 blocks:
+        - The worked example is a step-by-step of a full complaint handling.
+        - The scenario is a more complex situation (chat, multiple messages, transfer) that requires applying the L1 concepts in a slightly more nuanced way.
+        - The knowledge checks are at an application level (Bloom: APPLY).
+    - The level labels are appropriate. L1 is foundational, L2 builds on it with application and a more complex scenario.
+    - Score: 5.
+
+ 3. Worked-example quality:
+    - The L2 worked_example has steps with "show" and "why".
+    - Each step shows what to do and why (the "why" explains the reasoning).
+    - Example: 
+        Step 1: "Acknowledge in her words" and "why" explains that without agreement on the experience, the customer won't hear the rest.
+        Step 2: "Open the record and ask what they want" and "why" explains that silence reads as abandonment and asking prevents a fix the customer didn't ask for.
+        Step 3: "State what the record shows" and "why" explains that arguing the policy lengthens the call and changes nothing.
+        Step 4: "Close with an agreed next step" and "why" explains the three components and that you should promise what you can control.
+    - The "why" is specific and names the judgment (e.g., "without that, she will not hear anything that follows").
+    - This meets the 5 criteria.
+    - Score: 5.
+
+ 4. Knowledge-check quality:
+    - We have two knowledge checks: CS-01-KC-01 and CS-01-KC-02.
+    - We must check:
+        - Distractors are drawn from real misconceptions.
+        - Feedback explains why (not restates the answer).
+
+    Let's look at CS-01-KC-01:
+
+      Stem: "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?"
+
+      Options:
+        A: "\"I'm sorry you feel that way; let me explain our shipping policy.\"" -> incorrect.
+           Feedback: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+           This feedback explains the misconception: confusing apology for feeling vs event, and then defending policy.
+
+        B: Correct: "\"Your order arrived late and broken, and I can see why you are angry.\"" 
+           Feedback: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+        C: "\"I'll transfer you to shipping; they handle deliveries.\"" -> incorrect.
+           Feedback: "No. Transferring an angry customer before he is heard, and without a handover, makes him explain everything again — which is the road to escalation."
+
+        D: "\"We'll make it all up to you, don't worry.\"" -> incorrect.
+           Feedback: "No. A promise of an outcome whose facts are not yet established and which you may not have authority over. If it does not happen, the complaint becomes about a broken promise."
+
+      The feedback for the wrong options explains the misconception (e.g., "apologises for the feeling", "transferring before heard", "promise of outcome without authority"). 
+
+    Now CS-01-KC-02:
+
+      Stem: "You have established the facts and agreed on a refund. Which close is an agreed next step?"
+
+      Options:
+        A: "\"One of my colleagues will follow up soon.\"" -> incorrect.
+           Feedback: "No. No name, no time, no way to verify. This is the close that manufactures the repeat complaint."
+
+        B: "\"Done. Is there anything else I can help with?\"" -> incorrect.
+           Feedback: "No. \"Done\" says neither what was done nor when the customer will see it. Tomorrow he will discover he has no idea whether anything happened."
+
+        C: Correct: "\"I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today.\"" 
+           Feedback: "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+
+        D: "\"Email us if the refund doesn't arrive.\"" -> incorrect.
+           Feedback: "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+
+      The feedback for the wrong options explains the misconception (e.g., missing the three components, handing the burden back).
+
+    However, note: the rubric says "a distractor nobody would ever choose" is bad. All these distractors are plausible (e.g., transferring without handover, promising without authority, vague promises).
+
+    But wait: the rubric also says "feedback that restates the answer instead of naming the misconception". In the feedback for the correct option, it does state the answer (the three components) but that's acceptable because it's the correct feedback. The problem is when the feedback for the wrong option just says "wrong" without explanation. Here, the feedback for the wrong options does explain the misconception.
+
+    However, note the rubric: "feedback that restates the answer instead of naming the misconception". In the feedback for the wrong options, they do name the misconception (e.g., "apologises for the feeling rather than the event", "no name, no time, no way to verify"). So they are naming the misconception.
+
+    But wait: the example in the rubric says "a worked example whose steps assert without explaining why" — that's for worked examples, not knowledge checks. For knowledge checks, the feedback must explain why the option is wrong by naming the misconception.
+
+    In the provided knowledge checks, the feedback for the wrong options does name the misconception. So why would we score below 5?
+
+    However, note: the rubric says "every distractor names a misconception someone actually holds". We have to assume that the distractors are based on real misconceptions (as per the feedback).
+
+    But let's check the feedback for the correct option: it says "Correct. ..." — that's fine. The problem is only if the feedback for the wrong options doesn't explain the misconception.
+
+    However, the rubric also says: "a distractor nobody would ever choose" — and these distractors are common (e.g., "I'm sorry you feel that way" is a common mistake; "one of my colleagues" is a common vague promise).
+
+    So why might we not give 5? 
+
+    Let me re-read the rubric: "every distractor names a misconception someone actually holds". We have to assume that the distractors are based on real misconceptions (as the feedback explains). 
+
+    But note: the rubric says "feedback that restates the answer instead of naming the misconception". In the feedback for the wrong options, they do name the misconception. 
+
+    However, look at the feedback for option D in KC-01:
+        "No. A promise of an outcome whose facts are not yet established and which you may not have authority over. If it does not happen, the complaint becomes about a broken promise."
+
+    This is naming the misconception: making a promise without authority.
+
+    Similarly, for KC-02, option D: 
+        "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+
+    This names the misconception: handing the burden back.
+
+    So it seems to be 5. But wait: the lesson's knowledge_check blocks only reference the itemRef, and we are to score based on the full items provided.
+
+    However, the problem is: the rubric says "a distractor nobody would ever choose" — and these distractors are common. So they are plausible.
+
+    But note: the rubric also says "feedback that restates the answer". The feedback for the wrong options does not restate the answer; it explains why it's wrong.
+
+    However, let me double-check the feedback for the correct option: it says "Correct. ..." and then states the correct answer (the three components). That is acceptable because it's confirming the correct choice and explaining why it's correct. The rubric doesn't say feedback for the correct option must not state the answer.
+
+    So why would we score below 5? 
+
+    Wait: the rubric says "every distractor names a misconception someone actually holds". The feedback for the distractors does name the misconception. So we should give 5.
+
+    But the example in the rubric for the knowledge_check criterion says: "a distractor nobody would ever choose" is bad. And here, all distractors are chosen by people (as per the feedback). So 5.
+
+    However, note: the rubric says "feedback that restates the answer instead of naming the misconception". In the feedback for the wrong options, they do name the misconception. So it's good.
+
+    But let's look again at the feedback for the wrong options in KC-01, option A:
+        "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+    This is naming the misconception: confusing apology for feeling vs event, and then defending policy.
+
+    So it's good.
+
+    However, I notice: in the lesson, the knowledge_check blocks only have "itemRef", and we are given the full items. So we are scoring based on the provided items.
+
+    But wait: the rubric says "Score what is on the page". The page for the knowledge checks has the itemRef, but the full item is provided for us to score. So we are to score the knowledge checks as they are defined in the referenced items.
+
+    Therefore, the knowledge_check should be 5.
+
+    However, the example output in the rubric says: "Two distractors restate the stem rather than naming a misconception." — but that's an example of a bad one. In our case, the feedback does not restate the stem; it explains the misconception.
+
+    But wait: let me check the feedback for KC-01, option A: it says "This apologises for the feeling rather than the event" — that's not restating the stem. The stem says the customer is angry about an order, but the feedback is about the response.
+
+    So I think it's 5.
+
+    However, the problem is that in the lesson's L2, there are two knowledge checks (CS-01-KC-01 and CS-01-KC-02) and both are well-designed. So why would we not give 5?
+
+    But note: the rubric says "every distractor names a misconception". We have two knowledge checks, each with 4 options (3 distractors). The feedback for the distractors in both is good.
+
+    So I think knowledge_check should be 5.
+
+    However, let's consider: the rubric says "a distractor nobody would ever choose" — and if a distractor is implausible, it's bad. But these are plausible.
+
+    But wait: in the scenario block (which is not a knowledge check) we have a scenario with three options. The scenario block is a separate criterion (scenario_authenticity). The knowledge_check is about the multiple choice questions.
+
+    So I think knowledge_check is 5.
+
+    However, the example output in the rubric (the one they provided as an example) has "knowledge_check": 3 and a note about two distractors restating the stem. But in our case, we don't have that problem.
+
+    Why then would we score below 5? 
+
+    Let me re-read the provided knowledge checks:
+
+    For KC-01, option A: feedback says "This apologises for the feeling rather than the event" — that's good.
+
+    But note: the rubric says "feedback that restates the answer". The feedback for the wrong options does not restate the answer (the correct thing to say) but explains the mistake. So it's good.
+
+    However, I notice: in the feedback for the correct option of KC-01, it says "You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault." — this is restating the correct answer? But that's acceptable because it's the correct feedback.
+
+    The rubric says "feedback that restates the answer instead of naming the misconception" — that's for the wrong options. For the correct option, it's okay to state the answer.
+
+    So I think knowledge_check is 5.
+
+    But wait: the rubric says "a distractor nobody would ever choose" — and if a distractor is so bad that no one would choose it, then it's bad. But these are good distractors.
+
+    However, let's look at option D in KC-01: "We'll make it all up to you, don't worry." — this is a common mistake, so it's plausible.
+
+    So I think 5.
+
+    But note: the example output they provided (in the rubric) has knowledge_check at 3. However, that was an example. We are to score based on the actual lesson.
+
+    Given the above, I would score knowledge_check as 5.
+
+    However, let's check the other criteria first.
+
+ 5. Scenario authenticity:
+    - The scenario block (l2_scenario) describes a customer in a chat asking for something they cannot authorise, with the team that can is in tomorrow, and the customer has written three long messages and says he won't explain again.
+    - This is a realistic scenario: customers get frustrated with transfers, and they don't want to repeat themselves. The scenario includes the friction (three messages, saying he won't explain again) and the awkwardness (cannot authorise, so must transfer but without making the customer repeat).
+    - The scenario is not textbook; it has real-world friction.
+    - Score: 5.
+
+ 6. Bilingual quality:
+    - The lesson is bilingual (bilingual: true).
+    - We must check if the Arabic is natural, not a literal translation of English.
+    - Let's look at a few examples:
+
+        In the definition_card for "Acknowledgement":
+          English: "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes."
+          Arabic: "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes."
+
+        Wait, the Arabic is the same as the English? But in the lesson, the Arabic is provided in the payload as "defAr", and it's a string.
+
+        Actually, looking at the lesson data:
+
+          "defAr": "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes, ..."
+
+        This is not Arabic! It's English. That's a problem.
+
+        But wait, the lesson has a field "defAr" which is supposed to be in Arabic. However, the content is in English. This is a clear violation.
+
+        Similarly, in the rich_text, the Arabic is provided as a string that is in English.
+
+        The lesson says:
+          "mdAr": "A complaint is not an attack and it is not a request for an apology. ...",
+
+        But this is English text, not Arabic.
+
+        The rubric says: "Arabic that follows English word order" (score 1) or "Arabic that is a literal rendering of English word order" (score 1). But here, it's not even Arabic — it's English.
+
+        This is a critical issue.
+
+        However, note: the rubric says "Arabic that reads as machine output" — and this is clearly not Arabic at all. It's English.
+
+        The rubric criterion 6: 
+          **1** — Arabic is a literal rendering of English word order.
+
+        But note: the rubric also says "Arabic that follows English word order" — and if it's not Arabic, it's even worse.
+
+        However, the rubric does not say what to do if the Arabic is missing or is English. But the criterion says "Arabic that follows English word order" — implying that there is Arabic, but it's poorly translated.
+
+        In this case, the Arabic fields are filled with English text. So it's not Arabic. Therefore, it's a literal translation (in the sense of no translation happened) and it's not natural.
+
+        This should score 1 for bilingual_quality.
+
+        But wait: the rubric says "An English-only lesson is not penalised here". However, the lesson declares bilingual: true. So we are penalized for the Arabic.
+
+        Since the Arabic fields are not in Arabic, it's a failure.
+
+        Therefore, bilingual_quality: 1.
+
+        However, let's check the other Arabic fields:
+
+          "textAr": "A complaint is the chance the others did not give you"
+
+          This is English.
+
+        So the entire Arabic content is English.
+
+        This is a major problem.
+
+        But note: the rubric says "Arabic that follows English word order" — this is not even Arabic. It's English. So it's worse than a literal translation. It's a failure to provide Arabic.
+
+        However, the criterion 6 says: "Arabic that follows English word order" — meaning if it's Arabic but with English word order, it's a 1. But if it's not Arabic at all, then it's also a 1? Because it's not Arabic.
+
+        The rubric does not specify, but in practice, if the Arabic is not in Arabic, it's a 1.
+
+        So bilingual_quality: 1.
+
+        But wait: the rubric also says "Score Arabic quality against that claim" — and the claim is that it's bilingual. So if the Arabic is not actually Arabic, it's a failure.
+
+        Therefore, we must score 1.
+
+        However, note: the rubric says "Arabic that follows English word order" — which implies that the text is in Arabic but structured like English. Here, the text is not in Arabic at all. So it's a 1.
+
+        But let's see the rubric example: "Arabic that follows English word order" — that's a description of a bad Arabic. The lesson has English, so it's not even that — it's a total failure.
+
+        So we have to score 1.
+
+        However, note: the rubric also says "An English-only lesson is not penalised here" — but that's only if the lesson declares it's English-only. Here, the lesson declares bilingual: true. So we are penalizing for the Arabic.
+
+        Therefore, bilingual_quality: 1.
+
+ 7. Concision and reading level:
+    - The prose is clear and to the point. 
+    - The rich_text block is a bit long, but it's explaining a concept and it's necessary. 
+    - The definition cards are concise.
+    - The job_tip is concise.
+    - The takeaways are bullet points (concise).
+    - The worked_example steps are concise and to the point.
+    - The scenario is concise.
+    - The knowledge checks are concise.
+    - I don't see any padding or repetition.
+    - Score: 5.
+
+ 8. Accessibility and IP:
+    - The lesson does not contain any images (so no alt text needed?).
+    - There is no color used to convey meaning (all text).
+    - The lesson does not contain any real licensed code descriptors or payer policy text.
+    - There is no mention of any denylisted terms.
+    - Therefore, it's compliant.
+    - But note: the rubric says "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." — and we don't see any.
+    - So it's 5.
+
+ However, we have a problem: bilingual_quality is 1, which would cause the gate to fail (because criterion 8 is 5, but we have a 1 in bilingual_quality, and the gate fails if any criterion is below 3).
+
+ But note: the rubric says for criterion 8: "1 — any licensed code set or denylisted term present." — but we don't have that. We have bilingual_quality at 1.
+
+ Now, the criteria:
+
+   objective_alignment: 5
+   level_fidelity: 5
+   worked_example: 5
+   knowledge_check: 5 (as we thought)
+   scenario_authenticity: 5
+   bilingual_quality: 1
+   concision: 5
+   accessibility_ip: 5
+
+ But wait: we just found that the Arabic is not in Arabic, so bilingual_quality is 1.
+
+ However, let's double-check the lesson data. The lesson has:
+
+   "titleAr": "Handling a customer complaint",
+   "titleEn": "Handling a customer complaint",
+
+   "mdAr": "A complaint is not an attack and it is not a request for an apology. ..."
+
+   This is clearly English text in the Arabic field.
+
+   So it's a failure.
+
+   Therefore, bilingual_quality: 1.
+
+   This means the lesson fails the gate (because one criterion is 1, which is below 3).
+
+   But note: the rubric says "automatic 1 on criterion 8" for licensed code, but for bilingual_quality, it's 1 because of the Arabic being English.
+
+   Now, let's reconsider knowledge_check: we thought it was 5, but the bilingual_quality is 1, so we have to score all.
+
+   However, the problem is that the knowledge checks are in the Arabic fields? No, the knowledge checks are defined in the items (CS-01-KC-01 and CS-01-KC-02) and they have "stemAr", "optionAr", etc. But in the provided items, the Arabic is also English.
+
+   For example, in the KC-01 item:
+
+        "stemAr": "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?"
+
+   This is English. So the knowledge checks are also in English in the Arabic fields.
+
+   But that doesn't affect the knowledge_check criterion (which is about the quality of the distractors and feedback). The knowledge_check criterion is about the content of the knowledge check, not the language. However, the rubric says: "a distractor nobody would ever choose" — and the distractors are written in English, but the lesson is for Arabic speakers? But the issue is the same: the distractors are well-designed. So knowledge_check should still be 5.
+
+   But note: the rubric for knowledge_check does not depend on the language. It's about the quality of the question and the feedback. The fact that the Arabic fields are in English doesn't make the knowledge check bad.
+
+   However, the knowledge_check is a separate criterion. We are scoring it based on the content of the question (which is the same in English and Arabic, since the Arabic field is a copy of the English). But the content is the same: the distractors are well-designed.
+
+   So knowledge_check: 5.
+
+   But the bilingual_quality is 1 because the Arabic is not Arabic.
+
+   Now, the scores:
+
+      objective_alignment: 5
+      level_fidelity: 5
+      worked_example: 5
+      knowledge_check: 5
+      scenario_authenticity: 5
+      bilingual_quality: 1
+      concision: 5
+      accessibility_ip: 5
+
+   However, the rubric says: "a 'visual card' that is a bulleted list with a border" — but we don't see any such card. The definition_card is a card, but it's not a bulleted list. It's a definition with an icon. So that's fine.
+
+   But note: the rubric says "a visual card that is a bulleted list with a border" fails level fidelity (criterion 2). We don't have that.
+
+   So the only problem is the bilingual_quality.
+
+   But wait: the rubric says for criterion 6: "Arabic that follows English word order" — and here, the Arabic is not Arabic, so it's not even a literal rendering of English word order (it's the same English). But the rubric for 1 says: "Arabic is a literal rendering of English word order." — meaning the text is in Arabic but with English structure. In this case, the text is not in Arabic, so it's not a literal rendering of English word order. It's a failure to provide Arabic.
+
+   However, the rubric doesn't have a separate category for "no Arabic provided", but it's clear that the lesson declared bilingual and did not provide Arabic. So it's a 1.
+
+   Therefore, we must score bilingual_quality as 1.
+
+   Now, the gate fails because of this.
+
+   But note: the rubric says for criterion 8: "1 — any licensed code set or denylisted term present." — but we don't have that. We have bilingual_quality at 1, which is a different criterion.
+
+   So the score for bilingual_quality is 1.
+
+   Now, let's list the scores:
+
+      objective_alignment: 5
+      level_fidelity: 5
+      worked_example: 5
+      knowledge_check: 5
+      scenario_authenticity: 5
+      bilingual_quality: 1
+      concision: 5
+      accessibility_ip: 5
+
+   The mean is (5*7 + 1)/8 = 36/8 = 4.5, which is above 4.0. But the gate fails because one criterion (bilingual_quality) is below 3.
+
+   Now, we must return the JSON.
+
+   The notes: we must have a note for any criterion below 4. So bilingual_quality is 1, so we need a note for it.
+
+   The rubric says: "notes on any criterion you scored below 4". So for bilingual_quality, we write a note.
+
+   We'll say: "Arabic fields contain English text, not Arabic."
+
+   But note: the rubric example note was: "Two distractors restate the stem rather than naming a misconception." — so we write a short note.
+
+   For bilingual_quality: "Arabic content is in English, not Arabic."
+
+   However, let's check the other criteria: all are 5, so no notes for others.
+
+   Now, the verdict_notes: two or three sentences.
+
+   We write: "Bilingual quality is 1 due to Arabic fields containing English text. The lesson fails the gate because one criterion is below 3. The mean score is 4.5, but the floor rule triggers a failure."
+
+   But note: the gate is applied by the pipeline, so we don't say "fails", but the verdict_notes should be neutral.
+
+   The rubric says: "verdict_notes: two or three sentences".
+
+   Example: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — but in our case, we have a 1.
+
+   So: "Bilingual quality is 1 due to Arabic fields containing English text. The gate fails because a criterion is below 3. The mean score is 4.5."
+
+   However, note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." — here, the mean is 4.5 (above 4.0) but a criterion is below 3, so the gate fails.
+
+   But we are not to say "fails" in the verdict_notes? The example says "Passes" when it passes. So we say:
+
+        "Bilingual quality is 1 due to Arabic fields containing English text. The gate fails because a criterion is below 3. The mean score is 4.5."
+
+   However, the example verdict_notes says "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — so they are reporting the status.
+
+   But note: the rubric says "the gate — not the judge — decides pass or fail". So the judge's verdict_notes should not say "fails", but it can say the reason.
+
+   The example says "Passes" when it passes.
+
+   So for a failure, we should say "Fails" or just state the reason? The example for a pass says "Passes", so for a fail, we say "Fails".
+
+   But the example verdict_notes for a pass: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+   So we can say: "Bilingual quality is 1. The gate fails because a criterion is below 3. Mean score is 4.5."
+
+   However, the rubric says "the gate fails if any criterion scores below 3", so we can say "Fails" in the note.
+
+   But note: the example does not say "Fails" for a fail, but it's a pass example. We'll follow the pattern.
+
+   We'll say: "Bilingual quality is 1. The gate fails due to a criterion below 3. Mean score is 4.5."
+
+   But the example for a pass says "Passes", so for a fail we say "Fails".
+
+   However, the rubric says: "the judge must not decide pass or fail". But the verdict_notes is for the report. The example includes "Passes".
+
+   So we'll include "Fails" in the verdict_notes.
+
+   Now, let's write the JSON.
+
+   Important: the "lesson" field must be the slug: "handling-a-customer-complaint"
+
+   Scores:
+
+      objective_alignment: 5
+      level_fidelity: 5
+      worked_example: 5
+      knowledge_check: 5
+      scenario_authenticity: 5
+      bilingual_quality: 1
+      concision: 5
+      accessibility_ip: 5
+
+   Notes: only for bilingual_quality.
+
+   verdict_notes: "Bilingual quality is 1 due to Arabic fields containing English text. The gate fails because a criterion is below 3. The mean score is 4.5."
+
+   But note: the rubric says "Return ONE JSON object and nothing else".
+
+   Now, let's check if we missed anything.
+
+   Wait: the rubric says "the knowledge checks are the weakest part" in the example, but in our case, the weakest part is bilingual_quality.
+
+   Also, note: in the lesson, the L1 has a block "cs1_h_intro" with "level": 2. But L1 is level 1. This might be a problem for level fidelity.
+
+   Let me check:
+
+      "l1": [
+        { ... "level": 2 ... }
+      ]
+
+   The block is in L1, but the block declares level 2. That might be a problem.
+
+   The rubric for level fidelity: "A 'visual card' that is secretly a bulleted list fails this criterion." — but this is not a visual card. It's a heading.
+
+   However, the level of the block is set to 2, but it's in the L1 section. This might mean that the block is too advanced for L1.
+
+   The rubric says: "Does the lesson do what its level promises?" — if the L1 section has a block that is level 2, then it's not at level 1.
+
+   So level_fidelity might be affected.
+
+   Let's reconsider level_fidelity.
+
+   Level fidelity: 
+        **1** — the level label is aspirational.
+        **3** — the required blocks are present but thin.
+        **5** — the level is what the learner actually experiences.
+
+   The L1 section should be for level 1. But the heading block (cs1_h_intro) has "level": 2. This suggests that the heading is intended for a more advanced level, but it's placed in L1.
+
+   This might be a mistake. The level in the block might be a mistake in the data.
+
+   The rubric says: "a block that teaches something true but unrelated to its objective" — but here, the block is in L1 and has a level 2, which might indicate it's too hard.
+
+   The objective for L1 is CS-01, and the heading is setting up the context for CS-01. It's not inherently level 2.
+
+   However, the block payload has "level": 2. This is confusing.
+
+   The rubric does not say how to interpret the "level" field in the block. But the level of the block should match the level of the section (L1).
+
+   If the block is labeled as level 2, but it's in an L1 section, then the section is not at level 1.
+
+   So this might cause level_fidelity to be low.
+
+   But note: the lesson declares levels: L1 and L2. The L1 section should be for L1. The block having "level": 2 might be an error.
+
+   However, the rubric says: "Score what is on the page." — the page has a block in L1 with level 2.
+
+   This is a problem. It means that the L1 section has a block that is marked as level 2, which is inconsistent.
+
+   Therefore, level_fidelity might be 3 or 1.
+
+   Let's see: the L1 section is supposed to be for level 1, but one block is level 2. That means the L1 section has an element that is too advanced.
+
+   So level_fidelity: 3 (because the required blocks for L1 are present but one block is too advanced, so the level is not what the learner experiences).
+
+   But note: the block might not be too advanced. The heading is simple. The level 2 might be a mistake in the data.
+
+   However, we have to score based on what's on the page.
+
+   Given that the block has "level": 2, it's marked as advanced, but it's in L1. So the L1 section is not purely level 1.
+
+   Therefore, level_fidelity: 3.
+
+   Now, the scores:
+
+        objective_alignment: 5
+        level_fidelity: 3   (because of the block level mismatch)
+        worked_example: 5
+        knowledge_check: 5
+        scenario_authenticity: 5
+        bilingual_quality: 1
+        concision: 5
+        accessibility_ip: 5
+
+   Now, level_fidelity is 3 (which is the minimum to pass, but we have bilingual_quality at 1).
+
+   But note: the level_fidelity is 3, which is above 2 (so it's not below 3), but we have bilingual_quality at 1 (which is below 3).
+
+   So the gate fails because of bilingual_quality.
+
+   Now, the level_fidelity note: we don't need a note because 3 is not below 4? The rubric says "notes on any criterion scored below 4". 3 is below 4, so we need a note for level_fidelity.
+
+   But note: the rubric says "required for every criterion scored below 4". So for level_fidelity (3) and bilingual_quality (1), we need notes.
+
+   However, the example output only had a note for knowledge_check (which was 3). So we will have two notes.
+
+   But note: the rubric says "for every criterion scored below 4", so we need to provide a note for level_fidelity and for bilingual_quality.
+
+   Let's write the notes:
+
+        level_fidelity: "Block in L1 section has level 2, which is inconsistent with the level promise."
+        bilingual_quality: "Arabic fields contain English text, not Arabic."
+
+   Now, the verdict_notes: "Bilingual quality is 1 and level fidelity is 3. The gate fails because a criterion is below 3. Mean score is (5*6 + 3 + 1)/8 = (30+3+1)/8 = 34/8 = 4.25."
+
+   But let's calculate: 5+5+5+5+5+3+1+5 = 34 -> 34/8 = 4.25.
+
+   However, we can say: "Bilingual quality is 1, which is the lowest. The gate fails because a criterion is below 3. The mean score is 4.25."
+
+   But note: the example verdict_notes does not include the mean in the note, but it's okay.
+
+   However, the example says: "One criterion at 3; mean 4.1. Passes, ..."
+
+   So we'll say: "Bilingual quality is 1. Level fidelity is 3. The gate fails because a criterion is below 3. Mean score is 4.25."
+
+   But note: the rubric says "the gate fails if any criterion scores below 3", so we don't need to say "because a criterion is below 3" — it's redundant. But it's clear.
+
+   Now, let's confirm the level_fidelity:
+
+        The L1 section has a block with "level": 2. This is a mistake in the data. The level of the block should be 1 for L1. So the level fidelity is compromised.
+
+        But is it a 3 or a 1? The rubric: 
+          1: level label is aspirational (meaning they claim L1 but it's actually higher).
+          3: required blocks present but thin.
+
+        In this case, the required blocks for L1 are present (the heading, rich_text, etc.) but one block is marked as level 2, which is inconsistent. So it's not aspirational (it's a clear mistake) but not the worst. So 3.
+
+        We'll go with 3.
+
+   Therefore, the final scores:
+
+        objective_alignment: 5
+        level_fidelity: 3
+        worked_example: 5
+        knowledge_check: 5
+        scenario_authenticity: 5
+        bilingual_quality: 1
+        concision: 5
+        accessibility_ip: 5
+
+   But note: the rubric says for level fidelity: "the level label is aspirational" for 1. If the lesson claims L1 but the content is at L2, it's 1. But here, the content of the block is not particularly advanced (it's just a heading). The "level" field might be a data error. However, we have to take the data as is.
+
+   Given that the block has "level": 2, and it's in L1, it's a clear inconsistency. So level_fidelity should be 3 (not 1) because the L1 section does have content for L1, but one block is mislabeled.
+
+   If the entire L1 section was at level 2, it would be a 1. But here, it's one block.
+
+   So level_fidelity: 3.
+
+   Now, we have two criteria below 4: level_fidelity (3) and bilingual_quality (1).
+
+   We'll provide notes for both.
+
+   Let's write the JSON.
+
+   Important: the JSON must have the exact keys.
+
+   "notes" is an object with keys for the criteria that are below 4.
+
+   So:
+
+      "notes": {
+        "level_fidelity": "Block in L1 section has level 2, which is inconsistent with the level promise.",
+        "bilingual_quality": "Arabic fields contain English text, not Arabic."
+      }
+
+   And verdict_notes: "Bilingual quality is 1 and level fidelity is 3. The gate fails because a criterion is below 3. Mean score is 4.25."
+
+   But note: the mean is 4.25, which is above 4.0, but the gate fails because of the criterion below 3.
+
+   Now, let's output the JSON.
+
+   However, wait: the rubric says "the lesson declares levels: L1, L2". And the blocks in L1 should be for L1. The block with "level": 2 in L1 is a mistake, but it's on the page.
+
+   We are scoring what is on the page.
+
+   So we'll go with level_fidelity: 3.
+
+   But note: the rubric says "a 'visual card' that is a bulleted list with a border" fails level fidelity. We don't have that, so that's not the issue.
+
+   So the level_fidelity issue is the block level mismatch.
+
+   Final decision.
+
+   Let's write the JSON.
+
+   Note: the example had "knowledge_check" at 3, but we have it at 5.
+
+   Now, the JSON:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 3,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "level_fidelity": "Block in L1 section has level 2, which is inconsistent with the level promise.",
+    "bilingual_quality": "Arabic fields contain English text, not Arabic."
+  },
+  "verdict_notes": "Bilingual quality is 1 and level fidelity is 3. The gate fails because a criterion is below 3. Mean score is 4.25."
+}
+
+   But note: the rubric says "no markdown", so we output plain JSON.
+
+   However, the example output had the scores as integers.
+
+   We must be careful: the example output had "knowledge_check": 3, but we have 5.
+
+   This is our score.
+
+   But wait: we have to be sure about knowledge_check.
+
+   We assumed it was 5, but let's double-check the feedback for the knowledge checks.
+
+   In KC-01, option A feedback: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+   This does name the misconception: apologising for the feeling.
+
+   Similarly for others.
+
+   So it's 5.
+
+   Therefore, the JSON above is correct.
+
+   However, note: the rubric says "the gate fails if any criterion scores below 3", and bilingual_quality is 1 (below 3), so the gate fails. The verdict_notes reflects that.
+
+   We are done.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 3,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "level_fidelity": "Block in L1 section has level 2, inconsistent with L1 promise.",
+    "bilingual_quality": "Arabic fields contain English text, not Arabic."
+  },
+  "verdict_notes": "Bilingual quality is 1 and level fidelity is 3. The gate fails because a criterion is below 3. Mean score is 4.25."
+}

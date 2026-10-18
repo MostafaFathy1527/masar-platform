@@ -1,0 +1,343 @@
+<think>
+We are scoring a lesson that we did not write, against the provided rubric.
+ We are to score exactly 8 criteria (objective_alignment, level_fidelity, worked_example, knowledge_check, scenario_authenticity, bilingual_quality, concision, accessibility_ip) on a scale of 1-5.
+
+ Important: We are to read the lesson (the JSON provided) and score based on what is on the page.
+
+ Let's break down each criterion:
+
+ 1. Objective alignment:
+    - The lesson declares objective PRV-01 in all blocks (l1 and l2).
+    - We need to check if every block serves the objective (PRV-01: "What counts as personal data, and what to do with it at work").
+    - Looking at the blocks:
+        - l1: 
+            * heading: "The question is not 'is there a name on it?'" -> aligns with PRV-01 (the test is identifiability, not obvious label).
+            * rich_text: explains personal data and the test (identifiability) -> aligns.
+            * definition_card (sensitive data): explains what sensitive data is -> aligns (part of the objective: what to do with it, including higher bar for sensitive).
+            * definition_card (potential breach): explains what a potential breach is -> aligns (what to do: report it same day).
+            * job_tip: about avoiding convenient channels -> aligns (what to do: use approved channels).
+            * takeaways: summarizes key points for the objective.
+        - l2:
+            * heading: "Decide, case by case" -> aligns (applying the objective to specific cases).
+            * worked_example: step-by-step decision for a sick leave request -> aligns (applying the rules to a scenario).
+            * knowledge_check (two questions): both test the objective (identifiability, sensitive data, and data subject request).
+            * scenario: a scenario about an email mistake and the correct response -> aligns (applying the rules to a real situation).
+        - All blocks seem to serve the objective. There are no blocks that are unrelated.
+
+    Score: 5 (every block earns its objective, and the set covers it).
+
+ 2. Level fidelity:
+    - The lesson declares levels L1 and L2.
+    - We need to check if the level label matches what the learner experiences.
+    - L1: 
+        * Introduction to the concept (personal data, sensitive data, potential breach, job tip, takeaways) - this is foundational, not too advanced.
+        * It's a level 1 (beginner) lesson: explaining the basic concept and rules.
+    - L2:
+        * Requires applying the concept to a specific scenario (worked example, knowledge checks, scenario) - this is more advanced, requiring decision-making.
+        * The worked example is step-by-step and the scenario is a realistic situation that requires judgment.
+        * The lesson does not have L2 content that is too basic (like L1) and L1 content that is too advanced.
+        * There is no "visual card" that is a bulleted list (we see definition_cards, which are not bulleted lists but card-style). The rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion." But here, the definition cards are presented as cards (with an icon and a term) and are not bulleted lists. So that's fine.
+
+    Score: 5 (the level is what the learner actually experiences).
+
+ 3. Worked-example quality:
+    - The worked example in L2 (prv1_l2_worked) has steps that show what to do and why.
+        - Step 1: "Is this personal data? ... Yes, and every row identifies a person." Why: "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+        - Step 2: "Is any of it sensitive? ... yes." Why: "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+        - Step 3: "What does his task actually need? ... dates and departments — not reasons." Why: "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not."
+        - Step 4: "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why." Why: "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+
+    - Each step has a "why" that names the judgment (identifiability, harm from disclosure, need-to-know) and what would change it (if the request were for a different task, the need-to-know might change).
+
+    Score: 5.
+
+ 4. Knowledge-check quality:
+    - The knowledge checks are two multiple-choice questions (PRV-01-KC-01 and PRV-01-KC-02).
+    - We have the full items for the knowledge checks.
+
+    For PRV-01-KC-01:
+        - Stem: A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?
+        - Options:
+            * Option 1: "Order lunch for the team first." -> This is a distractor that is completely irrelevant. It's not a plausible misconception.
+            * Option 2: "Yes, because the combination identifies each person in a team that size." -> Correct.
+            * Option 3: "Restart your computer." -> Irrelevant, not a plausible misconception.
+            * Option 4: "Change the colour of the screen." -> Irrelevant.
+        - Feedback for incorrect options: "Not correct." (for all three wrong options) -> This is restating the stem (which says "Is it personal data?") but not naming the misconception.
+
+    For PRV-01-KC-02:
+        - Stem: A customer writes: "I want a copy of everything you hold about me, and delete my phone number." What is the correct action?
+        - Options:
+            * Option 1: "Order lunch for the team first." -> Irrelevant.
+            * Option 2: "Restart your computer." -> Irrelevant.
+            * Option 3: "Change the colour of the screen." -> Irrelevant.
+            * Option 4: "Pass it to the privacy owner the same day, and tell the customer it has been logged." -> Correct.
+        - Feedback: "Not correct." for the wrong options.
+
+    The problem: 
+        - The distractors are not drawn from real misconceptions. They are nonsensical (like ordering lunch, restarting computer, changing screen color). 
+        - The feedback for the wrong options is just "Not correct." which restates the answer (i.e., it doesn't say why the option is wrong, it just says it's not correct).
+
+    This fails the criterion: 
+        - "distractors nobody would choose" (here, the distractors are so absurd that nobody would choose them) and 
+        - "feedback that restates the answer instead of naming the misconception".
+
+    So, the knowledge checks are poor.
+
+    Score: 1? But let's see the rubric for knowledge_check:
+        **1** — implausible distractors, or feedback that repeats the stem.
+        **3** — plausible distractors, feedback thin on some.
+        **5** — every distractor names a misconception someone actually holds.
+
+    Here, the distractors are implausible (nobody would choose them) and the feedback is just "Not correct." (which is restating the stem in a way, but not explaining the misconception).
+
+    Therefore, score: 1.
+
+    However, note: the rubric says "a distractor nobody would ever choose teaches nothing", so it's a 1.
+
+    But wait: the rubric also says "feedback that restates the answer instead of naming the misconception". The feedback says "Not correct." which is restating the fact that the option is not correct (i.e., restating the answer in a negative way). It does not name the misconception.
+
+    So, 1.
+
+    However, let's double-check: the rubric for 3 says "plausible distractors, feedback thin on some". We have no plausible distractors and feedback is not even thin, it's non-existent in terms of explanation.
+
+    But note: the rubric says "feedback that restates the answer" — the answer is that it is personal data (for KC-01) or that it should be passed to the privacy owner (for KC-02). The feedback for the wrong options says "Not correct." which is restating that the option is not the correct answer. It does not explain the misconception.
+
+    So, 1 is appropriate.
+
+    However, let's see the example in the rubric: "feedback that restates the answer instead of naming the misconception". Here, the feedback does not name the misconception at all.
+
+    Therefore, score for knowledge_check: 1.
+
+    But note: the example output in the rubric for the notes says "Two distractors restate the stem rather than naming a misconception." — but in our case, the distractors are not even plausible, so it's worse.
+
+    However, the rubric says: "a distractor nobody would ever choose" -> automatic 1 for that criterion.
+
+    So, we must score knowledge_check as 1.
+
+ 5. Scenario authenticity:
+    - The scenario in l2 (prv1_l2_scenario) is about sending an email with a customer account statement and noticing an autocomplete mistake.
+    - Is this a realistic scenario? Yes, it's a common mistake in email (autocomplete picking the wrong contact) and it's a plausible situation that could happen in an office.
+    - The scenario includes friction: the recipient hasn't opened it yet (so it's not too late), but the clock starts at 5 pm (which is the same day, so it's urgent).
+    - The correct action is to report it immediately, which is realistic.
+
+    The scenario is authentic: it has the awkward part (autocomplete mistake) and the time pressure (5 pm, same day).
+
+    Score: 5.
+
+ 6. Bilingual quality:
+    - The lesson is bilingual (bilingual: true).
+    - We need to check the Arabic for naturalness and consistency.
+
+    Let's look at the Arabic:
+
+    - The title: "ما الذي يُعدّ بيانات شخصية، وماذا تفعل بها في العمل" -> natural.
+    - The content: 
+        * "البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها." -> natural Arabic.
+        * "المعيار هو **إمكانية التعرّف**، لا الوسم الظاهر." -> natural.
+        * In the worked example: "حتى بلا أسماء، قسم + تواريخ غياب تكفي لتحديد الشخص في فريق صغير." -> natural.
+        * The definitions and takeaways are in natural Arabic.
+
+    The Arabic does not read like a machine translation (e.g., no English word order). It uses natural Arabic phrasing.
+
+    Score: 5.
+
+ 7. Concision and reading level:
+    - We need to check if the prose is concise and nothing is padded.
+
+    Let's look at the content:
+
+    - The rich_text block: 
+        * "البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها. المعيار هو **إمكانية التعرّف**، لا الوسم الظاهر. الاسم بيانات شخصية. وكذلك رقم الموظف، والبريد الإلكتروني، ورقم الهاتف، والصورة، ولوحة السيارة، ومعرّف الجهاز، وعنوان المنزل. وكذلك مجموعة من حقائق عادية تشير مجتمعةً إلى شخص واحد: مسمّى وظيفي مع قسم مع تاريخ التحاق تكفي لتحديد شخص في فريق صغير كما يحدده اسمه."
+
+        This is clear and to the point. It doesn't have extra words.
+
+    - The takeaways: 
+        * "المعيار إمكانية التعرّف: هل يستطيع أحد أن يعرف عمّن هذا؟" -> concise.
+
+    - The worked example: the steps are concise and to the point.
+
+    - The scenario: concise.
+
+    There doesn't seem to be any padding. The prose earns its space.
+
+    Score: 5.
+
+ 8. Accessibility and IP:
+    - We need to check for:
+        * Alt text on any image? -> There are no images in this lesson (the blocks are heading, rich_text, definition_card, job_tip, takeaways, worked_example, knowledge_check, scenario). So no images, so no alt text needed.
+        * No meaning carried by color alone? -> The lesson doesn't use color (it's text-based).
+        * No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist.
+
+    The lesson has:
+        - Terms like "personal data", "sensitive data", "potential breach", which are standard terms, not licensed or policy text.
+        - The content is about data privacy, but it's explanatory, not copying real policy.
+
+    There are no real licensed code descriptors (like a snippet of code from a license) or payer policy text (like "Medicare policy says...").
+
+    So, it's compliant.
+
+    Score: 5.
+
+ Now, let's summarize:
+
+    objective_alignment: 5
+    level_fidelity: 5
+    worked_example: 5
+    knowledge_check: 1   (because of implausible distractors and no feedback explaining misconceptions)
+    scenario_authenticity: 5
+    bilingual_quality: 5
+    concision: 5
+    accessibility_ip: 5
+
+ However, note: the rubric says the gate fails if any criterion scores below 3. Here, knowledge_check is 1 (which is below 3). So the gate fails.
+
+ But we are only scoring, not deciding pass/fail.
+
+ But wait: the rubric says "You do not decide pass or fail." so we just score.
+
+ However, note: the rubric also says "Be harsh on 4 and 5. A 5 means you would not change it." So we are being harsh.
+
+ But in the knowledge_check, we have a clear failure: distractors are implausible and feedback is non-explanatory. So 1 is correct.
+
+ However, let's double-check the knowledge check items:
+
+    PRV-01-KC-01:
+        - Stem: A spreadsheet without names (job title, department, start date, performance rating) for a team of six. Is it personal data?
+        - Correct answer: Yes, because the combination identifies the person.
+        - Wrong options: 
+            "Order lunch for the team first." -> This is not a plausible misconception. A person who thinks it's not personal data might not choose this, but this option is just nonsense. It's not a real misconception.
+            "Restart your computer." -> same.
+            "Change the colour of the screen." -> same.
+
+        The feedback for the wrong options is "Not correct." which is not helpful.
+
+    PRV-01-KC-02:
+        - Correct: Pass to privacy owner same day.
+        - Wrong options: same nonsense.
+
+    This is a clear failure.
+
+    But note: the rubric says "a distractor nobody would ever choose" is a failure. Here, the distractors are so absurd that nobody would ever choose them. So it's a 1.
+
+    Therefore, knowledge_check = 1.
+
+ Now, we must output the JSON.
+
+ Note: The rubric says "Return exactly the JSON shape it specifies" and for criteria scored below 4, we must have notes.
+
+ Since knowledge_check is 1 (below 4), we must have a note for it.
+
+ The example note says: "Two distractors restate the stem rather than naming a misconception." But in our case, the distractors are not just restating the stem, they are completely irrelevant. However, the note can be: "Distractors are implausible (nonsense options) and feedback is non-explanatory."
+
+ But the example in the rubric for the note says: "Two distractors restate the stem rather than naming a misconception." We can adjust to be accurate.
+
+ However, the rubric says: "notes on any criterion you scored below 4". We scored knowledge_check as 1, so we must have a note.
+
+ We'll write: "Distractors are implausible (e.g., 'Order lunch for the team first') and feedback is non-explanatory (only 'Not correct.')"
+
+ But note: the rubric says "required for every criterion scored below 4", so we must have a note for knowledge_check.
+
+ Now, the verdict_notes: "One criterion at 1; mean 4.125. Fails the gate (since knowledge_check < 3)."
+
+ However, the rubric says: "The gate — not the judge — decides pass or fail." and we are only to output the JSON with the scores and notes.
+
+ But note: the example output in the rubric has "verdict_notes" as two or three sentences.
+
+ We'll write: "One criterion scored below 3 (knowledge_check at 1). The mean is 4.125. The gate fails because one criterion is below 3."
+
+ However, the rubric example says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — but in our case, it's a 1, not a 3.
+
+ But note: the example output in the rubric is for a different lesson (with knowledge_check=3). We have to write for our own.
+
+ So, for our lesson, we write: "One criterion scored 1 (knowledge_check). The mean is 4.125. The gate fails because one criterion is below 3."
+
+ However, the rubric says: "the gate fails if any criterion scores below 3, or if the mean is below 4.0." Here, we have one below 3 (so gate fails) and the mean is 4.125 (which is above 4.0, but the gate fails because of the below-3).
+
+ But note: the gate fails because of the below-3, not because of the mean.
+
+ Now, let's calculate the mean:
+    (5+5+5+1+5+5+5+5) = 36
+    36 / 8 = 4.5
+
+ Wait, I miscalculated earlier: 5*7 = 35, plus 1 = 36 -> 36/8 = 4.5.
+
+ But wait: 
+    objective_alignment: 5
+    level_fidelity: 5
+    worked_example: 5
+    knowledge_check: 1
+    scenario_authenticity: 5
+    bilingual_quality: 5
+    concision: 5
+    accessibility_ip: 5
+
+ Sum = 5*7 + 1 = 36 -> 36/8 = 4.5.
+
+ So mean is 4.5.
+
+ But the gate fails because of knowledge_check (1 < 3), regardless of the mean.
+
+ Now, we write the verdict_notes: "One criterion scored 1 (knowledge_check). The mean is 4.5. The gate fails because one criterion is below 3."
+
+ However, the example in the rubric for the verdict_notes says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — so we have to be concise.
+
+ We'll write: "One criterion at 1 (knowledge_check). The mean is 4.5. The gate fails due to the below-3 score."
+
+ But note: the rubric says "the gate fails if any criterion scores below 3", so we don't need to say "due to", but it's clear.
+
+ Now, the JSON structure:
+
+ {
+   "lesson": "what-counts-as-personal-data",
+   "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 5,
+        "knowledge_check": 1,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 5
+   },
+   "notes": {
+        "knowledge_check": "Distractors are implausible (nonsense options) and feedback is non-explanatory (only 'Not correct')."
+   },
+   "verdict_notes": "One criterion scored 1 (knowledge_check). The mean is 4.5. The gate fails because one criterion is below 3."
+ }
+
+ However, note: the rubric says "no markdown fences, no prose before or after the JSON". So we output exactly the JSON.
+
+ But wait: the rubric says "Return ONE JSON object and nothing else".
+
+ Let's write the JSON.
+
+ Important: The rubric example uses "knowledge_check" as the key, not "knowledge_check_quality" or anything else.
+
+ We have to use the exact key names.
+
+ Also, note: the rubric says "not_scored" is for criteria that are not scored (but we are scoring all 8). So we don't have any not_scored.
+
+ Now, we output the JSON.
+
+ However, note: the lesson slug is "what-counts-as-personal-data" (from the lesson JSON).
+
+ Let's write it.
+</think>
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Distractors are implausible (e.g., 'Order lunch for the team first') and feedback is non-explanatory (only 'Not correct')."
+  },
+  "verdict_notes": "One criterion scored 1 (knowledge_check). The mean is 4.5. The gate fails because one criterion is below 3."
+}

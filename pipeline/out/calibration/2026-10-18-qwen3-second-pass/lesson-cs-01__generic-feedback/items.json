@@ -1,0 +1,88 @@
+{
+  "courseSlug": "customer-service",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "CS-01-KC-01",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يفتتح المكالمة غاضباً عن طلب وصل متأخراً ومكسوراً. ما أول جملة ينبغي أن تقولها؟",
+      "stemEn": "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?",
+      "rationaleAr": "من لا يشعر أنه مسموع لا يسمع. الإقرار يسمّي التجربة بكلمات العميل قبل أي كلام عن السبب أو الحل، وهو ليس اعترافاً بخطأ لم يثبت.",
+      "rationaleEn": "A person who does not feel heard cannot hear. Acknowledgement names the experience in the customer's words before any cause or fix, and it is not an admission of a fault not yet established.",
+      "options": [
+        {
+          "textAr": "«آسف لأنك تشعر بهذا الشكل، دعني أشرح سياسة الشحن.»",
+          "textEn": "\"I'm sorry you feel that way; let me explain our shipping policy.\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب.»",
+          "textEn": "\"Your order arrived late and broken, and I can see why you are angry.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح.",
+          "feedbackEn": "Correct."
+        },
+        {
+          "textAr": "«سأحوّلك إلى قسم الشحن فهم المسؤولون عن التوصيل.»",
+          "textEn": "\"I'll transfer you to shipping; they handle deliveries.\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«سنعوّضك عن كل شيء، لا تقلق.»",
+          "textEn": "\"We'll make it all up to you, don't worry.\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "CS-01-KC-02",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "حدّدت المشكلة واتفقتما على استرداد المبلغ. أي إغلاق هو الخطوة التالية المتفق عليها؟",
+      "stemEn": "You have established the facts and agreed on a refund. Which close is an agreed next step?",
+      "rationaleAr": "الخطوة المتفق عليها تحتاج ثلاثة أشياء: إجراء محدد، ووقت محدد، وطريقة يعرف بها العميل أنها تمّت. ما ينقصه أي منها يعيد العميل إلى الاتصال ليصنعه بنفسه.",
+      "rationaleEn": "An agreed next step needs three things: a specific action, a specific time, and a way the customer will know it happened. Anything missing one of them sends the customer back to call and create it.",
+      "options": [
+        {
+          "textAr": "«سيتابع أحد الزملاء الموضوع قريباً.»",
+          "textEn": "\"One of my colleagues will follow up soon.\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«تم. هل هناك شيء آخر أستطيع مساعدتك به؟»",
+          "textEn": "\"Done. Is there anything else I can help with?\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "«رفعت الاسترداد الآن؛ يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم.»",
+          "textEn": "\"I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح.",
+          "feedbackEn": "Correct."
+        },
+        {
+          "textAr": "«راسلنا على البريد إن لم يصلك المبلغ.»",
+          "textEn": "\"Email us if the refund doesn't arrive.\"",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    }
+  ]
+}

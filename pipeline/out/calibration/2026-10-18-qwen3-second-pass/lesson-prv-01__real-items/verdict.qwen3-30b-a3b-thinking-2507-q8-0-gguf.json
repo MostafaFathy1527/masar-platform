@@ -1,0 +1,32 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.6,
+    "scored_at": "2026-10-18T06:59:19.171050+00:00",
+    "usage": {
+      "inputTokens": 6897,
+      "outputTokens": 6478
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {},
+  "verdict_notes": "All eight criteria scored 5. The lesson is exemplary across every dimension. It meets the gate threshold with a mean of 5.0 and requires no changes to the content."
+}

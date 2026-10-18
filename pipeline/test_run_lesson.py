@@ -14,6 +14,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import panel  # noqa: E402
 import qa_gate  # noqa: E402
 import run_lesson  # noqa: E402
 
@@ -73,8 +74,11 @@ def judges(*score_sets):
 def go(call, judge, generator_id='openai.gpt-oss-120b-1:0'):
     t = tempfile.TemporaryDirectory()
     out = Path(t.name) / 'lesson-x'
+    # The stand-in judges write verdicts as family0.judge and family1.judge, so those
+    # are the seats this run expects; a real run expects every seat in panel.SEATS.
     rec = run_lesson.run(SOURCE, 'CS-01', out, levels=['L1', 'L2'], slug='x', generator=generator_id,
-                         region='us-east-1', denylist=[], call=call, judge=judge)
+                         region='us-east-1', denylist=[], call=call, judge=judge,
+                         seats=('family0.judge', 'family1.judge'))
     return rec, out, t
 
 
@@ -94,6 +98,13 @@ try:
     check(True, 'a generator from outside the panel is accepted')
 except run_lesson.RunError:
     check(False, 'a generator from outside the panel is accepted')
+try:
+    run_lesson.check_independence('qwen.qwen3-32b-v1:0')
+    check(False, "a generator from the open seat's family (qwen) is refused")
+except run_lesson.RunError as e:
+    check('qwen' in str(e), "a generator from the open seat's family (qwen) is refused")
+check(run_lesson.run.__kwdefaults__['seats'] == panel.SEATS and len(panel.SEATS) == 4,
+      'a real run expects a verdict from every seat, hosted and served')
 
 print('item check')
 check(run_lesson.check_items(GOOD['lesson'], GOOD['items'], 'cs') == [], 'the CS-01 bank passes')
@@ -136,6 +147,7 @@ judge, jcalls = judges({}, {'concision': 5})
 rec, out, t = go(call, judge)
 check(rec['outcome'].startswith('PANEL PASS at v1'), f'outcome: {rec["outcome"]}')
 check([s['step'] for s in rec['steps']] == ['generate', 'gates', 'panel'], 'three steps, in order')
+check(rec['judges'] == ['family0.judge', 'family1.judge'], 'the record lists every seat')
 check((out / 'v1/panel-report.md').exists() and (out / 'run-report.md').exists(), 'reports written')
 check(not (out / 'v2').exists(), 'no second version')
 check('Source note (cs-01' in prompts[0] and 'concept-log.json' in prompts[0], 'prompt carries source and log')

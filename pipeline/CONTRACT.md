@@ -70,9 +70,12 @@ refused like unparseable output: the judge handed the example back instead of re
 lesson (what-failed entry 19). `kaggle_open_judges.ipynb` runs the calibration on open models
 served by llama.cpp on Kaggle's free GPUs.
 
-`panel.py` turns several verdicts into one decision: PASS only if every judge passes and no
-criterion splits them by more than one point; a split or a disagreement on the outcome is
-NEEDS HUMAN, not an average. The latest verdict per model counts. One judge is refused.
+`panel.py` turns several verdicts into one decision: PASS only if every seat has scored, every
+judge passes and no criterion splits them by more than one point; a split, a disagreement on
+the outcome or an empty seat is NEEDS HUMAN, not an average. The latest verdict per model
+counts. One judge is refused. The panel has four seats: three hosted on Bedrock (Kimi K3,
+DeepSeek V3.2, GLM-5) and, since 18 October, one open judge, Qwen3-30B-A3B-Thinking-2507,
+served by llama.cpp behind the endpoint in `JUDGE_QWEN3_ENDPOINT`.
 
 A judge earns a panel seat by passing `calibrate_judges.py`: given a lesson's real items and
 copies broken in ways rubric criterion 4 names, it must score the broken copies at least two
