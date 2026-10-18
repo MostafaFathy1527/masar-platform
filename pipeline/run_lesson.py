@@ -358,7 +358,9 @@ def write_draft(vdir: Path, raw: dict, model: str, usage: dict, seconds: float, 
     if raw.get('notes'):
         (vdir / 'notes.md').write_text(str(raw['notes']) + '\n', encoding='utf-8')
     (vdir / 'generation.json').write_text(dump({
-        'model_id': model, 'temperature': 0, 'usage': usage, 'seconds': round(seconds, 1),
+        # The temperature the call reports it used: None when the model refused one
+        # and ran at its own default, which a fixed 0 here used to misreport.
+        'model_id': model, 'temperature': usage.get('temperature', 0), 'usage': usage, 'seconds': round(seconds, 1),
         'prompt_chars': len(prompt), 'at': datetime.now(timezone.utc).isoformat(),
         'needs_verification': len(nv),
     }), encoding='utf-8')
@@ -391,72 +393,88 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
                                 'seconds': round(time.monotonic() - t0, 1), **extra})
         print(f'  {version} {name:<9} {result}')
 
-    while True:
-        v = next_version(out)
-        vdir = out / f'v{v}'
-        tag = f'v{v}'
+    # Which step is running, so an exception names where it happened. Without the
+    # try below, a generator or judge that raised left no run.json and no report,
+    # only version folders, and a rerun into the same --out was then refused.
+    stage, t0 = ('v?', 'start'), time.monotonic()
+    try:
+        while True:
+            v = next_version(out)
+            vdir = out / f'v{v}'
+            tag = f'v{v}'
 
-        t0 = time.monotonic()
-        text, usage = call(prompt, generator, region)
-        try:
-            raw = judge_bedrock.extract_json(text)
-            write_draft(vdir, raw, generator, usage, time.monotonic() - t0, prompt)
-        except (ValueError, json.JSONDecodeError, RunError) as e:
-            vdir.mkdir(parents=True, exist_ok=True)
-            (vdir / 'generation.raw.txt').write_text(text, encoding='utf-8')
-            step(tag, 'generate', f'unusable output: {e}', t0, usage=usage)
-            record['outcome'] = 'STOPPED: the generator did not return a usable draft'
-            break
-        step(tag, 'generate', 'ok', t0, usage=usage,
-             needs_verification=len(raw.get('needsVerification') or []))
-
-        t0 = time.monotonic()
-        gates = mechanical_gates(vdir / 'lesson.json', vdir / 'items.json', denylist, previous_doc)
-        (vdir / 'gates.md').write_text(gates_markdown(gates), encoding='utf-8')
-        failed = {g: f for g, f in gates.items() if f}
-        step(tag, 'gates', 'PASS' if not failed else
-             'FAIL: ' + ', '.join(f'{g} ({len(f)})' for g, f in failed.items()), t0)
-
-        if not failed:
             t0 = time.monotonic()
-            judge(vdir / 'lesson.json')
-            lesson = json.loads((vdir / 'lesson.json').read_text(encoding='utf-8'))
-            lv = {str(x).upper() for x in lesson.get('levels', [])}
+            stage = (tag, 'generate')
+            text, usage = call(prompt, generator, region)
             try:
-                entries, superseded = panel.collect(vdir, lv)
-                decision = panel.decide(entries, seats)
-            except panel.PanelError as e:
-                step(tag, 'panel', f'could not decide: {e}', t0)
-                record['outcome'] = 'STOPPED: the panel could not decide'
+                raw = judge_bedrock.extract_json(text)
+                write_draft(vdir, raw, generator, usage, time.monotonic() - t0, prompt)
+            except (ValueError, json.JSONDecodeError, RunError) as e:
+                vdir.mkdir(parents=True, exist_ok=True)
+                (vdir / 'generation.raw.txt').write_text(text, encoding='utf-8')
+                step(tag, 'generate', f'unusable output: {e}', t0, usage=usage)
+                record['outcome'] = 'STOPPED: the generator did not return a usable draft'
                 break
-            (vdir / 'panel-report.md').write_text(
-                panel.report(lesson.get('slug', slug), entries, decision, superseded), encoding='utf-8')
-            means = {e['model']: e['result']['mean'] for e in entries}
-            step(tag, 'panel', decision['decision'], t0, means=means, split=decision['split'])
-            if decision['decision'] == 'PASS':
-                record['outcome'] = f'PANEL PASS at v{v}: a draft for human review'
-                break
-            if decision['decision'] == 'NEEDS HUMAN':
-                record['outcome'] = f'NEEDS HUMAN at v{v}: ' + '; '.join(decision['reasons'])
-                break
-            findings = '\n\n'.join(p.read_text(encoding='utf-8')
-                                   for p in sorted(vdir.glob('qa-report.*.md')))
-        else:
-            findings = gates_markdown(gates)
+            step(tag, 'generate', 'ok', t0, usage=usage,
+                 needs_verification=len(raw.get('needsVerification') or []))
 
-        if retried:
-            record['outcome'] = f'STOPPED after the one retry: v{v} still fails; a human decides'
-            break
-        retried = True
-        previous = {'lesson': json.loads((vdir / 'lesson.json').read_text(encoding='utf-8')),
-                    'items': json.loads((vdir / 'items.json').read_text(encoding='utf-8'))}
-        prompt = build_revision_prompt(base_prompt, previous, findings)
-        previous_doc = dict(previous['lesson'], _items=(previous['items'] or {}).get('items'))
+            t0 = time.monotonic()
+            stage = (tag, 'gates')
+            gates = mechanical_gates(vdir / 'lesson.json', vdir / 'items.json', denylist, previous_doc)
+            (vdir / 'gates.md').write_text(gates_markdown(gates), encoding='utf-8')
+            failed = {g: f for g, f in gates.items() if f}
+            step(tag, 'gates', 'PASS' if not failed else
+                 'FAIL: ' + ', '.join(f'{g} ({len(f)})' for g, f in failed.items()), t0)
 
-    record['finished'] = datetime.now(timezone.utc).isoformat()
-    out.mkdir(parents=True, exist_ok=True)
-    (out / 'run.json').write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    (out / 'run-report.md').write_text(run_markdown(record), encoding='utf-8')
+            if not failed:
+                t0 = time.monotonic()
+                stage = (tag, 'panel')
+                judge(vdir / 'lesson.json')
+                lesson = json.loads((vdir / 'lesson.json').read_text(encoding='utf-8'))
+                lv = {str(x).upper() for x in lesson.get('levels', [])}
+                try:
+                    entries, superseded = panel.collect(vdir, lv)
+                    decision = panel.decide(entries, seats)
+                except panel.PanelError as e:
+                    step(tag, 'panel', f'could not decide: {e}', t0)
+                    record['outcome'] = 'STOPPED: the panel could not decide'
+                    break
+                (vdir / 'panel-report.md').write_text(
+                    panel.report(lesson.get('slug', slug), entries, decision, superseded), encoding='utf-8')
+                means = {e['model']: e['result']['mean'] for e in entries}
+                step(tag, 'panel', decision['decision'], t0, means=means, split=decision['split'])
+                if decision['decision'] == 'PASS':
+                    record['outcome'] = f'PANEL PASS at v{v}: a draft for human review'
+                    break
+                if decision['decision'] == 'NEEDS HUMAN':
+                    record['outcome'] = f'NEEDS HUMAN at v{v}: ' + '; '.join(decision['reasons'])
+                    break
+                findings = '\n\n'.join(p.read_text(encoding='utf-8')
+                                       for p in sorted(vdir.glob('qa-report.*.md')))
+            else:
+                findings = gates_markdown(gates)
+
+            if retried:
+                record['outcome'] = f'STOPPED after the one retry: v{v} still fails; a human decides'
+                break
+            retried = True
+            previous = {'lesson': json.loads((vdir / 'lesson.json').read_text(encoding='utf-8')),
+                        'items': json.loads((vdir / 'items.json').read_text(encoding='utf-8'))}
+            prompt = build_revision_prompt(base_prompt, previous, findings)
+            previous_doc = dict(previous['lesson'], _items=(previous['items'] or {}).get('items'))
+    except BaseException as e:
+        version, name = stage
+        step(version, name, f'raised {type(e).__name__}: {str(e)[:300]}', t0)
+        record['outcome'] = f'ERROR at {version} {name}: {type(e).__name__}: {e}'
+        record['error'] = {'version': version, 'step': name,
+                           'type': type(e).__name__, 'message': str(e)}
+        raise
+    finally:
+        record['finished'] = datetime.now(timezone.utc).isoformat()
+        out.mkdir(parents=True, exist_ok=True)
+        (out / 'run.json').write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n',
+                                      encoding='utf-8')
+        (out / 'run-report.md').write_text(run_markdown(record), encoding='utf-8')
     return record
 
 
@@ -540,6 +558,9 @@ def main(argv: list[str] | None = None) -> int:
                      call=call, judge=judge_with_panel(args.region))
     except RunError as e:
         print(f'error: {e}', file=sys.stderr)
+        return 2
+    except Exception as e:  # recorded in run.json and run-report.md before it got here
+        print(f'error: {type(e).__name__}: {e}; see {args.out / "run-report.md"}', file=sys.stderr)
         return 2
     print(record['outcome'])
     return 0 if record['outcome'].startswith('PANEL PASS') else 1

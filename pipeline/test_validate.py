@@ -12,12 +12,18 @@ Run:  python pipeline/test_validate.py
 from __future__ import annotations
 
 import copy
+import io
 import json
+import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The fixtures are named from the repository root; this makes the file runnable
+# from inside pipeline/ as well.
+os.chdir(Path(__file__).resolve().parent.parent)
 
 import validate  # noqa: E402
 
@@ -219,6 +225,28 @@ def _(doc):
             if b["type"] == "scenario":
                 b["payload"]["decisions"][0]["consequenceEn"] = "Bad outcome."
     assert "scenario-consequence" in rules(run(doc))
+
+@case("a finding in Arabic prints on a cp1252 console instead of crashing")
+def _(doc):
+    # A Windows console defaults to cp1252. A finding that names an Arabic file or
+    # quotes an Arabic term raised UnicodeEncodeError before anything was reported.
+    with tempfile.TemporaryDirectory() as d:
+        bad = Path(d) / "درس.json"
+        bad.write_text("{", encoding="utf-8")
+        raw = io.BytesIO()
+        console = io.TextIOWrapper(raw, encoding="cp1252")
+        real = sys.stdout
+        sys.stdout = console
+        try:
+            code = validate.main([str(bad)])
+        except UnicodeEncodeError as e:
+            raise AssertionError(f"crashed on the Arabic finding: {e}")
+        finally:
+            console.flush()
+            sys.stdout = real
+    assert code == 1, code
+    assert "درس" in raw.getvalue().decode("utf-8", "replace"), "the finding names the file"
+
 
 def main() -> int:
     passed = sum(1 for _, ok, _ in RESULTS if ok)

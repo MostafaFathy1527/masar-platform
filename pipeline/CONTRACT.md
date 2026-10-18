@@ -130,6 +130,7 @@ pipeline/
   memory/
     concept-log.json     what has been taught, and where
     run-log.jsonl        every run, including failures
+    calibration-log.jsonl  every calibration judgement, kept out of the run log
   validate.py            structure, semantics, forbidden content
   concept_log.py         re-definition and forward-reference checks
   qa_gate.py             applies the rubric thresholds, writes the report

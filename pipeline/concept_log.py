@@ -197,6 +197,15 @@ def rebuild(lessons: list[tuple[Path, dict]]) -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Windows consoles default to cp1252, and a finding quotes whatever the lesson
+    # holds: an Arabic file name or term crashed this script with UnicodeEncodeError
+    # before it could report anything. The same guard qa_gate.py has.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding='utf-8', errors='replace')
+        except (AttributeError, ValueError):
+            pass
+
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--rebuild', action='store_true')

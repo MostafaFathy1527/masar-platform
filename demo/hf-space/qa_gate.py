@@ -2,16 +2,20 @@
 """The rubric gate: applies thresholds to a judge's scores and records the run.
 
 The judging is done by a fresh-context pass that never sees the generation
-prompt. This script does NOT call a model — no metered API sits anywhere in this
-pipeline, by design. It consumes the judge's verdict, applies the gate, writes a
-report, and appends the run to the log.
+prompt. This script does NOT call a model, metered or otherwise. The judges that
+do run in judge_bedrock.py, on Amazon Bedrock or on an open model served on
+rented hardware, and reach this gate only as the verdict files they write. It
+consumes the judge's verdict, applies the gate, writes a report, and appends the
+run to the log.
 
 Separating the two matters: a judge that also decided pass/fail could move the
 threshold to suit the score. Here the thresholds live in code, in version
 control, and every run is appended to memory/run-log.jsonl — including failures,
 because a logged history containing only successes is not evidence of anything.
+Verdicts on calibration copies, broken on purpose, are not runs of any lesson and
+go to memory/calibration-log.jsonl instead (see log_for).
 
-    python pipeline/qa_gate.py --verdict out/lesson-05/v1/verdict.json
+    python pipeline/qa_gate.py --verdict pipeline/out/lesson-02/v1/verdict.json
     python pipeline/qa_gate.py --verdict v.json --dry-run   # no log entry
 
 Exit codes: 0 pass, 1 gate failure, 2 could not run.
@@ -29,7 +33,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate import BLOCK_LEVELS  # noqa: E402  single source of the level rules
 
-RUN_LOG = Path('pipeline/memory/run-log.jsonl')
+# Anchored to the repository rather than the current directory: run from inside
+# pipeline/, the old relative path would have started a second log nobody reads.
+REPO = Path(__file__).resolve().parent.parent
+RUN_LOG = REPO / 'pipeline' / 'memory' / 'run-log.jsonl'
+CALIBRATION_LOG = REPO / 'pipeline' / 'memory' / 'calibration-log.jsonl'
+CALIBRATION_OUT = REPO / 'pipeline' / 'out' / 'calibration'
 
 CRITERIA = (
     'objective_alignment',
@@ -128,7 +137,8 @@ def load_verdict(path: Path, levels: set[str]) -> dict:
     for name, value in scores.items():
         if name not in CRITERIA:
             raise GateError(f'unknown criterion "{name}"')
-        if not isinstance(value, int) or not 1 <= value <= 5:
+        # bool is a subclass of int, so without the first test a JSON true scores 1.
+        if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 5:
             raise GateError(f'{name} = {value!r}; scores must be integers 1-5')
 
     not_scored = verdict.get('not_scored') or {}
@@ -280,12 +290,36 @@ def report(result: dict) -> str:
     return '\n'.join(lines) + '\n'
 
 
-def append_run(result: dict, verdict_path: Path) -> None:
-    RUN_LOG.parent.mkdir(parents=True, exist_ok=True)
+def repo_relative(path: Path) -> str:
+    """The verdict path as the log records it: relative to the repository, with
+    forward slashes, whatever the current directory. A path outside the repository
+    is refused, because the log is published and a local absolute path is not."""
+    try:
+        rel = Path(path).resolve().relative_to(REPO)
+    except ValueError as e:
+        raise GateError(f'{path} is outside the repository; only a verdict inside it is logged') from e
+    return rel.as_posix()
+
+
+def log_for(verdict_path: Path, log: Path | None = None) -> Path:
+    """Which log a verdict belongs in. An explicit log wins. Otherwise a verdict on
+    a calibration copy goes to the calibration log whoever called: those copies are
+    broken on purpose and carry the real lesson's slug, so one in the run log reads
+    as a failed run of that lesson on the public site."""
+    if log is not None:
+        return Path(log)
+    if CALIBRATION_OUT in Path(verdict_path).resolve().parents:
+        return CALIBRATION_LOG
+    return RUN_LOG
+
+
+def append_run(result: dict, verdict_path: Path, log: Path | None = None) -> Path:
+    """Appends one entry and returns the log it went to."""
+    log = log_for(verdict_path, log)
     entry = {
         'at': datetime.now(timezone.utc).isoformat(),
         'lesson': result['lesson'],
-        'verdict': str(verdict_path).replace('\\', '/'),
+        'verdict': repo_relative(verdict_path),
         'scores': result['scores'],
         'mean': result['mean'],
         'passed': result['passed'],
@@ -298,8 +332,10 @@ def append_run(result: dict, verdict_path: Path) -> None:
         # qualifies, wherever the log is read from later.
         'independence_caveat': (result.get('judge') or {}).get('independence_caveat', ''),
     }
-    with io.open(RUN_LOG, 'a', encoding='utf-8', newline='\n') as fh:
+    log.parent.mkdir(parents=True, exist_ok=True)
+    with io.open(log, 'a', encoding='utf-8', newline='\n') as fh:
         fh.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    return log
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -319,6 +355,9 @@ def main(argv: list[str] | None = None) -> int:
                     help='lesson.json; defaults to the one beside the verdict')
     ap.add_argument('--report', type=Path, help='where to write qa-report.md')
     ap.add_argument('--dry-run', action='store_true', help='do not append to the run log')
+    ap.add_argument('--log', type=Path,
+                    help='append to this log instead (default: the run log, or the calibration '
+                         'log for a verdict under pipeline/out/calibration/)')
     args = ap.parse_args(argv)
 
     try:
@@ -337,7 +376,11 @@ def main(argv: list[str] | None = None) -> int:
         print(text)
 
     if not args.dry_run:
-        append_run(result, args.verdict)
+        try:
+            append_run(result, args.verdict, args.log)
+        except GateError as e:
+            print(f'error: {e}', file=sys.stderr)
+            return 2
 
     return 0 if result['passed'] else 1
 

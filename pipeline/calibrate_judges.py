@@ -35,7 +35,10 @@ and failure entry 18).
                                                            # the served seat included
 
 Writes pipeline/out/calibration/<date>/report.md and results.json. Rows for
-judges not in the current run are kept from earlier runs on the same day.
+judges not in the current run are kept from earlier runs on the same day. Each
+verdict is logged to pipeline/memory/calibration-log.jsonl, not the run log.
+--report-only finds each judge's verdicts by the model id they record, so a run
+judged under an older tag rule still counts.
 """
 
 from __future__ import annotations
@@ -51,6 +54,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import judge_bedrock  # noqa: E402
 import panel  # noqa: E402
+import qa_gate  # noqa: E402
+
+# Where the copies and their verdicts live. Every judgement made here is logged to
+# the calibration log, never the run log: the copies are broken on purpose and carry
+# the real lesson's slug, and the run log is what the public site reads.
+CALIBRATION_ROOT = qa_gate.CALIBRATION_OUT
 
 SAMPLES = (
     'pipeline/out/lesson-sec-01/v1',
@@ -156,10 +165,28 @@ def tag_for(model: str, served: bool = False) -> str:
     return '-'.join(parts[1:] if len(parts) > 1 else parts).replace(':', '-').lower()
 
 
-def score(verdict_path: Path, criterion: str) -> int | None:
+def verdicts_by_model(d: Path) -> dict[str, Path]:
+    """Every verdict in one copy's folder, keyed by the model id it records, the latest
+    per model. A report is rebuilt from what the verdicts say about themselves, not from a
+    file name recomputed by today's tag_for: the tag rules have changed since the oldest
+    runs (Kimi K3 is on disk as verdict.moonshotai-kimi-k3.json, a served GGUF as its whole
+    flattened file name), and a recomputed tag that misses the file reads as no score."""
+    found: dict[str, tuple[str, Path]] = {}
+    for p in sorted(d.glob('verdict.*.json')):
+        try:
+            judge = json.loads(p.read_text(encoding='utf-8')).get('judge') or {}
+        except (json.JSONDecodeError, AttributeError):
+            continue
+        model, at = judge.get('model_id'), str(judge.get('scored_at', ''))
+        if model and (model not in found or at >= found[model][0]):
+            found[model] = (at, p)
+    return {m: p for m, (_, p) in found.items()}
+
+
+def score(verdict_path: Path | None, criterion: str) -> int | None:
     """A verdict that hands back the rubric's example is not a reading of the lesson, so it
     counts as no score at all (what-failed entry 19)."""
-    if not verdict_path.exists():
+    if verdict_path is None or not verdict_path.exists():
         return None
     verdict = json.loads(verdict_path.read_text(encoding='utf-8'))
     if judge_bedrock.copies_rubric_example(verdict):
@@ -216,42 +243,57 @@ def main(argv: list[str] | None = None) -> int:
                     help='rebuild the report from verdicts already on disk; call no model')
     args = ap.parse_args(argv)
 
-    models = args.models.split(',') if args.models else [m for m, _ in panel.PANEL_MODELS]
     defects = args.defects.split(',') if args.defects else list(MUTANTS)
     if args.audit_copies:
-        found = audit_copies(Path('pipeline/out/calibration'))
+        found = audit_copies(CALIBRATION_ROOT)
         print('\n'.join(found) if found else 'no verdict hands back the rubric example')
         return 0
-    root = Path('pipeline/out/calibration') / args.date
+    root = CALIBRATION_ROOT / args.date
+    if args.models:
+        models = args.models.split(',')
+    elif args.report_only:
+        # A rebuild covers every judge that left a verdict in this run.
+        models = sorted({m for d in root.glob('*__*') for m in verdicts_by_model(d)})
+    else:
+        models = [m for m, _ in panel.PANEL_MODELS]
     rows: list[dict] = []
     for sample in SAMPLES:
-        src = Path(sample)
-        lesson = json.loads((src / 'lesson.json').read_text(encoding='utf-8'))
-        bank = json.loads((src / 'items.json').read_text(encoding='utf-8'))
+        src = qa_gate.REPO / sample
         dirs = {'real-items': root / f'{src.parent.name}__real-items'}
-        write(dirs['real-items'], lesson, bank)
         for name in defects:
             dirs[name] = root / f'{src.parent.name}__{name}'
-            write(dirs[name], *MUTANTS[name][1](lesson, bank))
+        if not args.report_only:
+            # A rebuild leaves the copies alone: they are what was judged.
+            lesson = json.loads((src / 'lesson.json').read_text(encoding='utf-8'))
+            bank = json.loads((src / 'items.json').read_text(encoding='utf-8'))
+            write(dirs['real-items'], lesson, bank)
+            for name in defects:
+                write(dirs[name], *MUTANTS[name][1](lesson, bank))
         if args.dry_run:
             continue
         served = bool(args.endpoint)
         transport = ['--endpoint', args.endpoint] if served else ['--region', args.region]
         for d in ([] if args.report_only else dirs.values()):
+            have = verdicts_by_model(d)
             for model in models:
                 tag = tag_for(model, served)
-                if not (d / f'verdict.{tag}.json').exists():
+                if model not in have and not (d / f'verdict.{tag}.json').exists():
                     try:
                         judge_bedrock.main(['--lesson', str(d / 'lesson.json'), '--model', model,
-                                            '--tag', tag, *transport])
+                                            '--tag', tag, *transport,
+                                            '--log', str(qa_gate.CALIBRATION_LOG)])
                     except Exception as e:  # one refused model must not end the run for the rest
                         print(f'{model} on {d.name}: {type(e).__name__}: {str(e)[:160]}', file=sys.stderr)
+        on_disk = {k: verdicts_by_model(d) for k, d in dirs.items()}
         for model in models:
-            tag = tag_for(model, served)
             for name in defects:
+                if args.report_only and model not in on_disk[name]:
+                    # Never shown this copy: earlier runs gave some judges only some
+                    # defects, and an empty row here would replace a kept one.
+                    continue
                 criterion = MUTANTS[name][0]
-                before = score(dirs['real-items'] / f'verdict.{tag}.json', criterion)
-                after = score(dirs[name] / f'verdict.{tag}.json', criterion)
+                before = score(on_disk['real-items'].get(model), criterion)
+                after = score(on_disk[name].get(model), criterion)
                 rows.append({'sample': src.parent.name, 'defect': name, 'criterion': criterion,
                              'judge': model, 'real': before, 'broken': after,
                              'drop': None if before is None or after is None else before - after})

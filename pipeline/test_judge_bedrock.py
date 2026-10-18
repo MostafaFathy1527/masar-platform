@@ -8,10 +8,15 @@ everything here runs on fixtures, and a model call is never made.
 from __future__ import annotations
 
 import json
+import os
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The fixtures are named from the repository root; this makes the file runnable
+# from inside pipeline/ as well.
+os.chdir(Path(__file__).resolve().parent.parent)
 import compare_verdicts  # noqa: E402
 import judge_bedrock  # noqa: E402
 import qa_gate  # noqa: E402
@@ -330,8 +335,107 @@ def test_the_whole_reply_is_kept_on_request(tmp: Path):
         os.environ.pop('JUDGE_KEEP_OUTPUT', None)
 
 
+def l1_reply(lesson_slug: str, kc: int = 4) -> dict:
+    """A judge reply the gate accepts for an L1 lesson."""
+    return {
+        'lesson': lesson_slug,
+        'scores': {'objective_alignment': 4, 'level_fidelity': 4, 'worked_example': 4,
+                   'scenario_authenticity': 4, 'bilingual_quality': kc, 'concision': 4,
+                   'accessibility_ip': 4},
+        'notes': {'worked_example': 'the calculation in prose',
+                  'scenario_authenticity': 'the two job tips'},
+        'not_scored': {'knowledge_check': 'no knowledge_check block can exist at L1'},
+        'verdict_notes': 'A test reply.',
+    }
+
+
+def run_log_lines() -> int:
+    return len(qa_gate.RUN_LOG.read_text(encoding='utf-8').splitlines())
+
+
+def test_log_option_keeps_a_judgement_out_of_the_run_log():
+    print('--log sends the gate entry to the named log, and the run log is untouched')
+    before = run_log_lines()
+    real = judge_bedrock.call_bedrock
+    judge_bedrock.call_bedrock = lambda *a, **k: (json.dumps(l1_reply('x-l1')), {'temperature': 0})
+    # Inside the repository, because the gate refuses to log a path outside it.
+    with tempfile.TemporaryDirectory(dir=qa_gate.REPO / 'pipeline' / 'out') as d, \
+            tempfile.TemporaryDirectory() as logs:
+        lesson = Path(d) / 'lesson.json'
+        lesson.write_text(json.dumps(LESSON_L1), encoding='utf-8')
+        log = Path(logs) / 'elsewhere.jsonl'
+        try:
+            code = judge_bedrock.main(['--lesson', str(lesson), '--model', 'm', '--tag', 't',
+                                       '--log', str(log)])
+        finally:
+            judge_bedrock.call_bedrock = real
+        entries = [json.loads(x) for x in log.read_text(encoding='utf-8').splitlines()] if log.exists() else []
+        check(code == 0 and len(entries) == 1, 'one entry in the named log')
+        check(entries and entries[0]['verdict'] == f'pipeline/out/{Path(d).name}/verdict.t.json',
+              'and its verdict path is relative to the repository')
+    check(run_log_lines() == before, 'nothing appended to the run log')
+
+
+def test_calibration_logs_to_the_calibration_log():
+    print('calibrate_judges sends every judgement to the calibration log')
+    import calibrate_judges
+    seen: list[list[str]] = []
+    real_main, real_root = judge_bedrock.main, calibrate_judges.CALIBRATION_ROOT
+    judge_bedrock.main = lambda argv: seen.append(list(argv)) or 2
+    before = run_log_lines()
+    with tempfile.TemporaryDirectory() as d:
+        calibrate_judges.CALIBRATION_ROOT = Path(d)
+        try:
+            calibrate_judges.main(['--models', 'zai.glm-5', '--defects', 'generic-feedback',
+                                   '--date', 'test'])
+        finally:
+            judge_bedrock.main, calibrate_judges.CALIBRATION_ROOT = real_main, real_root
+    check(seen and all('--log' in a and a[a.index('--log') + 1] == str(qa_gate.CALIBRATION_LOG)
+                       for a in seen), f'all {len(seen)} judge calls name the calibration log')
+    check(qa_gate.log_for(qa_gate.CALIBRATION_OUT / 'x' / 'y' / 'verdict.t.json') == qa_gate.CALIBRATION_LOG,
+          'and a calibration verdict judged by hand goes there too')
+    check(run_log_lines() == before, 'nothing appended to the run log')
+
+
+def test_report_only_reads_the_model_from_the_verdict():
+    print('--report-only finds verdicts saved under an older tag rule')
+    import calibrate_judges
+    # As on disk from 14 and 15 October: Kimi K3 under its whole Bedrock id, and a served
+    # GGUF judged without --endpoint, whose name today's tag_for would collapse.
+    judges = {'us.moonshotai.kimi-k3': 'moonshotai-kimi-k3',
+              'Fanar-2-27B-Instruct.Q4_K_M.gguf': 'fanar-2-27b-instruct-q4-k-m-gguf'}
+    check(all(calibrate_judges.tag_for(m) != t for m, t in judges.items()),
+          'the tags on disk are not the ones tag_for gives today')
+    real_root = calibrate_judges.CALIBRATION_ROOT
+    with tempfile.TemporaryDirectory() as d:
+        run = Path(d) / 'old-run'
+        for variant, kc in (('real-items', 5), ('generic-feedback', 1)):
+            folder = run / f'lesson-cs-01__{variant}'
+            folder.mkdir(parents=True)
+            for model, tag in judges.items():
+                reply = l1_reply('cs-01')
+                reply['scores'].pop('bilingual_quality')
+                reply['scores'].update(knowledge_check=kc, bilingual_quality=4)
+                reply['not_scored'] = {}
+                v = judge_bedrock.make_verdict(reply, {'slug': 'cs-01'}, model, {'temperature': 0})
+                (folder / f'verdict.{tag}.json').write_text(json.dumps(v), encoding='utf-8')
+        calibrate_judges.CALIBRATION_ROOT = Path(d)
+        try:
+            calibrate_judges.main(['--date', 'old-run', '--report-only', '--defects', 'generic-feedback'])
+        finally:
+            calibrate_judges.CALIBRATION_ROOT = real_root
+        report = (run / 'report.md').read_text(encoding='utf-8')
+        rows = json.loads((run / 'results.json').read_text(encoding='utf-8'))
+        check(not (run / 'lesson-cs-01__real-items' / 'lesson.json').exists(),
+              'a rebuild does not rewrite the copies that were judged')
+    for model in judges:
+        line = next((x for x in report.splitlines() if x.startswith(f'| `{model}`')), '')
+        check(line.endswith('| knowledge_check | 1 of 1 | 4.00 |'), f'{model}: 1 of 1, not 0 of 0')
+    check(all(r['sample'] == 'lesson-cs-01' for r in rows) and len(rows) == 2,
+          'no empty rows for samples and defects the judges were never shown')
+
+
 if __name__ == '__main__':
-    import tempfile
     for stream in (sys.stdout, sys.stderr):
         try:
             stream.reconfigure(encoding='utf-8', errors='replace')
@@ -351,5 +455,8 @@ if __name__ == '__main__':
         test_explicit_decoding_overrides_the_environment(Path(d))
     with tempfile.TemporaryDirectory() as d:
         test_the_whole_reply_is_kept_on_request(Path(d))
+    test_log_option_keeps_a_judgement_out_of_the_run_log()
+    test_calibration_logs_to_the_calibration_log()
+    test_report_only_reads_the_model_from_the_verdict()
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)

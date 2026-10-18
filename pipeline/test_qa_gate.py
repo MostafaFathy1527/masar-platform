@@ -12,11 +12,15 @@ Run:  python pipeline/test_qa_gate.py
 from __future__ import annotations
 
 import json
+import os
 import sys
 import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The fixtures are named from the repository root; this makes the file runnable
+# from inside pipeline/ as well.
+os.chdir(Path(__file__).resolve().parent.parent)
 
 import qa_gate  # noqa: E402
 
@@ -173,8 +177,10 @@ def _():
 
 # ---------------------------------------------------------------- L1 lessons
 # The gate could not evaluate an L1-only lesson at all: CRITERIA was a fixed
-# eight-tuple and three of them describe blocks the registry forbids at L1. Four
-# of the five shipped lessons are L1-only. See what-failed.md entry 10.
+# eight-tuple and three of them describe blocks the registry forbids at L1. When
+# that was found, most of the shipped lessons were L1-only; they have all gained
+# an L2 since, but a lesson may still be published at L1 alone. See what-failed.md
+# entry 10.
 
 
 @case('an L1 lesson is judgeable at all')
@@ -266,6 +272,82 @@ def _():
             assert 'lesson not found' in str(e), e
         else:
             raise AssertionError('a missing lesson must not default to "everything applies"')
+
+
+# ---------------------------------------------------------------- the log
+
+
+@case('a JSON boolean is not a score')
+def _():
+    # bool is a subclass of int, so true passed as a 1 and false failed the range.
+    refuses(verdict(scores={'concision': True}), ALL_LEVELS, 'must be integers')
+
+
+def logged(verdict_path, log=None) -> tuple[Path, dict]:
+    """Append one entry to a throwaway log and read it back."""
+    with tempfile.TemporaryDirectory() as d:
+        target = Path(d) / 'log.jsonl'
+        went = qa_gate.append_run(qa_gate.evaluate(verdict()), verdict_path, log or target)
+        return went, json.loads(went.read_text(encoding='utf-8').splitlines()[-1])
+
+
+@case('the run log is found from the repository, not the current directory')
+def _():
+    assert qa_gate.RUN_LOG.is_absolute(), qa_gate.RUN_LOG
+    assert qa_gate.RUN_LOG == qa_gate.REPO / 'pipeline' / 'memory' / 'run-log.jsonl'
+    assert (qa_gate.REPO / 'pipeline' / 'qa_gate.py').exists(), qa_gate.REPO
+
+
+@case('the verdict is logged relative to the repository, from any directory')
+def _():
+    rel = 'pipeline/out/lesson-02/v1/verdict.json'
+    _, entry = logged(qa_gate.REPO / rel)
+    assert entry['verdict'] == rel, entry['verdict']
+    here = Path.cwd()
+    try:
+        os.chdir(qa_gate.REPO / 'pipeline')
+        _, entry = logged(Path('out/lesson-02/v1/verdict.json'))
+    finally:
+        os.chdir(here)
+    assert entry['verdict'] == rel, entry['verdict']
+
+
+@case('a verdict outside the repository is refused, not logged with its local path')
+def _():
+    with tempfile.TemporaryDirectory() as d:
+        try:
+            logged(Path(d) / 'verdict.json')
+        except qa_gate.GateError as e:
+            assert 'outside the repository' in str(e), e
+        else:
+            raise AssertionError('an absolute path outside the repository must not reach the log')
+
+
+@case('a calibration verdict goes to the calibration log, never the run log')
+def _():
+    copy = qa_gate.CALIBRATION_OUT / '2026-10-14' / 'lesson-cs-01__generic-feedback' / 'verdict.glm-5.json'
+    assert qa_gate.log_for(copy) == qa_gate.CALIBRATION_LOG, qa_gate.log_for(copy)
+    assert qa_gate.log_for(qa_gate.REPO / 'pipeline/out/lesson-02/v1/verdict.json') == qa_gate.RUN_LOG
+    assert qa_gate.CALIBRATION_LOG != qa_gate.RUN_LOG
+
+
+@case('an explicit log wins over the default')
+def _():
+    with tempfile.TemporaryDirectory() as d:
+        target = Path(d) / 'elsewhere.jsonl'
+        went, _ = logged(qa_gate.REPO / 'pipeline/out/lesson-02/v1/verdict.json', target)
+        assert went == target, went
+
+
+@case('the run log holds no calibration verdict')
+def _():
+    # The public page reads this log. 582 entries from the calibration copies, most of
+    # them scores of lessons broken on purpose under the real lesson's slug, were in it
+    # until 18 October 2026.
+    for line in qa_gate.RUN_LOG.read_text(encoding='utf-8').splitlines():
+        path = json.loads(line)['verdict']
+        assert not path.startswith('pipeline/out/calibration/'), path
+        assert not Path(path).is_absolute() and ':' not in path, path
 
 
 def main() -> int:

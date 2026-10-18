@@ -9,11 +9,15 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import sys
 import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The fixtures are named from the repository root; this makes the file runnable
+# from inside pipeline/ as well.
+os.chdir(Path(__file__).resolve().parent.parent)
 import panel  # noqa: E402
 import qa_gate  # noqa: E402
 import run_lesson  # noqa: E402
@@ -216,6 +220,42 @@ check(rec['outcome'].startswith('STOPPED after the one retry') and not jcalls,
       'a retry that strips the cards stops for a human, unjudged')
 check('revision' in (out / 'v2/gates.md').read_text(encoding='utf-8'), 'the revision finding is reported')
 t.cleanup()
+
+print('a generator or judge that raises still leaves a record')
+
+
+def raising(*a, **k):
+    raise RuntimeError('throttled by the provider')
+
+
+for where, call, judge in (('generate', raising, judges({}, {})[0]),
+                           ('panel', generator(GOOD)[0], raising)):
+    t = tempfile.TemporaryDirectory()
+    out = Path(t.name) / 'lesson-x'
+    try:
+        run_lesson.run(SOURCE, 'CS-01', out, levels=['L1', 'L2'], slug='x',
+                       generator='openai.gpt-oss-120b-1:0', region='us-east-1', denylist=[],
+                       call=call, judge=judge, seats=('family0.judge', 'family1.judge'))
+        check(False, f'a {where} that raises is not swallowed')
+    except RuntimeError:
+        check(True, f'a {where} that raises is not swallowed')
+    rec = json.loads((out / 'run.json').read_text(encoding='utf-8')) if (out / 'run.json').exists() else {}
+    check(rec.get('outcome', '').startswith(f'ERROR at v1 {where}: RuntimeError: throttled'),
+          f'{where}: run.json records the exception ({rec.get("outcome")})')
+    check(rec.get('error', {}).get('step') == where and 'finished' in rec, f'{where}: and where it happened')
+    report = (out / 'run-report.md').read_text(encoding='utf-8') if (out / 'run-report.md').exists() else ''
+    check('throttled by the provider' in report, f'{where}: run-report.md says so too')
+    t.cleanup()
+
+print('generation.json records the temperature the call used')
+for reported, expected in (({'temperature': None}, None), ({'temperature': 0}, 0), ({}, 0)):
+    def call_with(prompt, model, region, _u=reported):
+        return json.dumps(GOOD, ensure_ascii=False), dict(_u, inputTokens=1, outputTokens=1)
+    rec, out, t = go(call_with, judges({}, {})[0])
+    gen = json.loads((out / 'v1/generation.json').read_text(encoding='utf-8'))
+    check(gen['temperature'] == expected,
+          f'call reported {reported.get("temperature", "nothing")}: recorded {gen["temperature"]!r}')
+    t.cleanup()
 
 print('a generator from a judge family never starts')
 call, prompts = generator(GOOD)

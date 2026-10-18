@@ -426,6 +426,15 @@ def load_denylist(path: Path) -> list[re.Pattern[str]]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Windows consoles default to cp1252, and a finding quotes whatever the lesson
+    # holds: an Arabic file name or term crashed this script with UnicodeEncodeError
+    # before it could report anything. The same guard qa_gate.py has.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("files", nargs="*", help=f"lesson JSON files (default: {DEFAULT_GLOB})")
     parser.add_argument("--denylist", type=Path, help="untracked file of forbidden name patterns")

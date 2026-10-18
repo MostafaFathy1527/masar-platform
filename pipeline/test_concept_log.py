@@ -16,11 +16,16 @@ Run:  python pipeline/test_concept_log.py
 from __future__ import annotations
 
 import copy
+import io
 import json
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The fixtures are named from the repository root; this makes the file runnable
+# from inside pipeline/ as well.
+os.chdir(Path(__file__).resolve().parent.parent)
 
 import concept_log  # noqa: E402
 
@@ -114,6 +119,27 @@ def _(lessons):
                     'mdEn': 'A clean claim rarely reaches this stage at all.'},
     })
     assert not rules(concept_log.check(lessons)), 'legitimate reuse must not be flagged'
+
+
+@case('a finding in Arabic prints on a cp1252 console instead of crashing')
+def _(lessons):
+    # The same failure validate.py had: a Windows console defaults to cp1252, and a
+    # finding naming an Arabic file raised UnicodeEncodeError before it was reported.
+    renamed = [(p.with_name('07-رفض.json'), d) if '07-denials' in p.name else (p, d) for p, d in lessons]
+    find(renamed, '07-')['conceptsIntroduced'].append('clean_claim')
+    raw = io.BytesIO()
+    console = io.TextIOWrapper(raw, encoding='cp1252')
+    real_out, real_load = sys.stdout, concept_log.load_lessons
+    sys.stdout, concept_log.load_lessons = console, lambda: renamed
+    try:
+        code = concept_log.main(['--check'])
+    except UnicodeEncodeError as e:
+        raise AssertionError(f'crashed on the Arabic finding: {e}')
+    finally:
+        console.flush()
+        sys.stdout, concept_log.load_lessons = real_out, real_load
+    assert code == 1, code
+    assert 'رفض' in raw.getvalue().decode('utf-8', 'replace'), 'the finding names the lesson'
 
 
 def main() -> int:

@@ -323,6 +323,9 @@ def main(argv: list[str] | None = None) -> int:
                          'JUDGE_MAX_TOKENS, then 4000)')
     ap.add_argument('--dry-run', action='store_true',
                     help='print the prompt and stop; no model call, nothing written')
+    ap.add_argument('--log', type=Path,
+                    help='the log the gate appends this verdict to (default: the run log; '
+                         'calibrate_judges.py passes the calibration log)')
     args = ap.parse_args(argv)
 
     lesson = json.loads(args.lesson.read_text(encoding='utf-8'))
@@ -380,7 +383,11 @@ def main(argv: list[str] | None = None) -> int:
     result = qa_gate.evaluate(loaded)
     report_path = args.lesson.parent / f'qa-report.{args.tag}.md'
     report_path.write_text(qa_gate.report(result), encoding='utf-8')
-    qa_gate.append_run(result, out)
+    try:
+        qa_gate.append_run(result, out, args.log)
+    except qa_gate.GateError as e:
+        print(f'gate could not log the verdict: {e}', file=sys.stderr)
+        return 2
     print(f'{"PASS" if result["passed"] else "FAIL"} mean {result["mean"]} over '
           f'{len(result["scores"])} criteria; report {report_path}')
     return 0 if result['passed'] else 1
