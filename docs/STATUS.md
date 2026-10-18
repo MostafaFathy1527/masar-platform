@@ -297,6 +297,16 @@ a stand-in server and in `test_judge_bedrock.py`.
   verdict, against 6,000-7,700 for the other judges on the same prompt. K3 did read the lessons:
   its notes name details only the lesson contains. The count is Bedrock's, not the pipeline's.
 
+**Added 2026-10-18 (night): two logs, and gates that do not depend on where they run.**
+- **Calibration judgements have their own log**, `pipeline/memory/calibration-log.jsonl`
+  (`judge_bedrock.py --log`). `run-log.jsonl` now holds only the 56 lesson runs, and
+  `/how-it-was-built` says so instead of "it mixes calibration trials".
+- **`qa_gate.py` resolves its paths from the repository**, not the working directory, and refuses
+  `true`/`false` as a score (Python counts a bool as an int). `run_lesson.py` writes `run.json`
+  in a `finally`, so a run that crashes still leaves its record.
+- **The Hugging Face Space carries the same gates** (`demo/hf-space/sync.py`, then
+  `build_static.py`); its four changed files were re-uploaded and their hashes match the repo.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
