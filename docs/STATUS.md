@@ -272,11 +272,14 @@ a stand-in server and in `test_judge_bedrock.py`.
   stderr, when its endpoint is unset, unreachable or not a chat completion. `judge_bedrock.py`
   takes `--temperature` and `--max-tokens`. `run_lesson.py` refuses a generator from any seat's
   family, Qwen included.
-- **Still open:** an endpoint the weekly run can reach (`JUDGE_QWEN3_ENDPOINT`); until it exists the
-  weekly job is red every week by construction, which hides a hosted judge drifting. Two smaller
-  gaps a reviewer showed: nothing checks that the endpoint serves the seated file (llama.cpp
-  ignores the request's model name), and a served verdict the gate refuses stops the whole panel
-  for that lesson.
+- **The weekly run rents its own card** (owner's decision, 18 October): `judge-panel.yml` rents two
+  V100 cards for the run (`pipeline/served_judge_vm.py`), builds llama.cpp at the calibration's
+  commit and serves the seated file only if its sha256 matches (`pipeline/served_judge_setup.sh`),
+  reaches it through an SSH tunnel with a key made for that run, and terminates the machine in a
+  final step that always runs. About 40 minutes, $0.58 an hour.
+- **Still open:** the `CLOUDRIFT_API_KEY` repository secret, which the owner creates; until then
+  the seat is empty and the weekly job is red. A served verdict the gate refuses still stops the
+  whole panel for that lesson.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and

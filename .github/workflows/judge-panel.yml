@@ -22,7 +22,7 @@ jobs:
   panel:
     if: ${{ vars.AWS_ROLE_ARN != '' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -50,14 +50,28 @@ jobs:
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: us-east-1
-      # The open seat (SERVED_JUDGES in pipeline/panel.py) is not on Bedrock. It
-      # needs a reachable OpenAI-compatible endpoint serving that exact GGUF,
-      # Qwen3-30B-A3B-Thinking-2507-Q8_0, on hardware rented for the run. Until
-      # the repository secret JUDGE_QWEN3_ENDPOINT is set the seat is empty, and
-      # every sample reports NEEDS HUMAN because of it, never PASS.
-      - name: Score every sample with the panel
+      # The open seat (SERVED_JUDGES in pipeline/panel.py) is not on Bedrock. Two
+      # V100 cards are rented for the length of the run, the seated GGUF is served
+      # there behind an SSH tunnel, and the machine is terminated in the last step
+      # whatever happened. The SSH key is made for this run and thrown away with
+      # it. Without the CLOUDRIFT_API_KEY secret nothing is rented, the seat stays
+      # empty, and every sample reports NEEDS HUMAN, never PASS.
+      - name: Rent a GPU and serve the open seat
         env:
-          JUDGE_QWEN3_ENDPOINT: ${{ secrets.JUDGE_QWEN3_ENDPOINT }}
+          CLOUDRIFT_API_KEY: ${{ secrets.CLOUDRIFT_API_KEY }}
+        run: |
+          if [ -z "$CLOUDRIFT_API_KEY" ]; then
+            echo "CLOUDRIFT_API_KEY is not set; the open seat stays empty"; exit 0
+          fi
+          ssh-keygen -q -t ed25519 -N '' -f run_key
+          ip=$(python pipeline/served_judge_vm.py up --public-key run_key.pub)
+          ssh_opts="-i run_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=15 -o ConnectTimeout=30"
+          for i in $(seq 1 40); do ssh $ssh_opts riftuser@"$ip" true 2>/dev/null && break; sleep 15; done
+          ssh $ssh_opts riftuser@"$ip" 'bash -s' < pipeline/served_judge_setup.sh
+          ssh $ssh_opts -fN -L 18080:127.0.0.1:8080 riftuser@"$ip"
+          curl -sf http://127.0.0.1:18080/health
+          echo "JUDGE_QWEN3_ENDPOINT=http://127.0.0.1:18080/v1" >> "$GITHUB_ENV"
+      - name: Score every sample with the panel
         run: |
           set +e
           status=0
@@ -72,3 +86,10 @@ jobs:
             [ $code -ne 0 ] && status=1
           done
           exit $status
+      - name: Give the GPU back
+        if: always()
+        env:
+          CLOUDRIFT_API_KEY: ${{ secrets.CLOUDRIFT_API_KEY }}
+        run: |
+          [ -z "$CLOUDRIFT_API_KEY" ] && exit 0
+          python pipeline/served_judge_vm.py down
