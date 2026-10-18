@@ -65,6 +65,18 @@ export const DRAFT_OBJECTIVES: Record<string, { en: string; ar: string; domainEn
   },
 }
 
+/**
+ * Distinct lessons among the folders in pipeline/out. Only `lesson-*` folders
+ * are lessons (calibration/ holds judge trials, not a lesson), and a retry such
+ * as `lesson-ops-01-r2` is the same lesson run again, so it folds into its
+ * lesson rather than counting twice. Pure, so it is tested without the disk.
+ */
+export function distinctLessons(dirs: string[]): string[] {
+  return [
+    ...new Set(dirs.filter((d) => d.startsWith('lesson-')).map((d) => d.replace(/-r\d+$/, ''))),
+  ].sort()
+}
+
 function latestVersion(dir: string): string | null {
   const versions = readdirSync(`${DRAFT_DIR}/${dir}`).filter((v) => /^v\d+$/.test(v)).sort()
   return versions.length ? versions[versions.length - 1] : null
@@ -226,4 +238,18 @@ export function criterionLabel(c: string, ar: boolean): string {
   }
   if (ar) return AR[c] ?? c.replace(/_/g, ' ')
   return c === 'knowledge_check' ? 'the knowledge checks' : c.replace(/_/g, ' ')
+}
+
+/**
+ * Objectives of the end-to-end runs, one entry per run: a folder in
+ * pipeline/out that holds the run.json `run_lesson.py` writes when it drives
+ * generation, the gates and the judges in one go. Read rather than restated, so
+ * the case study cannot keep saying "not yet run end to end" after it has been.
+ */
+export function endToEndRuns(): string[] {
+  if (!existsSync(DRAFT_DIR)) return []
+  return readdirSync(DRAFT_DIR)
+    .filter((d) => existsSync(`${DRAFT_DIR}/${d}/run.json`))
+    .sort()
+    .map((d) => String(JSON.parse(readFileSync(`${DRAFT_DIR}/${d}/run.json`, 'utf-8')).objective ?? d))
 }

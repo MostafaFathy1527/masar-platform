@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { DepthView } from '@/components/player/DepthView'
 import { pick } from '@/lib/content-locale'
@@ -12,10 +13,24 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
-export const metadata: Metadata = {
-  title: 'The depth model — Masār',
-  description:
-    'One lesson published at three defined depths: structured publishing, an interactive lesson, and applied practice.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const m: { title: string; description?: string } = locale === 'ar'
+    ? {
+        title: 'نموذج العمق — مسار',
+        description:
+          'درس واحد منشور على ثلاثة مستويات عمق محددة: قراءة منظمة، ودرس تفاعلي، وتطبيق عملي.',
+      }
+    : {
+        title: 'The depth model — Masār',
+        description:
+          'One lesson published at three defined depths: structured publishing, an interactive lesson, and applied practice.',
+      }
+  return pageSeo(locale, '/depth', m.title, m.description)
 }
 
 /** Parsed at build time, so invalid content fails the build rather than a page view. */

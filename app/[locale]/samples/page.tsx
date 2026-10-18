@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
 import { draftIndex } from '@/lib/drafts'
@@ -13,9 +14,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  return locale === 'ar'
+  const m: { title: string; description?: string } = locale === 'ar'
     ? { title: 'عينات من خط الإنتاج — مسار', description: 'دروس مسودّة ولّدها خط الإنتاج خارج مجال الدورة التجريبية، معروضة كما خرجت من البوابات.' }
     : { title: 'Pipeline samples — Masār', description: 'Draft lessons the pipeline produced outside the demo course’s domain, shown as they left the gates.' }
+  return pageSeo(locale, '/samples', m.title, m.description)
 }
 
 export default async function SamplesPage({ params }: { params: Promise<{ locale: string }> }) {

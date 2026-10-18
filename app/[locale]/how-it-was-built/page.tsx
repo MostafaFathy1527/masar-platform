@@ -1,16 +1,32 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
+import { arCounted } from '@/lib/count-words'
+import { distinctLessons } from '@/lib/drafts'
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
 
-export const metadata: Metadata = {
-  title: 'How it was built — Masār',
-  description:
-    'The content pipeline, its gates, and what has and has not yet been generated through it.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const m: { title: string; description?: string } = locale === 'ar'
+    ? {
+        title: 'كيف بُني هذا — مسار',
+        description: 'خط إنتاج المحتوى وبواباته، وما وُلِّد عبره وما لم يُولَّد بعد.',
+      }
+    : {
+        title: 'How it was built — Masār',
+        description:
+          'The content pipeline, its gates, and what has and has not yet been generated through it.',
+      }
+  return pageSeo(locale, '/how-it-was-built', m.title, m.description)
 }
 
 /*
@@ -19,8 +35,9 @@ export const metadata: Metadata = {
  * cannot drift into describing a pipeline that is better than the one that
  * exists.
  *
- * The status section is deliberately unflattering: no lesson has yet been
- * generated through the loop, and saying so is the point.
+ * The status section is deliberately unflattering: what the pipeline has
+ * produced is drafts, judged by models and not yet by a person, and saying so
+ * is the point.
  */
 
 function countTests(file: string): number {
@@ -42,9 +59,12 @@ function conceptLog() {
   }
 }
 
+// Distinct lessons, not folders: pipeline/out also holds calibration/ and
+// retries such as lesson-ops-01-r2, and counting folders reported seven
+// lessons where five exist.
 function generatedDrafts(): number {
   try {
-    return readdirSync('pipeline/out').length
+    return distinctLessons(readdirSync('pipeline/out')).length
   } catch {
     return 0
   }
@@ -57,10 +77,11 @@ function generatedDrafts(): number {
  * Interpolating a number in front of "درس" was wrong for every value except one.
  */
 function arDrafts(n: number): string {
-  if (n === 1) return 'درس واحد'
-  if (n === 2) return 'درسان'
-  if (n >= 3 && n <= 10) return `${n} دروس`
-  return `${n} درسًا`
+  return arCounted(n, { one: 'درس واحد', two: 'درسان', plural: 'دروس', accusative: 'درسًا' })
+}
+
+function arEntries(n: number): string {
+  return arCounted(n, { one: 'إدخال واحد', two: 'إدخالان', plural: 'إدخالات', accusative: 'إدخالًا' })
 }
 
 function runLogEntries(): number {
@@ -222,8 +243,8 @@ export default async function HowItWasBuiltPage({
           number never appears beside a human work-quality figure. */}
       <p className="admin-caveat">
         {ar
-          ? 'درجة معيار من نموذج لغوي، حكم بسياق جديد، تقييم ذاتي — وليست مراجعة جودة بشرية. الحَكَم لا يرى موجّه التوليد، لكنه يظل من عائلة النموذج نفسها يصحّح عمله. الفحص على الفحص هو عيّنة تحكيم مزدوج أعمى على ثلاثة دروس، ويُنشر متوسط الفارق المطلق.'
-          : 'LLM rubric score, fresh-context judge, self-assessed — not human QA. The judge never sees the generation prompt, but it is still the same family of model marking its own work. The check on that check is a blind inter-rater sample: three lessons scored independently by a human, with the mean absolute difference reported.'}
+          ? 'درجة معيار من نموذج لغوي، حكم بسياق جديد، تقييم ذاتي — وليست مراجعة جودة بشرية. الحكّام لا يرون موجّه التوليد، وليس أيٌّ منهم من عائلة النموذج الذي ولّد الدرس: اللجنة أربعة مقاعد، Kimi K3 وDeepSeek V3.2 وGLM-5 على Amazon Bedrock، والنموذج المفتوح Qwen3-30B-A3B-Thinking-2507 على معالج رسومي مستأجر. هذا يمنع أن يصحّح نموذج عمله بنفسه، لكنه لا يجعل الدرجة حكمًا بشريًا. والفحص على الفحص — عيّنة تحكيم مزدوج أعمى يقيّم فيها إنسان ثلاثة دروس دون أن يرى درجات النماذج، ويُنشر متوسط الفارق المطلق — لم يُجرَ بعد.'
+          : 'LLM rubric score, fresh-context judge, self-assessed — not human QA. The judges never see the generation prompt, and none of them is from the generator’s model family: the panel has four seats, Kimi K3, DeepSeek V3.2 and GLM-5 hosted on Amazon Bedrock, and the open model Qwen3-30B-A3B-Thinking-2507 served on a rented GPU. That rules out a model marking its own work; it does not make the score a human judgement. The check on that check — a blind inter-rater sample, three lessons scored by a human who has not seen the models’ scores, with the mean absolute difference reported — has not been run yet.'}
       </p>
 
       <h2 className="admin-q">{ar ? 'الحالة، بصراحة' : 'Status, honestly'}</h2>
@@ -236,11 +257,11 @@ export default async function HowItWasBuiltPage({
         <p className="mt-3 max-w-prose leading-relaxed">
           {latest
             ? ar
-              ? `بوابة المعيار شُغِّلت على تلك المسودّة. الحَكَم كان جلسة جديدة لم ترَ موجّه التوليد ولم تكتب الدرس، وسجّلت تحفّظها على استقلاليتها بنفسها — وهو منشور كما كُتب أدناه.`
-              : `The rubric gate has been run on that draft. The judge was a fresh session that had not seen the generation prompt and did not author the lesson, and it recorded its own caveat about how independent that makes it — published below, as written.`
+              ? `بوابة المعيار شُغِّلت على هذه المسودّات. كل حَكَم قرأها في سياق جديد لم يرَ موجّه التوليد ولم يكتب الدرس، وكل حكم يسجّل تحفّظه على استقلاليته بنفسه — وتحفّظ أحدثها منشور أدناه كما كُتب.`
+              : `The rubric gate has been run on these drafts. Each judge read them in a fresh context that had not seen the generation prompt and did not author the lesson, and each verdict records its own caveat about how independent that makes it — the most recent one is published below, as written.`
             : ar
-              ? 'بوابة المعيار لم تُشغَّل على تلك المسودّة. البوابة تبقى غير مُشغَّلة بدل أن تُستوفى بشكل غير أمين.'
-              : 'The rubric gate has not been run on that draft. The gate stays unrun rather than being satisfied dishonestly.'}
+              ? 'بوابة المعيار لم تُشغَّل على هذه المسودّات. البوابة تبقى غير مُشغَّلة بدل أن تُستوفى بشكل غير أمين.'
+              : 'The rubric gate has not been run on these drafts. The gate stays unrun rather than being satisfied dishonestly.'}
         </p>
         <p className="mt-3 max-w-prose leading-relaxed">
           {runs === 0
@@ -248,8 +269,8 @@ export default async function HowItWasBuiltPage({
               ? `سجل التشغيل يسجّل أحكام المعيار، وهو فارغ (${runs}). لذلك لا توجد نسبة اجتياز من المحاولة الأولى ولا متوسط درجة يمكن الإبلاغ عنه — وذكر رقم هنا سيكون اختلاقًا.`
               : `The run log records rubric verdicts and is empty (${runs}). There is therefore no first-pass rate and no mean score to report, and putting a number here would be inventing one.`
             : ar
-              ? `سجل التشغيل يحتوي ${runs} تشغيلة (اجتازت ${passes}). آخر تشغيلة: ${latest?.lesson} — متوسط ${latest?.mean?.toFixed(2)} على ${latest?.scored_criteria} معايير مُقيَّمة${latest?.not_scored?.length ? `، و${latest.not_scored.length} غير قابل للتقييم عند مستوى الدرس` : ''}. عدد التشغيلات ${runs}، وهو صغير جدًا لاشتقاق نسبة اجتياز منه.`
-              : `The run log holds ${runs} run${runs === 1 ? '' : 's'} (${passes} passed), failures included. Most recent: ${latest?.lesson} — mean ${latest?.mean?.toFixed(2)} over ${latest?.scored_criteria} scored criteria${latest?.not_scored?.length ? `, with ${latest.not_scored.length} not scorable at this lesson's level` : ''}. With n = ${runs}, that is a result and not a first-pass rate; a percentage from one run would be a number pretending to be a trend.`}
+              ? `سجل التشغيل يحوي ${arEntries(runs)} (اجتاز منها ${passes})، والإخفاقات ضمنها. وهو يخلط تجارب المعايرة، وأحكام نماذج جُرِّبت ثم استُبعدت، وتشغيلات اللجنة المعتمدة، لذلك لا تُذكر منه نسبة اجتياز واحدة: نسبة تجمع الثلاثة لا تصف أيًّا منها. آخر إدخال: ${latest?.lesson} — متوسط ${latest?.mean?.toFixed(2)} على ${latest?.scored_criteria} معايير مُقيَّمة${latest?.not_scored?.length ? `، و${latest.not_scored.length} غير قابل للتقييم عند مستوى الدرس` : ''}.`
+              : `The run log holds ${runs} ${runs === 1 ? 'entry' : 'entries'} (${passes} passed), failures included. It mixes calibration trials, verdicts from judges that were tried and then retired, and runs by the seated panel, so no single pass rate is quoted from it: one percentage across all three would describe none of them. Most recent: ${latest?.lesson} — mean ${latest?.mean?.toFixed(2)} over ${latest?.scored_criteria} scored criteria${latest?.not_scored?.length ? `, with ${latest.not_scored.length} not scorable at this lesson's level` : ''}.`}
         </p>
         {/*
           The judge's independence caveat is printed verbatim beside the score

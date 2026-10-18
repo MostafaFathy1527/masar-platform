@@ -1,15 +1,32 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
+import { requireUser } from '@/lib/auth-guard'
 import { GUEST_RETENTION_DAYS } from '@/lib/retention'
-import { routing, type AppLocale } from '@/i18n/routing'
+import type { AppLocale } from '@/i18n/routing'
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }))
-}
+// The export and delete controls act on the visitor's own account, so the page
+// reads the session and cannot be prerendered once for everyone.
+export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'Privacy — Masār',
-  description: 'What this platform stores, for how long, and how to take it back or remove it.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const m: { title: string; description?: string } = locale === 'ar'
+    ? {
+        title: 'الخصوصية — مسار',
+        description:
+          'ما الذي تخزّنه هذه المنصة، وإلى متى، وكيف تستعيده أو تحذفه.',
+      }
+    : {
+        title: 'Privacy — Masār',
+        description:
+          'What this platform stores, for how long, and how to take it back or remove it.',
+      }
+  return pageSeo(locale, '/privacy', m.title, m.description)
 }
 
 /*
@@ -43,6 +60,8 @@ const COPY = {
     rightsTitle: 'حقوقك',
     export: 'تصدير بياناتك (JSON)',
     delete: 'حذف الحساب وكل بياناته',
+    noSession:
+      'التصدير والحذف يعملان على حسابك أنت، فيظهران هنا حين يكون لك حساب. زر «ادخل كزائر» أعلى الصفحة يُنشئ واحدًا، ويُحذف مع كل بياناته بعد {days} أيام.',
     rightsNote:
       'الحذف حذف فعلي لا تعطيل: كل جدول يحمل بيانات المتعلّم مرتبط بالحساب بحذف متسلسل، ويوجد اختبار يمنع إضافة جدول بلا هذا الارتباط.',
     contactTitle: 'التواصل',
@@ -72,6 +91,8 @@ const COPY = {
     rightsTitle: 'Your rights',
     export: 'Export your data (JSON)',
     delete: 'Delete your account and all its data',
+    noSession:
+      'Export and deletion act on your own account, so they appear here once you have one. “Enter as guest” at the top of the page creates one, and it is deleted with all its data after {days} days.',
     rightsNote:
       'Deletion is a real delete, not a deactivation flag: every table holding learner data cascades from the account, and a test prevents adding one that does not.',
     contactTitle: 'Contact',
@@ -89,6 +110,9 @@ export default async function PrivacyPage({
   setRequestLocale(locale)
   const l = locale as AppLocale
   const t = COPY[l] ?? COPY.ar
+  // Shown only to someone with an account: for an anonymous visitor the export
+  // link answered 401 and the browser saved the error body as the download.
+  const user = await requireUser().catch(() => null)
 
   return (
     <div className="page-shell-narrow">
@@ -119,6 +143,7 @@ export default async function PrivacyPage({
       </p>
 
       <h2 className="admin-q">{t.rightsTitle}</h2>
+      {user ? (
       <ul className="privacy-list">
         <li>
           {/* An API endpoint that returns a file, not a page. <Link> would
@@ -139,6 +164,9 @@ export default async function PrivacyPage({
           </form>
         </li>
       </ul>
+      ) : (
+        <p>{t.noSession.replace('{days}', String(GUEST_RETENTION_DAYS))}</p>
+      )}
       <p className="mt-2 text-sm text-muted">{t.rightsNote}</p>
 
       <h2 className="admin-q">{t.contactTitle}</h2>

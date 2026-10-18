@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { requireUser } from '@/lib/auth-guard'
 import { getDb } from '@/lib/db'
@@ -11,10 +12,24 @@ import type { AppLocale } from '@/i18n/routing'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'The course — Masār',
-  description:
-    'A practice-first course on medical insurance and revenue cycle work. Demo pricing, test mode only.',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const m: { title: string; description?: string } = locale === 'ar'
+    ? {
+        title: 'الدورة — مسار',
+        description:
+          'دورة قائمة على التطبيق في التأمين الطبي ودورة الإيرادات. أسعار تجريبية، ووضع اختبار فقط.',
+      }
+    : {
+        title: 'The course — Masār',
+        description:
+          'A practice-first course on medical insurance and revenue cycle work. Demo pricing, test mode only.',
+      }
+  return pageSeo(locale, '/course', m.title, m.description)
 }
 
 const COURSE_SLUG = 'rcm-foundations'

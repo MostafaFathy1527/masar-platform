@@ -43,6 +43,17 @@ describe('the failure count is derived, not restated', () => {
 
     // Both the English intro and the Arabic summary interpolate it.
     expect(code).toMatch(/\{failures\}\s*so far/)
-    expect(code).toMatch(/\{failures\}\s*إخفاقات/)
+    expect(code).toMatch(/\{arFailures\(failures\)\}/)
+  })
+
+  // The page tells some failures in full and links the rest. The number it says
+  // it tells is a constant beside a hand-written list, so the two are checked.
+  it('says how many it shows, and shows that many, and links the full record', () => {
+    const src = readFileSync(PAGE, 'utf-8')
+    const shown = Number(/const FAILURES_SHOWN = (\d+)/.exec(src)?.[1])
+    const list = /<ol className="cs-failures">([\s\S]*?)<\/ol>/.exec(src)?.[1] ?? ''
+    expect((list.match(/<li>/g) ?? []).length).toBe(shown)
+    expect(shown).toBeLessThanOrEqual(failureCount())
+    expect(src).toContain('blob/main/docs/design/what-failed.md')
   })
 })

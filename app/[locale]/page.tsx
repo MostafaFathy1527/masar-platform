@@ -1,8 +1,20 @@
+import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { pageSeo } from '@/lib/seo'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { draftByCode, draftIndex, draftRubric, notRunNote } from '@/lib/drafts'
 import { countAr, countEn } from '@/lib/count-words'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'meta' })
+  return pageSeo(locale, '', t('title'), t('description'))
+}
 
 export default async function LandingPage({
   params,

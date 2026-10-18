@@ -7,6 +7,7 @@ import { SiteFooter } from '@/components/site/SiteFooter'
 import { SiteHeader } from '@/components/site/SiteHeader'
 import { Reveal } from '@/components/site/Reveal'
 import { DIR, routing, type AppLocale } from '@/i18n/routing'
+import { SITE_URL, siteName } from '@/lib/seo'
 import '../globals.css'
 
 // next/font downloads the OFL faces at build time and serves them from this
@@ -56,7 +57,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
-  return { title: t('title'), description: t('description') }
+  const ar = locale === 'ar'
+  // The defaults every page inherits. Relative URLs resolve against
+  // metadataBase; './' resolves against the current path, so a page that sets
+  // nothing of its own still gets a canonical pointing at itself rather than
+  // at the home page. Public pages replace this with lib/seo.ts pageSeo(),
+  // which adds the hreflang twin.
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: t('title'),
+    description: t('description'),
+    alternates: { canonical: './' },
+    openGraph: {
+      type: 'website',
+      siteName: siteName(locale),
+      locale: ar ? 'ar_AR' : 'en_GB',
+      alternateLocale: ar ? 'en_GB' : 'ar_AR',
+      url: './',
+      title: t('title'),
+      description: t('description'),
+    },
+    twitter: { card: 'summary', title: t('title'), description: t('description') },
+  }
 }
 
 export default async function LocaleLayout({

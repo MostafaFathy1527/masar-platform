@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { failureCount } from '@/lib/failures'
+import { arCounted, countAr, countEn } from '@/lib/count-words'
+import { endToEndRuns } from '@/lib/drafts'
 import { routing, type AppLocale } from '@/i18n/routing'
 
 export function generateStaticParams() {
@@ -15,7 +18,7 @@ export async function generateMetadata({
   const { locale } = await params
   // The Arabic page had an English title, which is exactly the kind of leak the
   // bilingual rules exist to stop — one layer up from the content.
-  return locale === 'ar'
+  const m: { title: string; description?: string } = locale === 'ar'
     ? {
         title: 'دراسة حالة — مسار',
         description:
@@ -26,6 +29,7 @@ export async function generateMetadata({
         description:
           'How a practice-first learning platform was designed and built in six weeks: the depth model, the decisions, and what failed.',
       }
+  return pageSeo(locale, '/case-study', m.title, m.description)
 }
 
 /*
@@ -57,7 +61,28 @@ function Annotated({
   )
 }
 
-function English({ failures }: { failures: number }) {
+/** The full record, in the repository: every entry, not the nine told here. */
+const WHAT_FAILED_URL =
+  'https://github.com/MostafaFathy1527/masar-platform/blob/main/docs/design/what-failed.md'
+
+/**
+ * How many failures this page tells in full. The list below is written out by
+ * hand, so this is the one count on the page that is not read from a file; a
+ * test counts the list items and fails if the two disagree.
+ */
+const FAILURES_SHOWN = 9
+
+function timesEn(n: number): string {
+  if (n === 1) return 'once'
+  if (n === 2) return 'twice'
+  return `${countEn(n)} times`
+}
+
+function timesAr(n: number): string {
+  return arCounted(n, { one: 'مرة واحدة', two: 'مرتين', plural: 'مرات', accusative: 'مرة' })
+}
+
+function English({ failures, runs }: { failures: number; runs: string[] }) {
   return (
     <>
       <p className="cs-lead">
@@ -201,9 +226,12 @@ function English({ failures }: { failures: number }) {
         <li>
           <strong>The gates were built before the generation.</strong>{' '}
           A generator built first and gated afterwards is gated to whatever it already
-          produces. <em>What it cost:</em> the pipeline has gates that provably refuse
-          things and has not yet been run end to end — a weaker headline than the reverse
-          order would have produced, and an honest one.
+          produces. <em>What it cost:</em> for weeks the pipeline had gates that provably
+          refused things and had never been run end to end — a weaker headline than the
+          reverse order would have produced, and an honest one.
+          {runs.length > 0
+            ? ` It has since run end to end, from source note to judged draft, ${timesEn(runs.length)}, on ${[...new Set(runs)].join(', ')}.`
+            : ''}
         </li>
       </ol>
 
@@ -212,7 +240,12 @@ function English({ failures }: { failures: number }) {
         What failed
       </h2>
       <p>
-        {failures} so far. The first five form a pattern worth naming:{' '}
+        {failures} so far. The {countEn(FAILURES_SHOWN)} below are told in full here; all{' '}
+        {failures} are written up in the repository, in{' '}
+        <a href={WHAT_FAILED_URL} rel="noreferrer">
+          what-failed.md
+        </a>
+        . The first five form a pattern worth naming:{' '}
         <strong>
           the falsifiable claims are the ones that break, and they only break when you try
           to game them.
@@ -304,10 +337,15 @@ function English({ failures }: { failures: number }) {
         </li>
       </ol>
       <p className="cs-small">
-        Five of these were found by attacking the system. The sixth was found by arriving
+        Of the {countEn(FAILURES_SHOWN)} shown here, five were found by attacking the system. The sixth was found by arriving
         at it, the seventh by disbelieving an instrument, the eighth by a check that was
         not looking for defects at all, and the ninth by noticing that the page and the
-        browser disagreed about what the browser had asked for.
+        browser disagreed about what the browser had asked for. The other{' '}
+        {failures - FAILURES_SHOWN}, most of them from the pipeline and its judges, are in{' '}
+        <a href={WHAT_FAILED_URL} rel="noreferrer">
+          the full record
+        </a>
+        .
       </p>
 
       <h2 id="disclosure" className="cs-h2">
@@ -364,7 +402,11 @@ function English({ failures }: { failures: number }) {
   )
 }
 
-function ArabicSummary({ failures }: { failures: number }) {
+function arFailures(n: number): string {
+  return arCounted(n, { one: 'إخفاق واحد', two: 'إخفاقان', plural: 'إخفاقات', accusative: 'إخفاقًا' })
+}
+
+function ArabicSummary({ failures, runs }: { failures: number; runs: string[] }) {
   return (
     <>
       <p className="cs-lead">
@@ -414,20 +456,32 @@ function ArabicSummary({ failures }: { failures: number }) {
         pattern and points at the full record does not.
       */}
       <p>
-        {failures} إخفاقات مسجَّلة حتى الآن. الخمسة الأولى نمطها واحد:{' '}
+        سُجِّل حتى الآن {arFailures(failures)}، تُلخَّص هنا {countAr(FAILURES_SHOWN, 'masculine')} منها، وكلها
+        مكتوبة بالتفصيل في المستودع، في{' '}
+        <a href={WHAT_FAILED_URL} rel="noreferrer">
+          what-failed.md
+        </a>
+        . الخمسة الأولى نمطها واحد:{' '}
         <strong>الادعاءات القابلة للدحض هي التي تنكسر، ولا تنكسر إلا حين تحاول التحايل عليها.</strong>{' '}
         صيغة التقييم أخفقت في ادعائها المنشور، وبنك الأسئلة كان يُهزم بالإجابة الأولى دائمًا
         ويعطي 89٪، ولوحة الأدلة أبلغت أنها ظاهرة وهي فارغة، وجلسة حساب محذوف ظلّت تعمل،
         وملف اختبار أعلن نجاح 16 من 16 بينما لم يُنفَّذ اختباران أصلًا.
       </p>
       <p>
-        والباقي يكسر النمط في اتجاهات مختلفة: مرة كان الكود سليمًا والمنتج خاطئًا، ومرة كانت
+        والأربعة التالية تكسر النمط في اتجاهات مختلفة: مرة كان الكود سليمًا والمنتج خاطئًا، ومرة كانت
         الأداة تكذب والمنتج سليم، ومرة وجد فحصٌ كُتب لضبط لقطة شاشة أن الصفحة تكذب على
         المتعلّم، ومرة كان شرطٌ لم يكن شرطًا أصلًا فظهر الموقع داكنًا للجميع بينما لم تُعرض
         النسخة الفاتحة قط.
       </p>
       <p className="cs-small">
-        التفاصيل الكاملة لكل إخفاق في النسخة الإنجليزية من هذه الصفحة.
+        الإخفاقات الأخرى، ومعظمها من خط الإنتاج وحكّامه، في{' '}
+        <a href={WHAT_FAILED_URL} rel="noreferrer">
+          السجل الكامل
+        </a>{' '}
+        بالمستودع (بالإنجليزية).
+        {runs.length > 0
+          ? ` وخط الإنتاج نفسه، الذي بُنيت بواباته قبل أن يولّد شيئًا، شُغِّل منذ ذلك الحين من ملاحظة المصدر إلى مسودّة محكَّمة ${timesAr(runs.length)}، على ${[...new Set(runs)].join('، ')}.`
+          : ''}
       </p>
 
       <h2 id="ar-disclosure" className="cs-h2">
@@ -484,6 +538,7 @@ export default async function CaseStudyPage({
   // Read once here and pass to whichever locale renders, so both derive the
   // number from docs/design/what-failed.md rather than restating it.
   const failures = failureCount()
+  const runs = endToEndRuns()
 
   return (
     <>
@@ -517,7 +572,7 @@ export default async function CaseStudyPage({
             </ol>
           </nav>
 
-          <article className="cs">{l === 'ar' ? <ArabicSummary failures={failures} /> : <English failures={failures} />}</article>
+          <article className="cs">{l === 'ar' ? <ArabicSummary failures={failures} runs={runs} /> : <English failures={failures} runs={runs} />}</article>
         </div>
       </section>
     </>

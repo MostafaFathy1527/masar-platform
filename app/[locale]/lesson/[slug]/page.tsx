@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { DepthView } from '@/components/player/DepthView'
@@ -42,9 +43,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params
   const lesson = lessonBySlug(slug)
-  if (!lesson) return { title: 'Lesson — Masār' }
+  const site = locale === 'ar' ? 'مسار' : 'Masār'
+  if (!lesson) return { title: `${locale === 'ar' ? 'درس' : 'Lesson'} — ${site}` }
   const title = pick(locale as AppLocale, lesson.titleAr, lesson.titleEn)
-  return { title: `${title} — Masār` }
+  return pageSeo(locale, `/lesson/${slug}`, `${title} — ${site}`)
 }
 
 const COPY = {

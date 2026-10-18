@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { routing, type AppLocale } from '@/i18n/routing'
-import { criterionLabel, draftIndex, draftRubric } from '@/lib/drafts'
+import { DRAFT_DIR, criterionLabel, draftIndex, draftRubric } from '@/lib/drafts'
 import { countAr, countEn } from '@/lib/count-words'
 
 export function generateStaticParams() {
@@ -14,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  return locale === 'ar'
+  const m: { title: string; description?: string } = locale === 'ar'
     ? {
         title: 'اطلب دروسًا — مسار',
         description:
@@ -25,6 +26,7 @@ export async function generateMetadata({
         description:
           'Your experts’ material turned into practice-first lessons in Arabic and English, each passing three documented quality gates before delivery. Priced per project; the first lesson is free.',
       }
+  return pageSeo(locale, '/commission', m.title, m.description)
 }
 
 /*
@@ -42,32 +44,6 @@ export async function generateMetadata({
 const REPO = 'https://github.com/MostafaFathy1527/masar-platform'
 const CONTACT = 'mostafafathy1503@gmail.com'
 
-const SAMPLES = [
-  {
-    code: 'SEC-01',
-    ar: 'كيف تتعرّف على رسالة تصيّد',
-    en: 'Recognising a phishing email',
-    dirAr: 'الأمن المعلوماتي',
-    dirEn: 'Security awareness',
-    path: 'pipeline/out/lesson-sec-01/v1',
-  },
-  {
-    code: 'CS-01',
-    ar: 'كيف تتعامل مع شكوى عميل',
-    en: 'Handling a customer complaint',
-    dirAr: 'خدمة العملاء',
-    dirEn: 'Customer service',
-    path: 'pipeline/out/lesson-cs-01/v1',
-  },
-  {
-    code: 'PRV-01',
-    ar: 'ما الذي يُعدّ بيانات شخصية',
-    en: 'What counts as personal data',
-    dirAr: 'الامتثال والخصوصية',
-    dirEn: 'Privacy and compliance',
-    path: 'pipeline/out/lesson-prv-01/v1',
-  },
-] as const
 
 export default async function CommissionPage({
   params,
@@ -79,15 +55,21 @@ export default async function CommissionPage({
   const ar = (locale as AppLocale) === 'ar'
   // How the samples were judged, read from the verdict files rather than stated
   // here, so adding or removing a judge cannot leave this sentence behind.
-  const rubrics = draftIndex().map((d) => draftRubric(d.dir))
+  // The heading and the table rows come from the same list, so the heading can
+  // no longer count four samples above a table of three.
+  const samples = draftIndex()
+  const rubrics = samples.map((d) => draftRubric(d.dir))
   const scored = rubrics.every(Boolean) && rubrics.length > 0
   const judges = scored ? Math.min(...rubrics.map((r) => r!.judges.length)) : 0
   const allPassed = scored && rubrics.every((r) => r!.allPassed)
-  const samples = draftIndex()
   const domains = new Set(samples.map((s) => s.domainEn)).size
-  // Criteria any sample's panel split on, so the copy names them rather than
-  // promising agreement the reports do not show.
-  const split = [...new Set(rubrics.flatMap((r) => (r?.panel === 'NEEDS HUMAN' ? r.split : [])))]
+  // Which samples the panel split on, and on what, read from each sample's
+  // panel report, so the copy names them rather than implying every sample did.
+  const splits = samples
+    .map((s, i) => ({ code: s.code, split: rubrics[i]?.panel === 'NEEDS HUMAN' ? rubrics[i]!.split : [] }))
+    .filter((x) => x.split.length > 0)
+  const splitCodes = splits.map((x) => x.code)
+  const split = [...new Set(splits.flatMap((x) => x.split))]
 
   const subject = encodeURIComponent(ar ? 'طلب دروس — مسار' : 'Commission lessons - Masar')
   const mailto = `mailto:${CONTACT}?subject=${subject}`
@@ -161,18 +143,18 @@ export default async function CommissionPage({
               <th scope="col">{ar ? 'المجال' : 'Domain'}</th>
               <th scope="col">{ar ? 'افتح' : 'Open'}</th>
             </tr>
-            {SAMPLES.map((s) => (
+            {samples.map((s) => (
               <tr key={s.code}>
                 <th scope="row">
-                  <code>{s.code}</code> · {ar ? s.ar : s.en}
+                  <code>{s.code}</code> · {ar ? s.titleAr : s.titleEn}
                 </th>
-                <td>{ar ? s.dirAr : s.dirEn}</td>
+                <td>{ar ? s.domainAr : s.domainEn}</td>
                 <td>
                   <a href={`/${locale}/samples/${s.code}`}>
                     {ar ? 'اقرأ الدرس' : 'Read the lesson'}
                   </a>
                   {' · '}
-                  <a href={`${REPO}/blob/main/${s.path}/STATUS.md`} rel="noreferrer">
+                  <a href={`${REPO}/blob/main/${DRAFT_DIR}/${s.dir}/STATUS.md`} rel="noreferrer">
                     {ar ? 'ملف الحالة' : 'status file'}
                   </a>
                 </td>
@@ -183,8 +165,8 @@ export default async function CommissionPage({
       </div>
       <p className="mt-3 max-w-prose text-sm text-muted">
         {ar
-          ? (scored ? `العينات مسودّات بالتعريف: لم تُنشر. قيّمها بالمعيار ${judges === 2 ? 'نموذجان لغويان مستقلان' : `${countAr(judges, 'masculine')} نماذج لغوية مستقلة`}، كلٌّ في سياق لم يرَ تعليمات التوليد${allPassed ? (judges === 2 ? '، وعبرت مع الاثنين' : '، وعبرت معها كلها') : ''}. هذا تقييم آلي وليس مراجعة بشرية. في عمل مدفوع، يُسلَّم تقرير التقييم مع كل درس، ويُراجَع ما تختلف عليه النماذج يدويًا.${split.length ? ` وفي هذه العينات نفسها تختلف النماذج بأكثر من درجة على ${split.map((c) => criterionLabel(c, true)).join('، ')}، فهي بقاعدة المشروع نفسه بانتظار مراجع بشري.` : ''}` : 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار بعد.')
-          : (scored ? `The samples are drafts by definition: not published. Each was scored against the rubric by ${countEn(judges)} independent language models, each in a context that never saw the generation prompt${allPassed ? (judges === 2 ? ', and passed with both' : `, and passed with all ${countEn(judges)}`) : ''}. Those are LLM rubric scores, not human QA. In commissioned work the scoring report ships with every lesson, and anything the models disagree on is reviewed by hand.${split.length ? ` On these samples themselves the models differ by more than a point on ${split.map((c) => criterionLabel(c, false)).join(', ')}, so by the project's own rule they are waiting for a human reviewer.` : ''}` : 'The samples are drafts by definition: not published, and not yet rubric-scored.')}
+          ? (scored ? `العينات مسودّات بالتعريف: لم تُنشر. قيّمها بالمعيار ${judges === 2 ? 'نموذجان لغويان مستقلان' : `${countAr(judges, 'masculine')} نماذج لغوية مستقلة`}، كلٌّ في سياق لم يرَ تعليمات التوليد${allPassed ? (judges === 2 ? '، وعبرت مع الاثنين' : '، وعبرت معها كلها') : ''}. هذا تقييم آلي وليس مراجعة بشرية. في عمل مدفوع، يُسلَّم تقرير التقييم مع كل درس، ويُراجَع ما تختلف عليه النماذج يدويًا.${split.length ? ` وفي ${splitCodes.length === 1 ? `العينة ${splitCodes[0]}` : `العينات ${splitCodes.join('، ')}`} تختلف النماذج بأكثر من درجة على ${split.map((c) => criterionLabel(c, true)).join('، ')}، ف${splitCodes.length === 1 ? 'هي' : 'هي كلها'} بقاعدة المشروع نفسه بانتظار مراجع بشري.` : ''}` : 'العينات مسودّات بالتعريف: لم تُنشر، ولم تُقيَّم بالمعيار بعد.')
+          : (scored ? `The samples are drafts by definition: not published. Each was scored against the rubric by ${countEn(judges)} independent language models, each in a context that never saw the generation prompt${allPassed ? (judges === 2 ? ', and passed with both' : `, and passed with all ${countEn(judges)}`) : ''}. Those are LLM rubric scores, not human QA. In commissioned work the scoring report ships with every lesson, and anything the models disagree on is reviewed by hand.${split.length ? ` On ${splitCodes.join(', ')} the models differ by more than a point on ${split.map((c) => criterionLabel(c, false)).join(', ')}, so by the project's own rule ${splitCodes.length === 1 ? 'that sample is' : 'those samples are'} waiting for a human reviewer.` : ''}` : 'The samples are drafts by definition: not published, and not yet rubric-scored.')}
       </p>
 
       <h2 className="admin-q">{ar ? 'السعر' : 'Pricing'}</h2>

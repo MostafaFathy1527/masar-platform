@@ -21,3 +21,22 @@ export function countAr(n: number, singularIs: 'masculine' | 'feminine'): string
   if (n < 3 || n > 10) return String(n)
   return (singularIs === 'masculine' ? AR_FOR_MASCULINE_NOUN : AR_FOR_FEMININE_NOUN)[n]
 }
+
+/**
+ * A count with its Arabic noun in the right form. One is the noun alone with
+ * واحد, two is the dual, three to ten take the plural, and eleven upward
+ * returns to the singular accusative. Interpolating a bare numeral in front of
+ * one fixed noun is wrong for every value but one, and both pages that did it
+ * (the drafts count and the failures count) were wrong for the number they
+ * actually showed.
+ */
+export function arCounted(
+  n: number,
+  forms: { one: string; two: string; plural: string; accusative: string },
+): string {
+  if (n === 1) return forms.one
+  if (n === 2) return forms.two
+  const tail = n % 100
+  if (tail >= 3 && tail <= 10) return `${n} ${forms.plural}`
+  return `${n} ${forms.accusative}`
+}

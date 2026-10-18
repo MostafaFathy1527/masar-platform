@@ -11,9 +11,21 @@ import type { AppLocale } from '@/i18n/routing'
 // certificate — never a printed copy.
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'Verify a certificate — Masār',
-  robots: { index: false },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return locale === 'ar'
+    ? {
+        title: 'التحقق من شهادة — مسار',
+        robots: { index: false },
+      }
+    : {
+        title: 'Verify a certificate — Masār',
+        robots: { index: false },
+      }
 }
 
 const COPY = {
