@@ -89,6 +89,11 @@ PANEL_MODELS = (
     ('zai.glm-5', 'glm-5'),
 )
 
+# Kimi K3 reasons before it answers, and its replies on the four samples ran to
+# 3,430-3,640 of the default 4,000 tokens: one longer lesson and the verdict would
+# be cut off mid-JSON. It gets 8,000; only the tokens used are billed.
+HOSTED_MAX_TOKENS = {'us.moonshotai.kimi-k3': 8000}
+
 # The served seats: (model, tag, spec). The model is the exact file that passed
 # calibration, named as llama.cpp names it. The tag is the one the calibration
 # folder uses, so a verdict here and a verdict there can be cross-referenced by
@@ -230,8 +235,9 @@ def run_judges(lesson_path: Path, region: str) -> list[str]:
     levels = {str(x).upper() for x in doc.get('levels', [])}
     not_scored: list[str] = []
     for model, tag in PANEL_MODELS:
+        extra = ['--max-tokens', str(HOSTED_MAX_TOKENS[model])] if model in HOSTED_MAX_TOKENS else []
         judge_bedrock.main(['--lesson', str(lesson_path), '--model', model, '--tag', tag,
-                            '--region', region])
+                            '--region', region, *extra])
     for model, tag, spec in SERVED_JUDGES:
         endpoint = os.environ.get(spec['endpoint_env'], '').strip()
         if not endpoint:

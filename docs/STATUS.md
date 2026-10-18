@@ -950,3 +950,14 @@ second.
   PASS and a forced FAIL, concept log PASS over 5 lessons, gate PASS (mean 4.14) and a forced
   floor FAIL. Purpose: a public, runnable artefact for the open-source pipeline.
 
+**Added 2026-10-18 (evening): what a weekly panel run costs, and one judge given room.**
+- **Cost, from the token counts in the four samples' verdicts and AWS's public on-demand price
+  list:** about $0.28 of Bedrock per run (Kimi K3 about $0.23, GLM-5 $0.03, DeepSeek V3.2 $0.02),
+  plus about 20 minutes of a rented card for the open seat. Under $25 a year in all. On-demand
+  only: provisioned throughput would be a commitment the project has no use for.
+- **Kimi K3 gets 8,000 tokens** (`panel.HOSTED_MAX_TOKENS`). Its replies on the samples ran to
+  3,430-3,640 of the default 4,000, so a longer lesson would have cut its verdict off mid-JSON.
+- **An oddity, recorded rather than explained:** Bedrock reports 7 input tokens for every K3
+  verdict, against 6,000-7,700 for the other judges on the same prompt. K3 did read the lessons:
+  its notes name details only the lesson contains. The count is Bedrock's, not the pipeline's.
+

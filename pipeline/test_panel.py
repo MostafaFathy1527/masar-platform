@@ -148,6 +148,8 @@ try:
         models = [a[a.index('--model') + 1] for a in calls]
         check(models == HOSTED and all('--region' in a and '--endpoint' not in a for a in calls),
               'the hosted seats are scored through --region; the open seat is skipped')
+        k3 = next(a for a in calls if a[a.index('--model') + 1] == 'us.moonshotai.kimi-k3')
+        check(k3[k3.index('--max-tokens') + 1] == '8000', 'Kimi K3 gets room for its reasoning')
         check(SERVED_SPEC['endpoint_env'] in said and 'empty' in said, 'stderr names the unset variable')
         check(not list(Path(t).glob('verdict.*.json')), 'nothing is written for the empty seat')
 
