@@ -1,0 +1,174 @@
+<think>1.  **Analyze the Request:**
+    *   **Role:** Judge scoring a lesson (`handling-a-customer-complaint`) against `pipeline/rubric.md`.
+    *   **Constraint 1 (Fresh Context):** Do not know the generation prompt. Score strictly what is on the page.
+    *   **Constraint 2 (JSON Shape):** Return exactly the JSON specified in the prompt.
+    *   **Constraint 3 (Scoring):** 1-5 per criterion. Fail if any < 3 or mean < 4.0.
+    *   **Constraint 4 (Specific Failures):** Watch for "visual card" as bullet list, implausible distractors, feedback restating answer, assert-without-explaining worked example, frictionless scenario, Arabic word order issues, licensed code/IP issues.
+    *   **Input Data:** Lesson JSON and Knowledge Check items JSON.
+
+2.  **Analyze the Lesson (`handling-a-customer-complaint`):**
+    *   **Level:** L1 and L2.
+    *   **Objective:** CS-01.
+    *   **Bilingual:** Yes.
+
+3.  **Evaluate Criterion 1: Objective Alignment**
+    *   *Objective:* "Handling a customer complaint" (CS-01).
+    *   *Content:*
+        *   Intro (L1): Shifts perspective on complaints.
+        *   Definitions (L1): Acknowledgement, Agreed Next Step.
+        *   Job Tip (L1): "What do you want now?".
+        *   Takeaways (L1): Summary points.
+        *   Worked Example (L2): Step-by-step handling a specific scenario.
+        *   Scenario (L2): Warm handover vs. transfer vs. promise.
+        *   Knowledge Checks (L2): MCQs on first words and closing.
+    *   *Assessment:* Every block seems to serve CS-01 (handling complaints). The intro sets the stage, definitions explain tools, worked example shows application, scenario tests application, KCs test recall/understanding.
+    *   *Score:* 5. It's tightly aligned.
+
+4.  **Evaluate Criterion 2: Level Fidelity**
+    *   *L1:* Focuses on definitions and high-level concepts (Acknowledgement, Facts, Next Step). No complex decision matrices or multi-step logic chains (like "if X then Y, else Z"). Fits "L1 - Foundation/Intro".
+    *   *L2:* Focuses on the execution of the L1 concepts in a specific scenario. The worked example has 4 steps. The scenario has 3 options.
+    *   *Check for "Visual Card" failure:*
+        *   `cs1_d_ack`, `cs1_d_next`: Type is `definition_card`. Content looks like a card, not a bulleted list. Text is distinct (term + definition).
+        *   `cs1_take`: Type is `takeaways`. It has a list, but it's a distinct block type.
+    *   *Assessment:* L1 feels like a definition/overview lesson. L2 feels like application. It meets the level promises well.
+    *   *Score:* 5. (Wait, checking L1 depth. L1 is quite dense, but L1 usually allows for solid conceptual grounding. Let's re-read the rubric: "A 'visual card' that is secretly a bulleted list fails this criterion. So does an L2 that is an L1 with a question bolted on the end." The definition cards are genuine cards. The L1 block is standard. The L2 block is the worked example. It's distinct enough. I'll stick with 5, or maybe 4 if I feel L1 is too heavy on text. However, usually, "visual card" is the trap. These look like cards. I'll score 5.)
+
+5.  **Evaluate Criterion 3: Worked-Example Quality**
+    *   *Block:* `cs1_l2_worked`.
+    *   *Structure:* Steps contain `show` and `why`.
+    *   *Step 1:* Show "Acknowledge...". Why "Agree on bad experience... without that, she won't hear...".
+    *   *Step 2:* Show "Open record... ask what want...". Why "Silence reads as abandonment... asking prevents fix she didn't ask for".
+    *   *Step 3:* Show "Record shows charges... explain policy once then move on". Why "Arguing policy lengthens call...".
+    *   *Step 4:* Show "Close with agreed step". Why "Action, time, way... promise only what you can make true".
+    *   *Assessment:* The "Why" is present and specific. It names the judgment (e.g., "agreement on bad experience is a fact they own"). It names the consequence if skipped (e.g., "won't hear anything that follows").
+    *   *Score:* 5.
+
+6.  **Evaluate Criterion 4: Knowledge-Check Quality**
+    *   *Block:* `cs1_l2_kc1` and `cs1_l2_kc2` (referencing the items provided).
+    *   *Item 1 (CS-01-KC-01):*
+        *   Correct option: Acknowledge.
+        *   Distractor 1: "I'm sorry you feel that way" (Invalidates the "restating" rule? It's a common misconception, actually a *bad* acknowledgement, but it's a plausible distractor. Wait, the rubric says "implausible distractors... or feedback that repeats the stem". This one is plausible).
+        *   Distractor 2: "I'll transfer you" (Common impulse).
+        *   Distractor 3: "We'll make it all up to you" (Common impulse).
+        *   Feedback: "Not correct." / "Correct." (Very thin).
+    *   *Item 2 (CS-01-KC-02):*
+        *   Correct option: Specific next step details.
+        *   Distractor 1: "Colleague will follow up" (Vague).
+        *   Distractor 2: "Done. Anything else?" (Closes prematurely).
+        *   Distractor 3: "Email us if..." (Defers resolution).
+        *   Feedback: "Not correct." / "Correct."
+    *   *Assessment:*
+        *   Distractors are plausible.
+        *   **Major Issue:** Feedback. The prompt warns: "feedback that restates the answer instead of naming the misconception".
+        *   KC 1 Feedback: "Not correct." vs "Correct." vs "Not correct." vs "Not correct."
+        *   KC 2 Feedback: Same pattern.
+        *   This is generic feedback. It does *not* name the misconception (e.g., "That implies the customer should wait passively for a phone call"). It just says the option is wrong.
+        *   *Rubric check:* **1** - implausible, or feedback that repeats the stem. **3** - plausible, feedback thin on some. **5** - every distractor names a misconception.
+        *   The feedback is *very* thin ("Not correct"). It fails to explain *why* the distractor is wrong or what the misconception is.
+    *   *Score:* 3. (It's not a 1 because the distractors are actually quite good/realistic for this topic. It's not a 5 because the feedback is generic and doesn't teach the misconception. It's not a 4 because it's arguably below "clear but wordy" 4 threshold for knowledge checks specifically. 3 is fair for "plausible, feedback thin").
+
+7.  **Evaluate Criterion 5: Scenario Authenticity**
+    *   *Scenario:* Customer asks for waiver of fee, team is tomorrow, 3 long messages written, says "won't explain again".
+    *   *Authenticity:* This is a *very* common customer service scenario. The "won't explain again" part adds specific friction/authenticity.
+    *   *Comparison:* Textbook example vs Real world. This feels very real.
+    *   *Score:* 5.
+
+8.  **Evaluate Criterion 6: Bilingual Quality**
+    *   *Arabic Text:* Let's check flow.
+        *   Intro: "الشكوى ليست هجوماً، وليست طلباً لاعتذار." -> Good. "أفهم لماذا أنتِ غاضبة." -> Good.
+        *   Definitions: "الإقرار" (Acknowledgement). Definition: "أن تسمّي ما حدث بكلمات العميل...". -> Very natural flow.
+        *   Worked Example: "أقرّ بما حدث بكلماتها: «خُصم منك مرتين...»". -> Natural dialogue.
+        *   Scenario: "القسم الذي يملك الصلاحية يعمل غداً." -> Natural.
+    *   *Check:* Does it sound translated?
+        *   "Most customers who are let down say nothing and leave." -> "معظم من يُخذَلون لا يقولون شيئاً ويرحلون." -> Mirrors structure but feels like natural Arabic. "A vague close (\"someone will look into it\") is where a complaint becomes a repeat complaint..." -> "الإغلاق المبهم ... هو حيث تتحوّل الشكوى إلى شكوى متكررة". -> Very clear, slightly formal but natural for a lesson.
+    *   *Score:* 5.
+
+9.  **Evaluate Criterion 7: Concision and Reading Level**
+    *   *Prose:* The L1 intro and tips are reasonably concise. The L2 worked example has a bit of explanation text in the "Why" fields.
+    *   *Wordiness:* Is it padded?
+        *   "The question most agents skip is the one that saves the most time..." vs Arabic.
+        *   "A complaint has one name on it until it is closed..." -> Good advice, concise.
+    *   *Score:* 4. It's clear, but maybe slightly wordy in the intro or just dense with information (which is necessary for this topic). I won't drop it to 3 as it's not repetitive padding.
+
+10. **Evaluate Criterion 8: Accessibility and IP**
+    *   *Images:* There is an icon `🗣️` in the definition card. Need Alt Text? The prompt says "Alt text on any image". The JSON doesn't explicitly show an alt text field in the payload for the definition card, but `icon` is used. If it's an image asset, I'd need alt text. If it's an emoji/text, it's fine. The rubric mentions "No real licensed code descriptors...". I need to check if the content (definitions) infringe.
+    *   *Content Check:*
+        *   "Agreed next step": General business practice, not a specific payer policy.
+        *   "Acknowledgement": General.
+        *   "Warm handover": General.
+        *   *Denylist Check:* I don't see any specific terms from a denylist in the text provided.
+        *   *Auto-1 check:* Any licensed code? No. Payer policy text? No.
+    *   *Accessibility:* The JSON structure provided doesn't explicitly show `altText` for the `icon` in the payload, but usually, in these generated contexts, if it's a UI element, it's handled. However, looking strictly at the provided JSON, there is no `altText` field.
+    *   *Wait:* The rubric says "Alt text on any image." If the JSON doesn't provide it, is it a 1? Or is it assumed to be handled by the renderer? Or does the "judge" score the *lesson structure*? The instruction says "Score what is on the page." The JSON provided *is* the page representation here. If it's missing alt text, it's a failure. But often, "icon" is a text/emoji. The rubric specifically mentions "Any real licensed code descriptor". There is no evidence of that.
+    *   *Decision:* 5. The content is generic business comms, not copyrighted policy. The icon is likely an emoji or unicode symbol which has no alt text requirement in strict accessibility, or it's implied to be handled. However, checking the prompt's "Specific things to look for": "Any real licensed code descriptor... automatic 1". It's not there. "No meaning carried by colour alone". (No colors).
+    *   Let's look closer at Criterion 8: "No real licensed code descriptors". The lesson defines terms. "Agreed next step". Is "Agreed next step" a trademark? No.
+    *   *Constraint:* "Alt text on any image". I will assume 5 because I don't see an image that requires alt text (emoji is text), and the content is safe from the Auto-1 triggers.
+
+11. **Review and Refine:**
+    *   **Objective Alignment:** 5. Everything relates to handling a complaint.
+    *   **Level Fidelity:** 5. L1 definitions, L2 application. No visual card disguised as list.
+    *   **Worked Example:** 5. Strong "Why" steps.
+    *   **Knowledge Check:** 3. Plausible distractors, but *terrible* feedback ("Not correct" / "Correct"). This is the weak link.
+    *   **Scenario Authenticity:** 5. Very realistic details (3 long messages, tomorrow's team).
+    *   **Bilingual Quality:** 5. Natural Arabic.
+    *   **Concision:** 4. Dense text but relevant.
+    *   **Accessibility/IP:** 5. Safe content.
+
+    *   *Notes:*
+        *   Knowledge Check: Feedback is generic ("Not correct").
+
+12. **Final Score Calculation:**
+    *   Mean: (5+5+5+3+5+5+4+5) / 8 = 42 / 8 = 5.25.
+    *   Threshold: Mean >= 4.0.
+    *   Floor: All >= 3.
+    *   Verdict: Pass.
+
+13. **JSON Construction:**
+    ```json
+    {
+      "lesson": "handling-a-customer-complaint",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 5,
+        "knowledge_check": 3,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 4,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "knowledge_check": "Distractors are realistic, but the feedback text is generic ('Not correct'/'Correct') and does not explain the misconception."
+      },
+      "verdict_notes": "Scores are high across the board, but the knowledge checks suffer from insufficient feedback. The lesson overall passes the mean threshold."
+    }
+    ```
+    *   *Self-Correction on Criterion 1:* Is it 5? Yes.
+    *   *Self-Correction on Criterion 2:* Is it 5? The L1 level has "definitions" and "tips". It's a bit dense for L1, but L1 usually encompasses "knowing the vocabulary". The distinction is "L2 that is an L1 with a question bolted on". This is distinct. 5 is okay.
+    *   *Self-Correction on Criterion 4:* Is it 3? The distractors in KC1: "I'm sorry you feel that way" is a common *bad* answer that many think is correct. The feedback "Not correct" is poor, but it's a plausible distractor. "We'll make it all up to you" is also plausible. They are not "distractor nobody would ever choose". So it's not a 1. The feedback is thin. 3 is the correct score for "plausible, feedback thin on some".
+
+    *   *Refining Verdict Notes:* Needs to be 2-3 sentences. "The lesson scores strongly across almost all criteria, but the knowledge checks lack explanatory feedback. The mean score of 5.25 exceeds the 4.0 threshold, so it passes."
+
+    *   *Double Check Criterion 8:* "No real licensed code descriptor". The lesson uses terms like "Agreed next step", "Acknowledgement". These are general terms. Not a specific policy like "HIPAA" or "PCI DSS". No code snippet. Safe.
+
+    *   *Double Check Criterion 6:* Arabic "Natural". The intro text: "Most customers who are let down say nothing and leave." -> "معظم من يُخذَلون لا يقولون شيئاً ويرحلون". This is a bit of a calque but reads fine. The dialogue in the example: "You were charged twice... I can see why you are angry." -> "أقرّ بما حدث بكلماتها: «خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد...»". This is very good Arabic.
+
+    *   *Formatting:* No markdown fences. JSON only.</think>```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "The distractors are plausible real-world responses, but the feedback is generic ('Not correct'/'Correct') and does not identify the specific misconception behind the wrong answer."
+  },
+  "verdict_notes": "The lesson is well-aligned, authentic, and bilingual, but the knowledge checks fail to provide meaningful corrective feedback. The mean score of 5.25 exceeds the 4.0 threshold, resulting in a pass."
+}
+```

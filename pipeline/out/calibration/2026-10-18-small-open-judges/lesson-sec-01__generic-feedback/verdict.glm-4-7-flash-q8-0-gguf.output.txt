@@ -1,0 +1,180 @@
+<think>1.  **Analyze the Request:**
+    *   **Input:** A lesson JSON (`recognising-a-phishing-email`) with two levels (L1, L2) and bilingual content (English/Arabic).
+    *   **Reference:** `pipeline/rubric.md` (criteria 1-8, pass/fail logic).
+    *   **Task:** Score the lesson against the rubric strictly based on the provided content. Do *not* infer what the generator was asked to produce.
+    *   **Output:** A single JSON object with scores (1-5), notes (if score < 4), and verdict notes. No extra text.
+
+2.  **Analyze the Lesson Content:**
+
+    *   **Title:** Recognising a phishing email (L1/L2).
+    *   **Objectives:** SEC-01.
+    *   **Concepts:** display_name, look_alike_domain, link_destination, one_time_code, engineered_urgency.
+    *   **Structure:**
+        *   L1: Intro, Definitions (Look-alike domain, OTP), Job tip, Takeaways.
+        *   L2: Worked example (4 steps), Knowledge Checks (referenced), Scenario (3 decision steps).
+
+3.  **Score Criteria:**
+
+    *   **1. Objective Alignment:**
+        *   Objective: SEC-01.
+        *   L1 blocks (Heading, Rich Text, 2 Definitions, Job Tip, Takeaways): All relate to recognising phishing, display names, domains, codes, urgency.
+        *   L2 blocks (Heading, Worked Example, KCs, Scenario): All apply these concepts. The scenario involves a manager needing payment moved—this is a "social engineering" scenario which fits the objective of recognising phishing (or at least fraudulent requests).
+        *   *Assessment:* Highly aligned. Everything serves the goal of spotting phishing vectors.
+        *   *Score:* 5.
+
+    *   **2. Level Fidelity:**
+        *   L1: Focuses on definitions and basic principles (display name vs address, link text vs destination). It's foundational.
+        *   L2: Moves to a worked example analyzing a specific email chain (IT Service Desk urgency + OTP) and a scenario with a manager. The L2 worked example breaks down the analysis step-by-step ("Read address", "Reveal destination", "Notice deadline", "Stop at code").
+        *   *Critique:* The prompt asks about "visual cards" that are bulleted lists. I see `definition_card` and `takeaways`. The `takeaways` look like a bulleted list. Is it a visual card? The rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion."
+        *   *Check:* The `takeaways` block has itemsAr and itemsEn. It doesn't explicitly say `type: visual_card`, but the payload contains lists. However, the rubric example specifically warns against the *type* `visual_card`. Here, the blocks are `heading`, `rich_text`, `definition_card`, `job_tip`, `takeaways`. `Takeaways` usually implies a list. If it's rendered as a card with bullet points, is that a failure?
+        *   *Re-reading Rubric:* "A 'visual card' that is secretly a bulleted list with a border fails this criterion." The lesson *defines* a visual card as `definition_card`. The `takeaways` are not defined as `visual_card` in the JSON schema (they are `takeaways`), but functionally they are lists.
+        *   *L1 Content:* The L1 content feels like "definitions + bullet points". It's standard, but maybe thin?
+        *   *L2 Content:* The worked example is solid. The scenario is solid.
+        *   *Assessment:* The L1 level is very "definitions and lists". Is it "L1" or just "Intro"? The objectives are covered. The distinction between L1 and L2 is a bit blurry here. The L2 adds the specific analysis steps and a decision scenario.
+        *   *Refinement:* The "takeaways" list is likely a list. If it has a border (implied by "visual card"), it might fail. However, usually, `takeaways` are distinct. Let's look at the rubric again: "A 'visual card' that is secretly a bulleted list with a border".
+        *   *Decision:* I'll lean towards a 4. It works, but the L1 level is very definition-heavy and list-based, which borders on being "thin" or "standard definition text". It's not a failure, but it's not a 5 either.
+        *   *Score:* 4.
+
+    *   **3. Worked-example quality:**
+        *   L2 Worked Example: 4 steps.
+            1.  Read address. Why: "Display name is free text... address is what they didn't choose." -> Good reasoning (names the judgement).
+            2.  Reveal destination. Why: "Displayed text is a label... label naming one place and destination going to another is not ambiguity — that is the finding." -> Very specific, names the judgement (ambiguity).
+            3.  Notice deadline. Why: "Urgency alone is not evidence. Urgency plus a request to act outside normal route is very close to it." -> Specific.
+            4.  Stop at code request. Why: "No legitimate party asks for a one-time code — its entire purpose rests on not being shared." -> Specific.
+        *   *Assessment:* Excellent. The "why" explains the specific logic being applied to the specific scenario.
+        *   *Score:* 5.
+
+    *   **4. Knowledge-check quality:**
+        *   **KC1:**
+            *   Stem: Display name matches department. Question: Which signal outranks that name? Correct: Sender's actual address.
+            *   Distractor 1 (Correct): Address. Feedback: "Correct."
+            *   Distractor 2 (Formatting/Typos): Feedback: "Not correct." -> Vague. Why is formatting not the signal? (Because display names can be faked easily, but addresses can be verified). This is a real misconception, but the feedback is generic.
+            *   Distractor 3 (Logo): Feedback: "Not correct." -> Generic.
+            *   Distractor 4 (Work vs Personal): Feedback: "Not correct." -> Generic.
+        *   **KC2:**
+            *   Stem: Clicked link, sure it's phishing. Question: Correct action? Correct: Report immediately.
+            *   Distractor 1 (Correct): Report immediately. Feedback: "Correct."
+            *   Distractor 2 (Wait & See): Feedback: "Not correct."
+            *   Distractor 3 (Delete): Feedback: "Not correct."
+            *   Distractor 4 (Reply): Feedback: "Not correct."
+        *   *Critique:* The feedback for the wrong options in KC1 is "Not correct". It does *not* name the misconception. For KC2, the feedback is also "Not correct". The rubric specifically mentions: "feedback that restates the answer instead of naming the misconception." (This isn't restating, it's just ignoring). The rubric *also* mentions: "implausible distractors... teach nothing." These aren't implausible (people might think formatting proves it, or replying to check).
+        *   *Refinement:* The rubric says "3 — plausible distractors, feedback thin on some." Since "Not correct" is thin, and there are generic options, I'll give this a 3. The scenario block (L2) has *very good* feedback on consequences ("Your reply reaches the different reply-to address..."), but the Knowledge Check blocks (referenced) themselves have weak feedback.
+        *   *Score:* 3.
+        *   *Notes:* "Two distractors restate the stem rather than naming a misconception." -> Actually, the stem isn't rephrased, but the feedback is generic. The prompt example says "feedback that restates the answer". Here it's just negative. I will focus on "feedback is thin/ineffective".
+
+    *   **5. Scenario authenticity:**
+        *   L2 Scenario: Manager in meeting, can't take calls, needs payment moved. Reply-to differs. Tone matches.
+        *   *Assessment:* This is a very common, authentic phishing scenario ("CEO Fraud"). It has friction (the meeting excuse, the deadline). It's realistic.
+        *   *Score:* 5.
+
+    *   **6. Bilingual quality:**
+        *   Arabic text is provided.
+        *   L1 Intro: "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة..." -> Natural flow.
+        *   L1 Definitions: "نطاق حقيقي مُسجَّل، اختير ليُقرأ خطأً لا ليُفحَص..." -> Good.
+        *   L2 Worked Example: "اقرأ العنوان الحقيقي، لا الاسم الظاهر." -> "The display name is free text, typed as the sender pleases." -> Very natural.
+        *   Rubric check: "Arabic that follows English word order." I scanned the text. It seems to follow Arabic grammar (Subject-Object-Verb usually, though English has Object-Subject-Verb structure sometimes, the phrasing flows naturally). e.g., "الاسم الظاهر نص حر؛ العنوان خلفه هو الدليل." vs "Display name is free text; the address behind it is the evidence." The structure mirrors the English logic but the grammar is Arabic.
+        *   *Assessment:* High quality, reads like native or very close to it.
+        *   *Score:* 5.
+
+    *   **7. Concision and reading level:**
+        *   Text is dense but necessary. The definitions are precise. The worked example steps are concise.
+        *   Is it wordy? No. Is it padded? No.
+        *   *Assessment:* Good use of space.
+        *   *Score:* 5.
+
+    *   **8. Accessibility and IP:**
+        *   *IP:* No licensed code, no payer policy text, no forbidden terms. "display_name", "look_alike_domain" are conceptual terms, not code/policy.
+        *   *Accessibility:* No images described with `altText` in the JSON (since images aren't provided, I assume the JSON structure implies compliance if no alt text is missing, or if the schema allows missing alt text? The rubric says "Alt text on any image". The lesson JSON has `icon: "🔎"` in definition cards. Usually, this is a text/icon. No `<img>` tags are present in the JSON schema provided. I will assume compliance here as no accessibility violations are visible in the text content).
+        *   *Score:* 5.
+
+4.  **Final Score Calculation:**
+    1.  Obj: 5
+    2.  Level: 4
+    3.  Worked Example: 5
+    4.  Knowledge Check: 3
+    5.  Scenario: 5
+    6.  Bilingual: 5
+    7.  Conciseness: 5
+    8.  Accessibility/IP: 5
+    Mean: (5+4+5+3+5+5+5+5) / 8 = 37 / 8 = 4.625.
+    Threshold check: Any score < 3? No. Mean < 4.0? No.
+    Pass.
+
+    *Adjusting scores based on "Be harsh on 4 and 5":*
+    *   Level 4: Is it really a failure? L1 is just definitions. It's thin, but L2 makes up for it. 4 is fair.
+    *   Knowledge Check 3: Feedback is definitely "thin" (just "Not correct"). The prompt specifically flagged this as a failure. 3 is correct.
+    *   Level Fidelity: I will stick with 4.
+
+5.  **Drafting Notes:**
+    *   `knowledge_check`: The feedback for incorrect options is generic ("Not correct") rather than explaining *why* the misconception is wrong (e.g., explaining that display names are free text).
+
+    *   `verdict_notes`: One criterion at 3; mean 4.6. Pass, but knowledge check feedback needs work.
+
+6.  **Formatting Output:**
+    *   JSON structure as requested.
+
+    *Self-Correction during drafting:*
+    *   Check `bilingual_quality` again. Is there any "Arabic that follows English word order"?
+    *   Example: "الاسم الظاهر نص حر؛ العنوان خلفه هو الدليل." vs "A display name is free text; the address behind it is the evidence." -> "الاسم الظاهر" (Display name) "نص حر" (is free text). This matches English syntax (Subject is free text).
+    *   Example: "نص الرابط لافتة، ووجهته شيء آخر". "Link text is a label, and its destination is another thing". Subject is "Link text". This is natural.
+    *   It seems high quality.
+
+    *Check `level_fidelity`:*
+    *   L1 definitions are good.
+    *   L2 worked example is very detailed.
+    *   Is the "visual card" issue present?
+    *   The `definition_card` has an icon.
+    *   The `takeaways` are lists. The prompt warns about a "visual card that is secretly a bulleted list with a border".
+    *   If the UI renders `takeaways` as a bordered card, it fails.
+    *   However, `takeaways` is a distinct block type. `definition_card` is also distinct. If `definition_card` renders as a card, is it a list? No, it's a term and definition.
+    *   I will score it a 4 because the L1 content is a bit "definition-heavy" without much active practice (just reading).
+
+    *Check `knowledge_check` again:*
+    *   KC1: "How well formatted and typo-free it is". People *do* think this. But the feedback is just "Not correct". It doesn't teach *why* formatting is bad (because the header is fake). The scenario block *did* have good feedback explaining the mechanics. The referenced knowledge checks did not. So 3 is appropriate.
+
+    *Final check on JSON keys:* `lesson`, `scores`, `notes`, `verdict_notes`. No markdown.
+
+    *Refining "verdict_notes":*
+    Mean is 4.6.
+    Score < 4 is `knowledge_check`.
+    Verdict: Pass, but feedback on the knowledge checks is generic.
+
+    Let's construct the JSON.
+
+    ```json
+    {
+      "lesson": "recognising-a-phishing-email",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 4,
+        "worked_example": 5,
+        "knowledge_check": 3,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "knowledge_check": "Feedback on incorrect options is generic ('Not correct') and does not explain the misconception."
+      },
+      "verdict_notes": "One criterion at 3; mean 4.6. Passes, but knowledge check feedback needs improvement."
+    }
+    ```</think>```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for incorrect options is generic ('Not correct') and does not explain the misconception."
+  },
+  "verdict_notes": "Passes with a mean of 4.6. The knowledge checks are the weakest element due to generic feedback, and the L1 level relies heavily on definitions."
+}
+```

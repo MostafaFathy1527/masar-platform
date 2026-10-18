@@ -1,0 +1,449 @@
+<think>
+We are scoring a lesson against the rubric. The lesson is about personal data, and we must score it based on the eight criteria without any prior knowledge of what the generator was asked to produce.
+
+We are to return a JSON with:
+- "lesson": the slug of the lesson
+- "scores": an object with the eight criteria as keys, each with an integer 1-5
+- "notes": an object with notes for any criterion scored below 4 (only those)
+- "verdict_notes": two or three sentences
+
+We are not to adjust scores for the purpose of passing or failing; we are to score strictly based on the rubric.
+
+Let's go through each criterion one by one.
+
+**Criterion 1: Objective alignment**
+- The lesson declares objective "PRV-01" for all blocks.
+- We need to check if every block serves that objective.
+- The objective is about what counts as personal data and what to do with it at work.
+- Blocks:
+  - L1: Introduction heading, rich text explaining personal data, two definition cards (sensitive data, potential breach), job tip (convenient channel), takeaways. All these are about defining personal data, sensitive data, breaches, and handling.
+  - L2: Heading "Decide, case by case", a worked example (using the objective to decide on a sick leave list), two knowledge checks, and a scenario (about an email mistake).
+- The worked example and scenario are directly applying the concepts to real situations, which aligns with the objective.
+- The takeaways in L1 also summarize the key points for the objective.
+- All blocks seem to serve the objective. There is no block that is unrelated.
+- **Score: 5**
+
+**Criterion 2: Level fidelity**
+- The lesson declares L1 and L2.
+- We must check if the L1 and L2 are what the learner actually experiences.
+- L1: This is an introductory block. It explains the concepts (personal data, sensitive data, potential breach) in a straightforward way. It's appropriate for L1 (beginner).
+- L2: This is a higher-level block: it requires the learner to apply the concepts in a worked example and scenario. It's a step above L1.
+- The lesson does not have L2 as just L1 with a question bolted on. It's a distinct level with application.
+- The L2 block has a worked example that breaks down the decision process, which is more complex than L1.
+- **Score: 5**
+
+**Criterion 3: Worked-example quality**
+- The worked example (in L2) has steps that show what to do and why.
+- Steps in the worked example:
+  1. "Is this personal data?" -> "Yes, and every row identifies a person." Why: "Even without names, department plus absence dates identifies a person in a small team. The test is identifiability, not the label."
+  2. "Is any of it sensitive?" -> "Yes, sick-leave reasons are health information." Why: "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+  3. "What does his task actually need?" -> "Planning cover needs dates and departments — not reasons." Why: "Need to know. The reasons do not serve the task, so including them is a disclosure with no purpose, internal or not."
+  4. "Send counts and dates per department, no names and no reasons, through the approved channel, and tell him why." Why: "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+- Each step has a clear "why" that explains the reasoning and the judgment.
+- **Score: 5**
+
+**Criterion 4: Knowledge-check quality**
+- We have two knowledge checks: PRV-01-KC-01 and PRV-01-KC-02.
+- We must check:
+  - Distractors are drawn from real misconceptions.
+  - Per-option feedback explains why (not restates the answer).
+  - No implausible distractors.
+
+Let's look at PRV-01-KC-01 (the spreadsheet question):
+
+Stem: "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?"
+
+Options:
+- A: "No, because it contains no names." -> Feedback: "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can." (This addresses a common misconception that if there's no name, it's not personal data.)
+- B: "Yes, because the combination identifies each person in a team that size." -> Correct, feedback: "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply." (This is the right answer, and feedback is good.)
+- C: "Yes, but only if the rating is negative." -> Feedback: "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person." (This addresses a misconception that negative info is the trigger.)
+- D: "No, because employee data is internal and does not count as personal." -> Feedback: "No. Employees are people, and their data is personal whether it stays inside the organisation or not. \"Internal\" describes the channel, not the classification." (This addresses a misconception that internal data isn't personal.)
+
+All distractors are plausible and based on real misconceptions. The feedback explains why the wrong answer is wrong.
+
+Now PRV-01-KC-02 (the customer request):
+
+Stem: "A customer writes: 'I want a copy of everything you hold about me, and delete my phone number.' What is the correct action?"
+
+Options:
+- A: "Delete the phone number straight away and send him whatever you can find in your system." -> Feedback: "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route." (Addresses the misconception of acting without following the process.)
+- B: "Reply that you do not provide copies of data for security reasons." -> Feedback: "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it." (Addresses the misconception that you can refuse.)
+- C: "Add it to your to-do list for when work quiets down." -> Feedback: "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure." (Addresses the misconception of delaying.)
+- D: "Pass it to the privacy owner the same day, and tell the customer it has been logged." -> Correct, feedback: "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+
+Again, all distractors are plausible and based on real misconceptions. Feedback explains why.
+
+However, note the rubric says: "a distractor nobody would ever choose" is a problem. Here, all distractors seem plausible.
+
+But wait: in the knowledge check block for PRV-01-KC-01, option A says "No, because it contains no names." and the feedback says "No. The absence of a name is not the absence of identity." This feedback is good.
+
+But let's check the rubric: "feedback that restates the answer instead of naming the misconception". Here, the feedback does name the misconception (e.g., "absence of a name is not the absence of identity" for option A).
+
+However, the rubric says: "per-option feedback explain why rather than restate the answer". The feedback here is explaining why the option is wrong, not just restating the correct answer.
+
+But note: the rubric also says "distractors drawn from real misconceptions". We believe these are real.
+
+But wait: in the lesson, the knowledge_check block for PRV-01-KC-01 and PRV-01-KC-02 are referenced, and we have the full items. We are to score based on the items.
+
+However, the rubric says: "a distractor nobody would ever choose" — but we don't see any that are implausible.
+
+But let's look at the feedback for one of the options: in PRV-01-KC-01, option A's feedback says "No. The absence of a name is not the absence of identity." This is good.
+
+But the rubric says: "feedback that restates the answer instead of naming the misconception". Here, it is naming the misconception (thinking that no name means not personal data).
+
+So why might we score below 5? Let's see if there's any issue.
+
+Actually, the rubric says: "every distractor names a misconception someone actually holds." We believe they do.
+
+But note: the rubric says "a distractor nobody would ever choose" is a low score. We don't see that.
+
+However, the prompt says: "Two distractors restate the stem rather than naming a misconception." — but we don't see that in the feedback.
+
+Wait, in the provided knowledge check items, the feedback is well-written. But let's double-check the feedback for each option.
+
+For PRV-01-KC-01:
+- Option A: feedback says "No. The absence of a name is not the absence of identity." -> This names the misconception (that no name = not personal).
+- Option B: correct, feedback says "Correct. ..." (this is for the correct option, so it's fine to state the correct reason).
+- Option C: feedback says "No. Whether information is personal data does not depend on whether it is embarrassing..." -> names the misconception (that negative info is the trigger).
+- Option D: feedback says "No. Employees are people, and their data is personal..." -> names the misconception (that internal data isn't personal).
+
+Similarly for PRV-01-KC-02, the feedback for wrong options names the misconception.
+
+So why would we score below 5? The rubric says 5 is "every distractor names a misconception someone actually holds."
+
+But note: the rubric says "a feedback that restates the answer instead of naming the misconception". We don't see that.
+
+However, the lesson itself (the block) only has "itemRef", and we are to score based on the referenced items. And the referenced items have good feedback.
+
+But the rubric says: "Score what is on the page." The page for the lesson has the knowledge_check block with the itemRef, and the itemRef points to the full item. So we are to score based on the full items.
+
+So we should score 5 for knowledge_check.
+
+But wait: the sample verdict in the rubric says: "Two distractors restate the stem rather than naming a misconception." — but in the provided items, we don't see that. So we don't have that problem.
+
+However, let's look again at the knowledge_check block in the lesson:
+
+The lesson's L2 has:
+  {
+    "id": "prv1_l2_kc1",
+    "type": "knowledge_check",
+    "objectiveId": "PRV-01",
+    "payload": {
+      "itemRef": "PRV-01-KC-01"
+    }
+  }
+
+And similarly for KC-02.
+
+We are given the full items, so we can judge.
+
+But note: the rubric says "a distractor nobody would ever choose" — we don't see that.
+
+So why would we score below 5? We might not.
+
+However, let's consider: in PRV-01-KC-01, option A: "No, because it contains no names." — the feedback says "No. The absence of a name is not the absence of identity." This is good.
+
+But the rubric says: "feedback that restates the answer" — meaning if the feedback said "The correct answer is yes, because the combination identifies the person", that would be restating. But here, for the wrong option, it's explaining why it's wrong.
+
+So we think 5 is appropriate.
+
+But wait: the rubric says "a feedback that restates the answer instead of naming the misconception". The feedback for the wrong options does not restate the answer; it names the misconception.
+
+So we should score 5.
+
+However, the sample verdict in the rubric (the example output) has a note for knowledge_check saying "Two distractors restate the stem rather than naming a misconception." But that was an example. In our case, we don't see that.
+
+So for this lesson, we would score 5.
+
+But let's be cautious: the rubric says "Be harsh on 4 and 5." and "A 5 means you would not change it."
+
+We are going to score 5 for knowledge_check.
+
+However, note that the sample output provided in the rubric (the example) has a note for knowledge_check at 3. But that was an example, not this lesson.
+
+But wait: the problem says "the lesson" we are scoring is the one provided. We must score it.
+
+But let's read the provided knowledge check items again. I don't see any feedback that restates the answer.
+
+So we'll score 5.
+
+But wait: the rubric says "a distractor nobody would ever choose" — we don't see that.
+
+So we'll score 5.
+
+**Criterion 5: Scenario authenticity**
+- The scenario in L2: "You emailed a customer's account statement, then noticed a minute later that autocomplete picked a different customer with the same name. The recipient probably has not opened it yet. It is 5 pm."
+- This is a very common situation in offices (autocomplete errors). It's plausible and has the awkwardness (5 pm, the recipient hasn't opened it yet, but it's a mistake).
+- The scenario includes friction: the email was sent, then noticed, and now the learner must decide what to do.
+- This is recognizable to someone who works in an office.
+- **Score: 5**
+
+**Criterion 6: Bilingual quality**
+- The lesson is bilingual (declared true).
+- We must check if the Arabic is natural, not a literal translation.
+- Let's look at the Arabic in the lesson.
+
+Example from the rich_text (first block):
+  "البيانات الشخصية هي أي معلومة تتعلق بشخص حيّ محدَّد الهوية أو يمكن تحديدها. المعيار هو **إمكانية التعرّف**، لا الوسم الظاهر."
+
+This is natural Arabic.
+
+Another example: 
+  "السؤال الذي تسأله دائماً: **«هل يستطيع أحد أن يعرف عمّن تتحدث هذه المعلومة؟»**"
+
+Natural.
+
+We don't see any Arabic that is a literal translation of English word order.
+
+The rubric says: "Arabic that follows English word order" is a 1.
+
+Here, the Arabic is written as if in Arabic.
+
+Also, the terminology is consistent (e.g., "البيانات الشخصية", "إحتمال التعرّف", etc.).
+
+So **Score: 5**
+
+**Criterion 7: Concision and reading level**
+- We look for anything longer than needed.
+- The lesson is concise. Each block is to the point.
+- The rich_text explains the concept clearly without fluff.
+- The definition cards are short and to the point.
+- The worked example has clear steps without extra words.
+- The scenario is a brief description.
+- The takeaways are bullet points that are concise.
+- We don't see padding or repetition.
+- **Score: 5**
+
+**Criterion 8: Accessibility and IP**
+- We must check:
+  - Alt text on any image? (There are no images in the lesson, so no alt text needed.)
+  - No meaning carried by color alone? (No colors used in the text, so no issue.)
+  - No real licensed code descriptors or payer policy text? (The lesson is about personal data, and it uses terms like "sick-leave", "account statement", but no real code or policy text. The terms are generic and not from a specific policy.)
+  - Forbidden-term denylist? (We don't have the denylist, but the lesson doesn't seem to have any forbidden terms. The terms are standard.)
+
+The rubric says: "any real licensed code descriptor or payer policy text — automatic 1 on criterion 8."
+
+We don't see any. The lesson uses generic terms.
+
+Also, the lesson doesn't have any images, so no alt text issue.
+
+So **Score: 5**
+
+Now, we have all scores as 5? But wait, let's double-check knowledge_check.
+
+Wait, the rubric says: "a feedback that restates the answer instead of naming the misconception". We thought we had it right, but let's look at the feedback for the correct option. The feedback for the correct option is not the issue; the issue is for the wrong options.
+
+For the wrong options, the feedback must explain why it's wrong (by naming the misconception).
+
+In PRV-01-KC-01, option A (wrong) feedback: "No. The absence of a name is not the absence of identity." -> This names the misconception.
+
+Similarly for others.
+
+But note: the rubric says "distractor nobody would ever choose". We don't see that.
+
+However, let's consider option D in PRV-01-KC-01: "No, because employee data is internal and does not count as personal." This is a plausible misconception (some might think internal data isn't personal).
+
+So we think it's 5.
+
+But wait: the example verdict in the rubric has a note for knowledge_check at 3. But that was an example. For this lesson, we have to judge.
+
+We are going to score 5.
+
+But let's look again at the knowledge check feedback for the wrong options. The rubric says: "feedback that restates the answer" — meaning if it says "The correct answer is yes" for a wrong option, that's bad. But we don't see that.
+
+In the provided items, the feedback for wrong options starts with "No." and then explains.
+
+So we are confident.
+
+Now, the mean of 8 fives is 5.0, which is above 4.0.
+
+But note: the rubric says "a 5 means you would not change it". We think we wouldn't change anything.
+
+However, let's check for any possible issue.
+
+Wait: in the rubric, criterion 4 says: "a feedback that restates the answer instead of naming the misconception". Let's read the feedback for one wrong option.
+
+For PRV-01-KC-01, option A: feedback says "No. The absence of a name is not the absence of identity." — this is naming the misconception (the misconception that absence of name implies absence of identity).
+
+Similarly, for option C: feedback says "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person." — this names the misconception (that it depends on being embarrassing).
+
+So it's good.
+
+But note: the rubric says "a distractor nobody would ever choose". We don't see that.
+
+Therefore, we score 5 for knowledge_check.
+
+So all criteria are 5.
+
+But wait: the sample output in the rubric has a note for knowledge_check at 3. Why? Because it's an example. We must score based on the actual lesson.
+
+Now, the problem says: "Return exactly the JSON shape it specifies".
+
+We have to return a JSON with the scores.
+
+But note: the rubric says "notes" is required for every criterion scored below 4. Since we have all 5s, the "notes" object will be empty? But the rubric says: "required for every criterion scored below 4". If none are below 4, then "notes" should be an empty object.
+
+The example output has a "notes" with one entry because knowledge_check was 3.
+
+In our case, we have no criteria below 4, so "notes" should be an empty object.
+
+But the rubric says: "required for every criterion scored below 4" — so if none, then we don't put any.
+
+Also, the example output has "notes": { "knowledge_check": ... } because it was 3.
+
+So for us, we'll have "notes": {}.
+
+Now, the "verdict_notes" should be two or three sentences.
+
+We can say: "All criteria scored 5. The lesson is excellent across all dimensions. The mean score is 5.0, which is well above the threshold."
+
+But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." We have all 5s, so it passes.
+
+Now, let's write the JSON.
+
+But wait: the problem says "the lesson" has slug "what-counts-as-personal-data".
+
+So:
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5. The lesson is flawless in every aspect. The mean score of 5.0 is well above the threshold, so it passes."
+}
+
+But the rubric says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+We are scoring 5 for all, which we believe is correct.
+
+But let's double-check the knowledge_check one more time.
+
+Wait, in the knowledge check item PRV-01-KC-01, option D: "No, because employee data is internal and does not count as personal." The feedback says: "No. Employees are people, and their data is personal whether it stays inside the organisation or not. «Internal» describes the channel, not the classification."
+
+This is good.
+
+But note: the rubric says "a feedback that restates the answer". For option D, the feedback does not restate the answer; it explains why the option is wrong.
+
+So we are confident.
+
+However, let's consider: is there any possibility that one of the feedbacks restates the answer? For the wrong options, it's explaining why it's wrong, not restating the correct answer.
+
+The correct answer's feedback is for the correct option, and that's fine.
+
+So we stick with 5.
+
+But note: the rubric says "a distractor nobody would ever choose". We don't see that.
+
+Therefore, we'll score 5 for knowledge_check.
+
+Now, let's write the JSON.
+
+But wait: the rubric says "You do not decide pass or fail." so we don't say "pass" in the verdict_notes, but we can say it passes because the mean is 5.0.
+
+The example verdict_notes says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+We have no criteria below 4, so we say it passes.
+
+So verdict_notes: "All criteria scored 5. The mean score is 5.0, which is above the threshold. The lesson is excellent."
+
+But note: the rubric says "the gate fails if ... mean is below 4.0". We are not to say "pass", but the example says "Passes".
+
+We'll follow the example.
+
+Now, we output exactly the JSON.
+
+But note: the rubric says "Return exactly the JSON shape it specifies".
+
+We must have:
+  "lesson": "what-counts-as-personal-data",
+  "scores": { ... },
+  "notes": { ... },
+  "verdict_notes": "..."
+
+We have "notes" as an empty object.
+
+However, the rubric says: "required for every criterion scored below 4" — so if none, then we have an empty object.
+
+So we output:
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5. The mean score is 5.0, which is well above the threshold. The lesson is excellent across all dimensions."
+}
+
+But note: the example output has "verdict_notes" as two or three sentences.
+
+We have three.
+
+However, the rubric says: "the gate — not the judge — decides pass or fail." so we don't have to say "pass", but the example does.
+
+We'll follow the example.
+
+But wait: the problem says "the gate fails if ...", and we are not the gate. We are just scoring.
+
+So we can say "It passes" or not? The example says "Passes".
+
+We'll say "It passes" because the mean is above 4.0.
+
+But the example verdict_notes says "Passes, but ...", so we can say "It passes" without the "but".
+
+So: "All criteria scored 5. The mean score is 5.0, which is well above the threshold. The lesson is excellent across all dimensions."
+
+Now, we write the JSON.
+
+But note: the rubric says "Do not adjust a score because of what it would do to the outcome". We are scoring 5 for all because they are all 5, not because we want it to pass.
+
+So we are good.
+
+However, let's consider: is there any criterion we might have missed?
+
+Criterion 8: "No real licensed code descriptor or payer policy text". We don't see any. The lesson uses generic terms.
+
+For example, "sick-leave" is a common term, not a real policy. "Account statement" is generic.
+
+So we are safe.
+
+Therefore, the JSON as above.
+
+But note: the rubric says "You do not know what the generator was asked to produce". We are scoring based on the text.
+
+We have done that.
+
+So we output the JSON.
+</think>
+
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored 5. The mean score is 5.0, which exceeds the threshold. The lesson is flawless across all dimensions with no room for improvement."
+}

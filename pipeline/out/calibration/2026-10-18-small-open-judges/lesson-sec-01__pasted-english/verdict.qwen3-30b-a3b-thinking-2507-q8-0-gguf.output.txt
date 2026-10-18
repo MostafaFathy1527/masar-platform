@@ -1,0 +1,437 @@
+<think>
+We are scoring the lesson "recognising-a-phishing-email" against the rubric.
+
+We must read the rubric and score the lesson based solely on what is present, without knowing the prompt.
+
+Let's go through each criterion one by one.
+
+### Criterion 1: Objective alignment
+The lesson declares objective SEC-01. We need to check if every block serves SEC-01.
+
+Blocks in L1:
+- heading: "The attack is on the reader, not the system" -> aligns with SEC-01 (phishing targets the person)
+- rich_text: explains phishing and the first check (address over display name) -> aligns
+- definition_card for "look-alike domain": introduces a concept that is part of the objective (conceptsIntroduced includes look_alike_domain) -> aligns
+- definition_card for "one-time code": concept introduced -> aligns
+- job_tip: advises on checking address and link -> aligns
+- takeaways: list of key points that match the objective -> aligns
+
+Blocks in L2:
+- heading: "Work one message, signal by signal" -> aligns (teaching how to apply the checks)
+- worked_example: walks through a scenario applying the checks -> aligns
+- knowledge_check (SEC-01-KC-01): multiple choice on the key signal (address) -> aligns
+- scenario: a realistic scenario to apply the checks -> aligns
+- knowledge_check (SEC-01-KC-02): multiple choice on what to do after clicking -> aligns
+
+All blocks serve the objective. Score: 5.
+
+### Criterion 2: Level fidelity
+The lesson declares levels L1 and L2.
+
+L1: 
+- The content is introductory: explains the core concepts (display name vs address, one-time code, etc.) and the first check. It's a foundation for L2.
+- The L1 blocks are present and cover the basics without being too advanced.
+
+L2:
+- L2 builds on L1: it takes a specific scenario and applies the checks in order. 
+- The worked example and scenario are appropriate for a step-up in complexity (L2).
+- The scenario has a realistic friction (reply-to address differing from sending address) and requires applying multiple checks.
+
+The level label (L1 and L2) is what the learner experiences. L1 is foundational, L2 is applied. Score: 5.
+
+### Criterion 3: Worked-example quality
+The worked example in L2 has steps with "show" and "why". 
+
+Steps:
+1. Read the actual address, not the display name. Why: because the address is what they did not choose freely. (This explains the "why" and the judgment: the address is the evidence.)
+2. Reveal where the button goes. Why: because the label and destination are independent, and if they differ it's a sign of phishing. (Names the judgment: it's not ambiguity but a finding.)
+3. Notice the deadline (two hours). Why: urgency alone isn't evidence, but urgency plus a request to act outside normal route is close to evidence. (Explains the judgment and what would change it: if the request was normal, it might be okay.)
+4. Stop at the request for the verification code. Why: because no legitimate party asks for a one-time code. (Explains the judgment and the reasoning.)
+
+Each step has a clear "why" that names the judgment and what would change it. Score: 5.
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks (KC-01 and KC-02). We'll look at the feedback for each.
+
+For KC-01:
+- Correct option: "The sender's actual address." Feedback: "Correct. This is always the first check, because it is the one thing not freely typed." -> This names the misconception (that display name is evidence) and explains why the address is the check.
+- Incorrect option 1: "How well formatted and typo-free it is." Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." -> Names a common misconception (that a polished message is more trustworthy) and explains why it's not reliable.
+- Incorrect option 2: "The organisation's logo appearing in the message." Feedback: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." -> Names a misconception (that a logo is proof) and explains why it's not reliable.
+- Incorrect option 3: "That it arrived at your work address rather than a personal one." Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." -> Names a misconception (that work address means it's legitimate) and explains why.
+
+For KC-02:
+- Correct option: "Report it immediately, even if you entered nothing." Feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person." -> Explains the why (timing matters, and the message is sent to many).
+- Incorrect option 1: "Wait and see whether anything happens." Feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started." -> Names a misconception (that waiting is safe) and explains the consequence.
+- Incorrect option 2: "Delete the message so nobody else clicks it." Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." -> Names a misconception (that deleting helps) and explains why it's bad.
+- Incorrect option 3: "Reply to the sender asking whether it was genuine." Feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message." -> Names a misconception (that replying is safe) and explains the risk.
+
+All distractors are plausible and named from real misconceptions. Feedback explains why, not just restating the answer. Score: 5.
+
+But wait: the prompt says "two distractors restate the stem" for a 3. Let me double-check.
+
+In KC-01, the stem is: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+
+The correct answer is "The sender's actual address." The feedback says "Correct. This is always the first check, because it is the one thing not freely typed." -> This is not restating the stem, it's explaining.
+
+Similarly, the incorrect options' feedbacks are not restating the stem.
+
+So why did I think there might be a problem? Let me look again.
+
+Wait, the rubric says: "feedback that restates the answer instead of naming the misconception". 
+
+In KC-01, the feedback for the correct option is not restating the answer (it's explaining the reason). The incorrect options' feedbacks are explaining why the distractor is wrong.
+
+So it's good.
+
+But note: the lesson has two knowledge checks, and we are scoring the knowledge_check criterion as a whole.
+
+However, the rubric says: "every distractor names a misconception someone actually holds." and "per-option feedback explain why".
+
+We have two knowledge checks, each with 4 options. All feedbacks are explaining why the option is wrong (or right) and naming misconceptions.
+
+So why would we score below 5? I don't see a problem.
+
+But wait: the example in the rubric says "two distractors restate the stem" for a 3. We don't have that.
+
+Let me check the provided knowledge checks:
+
+For KC-01, the options:
+- Option 1: "The sender's actual address." (correct) -> feedback: explains why, not restating.
+- Option 2: "How well formatted and typo-free it is." -> feedback: "No. Typos are weak evidence ..." -> explains why it's not a good signal.
+- Option 3: "The organisation's logo appearing in the message." -> feedback: "No. A logo is an image copied in seconds ..." -> explains why.
+- Option 4: "That it arrived at your work address rather than a personal one." -> feedback: "No. Work addresses are harvested ..." -> explains why.
+
+Similarly for KC-02.
+
+So I think it's 5.
+
+But the example output in the rubric had a note for knowledge_check at 3. However, in this lesson, it seems good.
+
+Wait, let me read the lesson again. The knowledge_check blocks in the lesson only have "itemRef", but we are given the full items. So we are scoring based on the full items.
+
+I think it's 5.
+
+However, note that the rubric says: "a distractor nobody would ever choose" is a problem. Are any of these distractors implausible?
+
+- Option 2 in KC-01: "How well formatted and typo-free it is." -> This is a common misconception (that a professional-looking message is safe) -> plausible.
+- Option 3 in KC-01: "The organisation's logo" -> common to think a logo means it's real -> plausible.
+- Option 4 in KC-01: "Arrived at work address" -> some people might think that because it's a work email, it's legitimate -> plausible.
+
+Similarly for KC-02, all distractors are common mistakes.
+
+So I think knowledge_check should be 5.
+
+But wait: the example verdict in the rubric (the output template) had "knowledge_check": 3 and a note about two distractors restating the stem. However, in this lesson, we don't see that. So we must score what we see.
+
+I think I must have misread. Let me double-check the feedback for the correct option in KC-01:
+
+"Correct. This is always the first check, because it is the one thing not freely typed."
+
+This is not restating the stem. The stem is "Which signal outranks that name?" and the feedback says "This is always the first check" (which is the answer) but then explains why. So it's not just restating.
+
+Similarly, for the incorrect options, the feedback explains the misconception.
+
+So I think it's 5.
+
+But let's look at the other criteria to be sure.
+
+### Criterion 5: Scenario authenticity
+The scenario in L2: 
+"A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a realistic scenario. Phishing often uses urgency (payment needed before end of day) and impersonates a manager. The friction is the reply-to address differing — which is a common phishing tactic. The scenario includes the awkward part: the manager says he's in a meeting and can't take calls (which is engineered to prevent the recipient from verifying by calling).
+
+So it's authentic. Score: 5.
+
+### Criterion 6: Bilingual quality
+The lesson is bilingual (bilingual: true). We need to check if the Arabic is natural.
+
+We are given the Arabic in the blocks and in the knowledge checks.
+
+Let's look at a few:
+
+In the L1 rich_text:
+"Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting."
+
+Arabic translation:
+"Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting."
+
+The Arabic provided is:
+"Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting."
+
+Wait, that's the same as English? But the payload has "mdAr" and "mdEn". Let me check the lesson JSON.
+
+In the lesson JSON, for the rich_text block, the payload has:
+"mdAr": "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting.\n\nThe weakest signal in any message is the sender's **display name**, and it is the one people trust most. A display name is free text: a sender can type a colleague's name, an internal department, or a bank, and it renders exactly as typed. What cannot be set freely is the **address** behind it. Reading the address rather than the name shown is the first check.",
+"mdEn": "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting.\n\nThe weakest signal in any message is the sender's **display name**, and it is the one people trust most. A display name is free text: a sender can type a colleague's name, an internal department, or a bank, and it renders exactly as typed. What cannot be set freely is the **address** behind it. Reading the address rather than the name shown is the first check."
+
+Wait, the Arabic text is identical to the English? That can't be right. But the lesson says "bilingual": true, so the Arabic should be translated.
+
+But looking at the JSON, the "mdAr" field has the same string as "mdEn". This is a problem.
+
+However, in the provided lesson JSON, it's written as:
+
+"mdAr": "Phishing does not attack software. ...", 
+
+This is clearly a mistake. The Arabic should be a translation, not the English.
+
+But note: the rubric says "Arabic that follows English word order" is a problem (score 1 for that). If it's the same as English, it's a literal translation and not natural Arabic.
+
+So let's check the Arabic in the definition_card:
+
+For "look_alike_domain", the Arabic definition:
+"أحد المجالات المسجلة الحقيقية المختارة لكي تُقرأ بشكل خاطئ بدلًا من فحصها: زوج من الحروف يأخذ شكلًا آخر عند النظرة السريعة، أو شرطة مُضافة أو مُحذوفة، أو نطاق علوي مختلف في اسم صحيح بشكل عام. ليس فشلًا تقنيًّا — بل يعتمد تمامًا على قراءة القارئ بدلًا من قراءته."
+
+This is a translation. Let's see if it's natural.
+
+But the rich_text and other parts have the English string in "mdAr". So the Arabic is not properly translated.
+
+In the lesson JSON, for the rich_text block, the "mdAr" is the same as "mdEn". That is, it's not translated.
+
+Similarly, the job_tip has "mdAr" as the same as "mdEn".
+
+This is a problem.
+
+But note: the lesson JSON we are given for the rich_text block has:
+
+"mdAr": "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting.\n\nThe weakest signal in any message is the sender's **display name**, and it is the one people trust most. A display name is free text: a sender can type a colleague's name, an internal department, or a bank, and it renders exactly as typed. What cannot be set freely is the **address** behind it. Reading the address rather than the name shown is the first check.",
+
+This is the same as the English. So it's not Arabic at all.
+
+This is a critical failure.
+
+However, in the knowledge checks, the Arabic is provided as translated. For example, in KC-01:
+
+"stemAr": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+
+Wait, that stem is in English? But it's labeled "stemAr". So the Arabic for the stem is actually English? That's not right.
+
+Let me check the knowledge checks:
+
+For KC-01:
+"stemAr": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+
+This is English. But it's in the "Ar" field. So it's not translated.
+
+Similarly, the options in KC-01:
+"textAr": "The sender's actual address." -> This is English, not Arabic.
+
+So the entire Arabic content is not translated; it's the English.
+
+This is a clear violation of the bilingual requirement.
+
+The rubric says: "Arabic that follows English word order" is a problem (score 1). This is not just word order; it's a literal copy of the English.
+
+Therefore, for criterion 6 (bilingual_quality), we must score 1.
+
+But wait, the lesson declares bilingual: true. So we have to score the Arabic.
+
+Since the Arabic is not translated (it's the same as English), it's a literal rendering. So score: 1.
+
+However, let's confirm with the rubric: "1 — Arabic is a literal rendering of English word order."
+
+This matches.
+
+So bilingual_quality: 1.
+
+But note: the rubric says "An English-only lesson is not penalised here — it is scored against its own declaration." But this lesson declares bilingual, so we are penalizing for not having Arabic.
+
+Therefore, score 1 for bilingual_quality.
+
+### Criterion 7: Concision and reading level
+Check if the prose is concise and every word earns its space.
+
+L1:
+- The rich_text is a bit long but explains the concepts clearly. It's not padded; it's necessary for the explanation.
+- The definition cards are concise and to the point.
+- The job_tip is very concise and impactful.
+
+L2:
+- The worked example steps are clear and not wordy.
+- The scenario is concise and includes only necessary details.
+- The knowledge checks have clear stems and feedback.
+
+No obvious padding. The prose is clear and to the point. Score: 5.
+
+### Criterion 8: Accessibility and IP
+Check for:
+- Alt text on images: there are no images in the lesson (the blocks don't have images, and the icons in the definition cards are just symbols, not images with alt text). But the rubric says "Alt text on any image", and there are no images, so it's compliant.
+- No meaning carried by color alone: there are no color-dependent elements.
+- No real licensed code descriptors or payer policy text: none present.
+- No forbidden-term denylist: we don't see any.
+
+The rubric says: "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." We don't see any of these.
+
+So it's compliant. Score: 5.
+
+But note: the rubric says "automatic 1" if any of those are present. We don't see any, so not 1.
+
+Also, the lesson has icons (like 🔎 and 🔐) which are not code descriptors. They are symbols.
+
+So accessibility_ip: 5.
+
+### Summary of scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 5 (we thought it was 5, but let's double-check: the feedbacks are good, and we don't see any restating of the stem)
+- scenario_authenticity: 5
+- bilingual_quality: 1 (because Arabic is not translated, it's the same as English)
+- concision: 5
+- accessibility_ip: 5
+
+Wait, but the bilingual_quality is 1, which will cause the gate to fail (because it's below 3). But we are to score the criteria, not decide pass.
+
+Now, we must write the JSON.
+
+But note: the rubric says "if a criterion is scored below 4, we must put a note."
+
+For bilingual_quality, we scored 1, so we need a note.
+
+Also, the other criteria: all 5, so no notes for them.
+
+But wait: the knowledge_check we thought was 5, but let's be 100% sure.
+
+In KC-01, the feedback for the correct option: "Correct. This is always the first check, because it is the one thing not freely typed."
+
+This is not restating the stem. The stem is "Which signal outranks that name?" and the feedback says "This is always the first check" — which is the answer — but it also gives the reason. So it's acceptable.
+
+Similarly, the other feedbacks are good.
+
+So knowledge_check is 5.
+
+But the bilingual_quality is 1, which is a problem.
+
+Now, for the notes, we only need to put a note for bilingual_quality.
+
+Also, the verdict_notes should be two or three sentences.
+
+Let's write the JSON.
+
+Note: The rubric says "Return exactly the JSON shape it specifies".
+
+So:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "bilingual_quality": "Arabic text is identical to English, not translated."
+  },
+  "verdict_notes": "Bilingual quality is 1 due to no translation; all other criteria are 5. The gate will fail because bilingual_quality < 3."
+}
+
+But note: the rubric says "Do not decide pass or fail." We are only writing the JSON.
+
+Also, the verdict_notes should be two or three sentences.
+
+However, the example in the rubric had "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." But in our case, we have a 1.
+
+We'll write: "Bilingual quality is 1 due to no translation. All other criteria are 5. The mean is (5*7 + 1)/8 = 36/8 = 4.5. However, the gate fails because bilingual_quality < 3."
+
+But the rubric says: "The gate fails if any criterion scores below 3, or if the mean is below 4.0."
+
+So we don't need to say the mean in the verdict_notes, but we can.
+
+However, the example verdict_notes just says "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+We'll write: "Bilingual quality is 1. All other criteria are 5. The gate fails due to bilingual_quality < 3."
+
+But note: the rubric says "Do not decide pass or fail." So we are not to say "the gate fails", but we are to write a note. The example verdict_notes says "Passes, but ...", so we can say what the gate will do.
+
+The rubric says: "verdict_notes: two or three sentences."
+
+So: "Bilingual quality is 1 due to no translation. All other criteria are 5. The gate fails because bilingual_quality < 3."
+
+Now, let's confirm the lesson slug: "recognising-a-phishing-email"
+
+In the lesson JSON, the slug is "recognising-a-phishing-email", so we use that.
+
+But note: the example in the rubric used "05-documentation-that-supports-the-claim". We use the given slug.
+
+Now, the scores: we have bilingual_quality: 1.
+
+But wait, let me double-check the Arabic in the lesson.
+
+In the provided lesson JSON, for the rich_text block, the "mdAr" is the same as "mdEn". Similarly, for the job_tip, "mdAr" is the same as "mdEn". 
+
+For the definition cards, the Arabic is translated (we see the Arabic text in the example). But the other parts are not.
+
+However, the rubric requires that the Arabic is natural. The fact that the main content is not translated (it's English) means the Arabic is not present. So it's a 1.
+
+Even though the definition cards have Arabic, the rest of the content (which is the bulk) is not translated. So the bilingual quality is poor.
+
+Therefore, we must score 1.
+
+So the JSON:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "bilingual_quality": "Arabic text is identical to English, not translated."
+  },
+  "verdict_notes": "Bilingual quality is 1 due to no translation. All other criteria are 5. The gate fails because bilingual_quality < 3."
+}
+
+But note: the rubric says "not_scored" is not required because we are scoring all criteria.
+
+Also, the example had "notes" only for criteria below 4, and bilingual_quality is 1 (below 4), so we have a note.
+
+Now, let's check the mean: (5+5+5+5+5+1+5+5)/8 = 36/8 = 4.5, which is above 4.0, but the gate fails because of the 1.
+
+We are not to say "the gate fails" in the notes? But the example did say "Passes, but ...". So we can say it.
+
+But note: the example verdict_notes: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+We'll write similarly.
+
+So: "Bilingual quality is 1. All other criteria are 5. The gate fails due to bilingual_quality < 3."
+
+But the rubric says "Do not decide pass or fail." However, the verdict_notes is for the gate's decision. The example included it.
+
+So we'll include it.
+
+Now, write the JSON.
+
+Important: no markdown, just the JSON.
+
+Let's write it.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "bilingual_quality": "Arabic text is identical to English, not translated (e.g., mdAr fields contain English strings)."
+  },
+  "verdict_notes": "Bilingual quality is 1 due to no translation. All other criteria are 5. The gate fails because bilingual_quality < 3."
+}

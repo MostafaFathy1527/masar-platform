@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.6,
+    "scored_at": "2026-10-17T23:59:23.456958+00:00",
+    "usage": {
+      "inputTokens": 7512,
+      "outputTokens": 6881
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The 'why' for each step is generic ('because it is the next step') and does not name the judgment or what would change it.",
+    "accessibility_ip": "The lesson is compliant but does not use the constraint (no real policies) as a teaching point."
+  },
+  "verdict_notes": "Two criteria scored below 4: worked_example (3) and accessibility_ip (3). The mean score is 4.5, which is above the threshold of 4.0. The lesson meets the gate requirements."
+}

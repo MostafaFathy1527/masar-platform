@@ -1,0 +1,144 @@
+<think>1.  **Analyze the Request**:
+    *   **Role**: Judge (fresh context, no sight of prompt/source).
+    *   **Task**: Score a lesson against `pipeline/rubric.md`.
+    *   **Constraint**: Do not infer intent; score what is on the page. Be harsh on 4/5. Do not adjust scores to change the verdict (gate logic is separate).
+    *   **Input**: Lesson JSON (`what-counts-as-personal-data`) + Rubric + Knowledge Check items.
+    *   **Output**: JSON with keys `lesson`, `scores` (8 integers), `notes` (only for scores < 4), `verdict_notes`.
+
+2.  **Analyze the Lesson**:
+    *   **Slug**: `what-counts-as-personal-data`
+    *   **Levels**: L1, L2.
+    *   **Bilingual**: Yes.
+    *   **Objective**: PRV-01 (What counts as personal data, and what to do with it at work).
+
+3.  **Score Criteria (Iterative Process)**:
+
+    *   **1. Objective Alignment**:
+        *   L1: Intro defines personal data, sensitive data, potential breach, and job tips. Matches PRV-01.
+        *   L2: Worked example (sick leave request) applies the definitions to a scenario. Scenario (wrong email) applies the breach reporting and decision-making. Matches PRV-01.
+        *   Knowledge checks: Both test the identifiability and data subject request aspects.
+        *   *Verdict*: Strong alignment. No irrelevant content.
+
+    *   **2. Level Fidelity**:
+        *   L1: Rich text, definitions, tips, takeaways. Standard intro level.
+        *   L2: Worked example (step-by-step decision), Scenario (interactive), Knowledge checks.
+        *   *Check*: Is it "L1 with a question"? No, it has a proper worked example.
+        *   *Verdict*: Good fidelity to L2 expectations.
+
+    *   **3. Worked-Example Quality**:
+        *   *Scenario*: Colleague asks for sick leave list.
+        *   *Step 1*: Is it personal data? Why? (Identifiability).
+        *   *Step 2*: Is it sensitive? Why? (Health info).
+        *   *Step 3*: What is needed? (Planning). Why not share reasons? (Need to know).
+        *   *Step 4*: Action (Send counts/dates) and Why? (Prevent next breach).
+        *   *Analysis*: The "why" is explicitly named (identifiability, harm cannot be undone, purpose limitation, convenient channel).
+        *   *Verdict*: Very strong. Reasoning is explicit and ties back to the rules.
+
+    *   **4. Knowledge-Check Quality**:
+        *   *KC 01 (Table without names)*:
+            *   Options: "No names" (implausible misconception), "Yes, combination identifies" (Correct), "Only if negative" (implausible), "Internal not personal" (implausible).
+            *   Feedback: "Not correct" / "Correct" / "Not correct".
+            *   *Critique*: The feedback is extremely thin. "Not correct" doesn't explain *why* the wrong option is wrong (e.g., "A table without names can still identify people"). It just says "Nope".
+        *   *KC 02 (Data subject request)*:
+            *   Options: Delete/Email (Wrong), Reply security (Wrong), Add to to-do (Wrong), Pass to privacy owner (Correct).
+            *   Feedback: Again, just "Not correct" or "Correct".
+            *   *Critique*: The rubric says: "feedback that restates the answer instead of naming the misconception." It also says: "A distractor nobody would ever choose teaches nothing." Here, the distractors are plausible (internal vs personal, security vs access, delay vs urgency). However, the feedback is the weak point.
+            *   *Scoring*: The distractors are okay (plausible), but the feedback is generic and doesn't help the learner understand the specific misconception (e.g., why "internal" doesn't exempt it, or why "security" isn't a valid refusal to a data subject request).
+            *   *Score*: 3 is fair. Plausible distractors present, but feedback is generic.
+
+    *   **5. Scenario Authenticity**:
+        *   *L1 Scenario*: Not explicitly marked as a scenario in the L1 block, but L1 has a "job_tip".
+        *   *L2 Scenario*: The email mix-up.
+        *   *Analysis*: Sending the wrong email is a very common, high-friction reality. "Autocomplete" is a real pain point. "5 pm" adds time pressure/friction. It feels real.
+        *   *Verdict*: 5.
+
+    *   **6. Bilingual Quality**:
+        *   *Arabic Text*:
+            *   "السؤال ليس «هل عليه اسم؟»" (The question is not "is there a name on it?").
+            *   "المعيار هو إمكانية التعرّف، لا الوسم الظاهر."
+            *   "البيانات الحسّاسة..." "الاختراق المحتمل..."
+            *   "القناة المريحة..."
+            *   "قرّر، حالةً بحالة"
+            *   Worked example steps: "حتى بلا أسماء... يحدد الشخص..." "الضرر من كشف سبب مرضي لا يُستردّ..."
+            *   Scenario: "الساعة الخامسة مساءً."
+        *   *Analysis*: The Arabic flows well. It uses terminology consistent with the definitions provided (identifiability, sensitive data, potential breach). It doesn't sound like literal translation ("The test is identifiability" -> "معيار التعرّف"). It sounds natural.
+        *   *Verdict*: 5.
+
+    *   **7. Concision and Reading Level**:
+        *   *Analysis*: The text is dense but necessary. L1 text is clear. L2 text is precise. No fluff. It respects the reading level (professional/semi-pro).
+        *   *Verdict*: 5.
+
+    *   **8. Accessibility and IP**:
+        *   *IP*: Checked definitions against "real licensed code descriptor or payer policy text". None found.
+        *   *Accessibility*: Definition cards have icons (`⚠️`, `🚨`). No color reliance mentioned.
+        *   *Verdict*: 5.
+
+4.  **Finalize Scores**:
+    *   Objective alignment: 5
+    *   Level fidelity: 5 (L1 definitions + L2 application)
+    *   Worked-example: 5 (Explicit why steps)
+    *   Knowledge-check: 3 (Generic feedback)
+    *   Scenario authenticity: 5 (Real friction, real context)
+    *   Bilingual quality: 5 (Natural Arabic)
+    *   Concision: 5
+    *   Accessibility: 5
+
+5.  **Draft Notes**:
+    *   *Knowledge Check*: The feedback for all options is extremely generic ("Not correct", "Correct"). While the distractors are plausible, the feedback fails to explain the reasoning behind why a distractor is wrong, making it less effective for learning.
+
+6.  **Draft Verdict**:
+    *   Mean: (5+5+5+3+5+5+5+5) / 8 = 38/8 = 4.75.
+    *   One score at 3. Passes (mean > 4).
+    *   Note: Strong content, but knowledge check feedback is weak.
+
+7.  **Formatting Output**:
+    *   Ensure JSON format.
+    *   Ensure no markdown fences (except if required by prompt, but prompt says "No markdown fences, no prose before or after the JSON").
+    *   Double-check the prompt requirements: "Return ONE JSON object and nothing else".
+
+    *   *Self-Correction on Knowledge Check*: Are the distractors *too* implausible?
+        *   KC 01 Option 1: "No, because it contains no names." -> This is a very common misconception (thinking names = data). It's a good distractor, just poorly feedbacked.
+        *   KC 01 Option 4: "No, because employee data is internal..." -> Also a common misconception. Good distractor.
+        *   KC 02 Option 1: "Delete... send whatever you find." -> Plausible error (people act before checking).
+        *   KC 02 Option 4: "Pass to privacy owner..." -> Correct.
+        *   KC 02 Option 3: "Add to to-do list..." -> Plausible error (procrastination).
+    *   Okay, the distractors are actually quite good (targeting real misconceptions). The feedback is the *only* real flaw. So 3 is fair. 4 would imply "plausible distractors, feedback thin on some". Given the "generic" nature, 3 fits best.
+
+8.  **Final JSON Construction**:
+    ```json
+    {
+      "lesson": "what-counts-as-personal-data",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 5,
+        "knowledge_check": 3,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "knowledge_check": "The feedback for all options is extremely generic ('Not correct' or 'Correct'). While the distractors target real misconceptions, the feedback does not explain why a wrong answer is wrong, hindering the learning."
+      },
+      "verdict_notes": "Strong performance across all criteria. The mean is 4.75, comfortably passing the threshold. The only weakness is the generic feedback in the knowledge checks, which fails to explain the rationale behind incorrect options."
+    }
+    ```</think>```json
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "While the distractors target plausible misconceptions (e.g., confusing 'internal data' with 'personal data'), the feedback is consistently generic ('Not correct' or 'Correct') and fails to explain why the distractor is wrong, providing little learning value."
+  },
+  "verdict_notes": "A strong lesson overall with excellent bilingual quality, a high-fidelity worked example, and authentic scenarios. The mean score is 4.75, passing the threshold, though the lack of explanatory feedback in the knowledge checks lowers the score."
+}
+```

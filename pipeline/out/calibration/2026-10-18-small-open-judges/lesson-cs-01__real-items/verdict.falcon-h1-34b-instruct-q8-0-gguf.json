@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T23:15:39.868377+00:00",
+    "usage": {
+      "inputTokens": 7399,
+      "outputTokens": 319
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "In CS-01-KC-01, the feedback for the incorrect options could more explicitly address the misconceptions rather than just restating why the option is incorrect. In CS-01-KC-02, the distractor '\"Done. Is there anything else I can help with?\"' is plausible but the feedback does not sufficiently explain why it fails to meet the criterion of an agreed next step."
+  },
+  "verdict_notes": "The lesson is well-structured and meets most criteria effectively. The worked example is thorough and explains both the action and reasoning behind each step. The bilingual quality is strong, with natural Arabic text. However, the knowledge checks could improve by providing feedback that more clearly addresses common misconceptions and explains why certain distractors are incorrect. One criterion scored below 4; mean 4.1. Passes, but the knowledge checks need refinement."
+}

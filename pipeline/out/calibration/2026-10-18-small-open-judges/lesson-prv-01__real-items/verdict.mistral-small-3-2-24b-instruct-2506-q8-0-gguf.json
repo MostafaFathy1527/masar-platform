@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.15,
+    "scored_at": "2026-10-17T23:11:14.217600+00:00",
+    "usage": {
+      "inputTokens": 7112,
+      "outputTokens": 191
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The feedback for the incorrect options in the knowledge checks is generally good, but some could be more specific in naming the misconception."
+  },
+  "verdict_notes": "All criteria meet or exceed the threshold. The lesson is well-aligned, authentic, and effectively bilingual. The knowledge checks are strong but could benefit from slightly more detailed feedback on misconceptions."
+}

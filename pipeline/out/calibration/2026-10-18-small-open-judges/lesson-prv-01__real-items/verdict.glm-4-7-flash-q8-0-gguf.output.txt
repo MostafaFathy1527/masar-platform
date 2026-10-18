@@ -1,0 +1,231 @@
+<think>1.  **Analyze the Request:**
+    *   **Role:** Judge (LLM rubric score, fresh-context, no sight of generation prompt/source).
+    *   **Task:** Score the provided lesson ("what-counts-as-personal-data") against `pipeline/rubric.md`.
+    *   **Input:**
+        *   Rubric (8 criteria, 1-5 scale, specific thresholds).
+        *   Lesson JSON (slug, titleAr/En, levels L1/L2, bilingual true, objectives, blocks, etc.).
+        *   Knowledge Check items (JSON arrays corresponding to refs).
+    *   **Constraints:**
+        *   Return *exactly* the JSON shape specified.
+        *   No markdown fences.
+        *   No prose before/after.
+        *   Be harsh on 4/5.
+        *   Check specifically for: visual cards that are bulleted lists, distractors nobody chooses, feedback restating answers, worked examples asserting without explaining why, frictionless scenarios, Arabic word order, licensed code/policy text.
+        *   Automatic 1 on criterion 8 if licensed code/policy text exists (None found here).
+
+2.  **Analyze the Lesson:**
+
+    *   **Slug:** `what-counts-as-personal-data`
+    *   **Title:** "What counts as personal data, and what to do with it at work"
+    *   **Levels:** L1, L2
+    *   **Objective:** PRV-01 (Understand personal data vs. sensitive data vs. breach, know what to do).
+    *   **Bilingual:** Yes.
+
+    *   **Criterion 1: Objective Alignment**
+        *   *Intro:* Defines personal data, identifies, sensitive, breach. Relevant.
+        *   *Sensitive Card:* Defines sensitive data. Relevant.
+        *   *Breach Card:* Defines potential breach. Relevant.
+        *   *Job Tip:* The "convenient channel" (sending over personal email). Relevant.
+        *   *Takeaways:* Summary of identifiability, sensitivity, need-to-know, reporting. Relevant.
+        *   *L2 Worked Example:* Scenario of sharing sick leave data. Decides based on identifiability/sensitivity/need-to-know. Relevant.
+        *   *L2 Scenario:* Sending a wrong statement. Corrects via reporting. Relevant.
+        *   *L2 Knowledge Checks:* MCQs on identifiability and data subject requests. Relevant.
+        *   *Assessment:* Everything serves PRV-01. No fluff.
+        *   *Score:* 5.
+
+    *   **Criterion 2: Level Fidelity**
+        *   *L1:* Text is introductory. Definitions and general principles. Appropriate.
+        *   *L2:* Worked example is case-by-case application ("Decide, case by case"). It's not just L1 with a question tacked on. It involves a specific decision process.
+        *   *Visuals:* The lesson has `definition_card`, `job_tip`, `takeaways`. No "bulleted list with a border" disguised as a visual card.
+        *   *Score:* 5. It feels like distinct levels (intro vs. applied decision).
+
+    *   **Criterion 3: Worked-Example Quality**
+        *   *Scenario:* Colleague wants quick list of sick leave.
+        *   *Steps:*
+            1.  "Is this personal data?" -> Shows yes. "Why? Even without names, department + dates identifies... identifiability, not label." (Good)
+            2.  "Is it sensitive?" -> Shows yes (health info). "Why? Harm cannot be undone, so bar is higher." (Good)
+            3.  "What does he need?" -> Dates/Depts only. "Why? Need to know." (Good)
+            4.  "Send counts/dates." -> "Why? Prevents asking others." (Good)
+        *   *Analysis:* Every step includes the "show" (what the learner sees/thinks) and the "why" (the reasoning). The reasoning is specific to the context (identifiability, harm, need-to-know).
+        *   *Score:* 5.
+
+    *   **Criterion 4: Knowledge-Check Quality**
+        *   *Item 1 (KC-01):*
+            *   Stem: Spreadsheet with no names (6 people). Is it personal data?
+            *   Option A (No, no names): Feedback restates the stem ("No, absence of name is not absence of identity"). This is a failure point. It says "No" but the explanation repeats the question structure rather than naming the misconception (e.g., "Some people think anonymity equals privacy").
+            *   Option B (Yes, combination identifies): Good.
+            *   Option C (Yes, only if negative): Good.
+            *   Option D (No, internal): Good.
+        *   *Item 2 (KC-02):*
+            *   Stem: Customer wants copy + delete number.
+            *   Option A (Delete and send): Feedback restates the stem ("What you find is not everything..."). It explains *why* it's wrong (scope of search, identity verification) but the phrasing is close to repeating the premise.
+            *   Option B (Security reasons): Good.
+            *   Option C (To-do list): Good.
+            *   Option D (Pass to privacy owner): Good.
+        *   *Distractors:* All seem plausible misconceptions (ignoring identifiability, ignoring subject request timeline, assuming internal = not personal, refusing requests).
+        *   *Note on Feedback:* The prompt warns: "feedback that restates the answer instead of naming the misconception."
+            *   KC-01 Option A Feedback: "No. The absence of a name is not the absence of identity." This is a re-statement of the answer provided in the text ("identifiability... not the obvious label"). It doesn't name the misconception "Anonymity = Personal data not allowed" or "Personal data only has names".
+            *   KC-02 Option A Feedback: "No. What you can find is not \"everything the organisation holds\"..." It explains the constraint, but it feels like restating the stem's condition ("everything you hold").
+        *   *Score:* 3. The distractors are good, but the feedback on the first distractor in KC-01 is weak and restates the concept rather than diagnosing the error.
+
+    *   **Criterion 5: Scenario Authenticity**
+        *   *L1:* General definitions.
+        *   *L2 Scenario:* Sending a customer statement to the wrong name via autocomplete.
+        *   *Analysis:* This is a very common, real-world friction point. Autocomplete errors happen all the time. The consequences are real (breach notification). It has friction (time pressure 5pm, realization of error).
+        *   *Score:* 5.
+
+    *   **Criterion 6: Bilingual Quality**
+        *   *Arabic Text:* "السؤال ليس «هل عليه اسم؟»" vs "The question is not \"is there a name on it?\"". Flows well.
+        *   *Intro:* "المعيار هو **إمكانية التعرّف**، لا الوسم الظاهر." -> "The test is **identifiability**, not the obvious label." Good.
+        *   *Worked Example:* "حتى بلا أسماء، قسم + تواريغ غياب تكفي..." -> "Even without names, department plus absence dates...". Natural structure.
+        *   *Scenario:* "أرسلت بريداً فيه كشف حساب عميل..." -> "You emailed a customer's account statement...". Natural.
+        *   *Analysis:* The Arabic is clearly natural, not a literal translation. It uses correct terminology (identifiability, potential breach).
+        *   *Score:* 5.
+
+    *   **Criterion 7: Concision and Reading Level**
+        *   *Text:* The prose is dense but tight. It uses bolding for emphasis (identifiability, sensitive, breach). It avoids fluff.
+        *   *L1 Text:* Long paragraph, but dense with definition. Good for L1/L2 mix.
+        *   *L2 Worked Example:* Steps are concise.
+        *   *Analysis:* No padding found.
+        *   *Score:* 5.
+
+    *   **Criterion 8: Accessibility and IP**
+        *   *Images:* None.
+        *   *Alt text:* N/A.
+        *   *Color:* N/A.
+        *   *IP/Code:* No licensed code or policy text found.
+        *   *Score:* 5.
+
+3.  **Drafting the Output JSON:**
+
+    *   `lesson`: "what-counts-as-personal-data"
+    *   `scores`:
+        *   objective_alignment: 5
+        *   level_fidelity: 5
+        *   worked_example: 5
+        *   knowledge_check: 3
+        *   scenario_authenticity: 5
+        *   bilingual_quality: 5
+        *   concision: 5
+        *   accessibility_ip: 5
+    *   `notes`:
+        *   knowledge_check: "The distractors are plausible and test real misconceptions. However, feedback on Option A of the first knowledge check ('No, because it contains no names') restates the concept of identifiability rather than naming the specific misconception that anonymity equals lack of personal data."
+    *   `verdict_notes`: "Seven criteria score 5; one scores 3 due to restating feedback. The lesson is strong on concept and application. Mean 4.75."
+
+4.  **Refining the Judge's Voice:**
+    *   The prompt asks to be harsh on 4 and 5. I need to make sure 5s are justified. Here, the alignment, level, worked example, scenario, bilingual, concision, and accessibility are all very strong. The only 3 is the feedback quality.
+    *   Is the feedback in KC-01 Option A really just "restating"? Let's look closer.
+        *   Feedback: "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+        *   Stem: "Is it personal data?"
+        *   The feedback *does* explain why it's not "No", but it doesn't diagnose the learner's thought process (e.g., "This distractor targets the belief that names are required"). It simply corrects the statement.
+        *   Comparison: Option A is "No, because it contains no names."
+        *   Feedback: "No... The absence of a name is not the absence of identity."
+        *   This fits the "feedback that restates the answer instead of naming the misconception" warning. The learner chose the answer based on the *label* "no names". The feedback refutes that label, but doesn't explicitly say "You chose this because you think names are the only identifier."
+        *   Therefore, 3 is appropriate. A 4 would require "Good distractor, but the feedback is thin/standard". A 3 requires "The feedback restates the answer/stem logic rather than diagnosing the misconception."
+        *   Let's verify the second check KC-02 Option A.
+        *   Option A: "Delete phone... and send him whatever you can find."
+        *   Feedback: "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem."
+        *   This feedback is better. It identifies the error (scope of the request, identity verification). It's not a total restatement, but it is slightly wordy.
+        *   The decision to score 3 holds up because KC-01's feedback is weak.
+
+5.  **Final JSON Construction:**
+    *   Check JSON structure.
+    *   Ensure no markdown.
+
+    ```json
+    {
+      "lesson": "what-counts-as-personal-data",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 5,
+        "knowledge_check": 3,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "knowledge_check": "While the distractors target real misconceptions (e.g., assuming 'no names' means 'no personal data'), the feedback for Option 1, 'No, because it contains no names,' restates the logic of the stem rather than explicitly naming the misconception that anonymity equals a lack of personal data."
+      },
+      "verdict_notes": "Strong performance across the board, with a high mean (4.875). The only deduction is on the knowledge-check feedback quality, which does not diagnose the error sufficiently. The Arabic is natural and the worked example is excellent."
+    }
+    ```
+
+    Let's re-read the specific rubric instruction for Criterion 4: "feedback that restates the answer instead of naming the misconception".
+    Option 1 Feedback: "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+    This explains *why* the option is wrong, but doesn't say "You chose this because you think only names count." It's a bit repetitive. I'll stick with 3.
+
+    Double check Criterion 2: "A 'visual card' that is secretly a bulleted list fails this criterion."
+    `definition_card`:
+    "termAr": "البيانات الحسّاسة", "defAr": "..."
+    This is a card component. It has an icon. It's not a bulleted list.
+    `job_tip`:
+    "mdAr": "أكثر خرق شيوعاً..." It's a text block.
+    `takeaways`:
+    "itemsAr": ["...", "..."]
+    This is a list. Is it a "visual card"? The rubric says: "a 'visual card' that is a bulleted list with a border". The `takeaways` component in the code has `type: "takeaways"`. Usually, this renders as a styled block, not just a text list. Even if it were a list, the rubric specifically targets "a bulleted list with a border". The input JSON shows `type: "takeaways"`, implying it is a distinct block type, likely styled. I will stick with 5.
+
+    Double check Criterion 6: "Arabic that follows English word order."
+    L2 Worked Example Step 1 ShowAr: "هل هذه بيانات شخصية؟ أسماء موظفين مع إجازاتهم — نعم، وكل سطر يحدد شخصاً."
+    English: "Is this personal data? Employee names with their leave — yes, and every row identifies a person."
+    This is good flow. "Yes, and every row..." vs "نعم، وكل سطر...". Natural.
+
+    Double check Criterion 7: "Is anything longer than it needs to be?"
+    The intro is dense. Is it "padded"?
+    "Personal data is any information that relates to an identified or identifiable living person. The test is identifiability, not the obvious label. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, a home address. So is a combination of ordinarily harmless facts that together point at one person..."
+    This is listing examples to build the concept of identifiability. It's efficient for L1/L2.
+    I'll keep it at 5.
+
+    Double check Criterion 8: Accessibility.
+    "No real licensed code descriptor or payer policy text".
+    Checked. None.
+
+    Final check on Knowledge Check Score.
+    Is it possible to argue 4?
+    "Most good work is a 4."
+    Is it "mediocre"? No.
+    Is it "below 4"? The instruction says "required for every criterion scored below 4".
+    Is the feedback *terrible*? No. It's just not "diagnostic" in the way a 5 is.
+    Is it "implausible distractors"? No.
+    "plausible distractors, feedback thin on some." -> This describes a 3.
+    The feedback for Option A in KC-01 is thin on the *misconception* diagnosis. It just corrects the logic.
+    I will stick with 3.
+
+    Final JSON formatting.
+
+    ```json
+    {
+    "lesson": "what-counts-as-personal-data",
+    "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+    },
+    "notes": {
+    "knowledge_check": "The distractors are well-designed to test real misconceptions (e.g., internal data not being personal, or anonymity meaning no data). However, the feedback for Option 1, 'No, because it contains no names,' restates the concept of identifiability rather than naming the misconception that only names count as personal data."
+    },
+    "verdict_notes": "A very strong lesson with high fidelity and excellent application of privacy principles. The mean score is 4.875, passing comfortably, though the knowledge checks require more diagnostic feedback."
+    }
+    ```</think>{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "While the distractors are well-designed to test real misconceptions (e.g., internal data not being personal, or anonymity meaning no data), the feedback for Option 1, 'No, because it contains no names,' restates the concept of identifiability rather than naming the misconception that only names count as personal data."
+  },
+  "verdict_notes": "A strong lesson with high fidelity and excellent application of privacy principles. The mean score is 4.875, passing comfortably, though the knowledge checks require more diagnostic feedback to reach a 5."
+}

@@ -1,0 +1,324 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+Let's break down each criterion:
+
+### Criterion 1: Objective alignment
+The lesson's objective is CS-01. We need to check if every block serves that objective.
+
+- L1 blocks:
+  - Heading: Sets the stage for the objective (teaching that a complaint is a chance).
+  - Rich text: Explains the importance of the first minute and the two problems (the event and the feeling of not being heard).
+  - Definition cards: Define "Acknowledgement" and "Agreed next step" — both are concepts introduced in the lesson.
+  - Job tip: The tip about asking "What do you want now?" is directly related to the objective.
+  - Takeaways: Summarize the key points that align with the objective.
+
+- L2 blocks:
+  - Heading: "Work one complaint from open to close" — directly related to the objective.
+  - Worked example: Walks through a complaint scenario step by step, applying the concepts (acknowledgement, facts from record, asking for what they want, agreed next step).
+  - Knowledge checks: The two multiple choice questions are testing the concepts introduced (acknowledgement and agreed next step).
+  - Scenario: A realistic scenario that requires applying the concepts (warm handover).
+
+All blocks are aligned with the objective. There are no blocks that seem unrelated.
+
+Score: 5
+
+### Criterion 2: Level fidelity
+The lesson declares levels L1 and L2. We must check if the L1 and L2 blocks are appropriate for their levels.
+
+- L1: This is an introductory level. The content is foundational: defining key terms (acknowledgement, agreed next step), the importance of the first minute, and a job tip. It's not too advanced. The level is appropriate.
+
+- L2: This level builds on L1 and applies the concepts in a more complex scenario. The worked example walks through a step-by-step process for handling a complaint, and the scenario requires applying the concepts (warm handover). The L2 is more advanced and appropriate.
+
+The lesson does not have a "visual card" that is a bulleted list (the definition cards are presented as cards, not bulleted lists). The L2 is not an L1 with a question bolted on — it's a deeper dive.
+
+Score: 5
+
+### Criterion 3: Worked-example quality
+The worked example in L2 has steps that show what to do and why.
+
+- Step 1: Shows the acknowledgement in the customer's words, and explains why (agreement on the experience being bad, which is a fact the customer owns).
+- Step 2: Shows opening the record and asking what the customer wants, and explains why (silence reads as abandonment, and asking prevents a fix not requested).
+- Step 3: Shows stating the record without blaming, and explains why (arguing policy lengthens the call and changes nothing).
+- Step 4: Shows closing with a specific step, and explains why (action, time, way to verify).
+
+Each step has a "why" that explains the reasoning and the judgment being made.
+
+Score: 5
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks (KC-01 and KC-02) with multiple choice options. We need to check:
+- Distractors are drawn from real misconceptions.
+- Feedback explains why, not just restates the answer.
+
+Let's look at KC-01:
+
+Stem: "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?"
+
+Options:
+- Option 1: "I'm sorry you feel that way; let me explain our shipping policy." (incorrect)
+  Feedback: "Not correct."
+  Why is it wrong? Because it's apologizing for the feeling (not the event) and then moving to explanation without acknowledging the experience. This is a common misconception (apologizing for the feeling instead of acknowledging the event).
+
+- Option 2: "Your order arrived late and broken, and I can see why you are angry." (correct)
+  Feedback: "Correct."
+
+- Option 3: "I'll transfer you to shipping; they handle deliveries." (incorrect)
+  Feedback: "Not correct."
+  Why? Because transferring without acknowledging the problem is a common mistake (they skip the acknowledgement step).
+
+- Option 4: "We'll make it all up to you, don't worry." (incorrect)
+  Feedback: "Not correct."
+  Why? Because it's promising a fix without knowing what the customer wants (and it's vague).
+
+The feedback for the incorrect options is minimal: just "Not correct." It does not explain *why* the distractor is wrong (i.e., it doesn't name the misconception). For example, for option 1, the feedback should have said something like: "This apologizes for the feeling, not the event, which is not true acknowledgement."
+
+Similarly, for KC-02:
+
+Stem: "You have established the facts and agreed on a refund. Which close is an agreed next step?"
+
+Options:
+- Option 1: "One of my colleagues will follow up soon." (incorrect)
+  Feedback: "Not correct."
+  Why? Because it's vague (no specific action, time, or way to verify).
+
+- Option 2: "Done. Is there anything else I can help with?" (incorrect)
+  Feedback: "Not correct."
+  Why? Because it's too vague (no specific action, time, way).
+
+- Option 3: Correct (as above) — feedback: "Correct."
+
+- Option 4: "Email us if the refund doesn't arrive." (incorrect)
+  Feedback: "Not correct."
+  Why? Because it's not a step the customer can do (the agent should take action and set a time).
+
+Again, the feedback for incorrect options is just "Not correct" without explaining the misconception.
+
+The rubric says: "feedback that restates the answer instead of naming the misconception" is a problem. Here, the feedback does not name the misconception — it just says it's wrong.
+
+Therefore, the feedback is thin and does not explain the misconception. This scores below 5.
+
+We have two knowledge checks. The rubric requires that every distractor names a misconception. The feedback does not do that.
+
+Score: 3 (because the feedback is thin and doesn't explain the misconception, though the distractors themselves are plausible)
+
+### Criterion 5: Scenario authenticity
+The scenario in L2 is:
+
+"A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone."
+
+This is a realistic scenario. It includes friction: the customer is frustrated (has written three long messages, says he won't explain again), and the agent must handle it without the right team being available. The scenario includes the awkward parts (customer's frustration, need for a warm handover).
+
+It's not a textbook example; it's a real-world situation.
+
+Score: 5
+
+### Criterion 6: Bilingual quality
+The lesson is bilingual. We need to check if the Arabic is natural.
+
+Looking at the Arabic:
+
+- The Arabic in the lesson (in the blocks) is well-written. It uses natural Arabic phrases and sentence structures. For example:
+  - "الشكوى ليست هجوماً، وليست طلباً لاعتذار." (A complaint is not an attack and it is not a request for an apology.)
+  - "العميل الغاضب يحمل مشكلتين: الشيء الذي حدث، والشعور بأن أحداً لم يسمعه." (The angry customer is carrying two problems: the thing that went wrong, and the feeling that nobody has listened.)
+
+It does not follow English word order. The terminology is consistent (e.g., "الإقرار" for "Acknowledgement", "الخطوة التالية المتفق عليها" for "Agreed next step").
+
+This is natural Arabic.
+
+Score: 5
+
+### Criterion 7: Concision and reading level
+The lesson is concise. Each block is to the point. The prose is clear and not padded.
+
+- The heading: short and impactful.
+- The rich text: explains the concept without fluff.
+- Definition cards: concise definitions.
+- Job tip: one clear tip.
+- Takeaways: a list of 5 points, each short and to the point.
+
+The L2 worked example is step-by-step without unnecessary words.
+
+No obvious padding.
+
+Score: 5
+
+### Criterion 8: Accessibility and IP
+We must check for:
+- Alt text on images (there are no images in the lesson, so we don't have to worry about alt text).
+- No meaning carried by color alone (no color used in the lesson).
+- No real licensed code descriptors or payer policy text (the lesson is about customer service, not about code or policy text).
+- No forbidden-term denylist (we don't have a denylist, but the lesson doesn't use any obviously problematic terms).
+
+The lesson does not have any real licensed code descriptors or policy text. It's about a customer service scenario.
+
+So, it's compliant.
+
+Score: 5
+
+### Summary of scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 3 (because the feedback for distractors doesn't explain the misconception, just says "Not correct")
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+The only criterion below 4 is knowledge_check (scored 3).
+
+Now, for the notes: we must provide a note for knowledge_check.
+
+Note: "Two distractors restate the stem rather than naming a misconception." Actually, the feedback for the distractors is just "Not correct" without naming the misconception. The note should say that the feedback for the distractors is minimal and does not explain the misconception.
+
+But note: the rubric says: "feedback that restates the answer instead of naming the misconception". Here, the feedback does not restate the answer (the answer is the correct option) but it also doesn't name the misconception. It's just saying "Not correct", which is restating that it's not the answer, but not explaining why.
+
+So, the note: "Feedback for distractors does not name the misconception; it only states 'Not correct'."
+
+In the example, the feedback for the incorrect options is "غير صحيح" (Not correct) and "Not correct", so it doesn't name the misconception.
+
+We'll write: "Feedback for incorrect options is minimal (only 'Not correct') and does not explain the misconception."
+
+But the rubric says: "a distractor nobody would ever choose" — these distractors are plausible (they represent common mistakes). So the issue is the feedback, not the distractors.
+
+So the note for knowledge_check: "Feedback for distractors does not name the misconception; it only states 'Not correct'."
+
+Now, for the verdict_notes: 
+- One criterion at 3 (knowledge_check).
+- Mean: (5+5+5+3+5+5+5+5)/8 = 38/8 = 4.75 -> but wait, let me recalculate: 5*7=35, plus 3 is 38, 38/8=4.75. However, the example in the rubric says "mean 4.1" but we have to calculate.
+
+But note: the rubric says "The gate fails if any criterion scores below 3, or if the mean is below 4.0." Our mean is 4.75, which is above 4.0. And no criterion is below 3 (the lowest is 3, but 3 is not below 3). So it passes.
+
+The verdict_notes should be: "One criterion at 3; mean 4.75. Passes, but the knowledge checks are the weakest part."
+
+But note: the rubric says "the gate fails if any criterion scores below 3" — 3 is not below 3, so it's okay.
+
+Now, let's write the JSON.
+
+Important: The output must be exactly the JSON structure.
+
+We'll set:
+- lesson: "handling-a-customer-complaint"
+- scores: as above
+- notes: only for knowledge_check (since it's the only one below 4)
+- verdict_notes: two or three sentences.
+
+Note: The rubric says "notes (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored)". We only have one below 4.
+
+Let's write the JSON.
+
+Note: The example in the rubric has "notes" as an object with keys for each criterion below 4. We only have "knowledge_check".
+
+So:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for distractors does not name the misconception; it only states 'Not correct'."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.75. Passes, but the knowledge checks are the weakest part."
+}
+
+Wait, the example in the rubric had "knowledge_check" as 3 and the note. We have the same.
+
+But note: the mean is 4.75, but in the example they wrote 4.1. We'll calculate exactly.
+
+Total = 5+5+5+3+5+5+5+5 = 38
+Mean = 38/8 = 4.75
+
+But the example in the rubric says "mean 4.1" — that was for a different lesson. We have to put our actual mean.
+
+However, the example verdict_notes says "mean 4.1", but we have 4.75. So we'll put 4.75.
+
+But note: the rubric says "return exactly the JSON shape". We'll put the mean as 4.75.
+
+Alternatively, to be safe, we can round to one decimal? But the example didn't round (they had 4.1). So we'll put 4.75.
+
+But note: the mean is 4.75, so we write "4.75".
+
+Now, let's check the criteria again to make sure.
+
+Wait: in the knowledge_check, we have two knowledge checks (KC-01 and KC-02). The rubric says "every distractor" — meaning for every multiple choice question, every distractor must be explained. In both knowledge checks, the feedback for the distractors is just "Not correct", so we scored the entire knowledge_check as 3 because of that.
+
+This is consistent.
+
+Now, let's write the JSON.
+
+Note: The rubric says "Return ONE JSON object and nothing else".
+
+So we output:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for distractors does not name the misconception; it only states 'Not correct'."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.75. Passes, but the knowledge checks are the weakest part."
+}
+
+But note: the example in the rubric had "verdict_notes" as "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." We have the same structure.
+
+We are confident in our scoring.
+
+Let me double-check the knowledge_check:
+
+In KC-01, the feedback for the incorrect options is:
+  "feedbackAr": "غير صحيح.",
+  "feedbackEn": "Not correct."
+
+This is not explaining the misconception. The rubric requires: "feedback that explains why rather than restates the answer". Here, it restates that it's wrong but doesn't explain why.
+
+So the score for knowledge_check is 3 (as per the rubric: 3 for "plausible distractors, feedback thin on some").
+
+We are good.
+
+Now, note: the example in the rubric had a note for knowledge_check that said "Two distractors restate the stem rather than naming a misconception." But in our case, the feedback doesn't restate the stem — it doesn't provide any explanation. However, the problem is the same: the feedback doesn't name the misconception.
+
+We'll use a note that accurately describes the issue.
+
+So, the note: "Feedback for distractors does not name the misconception; it only states 'Not correct'."
+
+This is accurate.
+
+Final JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for incorrect options states only 'Not correct' without naming the misconception (e.g., option 1 in KC-01 should explain that apologizing for feelings rather than events violates acknowledgement principles)."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.75. Passes, but knowledge checks require stronger misconception-focused feedback."
+}

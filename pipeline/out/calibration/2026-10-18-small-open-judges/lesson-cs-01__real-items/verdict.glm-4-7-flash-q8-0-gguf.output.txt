@@ -1,0 +1,166 @@
+<think>1.  **Analyze the Request:**
+    *   **Input:** A lesson JSON ("handling-a-customer-complaint") and its associated knowledge check items.
+    *   **Task:** Score the lesson against specific rubric criteria.
+    *   **Constraints:** Return *only* a JSON object with specific keys ("lesson", "scores", "notes", "verdict_notes"). No markdown fences or prose before/after. The gate (`qa_gate.py`) applies thresholds (mean >= 4.0 or all >= 3.0).
+    *   **Key Instructions:** "Read `pipeline/rubric.md`...", "Be harsh on 4 and 5.", "No sight of generation prompt," "Check Arabic quality," "Check accessibility/IP," "Check knowledge check quality (distractors, feedback)."
+
+2.  **Analyze the Lesson Content:**
+    *   **Slug:** `handling-a-customer-complaint`.
+    *   **Title:** "Handling a customer complaint".
+    *   **Levels:** L1, L2.
+    *   **Objective:** CS-01.
+    *   **Concepts:** Acknowledgement, establishing facts, etc.
+    *   **Structure:**
+        *   *L1:* Heading, Intro (Rich text), Definition cards (Acknowledgement, Agreed next step), Job tip, Takeaways.
+        *   *L2:* Heading, Worked example (step-by-step dialogue), Scenario (chat based), Knowledge checks (referenced items).
+
+3.  **Evaluate Criteria:**
+
+    *   **Criterion 1: Objective Alignment (CS-01)**
+        *   *Content:* L1 covers definitions, intro, tips. L2 covers a worked example and a complex scenario.
+        *   *Fit:* The L1 section introduces terms. The L2 section applies them in a complex scenario. Everything relates to handling complaints.
+        *   *Score:* 5. Every block serves CS-01.
+
+    *   **Criterion 2: Level Fidelity**
+        *   *L1:* Intro is heavy reading (not "light"). The concepts are introduced clearly. It's not just a list; there are definitions and a tip.
+        *   *L2:* The worked example is substantial. The scenario is complex (chat, escalating tension, warm handover). It goes beyond simple application.
+        *   *Check:* "Visual card that is secretly a bulleted list" -> No. "L2 that is an L1 with a question" -> No.
+        *   *Score:* 4. It's strong, but maybe slightly dense compared to a very light L1. Or maybe just good solid L1. Let's stick with 4 because it's robust. (Self-correction: The intro is very dense in Arabic/English. It might be L2 text. But the structure is L1 definitions + intro. It feels like L2 content presented to L1 students. However, the rubric says "A 'visual card' that is secretly a bulleted list fails". This is not that. It's good material. 4 or 5. I'll give 4 to be safe/harsh, as the text is quite dense for L1.)
+
+    *   **Criterion 3: Worked Example Quality**
+        *   *Example:* Customer charged twice, email ignored.
+        *   *Steps:*
+            1. Acknowledge (Why: Customer must feel heard).
+            2. Open record/Ask (Why: Silence reads as abandonment; prevents wrong fix).
+            3. State facts from record (Why: Arguing policy lengthens call).
+            4. Close with agreed step (Why: Action, time, method; promise what you control).
+        *   *Analysis:* Each step has a "Why" section. The "Why" explains the *judgement* being made (listening, verification, not arguing policy, owning the close). This is strong.
+        *   *Score:* 5. Every step has explicit reasoning.
+
+    *   **Criterion 4: Knowledge Check Quality**
+        *   *Item 1 (KC-01):*
+            *   Option 1 (Apologize): Feedback says "No. This apologises for the feeling rather than the event...". Good.
+            *   Option 2 (Acknowledge): Feedback says "Correct... agreed his experience was bad...". Good.
+            *   Option 3 (Transfer): Feedback says "No... road to escalation". Good.
+            *   Option 4 (Promise): Feedback says "No... broken promise". Good.
+        *   *Item 2 (KC-02):*
+            *   Option 1 (Colleague): Feedback says "No... repeat complaint". Good.
+            *   Option 2 (Done): Feedback says "No... doesn't say when". Good.
+            *   Option 3 (Agreed step): Feedback says "Correct... three things". Good.
+            *   Option 4 (Email): Feedback says "No... hands burden back". Good.
+        *   *Analysis:* Distractors are good (misapplied empathy, premature close, vague close). Feedback explains the *misconception* (thinking apology counts as acknowledgement, thinking vague promises work, thinking email solves ownership). No "All of the above". No re-stating the stem (except maybe slightly in KC-02 Option 4? "Email us if...". The feedback says "No... hands burden back". It names the misconception clearly: the customer shouldn't do the follow-up work).
+        *   *Score:* 5. High quality.
+
+    *   **Criterion 5: Scenario Authenticity**
+        *   *Scenario:* Text chat, contractual fee waiver, "won't explain again", specific technical limitation (team is in tomorrow).
+        *   *Analysis:* This feels very real. The "won't explain again" and "long messages" friction is classic customer service tension. The constraint (team in tomorrow) creates real friction, not a textbook "I can't do that" without context.
+        *   *Score:* 5. Recognizable situation with friction.
+
+    *   **Criterion 6: Bilingual Quality**
+        *   *Content:* Arabic text for everything.
+        *   *Check:*
+            *   "الشكوى ليست هجوماً..." (Natural).
+            *   "الإقرار: أن تسمّي ما حدث..." (Natural).
+            *   "الخطوة التالية المتفق عليها..." (Natural).
+            *   "اشتغل شكوى واحدة..." (Natural).
+            *   "اشتغل شكوى واحدة..." (Natural).
+        *   *Comparison:* Does it read like translation? No. It reads like native Arabic.
+        *   *Score:* 5. Excellent.
+
+    *   **Criterion 7: Concision and Reading Level**
+        *   *Content:* The L1 intro is very long (a whole paragraph). The "job tip" is a paragraph. The "worked example" has multiple steps.
+        *   *Analysis:* While high quality, it is quite dense. Is it "longer than it needs to be"? Maybe, but it covers nuance well. Is it "padded"? No. Is it "wordy"? Yes, but necessary wordiness.
+        *   *Score:* 4. It is high-quality but dense. I'll stick to 4 to avoid giving a 5 to something this dense for the level (assuming L1 implies lower reading level).
+
+    *   **Criterion 8: Accessibility and IP**
+        *   *Accessibility:* Images? None visible (icons: 🗣️, 📌). No color reliance. Text is sufficient. Alt text on images? No images.
+        *   *IP:* No licensed code, no payer policy text, no forbidden terms.
+        *   *Score:* 5. Compliant.
+
+4.  **Refining Scores and Notes:**
+    *   *Objective Alignment:* 5.
+    *   *Level Fidelity:* 4 (The intro text is quite high-level/complex for L1, though the structure is L1).
+    *   *Worked Example:* 5 (Strong "why" sections).
+    *   *Knowledge Check:* 5 (Distractors are real misconceptions).
+    *   *Scenario:* 5 (Real friction).
+    *   *Bilingual:* 5 (Natural Arabic).
+    *   *Concision:* 4 (Dense text).
+    *   *Accessibility:* 5 (No issues found).
+
+5.  **Verdict:**
+    *   Mean: (5+4+5+5+5+5+4+5)/8 = 42/8 = 5.25.
+    *   Thresholds: Mean >= 4.0 (Pass), all >= 3.0 (Pass).
+    *   Result: Pass.
+
+6.  **Final JSON Construction:**
+    *   `lesson`: `handling-a-customer-complaint`
+    *   `scores`: As determined.
+    *   `notes`:
+        *   `level_fidelity`: The introductory text is dense for L1.
+        *   `concision`: The text is substantive and covers nuance, but feels dense for the level.
+    *   `verdict_notes`: High-quality content with strong Arabic. The knowledge checks and scenarios are robust. The density in the intro text is the only minor area for L1 students.
+
+    *Self-Correction on KC-02 Option 4:* "Email us if the refund doesn't arrive." Feedback: "No... hands burden back." This is naming the misconception (expecting the customer to do the follow-up work). Good.
+    *Self-Correction on Level Fidelity:* The prompt says "L1" and "L2". The content for L1 (Intro, Definitions, Tip, Takeaways) is actually quite heavy. Usually L1 is "Here is the concept". Here we have a full paragraph of philosophy. It's bordering on L2. I will score it 4 because it might be aspirational for L1, but I won't mark it down for quality, just fidelity to the level claim.
+
+    *Self-Correction on Concision:* "Is anything longer than it needs to be?" The intro text in Arabic/English is very detailed. It could be summarized. So 4 is appropriate.
+
+7.  **Formatting:** Ensure no Markdown fences. Just the JSON.
+
+    *Check notes for criteria < 4:*
+    *   Level Fidelity (4): No notes needed per instructions (notes for sub-4 only? The example shows notes for sub-4. I have none strictly sub-4, but I can add notes for 4s if I want to be descriptive, though the instructions say "notes on any criterion you scored below 4". I will follow the instruction strictly: notes only if < 4).
+    *   Wait, "notes on any criterion you scored below 4". Okay. I don't have any strictly below 4. But I might add notes for 4s just to be helpful? No, stick to the strict rule. Only notes for < 4.
+
+    *Re-reading instructions:* "notes on any criterion you scored below 4 and for every substitute-evidence criterion you scored".
+    My scores are: 5, 4, 5, 5, 5, 5, 4, 5.
+    None are below 4. So `notes` object should be empty or null? The example has `notes`. I will leave `notes` as an empty object `{}` since no criteria were below 4. Wait, looking at the example output:
+    `notes` contains `"knowledge_check": "..."` because it was a 3 (below 4).
+    I will leave `notes` empty `{}`.
+
+    *Verdict Notes:* "Two or three sentences."
+
+    *Final check of the JSON keys:*
+    `lesson`, `scores`, `notes`, `verdict_notes`. Correct.
+
+    Let's double check the "Bilingual Quality".
+    "A complaint is not an attack and it is not a request for an apology." -> Good.
+    "The first minute decides the next twenty." -> Good.
+    "Acknowledgement: Naming what happened..." -> Good.
+    "Agreed next step: A specific action..." -> Good.
+    "The question most agents skip..." -> Good.
+    Worked example steps: Very natural Arabic.
+    Scenario: "Customer has written three long messages so far and says he will not explain this again to anyone." -> Very natural phrasing.
+
+    *Worked Example Quality Check:*
+    Step 1: "Why: You have not agreed that the organisation was wrong; you have agreed that her experience was bad, which is a fact she owns. Without that, she will not hear anything that follows."
+    This is excellent. It names the judgement (ownership of experience) and what would change it (if she didn't agree).
+    Step 2: "Why: Silence on a call reads as abandonment. Asking what she wants prevents a fix she did not ask for..."
+    Excellent.
+    Step 3: "Why: Arguing the policy lengthens the call and changes nothing. Explain it once, then move to what can be done within it."
+    Excellent.
+    Step 4: "Why: An action, a time, a way to verify. And promise only what you can personally make true; promise what you will do and when you will report back."
+    Excellent.
+
+    *Scenario Authenticity:*
+    Chat interface is real. "Won't explain again" is real. "Team in tomorrow" is real.
+
+    *Conclusion:*
+    5, 4, 5, 5, 5, 5, 4, 5.
+    Mean = 5.25.
+    Passes.</think>```json
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "This is a high-quality lesson with excellent Arabic and strong scenario and knowledge-check design. The content is substantive and the feedback is precise. The only area for potential concern is the reading level of the introductory text, which is quite dense for L1 learners."
+}
+```

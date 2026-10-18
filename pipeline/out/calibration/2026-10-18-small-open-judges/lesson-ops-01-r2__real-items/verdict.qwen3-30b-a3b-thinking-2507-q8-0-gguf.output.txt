@@ -1,0 +1,802 @@
+<think>
+We are scoring a lesson titled "Writing a Shift Handover" against the rubric.
+ The lesson is bilingual (Arabic and English) and has two levels: L1 and L2.
+
+ We are to score 8 criteria on a scale of 1-5.
+
+ Let's go through each criterion:
+
+ 1. Objective alignment:
+    - The lesson declares one objective: "OPS-01".
+    - We need to check if every block serves that objective.
+
+    The lesson has two levels (L1 and L2) and all blocks are tagged with "objectiveId": "OPS-01".
+
+    L1 blocks:
+      - Heading: "What is a shift handover?" -> directly about the objective.
+      - Rich text: explains shift handover and the test for success -> aligns.
+      - Definition cards: define key terms (shift_handover, open_item, urgent_item, fact_vs_guess, commitment, shared_record) -> all relate to the objective.
+      - Process flow (questions): the four questions that structure the handover -> aligns with the objective.
+      - Job tip: about leading with urgent items -> aligns.
+      - Takeaways: summarize key points -> aligns.
+
+    L2 blocks:
+      - Heading: "Put it to work" -> aligns.
+      - Process flow (write): the steps to write a handover -> aligns.
+      - Worked example: demonstrates the four questions on a real example -> aligns.
+      - Scenario: a real scenario about ordering items by urgency -> aligns.
+      - Sort buckets: about fact vs guess -> aligns.
+      - Knowledge checks: two multiple choice questions that test understanding of the objective.
+
+    Every block serves the declared objective. So this is a 5.
+
+    However, note: the rubric says "a block that teaches something true but unrelated to its objective scores low". 
+    We don't see any unrelated blocks.
+
+    But wait: the rubric says "every block earns its objective". We see all blocks are about shift handover.
+
+    So: 5.
+
+ 2. Level fidelity:
+    - The lesson declares levels L1 and L2.
+    - We need to check if the level label is what the learner actually experiences.
+
+    L1: 
+      - It's an introductory level: definitions, a process flow (non-interactive), and a job tip. 
+      - The content is foundational, explaining what a shift handover is and the key concepts. 
+      - It doesn't require the learner to do anything beyond understanding.
+
+    L2:
+      - It's the application level: a process flow (interactive), a worked example, a scenario, a sort activity, and knowledge checks.
+      - The learner is applying the concepts (writing, ordering, sorting, answering questions).
+
+    The L1 level is not too advanced for L1 (it's not doing L2 tasks) and L2 is not too basic (it's applying the concepts). 
+    Also, note the rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion." 
+    But in this lesson, the definition cards are not bulleted lists; they are structured as cards with a term and definition.
+
+    We don't see any visual card that is a bulleted list with a border. The definition cards are using the "definition_card" type, which is designed for the lesson.
+
+    So: L1 is appropriately L1 and L2 is appropriately L2. This is a 5.
+
+ 3. Worked-example quality:
+    - The worked example (in L2) has steps that show what to do and why.
+
+    The example has:
+      - Step 1: "What is it?" with a "why" explanation: "A clear identifier lets the receiver locate the ticket quickly."
+      - Step 2: "What is the status?" with "why": "Shows the status as a fact, not a feeling."
+      - Step 3: "What has been done?" with "why": "Prevents repeating the same attempts."
+      - Step 4: "What happens next and by when?" with "why": "A clear action with a deadline ensures the promise is kept."
+
+    Each step explains the "why" and names the judgment. This is good.
+
+    So: 5.
+
+ 4. Knowledge-check quality:
+    - We have two knowledge checks (OPS-01-KC-01 and OPS-01-KC-02). We must check the distractors and feedback.
+
+    For OPS-01-KC-01:
+      - Stem: "Your handover has three open items. In what order do you write them?"
+      - Options:
+          a) By when they arrived, oldest first. -> Incorrect. Feedback: "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline." -> This explains the misconception (ordering by arrival instead of urgency) and is plausible.
+          b) By when they need action, with anything urgent first and marked. -> Correct.
+          c) The hardest or most interesting first. -> Incorrect. Feedback: "Not correct. What occupied you during the shift is not necessarily what the next person needs first." -> Plausible misconception (order by what was hard for the writer).
+          d) By ticket number, so they are easy to find. -> Incorrect. Feedback: "Not correct. It is tidy, but it tells the reader nothing about urgency." -> Plausible (ordering by ticket number is a common but bad practice).
+
+      The feedback for each distractor explains why it's wrong and names the misconception.
+
+    For OPS-01-KC-02:
+      - Stem: "A colleague's handover reads: 'Ticket 77: the customer's card is expired. Ask for a new card.' You open the record: the payment failed twice, and nobody has confirmed why. What is wrong with the line?"
+      - Options:
+          a) Nothing; it is short and gives a next action. -> Incorrect. Feedback: "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact." -> Correctly identifies the misconception (presenting a guess as fact).
+          b) It needs more detail about the customer's history. -> Incorrect. Feedback: "Not correct. Length is not the measure; the problem is what the line presents as certain." -> Correctly addresses the misconception (thinking it's about length).
+          c) It presents a guess as a fact, and the next person will act on it. -> Correct.
+          d) The card should not be mentioned at all. -> Incorrect. Feedback: "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift." -> Correctly addresses the misconception (that a guess should be deleted).
+
+      The feedback for each distractor explains the misconception.
+
+    However, note the rubric: "feedback that restates the answer instead of naming the misconception". 
+    In this case, the feedback for the incorrect options does name the misconception.
+
+    But let's check the feedback for the correct option? The rubric doesn't require feedback for the correct option, only for the distractors.
+
+    The rubric says: "per-option feedback explain why rather than restate the answer". 
+    The feedback for the distractors does explain why (e.g., "it can bury an item due within the hour", "the action rests on an assumption presented as fact", etc.).
+
+    So, this seems to be a 5.
+
+    However, note the rubric also says: "a distractor nobody would ever choose teaches nothing". 
+    All the distractors are plausible (e.g., ordering by arrival, by ticket number, by difficulty, and the misconception about the guess being a fact).
+
+    But wait: the example in the lesson for the knowledge check (KC-02) has an incorrect option that says "It needs more detail about the customer's history." 
+    Is that a common misconception? Actually, the problem isn't the lack of detail but the presentation of a guess as fact. 
+    However, the feedback correctly explains that the issue is the presentation, not the detail. 
+    So the distractor is plausible (a learner might think it's about detail).
+
+    So, we can score this as 5.
+
+    But note: the rubric says "5 — every distractor names a misconception someone actually holds." 
+    We think these are plausible misconceptions.
+
+    However, let's double-check the rubric's note: "a distractor nobody would ever choose". 
+    The distractors here are chosen because they are common mistakes.
+
+    So, 5.
+
+    But wait: the example in the rubric's note says: "feedback that restates the answer instead of naming the misconception". 
+    In the KC-01, the feedback for option (a) says: "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline." 
+    This names the misconception (ordering by arrival instead of urgency) and explains why.
+
+    Similarly, for KC-02, the feedback for option (a) says: "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact." 
+    This names the misconception (thinking that short and having an action is sufficient, ignoring the fact that it's a guess).
+
+    So, it's good.
+
+    However, the rubric also says: "No 'all of the above'." — we don't have that.
+
+    But note: the lesson has two knowledge checks. We are scoring the knowledge_check criterion on the entire set of knowledge checks.
+
+    We are not seeing any problem. So 5.
+
+    But wait: the example in the lesson's knowledge checks (the ones we are given) are the ones that will be used. 
+    And they look good.
+
+    However, the rubric says: "a distractor nobody would ever choose". 
+    Let's consider option (c) in KC-02: "The card should not be mentioned at all." 
+    Is that a common misconception? 
+        - The feedback says: "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift." 
+        - This is a valid misconception (some might think to delete the guess to avoid confusion). 
+        - So it is plausible.
+
+    So we'll give 5.
+
+    But note: the problem says "Score what is on the page". We are looking at the knowledge checks that the lesson references.
+
+    However, the lesson has two knowledge_check blocks that just say "itemRef", and then we are given the items. 
+    We are to score the knowledge checks based on the items we are given.
+
+    So we are scoring the knowledge checks as provided in the items.
+
+    Therefore, 5.
+
+ 5. Scenario authenticity:
+    - The scenario (in L2, "b_l2_scenario_best_line") is about ending a shift with two open items and having to choose the order to write them.
+
+    The scenario is:
+        - Two items: one with a deadline (before 14:00) and one without (the order arrived first).
+        - The scenario describes the situation clearly and includes the friction: the order arrived first but the deadline is urgent.
+
+    The scenario is recognisable: in a real shift handover, you have to order items by urgency, not arrival. 
+    It includes the awkward part: the item that arrived first might not be the most urgent.
+
+    The scenario is not textbook-like; it's a real-world situation.
+
+    So: 5.
+
+ 6. Bilingual quality:
+    - The lesson is bilingual (bilingual: true). We must check if the Arabic is natural.
+
+    We'll look at the Arabic in the lesson:
+
+      - The title: "كتابة تسليم النوبة" -> natural.
+      - The definitions: 
+          "تسليم النوبة هو لحظة انتقال العمل من شخص إلى آخر في نهاية نوبته، مع توثيق كل السياق الضروري حتى يتمكن القادم من المتابعة دون الحاجة للاتصال بالمنتهي."
+          This is natural Arabic.
+
+      - The process flow and other text: 
+          "الطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة."
+          This is natural.
+
+      - The job tip: 
+          "**قدِّم العنصر العاجل أولًا.** رتّب العناصر بحسب موعد احتياجها إلى إجراء، لا بحسب وقت وصولها. ..."
+          This is natural.
+
+      - The worked example: 
+          "ما هو؟ – تذكرة 4523: فشل دفع العميل."
+          This is natural.
+
+      - The scenario: 
+          "تنهي نوبتك وأمامك عنصران مفتوحان: تذكرة العميل «علي» عن خلل في تسجيل الدخول، وقد وُعد بردّ قبل الساعة 14:00 اليوم؛ وطلب ينتظر أن يؤكد المورد موعد التسليم، ولا موعد نهائي له اليوم. ..."
+
+      - The knowledge check items: 
+          "في تسليمك ثلاثة عناصر مفتوحة. بأي ترتيب تكتبها؟"
+          This is natural.
+
+    We don't see any Arabic that follows English word order (like "التسليم النوبة" instead of "تسليم النوبة" — but it's written correctly as "تسليم النوبة").
+
+    The Arabic seems to be written in natural Arabic, not a translation. 
+
+    So: 5.
+
+ 7. Concision and reading level:
+    - We need to check if the prose is concise and nothing is padded.
+
+    Let's look at the rich text block:
+        "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you. The simple test of a successful handover is: **Can the next person act on it without contacting you?**\n\nLength is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines."
+
+    This is concise and to the point.
+
+    The definition cards: short and to the point.
+
+    The process flows: clear and brief.
+
+    The job tip: short and direct.
+
+    The takeaways: bullet points that are concise.
+
+    The worked example: the steps are concise and the "why" is brief.
+
+    The scenario: concise.
+
+    The knowledge checks: the stems and feedback are concise.
+
+    We don't see any padding or repetition.
+
+    So: 5.
+
+ 8. Accessibility and IP:
+    - We must check for alt text on images (but there are no images in the lesson), no meaning carried by color alone (there are no colors used in the text), and no real licensed code or payer policy text.
+
+    The lesson does not contain any image, so no alt text needed. 
+    There are no colors used (the icons are emojis, but they are not used to convey meaning without text; the icons are decorative and the text is the primary).
+
+    Also, there is no real licensed code descriptor or payer policy text.
+
+    The lesson uses terms like "ticket", "customer", "supplier", but these are generic and not from a specific policy.
+
+    So: 5.
+
+ However, note: the rubric says "An English-only lesson is not penalised here" but this is bilingual, so we are scoring the Arabic quality (which we did in criterion 6).
+
+ But wait: the rubric says "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." 
+ We don't see any of that.
+
+ So, 5.
+
+ But wait: we have two criteria that we are giving 5, but the sample output in the rubric had a note for knowledge_check at 3. 
+ Why would we give 5 for knowledge_check? Let's reexamine.
+
+ Let me double-check the knowledge_check criterion.
+
+ The rubric says: "Are distractors drawn from real misconceptions, and does per-option feedback explain why rather than restate the answer?"
+
+ We have two knowledge checks. Let's look at the feedback for the distractors in both.
+
+ In KC-01, the feedback for option (a) says: "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+ This is good.
+
+ Option (c) for KC-01: feedback says "Not correct. What occupied you during the shift is not necessarily what the next person needs first." -> This is good.
+
+ Option (d) for KC-01: feedback says "Not correct. It is tidy, but it tells the reader nothing about urgency." -> This is good.
+
+ In KC-02:
+   Option (a): feedback says "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact." -> This is good.
+   Option (b): feedback says "Not correct. Length is not the measure; the problem is what the line presents as certain." -> This is good.
+   Option (d): feedback says "Not correct. A guess can help the next person when it is clearly labelled; deleting it throws away what you learned on your shift." -> This is good.
+
+ However, note: the rubric says "feedback that restates the answer instead of naming the misconception". 
+ In option (a) of KC-02, the feedback says "the action rests on an assumption presented as fact" — that names the misconception.
+
+ But wait: the stem of KC-02 says: "the customer's card is expired" is presented as a fact, but it's a guess. 
+ The misconception is that the learner thinks presenting a guess as a fact is acceptable.
+
+ The feedback for option (a) is explaining why that is wrong (because the action is based on an assumption) and that's a valid misconception.
+
+ However, let's read the feedback for option (a) again: 
+      "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+
+ This is correct and explains the misconception.
+
+ But note: the rubric says "per-option feedback explain why rather than restate the answer". 
+ The feedback does not restate the answer (which would be "because it's a guess"), but it explains the reason (the action rests on an assumption presented as fact).
+
+ So it's good.
+
+ However, let's look at the sample note in the rubric: "Two distractors restate the stem rather than naming a misconception."
+
+ In our case, we don't see that.
+
+ But wait: in the lesson, the knowledge_check blocks are not the actual items. We are given the items. 
+ We are to score the items as provided.
+
+ The provided items (OPS-01-KC-01 and OPS-01-KC-02) have feedback that does not restate the stem but explains the misconception.
+
+ Therefore, we should score knowledge_check as 5.
+
+ However, the sample output in the rubric (the example) had a note for knowledge_check at 3. 
+ But that was an example. We are scoring the actual lesson.
+
+ But note: the lesson we are scoring is the one provided in the prompt. 
+
+ Let me look again at the provided knowledge checks:
+
+ For KC-01, option (a) feedback: 
+      "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+ This is good.
+
+ For KC-01, option (c) feedback:
+      "Not correct. What occupied you during the shift is not necessarily what the next person needs first."
+
+ This is good.
+
+ For KC-02, option (a) feedback:
+      "Not correct. Being short and having an action is not enough when the action rests on an assumption presented as fact."
+
+ This is good.
+
+ But wait: the feedback for KC-02 option (a) says "the action rests on an assumption presented as fact". 
+ The stem says: "the customer's card is expired" (which is the assumption) is presented as a fact. 
+ So the feedback is correct.
+
+ However, note that the rubric says "feedback that restates the answer". 
+ The answer is that the problem is presenting a guess as a fact. 
+ The feedback for option (a) does not restate the answer; it explains the reasoning.
+
+ So we are confident it's 5.
+
+ But let's consider: is there any feedback that restates the answer? 
+ The feedback for the correct option is not required to be written, but for the distractors, the feedback should explain why it's wrong.
+
+ We are not seeing any restatement.
+
+ Therefore, we should score knowledge_check as 5.
+
+ However, the problem says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+ We are not seeing any flaw, so 5.
+
+ But note: the rubric says "a distractor nobody would ever choose". 
+ We think all the distractors are plausible.
+
+ Therefore, we have:
+
+   objective_alignment: 5
+   level_fidelity: 5
+   worked_example: 5
+   knowledge_check: 5
+   scenario_authenticity: 5
+   bilingual_quality: 5
+   concision: 5
+   accessibility_ip: 5
+
+ However, wait: the rubric says "the mean must be at least 4.0 and no criterion below 3". 
+ With all 5s, the mean is 5.
+
+ But note: the sample output in the rubric had a note for knowledge_check at 3. 
+ Why would that be? 
+
+ Let me re-read the knowledge checks we are given.
+
+ In KC-01, option (a) feedback: 
+      "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+ This is good.
+
+ However, let's look at the feedback for the correct option in KC-01? We don't have that in the items, but the feedback for the distractors is what matters.
+
+ But note: the rubric says "per-option feedback", meaning for every option (including the correct one? no, typically the feedback for the correct option is not written, but for the distractors we have feedback). 
+ The items we are given have feedback for every option.
+
+ The feedback for the correct option in KC-01 is: "Correct. A reader who starts at the top is never surprised at the bottom."
+
+ That is acceptable. The rubric doesn't require feedback for the correct option, but it's provided.
+
+ Now, is there any issue with the feedback for the correct option? 
+ The rubric doesn't say anything about the feedback for the correct option. 
+ It says: "per-option feedback explain why" — meaning for the distractors (the wrong answers) we have feedback that explains why they are wrong.
+
+ So we are okay.
+
+ However, let's consider: the feedback for the correct option in KC-02 is: 
+      "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+
+ This is good because it reinforces the concept.
+
+ But note: the rubric says "feedback that restates the answer" — this feedback for the correct option is explaining the concept, not just restating.
+
+ So it's fine.
+
+ But wait: the rubric says "feedback that restates the answer instead of naming the misconception" — this is for the distractors. 
+ The feedback for the correct option is not the same.
+
+ Therefore, we are confident.
+
+ However, the problem says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+ We are not seeing any flaw.
+
+ But note: the sample output in the rubric (the example) had a note for knowledge_check at 3. 
+ Why? Because in that example, they had a problem.
+
+ In our case, we don't see that problem.
+
+ So we must score based on what is present.
+
+ After re-examining, we see that the knowledge_check criterion is satisfied.
+
+ Therefore, all 8 criteria are 5.
+
+ However, let's check the rubric again for knowledge_check: 
+      "5 — every distractor names a misconception someone actually holds."
+
+ We believe the distractors are plausible.
+
+ But note: the rubric says "a distractor nobody would ever choose". 
+ We have to be sure.
+
+ For KC-01, option (c): "The hardest or most interesting first." 
+ Is this a common misconception? 
+   - A learner might think that the most challenging item should be addressed first, but the reality is that it's about urgency, not difficulty. 
+   - This is a plausible misconception.
+
+ For KC-02, option (d): "The card should not be mentioned at all." 
+   - This is a misconception: the learner might think that if it's a guess, it's better to not mention it at all. 
+   - But the lesson teaches to label it. 
+   - So it is a common misconception.
+
+ So we are good.
+
+ But wait: the rubric says "feedback that restates the answer". 
+ Let's check the feedback for KC-01 option (a) again: 
+      "Not correct. Arrival order feels fair, but it can bury an item due within the hour under one with no deadline."
+
+ This does not restate the answer (which would be "because you should order by urgency"). 
+ It explains why the distractor is wrong.
+
+ Therefore, we stick with 5.
+
+ However, note: the problem says "Be harsh on 4 and 5". 
+ We are not being harsh because we don't see a flaw.
+
+ But let's consider: is the feedback for KC-01 option (a) really naming the misconception? 
+ The misconception is that ordering by arrival is acceptable. 
+ The feedback says: "it can bury an item due within the hour under one with no deadline" — that is the consequence of the misconception, which is a way to name it.
+
+ Similarly, the other feedbacks name the misconception.
+
+ So we are confident.
+
+ However, I notice that in the knowledge check items, the feedback for the correct option in KC-01 says: 
+      "Correct. A reader who starts at the top is never surprised at the bottom."
+
+ This is a bit vague. But it's not required to be detailed, and it's not restating the answer.
+
+ Therefore, we'll score all 5.
+
+ But wait: the sample output in the rubric (the example) had "knowledge_check": 3 and a note. 
+ Why would we have a 3? 
+
+ Let me read the rubric again: 
+      "a distractor nobody would ever choose"
+
+ In KC-01, option (c) says "الأصعب أو الأكثر إثارة للاهتمام أولًا." 
+ Is that a common misconception? 
+   - It's possible that a few people might think that, but is it common? 
+   - The feedback says: "What occupied you during the shift is not necessarily what the next person needs first." 
+   - This is a valid point.
+
+ However, let's imagine a real learner: 
+   - They might think that because they spent time on the hard item, it's the most important. 
+   - So it is a common misconception.
+
+ So we are not seeing a problem.
+
+ But note: the problem says "the lesson" we are scoring is the one provided. 
+ We are to score what is on the page.
+
+ After careful analysis, we believe the knowledge_check is at 5.
+
+ However, let's look at the actual lesson's knowledge_check blocks. 
+ The lesson has two knowledge_check blocks that reference OPS-01-KC-01 and OPS-01-KC-02. 
+ And we are given the content of those two items.
+
+ We have to score the knowledge_check criterion based on those two items.
+
+ And they are good.
+
+ But wait: the rubric says "knowledge_check" criterion is about the knowledge check blocks. 
+ The knowledge check blocks in the lesson are just references (itemRef). 
+ The actual content is in the items.
+
+ So we are scoring the items as part of the knowledge_check.
+
+ Therefore, we score knowledge_check as 5.
+
+ However, there is a catch: the rubric says "the lesson" we are scoring is the one provided in the prompt. 
+ And the lesson includes the blocks with itemRef. 
+ But we are given the items separately for scoring.
+
+ So we are doing it correctly.
+
+ Given all that, we have 5 for every criterion.
+
+ But note: the rubric says "a visual card that is a bulleted list with a border" fails level fidelity. 
+ We don't have any visual card that is a bulleted list. 
+ The definition cards are not bulleted lists; they are using a card format.
+
+ So level fidelity is 5.
+
+ However, let's double-check the level fidelity: 
+   - L1: definitions, introduction, and a process flow (non-interactive). 
+   - L2: application with interactive process flow, worked example, scenario, etc.
+
+ This is appropriate.
+
+ But note: the rubric says "a 'visual card' that is secretly a bulleted list". 
+ The definition_card type might be implemented as a bulleted list? 
+ However, the rubric says "a visual card that is a bulleted list with a border" — meaning if the card is just a bulleted list (which it shouldn't be) then it fails.
+
+ In the lesson, the definition cards are structured as:
+      {
+        "termAr": "...",
+        "termEn": "...",
+        "defAr": "...",
+        "defEn": "...",
+        "icon": "↔"
+      }
+
+ This is not a bulleted list; it's a structured card. 
+ So we are good.
+
+ Therefore, we are confident in 5 for all.
+
+ However, the problem says "Be harsh on 4 and 5". 
+ We have to be sure we are not being too generous.
+
+ Let's consider: is there any tiny flaw?
+
+ In the worked example, the "why" for step 2 says: "Shows the status as a fact, not a feeling." 
+ The rubric says: "reasoning names the judgement being made and what would change it." 
+ The judgement is to present the status as a fact. 
+ What would change it? If you present it as a feeling (like "I think the status is bad"), that would be wrong. 
+ But the feedback doesn't explicitly say "what would change it". 
+ However, it does name the judgement: "status as a fact, not a feeling". 
+ And the "not a feeling" implies what would change it (if you use a feeling, it's wrong).
+
+ So it's acceptable.
+
+ We are not going to lower it.
+
+ Therefore, all 5.
+
+ But note: the rubric says "Most good work is a 4." 
+ So if it's perfect, it's 5.
+
+ We believe this is perfect.
+
+ However, let's look at the scenario authenticity: 
+   - The scenario says: "الطلب وصل أولًا" (the order arrived first). 
+   - This is a natural detail.
+
+   - And the correct answer is to put the urgent item (with deadline) first, even though it arrived later.
+
+   This is authentic.
+
+ So we are good.
+
+ But note: the rubric says "recognisable, including the awkward parts." 
+ The awkward part is that the item that arrived first is not the most urgent.
+
+ So it's good.
+
+ Given all that, we will score all 5.
+
+ However, I notice that in the provided knowledge check for KC-02, the correct option's feedback says: 
+      "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+
+ This is a bit long for a feedback, but it's not bad.
+
+ And it's not restating the answer; it's reinforcing the concept.
+
+ So we are good.
+
+ Final scores:
+
+   objective_alignment: 5
+   level_fidelity: 5
+   worked_example: 5
+   knowledge_check: 5
+   scenario_authenticity: 5
+   bilingual_quality: 5
+   concision: 5
+   accessibility_ip: 5
+
+ But wait: the rubric says "the lesson" has a bilingual declaration. 
+ We scored bilingual_quality as 5, which is correct.
+
+ However, the rubric for bilingual_quality says: "An English-only lesson is not penalised here" — but this is not English-only, so we scored the Arabic.
+
+ And we did.
+
+ But note: the rubric says "Arabic that reads as machine output" — we don't see that.
+
+ So 5.
+
+ Now, the output must be a JSON with the scores and notes.
+
+ Since all are 5, there are no criteria below 4, so "notes" should be empty (or not present for any criterion scored 5). 
+ But the rubric says: "notes: (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored)"
+
+ So if there are no criteria below 4, the "notes" object should be empty.
+
+ However, the rubric example had a note for knowledge_check even though it was 3. 
+ We don't have any note.
+
+ Also, "not_scored" is not used because we scored all criteria.
+
+ The "verdict_notes" should be two or three sentences.
+
+ We'll write: "All criteria scored 5. Mean is 5.0. Passes."
+
+ But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0". 
+ Here, all are 5, so it passes.
+
+ However, the problem says: "The gate — not the judge — decides pass or fail. ... Do not adjust a score because of what it would do to the outcome"
+
+ We are not adjusting scores, we are scoring based on the rubric.
+
+ So the verdict_notes should be neutral.
+
+ Let's write: "All eight criteria scored 5. The mean is 5.0, well above the threshold of 4.0. The lesson passes."
+
+ But note: the rubric example had: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+ We don't have that.
+
+ So for us: "All criteria scored 5. The mean is 5.0. Passes."
+
+ However, the rubric says "return exactly the JSON shape it specifies".
+
+ We'll output the JSON.
+
+ But note: the rubric says "Return ONE JSON object and nothing else".
+
+ So we output:
+
+ {
+   "lesson": "writing-a-shift-handover",
+   "scores": {
+      "objective_alignment": 5,
+      "level_fidelity": 5,
+      "worked_example": 5,
+      "knowledge_check": 5,
+      "scenario_authenticity": 5,
+      "bilingual_quality": 5,
+      "concision": 5,
+      "accessibility_ip": 5
+   },
+   "notes": {},
+   "verdict_notes": "All criteria scored 5. The mean is 5.0. Passes."
+ }
+
+ However, wait: the lesson slug in the prompt is "writing-a-shift-handover", but in the JSON it's "slug": "writing-a-shift-handover". 
+ But the rubric example used "05-documentation-that-supports-the-claim". 
+
+ We are to use the slug from the lesson.
+
+ The lesson JSON has "slug": "writing-a-shift-handover", so we use that.
+
+ But note: the rubric example output used "05-documentation-that-supports-the-claim", but that's just an example.
+
+ We'll use "writing-a-shift-handover".
+
+ However, the lesson JSON provided in the prompt has:
+   "slug": "writing-a-shift-handover"
+
+ So we use that.
+
+ But note: the rubric says "the slug", so we use the value from the lesson.
+
+ Let's write the JSON.
+
+ However, we must be cautious: the rubric says "the lesson" we are scoring has the slug.
+
+ But wait: the rubric example had "05-documentation-that-supports-the-claim", but our lesson has a different slug.
+
+ We are to use the slug from the lesson.
+
+ Therefore, we use "writing-a-shift-handover".
+
+ But note: in the lesson JSON, the slug is "writing-a-shift-handover", so we use that.
+
+ Now, we have to be sure about knowledge_check.
+
+ I just noticed: in the knowledge_check items, the feedback for the correct option in KC-01 says: 
+      "Correct. A reader who starts at the top is never surprised at the bottom."
+
+ This is not bad, but it's a bit vague. 
+ However, the rubric doesn't require feedback for the correct option to be detailed.
+
+ And the feedback for the distractors is good.
+
+ So we are not going to lower it.
+
+ But let me see if there's any other issue.
+
+ Another thing: in the scenario for L2, the correct option is labeled "URGENT, before 14:00", and the feedback says "The deadline is seen before anything else". 
+ This is good.
+
+ After re-reading everything, we are confident.
+
+ However, the problem says: "Be harsh on 4 and 5". 
+ We are being harsh by not lowering any score.
+
+ So we output as above.
+
+ But note: the rubric says "a 5 means you would not change it". 
+ We would not change anything in this lesson.
+
+ Therefore, we are scoring 5 for all.
+
+ However, I recall that in the knowledge check items, the feedback for the correct option in KC-02 says: 
+      "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+
+ This is a bit redundant? But it's clear.
+
+ And it's not a flaw.
+
+ So we are good.
+
+ Let's output the JSON.
+
+ But note: the rubric example had a note for knowledge_check at 3. 
+ Why did they have that? Because in their example, they had a problem. 
+ In our lesson, we don't have that problem.
+
+ So we don't add a note.
+
+ We'll output the JSON with empty "notes" (an empty object).
+
+ However, the rubric says: "required for every criterion scored below 4", and we have none below 4, so notes is empty.
+
+ Now, the verdict_notes: 
+   - It should be two or three sentences.
+
+ We'll write: "All criteria achieved a perfect score of 5. The mean score is 5.0, which is well above the threshold of 4.0. The lesson passes."
+
+ But note: the rubric says "the gate — not the judge — decides pass or fail", so we don't say "passes", but the example did. 
+ The example verdict_notes said "Passes".
+
+ And the rubric says: "the gate fails if ...", so the verdict_notes should say what the gate does.
+
+ The example: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+ So they say "Passes".
+
+ We'll say: "All criteria scored 5. The mean is 5.0. Passes."
+
+ Now, write the JSON.
+
+ However, the rubric example had "verdict_notes" as a string of two or three sentences.
+
+ We'll write: "All criteria scored 5. The mean is 5.0. Passes."
+
+ But note: the rubric says "the gate fails if ...", so we are reporting the outcome of the gate.
+
+ The gate would pass, so we say "Passes".
+
+ Let's output.
+
+ Important: the rubric says "Return ONE JSON object and nothing else".
+
+ So we output exactly the JSON.
+
+ Let's write it.
+</think>
+
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria achieved perfect scores. The mean score is 5.0, well above the 4.0 threshold. The lesson passes."
+}

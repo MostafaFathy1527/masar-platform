@@ -1,0 +1,157 @@
+<think>1.  **Analyze the Request:**
+    *   **Task:** Score a lesson against a specific rubric.
+    *   **Lesson:** `writing-a-shift-handover` (L1, L2, bilingual).
+    *   **Input:** Lesson JSON + Knowledge Check items JSON.
+    *   **Constraint 1:** Do not know the generation prompt. Judge *only* what is on the page.
+    *   **Constraint 2:** Be harsh on 4s and 5s (only give 5 if unchanged, 4 if good but potentially improvable).
+    *   **Constraint 3:** Return *only* a JSON object with specific keys: `lesson`, `scores`, `notes`, `not_scored`, `verdict_notes`.
+    *   **Thresholds:** Pass if mean >= 4.0 AND all criteria >= 3.
+
+2.  **Review the Rubric Criteria:**
+
+    *   **1. Objective Alignment:** Does every block serve "OPS-01"? The lesson is about writing a shift handover. The intro, definitions, flow, worked example, scenario, sort exercise, and checks are all about handover mechanics (urgency, fact vs guess, shared record). *Verdict:* Strong alignment. Maybe slightly generic, but relevant. I'll lean 4 or 5. Let's look closer. The definitions are all handover specific. The tips are specific. I'll give a 5. *Correction:* Is there padding? The intro is good. The tips are good. The flow is specific. I'll go with **5**.
+
+    *   **2. Level Fidelity:** L1 (definitions, flow) vs L2 (application, worked example, scenario, sort, check).
+        *   L1 has definitions and a basic flow.
+        *   L2 has "Put it to work" header, interactive flow (identifying item, status, etc.), worked example (very detailed), scenario (frictiony), sort buckets (fact vs guess), and checks.
+        *   Is it L2? The worked example has "why" steps. The scenario requires decision making. The sort requires categorization. Yes, it feels like L2.
+        *   Is there a "visual card that is secretly a bulleted list"? The definitions are cards. The "Takeaways" are likely cards. The "Flow" steps are distinct.
+        *   *Verdict:* **4**. It feels solid L2. Maybe the "Put it to work" flow is slightly repetitive of the intro, but distinct. The intro has questions (What is it? etc.), L2 has steps (Identify, State, Log, Define). It's distinct. I'll stick with 4 or 5. Let's give it a 4 because "Identify" vs "What is it" is very close. The intro flow is a high-level list of *what to ask*. L2 flow is *what to write*. It's a difference in granularity. I'll score it a 4 to be safe (not perfect, but not bad).
+
+    *   **3. Worked Example Quality:** Does it show *what to do* and *why*?
+        *   Block `b_l2_worked_example`.
+        *   Steps: "What is it?" -> "What is status?" -> "What has been done?" -> "What happens next?".
+        *   For each, it has `show` (the answer) and `why` (the reasoning).
+        *   Example: "Call customer before 4 PM... Why: A clear action with a deadline ensures the promise is kept."
+        *   *Verdict:* **5**. This is a high-quality worked example. The "why" explicitly names the judgement (action with deadline) and the outcome (keeping promise).
+
+    *   **4. Knowledge Check Quality:** Are distractors from real misconceptions? Does feedback explain *why*?
+        *   KC 01:
+            *   Option 1 (Arrival order): Feedback says "can bury an item due within the hour". Plausible misconception (fairness).
+            *   Option 2 (Urgency): Correct.
+            *   Option 3 (Hardest/Interesting): Feedback says "what occupied you is not what the next person needs". Plausible misconception (subjective importance).
+            *   Option 4 (Ticket number): Feedback says "tidy but tells reader nothing about urgency". Plausible misconception (organizing vs prioritizing).
+            *   *Analysis:* These are all very good distractors. Feedback explains *why* the distractor is wrong and connects to the core concept.
+        *   KC 02:
+            *   Option 1 (Nothing wrong): Feedback says "not enough when action rests on assumption". Plausible misconception ("I did my job").
+            *   Option 2 (Needs more detail): Feedback says "length is not the measure; problem is certainty". Plausible misconception ("I need to tell them the history").
+            *   Option 3 (Guess as Fact): Correct.
+            *   Option 4 (Delete card): Feedback says "deleting it throws away what you learned". Plausible misconception ("I was wrong, so remove it").
+            *   *Analysis:* These are excellent distractors. Feedback explains the misconception well.
+        *   *Verdict:* **5**. This is a very strong knowledge check section.
+
+    *   **5. Scenario Authenticity:** Recognisable situation?
+        *   Scenario: End of shift, two open items. One urgent (Ali, 14:00), one non-urgent (Supplier date). Which line first?
+        *   It's a classic customer service/scheduling friction point.
+        *   "The order arrived first" introduces a bias/friction that the learner must overcome.
+        *   The options (Order by arrival, URGENT line, All good) represent common human behaviors vs best practice.
+        *   *Verdict:* **5**. High realism and friction.
+
+    *   **6. Bilingual Quality:** Arabic natural?
+        *   The Arabic text is generally natural.
+        *   "تسليم النوبة هو لحظة انتقال العمل..." - Good.
+        *   "هل يستطيع الشخص التالي اتخاذ إجراء مباشرةً دون سؤالك؟" - Good.
+        *   "الطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة." - Natural flow.
+        *   "الوعد الآن عليك." - Natural phrasing.
+        *   "الحقيقة: فشل الدفع مرتين. التخمين: البطاقة منتهية. يُكتب الثاني بعلامة «تخمين»." - Clear and natural.
+        *   *Verdict:* **5**. Reads like written-in-Arabic, not translated.
+
+    *   **7. Concision and Reading Level:** Is anything longer than it needs to be?
+        *   The intro text in L1 is dense but very clear. It cuts to the chase.
+        *   The definition cards are concise.
+        *   The worked example is thorough but necessary for L2.
+        *   The scenario descriptions are detailed enough to convey the situation without being a novel.
+        *   *Verdict:* **4**. It is concise, but maybe the definitions for L1 are a bit repetitive (7 definitions for one objective). However, they cover specific sub-concepts (open item, urgent, fact/guess, commitment, shared record). Is that necessary? Maybe, but it's not "padded" in a bad way. It's a solid 4. I wouldn't change it to be shorter because the concepts are distinct. Let's give it a **4**.
+
+    *   **8. Accessibility and IP:**
+        *   No images described? The prompt mentions "Alt text on any image". I don't see any `image` blocks in the JSON, only `rich_text`, `definition_card`, `process_flow`, etc.
+        *   "No real licensed code descriptors or payer policy text." I don't see any medical billing or specific proprietary code text.
+        *   "No meaning carried by colour alone." No visible color descriptions in text.
+        *   "No forbidden-term denylist." I don't know the denylist, but nothing obvious like slurs or hate speech.
+        *   *Verdict:* **5**.
+
+3.  **Refining Scores:**
+
+    *   **Objective Alignment (5):** Every block is about the handover process.
+    *   **Level Fidelity (4):** L1 defines terms, L2 applies them. The distinction is clear. The "flow questions" in L1 are essentially the "steps" in L2, just phrased as questions. Is that a fail? No, it's scaffolding. Is it a 5? Maybe. The L2 "Identify, State, Log, Define" is slightly more prescriptive than the "What is it? What is status?..." in L1. I'll keep it at 4 to avoid being too generous on 5s.
+    *   **Worked Example (5):** The `why` explanations are specific to the concept (e.g., "prevents repeating attempts", "ensures promise is kept").
+    *   **Knowledge Check (5):** The distractors are all "real" mental models people have (arrival order, fairness, deletion of mistakes). Feedback is high quality.
+    *   **Scenario Authenticity (5):** The "Order arrived first" bias is a classic cognitive bias. Very realistic.
+    *   **Bilingual Quality (5):** Arabic is very natural.
+    *   **Concision (4):** It's efficient.
+    *   **Accessibility (5):** No obvious violations.
+
+4.  **Addressing Specific Rubric Flags:**
+    *   *Visual card as bulleted list?* The definition cards look like cards.
+    *   *Distractor nobody would ever choose?* Checked KCs. They are all plausible.
+    *   *Feedback restating answer?* KC 01 feedback: "Not correct. Arrival order feels fair, but it can bury..." -> Explains the consequence. KC 02 feedback: "Correct. The fact: ... The guess: ..." -> Explains the distinction.
+    *   *Arabic following English word order?* Checked. Seems natural.
+
+5.  **Final Score Calculation:**
+    *   5, 4, 5, 5, 5, 5, 4, 5.
+    *   Mean: (5+4+5+5+5+5+4+5) / 8 = 38 / 8 = 4.75.
+    *   Thresholds: All >= 3. Mean >= 4.0. **PASS**.
+
+6.  **Drafting the JSON Output:**
+
+    *   `lesson`: "writing-a-shift-handover"
+    *   `scores`:
+        *   objective_alignment: 5
+        *   level_fidelity: 4
+        *   worked_example: 5
+        *   knowledge_check: 5
+        *   scenario_authenticity: 5
+        *   bilingual_quality: 5
+        *   concision: 4
+        *   accessibility_ip: 5
+    *   `notes`:
+        *   level_fidelity: "L1 defines terms with a general flow, while L2 applies these terms to specific steps (Identify, State, Log, Define). The distinction is present but slightly repetitive in phrasing."
+        *   concision: "Definitions are dense but cover several distinct sub-concepts. While efficient, some definitions could be streamlined if the goal were brevity."
+    *   `verdict_notes`: "Pass. The lesson excels in bilingual quality, scenario realism, and knowledge check construction. The level fidelity score reflects the slight overlap in phrasing between the introductory flow questions and the L2 application steps."
+
+    *   *Self-Correction on `knowledge_check` notes:* The prompt asks for notes on *every criterion below 4* or *every substitute-evidence criterion* (none applicable here). My scores are 4 and 5, so technically I don't *need* notes on 4s, but providing them adds value and clarity to the "harsh on 4" instruction. I will add brief notes for the 4s.
+
+    *   *Self-Correction on `level_fidelity`:* The prompt warns against "a 'visual card' that is secretly a bulleted list". The L1 blocks are all `definition_card` or `process_flow`. These are distinct visual elements usually. I will stick with 4.
+
+7.  **Final Polish of JSON:**
+    ```json
+    {
+      "lesson": "writing-a-shift-handover",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 4,
+        "worked_example": 5,
+        "knowledge_check": 5,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 4,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "level_fidelity": "The L1 process flow asks questions ('What is it?', 'What is the status?'), while the L2 flow lists specific steps ('Identify the item', 'State the status'). While logically distinct, the phrasing is very similar, resulting in a slight lack of differentiation at the surface level.",
+        "concision": "The lesson efficiently covers five distinct sub-concepts (shift handover, open item, urgent item, fact vs guess, shared record) via definition cards. While dense, the content justifies the length, though some definitions could be consolidated if brevity were the sole metric."
+      },
+      "not_scored": {},
+      "verdict_notes": "Passes the gate with a mean score of 4.75. The lesson demonstrates high-quality bilingual Arabic and excellent scenario design with genuine friction. The primary area for potential improvement is the differentiation between the high-level questions in the introductory flow and the prescriptive steps in the application phase."
+    }
+    ```</think>```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "level_fidelity": "The introductory flow asks general questions ('What is it?', 'What is the status?'), while the L2 flow lists specific steps ('Identify the item', 'State the status'). While logically distinct, the surface-level phrasing is nearly identical, which slightly reduces the perceived separation between levels.",
+    "concision": "The L1 definitions cover five distinct concepts (handover, open item, urgent item, fact/guess, commitment, shared record) in dense cards. While efficient, the volume of definitions makes the lesson feel longer than necessary if brevity were the priority."
+  },
+  "not_scored": {},
+  "verdict_notes": "Pass. The lesson scores high on realism (especially the scenario introducing arrival bias), bilingual quality, and knowledge check design. The 4s reflect minor overlaps in phrasing between the intro and L2 steps, and a density of definitions that, while accurate, could be condensed."
+}
+```

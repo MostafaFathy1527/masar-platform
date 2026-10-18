@@ -1,0 +1,462 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+First, note: We are in a fresh context, no sight of the generation prompt or source note. We score only what is on the page.
+
+We must return exactly the JSON shape as specified, with 8 integer scores (1-5) for the criteria, notes for any criterion scored below 4, and verdict_notes.
+
+Let's break down each criterion:
+
+### 1. Objective alignment
+The lesson declares one objective: "CS-01". We need to check if every block serves that objective.
+
+Looking at the blocks:
+- L1: 
+  - heading: "A complaint is the chance the others did not give you" -> sets context for CS-01.
+  - rich_text: explains the nature of complaints and the importance of the first minute -> aligns.
+  - definition_card for "Acknowledgement": defines the concept -> aligns.
+  - definition_card for "Agreed next step": defines the concept -> aligns.
+  - job_tip: about asking the customer what they want -> aligns (concept: "complaint_ownership" and "agreed_next_step").
+  - takeaways: summarizes key points for CS-01 -> aligns.
+
+- L2:
+  - heading: "Work one complaint from open to close" -> aligns with CS-01.
+  - worked_example: step-by-step for handling a complaint -> aligns.
+  - knowledge_check (KC-01 and KC-02): about the concepts (acknowledgement and agreed next step) -> aligns.
+  - scenario: a real scenario about handling a complaint -> aligns.
+
+All blocks are directly tied to the objective CS-01. No block seems to be teaching something unrelated.
+
+Score: 5
+
+### 2. Level fidelity
+The lesson declares L1 and L2. We must check if the level label matches the experience.
+
+- L1: 
+  - This is introductory: definitions, a tip, and takeaways. It's a basic overview of the concepts without complex scenarios. It's appropriate for L1.
+
+- L2:
+  - This has a worked example (step-by-step) and a scenario with a knowledge check. It's more advanced, requiring application of the concepts. It's appropriate for L2.
+
+No block in L1 is too advanced (e.g., no L2 content in L1) and no L2 block is too basic. The L2 content is clearly more complex.
+
+Score: 5
+
+### 3. Worked-example quality
+The worked example in L2 (cs1_l2_worked) has steps with "show" (what to do) and "why" (reasoning). We need to check if the "why" explains the reasoning and what would change it.
+
+Looking at the steps:
+
+Step 1: 
+  - show: "Acknowledge in her words: ... I can see why you are angry."
+  - why: "You have not agreed that the organisation was wrong; you have agreed that her experience was bad, which is a fact she owns. Without that, she will not hear anything that follows."
+
+This explains why the step is important (to get the customer to listen) and what would change (if we didn't acknowledge, she wouldn't listen).
+
+Step 2:
+  - show: "Open the record and say so: ... Then ask: what do you want to happen now?"
+  - why: "Silence on a call reads as abandonment. Asking what she wants prevents a fix she did not ask for ..."
+
+Explains the reasoning (silence is bad, asking prevents wrong fix).
+
+Step 3:
+  - show: "The record shows two charges, and her email is sitting in a queue. State what the record shows without blaming her or defending the queue."
+  - why: "Arguing the policy lengthens the call and changes nothing. Explain it once, then move to what can be done within it."
+
+Explains why (arguing is bad, explain once then move on).
+
+Step 4:
+  - show: "Close with an agreed next step: ..."
+  - why: "An action, a time, a way to verify. And promise only what you can personally make true; promise what you will do and when you will report back."
+
+Explains the structure (action, time, way) and the rationale (only promise what you can do).
+
+The "why" in each step names the judgment and what would change (e.g., not acknowledging leads to not being heard, which is a bad outcome).
+
+Score: 5
+
+### 4. Knowledge-check quality
+We have two knowledge checks (KC-01 and KC-02) from the referenced items.
+
+For KC-01:
+- Stem: "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?"
+- Options:
+  1. "Order lunch for the team first." (incorrect) -> feedback: "Not correct." (too generic)
+  2. Correct: "Your order arrived late and broken, and I can see why you are angry." -> feedback: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault." (This names the misconception: that the agent might jump to cause/solution without acknowledging. The feedback explains why it's correct and what the misconception is.)
+  3. "Restart your computer." (incorrect) -> feedback: "Not correct."
+  4. "Change the colour of the screen." (incorrect) -> feedback: "Not correct."
+
+The distractors (1, 3, 4) are implausible (nobody would choose these). However, the rubric says: "a distractor nobody would ever choose teaches nothing." So these are bad distractors.
+
+But note: the rubric requires "distractors drawn from real misconceptions". Here, the distractors are not real misconceptions (they are absurd). The feedback for the correct answer is good (names the misconception: jumping to cause/solution without acknowledging).
+
+However, the distractors are not based on real misconceptions. They are just random wrong answers. This is a problem.
+
+For KC-02:
+- Stem: "You have established the facts and agreed on a refund. Which close is an agreed next step?"
+- Options:
+  1. "Order lunch for the team first." (incorrect) -> feedback: "Not correct."
+  2. "Restart your computer." (incorrect) -> feedback: "Not correct."
+  3. Correct: "I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today." -> feedback: "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+  4. "Change the colour of the screen." (incorrect) -> feedback: "Not correct."
+
+Same issue: the distractors are implausible. They don't represent real misconceptions.
+
+The rubric says: "a distractor nobody would ever choose teaches nothing." These distractors are clearly not chosen by anyone, so they are ineffective.
+
+Also, the feedback for the incorrect options is just "Not correct." without explanation. The rubric says: "feedback that restates the answer instead of naming the misconception". Here, the feedback doesn't name a misconception; it just says "Not correct."
+
+Therefore, the knowledge checks have two issues:
+1. Distractors are implausible (not based on real misconceptions).
+2. Feedback for incorrect options is generic.
+
+This is a low score for criterion 4.
+
+We must score below 4. Let's see:
+
+- 1: implausible distractors, or feedback that repeats the stem.
+- 3: plausible distractors, feedback thin on some.
+
+Here, the distractors are implausible (so it's a 1 for the distractors) and the feedback is thin (just "Not correct"). So overall, it's a 1? But note: the feedback for the correct option is good.
+
+However, the criterion is about the entire knowledge check. The presence of implausible distractors is a major flaw. The rubric says: "a distractor nobody would ever choose teaches nothing." So this is a clear failure.
+
+But note: the rubric says "1 — implausible distractors, or feedback that repeats the stem." So if there are implausible distractors, it's at most a 1.
+
+But let's check: the knowledge check has two questions. Both have the same problem: three implausible distractors and one correct.
+
+So the criterion score should be 1? However, the rubric says "1" for implausible distractors OR feedback that repeats the stem. Here, the feedback for incorrect options is "Not correct" (which is a form of repeating the stem in a negative way) and the distractors are implausible.
+
+But note: the rubric says "implausible distractors" is a 1. So we should score 1 for this criterion.
+
+However, the example in the rubric says: "a distractor nobody would ever choose teaches nothing." This is exactly what we have.
+
+But wait: the example in the knowledge check items (the referenced items) has the distractors as:
+  - "Order lunch for the team first."
+  - "Restart your computer."
+  - "Change the colour of the screen."
+
+These are clearly not real choices. So they are implausible.
+
+Therefore, score: 1
+
+But note: the rubric says "1" for this. However, let's double-check the lesson. The lesson block for knowledge_check only references the itemRef, and the itemRef points to the full item. We are to score based on the full item as provided.
+
+So the knowledge check is flawed.
+
+However, the rubric also says: "feedback that restates the answer instead of naming the misconception". The feedback for incorrect options is "Not correct", which is restating the answer (i.e., not correct) but not naming the misconception. So that's a problem.
+
+But the distractors being implausible is the bigger issue.
+
+But note: the rubric says "1" for either one of these. So we can score 1.
+
+However, let's consider: the correct answer's feedback is good. But the criterion is about the entire knowledge check. The presence of implausible distractors (which are not based on real misconceptions) is a critical flaw.
+
+But wait: the rubric says "a distractor nobody would ever choose" — these are nobody would choose. So it's a 1.
+
+But note: the example in the rubric says "automatic 1 on criterion 8" for licensed code, but that's a different criterion. Here, for criterion 4, it's a 1 if there are implausible distractors.
+
+So we must score 1 for knowledge_check.
+
+But let's see the provided example in the rubric: "a distractor nobody would ever choose" — that's exactly the case here.
+
+However, in the lesson, the knowledge check blocks are present and they reference the items. We are to score the knowledge check as it appears (which is the items provided).
+
+So score: 1
+
+But note: the rubric also says "No 'all of the above'." — we don't have that, so that's fine.
+
+So for criterion 4, we have a 1.
+
+But wait: the rubric says "1" for the condition, so we must score 1.
+
+However, the example in the prompt says: "Two distractors restate the stem rather than naming a misconception." — but in our case, the distractors are not even plausible, so it's worse.
+
+But the rubric says: "1 — implausible distractors, or feedback that repeats the stem." So we score 1.
+
+But note: the feedback for the incorrect options is "Not correct", which is a form of restating the stem (in negative) without explanation. So that's also a 1.
+
+So we'll score 1.
+
+However, let's be cautious: the rubric says "a distractor nobody would ever choose" — meaning at least one distractor. We have three such distractors. So it's a clear 1.
+
+But wait: the example in the rubric says "a distractor" (singular), so one is enough.
+
+So score: 1
+
+But note: the rubric also says "feedback that restates the answer" — for the incorrect options, the feedback is "Not correct", which is restating that it's not correct, but it doesn't name a misconception. So that's a separate issue.
+
+So we have two problems: implausible distractors and poor feedback for incorrect options.
+
+Therefore, score: 1
+
+But let's see if there's any redeeming factor. The feedback for the correct option is good. However, the criterion is about the entire knowledge check. The presence of the flawed distractors and feedback for incorrect options makes the whole thing low.
+
+So we'll score 1.
+
+However, note: the rubric says "1" for this condition. So we must assign 1.
+
+But wait: the example in the provided "Output" example for the judge has a note for knowledge_check: "Two distractors restate the stem rather than naming a misconception." — but in our case, the distractors are not restating the stem, they are just nonsense. So it's a different problem.
+
+But the rubric says "implausible distractors" is a 1, so we don't have to choose between the two.
+
+So for criterion 4: 1.
+
+But note: the example in the rubric's output example says "knowledge_check": 3, but that was for a different lesson. We are scoring this one.
+
+So we must score 1.
+
+However, let's double-check the knowledge check items:
+
+In KC-01:
+- The correct option is good.
+- The incorrect options are:
+  - "Order lunch for the team first." -> This is a distractor that no agent would choose (it's irrelevant). So it's implausible.
+  - "Restart your computer." -> Similarly, irrelevant.
+  - "Change the colour of the screen." -> Irrelevant.
+
+Same for KC-02.
+
+So yes, 1.
+
+But note: the rubric says "a distractor nobody would ever choose" — meaning if even one distractor is implausible, it's a 1. Here, all three are.
+
+So score: 1
+
+### 5. Scenario authenticity
+The scenario in L2 (cs1_l2_scenario) is about a customer in chat who asks for something beyond the agent's authority (waiving a fee), and the agent has to handle it.
+
+The scenario is:
+- Customer has written three long messages and says he won't explain again.
+- The agent cannot waive the fee, so the correct action is to do a warm handover (keep the name and provide facts).
+
+This is a realistic scenario in customer service: customers get frustrated when they have to repeat themselves, and when they ask for something outside the agent's authority.
+
+The scenario includes friction: the customer is angry and has already written three messages, and the agent cannot fix it immediately. The correct solution (warm handover) addresses the friction.
+
+It's recognisable and includes the awkward parts (customer won't explain again, agent can't fix it now).
+
+Score: 5
+
+### 6. Bilingual quality
+The lesson is bilingual (true). We must check if the Arabic is natural.
+
+Looking at the Arabic:
+
+- The heading: "كيف تتعامل مع شكوى عميل" -> natural.
+- The rich_text: "الشكوى ليست هجوماً، وليست طلباً لاعتذار. هي عميل يخبرك أن الفجوة بين ما توقّعه وما حصل عليه صارت تستحق وقته ليبلّغ عنها." -> This is natural Arabic. Note: "هي عميل يخبرك" should be "هي عميلة" (if the customer is female) but the context says "عميل" (which is gender-neutral in some contexts, but typically masculine). However, in the scenario, the customer in the worked example is a woman ("عَمِيلَة"), so the heading should be feminine. But the lesson uses "عميل" (masculine) for the heading. However, in the rich_text, it's "عميل" (masculine) but the example in the worked example is female. This might be inconsistent, but it's not a translation error.
+
+Let's check the Arabic in the definition card for "Acknowledgement":
+- "أن تسمّي ما حدث بكلمات العميل، وتقول إنك تفهم لماذا يهمّه" -> natural.
+
+The Arabic in the takeaways:
+- "أقرّ بالتجربة أولاً، بكلمات العميل، قبل الأسباب والحلول." -> natural.
+
+In the worked example:
+- "خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد. أفهم لماذا أنتِ غاضبة." -> Note: "أنتِ" (feminine) is used because the customer is female (as per the scenario: "عميلَة"). So it's consistent.
+
+The Arabic in the scenario:
+- "عميل في المحادثة النصية" -> "عميل" (masculine) but the scenario says the customer is male? Actually, the scenario says "العميل" (which can be either, but in Arabic, "عميل" is often masculine). However, the scenario says "العميل كتب حتى الآن ثلاث رسائل" (the customer wrote three messages) — and "كتب" is masculine. So it's consistent.
+
+The Arabic is natural, uses appropriate terms, and the grammar is correct. It doesn't read like a machine translation (e.g., word-for-word from English).
+
+Note: The rubric says "Arabic that follows English word order" is a 1. This doesn't seem to be the case.
+
+So score: 5
+
+### 7. Concision and reading level
+We need to check if the prose is concise and earns its space.
+
+- The heading: short and punchy.
+- The rich_text: a bit long but the content is important and the text is to the point (no fluff).
+- Definition cards: concise definitions.
+- Job tip: short and to the point.
+- Takeaways: bullet points, very concise.
+- Worked example: the steps are clear and concise.
+- Scenario: short and to the point.
+
+There is no obvious padding or repetition. The prose is clear and gets the point across.
+
+Score: 5
+
+### 8. Accessibility and IP
+We need to check for:
+- Alt text on any image (there are no images, so it's fine).
+- No meaning carried by color alone (no colors used, so fine).
+- No real licensed code descriptors or payer policy text.
+- No forbidden-term denylist.
+
+The lesson has no images, so no alt text needed. The content is about customer service, not code or policy. There are no real licensed code descriptors (like "CPT codes") or payer policy text.
+
+So it's compliant.
+
+Score: 5
+
+But note: the rubric says "automatic 1" if any licensed code or denylisted term is present. Here, none.
+
+So 5.
+
+Now, let's compile the scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 1
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+But note: the rubric says the gate fails if any criterion scores below 3. Here, knowledge_check is 1, which is below 3. So the lesson fails the gate.
+
+However, we are only to return the scores and notes.
+
+We must note for knowledge_check: we scored it 1.
+
+The rubric says: "notes" should be for every criterion scored below 4. So we must have a note for knowledge_check.
+
+What to write in the note? We can say: "Distractors are implausible (e.g., 'Order lunch for the team first.') and feedback for incorrect options is generic ('Not correct')."
+
+Now, the verdict_notes: "One criterion at 1; mean 4.2. Fails the gate."
+
+But note: the rubric says "The gate — not the judge — decides pass or fail." and we are to write "verdict_notes" as two or three sentences.
+
+We are not to say "pass" or "fail", but to state the facts.
+
+So: "One criterion scored 1 (knowledge_check), the mean is 4.2. The gate fails because a criterion is below 3."
+
+However, the example in the rubric's output example says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." — but we have a 1.
+
+So we write: "One criterion scored 1 (knowledge_check); mean score 4.2. The lesson fails the gate because knowledge_check is below 3."
+
+But note: the mean is (5+5+5+1+5+5+5+5)/8 = 36/8 = 4.5? Wait, let's calculate:
+
+5+5+5+1+5+5+5+5 = 36 -> 36/8 = 4.5.
+
+Wait, 5*7=35, plus 1 is 36, 36/8=4.5.
+
+But the example in the rubric says "mean 4.1", so we'll compute correctly.
+
+But note: we have 8 criteria. The scores: 5,5,5,1,5,5,5,5 -> sum=36, mean=4.5.
+
+So verdict_notes: "One criterion scored 1 (knowledge_check); mean score 4.5. The lesson fails the gate because knowledge_check is below 3."
+
+But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." Here, knowledge_check is 1 (below 3) so it fails.
+
+Now, let's write the JSON.
+
+Important: The lesson slug is "handling-a-customer-complaint".
+
+We must have:
+- "lesson": "handling-a-customer-complaint"
+- "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  }
+- "notes": {
+    "knowledge_check": "Distractors are implausible (e.g., 'Order lunch for the team first.') and feedback for incorrect options is generic ('Not correct')."
+  }
+- "verdict_notes": "One criterion scored 1 (knowledge_check); mean score 4.5. The lesson fails the gate because knowledge_check is below 3."
+
+But note: the rubric says "Return ONE JSON object and nothing else".
+
+Also, the rubric says "not_scored" is for criteria that were not scored (but we scored all 8, so no not_scored).
+
+Now, note: the example output in the rubric has "not_scored" as a key, but we don't have any not scored, so we omit that key? Or the rubric says "required" for notes, but for not_scored, it says "criterion -> reason". But we don't have any not scored.
+
+The rubric says: "Return ONE JSON object and nothing else: keys ... 'not_scored' (criterion -> reason), ..."
+
+So we must include "not_scored" even if empty? But the example doesn't show it.
+
+Wait, the example output in the rubric does not have a "not_scored" field. So we should omit it if there are no not_scored.
+
+The rubric says: "return exactly the JSON shape it specifies". The example output does not have "not_scored", so we don't include it.
+
+Similarly, the example output has "notes" only for the criterion below 4.
+
+So we'll return:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Distractors are implausible (e.g., 'Order lunch for the team first.') and feedback for incorrect options is generic ('Not correct')."
+  },
+  "verdict_notes": "One criterion scored 1 (knowledge_check); mean score 4.5. The lesson fails the gate because knowledge_check is below 3."
+}
+
+But note: the rubric says "the mean is below 4.0" for a gate failure, but here the mean is 4.5, which is above 4.0. However, the gate fails because one criterion is below 3 (knowledge_check=1). So the verdict_notes should say it fails because of the floor (below 3), not the mean.
+
+So the note is correct.
+
+However, let's double-check the knowledge_check score: we said 1 because of implausible distractors. But is there a chance it's not a 1?
+
+Re-read the rubric: "1 — implausible distractors, or feedback that restates the answer instead of naming the misconception."
+
+We have both: implausible distractors and feedback that restates the answer (just "Not correct").
+
+So 1 is correct.
+
+But note: the example in the rubric for the output example has a note for knowledge_check: "Two distractors restate the stem rather than naming a misconception." — but in our case, the distractors are not restating the stem, they are nonsense. So the note we wrote is different.
+
+But we are describing the problem.
+
+Now, one more thing: the rubric says "a distractor nobody would ever choose" — these distractors are not chosen by anyone, so it's a 1.
+
+So we are confident.
+
+Let's write the JSON.
+
+Note: The rubric says "Return exactly the JSON shape it specifies", so we must not have extra keys.
+
+We have the required keys.
+
+Now, the note for knowledge_check: we wrote a string. The rubric says: "notes (criterion -> string; required for every criterion scored below 4".
+
+We have one criterion below 4 (knowledge_check=1), so we have a note for it.
+
+We'll write the note as described.
+
+Finally, the verdict_notes: two or three sentences.
+
+So the JSON is as above.
+
+But note: the example in the rubric uses "knowledge_check" as the key, not "knowledge_check_quality" — the rubric uses the key "knowledge_check" for the criterion.
+
+So we use "knowledge_check".
+
+Now, let's output the JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Distractors are implausible (e.g., 'Order lunch for the team first.') and feedback for incorrect options is generic ('Not correct')."
+  },
+  "verdict_notes": "One criterion scored 1 (knowledge_check); mean score 4.5. The lesson fails the gate because knowledge_check is below 3."
+}

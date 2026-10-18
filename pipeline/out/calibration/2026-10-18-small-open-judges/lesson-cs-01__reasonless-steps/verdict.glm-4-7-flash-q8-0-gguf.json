@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "GLM-4.7-Flash-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:33:20.798171+00:00",
+    "usage": {
+      "inputTokens": 6811,
+      "outputTokens": 3538
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The 'why' steps in the worked example are generic ('Because it is the next step') and do not explain the specific judgment being made or the consequences of skipping it."
+  },
+  "verdict_notes": "Mean 4.5, floor 3. Passes. The scenario is highly realistic, and the knowledge checks effectively name misconceptions. The worked example quality is the only weak point due to the generic reasoning."
+}

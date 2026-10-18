@@ -1,0 +1,496 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+We are to return exactly the JSON structure as specified.
+
+First, let's go through each criterion:
+
+1. **Objective alignment**: 
+   - The lesson has one objective: "CS-01".
+   - Every block (in both L1 and L2) has "objectiveId": "CS-01", so they all serve that objective.
+   - The objective is about handling a customer complaint, and the content (acknowledgement, next step, etc.) directly relates to that.
+   - There are no blocks that seem unrelated. So, this should be a 5.
+
+2. **Level fidelity**:
+   - The lesson declares levels: L1 and L2.
+   - L1: The first level has an introductory heading, a rich text, two definition cards, a job tip, and takeaways. It's foundational for the concept.
+   - L2: The second level has a heading, a worked example, two knowledge checks, and a scenario. The worked example is more complex and builds on L1.
+   - The L2 content is not just L1 with a question bolted on; it's a deeper dive. The level label matches the content. So, 5.
+
+3. **Worked-example quality**:
+   - The worked example in L2 has steps with "show" (what to say) and "why" (explanation of the reasoning).
+   - The "why" explains the judgement (e.g., "You have not agreed that the organisation was wrong; you have agreed that her experience was bad...").
+   - It names what would change the approach (e.g., "Silence on a call reads as abandonment").
+   - This meets the 5 criteria.
+
+4. **Knowledge-check quality**:
+   - We have two knowledge checks (CS-01-KC-01 and CS-01-KC-02).
+   - For each, the distractors are plausible (e.g., in KC-01, the wrong options are common mistakes: apologizing for feeling, transferring too early, promising without authority).
+   - The feedback for each option explains why it's wrong, naming the misconception (e.g., "This apologises for the feeling rather than the event").
+   - However, note the rubric says: "feedback that restates the answer instead of naming the misconception" is bad.
+   - In the provided knowledge check items:
+        - For KC-01, option 1: feedback says "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off." -> This names the misconception (apologizing for feeling, not event).
+        - Similarly, option 2: feedback says "Correct. ... without yet ruling on who was at fault." (and then the correct one is explained).
+        - Option 3: feedback says "No. Transferring an angry customer before he is heard, and without a handover, makes him explain everything again." -> names the misconception (transferring without hearing).
+        - Option 4: feedback says "No. A promise of an outcome whose facts are not yet established and which you may not have authority over." -> names the misconception.
+
+   - For KC-02, the feedback for the wrong options also names the misconception (e.g., "No. No name, no time, no way to verify. This is the close that manufactures the repeat complaint.").
+
+   - However, note the rubric says: "feedback that restates the answer instead of naming the misconception". The feedback in these items does name the misconception, so they are good.
+
+   - But wait, the rubric also says: "a distractor nobody would ever choose" is bad. The distractors here are common mistakes, so they are plausible.
+
+   - Why then might it be below 5? Let's check the notes in the example output: "Two distractors restate the stem rather than naming a misconception." But in the provided items, the feedback does name the misconception.
+
+   - However, let me double-check the actual knowledge check items from the lesson:
+
+        The lesson has two knowledge_check blocks that reference "CS-01-KC-01" and "CS-01-KC-02", and we have the full items.
+
+        In the knowledge check items provided (the JSON array), the feedback does name the misconception. So why would it be 3?
+
+        Wait, the rubric says: "feedback that restates the answer". In the provided items, the feedback does not restate the answer but explains the misconception.
+
+        But note: the rubric example in the prompt says: "feedback that restates the answer instead of naming the misconception" is bad.
+
+        In the given items, the feedback is good. However, the example output in the rubric (the one we must mimic) says for knowledge_check: 3 and the note says "Two distractors restate the stem rather than naming a misconception."
+
+        But in our case, the feedback does name the misconception. So why would we score it 3?
+
+        Let me look again at the knowledge check items:
+
+        For KC-01, option 1 feedback: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+        This is naming the misconception (apologizing for feeling, not event). So it's good.
+
+        However, note that the rubric says "a distractor nobody would ever choose" is a problem. But the distractors are chosen from real misconceptions.
+
+        But wait: the rubric also says "every distractor names a misconception someone actually holds." And the feedback does that.
+
+        So why might it be 3? Let me check the actual lesson's knowledge check blocks. The lesson only has:
+
+          "type": "knowledge_check",
+          "objectiveId": "CS-01",
+          "payload": {
+            "itemRef": "CS-01-KC-01"
+          }
+
+        and similarly for KC-02. The knowledge check block itself does not have the options; it references the item. So we are to score based on the items.
+
+        The items provided are the full items. And they are well-crafted.
+
+        However, note: the rubric says "Score what is on the page." The page has the knowledge_check blocks that reference the items, and we are given the items. So we are to assume the items are part of the lesson.
+
+        But the problem says: "the lesson" as provided in the JSON. The lesson JSON does not contain the full items, only the references. However, the prompt says: "Each knowledge_check block above shows only an itemRef. These are those items, in full: ...".
+
+        So we are to use the provided items to score.
+
+        Now, let's look at the feedback for the correct answer in the knowledge checks:
+
+          In KC-01, the correct answer feedback: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+          This is good.
+
+        But note: the rubric says "feedback that restates the answer" is bad. This feedback does not restate the answer; it explains why it's correct.
+
+        So why would we score it 3? Actually, it seems to be 5.
+
+        However, the example output in the rubric (the one we are to mimic) has knowledge_check as 3 and a note about two distractors restating the stem. But in our case, the feedback does not restate the stem.
+
+        Let me re-read the rubric: "feedback that restates the answer instead of naming the misconception". The feedback for the wrong options should name the misconception, not restate the stem.
+
+        In the provided items, the feedback for the wrong options does name the misconception (e.g., "apologises for the feeling rather than the event"). So it's good.
+
+        But wait: the rubric says "a distractor nobody would ever choose" is bad. The distractors in the items are plausible (they are common mistakes). So the distractors are good.
+
+        Therefore, knowledge_check should be 5.
+
+        However, the example output in the rubric for the prompt says: "Two distractors restate the stem rather than naming a misconception." But that is an example of a bad one. We are not seeing that in the provided lesson.
+
+        So for this lesson, knowledge_check should be 5.
+
+        But wait, the prompt says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+        Let's check the items again:
+
+          KC-01, option 1: feedback says "This apologises for the feeling rather than the event" -> names the misconception.
+
+          KC-01, option 3: "Transferring an angry customer before he is heard" -> names the misconception.
+
+          KC-01, option 4: "A promise of an outcome whose facts are not yet established" -> names the misconception.
+
+          Similarly for KC-02.
+
+        So it's good.
+
+        However, note: the rubric says "every distractor" must name a misconception. We have three distractors for each, and they all do. So 5.
+
+        But the example output in the rubric (the one we are to mimic) has knowledge_check at 3. Why? Because the example output is for a different lesson. We are scoring this lesson.
+
+        So for this lesson, knowledge_check should be 5.
+
+        But wait, the lesson has two knowledge_check blocks, each with one question. The questions are well-constructed.
+
+        However, let me look at the scenario in the lesson:
+
+          The scenario block (cs1_l2_scenario) has three options, and one is correct. But the scenario is not a knowledge check; it's a scenario. The knowledge checks are the two MCQs.
+
+        So I think knowledge_check is 5.
+
+        But why does the example output have it as 3? Because that was an example of a bad one. We are not to follow the example output's scores, but the rubric.
+
+        We must score this lesson.
+
+        However, let me double-check the provided items: the feedback for the wrong options does name the misconception. So it's 5.
+
+        But note: the rubric says "per-option feedback". We have that.
+
+        So I will score knowledge_check as 5.
+
+        However, the prompt says: "Score what is on the page." The page has the knowledge_check blocks that reference the items, and the items are provided. So we are to score the items as part of the lesson.
+
+        Therefore, knowledge_check: 5.
+
+        But wait, the rubric also says: "a distractor nobody would ever choose" is bad. The distractors in the items are plausible, so they are good.
+
+        So I think 5.
+
+        However, let me look at the example of a bad one: "feedback that restates the answer". In this case, the feedback does not restate the answer; it explains.
+
+        So I think it's 5.
+
+        But note: the example output in the rubric (the one we are to mimic) has knowledge_check as 3. That was for a different lesson. We are scoring this one.
+
+        So for this lesson, knowledge_check: 5.
+
+5. **Scenario authenticity**:
+   - The scenario (cs1_l2_scenario) is about a customer in chat who asks for something beyond the agent's authority, and the team is out. The customer has written three long messages and says he won't explain again.
+   - This is a realistic scenario: customers getting frustrated with waiting and having to repeat themselves.
+   - The friction is present: the agent cannot do the thing, the team is out, and the customer is angry and has already written multiple messages.
+   - The correct option (d3) involves documenting the facts and keeping the name on it until closed, which is a real-world practice.
+   - The scenario is recognisable and includes the awkward parts (customer's frustration, multiple messages, waiting for another team). So 5.
+
+6. **Bilingual quality**:
+   - The lesson is bilingual (bilingual: true).
+   - The Arabic is provided in the blocks (e.g., in the definition cards, the rich text, etc.).
+   - We need to check if the Arabic is natural or translated.
+   - Example: "الشكوى ليست هجوماً، وليست طلباً لاعتذار. هي عميل يخبرك أن الفجوة بين ما توقّعه وما حصل عليه صارت تستحق وقته ليبلّغ عنها." 
+        This is natural Arabic. It doesn't read like a machine translation.
+   - Similarly, the rest of the Arabic seems well-written.
+   - There are no English word order issues (e.g., "الشكوى فرصة لم يمنحها لك الآخرون" is natural).
+   - So 5.
+
+7. **Concision and reading level**:
+   - The prose is clear and to the point. For example, the definition cards are concise and to the point.
+   - The takeaways are bullet points that are very concise.
+   - The worked example steps are short and to the point.
+   - I don't see any padding or repetition. The lesson is well-structured and every word seems to earn its place.
+   - So 5.
+
+8. **Accessibility and IP**:
+   - There are no images (so no alt text needed for images), and no color-dependent meaning.
+   - The lesson does not contain any real licensed code descriptors or payer policy text. It's about customer service, so no real policy text.
+   - The words used are generic (e.g., "refund", "subscription", "charge") and not from a specific policy.
+   - So 5.
+
+But wait, the rubric says: "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." 
+   - We don't see any of that. The lesson is about a general customer complaint handling process.
+
+So 5.
+
+However, note that the example output in the rubric has knowledge_check at 3. But in our case, we think it's 5.
+
+But let me reexamine the knowledge_check items:
+
+  In KC-01, the stem: "عميل يفتتح المكالمة غاضباً عن طلب وصل متأخراً ومكسوراً. ما أول جملة ينبغي أن تقولها؟"
+
+  The correct answer: "«وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب.»"
+
+  Now, the feedback for the correct option says: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+  The feedback for the wrong option (option 1): "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+  This is good.
+
+  But note: the rubric says "feedback that restates the answer". The feedback for the correct option does not restate the answer; it explains the principle. Similarly, the wrong option feedback explains the misconception.
+
+  So why would it be less than 5? It shouldn't.
+
+  However, the rubric example says: "feedback that restates the answer instead of naming the misconception" is bad. This feedback does not restate the answer; it names the misconception.
+
+  Therefore, knowledge_check should be 5.
+
+  But wait: the rubric says "every distractor names a misconception someone actually holds." We have three distractors, and each feedback names a misconception. So it's 5.
+
+  So we have all criteria at 5? But the example output had one at 3.
+
+  Let me check again for any issue.
+
+  Another thing: the rubric says "a distractor nobody would ever choose". Are any of the distractors implausible?
+
+  For KC-01:
+    Option 1: "«آسف لأنك تشعر بهذا الشكل، دعني أشرح سياسة الشحن.»" -> This is a common mistake (apologizing for feeling). So plausible.
+    Option 3: "«سأحوّلك إلى قسم الشحن فهم المسؤولون عن التوصيل.»" -> Transferring without hearing is a common mistake. Plausible.
+    Option 4: "«سنعوّضك عن كل شيء، لا تقلق.»" -> Making a promise without authority is common. Plausible.
+
+  So all distractors are plausible.
+
+  Therefore, knowledge_check: 5.
+
+  But note: the rubric says "a 'visual card' that is a bulleted list with a border" fails level fidelity. However, we don't see any such card. The definition cards are in a card format but not a bulleted list. The takeaways are bullet points but they are a takeaways block, which is acceptable.
+
+  So level fidelity is 5.
+
+  Now, let's double-check the other criteria.
+
+  We have:
+    objective_alignment: 5
+    level_fidelity: 5
+    worked_example: 5
+    knowledge_check: 5
+    scenario_authenticity: 5
+    bilingual_quality: 5
+    concision: 5
+    accessibility_ip: 5
+
+  But the rubric says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+  And the example output in the rubric has a 3 for knowledge_check. But in our case, we don't see a flaw.
+
+  However, note: the rubric says "a distractor nobody would ever choose". We think they are all plausible, but let's consider option 1 in KC-01: apologizing for the feeling. Is that a real misconception? Yes, it is.
+
+  So we are confident.
+
+  But wait: the lesson has two knowledge checks. The rubric says "every distractor" (meaning in every knowledge check) must name a misconception. We have two knowledge checks, and in each, all distractors are handled well.
+
+  Therefore, we score 5 for knowledge_check.
+
+  However, the problem says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one." We don't see that here.
+
+  So all criteria are 5.
+
+  But the example output in the rubric has a note: "Two distractors restate the stem rather than naming a misconception." We don't see that in this lesson.
+
+  Therefore, we must score all 5.
+
+  However, let's consider: the knowledge_check block in the lesson is just a reference to the item. The actual items are provided. And the items are good.
+
+  So we go with 5 for knowledge_check.
+
+  But note: the rubric says "Score what is on the page." The page (the lesson JSON) has the knowledge_check blocks that reference the items. The items are provided in the prompt as the reference. So we are to assume they are part of the lesson.
+
+  Therefore, we score knowledge_check as 5.
+
+  Now, the verdict: mean = 5.0, which is above 4.0, and all are above 3. So it passes.
+
+  However, the example output in the rubric has a note about knowledge_check being 3. But that was for a different lesson.
+
+  So for this lesson, we have all 5s.
+
+  But wait: the rubric says "a 'visual card' that is a bulleted list with a border" fails level fidelity. We don't have any such card. The definition cards are not bulleted lists. They are single concepts.
+
+  So level fidelity is 5.
+
+  Now, let's write the JSON.
+
+  The lesson slug: "handling-a-customer-complaint"
+
+  Scores: all 5.
+
+  Notes: since all are 5, there are no criteria scored below 4, so the "notes" field should be empty? But the rubric says: "notes on any criterion you scored below 4". So if none are below 4, then "notes" should be an empty object.
+
+  However, the example output has a notes field with one key. But that's because they had a 3.
+
+  The rubric says: "required for every criterion scored below 4 and for every substitute-evidence criterion you scored". Since we have none below 4, notes is empty.
+
+  "not_scored": not needed (the lesson declares bilingual: true, and we have Arabic, so we score bilingual_quality; we have levels, so we score level_fidelity; etc.)
+
+  "verdict_notes": two or three sentences. Since it's all 5s, we can say: "All criteria are perfect. The lesson is excellent and meets every requirement."
+
+  But the rubric says: "The gate — not the judge — decides pass or fail." and we are only to output the JSON.
+
+  However, the example output has a verdict_notes.
+
+  So for our case:
+
+    verdict_notes: "All eight criteria scored 5. The lesson is flawless in every aspect."
+
+  But note: the rubric says "a 5 means you would not change it." So we are saying it's perfect.
+
+  However, let me double-check the worked example:
+
+    In the worked example, step 1: 
+        showAr: "أقرّ بما حدث بكلماتها: «خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد. أفهم لماذا أنتِ غاضبة.»"
+        whyAr: "لم توافق على أن المؤسسة أخطأت؛ وافقت على أن تجربتها كانت سيئة، وهذه حقيقة تملكها. من دون ذلك لن تسمع أي شيء بعده."
+
+    This is good: it explains the "why" (the judgment) and what would change it (if we didn't do this, the customer wouldn't hear anything).
+
+  So it's 5.
+
+  Therefore, we'll score all 5.
+
+  But note: the rubric says "Be harsh on 4 and 5." So we are being strict. Since it's perfect, 5 is correct.
+
+  However, let's consider the concision:
+
+    The takeaways in the L1 block: they are bullet points. The rubric says "concision and reading level" is about prose. The takeaways are not prose, they are bullet points. The rubric says "the prose budget between acting blocks" — so the bullet points in the takeaways are not prose. The prose (the rich text and the definition cards) is concise.
+
+    So concision: 5.
+
+  Now, the only potential issue I see: the lesson has a scenario block (cs1_l2_scenario) that is part of the L2. The scenario block is a scenario, not a knowledge check. The knowledge checks are separate. So the scenario is not scored under knowledge_check.
+
+  We have two knowledge checks (the MCQs) and one scenario. The scenario is a separate block and is scored under scenario_authenticity (which we scored 5).
+
+  So no issue.
+
+  Final scores: all 5.
+
+  But note: the rubric says "a visual card that is a bulleted list with a border" fails level fidelity. We don't have that. The takeaways are a block type "takeaways", which is a list. But the rubric does not say that a takeaways block is bad. It says a "visual card" (which we interpret as a card that is a bulleted list) is bad. The takeaways block is not a visual card; it's a takeaways block. And it's a list, but it's the intended format.
+
+  So we are safe.
+
+  Therefore, we output:
+
+    {
+      "lesson": "handling-a-customer-complaint",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 5,
+        "worked_example": 5,
+        "knowledge_check": 5,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 5,
+        "accessibility_ip": 5
+      },
+      "notes": {},
+      "verdict_notes": "All criteria are scored 5. The lesson is excellent and requires no changes."
+    }
+
+  However, the example output in the rubric had a note for knowledge_check. But we don't have any note to add.
+
+  But wait: the rubric says "notes on any criterion you scored below 4". Since we have none below 4, notes is empty.
+
+  Let's check the rubric example: "notes": { "knowledge_check": "Two distractors restate the stem rather than naming a misconception." }
+
+  We don't have that, so we don't put anything.
+
+  But note: the rubric says "required for every criterion scored below 4", so we don't have to put anything.
+
+  However, the rubric also says "and for every substitute-evidence criterion you scored". We didn't score any substitute evidence, so we don't have to put anything.
+
+  So we output an empty object for notes.
+
+  But the example output had a notes field with one entry. We have none.
+
+  So we output "notes": {}.
+
+  Now, the verdict_notes: "All criteria are perfect. The lesson meets the rubric in every way."
+
+  However, the example output says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." We don't have that.
+
+  We write: "All criteria scored 5. The lesson is flawless and passes the rubric."
+
+  But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0." This passes.
+
+  So we output the JSON.
+
+  However, I just noticed: the rubric says "a scenario with no friction in it" fails scenario authenticity. Our scenario has friction: the customer has written three messages and is frustrated, and the agent cannot do the thing. So it has friction.
+
+  So 5.
+
+  Therefore, the final answer.
+
+  But wait: the lesson has a block "cs1_tip" (job_tip). Is that a problem? It's a tip, which is a valid block. It's not a visual card that is a bulleted list.
+
+  So we are good.
+
+  Let's output the JSON.
+
+  Important: the rubric says "Return exactly the JSON shape it specifies".
+
+  We have to be careful with the keys.
+
+  The required keys: 
+    "lesson", "scores", "notes", "not_scored", "verdict_notes"
+
+  We don't have any not_scored (all criteria are scored), so we can omit "not_scored" or set it to an empty object? 
+
+  The rubric says: "not_scored (criterion -> reason)" and "required for every criterion scored below 4" — but not_scored is for criteria that are not scored. We don't have any not_scored, so we can omit it? Or set it to an empty object?
+
+  The example output does not include "not_scored". The example output only has "lesson", "scores", "notes", "verdict_notes".
+
+  So we omit "not_scored".
+
+  Therefore, the JSON should not have "not_scored".
+
+  So our JSON:
+
+  {
+    "lesson": "handling-a-customer-complaint",
+    "scores": {
+      "objective_alignment": 5,
+      "level_fidelity": 5,
+      "worked_example": 5,
+      "knowledge_check": 5,
+      "scenario_authenticity": 5,
+      "bilingual_quality": 5,
+      "concision": 5,
+      "accessibility_ip": 5
+    },
+    "notes": {},
+    "verdict_notes": "All criteria are scored 5. The lesson is flawless and meets every requirement."
+  }
+
+  But note: the rubric example output has a "not_scored" field? Actually, in the example output provided in the rubric, they did not include "not_scored". The example output they gave:
+
+  {
+    "lesson": "05-documentation-that-supports-the-claim",
+    "scores": { ... },
+    "notes": { ... },
+    "verdict_notes": "..."
+  }
+
+  So we don't include "not_scored".
+
+  Therefore, we output the above.
+
+  However, let's check the scoring again for knowledge_check. I think I might have missed something.
+
+  In the knowledge check items, the feedback for the correct option is:
+
+      "feedbackAr": "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+
+  This is good.
+
+  But the rubric says "feedback that restates the answer" is bad. This feedback does not restate the answer; it explains the principle. So it's good.
+
+  So we stand by 5.
+
+  However, I recall that in some knowledge checks, the feedback for the correct option is sometimes just "correct" without explanation. But here it has an explanation. So it's good.
+
+  Therefore, we output the JSON as above.
+
+  But note: the rubric says "the mean is below 4.0" -> we have 5.0, so it passes.
+
+  One last check: the rubric says "Arabic that follows English word order" is bad for bilingual_quality. We checked the Arabic and it's natural.
+
+  So we are confident.
+
+  Let's write the JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All eight criteria scored 5. The lesson is flawless in every aspect, with perfect alignment, authentic scenarios, natural Arabic, and exemplary knowledge checks that name real misconceptions."
+}

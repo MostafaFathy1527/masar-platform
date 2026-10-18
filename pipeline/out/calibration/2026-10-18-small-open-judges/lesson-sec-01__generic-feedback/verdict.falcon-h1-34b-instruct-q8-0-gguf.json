@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T23:14:00.689652+00:00",
+    "usage": {
+      "inputTokens": 6359,
+      "outputTokens": 242
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback in SEC-01-KC-01 and SEC-01-KC-02 is minimal and does not address potential misconceptions."
+  },
+  "verdict_notes": "The lesson is well-aligned with its objectives and provides authentic scenarios and high-quality worked examples. Bilingual quality is excellent, and accessibility and IP concerns are addressed. Knowledge checks are effective but could improve by providing more detailed feedback addressing common misconceptions. Overall, the lesson is strong but has room for refinement in feedback detail."
+}

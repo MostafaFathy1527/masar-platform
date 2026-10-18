@@ -55,11 +55,16 @@ read some lessons, but caught 5 of 14 defects with the example in the rubric and
 it, and with the example there, 14 of its 22 verdicts borrowed the example's note. Four more
 open Arabic models did no better: SILMA-9B and Jais-30B gave no verdict at all, AceGPT-v2-32B
 handed back the example 22 times in 24, four of them with one score changed, and Falcon-H1-7B
-scored every lesson but caught 1 of 20 defects. The scores are in the calibration reports for
+scored every lesson but caught 1 of 20 defects. Five smaller general models that fit one or two
+rented cards were tried next: two of them, gpt-oss-20b and Qwen3-30B-A3B-Thinking-2507, caught
+every knowledge-check and worked-example defect and most of the pasted English, which is the bar
+the seated judges cleared; the first shares the generator's family and is ruled out, the second is
+an open question for the owner. The scores are in the calibration reports for
 [14 October](../pipeline/out/calibration/2026-10-14/report.md),
 [15 October](../pipeline/out/calibration/2026-10-15/report.md),
 [17 October](../pipeline/out/calibration/2026-10-17/report.md) and
-[17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md).
+[17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md)
+and [18 October, five small open models](../pipeline/out/calibration/2026-10-18-small-open-judges/report.md).
 
 ## What a person still has to do
 

@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "GLM-4.7-Flash-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:41:11.758141+00:00",
+    "usage": {
+      "inputTokens": 7677,
+      "outputTokens": 4537
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 2,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The 'why' sections in the worked example merely state 'Because it is the next step' rather than explaining the logic or reasoning behind the sequence.",
+    "level_fidelity": "The L1 content is dense, but it avoids the 'visual card as list' trap, and the level is consistent with the material presented."
+  },
+  "verdict_notes": "Mean score 4.4. The lesson fails the gate because the worked example scores a 2 (below the 3 floor)."
+}

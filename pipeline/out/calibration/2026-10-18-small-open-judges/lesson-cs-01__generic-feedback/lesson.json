@@ -1,0 +1,198 @@
+{
+  "slug": "handling-a-customer-complaint",
+  "titleAr": "كيف تتعامل مع شكوى عميل",
+  "titleEn": "Handling a customer complaint",
+  "estMinutes": 25,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "CS-01"
+  ],
+  "conceptsIntroduced": [
+    "acknowledgement",
+    "establishing_the_facts",
+    "complaint_ownership",
+    "warm_handover",
+    "agreed_next_step"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "cs1_h_intro",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "الشكوى فرصة لم يمنحها لك الآخرون",
+          "textEn": "A complaint is the chance the others did not give you",
+          "level": 2
+        }
+      },
+      {
+        "id": "cs1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "الشكوى ليست هجوماً، وليست طلباً لاعتذار. هي عميل يخبرك أن الفجوة بين ما توقّعه وما حصل عليه صارت تستحق وقته ليبلّغ عنها. معظم من يُخذَلون لا يقولون شيئاً ويرحلون. الذي يشتكي يمنحك فرصة لم يمنحها لك الآخرون.\n\n**الدقيقة الأولى تقرّر العشرين التالية.** العميل الغاضب يحمل مشكلتين: الشيء الذي حدث، والشعور بأن أحداً لم يسمعه. والثانية تُعالَج أولاً، لأن من لا يشعر أنه مسموع لا يستطيع أن يسمع شيئاً مما ستقوله.",
+          "mdEn": "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not.\n\n**The first minute decides the next twenty.** An angry customer is carrying two problems: the thing that went wrong, and the feeling that nobody has listened. The second is dealt with first, because a person who does not feel heard cannot hear anything you say."
+        }
+      },
+      {
+        "id": "cs1_d_ack",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "الإقرار",
+          "termEn": "Acknowledgement",
+          "defAr": "أن تسمّي ما حدث بكلمات العميل، وتقول إنك تفهم لماذا يهمّه — قبل أي كلام عن الأسباب أو الحلول. ليس اعترافاً بخطأ لم يثبت بعد، بل اتفاق على أن تجربة العميل كانت سيئة، وهذه حقيقة يملكها هو. «آسف لأنك تشعر هكذا» ليس إقراراً؛ هو اعتذار عن الشعور لا عن الحدث، والعميل يسمعه كذلك تماماً.",
+          "defEn": "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes. Not an admission of a fault not yet established, but agreement that the customer's experience was bad, which is a fact they own. \"I'm sorry you feel that way\" is not acknowledgement; it apologises for the feeling rather than the event, and the customer hears exactly that.",
+          "icon": "🗣️"
+        }
+      },
+      {
+        "id": "cs1_d_next",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "الخطوة التالية المتفق عليها",
+          "termEn": "Agreed next step",
+          "defAr": "إجراء محدد، في وقت محدد، وطريقة محددة يعرف بها العميل أنه حدث. «سأرفع طلب الاسترداد الآن؛ يصل بطاقتك خلال خمسة أيام عمل؛ وستصلك رسالة تأكيد اليوم.» الإغلاق المبهم («سيتابع أحدهم الموضوع») هو حيث تتحوّل الشكوى إلى شكوى متكررة، لأن العميل لا يملك شيئاً يحاسب المؤسسة عليه، فيعاود الاتصال ليصنعه.",
+          "defEn": "A specific action, a specific time, and a specific way the customer will know it happened. \"I will raise the refund now; it reaches your card within five working days; you will get a confirmation by email today.\" A vague close (\"someone will look into it\") is where a complaint becomes a repeat complaint, because the customer has nothing to hold the organisation to, and calls back to create it.",
+          "icon": "📌"
+        }
+      },
+      {
+        "id": "cs1_tip",
+        "type": "job_tip",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "السؤال الذي يتخطّاه معظم الموظفين هو الذي يوفّر أكبر وقت: **«ما الذي تريده الآن؟»** من يشتكي من تأخر التوصيل قد يريد استرداداً، أو السلعة اليوم، أو مجرد الحقيقة عن موعد وصولها. اسأل ولا تخمّن. الحل الذي لم يطلبه العميل هو شكوى ثانية.",
+          "mdEn": "The question most agents skip is the one that saves the most time: **\"What do you want to happen now?\"** Someone complaining about a late delivery may want a refund, the item today, or only the truth about when it arrives. Ask; do not guess. A fix the customer did not ask for is a second complaint."
+        }
+      },
+      {
+        "id": "cs1_take",
+        "type": "takeaways",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemsAr": [
+            "أقرّ بالتجربة أولاً، بكلمات العميل، قبل الأسباب والحلول.",
+            "الحقائق من السجل لا من ذاكرة أي طرف — وافحص السجل والعميل معك، وقل ما تفعله.",
+            "اسأل العميل ماذا يريد؛ لا تخمّن.",
+            "الشكوى عليها اسم واحد حتى تُغلق، وإن نقلتها فانقل الحقائق معها.",
+            "أغلق بخطوة محددة: إجراء، ووقت، وطريقة يعرف بها العميل أنها تمّت."
+          ],
+          "itemsEn": [
+            "Acknowledge the experience first, in the customer's words, before causes and fixes.",
+            "Facts come from the record, not from anyone's memory — check it while the customer is with you, and say what you are doing.",
+            "Ask the customer what they want; do not guess.",
+            "A complaint has one name on it until it is closed; if you pass it on, pass the facts with it.",
+            "Close with a specific step: an action, a time, and a way the customer will know it happened."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "cs1_l2_h",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "اشتغل شكوى واحدة من أولها لآخرها",
+          "textEn": "Work one complaint from open to close",
+          "level": 2
+        }
+      },
+      {
+        "id": "cs1_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "CS-01",
+        "payload": {
+          "promptAr": "تتصل عميلة وهي غاضبة: خُصم منها مبلغ الاشتراك مرتين هذا الشهر، وقد راسلت الدعم قبل أربعة أيام ولم يردّ أحد، وتريد أن تعرف «من المسؤول». خذ المكالمة خطوة بخطوة.",
+          "promptEn": "A customer calls, angry: she was charged twice for this month's subscription, she emailed support four days ago and nobody replied, and she wants to know \"who is responsible\". Take the call step by step.",
+          "steps": [
+            {
+              "showAr": "أقرّ بما حدث بكلماتها: «خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد. أفهم لماذا أنتِ غاضبة.»",
+              "showEn": "Acknowledge in her words: \"You were charged twice, you emailed four days ago, and nobody replied. I can see why you are angry.\"",
+              "whyAr": "لم توافق على أن المؤسسة أخطأت؛ وافقت على أن تجربتها كانت سيئة، وهذه حقيقة تملكها. من دون ذلك لن تسمع أي شيء بعده.",
+              "whyEn": "You have not agreed that the organisation was wrong; you have agreed that her experience was bad, which is a fact she owns. Without that, she will not hear anything that follows."
+            },
+            {
+              "showAr": "افتح السجل وقل ما تفعله: «أنظر إلى حسابك الآن.» ثم اسأل: ما الذي تريدينه الآن؟",
+              "showEn": "Open the record and say so: \"I am looking at your account now.\" Then ask: what do you want to happen now?",
+              "whyAr": "الصمت على المكالمة يُقرأ تخلّياً. والسؤال عن المطلوب يمنع حلاً لم تطلبه — قد تريد الاسترداد فقط، وقد تريد تأكيداً أن الخصم لن يتكرر.",
+              "whyEn": "Silence on a call reads as abandonment. Asking what she wants prevents a fix she did not ask for — she may want only the refund, or she may want assurance it will not happen again."
+            },
+            {
+              "showAr": "السجل يُظهر خصمين فعلاً، وبريدها عالق في قائمة انتظار. قل ما يُظهره السجل من دون أن تنسب الخطأ لها أو تدافع عن قائمة الانتظار.",
+              "showEn": "The record shows two charges, and her email is sitting in a queue. State what the record shows without blaming her or defending the queue.",
+              "whyAr": "الجدال في السياسة يطيل المكالمة ولا يغيّر شيئاً. اشرح مرة واحدة ثم انتقل إلى ما يمكن فعله ضمنها.",
+              "whyEn": "Arguing the policy lengthens the call and changes nothing. Explain it once, then move to what can be done within it."
+            },
+            {
+              "showAr": "أغلق بخطوة متفق عليها: «أرفع الاسترداد الآن، يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم. اسمي على الشكوى حتى تُغلق.»",
+              "showEn": "Close with an agreed next step: \"I am raising the refund now; it reaches your card within five working days; you get a confirmation email today. My name is on this until it is closed.\"",
+              "whyAr": "إجراء، ووقت، وطريقة تحقق. ولا تعِد بما لا تستطيع أنت أن تجعله يحدث؛ عِد بما ستفعله وبالموعد الذي ستعود فيه بالخبر.",
+              "whyEn": "An action, a time, a way to verify. And promise only what you can personally make true; promise what you will do and when you will report back."
+            }
+          ],
+          "answerAr": "سؤال «من المسؤول» يُجاب بالفعل لا بالاسم: أنت المسؤول عن إغلاقها من هذه اللحظة. سجّل الشكوى بصدق، بما في ذلك البريد الذي انتظر أربعة أيام — فالنمط عبر خمسين شكوى هو حيث يعيش الإصلاح التالي.",
+          "answerEn": "\"Who is responsible\" is answered by an action, not a name: you are, from this moment, for closing it. Record the complaint honestly, including the email that waited four days — the pattern across fifty complaints is where the next fix lives."
+        }
+      },
+      {
+        "id": "cs1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-01"
+        }
+      },
+      {
+        "id": "cs1_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "CS-01",
+        "payload": {
+          "situationAr": "عميل في المحادثة النصية يطلب شيئاً لا تملك صلاحيته: إلغاء رسوم تعاقدية. القسم الذي يملك الصلاحية يعمل غداً. العميل كتب حتى الآن ثلاث رسائل طويلة ويقول إنه لن يشرح الموضوع مرة أخرى لأحد.",
+          "situationEn": "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "تحوّله إلى القسم المختص وتُنهي المحادثة.",
+              "optionEn": "Transfer him to the right team and end the chat.",
+              "isBest": false,
+              "consequenceAr": "سيشرح كل شيء من جديد غداً، وهذا بالضبط ما قال إنه لن يفعله. النقل بلا تسليم دافئ هو ثاني أكثر أسباب التصعيد شيوعاً بعد عدم الإنصات.",
+              "consequenceEn": "He will explain everything again tomorrow, which is exactly what he said he would not do. A transfer without a warm handover is the second most common cause of escalation after not being listened to."
+            },
+            {
+              "id": "d2",
+              "optionAr": "تعده بإلغاء الرسوم لتُنهي التوتر، وتترك القسم المختص يتدبّر الأمر.",
+              "optionEn": "Promise the waiver to defuse things, and let the other team sort it out.",
+              "isBest": false,
+              "consequenceAr": "وعدت بما لا تستطيع أنت أن تجعله يحدث. إن رُفض غداً، صارت الشكوى عن وعد مكسور لا عن رسوم — وهذه أصعب بكثير.",
+              "consequenceEn": "You promised something you cannot personally make true. If it is refused tomorrow, the complaint is now about a broken promise, not a fee — and that is far harder."
+            },
+            {
+              "id": "d3",
+              "optionAr": "تلخّص الحقائق في السجل، وتخبره من سيتولّى الأمر ومتى سيسمع منهم، ويبقى اسمك عليها حتى يرد عليه أحد.",
+              "optionEn": "Write the facts into the record, tell him who will own it and when he will hear back, and keep your name on it until someone does.",
+              "isBest": true,
+              "consequenceAr": "تسليم دافئ: الحقائق تنتقل بدلاً من العميل. لم تعِد بالنتيجة، وعدت بما تملكه فعلاً — أن يصله الخبر في موعد محدد.",
+              "consequenceEn": "A warm handover: the facts travel instead of the customer. You promised not the outcome but what you actually control — that he hears back by a specific time."
+            }
+          ]
+        }
+      },
+      {
+        "id": "cs1_l2_kc2",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

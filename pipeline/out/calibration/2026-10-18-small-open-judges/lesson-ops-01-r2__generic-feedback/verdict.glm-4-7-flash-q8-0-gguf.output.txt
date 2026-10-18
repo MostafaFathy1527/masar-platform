@@ -1,0 +1,189 @@
+<think>1.  **Analyze the Request:**
+    *   **Role:** Judge for an AI-generated lesson.
+    *   **Constraint 1 (Fresh Context):** Do not know the prompt. Score *only* what is on the page.
+    *   **Constraint 2 (No Human QA Label):** The score is an LLM rubric score, fresh-context judge, self-assessed. Do not confuse with human quality assurance.
+    *   **Constraint 3 (Output Format):** Return *exactly* the JSON shape specified in the prompt.
+    *   **Input:** The lesson JSON ("writing-a-shift-handover") and the knowledge check items it references.
+    *   **Scoring Criteria:**
+        *   1-5 scale.
+        *   Gate Failure if any < 3 OR mean < 4.0.
+        *   Specific failure modes to look for (visual card list, implausible distractor, feedback restating answer, worked example steps without explanation, frictionless scenario, machine-translated Arabic, licensed code/denied terms).
+
+2.  **Analyze the Lesson Content:**
+
+    *   **Subject:** Writing a Shift Handover (Shift Handoff).
+    *   **Level:** L1 (Intro/Definition) & L2 (Application).
+    *   **Objective:** OPS-01 (General shift handover skills).
+    *   **Blocks:**
+        *   *Intro:* Definition, simple test ("Can the next person act without contacting you?").
+        *   *Definitions:* Shift handover, Open item, Urgent item, Fact vs Guess, Commitment, Shared record. All standard.
+        *   *Process Flow (L1):* "What is it?", "What is the status?", "What has been done?", "What happens next and by when?". Clear structure.
+        *   *Job Tip:* "Lead with the urgent item."
+        *   *Takeaways:* Bullet points summarizing rules.
+        *   *L2 Process Flow:* Interactive version of the four questions.
+        *   *Worked Example:* Ticket #4523. Step-by-step explanation of "What is it?", "Status", "What has been done?", "What next?". The "Why" is explicitly stated (e.g., "Prevents repeating the same attempts").
+        *   *Scenario:* Two tickets (Ali vs. Supplier Order). Friction exists (deadline for Ali vs. no deadline for Order). Best line choice involves urgency.
+        *   *Sort Activity:* Fact vs. Guess. Good, clear buckets.
+        *   *Knowledge Checks:* Two MCQs.
+
+3.  **Score per Criterion:**
+
+    *   **Criterion 1: Objective Alignment**
+        *   All blocks (Intro, Definitions, Flow, Tips, Worked Example, Scenario, Sort, Checks) relate directly to "Writing a Shift Handover" and the concepts (Fact vs. Guess, Urgency).
+        *   *Verdict:* 5. Every block serves the objective.
+
+    *   **Criterion 2: Level Fidelity**
+        *   L1 is clearly introductory (definitions, simple flow, overview). It doesn't overwhelm with complex scenarios yet.
+        *   L2 applies the rules (Worked example, Scenario selection, Fact/Sort). The flow is "Put it to work".
+        *   *Verdict:* 5. Matches the level labels accurately.
+
+    *   **Criterion 3: Worked-Example Quality**
+        *   The example (Ticket 4523) breaks down the handover into the 4 questions.
+        *   Crucially, each step includes a "why" section explaining *why* that step is necessary (e.g., "Prevents repeating the same attempts").
+        *   *Verdict:* 5. Shows "what" and "why" explicitly.
+
+    *   **Criterion 4: Knowledge-Check Quality**
+        *   *KC-01:* Three distractors.
+            *   Distractor 1: "Oldest first" (implausible order, usually based on logic/facts, but is it a *real* misconception? Maybe, but it's a bit generic).
+            *   Distractor 2: "Hardest/most interesting" (implausible).
+            *   Distractor 3: "Ticket number" (implausible).
+            *   *Analysis:* The prompt notes say "Two distractors restate the stem rather than naming a misconception" is a failure. Here, the distractors offer alternative *strategies* rather than restating the stem. However, the feedback for the wrong answers is extremely brief: "غير صحيح" (Not correct). It does *not* name the misconception (e.g., "This suggests the order of arrival matters, but it doesn't"). The feedback for the correct answer is just "Correct."
+            *   *KC-02:*
+                *   Correct Answer: "It presents a guess as a fact..."
+                *   Distractor 1: "Nothing..." (implausible).
+                *   Distractor 2: "Needs more detail..." (implausible).
+                *   Distractor 3: "Card should not be mentioned..." (implausible).
+                *   Feedback for wrong answers is just "غير صحيح".
+        *   *Critique:* While the questions are relevant, the distractors are mostly implausible (nobody would really choose "Nothing" in a handover context unless they are very confused, or "Needs more detail" when the point is the label). The *worst* part is the feedback. The rubric explicitly says: "feedback that explains *why* rather than restate the answer." The feedback here is just "Not correct." It doesn't explain *why* it's wrong.
+        *   *Verdict:* 3. Plausible distractors exist (sort of), but feedback is thin/generic ("Not correct") and doesn't name the misconception. It's better than a 1, but not a 5. I'll stick at 3 because the distractors are at least related, but the feedback fails the specific instruction.
+
+    *   **Criterion 5: Scenario Authenticity**
+        *   The scenario (Ali's ticket vs. Supplier order) is realistic. The "friction" (deadline vs. waiting) is palpable. The dilemma of which line to open is a common real-world problem.
+        *   *Verdict:* 5. Recognizable, includes the awkward part (urgency vs. arrival).
+
+    *   **Criterion 6: Bilingual Quality**
+        *   Arabic text: "تسليم النوبة هو لحظة انتقال العمل..." (Shift handover is the moment work changes...). "الطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة." (Length is not the measure...).
+        *   It looks natural. It uses appropriate terminology (shared record = سجل مشترك). It's not literal translation.
+        *   *Verdict:* 5. Reads as written in Arabic.
+
+    *   **Criterion 7: Concision and Reading Level**
+        *   The text is direct. The process flow is efficient. The worked example is concise.
+        *   *Verdict:* 5. Nothing removable without loss.
+
+    *   **Criterion 8: Accessibility and IP**
+        *   No images mentioned (assuming icons are safe). No color reliance. No licensed code.
+        *   *Verdict:* 5. Compliant.
+
+4.  **Refining Scores:**
+
+    *   Objective Alignment: 5
+    *   Level Fidelity: 5
+    *   Worked Example: 5
+    *   Knowledge Check: 3 (Distractors are weak/implausible, feedback is generic "Not correct").
+    *   Scenario Authenticity: 5
+    *   Bilingual Quality: 5
+    *   Concision: 5
+    *   Accessibility/IP: 5
+
+    *   *Mean:* (5+5+5+3+5+5+5+5) / 8 = 38 / 8 = 4.75.
+    *   *Threshold Check:* No score < 3. Mean > 4.0. Passes.
+
+5.  **Drafting Notes:**
+    *   *Knowledge Check:* "Feedback for incorrect options is generic ('Not correct') and does not explain the specific misconception behind the wrong choices. Distractors are mostly implausible scenarios rather than common errors."
+
+6.  **Formatting Output:**
+    *   Must be valid JSON.
+    *   Keys: `lesson`, `scores`, `notes`, `not_scored`, `verdict_notes`.
+    *   `not_scored`: Not applicable for 1-8.
+    *   `verdict_notes`: Two or three sentences.
+
+    *   *JSON Construction:*
+        ```json
+        {
+          "lesson": "writing-a-shift-handover",
+          "scores": {
+            "objective_alignment": 5,
+            "level_fidelity": 5,
+            "worked_example": 5,
+            "knowledge_check": 3,
+            "scenario_authenticity": 5,
+            "bilingual_quality": 5,
+            "concision": 5,
+            "accessibility_ip": 5
+          },
+          "notes": {
+            "knowledge_check": "Feedback is generic ('Not correct') and does not explain the misconception behind wrong choices. Distractors are mostly implausible."
+          },
+          "not_scored": {},
+          "verdict_notes": "Mean 4.75. Passes. The knowledge checks are the primary weakness due to low-quality distractors and generic feedback."
+        }
+        ```
+
+    *   *Self-Correction on "implausible distractors":*
+        *   KC-1: "Hardest or most interesting first" -> This is clearly a distractor meant to catch people who prioritize entertainment/workload over business logic. Is it a *real* misconception? "People often prioritize the most complex task first." It's plausible.
+        *   KC-1: "Oldest first" -> "People prioritize by first-in, first-out." Plausible misconception.
+        *   KC-1: "Ticket number" -> "People prioritize by ID." Plausible misconception (though less likely to be a *major* misconception than urgency).
+        *   KC-2: "Nothing" -> "People think a short handover is fine." Plausible.
+        *   KC-2: "Needs more detail" -> "People think they need to be exhaustive." Plausible.
+        *   KC-2: "Card should not be mentioned" -> "People think guessing is useless." Plausible.
+        *   *Re-evaluation:* Maybe the distractors *are* plausible misconceptions. The prompt warns: "a distractor nobody would ever choose." I shouldn't be *too* harsh on 4. "Nobody" is a high bar.
+        *   However, the *feedback* is the bigger issue. The rubric says: "feedback that explains *why* rather than restate the answer." The feedback here *is* just restating that it's incorrect.
+        *   Let's stick with 3 for Knowledge Check because the feedback fails the core criterion of explaining *why* the misconception exists. Even if the distractors are passable, the feedback is thin. Or maybe I bump it to 4?
+        *   If I score 4, I need to justify why it's "Mostly aligned". The distractors are plausible. The feedback is thin.
+        *   Let's look at the example given in the prompt's output format:
+            *   "notes": { "knowledge_check": "Two distractors restate the stem rather than naming a misconception." }
+        *   My distractors don't restate the stem. They offer alternatives.
+        *   Let's look at the prompt's specific warning: "feedback that restates the answer instead of naming the misconception." This is a specific failure mode.
+        *   The feedback here is "غير صحيح" (Not correct). It doesn't name the misconception.
+        *   So, is it 3 or 4? A 4 requires "Plausible distractors, feedback thin on some." The feedback is thin on *all*. I will score it 3 to be safe regarding the feedback failure, as it doesn't meet the 5 bar of explaining the misconception.
+
+    *   *Refining the "Scenario Authenticity":* The scenario is "Ali" (Login) vs "Supplier Order". It feels like a textbook example. Is there friction? Yes, the deadline vs. no deadline. Is it "recognisable"? Yes. But it's not a gritty, messy reality. Is it a 3 or 5? It's a 5 because "Invented detail is fine; implausible detail is not." It is plausible. I'll stick with 5.
+
+    *   *Refining "Worked Example":* The "Why" is explicit in the JSON payload. "whyAr": "Prevents repeating the same attempts." That's a clear judgement. Score 5.
+
+    *   *Refining "Level Fidelity":* L1 has definitions and simple flow. L2 has application. It feels like a good gradient. Score 5.
+
+    *   *Refining "Objective Alignment":* Everything relates to handovers. Score 5.
+
+    *   *Refining "Bilingual Quality":*
+        *   "الطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة." -> Very natural.
+        *   "الاختبار البسيط لتسليم ناجح هو: **هل يستطيع الشخص التالي اتخاذ إجراء مباشرةً دون سؤالك؟**" -> Natural.
+        *   "الوعد بإنجاز فعل معين... بحلول وقت محدد." -> Natural.
+        *   Score 5.
+
+    *   *Final Check of Scores:*
+        *   Obj: 5
+        *   Lev: 5
+        *   Work: 5
+        *   KC: 3 (Distractors are okay-ish, feedback is bad).
+        *   Scen: 5
+        *   Bi: 5
+        *   Conc: 5
+        *   Acc: 5
+        *   Mean: 4.75.
+        *   Threshold: Pass.
+
+    *   *Notes construction:* Keep it concise. Focus on the feedback and distractors.
+
+    *   *Verdict notes:* "Mean 4.75. Passes. The knowledge checks are the weakest part due to generic feedback and implausible distractors."
+
+7.  **Final JSON Output Generation.**</think>```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Distractors are plausible, but feedback is generic ('Not correct') and does not explain the specific misconception behind the wrong options."
+  },
+  "not_scored": {},
+  "verdict_notes": "Mean 4.75. Passes. The knowledge checks are the primary weakness due to generic feedback that fails to name misconceptions."
+}
+```

@@ -1,0 +1,621 @@
+<think>
+We are scoring the lesson "handling-a-customer-complaint" against the rubric.
+
+First, note that the lesson is bilingual (bilingual: true) and declares levels L1 and L2.
+
+We must score each criterion from 1 to 5, and note any criterion scored below 4.
+
+Let's go through each criterion:
+
+### 1. Objective alignment
+- The lesson has one objective: "CS-01"
+- All blocks are labeled with "objectiveId": "CS-01"
+- The content of each block (heading, rich_text, definition_cards, job_tip, takeaways, worked_example, scenario, knowledge_checks) all relate to handling customer complaints, specifically the concepts introduced: acknowledgement, establishing_the_facts, complaint_ownership, warm_handover, agreed_next_step.
+- The worked example and knowledge checks are directly tied to the objective.
+- Every block serves the declared objective.
+- Score: 5
+
+### 2. Level fidelity
+- The lesson has two levels: L1 and L2.
+- L1 (level 1) is introductory and covers the core concepts (acknowledgement, agreed next step, etc.) in a straightforward way.
+- L2 (level 2) builds on L1 by applying the concepts in a more complex scenario (working through a complaint from open to close, including a scenario with a transfer and a knowledge check that requires applying the concepts).
+- The L2 level is not just L1 with an extra question; it requires deeper application (the worked example and scenario are more complex).
+- The level labels are not aspirational; the L1 is indeed for beginners and L2 for a bit more advanced.
+- Score: 5
+
+### 3. Worked-example quality
+- The worked example (in L2) has steps with "show" (what to say) and "why" (explanation of the reasoning).
+- The "why" in each step explains the judgment being made and what would change it (e.g., "Without that, she will not hear anything that follows.").
+- The reasoning is specific and not generic.
+- Example: 
+  - Step 1: "whyAr" explains why the acknowledgement is done in the customer's words and why it's not an admission of fault.
+  - Step 2: "whyAr" explains the importance of silence and asking the question.
+- This meets the criterion for a 5.
+- Score: 5
+
+### 4. Knowledge-check quality
+- We have two knowledge checks (CS-01-KC-01 and CS-01-KC-02).
+- We must check:
+  - Distractors are drawn from real misconceptions.
+  - Feedback explains why the option is incorrect (naming the misconception) rather than restating the answer.
+
+Let's look at the first knowledge check (CS-01-KC-01):
+
+- Stem: "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?"
+
+Options:
+1. "I'm sorry you feel that way; let me explain our shipping policy." (incorrect)
+   - Feedback: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+   - This names the misconception: confusing apology for feeling vs. event, and then jumping to policy.
+
+2. "Your order arrived late and broken, and I can see why you are angry." (correct)
+   - Feedback: "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+   - This explains why it's correct.
+
+3. "I'll transfer you to shipping; they handle deliveries." (incorrect)
+   - Feedback: "No. Transferring an angry customer before he is heard, and without a handover, makes him explain everything again — which is the road to escalation."
+   - Names the misconception: transferring without listening and without warm handover.
+
+4. "We'll make it all up to you, don't worry." (incorrect)
+   - Feedback: "No. A promise of an outcome whose facts are not yet established and which you may not have authority over. If it does not happen, the complaint becomes about a broken promise."
+   - Names the misconception: promising an outcome without authority.
+
+Now, second knowledge check (CS-01-KC-02):
+
+- Stem: "You have established the facts and agreed on a refund. Which close is an agreed next step?"
+
+Options:
+1. "One of my colleagues will follow up soon." (incorrect)
+   - Feedback: "No. No name, no time, no way to verify. This is the close that manufactures the repeat complaint."
+   - Names the misconception: vague closure leading to repeat.
+
+2. "Done. Is there anything else I can help with?" (incorrect)
+   - Feedback: "No. 'Done' says neither what was done nor when the customer will see it. Tomorrow he will discover he has no idea whether anything happened."
+   - Names the misconception: vague closure.
+
+3. "I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today." (correct)
+   - Feedback: "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+   - Explains why it's correct.
+
+4. "Email us if the refund doesn't arrive." (incorrect)
+   - Feedback: "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+   - Names the misconception: shifting burden to the customer.
+
+However, note the rubric says: "feedback that restates the answer instead of naming the misconception". In the feedback for the correct answer, it says "Correct. ..." but that is standard and acceptable. The problem is only if the feedback for the incorrect options restates the answer (i.e., says "this is wrong because the correct answer is ...") instead of naming the misconception.
+
+In this case, the feedback for the incorrect options does name the misconception (e.g., "apologises for the feeling rather than the event", "transferring without handover", "vague closure", "promising an outcome without authority", etc.).
+
+But wait: the rubric also says "a distractor nobody would ever choose". All distractors seem plausible and based on real mistakes.
+
+However, the rubric for knowledge_check scoring (criterion 4) says: 
+  **1** — implausible distractors, or feedback that repeats the stem.
+  **3** — plausible distractors, feedback thin on some.
+  **5** — every distractor names a misconception someone actually holds.
+
+We have two knowledge checks. In both, the distractors are plausible and the feedback for each distractor names a specific misconception.
+
+But note: the instructions say to score the knowledge_check criterion based on the knowledge checks. We have two knowledge_check blocks, but the criterion is about the quality of the knowledge checks. Since both knowledge checks are well done, we might be tempted to give 5.
+
+However, let's read the notes in the example output: the example had "knowledge_check" at 3 because of "Two distractors restate the stem rather than naming a misconception."
+
+Wait, in our lesson, the feedback does name the misconception. So why would it be less than 5?
+
+But note: the example output in the rubric (the sample JSON) had a note for knowledge_check at 3. We must be careful.
+
+Wait, the lesson we are scoring is the one provided. We must look for any flaw.
+
+Let me double-check the feedback for the first knowledge check, option 1 (incorrect):
+
+  "feedbackAr": "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+
+This is translated as: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+This does name the misconception: apologizing for the feeling (not the event) and then defending policy.
+
+Similarly, option 3: "Transferring an angry customer before he is heard, and without a handover, makes him explain everything again"
+
+So it seems the feedback does name the misconception.
+
+But wait: the rubric says "feedback that restates the answer instead of naming the misconception". Here, the feedback does name the misconception.
+
+So why would it be less than 5? Maybe it's a 5.
+
+However, let me check the second knowledge check, option 4:
+
+  "feedbackAr": "لا. هذا ينقل عبء المتابعة إلى العميل الذي اشتكى أصلاً من أن بريده لم يُجَب. الاسم على الشكوى اسمك حتى تُغلق."
+
+This translates to: "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+
+This names the misconception: shifting burden to the customer.
+
+But note: the rubric says "every distractor names a misconception". We have four options per knowledge check, and all distractors (the incorrect ones) have feedback that names a misconception.
+
+However, the example output in the rubric had a note for knowledge_check at 3. But that was an example. We must score the actual lesson.
+
+Wait, the problem says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+But in this case, the knowledge checks seem to be achieving the criterion.
+
+But let's look again at the feedback for the correct answer. The feedback for the correct answer says "Correct." and then explains. That's fine.
+
+However, note that in the knowledge_check block in the lesson, the feedback for the correct answer is not required to be as detailed as for the distractors? But the rubric doesn't say that. The rubric says "per-option feedback" meaning for every option.
+
+But the rubric says: "feedback that restates the answer instead of naming the misconception" — meaning for the incorrect options.
+
+The feedback for the correct option is usually "correct" and then an explanation, which is good.
+
+So it seems we should score 5 for knowledge_check.
+
+But wait: the example output in the rubric for the sample lesson had knowledge_check at 3. However, that was a sample. We must judge the actual lesson.
+
+However, I notice: in the knowledge check items (the ones provided in the "items" section), the feedback for the correct option is not the focus. The focus is on the incorrect options.
+
+But the rubric says: "per-option feedback explain why rather than restate the answer". For the incorrect options, we have feedback that explains why it's wrong (by naming the misconception). For the correct option, we have feedback that explains why it's correct, which is also good.
+
+So why would it be less than 5?
+
+Wait, let me check the first knowledge check again, option 1:
+
+  feedbackAr: "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+
+This is good.
+
+But note: the rubric says "a distractor nobody would ever choose" — all distractors are plausible.
+
+So it should be 5.
+
+However, I recall that in the example output they provided in the rubric (the sample JSON), they had a note for knowledge_check at 3. But that was a different lesson.
+
+But for this lesson, I think it's 5.
+
+Wait, let me look at the actual lesson's knowledge_check blocks. The lesson has two knowledge_check blocks, each with an itemRef. The actual items are provided in the "items" section. We are to score on the items.
+
+In the items, for CS-01-KC-01, option 1 feedback says: "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+This is naming the misconception (apologizing for feeling, not event).
+
+Similarly for the others.
+
+So I think knowledge_check should be 5.
+
+But wait, the problem says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+And "Most good work is a 4."
+
+So maybe we should look for a flaw.
+
+Another point: the rubric says "no 'all of the above'". We don't have that.
+
+But note: in the knowledge check, the feedback for the correct option is "Correct. ..." and then an explanation. This is acceptable.
+
+However, let me see if the feedback for the incorrect options is too brief or if it restates the stem.
+
+For example, option 1: 
+  feedback: "No. This apologises for the feeling rather than the event, ..."
+
+This is not restating the stem. The stem says "first thing you should say", and the feedback says why the option is wrong (because it apologizes for feeling and then defends policy).
+
+So it's good.
+
+Therefore, knowledge_check: 5.
+
+But wait, the example output in the rubric (the sample JSON) had knowledge_check at 3. Why? Because in that sample, they had a flaw. But we don't have that flaw here.
+
+So I think 5.
+
+However, let's check the second knowledge check, option 3 (the correct one) feedback: 
+  "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+
+This is good.
+
+But note: the rubric says "every distractor names a misconception". We have three distractors per knowledge check, and each has feedback that names a misconception.
+
+So 5.
+
+But wait, the lesson has two knowledge checks. The criterion is for the knowledge_check as a whole. We are scoring the knowledge_check criterion based on the quality of the knowledge checks provided. Since both are well done, 5.
+
+However, I notice that the first knowledge check (CS-01-KC-01) has a stem that is in English, but the lesson is bilingual. The stem is provided in both Arabic and English. The feedback is also in both. So it's fine.
+
+But let's move to the next criterion and come back if needed.
+
+### 5. Scenario authenticity
+- The L2 scenario: "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone."
+- This is a realistic scenario in a customer service context (e.g., chat support). The friction: the customer is frustrated because he's had to explain multiple times and doesn't want to do it again, and the agent can't fix it immediately because the right team is not available.
+- The scenario includes the awkward parts: the customer's frustration, the agent's limitation, and the need for a warm handover.
+- It's not a textbook example; it's a real situation.
+- Score: 5
+
+### 6. Bilingual quality
+- The lesson is bilingual (bilingual: true).
+- The Arabic is provided in all blocks (for the bilingual parts).
+- We need to check if the Arabic is natural or a literal translation.
+- Let's look at a few examples:
+
+  - In the heading: "الشكوى فرصة لم يمنحها لك الآخرون" -> "A complaint is the chance the others did not give you"
+    - This is a bit poetic but natural in Arabic? "لم يمنحها لك الآخرون" is a bit formal but acceptable.
+
+  - In the definition_card for "Acknowledgement":
+      "أن تسمّي ما حدث بكلمات العميل، وتقول إنك تفهم لماذا يهمّه — قبل أي كلام عن الأسباب أو الحلول."
+      This is natural Arabic.
+
+  - In the worked example:
+      "أقرّ بما حدث بكلماتها: «خُصم منك مرتين، وراسلتِ قبل أربعة أيام ولم يردّ أحد. أفهم لماذا أنتِ غاضبة.»"
+      This is natural.
+
+  - In the knowledge check feedback:
+      "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة."
+      This is natural.
+
+  - The Arabic does not follow English word order. For example, the English says "a complaint is the chance the others did not give you", and the Arabic uses natural Arabic structure: "الشكوى فرصة لم يمنحها لك الآخرون" (the complaint is a chance that others did not grant you). This is a natural Arabic expression.
+
+  - The terminology is consistent (e.g., "الإقرار" for acknowledgement, "الخطوة التالية المتفق عليها" for agreed next step).
+
+  - Overall, the Arabic reads as written in Arabic, not translated.
+  - Score: 5
+
+### 7. Concision and reading level
+- Check for padding or repetition.
+- The lesson is concise. Each block is focused.
+- Example: The takeaways are a bulleted list, but the rubric says "a 'visual card' that is a bulleted list with a border" is a failure for level fidelity, but for concision, it's about prose. The takeaways are in a list, but that's the most concise way to present the key points. The rubric for concision says "the prose that is there earns its space."
+- The rich_text block is a bit long but it's a key concept and the language is tight.
+- The worked example steps are concise: each step has a show and why, no fluff.
+- The scenario is concise and to the point.
+- I don't see any padding or repetition.
+- Score: 5
+
+### 8. Accessibility and IP
+- The lesson does not have any images, so no alt text needed.
+- There is no color coding mentioned (so no issue with color alone).
+- We must check for real licensed code descriptors or payer policy text.
+- The lesson is about customer service, not about healthcare codes or policies. The terms used are generic (e.g., "refund", "subscription", "contractual fee") and not from a specific payer policy.
+- The lesson does not include any real licensed code descriptors (like CPT codes) or payer policy text.
+- There is no mention of any specific payer or policy that would be from a real source.
+- The forbidden-term denylist is not violated (we don't have a list, but the lesson doesn't have any obvious forbidden terms).
+- Therefore, it's compliant.
+- Score: 5
+
+But wait: the rubric says "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." We don't see any.
+
+So 5.
+
+However, the example output in the rubric had a note for knowledge_check at 3. Why did they have that? Because in the sample lesson they provided, there was a flaw. But in this lesson, we don't see a flaw in knowledge_check.
+
+But let me double-check the knowledge check feedback for the first knowledge check, option 1:
+
+  Feedback: "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ."
+
+This is good.
+
+But wait: the rubric says "feedback that restates the answer instead of naming the misconception". This feedback does name the misconception (apologizing for feeling, not event, and then defending policy). So it's not restating the answer.
+
+Therefore, knowledge_check should be 5.
+
+But why did the example output have 3? Because in their example, they had a different flaw. We are scoring this lesson.
+
+However, I notice: in the knowledge check items, the feedback for the correct option is "Correct. ..." and then an explanation. That's fine.
+
+But let's look at the second knowledge check, option 3 (correct) feedback: 
+  "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+
+This is good.
+
+So I think all criteria are 5.
+
+But the rubric says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+So maybe we should look for a tiny flaw.
+
+Let me reexamine the knowledge_check for CS-01-KC-01, option 1 feedback:
+
+  "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+This is good.
+
+But note: the rubric says "feedback that restates the answer instead of naming the misconception". This feedback does not restate the answer; it names the misconception.
+
+However, I see that the feedback for the correct option is not a problem, but what about the feedback for the distractors? They are all good.
+
+Wait, the problem says: "a distractor nobody would ever choose" — but all distractors are plausible.
+
+So I think it's 5.
+
+But let's consider: in the first knowledge check, option 1 is a common mistake (apologizing for the feeling), so it's a real misconception.
+
+Similarly, option 3 (transferring without handover) is a real mistake.
+
+So I think it's 5.
+
+However, the sample output in the rubric had "knowledge_check" at 3. But that was for a different lesson. We are to score this one.
+
+But wait, the lesson has two knowledge checks. The rubric says "score the knowledge_check criterion". We have two knowledge checks, and they are both well done. So it should be 5.
+
+But note: the rubric for knowledge_check says: "every distractor names a misconception". We have 3 distractors per knowledge check, and 2 knowledge checks, so 6 distractors. All 6 have feedback that names a misconception.
+
+So 5.
+
+However, I recall that in the lesson's L2 section, the knowledge_check blocks only have "itemRef", and the actual items are provided in the separate JSON. We are to score on the items. And we did.
+
+So I think we should score 5 for knowledge_check.
+
+But let's check the other criteria again to be sure.
+
+Wait, I just noticed: in the worked example, the "answerAr" and "answerEn" are provided. The rubric for worked example says: "the 'why' is what separates a worked example from a printed solution." The worked example has "why" in each step, so it's good.
+
+But note: the rubric says "reasoning names the judgement being made and what would change it." The "why" does that (e.g., "Without that, she will not hear anything that follows.").
+
+So 5.
+
+Now, let's consider if any criterion might be less than 5.
+
+Criterion 4 (knowledge_check) is the only one that might be questioned.
+
+But I think it's 5.
+
+However, the problem says: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+
+We don't see any flaw.
+
+But let me look at the knowledge check feedback again for CS-01-KC-01, option 1:
+
+  "No. This apologises for the feeling rather than the event, then goes straight to defending a policy."
+
+This is correct.
+
+But note: the rubric says "feedback that restates the answer". The answer is the correct option. The feedback does not say "the correct answer is ...", it explains why the option is wrong.
+
+So it's good.
+
+Therefore, all criteria should be 5.
+
+But the mean would be 5.0, and the floor is 5.
+
+However, the example output in the rubric had a note for knowledge_check at 3. But that was an example. We are to score this lesson.
+
+Wait, I see a potential issue in the knowledge_check for CS-01-KC-02, option 4:
+
+  "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+
+This is good, but note: the scenario in the knowledge check stem says "the customer has written three long messages so far and says he will not explain this again to anyone." So the customer is frustrated because he's had to explain multiple times. The feedback says "the customer who complained that his email went unanswered" — but in the knowledge check, the stem doesn't say that the email went unanswered, it says "the team that can is in tomorrow" and the customer has written three messages. So the email (in the scenario) might not be the same as the customer's email in the knowledge check? Actually, the knowledge check scenario is about a chat, not email. But the feedback says "his email went unanswered" — which might be a bit of a mismatch.
+
+But the customer did write emails (in the scenario: "the customer has written three long messages"), so it's consistent.
+
+So it's fine.
+
+Therefore, I think all scores are 5.
+
+But the rubric says "Most good work is a 4." and we should be harsh. So maybe we should give 4 to one criterion to be safe.
+
+But which one? All seem perfect.
+
+Let's look at the concision criterion (7). Is there any wordiness?
+
+- The rich_text block: "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not."
+
+This is well written and not wordy.
+
+The takeaways are concise.
+
+The worked example steps: each step is a line or two.
+
+So I think it's 5.
+
+Perhaps the knowledge_check is the only one that might be argued. But I don't see a flaw.
+
+Wait, let's read the rubric for knowledge_check again: "feedback that restates the answer instead of naming the misconception"
+
+In the feedback for the correct option, it says "Correct." and then explains. That's not restating the answer for the incorrect options.
+
+But for the incorrect options, the feedback does not restate the answer; it explains why it's wrong.
+
+So it's good.
+
+Therefore, I will score all as 5.
+
+But the example output in the rubric (the sample JSON) had knowledge_check at 3. We must be careful not to be influenced by that.
+
+However, the sample JSON was just an example of the output format, not a score for this lesson.
+
+So for this lesson, I believe all criteria are 5.
+
+But let's check the rubric's criteria 4 definition: "every distractor names a misconception someone actually holds." We have three distractors per knowledge check, and they all name a misconception.
+
+So 5.
+
+Given that, the scores should be:
+
+objective_alignment: 5
+level_fidelity: 5
+worked_example: 5
+knowledge_check: 5
+scenario_authenticity: 5
+bilingual_quality: 5
+concision: 5
+accessibility_ip: 5
+
+But the problem says: "Be harsh on 4 and 5. A 5 means you would not change it. Most good work is a 4."
+
+So maybe we should give 4 to one criterion to be safe.
+
+Let me look for a tiny flaw.
+
+In the L1, the heading: "الشكوى فرصة لم يمنحها لك الآخرون" — the English is "A complaint is the chance the others did not give you". This is a bit poetic and might not be the most natural English. But the rubric for bilingual quality is about the Arabic, not the English. The Arabic is natural.
+
+For concision, the heading is fine.
+
+Another point: in the L2 worked example, step 3: "السجل يُظهر خصمين فعلاً، وبريدها عالق في قائمة انتظار. قل ما يُظهره السجل من دون أن تنسب الخطأ لها أو تدافع عن قائمة الانتظار."
+
+This is concise and good.
+
+I think it's 5.
+
+But note: the rubric says "a visual card that is a bulleted list with a border" fails level fidelity. But this lesson does not have a "visual card" that is a bulleted list. The definition_card is a card, but it's not a bulleted list. The takeaways are a list, but it's not a "visual card" — it's a takeaways block.
+
+The rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion." But in this lesson, the takeaways are a list, but they are not labeled as a "visual card". The type is "takeaways", not "definition_card" or "visual_card". So it's not a visual card.
+
+The level fidelity is 5.
+
+I think we should give 5 to all.
+
+But the problem says "most good work is a 4", so maybe we should give 4 to one. But which one?
+
+Let's look at the knowledge_check again. In the feedback for the correct option, it says "Correct. ...", which is standard. But the rubric doesn't say that's bad.
+
+Perhaps the feedback for the correct option is not required to be as detailed, but it's not a problem.
+
+I think we should be strict and give 5.
+
+However, the sample output in the rubric had a note for knowledge_check at 3. But that was for a different lesson.
+
+Given the instructions, I must score what is on the page.
+
+After careful review, I believe the lesson is excellent in all criteria.
+
+But to be safe, let's consider if there's any criterion that might be 4.
+
+Criterion 3 (worked-example quality): the "why" is there, but is it naming the judgement and what would change it? Yes, as in the examples.
+
+Criterion 4 (knowledge_check): I think it's 5.
+
+Perhaps the rubric's example output was a mistake, or perhaps for this lesson, there is a flaw I missed.
+
+Let me read the feedback for knowledge_check CS-01-KC-01, option 1 again:
+
+  "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+
+The rubric says "naming the misconception". This is naming the misconception: the agent is apologizing for the feeling (which is wrong) and then defending policy.
+
+So it's good.
+
+Another thought: the rubric says "distractor nobody would ever choose". Is option 1 (apologizing for feeling) a real misconception? Yes, it's a very common mistake.
+
+So I think it's 5.
+
+Therefore, I will score all 5.
+
+But the problem says "the gate fails if any criterion scores below 3, or if the mean is below 4.0". With all 5, the mean is 5.0, which is above 4.0, and all are above 3.
+
+So the verdict is pass.
+
+However, the instruction says: "Do not adjust a score because of what it would do to the outcome"
+
+So I will score 5 for all.
+
+But let's double-check the accessibility and IP (criterion 8). The lesson has no images, so no alt text needed. No color used. No real licensed code descriptors. So 5.
+
+Now, for the "notes" field: we only need to include criteria scored below 4. Since all are 5, the "notes" object should be empty.
+
+But the rubric says: "notes on any criterion you scored below 4". So if none are below 4, the "notes" should be an empty object.
+
+The example output had a note for knowledge_check at 3, but we don't have any below 4.
+
+The "verdict_notes" should be two or three sentences.
+
+Now, the output must be exactly in the JSON shape.
+
+So:
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored at 5. The mean is 5.0, which is well above the threshold. The lesson is excellent in every aspect."
+}
+
+But the rubric says: "Do not decide pass or fail. ... The gate — not the judge — decides pass or fail."
+
+So we don't say "pass", we just state the scores.
+
+Also, the example output had a note for knowledge_check at 3, but we have none.
+
+But wait, I just realized: in the knowledge check items, the feedback for the correct option is not required to be as detailed as for the distractors, but the rubric doesn't say that. And it's not a flaw.
+
+However, I recall that in some rubrics, the feedback for the correct option is not counted as part of the "feedback" for the purpose of this criterion, because the criterion is about the feedback for the distractors.
+
+But the rubric says "per-option feedback", so it includes the correct option.
+
+And the feedback for the correct option is good.
+
+So I think it's fine.
+
+Given the above, I will score all 5.
+
+But to be absolutely sure, let's consider if there is any criterion that might be 4.
+
+Criterion 7 (Concision): is there any part that is a bit wordy? 
+
+The rich_text block in L1:
+  "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not."
+
+This is well written. The phrase "has become worth their time to report" is a bit formal but not wordy. It's concise for the concept.
+
+So 5.
+
+I think we are good.
+
+But the instruction says: "Be harsh on 4 and 5. A 5 means you would not change it."
+
+So if I would not change it, it's 5.
+
+And I would not change any part.
+
+Therefore, all 5.
+
+Now, write the JSON.
+
+Note: the lesson slug is "handling-a-customer-complaint", as provided in the lesson.
+
+Let's confirm: the lesson has "slug": "handling-a-customer-complaint"
+
+So in the output, "lesson": "handling-a-customer-complaint"
+
+Now, the scores.
+
+But wait, the sample output in the rubric had "knowledge_check" at 3. Why? Because in the sample lesson they provided in the rubric (the example), they had a flaw. But we are scoring a different lesson.
+
+So for this lesson, it's 5.
+
+I think we are ready.
+
+However, I have a doubt: in the knowledge_check, for CS-01-KC-01, option 1 feedback says "لا. هذه تعتذر عن الشعور لا عن الحدث", which is correct. But the rubric says "naming the misconception", and this does name it.
+
+So I think it's 5.
+
+Final decision: all 5.
+
+But to align with the instruction "most good work is a 4", and to be harsh, maybe we give one 4.
+
+Which one? Let's choose knowledge_check. Why? Because the feedback for the correct option is "Correct." and then explanation, but the rubric doesn't require the correct option to have feedback that is as detailed as the distractors. However, it's not a flaw.
+
+I think it's overkill to give a 4.
+
+The rubric says: "a 5 means you would not change it." I would not change anything.
+
+So I will go with 5 for all.
+
+Let's output the JSON.
+</think>
+
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All criteria scored at 5. The mean is 5.0, which is well above the 4.0 threshold. The lesson is flawless in every aspect of the rubric."
+}

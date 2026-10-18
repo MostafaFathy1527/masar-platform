@@ -1,0 +1,527 @@
+<think>
+We are scoring the lesson "recognising-a-phishing-email" against the rubric.
+
+The rubric has 8 criteria. We must score each from 1 to 5, and provide notes for any criterion scored below 4.
+
+Let's go through each criterion one by one.
+
+### Criterion 1: Objective alignment
+- The lesson declares objective "SEC-01".
+- We need to check if every block serves this objective.
+
+Blocks in L1:
+- heading: "The attack is on the reader, not the system" -> aligns with SEC-01 (teaching that phishing targets the user, not the system).
+- rich_text: explains the attack on the reader and the first check (reading the address) -> aligns.
+- definition_card for "look-alike domain": explains what it is and why it's a problem -> aligns (part of phishing).
+- definition_card for "one-time code": explains why it's a red flag -> aligns.
+- job_tip: gives a tip to check the address and link -> aligns.
+- takeaways: summarizes key points for the objective -> aligns.
+
+Blocks in L2:
+- heading: "Work one message, signal by signal" -> aligns (teaching how to apply the checks).
+- worked_example: walks through checking a message step by step -> aligns (applies the objective).
+- knowledge_check (KC-01): tests the knowledge of the first check (address over display name) -> aligns.
+- scenario: presents a realistic scenario and asks for the correct action (verifying via a known channel) -> aligns.
+- knowledge_check (KC-02): tests the action after clicking a link -> aligns.
+
+All blocks serve the objective. This is a 5.
+
+But note: the rubric says "every block earns its objective, and the set covers it." We see that the L1 sets up the concepts and L2 applies them. So 5.
+
+### Criterion 2: Level fidelity
+- The lesson declares levels L1 and L2.
+
+L1: 
+- The L1 content is introductory: explaining the concepts (display name vs address, look-alike domain, one-time code) and the first checks.
+- It's at a level that a beginner (L1) would understand. The concepts are introduced without heavy jargon.
+
+L2:
+- The L2 content is more advanced: a worked example that applies the concepts step-by-step, a scenario that requires applying multiple checks, and knowledge checks that test application (not just recall).
+- The L2 block "Work one message, signal by signal" is a clear progression from L1.
+
+The level labels (L1 and L2) are accurate. The L1 is not a superficial layer on L2. The L2 builds on the L1.
+
+This is a 5.
+
+### Criterion 3: Worked-example quality
+- The worked example in L2 has steps with "show" and "why". We need to check if the "why" explains the reasoning.
+
+Steps in the worked example:
+1. "Read the actual address, not the display name." 
+   - Why: "The display name is free text, typed as the sender pleases. The address is the one thing they did not choose freely."
+   - This explains the why: because the address is not freely chosen by the sender.
+
+2. "Reveal where the button goes before pressing it."
+   - Why: "Displayed text is a label, independent of the destination. A label naming one place and a destination going to another is not ambiguity — that is the finding."
+   - This explains the why: the text and destination are independent, and if they don't match, it's a red flag.
+
+3. "Notice that the deadline is two hours."
+   - Why: "Urgency alone is not evidence. Urgency plus a request to act outside the normal route is very close to it."
+   - Explains why urgency is a signal only when combined with other factors.
+
+4. "Stop at the request for the verification code."
+   - Why: "This is where it ends. No legitimate party asks for a one-time code — its entire purpose rests on not being shared."
+   - Explains the why: because one-time codes are not shareable, so a request for one is a red flag.
+
+Each step has a clear "why" that names the judgment and what would change it (e.g., if the address matched, it might be okay; but the address is the key).
+
+This is a 5.
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks: KC-01 and KC-02.
+
+KC-01:
+- Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+- Options:
+  1. "The sender's actual address." -> Correct. Feedback: "Correct. This is always the first check, because it is the one thing not freely typed." -> This explains why (it's the one thing not freely typed).
+  2. "How well formatted and typo-free it is." -> Incorrect. Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." -> This names a misconception (that a polished message is trustworthy).
+  3. "The organisation's logo appearing in the message." -> Incorrect. Feedback: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." -> This names a misconception (that a logo is proof of legitimacy).
+  4. "That it arrived at your work address rather than a personal one." -> Incorrect. Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." -> This names a misconception (that work address means it's legitimate).
+
+All distractors are plausible and the feedback explains why they are wrong (by naming the misconception).
+
+KC-02:
+- Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+- Options:
+  1. "Report it immediately, even if you entered nothing." -> Correct. Feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person." -> This explains why (timing and that the message is rare for one person).
+  2. "Wait and see whether anything happens." -> Incorrect. Feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started." -> Names the misconception (that waiting is safe).
+  3. "Delete the message so nobody else clicks it." -> Incorrect. Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." -> Names the misconception (that deleting is helpful).
+  4. "Reply to the sender asking whether it was genuine." -> Incorrect. Feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message." -> Names the misconception (that replying is safe).
+
+All distractors are plausible and the feedback explains the misconception.
+
+However, note the rubric says: "a distractor nobody would ever choose teaches nothing." Here, all distractors are plausible.
+
+But let's check the feedback for KC-01 option 2: "Typos are weak evidence in both directions" — this is a bit vague. But it does name a misconception (that a polished message is safe).
+
+Similarly, for KC-02, the feedback is good.
+
+But wait: the rubric says "feedback that restates the answer instead of naming the misconception". In KC-01, the feedback for the correct option says "This is always the first check" — which is restating the answer? But the feedback also says "because it is the one thing not freely typed", which explains the why. So it's not just restating.
+
+Similarly, for KC-02, the correct feedback says "Timing is everything here" — which is a bit vague but it does give a reason (timing matters). However, it doesn't explicitly name a misconception for the correct answer (it's more of a positive statement). But the feedback for the wrong options names the misconception.
+
+The rubric requires that for each option, the feedback explains why (by naming the misconception for the wrong ones, and for the correct one it's a bit different). The rubric doesn't require the correct feedback to name a misconception (it's just explaining why it's correct), but the wrong ones must name the misconception.
+
+Looking at the example in the rubric: "feedback that restates the answer instead of naming the misconception" — for the wrong options, we see that the feedback does name the misconception (e.g., "a logo is copied in seconds", "typos are weak evidence").
+
+For KC-01, the correct feedback says "This is always the first check" — which is restating the answer. But it also gives a reason. However, the rubric says "naming the misconception" for the wrong ones, and for the correct one it's acceptable to explain why it's correct.
+
+But note: the rubric says "per-option feedback explain why rather than restate the answer". So for the correct option, it's okay to state the answer and then explain, but it shouldn't be just restating.
+
+In KC-01, the feedback for the correct option: "Correct. This is always the first check, because it is the one thing not freely typed." — This is a bit of restating ("this is always the first check") but then it gives the why. So it's acceptable.
+
+However, let's compare to the rubric: "feedback that restates the answer instead of naming the misconception". The misconception is for the wrong options. The correct feedback is explaining why it's correct, not naming a misconception (because there isn't a misconception for the correct answer). So it's okay.
+
+But wait: in KC-01, option 1 is correct, and the feedback says "This is always the first check" — which is restating the answer. However, it then gives the reason. So it's not purely restating. We'll consider it okay.
+
+But let's look at the notes: the rubric says "a distractor nobody would ever choose" — none of these are implausible.
+
+So this should be a 5.
+
+However, note the provided example in the rubric for a low score: "feedback that restates the answer". In KC-01, the correct feedback does restating a bit, but it also explains. The wrong feedbacks do name the misconception.
+
+But the rubric says: "feedback that restates the answer instead of naming the misconception" — for the wrong options, it should name the misconception, not restate the answer. We see that for the wrong options, the feedback does name the misconception (e.g., for option 2: "Typos are weak evidence in both directions" — that's naming the misconception). So it's good.
+
+I think this is a 5.
+
+But wait: the lesson has two knowledge checks, and they are both high quality. However, the rubric says "every distractor names a misconception someone actually holds". We have:
+
+- KC-01: distractors are about formatting, logo, and work address. These are common misconceptions (people think a logo or no typos means it's real, or that work address means it's safe).
+- KC-02: distractors are waiting, deleting, replying — these are common mistakes (people think waiting is safe, or deleting helps, or replying is okay).
+
+So 5.
+
+But note: the provided example in the rubric for the output says:
+"notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception."
+  }
+
+But in our case, we don't see that. Let me double-check.
+
+For KC-01, option 2: feedback says "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." — This names a misconception (that a polished message is safe).
+
+Similarly, option 3: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." — Names the misconception (that a logo is proof).
+
+Option 4: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." — Names the misconception (that work address means it's safe).
+
+For KC-02, all feedbacks for wrong options name the misconception.
+
+So why would we score below 5? Maybe it's a 5.
+
+But wait: the rubric says "a distractor nobody would ever choose" — none of these are implausible.
+
+However, let's consider: is there any option that doesn't name a misconception? I don't think so.
+
+But note: the rubric says "naming the misconception" — and in the feedback, they are naming the misconception. So it's good.
+
+So I think knowledge_check should be 5.
+
+But the example output in the rubric (the one we are to mimic) has knowledge_check at 3. However, that example is just an example, not for this lesson.
+
+We are scoring this specific lesson.
+
+Wait: the lesson provided has two knowledge checks, and we are to score the knowledge_check criterion based on the quality of the knowledge checks. The rubric says "knowledge_check" is one criterion, and we score it based on the quality of the knowledge checks.
+
+So if both knowledge checks are good, then it's a 5.
+
+But let me check again: in KC-01, the feedback for the correct option says "This is always the first check" — that's restating the answer. But the rubric doesn't say the correct feedback must not restate. It says for the wrong options, the feedback must not restate but name the misconception. The correct feedback is allowed to explain.
+
+So I think it's 5.
+
+However, let's look at the actual lesson's knowledge check feedback:
+
+For KC-01, option 1 (correct) feedback: "Correct. This is always the first check, because it is the one thing not freely typed."
+
+This restates the answer ("this is always the first check") and then explains. The rubric says "naming the misconception" for the wrong options, but for the correct option, it's okay to state the answer and explain.
+
+So it's acceptable.
+
+But note: the rubric says "feedback that restates the answer instead of naming the misconception" — this is a problem for the wrong options. For the wrong options, we don't see that. For the correct option, it's not a problem.
+
+So I think knowledge_check should be 5.
+
+But wait: the lesson has two knowledge checks, and they are both good. So 5.
+
+However, let's move to the next criteria and come back if needed.
+
+### Criterion 5: Scenario authenticity
+- The scenario in L2: 
+  "A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a realistic scenario: managers being unavailable and needing urgent payments is a common phishing tactic. The reply-to address being different is a real red flag. The scenario includes friction: the user has to verify via a known channel (which is the correct action) but the manager says he can't take calls. This is the friction (the manager is in a meeting, so the user must use a different channel).
+
+This is authentic: it's a real-world situation with the awkward part (the manager being unavailable, which is engineered to prevent verification).
+
+So 5.
+
+### Criterion 6: Bilingual quality
+- The lesson is bilingual (declared as true). We need to check the Arabic.
+
+The Arabic in the lesson:
+- The Arabic in the rich_text, definition_cards, job_tip, takeaways, worked_example, scenario, and knowledge checks is provided.
+
+Let's check a few:
+
+- "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة." -> This is natural Arabic.
+
+- "الاسم الظاهر نص حر: يستطيع المُرسِل أن يكتب فيه اسم زميل، أو جهة داخلية، أو بنك، وسيظهر كما كُتب تماماً." -> Natural.
+
+- In the worked example: "الاسم الظاهر نص حر ويُكتب كما يشاء المُرسِل." -> Natural.
+
+- In the scenario: "رسالة من الاسم الظاهر لمديرك: هو في اجتماع ولا يستطيع الرد على الهاتف، ويحتاج تحويل دفعة لمورّد قبل نهاية اليوم." -> This is natural.
+
+- The Arabic does not follow English word order. For example, in the definition of "look-alike domain": "نطاق حقيقي مُسجَّل، اختير ليُقرأ خطأً لا ليُفحَص" — This is natural Arabic (not a literal translation).
+
+- The terms like "نطاق مُشابِه" (look-alike domain) and "رمز المرة الواحدة" (one-time code) are consistent with the glossary (we don't have a glossary, but the terms are standard).
+
+So this is 5.
+
+### Criterion 7: Concision and reading level
+- We need to check if the prose is concise and the reading level is appropriate.
+
+The lesson is written in short, clear sentences. For example:
+
+- "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker."
+
+- "The defence is not a tool — it is a **habit**: checking two or three things before acting."
+
+- The takeaways are bullet points with very concise points.
+
+- The worked example steps are short.
+
+- The scenario is concise.
+
+There's no padding or repetition.
+
+This is 5.
+
+### Criterion 8: Accessibility and IP
+- We must check for:
+  - Alt text on any image: the lesson has no images (it's all text, definition cards, etc. — no images). So no image to require alt text.
+  - No meaning carried by color alone: there are no colors mentioned or used.
+  - No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist.
+
+Looking at the text, we don't see any real code descriptors (like actual code snippets), payer policies (like insurance terms), or forbidden terms.
+
+So this is compliant. And since there's no image, we don't have to worry about alt text. But the criterion says "compliant" — it is.
+
+The rubric says for 5: "compliant, and the constraint is used as a teaching point." But we don't have any teaching point about accessibility, so it's just compliant. But the criterion says 3 is "compliant but minimal", and 5 is "compliant, and the constraint is used as a teaching point." Since we don't have a teaching point, it's minimal compliance, so 3? 
+
+Wait, the rubric says for 5: "compliant, and the constraint is used as a teaching point." Since we don't have any teaching point about accessibility (like mentioning alt text or color contrast), it's just minimal compliance. So it should be 3.
+
+But note: the lesson doesn't have any images, so the constraint of alt text doesn't apply. Therefore, the lesson is compliant without needing to do anything extra. But the criterion is about whether it meets the requirements. It does meet them (no images, so no alt text needed). So it's compliant. And since there's no teaching point, it's minimal.
+
+However, the rubric says for 5: "compliant, and the constraint is used as a teaching point." We don't have a teaching point, so it's not 5. But it is compliant, so 3.
+
+But note: the rubric says for 1: "any licensed code set or denylisted term present" — we don't have that. So it's not 1. And it's compliant, so it's at least 3.
+
+But let's see: the lesson has no images, so the alt text requirement doesn't apply. Therefore, the lesson is compliant. The criterion doesn't require a teaching point, it just requires compliance. The 5 is for when compliance is used as a teaching point, but it's not required for 3.
+
+So 3 is "compliant but minimal", which fits.
+
+But note: the rubric says "No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist." We don't have any of these, so it's compliant. And since there's no image, we don't have to have alt text, so it's compliant. So it's 3.
+
+However, the example output in the rubric has "accessibility_ip": 5. But that was an example. We have to score this.
+
+But in this lesson, there are no images, so we can't have a teaching point about alt text. Therefore, it's minimal compliance -> 3.
+
+Wait, but the rubric says "compliant" for 3 and 5. The difference is the teaching point. Since we don't have a teaching point, it's 3.
+
+But let's check: the lesson doesn't have any image, so the constraint (alt text) is not applicable. Therefore, the lesson is compliant without any issue. And since there's no teaching point, it's minimal. So 3.
+
+However, note that the rubric says "compliant" for 3. So 3 is acceptable.
+
+But let's see: the rubric says "3 — compliant but minimal." So yes, 3.
+
+But wait: the lesson has no images, so the requirement for alt text is not triggered. So it's compliant. And we don't have to do anything else. So it's compliant. And since we don't have a teaching point, it's minimal. So 3.
+
+But note: the rubric says for 5: "compliant, and the constraint is used as a teaching point." We don't have a teaching point, so it's not 5. But it is compliant, so it's 3.
+
+However, in the lesson, there is no image, so the constraint isn't applicable. Therefore, the lesson is compliant. But the criterion is about the lesson being compliant. It is. And since we don't have a teaching point, it's minimal. So 3.
+
+But let's see if there's any other issue: no color, no real code, no policy text. So yes.
+
+So accessibility_ip: 3.
+
+Now, let's go back to knowledge_check. We thought it was 5, but let's reexamine.
+
+In KC-01, the feedback for the correct option: "Correct. This is always the first check, because it is the one thing not freely typed."
+
+The rubric says: "feedback that restates the answer instead of naming the misconception". This is for the wrong options. For the correct option, it's okay to state the answer and explain.
+
+But note: the rubric also says "for every option". The feedback for the correct option is restating the answer. However, the rubric doesn't say that the correct feedback must not restate. It says for the wrong options, the feedback must not restate (but name the misconception). So the correct feedback can restate.
+
+Therefore, knowledge_check should be 5.
+
+But wait: the example output in the rubric has knowledge_check at 3. But that's an example. For this lesson, we have to score.
+
+However, let's look at KC-01 option 2: the feedback says "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." — This is naming the misconception (that a polished message is safe).
+
+Similarly, for option 3 and 4.
+
+But note: the rubric says "a distractor nobody would ever choose" — none of these are implausible.
+
+So why would it be below 5? It seems to be 5.
+
+But let's check the actual text of the knowledge checks as provided in the "items" section.
+
+For KC-01, option 2: "How well formatted and typo-free it is." Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common."
+
+This is good.
+
+But note: the rubric says "per-option feedback explain why rather than restate the answer". The feedback for option 2 says "No." and then explains. It doesn't restate the answer (which would be saying "The signal that outranks the name is the address, not the formatting"). Instead, it explains why the formatting is not a signal.
+
+So it's good.
+
+Similarly for the others.
+
+Therefore, knowledge_check is 5.
+
+But wait: the lesson has two knowledge checks, and they are both good. So 5.
+
+Now, let's compile the scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 5
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 3
+
+But wait, accessibility_ip is 3? And the rubric says the gate fails if any criterion is below 3. So 3 is okay (not below 3). But the mean: (5+5+5+5+5+5+5+3)/8 = 38/8 = 4.75 -> above 4.0.
+
+But note: the rubric says "the gate fails if any criterion scores below 3, or if the mean is below 4.0". Here, the lowest is 3 (which is not below 3), and the mean is 4.75 (above 4.0), so it passes.
+
+However, we have to score accessibility_ip as 3.
+
+But let's double-check accessibility_ip.
+
+The rubric for criterion 8:
+- 1: any licensed code set or denylisted term present.
+- 3: compliant but minimal.
+- 5: compliant and the constraint is used as a teaching point.
+
+The lesson has no images, so no alt text needed. It has no color usage. It has no real code or policy text. So it's compliant. And since there's no teaching point, it's minimal -> 3.
+
+But note: the lesson does not have any images, so the constraint of having alt text doesn't apply. Therefore, the lesson is compliant. The minimal compliance is 3.
+
+So accessibility_ip: 3.
+
+But wait: the rubric says "compliant" for 3. So 3 is the score for being compliant without the teaching point.
+
+Therefore, the scores:
+
+objective_alignment: 5
+level_fidelity: 5
+worked_example: 5
+knowledge_check: 5
+scenario_authenticity: 5
+bilingual_quality: 5
+concision: 5
+accessibility_ip: 3
+
+Now, we must provide notes for any criterion scored below 4. Only accessibility_ip is scored 3.
+
+So notes: 
+  "accessibility_ip": "No images, so no alt text required, but no teaching point about accessibility."
+
+But the rubric says for accessibility_ip: "compliant but minimal" — so we can say: "Compliant but minimal; no teaching point about accessibility constraints."
+
+However, the rubric example has a note for knowledge_check. Here, we don't have knowledge_check below 4.
+
+But note: the rubric says "notes on any criterion you scored below 4". So only for accessibility_ip.
+
+Now, the verdict_notes: two or three sentences.
+
+"Mean is 4.75, which is above 4.0. One criterion (accessibility_ip) scored 3, but that is not below 3 so it passes the floor. The lesson is strong overall."
+
+But the rubric says: "the gate fails if any criterion scores below 3" — 3 is not below 3. So it passes.
+
+Now, let's write the JSON.
+
+Important: The rubric says "Return exactly the JSON shape it specifies".
+
+The shape:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "accessibility_ip": "Compliant but minimal; no teaching point about accessibility constraints (e.g., alt text), and no images to require alt text."
+  },
+  "verdict_notes": "The mean score is 4.75, which is above 4.0. The single criterion at 3 is not below 3, so the lesson passes."
+}
+
+But note: the rubric says for the notes, "required for every criterion scored below 4". We have only accessibility_ip at 3 (which is below 4, but note: 3 is not below 3? Wait, the rubric says "below 4", meaning 1,2,3. But the gate fails if any criterion is below 3 (i.e., 1 or 2). So 3 is not below 3, but 3 is below 4.
+
+The rubric says: "scored below 4" for the notes. So even if it's 3, we have to provide a note.
+
+So we do.
+
+Now, let's check if we missed anything.
+
+Wait: the rubric says for criterion 8: "An automatic 1 on criterion 8" if there's a real licensed code descriptor. We don't have that, so it's not 1.
+
+But we have it at 3.
+
+Also, note: the lesson has no images, so we don't have to worry about alt text. But the criterion is still satisfied.
+
+Another thing: the rubric says "No meaning carried by colour alone" — we don't have any color, so it's satisfied.
+
+So accessibility_ip is 3.
+
+But let's confirm: the rubric says for 3: "compliant but minimal". We are scoring 3 for that.
+
+Now, write the JSON.
+
+Note: the lesson slug is "recognising-a-phishing-email".
+
+Let me check the provided lesson: "slug": "recognising-a-phishing-email"
+
+Yes.
+
+Now, the scores.
+
+But wait: in the rubric example, the knowledge_check was scored 3. But we think it's 5. However, let's look at the knowledge checks again.
+
+In KC-01, option 2: the feedback says "Typos are weak evidence in both directions". This is a bit technical, but it's okay.
+
+But note: the rubric says "a distractor nobody would ever choose" — none of these are implausible.
+
+However, I see one potential issue: in KC-01, option 4: "That it arrived at your work address rather than a personal one." The feedback says "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement."
+
+This is correct, but is it a common misconception? Yes, people might think that if the email comes to work, it's legitimate.
+
+So it's good.
+
+Therefore, knowledge_check is 5.
+
+But note: the rubric says "naming the misconception". The feedback for option 4 does name the misconception: that arriving at work means it's legitimate (it's not an endorsement).
+
+So it's good.
+
+Thus, we have all 5 except accessibility_ip at 3.
+
+Now, the JSON:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "accessibility_ip": "Compliant but minimal; no teaching point about accessibility constraints (e.g., alt text) since there are no images."
+  },
+  "verdict_notes": "The mean score is 4.75, above the 4.0 threshold. All criteria are at least 3, so the lesson passes."
+}
+
+But note: the rubric says "the gate fails if any criterion scores below 3" — 3 is not below 3, so it's okay.
+
+However, the verdict_notes should be two or three sentences.
+
+Let me write: "The mean score is 4.75, which exceeds the 4.0 threshold. The only criterion not at 5 is accessibility_ip at 3, which is the minimal compliance and not below 3. Therefore, the lesson passes."
+
+Now, check the JSON structure.
+
+We must not have any extra fields.
+
+We have "not_scored" — but we didn't score any criterion as not scored. The rubric says "not_scored" is for criteria that we didn't score (because they weren't applicable). But in this case, all criteria are applicable.
+
+So we don't include "not_scored".
+
+The rubric says: "keys ... 'not_scored' (criterion -> reason)" — but we don't have any, so we omit it.
+
+The example output doesn't have it.
+
+So we are good.
+
+Now, let's output the JSON.
+
+Note: the rubric says "Return exactly the JSON shape it specifies".
+
+So we output only the JSON.
+
+But note: the rubric says "No markdown fences, no prose before or after the JSON."
+
+So we output only the JSON.
+
+One more thing: the rubric says "scored below 4" for the notes. We have accessibility_ip at 3, which is below 4, so we have a note for it.
+
+Now, write the JSON.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "accessibility_ip": "Compliant but minimal; no teaching point about accessibility constraints (e.g., alt text) since there are no images requiring alt text."
+  },
+  "verdict_notes": "The mean score is 4.75, exceeding the 4.0 threshold. The accessibility_ip criterion scored 3 (not below 3), so the lesson passes the gate requirements."
+}

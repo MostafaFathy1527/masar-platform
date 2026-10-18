@@ -1,0 +1,18 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "bilingual_quality": "All Arabic fields contain English text rather than natural Arabic, indicating a missing or literal translation."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson excels in most areas, but fails dramatically on bilingual quality, resulting in a low overall score. The missing Arabic translation must be addressed to meet the rubric."
+}

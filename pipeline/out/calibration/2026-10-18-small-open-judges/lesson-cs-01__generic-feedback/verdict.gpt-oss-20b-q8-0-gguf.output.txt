@@ -1,0 +1,18 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for each option simply states correctness without explaining why the choice is right or wrong, failing to address misconceptions."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson aligns well with its objective and levels, and it uses natural Arabic. However, the knowledge checks lack explanatory feedback, resulting in a low score for that criterion. The overall mean is 4.25, meeting the pass thresholds."
+}

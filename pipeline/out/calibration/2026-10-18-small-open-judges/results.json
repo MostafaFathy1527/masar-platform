@@ -1,0 +1,902 @@
+[
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 2,
+    "drop": 3
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "GLM-4.7-Flash-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "gpt-oss-20b-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 4,
+    "broken": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 3,
+    "broken": 3,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": null,
+    "drop": null
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 3,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 3,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "generic-feedback",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "absurd-distractors",
+    "criterion": "knowledge_check",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 4,
+    "broken": 4,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "pasted-english",
+    "criterion": "bilingual_quality",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "reasonless-steps",
+    "criterion": "worked_example",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 4,
+    "drop": 1
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "empty-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  }
+]

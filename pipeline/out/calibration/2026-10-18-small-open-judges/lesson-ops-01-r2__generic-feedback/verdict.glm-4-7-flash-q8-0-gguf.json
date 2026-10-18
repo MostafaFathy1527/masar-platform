@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "GLM-4.7-Flash-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:38:37.314860+00:00",
+    "usage": {
+      "inputTokens": 7335,
+      "outputTokens": 3297
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible, but feedback is generic ('Not correct') and does not explain the specific misconception behind the wrong options."
+  },
+  "verdict_notes": "Mean 4.75. Passes. The knowledge checks are the primary weakness due to generic feedback that fails to name misconceptions."
+}

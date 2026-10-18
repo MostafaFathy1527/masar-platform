@@ -1,0 +1,267 @@
+<think>
+We are scoring the lesson "recognising-a-phishing-email" against the rubric.
+
+Let's go through each criterion one by one.
+
+### Criterion 1: Objective alignment
+- The lesson declares objective SEC-01.
+- We need to check if every block serves SEC-01.
+- The blocks are:
+  - L1: heading, rich_text, two definition cards, a job tip, and takeaways.
+  - L2: heading, worked example, two knowledge checks, and a scenario.
+
+Looking at the content:
+- The heading: "The attack is on the reader, not the system" -> aligns with SEC-01 (which is about recognizing phishing).
+- The rich_text: explains that phishing attacks the person, not the system, and introduces the habit of checking two or three things (including the address, not the display name).
+- Definition cards: define "look-alike domain" and "one-time code" which are concepts introduced (conceptsIntroduced includes these).
+- Job tip: advises to ask specific questions (about address and link destination) which is part of the objective.
+- Takeaways: summarize the key points (address, link destination, urgency, one-time code, verification channel) which are the core of the objective.
+- L2 heading: "Work one message, signal by signal" -> aligns with the objective.
+- Worked example: walks through checking a phishing email step by step, using the concepts (address, link destination, urgency, one-time code) and the takeaways.
+- Knowledge checks: test the understanding of the concepts (e.g., which signal outranks the display name? The address).
+- Scenario: presents a phishing scenario (manager's display name but different reply address) and asks for the correct action, which is to call the manager on a known number (not via the message).
+
+All blocks seem to be directly serving SEC-01. The concepts introduced are covered in the blocks. The worked example and scenario are built around the objective.
+
+Score: 5
+
+### Criterion 2: Level fidelity
+- The lesson declares levels L1 and L2.
+- We need to check if the L1 is appropriate for L1 and L2 for L2.
+- L1: 
+  - It introduces the concept of display name vs address, look-alike domain, one-time code, engineered urgency.
+  - It's a foundational lesson: explaining the core idea (the attack is on the reader) and the first checks (address, link destination).
+  - It's not too advanced for L1: it's about the basic idea and what to check.
+- L2:
+  - It builds on L1 with a worked example that applies the checks step by step to a specific message.
+  - The scenario is a more complex situation (manager's display name but different reply address) and requires applying the checks in a realistic context.
+
+The L1 is not just L0 (beginner) but is at the level of teaching the core concept without overwhelming detail. The L2 is a natural progression to applying the concept in a realistic scenario.
+
+We are told: "A 'visual card' that is secretly a bulleted list fails this criterion." But note: the definition cards are not bulleted lists; they are defined as "definition_card" and have a term and definition. The lesson does not have a visual card that is a bulleted list.
+
+Also, the L1 is not an L0 with a question bolted on. It's a solid L1.
+
+Score: 5
+
+### Criterion 3: Worked-example quality
+- The worked example has steps with "show" and "why".
+- Steps:
+  1. "Read the actual address, not the display name." -> Why: explains that display name is free text, address is not.
+  2. "Reveal where the button goes before pressing it." -> Why: explains that displayed text is independent of the destination.
+  3. "Notice that the deadline is two hours." -> Why: explains that urgency alone isn't evidence, but with a request to act outside normal route it becomes suspicious.
+  4. "Stop at the request for the verification code." -> Why: explains that legitimate parties don't ask for one-time codes.
+
+The "why" in each step names the judgment and what would change it (e.g., for step 3: urgency alone isn't evidence, but combined with an unusual request it becomes evidence).
+
+This is high quality.
+
+Score: 5
+
+### Criterion 4: Knowledge-check quality
+We have two knowledge checks (KC-01 and KC-02). We must check the distractors and feedback.
+
+**KC-01:**
+- Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+- Options:
+  1. "The sender's actual address." (correct)
+  2. "How well formatted and typo-free it is." (distractor)
+  3. "The organisation's logo appearing in the message." (distractor)
+  4. "That it arrived at your work address rather than a personal one." (distractor)
+
+Feedback for correct: "Correct." (which is acceptable, but it doesn't explain why the other options are wrong, just says "Not correct" for others)
+
+But note: the criterion says: "feedback that restates the answer instead of naming the misconception". 
+
+- The feedback for the correct option is just "Correct." — that's acceptable.
+- For the incorrect options, the feedback is "Not correct." — this is restating the answer (i.e., saying it's not correct) without naming the misconception.
+
+The criterion requires: "feedback explain why rather than restate the answer"
+
+The feedback for the distractors does not name a misconception. For example:
+- Option 2: "How well formatted and typo-free it is." — feedback: "Not correct." 
+  This doesn't explain that a well-formatted message is not a reliable signal because the sender can make it look good.
+
+Similarly, Option 3: feedback "Not correct." — doesn't explain that a logo can be faked.
+
+Option 4: feedback "Not correct." — doesn't explain that the address (work vs personal) doesn't matter because the sender can use a work address.
+
+The rationale for the question is: "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely."
+
+But the feedback for the distractors does not reflect this.
+
+The criterion says: "a distractor nobody would ever choose" — but these are plausible distractors (people might think formatting matters, or logo matters, or work address matters). However, the feedback does not explain the misconception.
+
+So, the feedback is weak. It restates the answer (not correct) instead of naming the misconception.
+
+Therefore, this knowledge check is not at the highest level.
+
+Score: 3 (because the feedback is thin and doesn't name the misconception)
+
+**KC-02:**
+- Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+- Options:
+  1. "Report it immediately, even if you entered nothing." (correct)
+  2. "Wait and see whether anything happens." (distractor)
+  3. "Delete the message so nobody else clicks it." (distractor)
+  4. "Reply to the sender asking whether it was genuine." (distractor)
+
+Feedback for correct: "Correct."
+Feedback for others: "Not correct."
+
+Again, the feedback for the distractors is just "Not correct" without explaining why.
+
+The rationale: "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss."
+
+But the feedback doesn't convey that. The feedback for option 2: "Not correct." — but it should explain that waiting is bad because the attacker might have already accessed your account.
+
+Similarly, option 3: deleting the message doesn't help because the attacker already has the information, and it might be sent to others (so deletion isn't the right action). Option 4: replying to the sender is dangerous because it confirms the attacker's email address.
+
+The feedback is restating the answer (not correct) instead of naming the misconception.
+
+So, both knowledge checks have weak feedback.
+
+We have two knowledge checks. The criterion is about the knowledge checks as a set. The problem is that for both, the feedback for distractors is weak.
+
+Therefore, the overall score for knowledge_check is 3.
+
+Note: The rubric says: "every distractor names a misconception someone actually holds." — but the feedback doesn't do that. The feedback is not explaining the misconception.
+
+So, we'll note this in the notes.
+
+Score: 3
+
+### Criterion 5: Scenario authenticity
+- The scenario: "A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a very common phishing scenario (business email compromise). The details are realistic: 
+- The manager is in a meeting (so you can't call him to verify) — this is a common tactic to create urgency and prevent verification.
+- The reply-to address being different is a red flag that is known in phishing.
+
+The scenario includes friction: the manager's excuse (in meeting) is designed to prevent the correct action (calling him on a known number). This is authentic.
+
+Score: 5
+
+### Criterion 6: Bilingual quality
+- The lesson is bilingual (bilingual: true).
+- We have Arabic and English for every block.
+
+Check Arabic for naturalness and consistency with glossary (the glossary isn't provided, but we have the terms defined in the lesson).
+
+- The Arabic in the lesson seems natural. For example:
+  - "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة" — natural Arabic.
+  - Terms like "نطاق مُشابِه" (look-alike domain) are used consistently.
+
+We don't see any English word order in Arabic. For example, the Arabic is not a direct translation that would have the verb at the end of a sentence when it should be in the middle, etc.
+
+The Arabic reads as though written in Arabic.
+
+Score: 5
+
+### Criterion 7: Concision and reading level
+- Check for padding or wordiness.
+
+Looking at the text:
+
+- The rich_text: "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting." — concise and clear.
+
+- The definition cards: definitions are short and to the point.
+
+- The job tip: "Do not ask whether the message feels fake — that is a question about instinct. Ask **what the actual address is, and where the link actually goes.** Those are two questions with answers, and they take ten seconds." — very concise.
+
+- The takeaways: bullet points that are short and clear.
+
+- Worked example steps: each step is a short sentence with a why.
+
+- Scenario: concise description.
+
+No obvious padding. The language is clear and to the point.
+
+Score: 5
+
+### Criterion 8: Accessibility and IP
+- Check for:
+  - Alt text on images: but there are no images in the lesson (the blocks don't include images). So no alt text needed.
+  - No meaning carried by color alone: no color used in the text (the lesson is text-only).
+  - No real licensed code descriptors or payer policy text: the content is about phishing, no code or policy text.
+  - No forbidden-term denylist: the lesson doesn't contain any obvious forbidden terms.
+
+The lesson is safe.
+
+Score: 5
+
+Now, let's summarize the scores:
+
+- objective_alignment: 5
+- level_fidelity: 5
+- worked_example: 5
+- knowledge_check: 3
+- scenario_authenticity: 5
+- bilingual_quality: 5
+- concision: 5
+- accessibility_ip: 5
+
+Mean: (5+5+5+3+5+5+5+5)/8 = 38/8 = 4.75 -> above 4.0.
+
+But note: the rubric says the gate fails if any criterion is below 3 (which it isn't, knowledge_check is 3) or if the mean is below 4.0 (which it isn't). So it passes.
+
+However, we must note that knowledge_check is 3, so we add a note.
+
+Now, for the JSON output.
+
+We must return exactly:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception. Feedback for distractors is 'Not correct.' instead of explaining the misconception."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.75. Passes, but the knowledge checks need stronger feedback to explain misconceptions."
+}
+
+But note: the rubric example had "knowledge_check" as 3 and the note. We have to be precise.
+
+Also, the note must be a string for the criterion scored below 4.
+
+We have only one criterion below 4: knowledge_check.
+
+Now, let's write the JSON.
+
+Important: The lesson slug is "recognising-a-phishing-email", as per the lesson.
+
+We must not have any extra fields.
+
+Let's check the rubric for the required keys: "lesson", "scores", "notes", "verdict_notes".
+
+We don't have "not_scored" because all criteria are scored.
+
+Now, write the JSON.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Feedback for distractors restates the answer ('Not correct') instead of naming the misconception. Example: Option 2 (formatting) feedback doesn't explain why formatting isn't a reliable signal."
+  },
+  "verdict_notes": "One criterion at 3; mean 4.75. Passes, but knowledge checks require stronger misconception-based feedback to reach 4+."
+}

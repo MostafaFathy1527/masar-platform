@@ -1,0 +1,19 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Per-option feedback only indicates correctness without explaining why the distractor is incorrect, which misses the requirement to name and explain common misconceptions.",
+    "concision": "The definition of a look‑alike domain and some explanatory text could be shortened without loss of meaning, making the prose slightly longer than necessary."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson scores well overall, with a mean of 4.63. The weakest area is the knowledge checks, which receive a score of 3 due to minimal feedback. All other criteria meet or exceed a score of 4, satisfying the gate thresholds."
+}

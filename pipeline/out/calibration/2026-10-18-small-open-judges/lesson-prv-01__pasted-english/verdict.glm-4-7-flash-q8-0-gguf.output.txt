@@ -1,0 +1,252 @@
+<think>1.  **Analyze the Request:**
+    *   **Task:** Judge a lesson ("what-counts-as-personal-data") against a specific rubric.
+    *   **Constraints:**
+        *   Score 1-5 on 8 criteria.
+        *   No sight of the generation prompt.
+        *   Return *only* the JSON object specified.
+        *   Be harsh on 4 and 5 (4 means "good but could be better", 5 means "nothing to change").
+        *   Check for specific failures (visual card list, distractors, feedback restating answer, assertive worked examples, frictionless scenarios, Arabic word order, licensed code/policy text).
+
+2.  **Analyze the Lesson:**
+    *   **Title:** What counts as personal data, and what to do with it at work.
+    *   **Levels:** L1, L2.
+    *   **Objectives:** PRV-01 (Identify personal data, sensitive data, breaches, etc.).
+    *   **Content:** Introduction to personal data (identifiability), sensitive data definition, potential breach definition, job tip (convenient channel), takeaways. L2 adds a worked example, two knowledge checks, and a scenario.
+
+3.  **Evaluate Criteria:**
+
+    *   **1. Objective Alignment:**
+        *   L1 blocks: Introduction, Definitions (Sensitive, Breach), Tip, Takeaways. All relate to understanding what counts as data and the basic handling rules (need to know, breach reporting). Good alignment.
+        *   L2 blocks: Worked example (decision-making), Knowledge checks, Scenario. All test the application of the definitions.
+        *   *Score:* 5. Everything serves the objective.
+
+    *   **2. Level Fidelity:**
+        *   L1: Definitions and simple tips. Good.
+        *   L2: Worked example involves analyzing a scenario, choosing options. It goes beyond simple memorization. The prompt asks to "Work the decision step by step."
+        *   *Potential Issue:* The worked example steps are quite dense text, but they represent L2 thinking (analysis/application).
+        *   *Visual Card Check:* I need to look at the JSON. `definition_card` is likely a card, but the rubric warns about a "visual card that is secretly a bulleted list with a border." The `definition_card` types in the prompt look like distinct cards (term, def, icon), not a list. The `takeaways` is a list, but usually, takeaways are lists.
+        *   *L2 Check:* Does it feel like L1 with a question? No, it asks for a step-by-step decision process.
+        *   *Score:* 5. It fits the L1/L2 split well.
+
+    *   **3. Worked-example quality:**
+        *   *Example:* "A colleague in another department asks you for a 'quick list'..."
+        *   *Steps:*
+            1.  "Is this personal data? ... yes ... why: Even without names, department plus absence dates identifies a person..."
+            2.  "Is any of it sensitive? ... yes ... why: The harm of a disclosed medical reason cannot be undone..."
+            3.  "What does his task actually need? ... why: Need to know..."
+            4.  "Send counts ... why: The convenient channel..."
+        *   *Analysis:* The "why" explicitly names the judgment (identifiability, harm, need-to-know, convenience channel). It explains the logic clearly.
+        *   *Score:* 5. The "why" is strong.
+
+    *   **4. Knowledge-check quality:**
+        *   *KC 01 (Spreadsheet):*
+            *   Distractor 1: "No, because it contains no names." (Misconception: Personal data = name + surname). Feedback: Correctly addresses this misconception.
+            *   Distractor 2: "Yes, because the combination identifies..." (Correct).
+            *   Distractor 3: "Yes, but only if the rating is negative." (Misconception: Personal data only if embarrassing/embarrassing info). Feedback: Correctly addresses this misconception.
+            *   Distractor 4: "No, because employee data is internal..." (Misconception: Internal data isn't personal). Feedback: Correctly addresses this misconception.
+            *   *Analysis:* These are real misconceptions. Feedback explains *why* (identifiability, harm, embarrassment, internal vs personal).
+        *   *KC 02 (DSR):*
+            *   Distractor 1: "Delete phone number..." (Misconception: DIY DSR). Feedback: Addresses route/process.
+            *   Distractor 2: "Reply no..." (Misconception: Refuse DSR). Feedback: Addresses obligation.
+            *   Distractor 3: "Add to to-do list..." (Misconception: Delay/ignore). Feedback: Addresses the clock.
+            *   Distractor 4: "Pass to privacy owner..." (Correct).
+            *   *Analysis:* These are all real misconceptions.
+        *   *Score:* 5. High quality.
+
+    *   **5. Scenario authenticity:**
+        *   *Scenario:* Autocomplete picked the wrong customer for an account statement. 5 pm.
+        *   *Analysis:* This is a very real, common friction point in data handling (misdirected emails). The time pressure (5 pm) adds friction. The consequences described are accurate (recall rarely works, clock starts).
+        *   *Score:* 5.
+
+    *   **6. Bilingual quality:**
+        *   *Check:* Does the Arabic sound translated (English word order)?
+        *   *Text:* "The question is not 'is there a name on it?'" -> "السؤال ليس 'هل هناك اسم عليه؟" (Natural).
+        *   *Sensitive data definition:* "...not because these facts are secret, but because their disclosure can cause harm that cannot be undone." -> "...ليس لأن هذه الحقائق سرية، بل لأن إفشاءها يمكن أن يسبب ضرراً لا يمكن ترميمه." (Natural).
+        *   *Worked example:* "A colleague in another department asks you..." -> "يطلب منك زميل من قسم آخر..." (Natural).
+        *   *Knowledge Check:* "The test is identifiability..." -> "الاختبار هو القابلية للتعرف..." (Natural).
+        *   *Analysis:* The Arabic reads naturally. It avoids the "English word order" trap.
+        *   *Score:* 5.
+
+    *   **7. Concision and reading level:**
+        *   The text is dense but appropriate for a professional compliance lesson. It uses clear headings and structure. The L1 text is a long block of text, but it covers the definition of personal data comprehensively without fluff (e.g., no "Lorem Ipsum"). The "why" in the worked example is concise yet explanatory.
+        *   *Score:* 5.
+
+    *   **8. Accessibility and IP:**
+        *   *Image Alt Text:* The JSON doesn't explicitly show alt text for images (the prompt describes the block structure, but `definition_card` usually has an icon, `job_tip` is text). If there are no images, this is compliant. If the `icon` field in the definition cards implies images without alt text, that's a failure. The JSON structure `icon: "⚠️"` suggests an emoji. The prompt says "Alt text on any image." There are no image blocks visible in the JSON (just headings, rich_text, definition_card, job_tip, takeaways). The icons are emojis.
+        *   *IP:* "No real licensed code descriptor or payer policy text." The text discusses GDPR concepts (identifiability, sensitive data, potential breach, data-subject request, clock starts). It uses generic terms ("regimes", "health information", "employee number"). It does not seem to contain specific code text or payer policy text.
+        *   *Score:* 5.
+
+4.  **Review and Refine Scores:**
+    *   Objective Alignment: 5
+    *   Level Fidelity: 5 (The L2 worked example is solid application).
+    *   Worked example: 5 (Very clear "why" steps).
+    *   Knowledge check: 5 (Distractors are strong).
+    *   Scenario authenticity: 5 (Common, real issue).
+    *   Bilingual quality: 5 (Arabic is natural).
+    *   Concision: 5 (Punchy, direct).
+    *   Accessibility/IP: 5 (No issues).
+
+    *Self-Correction:* Is there any 4 here?
+    The prompt asks for "harsh on 4 and 5".
+    Let's look at the **Knowledge Check 02** distractor 2: "Reply that you do not provide copies of data for security reasons." The feedback says: "Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it."
+    This is good.
+    The **Worked Example** step 2: "Is any of it sensitive? Sick-leave reasons are health information — yes."
+    The "why": "The harm of a disclosed medical reason cannot be undone, which is why the bar is higher even when the request is internal and well meant."
+    This is excellent.
+
+    The L1 `prv1_p_intro` is a paragraph of text. It's long, but it is dense information.
+    
+    Let's look at **Knowledge Check 01** again.
+    Distractor 3: "Yes, but only if the rating is negative." Feedback: "No. Whether information is personal data does not depend on whether it is embarrassing..."
+    This is solid.
+
+    Maybe the "scenario" authenticity? "You emailed a customer's account statement...". It's a textbook scenario, but it's a textbook scenario *for a reason* (it's a common test case). The friction (5pm) makes it slightly more real. I'll stick with 5.
+
+    Actually, looking at the L1 `prv1_p_intro`, it is quite long. Is it "wordy"? It explains the definition, examples, and the test (identifiability). It seems necessary for the content. I will stick with 5.
+
+    Wait, looking at the prompt instructions: "If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one." This lesson achieves everything it sets out to do.
+
+    Let's double check the "Visual card" warning. `prv1_d_sensitive` and `prv1_d_breach` are definition cards. They have terms, definitions, and icons. This seems standard UI.
+    `prv1_tip` is a job tip.
+    `prv1_take` is a takeaways list.
+
+    Is there anything below 4?
+    The prompt says "Two distractors restate the stem rather than naming a misconception" is a failure.
+    Let's check the distractors.
+    KC1:
+    - "No, because it contains no names." -> Feedback addresses this misconception (identifiability). Good.
+    - "Yes, because combination..." -> Correct.
+    - "Yes, but only if negative..." -> Feedback addresses misconception (embarrassment). Good.
+    - "No, because internal..." -> Feedback addresses misconception (internal vs personal). Good.
+    KC2:
+    - "Delete phone number..." -> Feedback addresses misconception (DIY). Good.
+    - "Reply no..." -> Feedback addresses misconception (refusal). Good.
+    - "Add to to-do list..." -> Feedback addresses misconception (delay). Good.
+    - "Pass to privacy owner..." -> Correct.
+
+    Maybe the L2 scenario? The decisions are: "Recall message", "Report now", "Resend statement". These are good options. "Recall rarely works" is a realistic friction point. "Report now" is the best. "Resend" is a common mistake (fixing the symptom, not the breach). The feedback is good.
+
+    I will stick with mostly 5s, maybe a 4 or two if I find nitpicks.
+    "The most common breach... is the convenient channel". This is a bit of an opinion/assertion, but it's a "job tip", not a rule.
+    
+    Let's look at `prv1_d_breach` definition: "Personal data that has gone somewhere it should not have... Reported the same day... The clock usually starts when any employee becomes aware". This is generally correct for GDPR (24/48h).
+    
+    Is the Arabic strictly natural?
+    "The question is not 'is there a name on it?'" -> "السؤال ليس 'هل هناك اسم عليه؟" (Standard).
+    "So is an employee number..." -> "وهو أيضاً رقم الموظف..." (Standard).
+    "A sick-leave reason..." -> "سبب الغياب المرضي..."
+    "Not because these facts are secret..." -> "ليس لأن هذه الحقائق سرية..." (Good).
+
+    I'll score this very highly. The prompt asks to be "harsh on 4 and 5".
+    However, this lesson is *very* coherent.
+    I will assign **5** to all.
+
+    Wait, the example output has a note for a 3 score. "Two distractors restate the stem rather than naming a misconception."
+    My analysis says none of the distractors restate the stem.
+    KC1 Distractor 1: "No, because it contains no names." (Divergent).
+    KC1 Distractor 2: "Yes, because the combination..." (Correct).
+    KC1 Distractor 3: "Yes, but only if the rating is negative." (Divergent).
+    KC1 Distractor 4: "No, because employee data is internal..." (Divergent).
+
+    KC2 Distractor 1: "Delete phone number..." (Divergent).
+    KC2 Distractor 2: "Reply no..." (Divergent).
+    KC2 Distractor 3: "Add to to-do list..." (Divergent).
+    KC2 Distractor 4: "Pass to privacy owner..." (Correct).
+
+    So the knowledge check is perfect.
+    
+    Maybe the scenario? "You emailed a customer's account statement...". It is a standard case, but "authenticity" allows for "invented detail is fine". It feels real.
+
+    Maybe the worked example? "Step by step". It covers the decision process. "Why" is present.
+
+    Maybe the "visual card" warning again. `definition_card` types. If the UI renders a definition card as a card, it's fine. If it renders it as a box with a title and text, it's fine. The rubric warns about "a visual card that is secretly a bulleted list with a border". The JSON for `prv1_d_sensitive` and `prv1_d_breach` do not contain bullets. They contain a single definition string. So it's not a list.
+
+    I will score everything 5.
+    Mean = 5. Thresholds: Floor 3, Mean 4.0. Pass.
+
+    Let me reconsider the "Conciseness".
+    The L1 rich text block is 3 paragraphs (technically one block with line breaks, or parsed as such).
+    Paragraph 1: Definition and examples.
+    Paragraph 2: The test.
+    It's dense but not wordy.
+    I'll stick with 5.
+
+    Is there any 4?
+    Maybe `level_fidelity`. L2 is "Decide, case by case". The worked example is a bit long and dense for L2, but it is "working the decision". L2 usually implies application. It's complex application. 5 seems right.
+
+    Wait, looking at the prompt "Two distractors restate the stem rather than naming a misconception" is an example of a failure. I don't see that failure.
+
+    Let's look at the L2 scenario. "The recipient probably has not opened it yet. It is 5 pm." The friction is the time of day. It's okay.
+
+    I will produce a JSON with all 5s. It's rare, but if the lesson is that good, it's that good.
+
+    *Self-Correction during drafting:* Is "identifiability" a real term? Yes. Is "data-subject request" a real term? Yes.
+    
+    One tiny nitpick: The worked example steps are very detailed.
+    Step 1: Show (Is this personal data?), Why.
+    Step 2: Show (Is any sensitive?), Why.
+    Step 3: Show (What does he need?), Why.
+    Step 4: Show (Action), Why.
+    It's very structured. This is good for L2.
+    
+    I will return the JSON.
+    Lesson: "what-counts-as-personal-data"
+    Scores: All 5.
+    Notes: No notes needed if all are 5. But the rubric says "notes on any criterion you scored below 4". So no notes.
+
+    Wait, checking `accessibility_ip`.
+    "Alt text on any image." There are no `image` blocks. Only `definition_card` with `icon: "⚠️"`.
+    "No meaning carried by colour alone." No visible color logic in the JSON (likely UI handles it).
+    "No real licensed code descriptor." The text mentions "regimes" and "GDPR" implicitly (identifiability, data-subject request, sensitive data, clock). It doesn't paste legal code.
+    "Forbidden-term denylist." I don't see specific forbidden terms like "confidentiality agreement" (maybe) or "NDA" (maybe). The text says "data-subject request" and "potential breach". It does not seem to use specific jargon that might be on a denylist (unless the denylist is very broad, but "personal data" is the subject).
+    
+    Okay, I'm confident in all 5s.
+
+    Wait, checking `bilingual_quality` again.
+    "What does his task actually need? Planning cover needs dates and departments — not reasons."
+    Arabic: "ما يحتاجه مهمته فعلياً؟ التخطيط للغطاء يحتاج التواريخ والأقسام — وليس الأسباب."
+    "The convenient channel is the commonest mistake. Explaining prevents him asking a different colleague for the full list tomorrow."
+    Arabic: "القنوات المريحة هي الأخطاء الأكثر شيوعاً. التوضيح يمنعه من طلب القائمة الكاملة من زميل آخر في غد."
+    It flows well.
+
+    One final check: "Two distractors restate the stem rather than naming a misconception."
+    Let's look at KC2 Option 2 feedback again. "Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it."
+    Option 1 feedback: "What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route."
+    Option 3 feedback: "The clock started the day it arrived, not the day you find time, and the delay here is itself the failure."
+    None of these restate the stem. They explain the rule.
+    
+    I will go with all 5s.
+
+```json
+{
+ "lesson": "what-counts-as-personal-data",
+ "scores": {
+  "objective_alignment": 5,
+  "level_fidelity": 5,
+  "worked_example": 5,
+  "knowledge_check": 5,
+  "scenario_authenticity": 5,
+  "bilingual_quality": 5,
+  "concision": 5,
+  "accessibility_ip": 5
+ },
+ "notes": {},
+ "verdict_notes": "Exceptional lesson. The distinction between personal data and sensitive data is clear, the worked example rigorously applies the 'why' criterion, and the bilingual content is natural and accurate. The knowledge checks effectively target common misconceptions without restating the stem. No changes would be made."
+}
+```</think>```json
+{
+ "lesson": "what-counts-as-personal-data",
+ "scores": {
+  "objective_alignment": 5,
+  "level_fidelity": 5,
+  "worked_example": 5,
+  "knowledge_check": 5,
+  "scenario_authenticity": 5,
+  "bilingual_quality": 5,
+  "concision": 5,
+  "accessibility_ip": 5
+ },
+ "notes": {},
+ "verdict_notes": "The lesson is exceptionally well-constructed. It adheres strictly to the definitions and objectives, the L2 worked example demonstrates deep understanding by explicitly naming the judgments (identifiability, harm, need-to-know), and the knowledge checks target real misconceptions with precise feedback. The Arabic is natural and the scenario is authentic, avoiding the common 'frictionless' trap."
+}
+```

@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "gpt-oss-20b-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:23:00.706574+00:00",
+    "usage": {
+      "inputTokens": 6409,
+      "outputTokens": 1120
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Steps provide only generic reasoning ('Because it is the next step.') without explaining the decision logic."
+  },
+  "verdict_notes": "One criterion scored 3; the mean score is 4.63, meeting the thresholds. The lesson is overall solid, but the worked‑example would benefit from more explicit reasoning."
+}

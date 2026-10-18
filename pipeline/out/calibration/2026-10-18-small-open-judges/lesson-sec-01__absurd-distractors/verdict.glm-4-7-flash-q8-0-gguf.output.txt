@@ -1,0 +1,329 @@
+<think>1.  **Analyze the Request:**
+    *   **Role:** Fresh-context judge.
+    *   **Task:** Score a specific lesson (`recognising-a-phishing-email`) against a rubric (`pipeline/rubric.md`).
+    *   **Constraints:**
+        *   Do not see the prompt/generation context.
+        *   Do not infer intent; score only what is on the page.
+        *   Return *exactly* the JSON shape specified.
+        *   Scores 1-5. Failures below 3, or mean below 4.0, fail the gate.
+        *   Be harsh on 4/5.
+        *   Specific red flags: visual card as bullet list, implausible distractors, feedback restating answer, worked example steps asserting without explaining *why*, frictionless scenarios, Arabic word order issues, licensed code/policy text.
+    *   **Input Data:**
+        *   Lesson JSON (title, objectives, blocks).
+        *   Knowledge Check Items JSON (referenced by `itemRef`).
+    *   **Output:** JSON with `lesson`, `scores` (obj, lvl, work, kc, scen, biling, conc, acc), `notes` (for sub-4 scores), `verdict_notes`.
+
+2.  **Analyze the Lesson Content (`recognising-a-phishing-email`):**
+    *   **Objectives:** SEC-01 (Phishing awareness).
+    *   **Levels:** L1 and L2.
+    *   **Structure:**
+        *   **L1:**
+            *   Heading: The attack is on the reader...
+            *   Text: Explains that software isn't the target; humans are. Mentions display name vs. address. Mentions look-alike domains and one-time codes.
+            *   Definition Cards: `look_alike_domain`, `one_time_code`. Good definitions with icons.
+            *   Job Tip: Asks specific questions about address/destination instead of asking "does it feel fake?".
+            *   Takeaways: List of 5 key points.
+        *   **L2:**
+            *   Heading: Work one message...
+            *   Worked Example: Analyzes a phishing email step-by-step.
+                *   Step 1: Read address, not display name.
+                *   Step 2: Reveal destination.
+                *   Step 3: Notice urgency.
+                *   Step 4: Stop at code request.
+                *   Answer: Explains why stopping is the right move.
+            *   Scenario: Manager email about payment. Reply-to address differs. Three options (Reply -> Call signature -> Call old number).
+            *   Knowledge Checks: Two MCQs (referenced).
+
+3.  **Analyze the Knowledge Check Items:**
+    *   **KC-01:**
+        *   Stem: Display name matches department. Which signal outranks it?
+        *   Correct Answer: Sender's actual address.
+        *   Feedback: "Correct. This is always the first check...". Good.
+        *   Distractors: "Order lunch", "Restart computer", "Change screen color".
+        *   *Critique:* These distractors are the same across both KCs in the provided text. They are "distractor soup" or generic "clickbait" answers. They don't seem to test real misconceptions about phishing (e.g., "If I click the link, I'll be safe", "I should reply to ask if it's real"). They are simply irrelevant.
+    *   **KC-02:**
+        *   Stem: Clicked phishing link, what to do?
+        *   Correct Answer: Report immediately.
+        *   Feedback: "Correct. Timing is everything here...".
+        *   Distractors: Same generic set (Lunch, Restart, Screen color).
+
+4.  **Rubric Evaluation (Criterion by Criterion):**
+
+    *   **1. Objective Alignment (Target: SEC-01):**
+        *   L1 blocks explain display name, look-alike domains, OTPs, and urgency.
+        *   L2 blocks apply these to a worked example and a scenario.
+        *   All blocks support recognizing phishing.
+        *   *Score:* 5. Everything serves the objective.
+
+    *   **2. Level Fidelity:**
+        *   L1 is introductory/conceptual (definitions, tips).
+        *   L2 is application (worked example, scenario, MCQs).
+        *   There is no "visual card" that is a bulleted list.
+        *   The L2 content is substantial (worked example with "why").
+        *   *Score:* 5. The levels are distinct and appropriate.
+
+    *   **3. Worked-Example Quality:**
+        *   Steps include "show" and "why".
+        *   Step 1 (Read address): Why is this important? Because the name is free text.
+        *   Step 2 (Reveal destination): Why is this important? Because labels vs destinations.
+        *   Step 3 (Notice urgency): Why? Because urgency + action outside normal route = evidence.
+        *   Step 4 (Stop at code): Why? Because one-time codes shouldn't be shared, so anyone asking is the attacker.
+        *   The reasoning is specific to the judgment being made.
+        *   *Score:* 5. High quality reasoning.
+
+    *   **4. Knowledge-Check Quality:**
+        *   *The Problem:* The distractors in KC-01 and KC-02 are identical: "Order lunch", "Restart computer", "Change color".
+        *   These are not drawn from real misconceptions about *phishing*. A user might think "I should ask them to resend it" (not here), or "I should close the window" (not here). "Ordering lunch" is clearly absurd to anyone who knows what phishing is, or even a beginner? A beginner might just be confused, but they wouldn't choose "order lunch" as a *plausible* response to "what signal outranks the display name?". It's just random noise.
+        *   However, the prompt says "plausible distractors... teaches nothing".
+        *   Is it a 1? No. It's not a 3? A 3 requires "plausible distractors, feedback thin on some". These are *not* plausible. They are obviously wrong.
+        *   Is it a 1? A 1 is "implausible distractors, or feedback that repeats the stem". These are implausible.
+        *   Wait, let's look closer at KC-02. "Clicked phishing link, what to do?" Options: Report immediately (Correct), Lunch, Restart, Change color. "Order lunch" is not a reaction to clicking a phishing link.
+        *   Let's look at KC-01. "Display name matches department. Which signal outranks?" Options: Address (Correct), Lunch, Restart, Change color.
+        *   This is a major flaw. The distractors are completely disconnected from the domain.
+        *   The prompt says: "A distractor nobody would ever choose teaches nothing."
+        *   These distractors are effectively "distractor soup" (random options added just to make it look like a quiz).
+        *   Score: **2** or **1**? The rubric says "1 — implausible distractors, or feedback that repeats the stem". "Nobody would ever choose" maps well to implausible.
+        *   However, looking at the structure, the distractors are generic "do something random" options. They are not *intended* to be real misconceptions.
+        *   Let's compare to the rubric example of "A distractor nobody would ever choose" -> low score.
+        *   Given they are generic and random, they fail to test the learning.
+        *   *Score:* **1**? Or maybe **2**? "3 — plausible distractors, feedback thin on some." These are not plausible.
+        *   Let's stick to a harsh interpretation of "implausible". Since they are random, they are implausible.
+        *   *Wait*, the prompt instructions for scoring say: "Score what is on the page."
+        *   The distractors are: "Order lunch", "Restart", "Change color".
+        *   In KC-01, asking about email signals, the answer is "Sender's actual address". Why would someone choose "Order lunch"? That makes no sense in context. It's a null distractor.
+        *   In KC-02, asking about what to do after clicking a link, why would someone choose "Order lunch"? That makes no sense.
+        *   This is a failure of knowledge check design.
+        *   However, is it a 1? The rubric says "1 — implausible distractors". Yes, these are implausible.
+        *   But wait, looking at the feedback provided: "Correct. Timing is everything here..." and "Correct. This is always the first check...". The feedback is decent.
+        *   The issue is *options*, not *feedback*.
+        *   Is it worth a 1? Probably. "Nobody would ever choose" -> 1.
+        *   Let's reconsider the distinction between 1 and 3.
+        *   1: Implausible distractors (or feedback repeats stem).
+        *   3: Plausible distractors (feedback thin on some).
+        *   These distractors are not just implausible; they are nonsensical in the context. They serve no pedagogical purpose.
+        *   I will score this a **1**. It fits the description "implausible distractors".
+        *   *Self-Correction/Refinement:* The rubric explicitly says: "A distractor nobody would ever choose teaches nothing." This is a recurring failure. I need to be careful. If I score 1, the gate fails (mean < 4). Is that correct? Yes. The lesson is great (L1, L2, Worked Example) but the MCQs are trash. This is a high variance lesson. The gate mechanism exists to catch this. The instruction "Be harsh on 4 and 5" applies to the good stuff, but I must also be harsh on the bad stuff.
+        *   Actually, let's look at the provided examples in the prompt notes. The example notes say: "Two distractors restate the stem rather than naming a misconception." That was a 3.
+        *   Here, the distractors are just random options. "Order lunch". That's not even a misconception about phishing (like "I should ask for a password to verify"). It's a random unrelated action.
+        *   I'm confident this is a 1. It's "implausible" to the extreme.
+
+    *   **5. Scenario Authenticity:**
+        *   L2 Scenario: Manager email, payment urgent, reply-to diff.
+        *   This is a very common, realistic phishing template.
+        *   "The tone reads like his" is good detail.
+        *   "Reply-to address differs" is the key technical detail.
+        *   The friction (meeting, deadline) is realistic.
+        *   *Score:* 5. Recognisable and realistic.
+
+    *   **6. Bilingual Quality:**
+        *   Arabic text provided is in blocks (L1, L2, MCQ stems, options, feedback).
+        *   Check Arabic naturalness:
+            *   "الهجمة على القارئ، لا على النظام" (The attack is on the reader, not the system) - Good.
+            *   "التصيّد لا يهاجم البرمجيات" (Phishing does not attack software) - Good.
+            *   "نطاق مُشابِه" (Look-alike domain) - Good term.
+            *   "الاسم الظاهر للمُرسِل" (Sender's display name) - Good.
+            *   "نص الرابط لافتة، ووجهته شيء آخر" (Link text is a label, and its destination is another thing) - Good.
+            *   "لا تسأل «هل تبدو هذه الرسالة مزيفة؟»" (Don't ask "Does this message look fake?") - Good.
+            *   L2 Worked Example steps:
+                *   "اقرأ العنوان الحقيقي، لا الاسم الظاهر" (Read the actual address, not the display name) - Natural.
+                *   "الاسم الظاهر نص حر" (The display name is free text) - Clear.
+            *   Scenario Arabic:
+                *   "رسالة من الاسم الظاهر لمديرك" (Message from manager's display name) - Clear.
+                *   "يحتاج تحويل دفعة لمورّد" (Needs supplier payment transfer) - Good terminology.
+            *   MCQ Arabic:
+                *   "رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي" (Message display name exactly matches internal department) - Good.
+                *   "الاسم الظاهر نص حر يكتبه المُرسِل كما يشاء" (Display name is free text written by sender as they please) - Good.
+            *   The Arabic flows well. It doesn't look like translated English word-for-word (e.g., not "The sender's address is the one thing that he did not choose freely" -> "العنوان هو الشيء الوحيد الذي لم يختر بحرية").
+            *   It feels natural.
+        *   *Score:* 5.
+
+    *   **7. Concision and Reading Level:**
+        *   The L1 text is dense but very efficient. "A display name is free text... What cannot be set freely is the address..."
+        *   L2 Worked Example steps are clear and concise.
+        *   No fluff found.
+        *   *Score:* 5.
+
+    *   **8. Accessibility and IP:**
+        *   Images? The lesson JSON has `icon` fields in definition cards (e.g., "🔎"). These are text emojis. Alt text isn't strictly required for emojis in standard web accessibility if they are decorative, but usually, an emoji like 🔎 is fine or has implicit alt text. The rubric says "Alt text on any image."
+        *   There are no visible images in the JSON text (just emojis in definitions).
+        *   "No real licensed code descriptors" - None found.
+        *   "No payer policy text" - None found.
+        *   The lesson discusses "IT Service Desk", "Account closing", "Supplier payment". These are generic business contexts, not specific payer policies (insurance claims, billing codes).
+        *   *Score:* 5.
+
+    *   **Recalculate Mean:**
+        *   5, 5, 5, 1, 5, 5, 5, 5.
+        *   Mean = (5*7 + 1) / 8 = 36 / 8 = 4.5.
+        *   Even with a 1, the mean is 4.5. The lesson passes the gate based on the mean, but the knowledge checks are severely flawed.
+        *   Wait, I need to double check the Knowledge Check score. Is it really a 1?
+        *   Distractor: "Order lunch". Distractor: "Restart computer". Distractor: "Change color".
+        *   In KC-01, the question is about phishing signals. "Order lunch" is not a signal. It's a distractor.
+        *   In KC-02, the question is about post-click action. "Order lunch" is not an action. It's a distractor.
+        *   These are "distractor soup". They are implausible.
+        *   If I score this a 2, the mean is (5*7 + 2)/8 = 4.375. Still pass.
+        *   If I score this a 3, mean is (5*7 + 3)/8 = 4.25.
+        *   If I score this a 4, mean is 4.125.
+        *   If I score this a 5, mean is 4.0.
+        *   The rubric says: "A distractor nobody would ever choose teaches nothing." "Most good work is a 4." "Be harsh on 4 and 5."
+        *   The prompt explicitly lists: "a distractor nobody would ever choose" as a recurring failure. It implies it's bad.
+        *   Is it *automatically* a 1? "1 — implausible distractors". Yes.
+        *   However, the prompt also says: "The gate fails if any criterion scores below 3... or if the mean is below 4.0."
+        *   Since the mean with a 1 is 4.5, the lesson passes.
+        *   But as a judge, I must be accurate.
+        *   The distractors are "implausible". Are they *obviously* implausible? Yes.
+        *   However, sometimes "implausible" implies it *could* be chosen by a confused user (e.g. "I should reply to ask if it's real" - which isn't there).
+        *   These options ("Order lunch", "Restart", "Change color") are completely random. They serve no purpose other than to make it a multiple choice question.
+        *   This is a low-quality assessment component.
+        *   I will stick with **1**. It fits the definition "implausible distractors".
+        *   Wait, if I score it a 1, `qa_gate.py` sees a 1 and a mean of 4.5. It passes. This is consistent.
+
+    *   **Final Check of Scores:**
+        1. Objective Alignment: 5.
+        2. Level Fidelity: 5.
+        3. Worked Example: 5.
+        4. Knowledge Check: 1. (Distractors are random/nonsense).
+        5. Scenario Authenticity: 5.
+        6. Bilingual Quality: 5.
+        7. Concision: 5.
+        8. Accessibility/IP: 5.
+
+    *   **Notes:**
+        *   Objective Alignment: None.
+        *   Level Fidelity: None.
+        *   Worked Example: None.
+        *   Knowledge Check: "Distractors are implausible (e.g., 'Order lunch', 'Restart computer') and do not test real phishing misconceptions."
+        *   Scenario Authenticity: None.
+        *   Bilingual Quality: None.
+        *   Concision: None.
+        *   Accessibility/IP: None.
+
+    *   **Verdict Notes:**
+        *   One criterion at 1; mean 4.5. Passes, but the assessment component is fundamentally flawed due to random distractors.
+
+    *   **Wait, let me re-read the Knowledge Check items carefully.**
+    *   KC-01 Options:
+        1. Sender's actual address (Correct).
+        2. Order lunch for the team first.
+        3. Restart your computer.
+        4. Change the colour of the screen.
+    *   KC-02 Options:
+        1. Report immediately (Correct).
+        2. Order lunch for the team first.
+        3. Restart your computer.
+        4. Change the colour of the screen.
+    *   The distractors are identical. They are not related to the stem. They are random.
+    *   Is it possible this is a test of "what is the correct answer vs what is not" rather than "what is the right *misconception*"? The rubric says: "Are distractors drawn from **real misconceptions**... A distractor nobody would ever choose teaches nothing."
+    *   These fit "nobody would ever choose".
+    *   Score: 1.
+
+    *   **Let's consider if I should penalize the Lesson for the Knowledge Checks.**
+    *   The lesson JSON has `blocks` for L1 and L2. The KCs are referenced.
+    *   The lesson itself (intro, worked example, scenario) is excellent. The KCs are external items.
+    *   However, the prompt says "Score what is on the page." The page includes the KCs.
+    *   The prompt also says "You are scoring a lesson... against `pipeline/rubric.md`."
+    *   I will score the KCs as part of the lesson delivery.
+
+    *   **Is there any other issue?**
+    *   L1: "The weakest signal... is the sender's display name". Correct.
+    *   "Look-alike domain". Correct.
+    *   "One-time code". Correct.
+    *   "Urgency". Correct.
+    *   Worked Example: Step "Notice that the deadline is two hours. Why? Urgency alone is not evidence. But urgency plus a request to act outside the normal route is very close to it." -> Good reasoning.
+    *   Scenario: "Manager email... reply-to address differs". Good.
+    *   Bilingual:
+        *   Arabic: "الاسم الظاهر نص حر يكتبه المُرسِل كما يشاء" -> "The display name is free text typed by the sender as they please". Natural.
+        *   "لا تسأل «هل تبدو هذه الرسالة مزيفة؟»" -> "Do not ask 'Does this message look fake?'". Natural.
+        *   "لاحظ أن المهلة ساعتان" -> "Notice that the deadline is two hours". Natural.
+
+    *   **One specific check on "Visual card":**
+    *   The rubric says: "A 'visual card' that is secretly a bulleted list fails this criterion [Level Fidelity]."
+    *   Looking at the `l1` blocks.
+    *   `sec1_d_lookalike` (Definition card) - Icon + Term + Def.
+    *   `sec1_d_otp` (Definition card) - Icon + Term + Def.
+    *   `sec1_tip` (Job tip) - Text.
+    *   `sec1_take` (Takeaways) - List of items.
+    *   The `takeaways` block has a `payload` with `itemsAr` and `itemsEn`. This looks like a list.
+    *   Is it a "visual card that is a bulleted list"?
+    *   Definition cards usually have an icon and a distinct layout. It doesn't look like a standard bulleted list to me visually from the text, but I have to infer.
+    *   The text says `type: "takeaways"`. This is a distinct type. It's likely rendered as a list. Is it a "bulleted list with a border"? The definition cards also might look like that.
+    *   However, "A 'visual card' that is secretly a bulleted list fails this criterion." implies a definition card (which is supposed to be a visual summary) just contains a list.
+    *   `sec1_d_lookalike` has Term, Def, Icon. This is a definition card.
+    *   `sec1_d_otp` is a definition card.
+    *   `sec1_take` is a takeaways block.
+    *   I don't see a bulleted list hidden inside a definition card. The definition cards contain text. The takeaways is a list.
+    *   I will stick with **5** on Level Fidelity. The blocks serve their level.
+
+    *   **Final Score Confirmation:**
+    *   Obj: 5
+    *   Lv: 5
+    *   Work: 5
+    *   KC: 1
+    *   Scen: 5
+    *   Bil: 5
+    *   Conc: 5
+    *   Acc: 5
+    *   Mean: 4.625.
+
+    *   **Constructing the JSON:**
+    *   `lesson`: "recognising-a-phishing-email"
+    *   `scores`: { ... }
+    *   `notes`: { "knowledge_check": "The distractors are implausible and generic (e.g., 'Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen'), failing to test real phishing misconceptions." }
+    *   `verdict_notes`: "One criterion scores 1 due to implausible distractors; the mean is 4.6. The lesson content is excellent, but the assessment component is fundamentally flawed."
+
+    *   **Double Check on "Automatic 1 on criterion 8":**
+    *   "any real licensed code descriptor or payer policy text — **automatic 1 on criterion 8**"
+    *   Is "IT Service Desk" a policy text? No.
+    *   Is "Account closing" a policy text? No, a generic scenario.
+    *   Is there any license text? No.
+
+    *   **Double Check on "Visual card":**
+    *   Definition cards are `termAr`, `termEn`, `defAr`, `defEn`, `icon`.
+    *   The prompt warns against "visual card that is a bulleted list".
+    *   A definition card *is* often a visual card. If it contained "Term: X", "Def: Y", "Def: Z", that would be a list. But here it's Term and Def. It's a definition.
+    *   The `takeaways` block is a list. Is it a "visual card"? It's a block type `takeaways`. It likely has a border or visual distinction. It contains a list.
+    *   Does it *fail* level fidelity? The prompt says "A 'visual card' that is secretly a bulleted list fails this criterion [Level Fidelity]."
+    *   This implies that if I make a "Definition Card" (which is a visual expectation) but just put a list of bullet points in it, it fails Level Fidelity (because it's not doing the "visual card" thing).
+    *   Here, the Definition Cards are Term + Def. That's the right structure for a definition card.
+    *   The `takeaways` block is a list. It's not a "definition card". It's a `takeaways` block. It serves the objective (L1 summary).
+    *   So Level Fidelity remains 5.
+
+    *   **Double Check on "Worked Example Steps":**
+    *   Step: "Notice that the deadline is two hours. Why? Urgency alone is not evidence. But urgency plus a request to act outside the normal route is very close to it."
+    *   This explains the "judgement" (is it phishing?) and "what would change it" (if it were just urgency, no. If it's urgency + action outside normal route, yes).
+    *   This fits the "5" criteria.
+
+    *   **Double Check on "Scenario Authenticity":**
+    *   "A message from your manager's display name... he is in a meeting... needs a supplier payment... reply-to address differs."
+    *   This is the classic "CEO Fraud" or "Manager Impersonation" email. It is extremely authentic.
+
+    *   **Final Decision on Knowledge Check (KC):**
+    *   The distractors are truly bad. They are generic "wrong answer" options that have no semantic relation to the question.
+    *   "Order lunch" is not a reaction to "Which signal outranks the display name?"
+    *   Therefore: 1.
+
+    *   **One detail:** The prompt says "Return exactly the JSON shape it specifies".
+    *   The example output has `verdict_notes` (not `verdict_notes` with quotes inside, but just the key).
+    *   It has `notes` (plural).
+    *   I will use the keys: `lesson`, `scores`, `notes`, `verdict_notes`.
+
+    *   Let's check the specific phrase "Two distractors restate the stem rather than naming a misconception" was a note for a 3. My note should explain the 1.
+
+    *   Ready to write the JSON.</think>```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "The distractors are implausible and generic (e.g., 'Order lunch for the team first', 'Restart your computer', 'Change the colour of the screen'). They do not test real phishing misconceptions."
+  },
+  "verdict_notes": "One criterion scores 1 due to implausible distractors; the mean is 4.6. The lesson content and delivery are excellent, but the assessment component is fundamentally flawed."
+}
+```

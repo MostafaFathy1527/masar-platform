@@ -1,0 +1,16 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "not_scored": {},
+  "verdict_notes": "All eight criteria scored a 5, giving an average of 5.0. The lesson meets all rubric requirements and would pass the QA gate."
+}

@@ -1,0 +1,219 @@
+<think>1.  **Analyze the Request:**
+    *   **Role:** Judge scoring a lesson against a provided rubric (`pipeline/rubric.md`).
+    *   **Context:** Fresh context (no generation prompt, source note, or previous verdict). I only see the JSON lesson and the knowledge check items.
+    *   **Task:** Score 8 criteria (1-5) based on the provided lesson.
+    *   **Specific Failures to Watch For:** Visual card as bulleted list, implausible distractors, feedback restating answer, worked example lacking "why", frictionless scenarios, Arabic word order issues, licensed code/payer policy text (auto-1 on criterion 8).
+    *   **Output:** JSON object only, with keys: `lesson`, `scores`, `notes` (required for <4 scores), `not_scored` (optional), `verdict_notes`.
+    *   **Lesson Info:**
+        *   Slug: `handling-a-customer-complaint`
+        *   Title: Handling a customer complaint / كيف تتعامل مع شكوى عميل
+        *   Bilingual: Yes (L1 and L2 levels).
+        *   Objectives: CS-01.
+    *   **Knowledge Checks Items:** Provided separately. Need to score these based on distractor realism and feedback quality.
+
+2.  **Analyze the Lesson Content (L1 & L2):**
+
+    *   **L1:**
+        *   *Heading:* "A complaint is the chance the others did not give you". Good hook.
+        *   *Rich Text:* Explains the nature of complaints (gap between expectation/reality). Explains "two problems" (event + feeling). Strong.
+        *   *Definition Cards (Acknowledgement, Agreed next step):*
+            *   Acknowledgement: Explains *what* it is and *what it isn't* (not an apology for feeling). Clear distinction.
+            *   Agreed next step: Explains the "Vague close" trap vs. Specific close. Good.
+        *   *Job Tip:* "What do you want to happen now?" Saves time. Practical.
+        *   *Takeaways:* 5 clear points. Aligned.
+
+    *   **L2:**
+        *   *Heading:* "Work one complaint from open to close".
+        *   *Worked Example:*
+            *   Prompt: "She was charged twice... nobody replied... wants to know who is responsible."
+            *   Steps:
+                1. Acknowledge (her words).
+                2. Check record, ask what she wants now.
+                3. State record facts (no blaming/defending queue).
+                4. Agreed next step (refund specifics).
+            *   *Why* steps: "Because it is the next step." -> **Critique:** The rubric asks for "reasoning that names the judgement being made and what would change it" (Criterion 3). "Because it is the next step" is extremely generic. It doesn't explain *why* acknowledging is better than apologizing or transferring. It just says "do the next thing."
+        *   *Scenario:*
+            *   Situation: Customer in chat asks for waiver (no auth). Team is away. Customer is angry/exhausted.
+            *   Option 1: Transfer without warm handover. Consequence: Re-explains, escalation.
+            *   Option 2: Promise waiver to defuse. Consequence: Broken promise.
+            *   Option 3: Warm handover (facts only). Best option. Very realistic friction.
+        *   *Knowledge Checks (referenced but provided in full):*
+
+3.  **Analyze the Knowledge Checks (CS-01-KC-01 & CS-01-KC-02):**
+
+    *   **KC-01:**
+        *   Stem: Angry call about late/broken order. First thing to say.
+        *   Option 1 (Sorry you feel): Feedback says "No. This apologises for the feeling... then goes straight to defending... brush-off." -> **Good.** Names the misconception (confusing apology with acknowledgement).
+        *   Option 2 (Facts): Correct.
+        *   Option 3 (Transfer): Feedback says "No... road to escalation." -> **Good.** Names the misconception (escalation path).
+        *   Option 4 (We'll make it up): Feedback says "No... broken promise." -> **Good.** Names misconception.
+
+    *   **KC-02:**
+        *   Stem: Agreed on refund. Close.
+        *   Option 1 (Colleagues follow up): Feedback says "No... manufactures repeat complaint." -> **Good.** Identifies the specific failure (vague closure).
+        *   Option 2 (Done): Feedback says "No... no idea if anything happened." -> **Good.**
+        *   Option 3 (Refund specifics): Correct.
+        *   Option 4 (Email us): Feedback says "No... hands burden back." -> **Good.** Identifies the failure (passing the buck without ownership).
+
+4.  **Scoring - Criterion by Criterion:**
+
+    *   **1. Objective Alignment:** Every block (intro, definitions, tips, worked example, scenario) relates to handling complaints, acknowledgement, and closure. No fluff. **Score: 5**.
+
+    *   **2. Level Fidelity:**
+        *   L1: Concepts definitions (Acknowledgement, Next Step) and basic intro. Good.
+        *   L2: Worked example walks through a specific case. Scenario adds a specific constraint (no auth). The "why" steps are weak (see below), but the level *experience* is L2.
+        *   *Note:* The definition cards are L1/L2 concepts. The worked example is clearly L2.
+        *   *Critique:* The definition cards look a bit like L1 content presented in a nice container. But the L2 section has substantial complexity (the scenario and worked example). I think it's a solid mix. The worked example "why" steps are weak, but the *content* is L2. I'll give a 4. It's good, but the worked example reasoning is very thin.
+
+    *   **3. Worked-Example Quality:**
+        *   *Prompt:* Clear.
+        *   *Steps:* Clear actions.
+        *   *Why:* "Because it is the next step." This is the major failure here. It does not explain *why* this specific step is crucial in this specific moment (e.g., why acknowledging first prevents escalation, why stating facts prevents blame).
+        *   Score: **3**. Reasoning is present (generic) rather than 5 (judgment-focused).
+
+    *   **4. Knowledge-Check Quality:**
+        *   *Distractors:* All come from real misconceptions (confusing apology/transfer, vague close, passing the buck).
+        *   *Feedback:* Explains the misconception. "This apologises for the feeling... brush-off." "This manufactures the repeat complaint." "This hands the burden back."
+        *   Score: **5**. Very strong.
+
+    *   **5. Scenario Authenticity:**
+        *   *Situation:* "Customer... written three long messages... says he won't explain again." "Can't authorise waiver."
+        *   *Analysis:* This is high friction. It captures the exhaustion of the customer and the constraint of the agent. It feels like a real support case, not a textbook "Customer asks for refund, agent gives it" story.
+        *   Score: **5**.
+
+    *   **6. Bilingual Quality:**
+        *   *Text:* Arabic flows naturally. The definitions sound like natural Arabic, not translated English word-for-word. "الشكوى ليست هجوماً" vs "A complaint is not an attack".
+        *   *Structure:* Headers, definitions, tips are all bilingual with matching structure.
+        *   Score: **5**.
+
+    *   **7. Concision and Reading Level:**
+        *   The text is dense but necessary. It's professional.
+        *   The "why" steps in the worked example are repetitive ("Because it is the next step"), but the block is concise overall. The prose isn't padded. It earns its space.
+        *   Score: **4**. It's good, but the repetitive "why" text makes it slightly less efficient than it could be, though not wordy. I'll stick with 4 as "clear but wordy" or "nothing removable without loss" (maybe borderline 5). Actually, the "Because it is the next step" is annoying. Let's go 4.
+
+    *   **8. Accessibility and IP:**
+        *   *Alt Text:* Not present in the JSON (images are referred to via IDs like `icon: "🗣️"`, which is text-based, or no image reference). The rubric says "Alt text on any image". I don't see images. I see emojis in the payload. If there are no images, it's compliant.
+        *   *Colors:* No indication of color reliance.
+        *   *IP:* No licensed code, payer policy text, or denylist terms found.
+        *   Score: **5**.
+
+5.  **Refining Scores & Notes:**
+
+    *   **Objective Alignment:** 5.
+    *   **Level Fidelity:** 4. L1 is solid, L2 is solid but the worked example is very repetitive.
+    *   **Worked Example:** 3. The "why" text is generic.
+    *   **Knowledge Check:** 5. Excellent feedback.
+    *   **Scenario Authenticity:** 5. Very realistic friction.
+    *   **Bilingual:** 5. Natural Arabic.
+    *   **Concision:** 4.
+    *   **Accessibility:** 5.
+
+    *   *Notes required for < 4:*
+        *   Worked Example: The reasoning steps are generic ("Because it is the next step").
+        *   Concision: The repetitive "why" text reduces the score slightly from 5.
+
+    *   *Verdict Notes:* One criterion at 3; mean 4.06. Passes.
+
+6.  **Final Check against Rubric constraints:**
+    *   "judge... Run in a fresh context" -> Checked.
+    *   "Return exactly the JSON shape it specifies" -> Checked.
+    *   "No markdown fences, no prose before or after the JSON." -> Checked.
+
+    *   *Self-Correction on Criterion 2 (Level Fidelity):* Is L2 truly L2? It has a worked example and a scenario. L1 is the concepts. This is a standard progression. 4 is appropriate because L1 is very heavy on definitions, which can sometimes feel like just reading a glossary, but it serves the foundation well.
+
+    *   *Self-Correction on Criterion 3 (Worked Example):* "Because it is the next step" is *so* weak that it might pull the average down. But is it a 1? No, the steps are logical. Is it a 3? Yes, generic. Is it a 4? The rubric says "3 — reasoning present but generic". This fits.
+
+    *   *Self-Correction on Criterion 7:* Is it too wordy? The intro is dense. The worked example repeats the "next step" structure. I'll keep it at 4.
+
+    *   *Check Knowledge Check Feedback:*
+        *   KC-01 Option 1: "This apologises for the feeling..." -> Good.
+        *   KC-02 Option 1: "This is the close that manufactures the repeat complaint." -> Excellent.
+        *   No "All of the above".
+        *   No implausible distractors.
+        *   Score 5 holds.
+
+    *   *Arabic Check:*
+        *   "الشكوى ليست هجوماً" vs "A complaint is not an attack". Matches meaning and tone.
+        *   "الخطوة التالية المتفق عليها". Matches "Agreed next step".
+        *   Natural flow. Score 5 holds.
+
+7.  **Constructing the Output JSON:**
+
+    ```json
+    {
+      "lesson": "handling-a-customer-complaint",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 4,
+        "worked_example": 3,
+        "knowledge_check": 5,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 4,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "worked_example": "The reasoning steps in the worked example are generic ('Because it is the next step') rather than explaining the specific judgment being made.",
+        "concision": "The worked example repeats a generic justification structure across all four steps."
+      },
+      "verdict_notes": "One criterion at 3; mean 4.06. Passes. The knowledge checks are excellent, and the scenario is highly realistic. The worked example quality is the main weak point due to the generic reasoning."
+    }
+    ```
+    *Wait, looking at the notes requirement:* "notes on any criterion you scored below 4".
+    I scored Worked Example: 3 (below 4). Concision: 4 (not below 4).
+    So I only need to put a note for Worked Example? Or notes *for* the criteria.
+    "notes (criterion -> string; required for every criterion you scored below 4)".
+    Okay, only Worked Example needs a note.
+
+    *Let's double check the mean.*
+    (5 + 4 + 3 + 5 + 5 + 5 + 4 + 5) / 8 = 36 / 8 = 4.5.
+    This is above 4.0. Pass.
+    One score is 3. Floor is 3. Pass.
+
+    *Refining the "Notes" section:*
+    Just one note for Worked Example is fine.
+
+    *Refining "Verdict Notes":*
+    "Mean 4.5. Passes. The knowledge checks are the strongest component, and the scenario is realistic. The worked example suffers from generic justification steps."
+
+    *Wait, did I miss any "Visual Card" = Bulleted List?*
+    The definition cards have "term", "def", "icon". They look like definition cards, not just a bulleted list with a border. I'll stick with 5 for objective alignment and accessibility. The rubric example of "visual card that is a bulleted list" is usually a card where the body is just `<ul><li></li></ul>`. These definitions have rich text.
+
+    *Check "Any real licensed code descriptor or payer policy text":*
+    I searched for terms like "ICD-10", "CPT", "HIPAA", "Payer", "Provider". None found. Just generic "subscription", "shipping policy", "contractual fee". Safe.
+
+    *Final Polish:*
+    Lesson Slug: `handling-a-customer-complaint`
+    Scores:
+    obj: 5
+    lev: 4 (L2 is good, L1 definitions are a bit dry but valid)
+    work: 3 (Generic why)
+    kc: 5
+    scen: 5
+    lang: 5
+    conc: 4 (Repetitive structure)
+    acc: 5
+
+    The note for Worked Example is accurate. "The steps assert... with generic reasoning."
+
+    Let's verify the "bilingual" claim.
+    "The rubric: Score Arabic quality against that claim."
+    The Arabic is high quality. 5.
+
+    Ready to write JSON.</think>{
+  "lesson": "handling-a-customer-complaint",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' steps in the worked example are generic ('Because it is the next step') and do not explain the specific judgment being made or the consequences of skipping it."
+  },
+  "verdict_notes": "Mean 4.5, floor 3. Passes. The scenario is highly realistic, and the knowledge checks effectively name misconceptions. The worked example quality is the only weak point due to the generic reasoning."
+}

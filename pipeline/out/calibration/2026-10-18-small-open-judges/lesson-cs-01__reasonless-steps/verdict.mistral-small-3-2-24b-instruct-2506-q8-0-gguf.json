@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.15,
+    "scored_at": "2026-10-17T23:11:03.201123+00:00",
+    "usage": {
+      "inputTokens": 7012,
+      "outputTokens": 221
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The steps in the worked example explain what to do but could provide more detailed reasoning for each step.",
+    "knowledge_check": "The knowledge checks are well-designed with plausible distractors and good feedback, but some feedback could be more specific in addressing misconceptions."
+  },
+  "verdict_notes": "The lesson is well-aligned with its objectives and levels. The worked example and knowledge checks are strong but could benefit from more detailed reasoning and feedback. The scenario is authentic and the bilingual quality is excellent."
+}

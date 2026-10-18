@@ -1,0 +1,18 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "All distractors are implausible (e.g., \"order lunch for the team\") and feedback for incorrect options merely restates \"not correct\" without addressing misconceptions."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson scores highly overall, but the knowledge checks are poorly designed, scoring 1. The mean is 4.38, above the 4.0 threshold, yet the low knowledge-check score will cause the gate to fail."
+}

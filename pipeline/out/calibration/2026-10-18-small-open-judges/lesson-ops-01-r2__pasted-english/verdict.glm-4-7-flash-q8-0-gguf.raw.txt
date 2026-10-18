@@ -1,0 +1,166 @@
+<think>**1. Understand the Goal:**
+The user wants me to act as a judge, scoring a specific lesson ("writing-a-shift-handover") against a provided rubric (`pipeline/rubric.md`). I must do this in a fresh context, blind to the original generation prompt. The output must be a specific JSON structure.
+
+**2. Analyze the Lesson ("writing-a-shift-handover"):**
+*   **Objective:** OPS-01 (Write a shift handover).
+*   **Concepts:** shift_handover, open_item, urgent_item, fact_vs_guess, commitment, shared_record.
+*   **Levels:** L1 (Definitions, flow), L2 (Application, scenario, worked example).
+*   **Format:** Bilingual (Arabic/English).
+
+**3. Analyze the Knowledge Checks (to score criterion 4):**
+*   **KC-01:**
+    *   Stem: Order of items in handover.
+    *   Distractor 1: Arrival order (misconception: fairness).
+    *   Distractor 2: Hardest/interesting (misconception: bias).
+    *   Distractor 3: Ticket number (misconception: organization by ID).
+    *   Correct: Urgency order.
+    *   Feedback: Good. Mentions "burying an item due within the hour".
+    *   Verdict: High quality.
+*   **KC-02:**
+    *   Stem: Colleague's handover has unverified guess ("card is expired").
+    *   Correct option: Presents guess as fact.
+    *   Distractor 1: "Nothing, it's short" (misconception: brevity = good).
+    *   Distractor 2: "Needs more detail" (misconception: length = quality).
+    *   Distractor 3: "Mention card at all" (misconception: deletion vs. labeling).
+    *   Feedback: Excellent. Identifies the specific misconception: "guess presented as fact".
+    *   Verdict: High quality.
+
+**4. Score Each Criterion (1-5):**
+
+*   **Criterion 1: Objective Alignment**
+    *   The lesson defines shift handover, urgent items, facts vs. guesses, commitments, and a shared record.
+    *   L1: Definitions align with "What is a shift handover?" and concepts introduced.
+    *   L2: Applied these concepts in a worked example and scenario.
+    *   Scoring: 5. Everything serves the objective of writing a handover.
+
+*   **Criterion 2: Level Fidelity**
+    *   L1: Uses definition cards and process flows (interactive=false). Looks like an intro to the concepts.
+    *   L2: Uses process_flow (interactive=true), worked_example, scenario (with decisions/feedback), and sort_buckets.
+    *   Check for "visual card that is secretly a bulleted list": The definition cards have icons and borders, but they are distinct blocks. The process_flow is a specific block type.
+    *   L2 content is definitely more complex than L1. It applies the rules.
+    *   Scoring: 5. L1 sets up the pieces, L2 uses them.
+
+*   **Criterion 3: Worked-Example Quality**
+    *   The worked example (Ticket #4523) has steps.
+    *   Step 1: "What is it? - Ticket #4523..." Why: "A clear identifier..."
+    *   Step 2: "What is the status?..." Why: "Shows the status as a fact..."
+    *   Step 3: "What has been done?..." Why: "Prevents repeating..."
+    *   Step 4: "What happens next...?" Why: "Clear action with a deadline..."
+    *   The "Why" explains the *judgement* being made (clarity, preventing duplication, meeting the commitment) and what would change it (vague identifier). This is strong.
+    *   Scoring: 5. Every step explains the "Why".
+
+*   **Criterion 4: Knowledge-Check Quality**
+    *   KC-01: Distractors are real misconceptions (fairness, interest). Feedback explains why arrival order fails (buries urgent items). Good.
+    *   KC-02: Distractors are real misconceptions (brevity is enough, more detail is needed). Feedback explains the "guess vs fact" trap clearly.
+    *   No implausible distractors.
+    *   Scoring: 5. All distractors are plausible misconceptions with feedback that diagnoses the misconception.
+
+*   **Criterion 5: Scenario Authenticity**
+    *   Scenario: Ending shift, two open items (Ali's ticket with 14:00 deadline, Supplier order). The "friction" is ordering by urgency vs. arrival.
+    *   The decision branches are very specific: arrival order (bad), URGENT (good), "All good" (bad).
+    *   Is this realistic? Yes, shift handovers often have this specific tension between what just happened and what is due.
+    *   The decision feedback is detailed and explains the consequences for the *next person*.
+    *   Scoring: 5. Recognisable situation with realistic consequences.
+
+*   **Criterion 6: Bilingual Quality**
+    *   I need to check if Arabic is "natural" or "translated".
+    *   L1 Intro: "A shift handover is the moment work changes hands at the end of a shift..." -> "التحويل هو moment..." No, wait.
+    *   Text check:
+        *   "moment work changes hands" -> "moment العمل يتغير بين يدي" ? Or "العمل يتسلم للشخص التالي"?
+        *   Let's look at the provided Arabic text: "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you."
+        *   Arabic provided: "نقطة تحويل العمل عند نهاية الوردة، حيث يتم تسجيل السياق، بحيث يمكن للشخص التالي المتابعة بدون سؤالك." (Translated: A handover point at the end of the shift where context is recorded so the next person can continue without asking you).
+        *   Let's look at the Definition Card: "Shift handover" -> "التحويل" (Handover/Transfer). "Open item" -> "عنصر مفتوح". "Urgent item" -> "عنصر عاجل".
+        *   Let's look at the Worked Example Steps:
+            *   Show: "What is it? – Ticket #4523: customer payment failure."
+            *   Arabic: "ما هو؟ - تذكرة #4523: فشل دفع العميل."
+            *   Why: "A clear identifier lets the receiver locate the ticket quickly."
+            *   Arabic: "محدد واضح يسمح للطرف الآخر بتحديد التذكرة بسرعة."
+        *   Let's look at KC-02:
+            *   Stem: "A colleague's handover reads: \"Ticket 77: the customer's card is expired. Ask for a new card.\""
+            *   Arabic: "قراءة زميلك: تذكرة 77: بطاقة العميل منتهية. اطلب بطاقة جديدة."
+            *   Distractor Feedback: "Being short and having an action is not enough when the action rests on an assumption presented as fact."
+            *   Arabic: "لا يكفي أن تكون موجزة وتحمل إجراءً عندما يعتمد الإجراء على فرضية معروضة كحقيقة."
+        *   *Analysis:* The Arabic appears to be translated from English. It is accurate (meaning-wise) but lacks the natural flow of Arabic technical writing. It follows English structure (e.g., "moment work changes hands" -> "نقطة تحويل العمل" or similar). It doesn't sound like something a native Arabic speaker wrote as their first draft.
+        *   However, the rubric says "An English-only lesson is not penalised here — it is scored against its own declaration. What is penalised is Arabic that reads as machine output." and "1 — Arabic is a literal rendering of English word order."
+        *   Is "literal rendering" true?
+            *   "What is it?" -> "ما هو؟"
+            *   "Ticket #4523" -> "تذكرة #4523" (Standard).
+            *   "A clear identifier lets the receiver locate the ticket quickly" -> "محدد واضح يسمح للطرف الآخر بتحديد التذكرة بسرعة" (Passive voice structure, common in translations, natural in Arabic).
+        *   Is it a 1? No. The meaning is preserved, and while it's not "native flair", it's not "Translationese" in a bad way (like "The book on the table is red" -> "الكتاب على الطاولة أحمر"). The Arabic is serviceable professional Arabic.
+        *   Is it a 5? It lacks the rhythm of native content.
+        *   I'll stick with a 4 or 5. Given the rubric's instruction "reads as though written in Arabic", this is likely a translation. 4 is safe for "accurate, occasionally stiff". 5 is a stretch because it's clearly LLM-translated text based on the source structure. I will score 4.
+
+*   **Criterion 7: Concision and Reading Level**
+    *   The lesson is dense with definitions.
+    *   The "Fact vs Guess" sort bucket is concise.
+    *   The worked example is concise.
+    *   There is some padding in the introduction ("Length is not the measure; a page of narrative...").
+    *   The process flow steps in L2 are very short ("Write the ticket number..."). This is good.
+    *   Scoring: 4. It's clear but wordy in the definitions section. It's efficient in the application section.
+
+*   **Criterion 8: Accessibility and IP**
+    *   Check for images? No images in the JSON.
+    *   Check for alt text? N/A.
+    *   Check for color reliance? N/A.
+    *   Check for licensed code/payer policy text? No.
+    *   Check for "forbidden-term denylist"? No obvious ones.
+    *   Scoring: 5. Compliant.
+
+**5. Verify Notes and Verdict:**
+
+*   **Notes:**
+    *   Criterion 4 (Knowledge Check): KC-01 and KC-02 are both very strong. All distractors are realistic misconceptions ("It's short so it's fine", "More detail needed"). Feedback names the misconception clearly.
+    *   Criterion 6 (Bilingual): The Arabic text appears to be a translation of the English. While accurate, it follows English syntax (e.g., "A clear identifier..." -> "محدد واضح..."). It feels slightly stiff.
+
+*   **Verdict Notes:**
+    *   Mean: (5+5+5+5+5+4+4+5) / 8 = 37 / 8 = 4.625.
+    *   Floor: All are 3 or higher.
+    *   The lesson passes.
+    *   "Strong performance, particularly in the worked examples and knowledge checks. The bilingual translation is accurate but retains some English sentence structures."
+
+**6. Refining the JSON Output:**
+*   Must return exactly one JSON object.
+*   Keys: lesson, scores, notes, not_scored, verdict_notes.
+*   Format: No markdown fences.
+
+**Self-Correction/Refinement:**
+*   Re-evaluating Bilingual Quality (4 vs 5). The Arabic is quite literal in places.
+    *   Example: "What is it? – Ticket #4523..." -> "ما هو؟ - تذكرة..."
+    *   Example: "A clear identifier lets the receiver locate the ticket quickly." -> "محدد واضح يسمح للطرف الآخر بتحديد التذكرة بسرعة."
+    *   It's a functional translation, but definitely not "written in Arabic" (5). It reads like a translation (4). I'll stick with 4.
+*   Re-evaluating Concision (4 vs 5). The definition cards (Shift handover, Open item, etc.) are very standard. They don't add much "fluff" but they are the core of the L1 content. The intro text is a bit wordy ("Length is not the measure..."). I'll keep it at 4.
+
+**Final Scores:**
+Objective Alignment: 5
+Level Fidelity: 5
+Worked Example: 5
+Knowledge Check: 5
+Scenario Authenticity: 5
+Bilingual Quality: 4
+Concision: 4
+Accessibility/IP: 5
+
+**Notes:**
+*   knowledge_check: Distractors are grounded in real misconceptions (e.g., equating brevity with correctness, or length with detail), and feedback explicitly diagnoses these errors.
+*   bilingual_quality: Arabic text is accurate but follows English syntactic patterns, sounding slightly like a translation.
+
+**Verdict:** Pass (Mean > 4, Floor >= 3).
+
+Let's write the JSON.</think>{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "All distractors reflect real misconceptions (e.g., equating brevity with correctness, or length with detail), and the feedback explicitly diagnoses the underlying error.",
+    "bilingual_quality": "Arabic is accurate and clear, but follows English syntactic word order in several instances (e.g., "A clear identifier..." translated literally), resulting in a slightly stiff tone."
+  },
+  "verdict_notes": "Strong alignment and fidelity across all levels. The worked examples and knowledge checks are high quality. The bilingual content is functional but leans into translationese in places. Mean score: 4.63. Passes."
+}

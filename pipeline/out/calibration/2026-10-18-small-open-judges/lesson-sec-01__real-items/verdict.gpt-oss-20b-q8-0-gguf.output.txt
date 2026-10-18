@@ -1,0 +1,15 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "All eight criteria scored 5. The lesson fully aligns with its objective, correctly follows the declared levels, provides high‑quality worked examples and knowledge checks, uses realistic scenario details, offers natural Arabic, maintains concise prose, and complies with accessibility and IP requirements."
+}

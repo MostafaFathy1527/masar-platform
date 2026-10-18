@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "gpt-oss-20b-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:23:48.778578+00:00",
+    "usage": {
+      "inputTokens": 6977,
+      "outputTokens": 1438
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Each option’s feedback simply repeats the answer label (e.g., \"Correct\" or \"Incorrect\") and does not explain why an option is right or wrong, missing the required misconception‑based explanation. The distractors also fail to represent real misconceptions.",
+    "concision": "Several explanatory passages, such as the introductory definition and some tip sections, could be shortened without changing the instructional intent, indicating mild redundancy."
+  },
+  "verdict_notes": "The lesson scores highly on alignment, level, worked example, scenario, bilingual quality, and accessibility, but the knowledge checks are insufficient (score 1) and the concision is somewhat wordy. The mean score is 4.38, yet the presence of a criterion below 3 means it would fail the gate."
+}

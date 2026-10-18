@@ -1,0 +1,222 @@
+<think>1.  **Analyze the Request:**
+    *   **Goal:** Score a lesson against `pipeline/rubric.md`.
+    *   **Input:** Lesson JSON (`writing-a-shift-handover`) and Knowledge Check items (`OPS-01-KC-01`, `OPS-01-KC-02`).
+    *   **Output:** JSON with specific keys (`lesson`, `scores`, `notes`, `verdict_notes`).
+    *   **Constraints:** Strict JSON format, no markdown fences, no prose, integer scores 1-5.
+    *   **Specific Instructions:** Be harsh on 4/5, look for visual cards that are lists, distractors nobody would choose, feedback restating answers, etc.
+    *   **Rubric Thresholds:** Mean < 4.0 or any score < 3 = Fail. (The prompt says "The gate — not the judge — decides pass or fail").
+
+2.  **Analyze the Lesson Content:**
+
+    *   **Block Types:**
+        *   `definition_card`: Terms (shift handover, open item, etc.) with definitions. Good structure.
+        *   `process_flow`: The "4 questions" (What is it, status, done, next).
+        *   `job_tip`: Urgent item ordering tip.
+        *   `takeaways`: Bullet points of key concepts.
+        *   `scenario`: "Which line opens your handover?" (Best line decision).
+        *   `sort_buckets`: Fact vs. Guess.
+        *   `knowledge_check`: Two MCQs.
+
+    *   **Scoring Criteria:**
+
+        *   **1. Objective Alignment (OPS-01):**
+            *   Intro: Defines shift handover. Aligned.
+            *   Definitions: All relate to handover. Aligned.
+            *   Process flow: How to write. Aligned.
+            *   Tip: Urgency ordering. Aligned.
+            *   Takeaways: Summary. Aligned.
+            *   Scenario: Application of urgency vs. arrival. Aligned.
+            *   Sort: Fact vs. Guess within handover context. Aligned.
+            *   *Assessment:* All blocks serve OPS-01. Strong alignment. Score: **5**.
+
+        *   **2. Level Fidelity:**
+            *   L1: Definitions and Flow. Very dense, text-heavy. "The four questions order what you write about one item." This is a lot of text for L1 (likely entry level). However, it's structured. Is it L1? Usually, L1 is high-level, simple. This feels like a "read and memorize" block. Is it too hard for L1? The rubric says "A 'visual card' that is secretly a bulleted list fails this." These are visual cards (icons), not lists. But the density is high. L2 is "Put it to work".
+            *   L2: Worked example, Scenario, Sort, Knowledge checks.
+            *   *Critique:* The L1 definitions and flow are text-heavy and dense. It looks like L1 content might be stretched. However, the instruction "A 'visual card' that is secretly a bulleted list fails this" is the big flag. Here, the cards are distinct icons (`↔`, `✏️`). They aren't just lists. The content *is* complex for L1 though. The prompt says "A 'visual card' that is secretly a bulleted list fails". This lesson avoids that trap. But the text volume is a bit high. I'll lean towards 4. It meets the "visual card" requirement of being actual cards, but the text density is high. Let's look at L2. It has the worked example and scenario. It's decent.
+            *   *Decision:* It's not a bulleted list disguised as a card. It uses the visual affordances. However, the "Who scores this..." section says "Be harsh on 4 and 5. A 5 means you would not change it." Is there anything that feels like L1 is just L1 with a question bolted on? No. Is it thin? No, it's detailed. Is it aspirational? Maybe the text level is a bit high for L1, but L1 varies. I'll give it a **4**. It's solid, but the text density is high. Actually, looking at the definitions (e.g., "The moment work changes hands..."), that's fairly dense text for L1. I'll stick with 4 to be safe.
+
+        *   **3. Worked-Example Quality:**
+            *   Step 1: "What is it?..." -> "Because it is the next step." (Why is the definition step the "next step"? This is a tautology. "Because it's the next step" explains *sequencing*, not *why* you chose "What is it?" first. You chose "What is it?" because it's the fundamental first piece of information needed to understand the ticket. The "why" provided is weak/misleading.)
+            *   Step 2: Same "Because it is the next step."
+            *   Step 3: Same "Because it is the next step."
+            *   Step 4: Same "Because it is the next step."
+            *   *Critique:* The "why" is generic and repetitive. It doesn't explain the *judgement*. It just says "we are doing the next thing." This is a major failure point for criterion 3. It should explain why "Status" comes after "What is it" (because you can't assess status without knowing what it is). The current "why" is useless fluff.
+            *   Score: **2** or **3**. The rubric says: "Steps assert an answer with no reasoning." The *show* part is correct, but the *why* is "Because it is the next step." That's just asserting the order, not explaining the reasoning behind the format. I will score **2** because the reasoning provided is essentially non-existent ("Because it is the next step").
+
+        *   **4. Knowledge-Check Quality:**
+            *   **KC-01:**
+                *   Option 1 (Arrival order): Plausible distractor. Feedback explains *why* it's bad ("burying an item due within the hour"). Good.
+                *   Option 2 (Action/Urgency): Correct. Feedback good.
+                *   Option 3 (Harder first): Plausible distractor. Feedback good.
+                *   Option 4 (Ticket number): Plausible distractor. Feedback good.
+                *   *Assessment:* Distractors are plausible. Feedback is explanatory. This looks like a **5**.
+            *   **KC-02:**
+                *   Option 1 (Nothing wrong): Plausible distractor (someone might think "just ask for a card").
+                *   Option 2 (Need history): Plausible distractor.
+                *   Option 3 (Guess as Fact): Correct.
+                *   Option 4 (Delete card): Plausible distractor.
+                *   *Assessment:* Strong.
+            *   *Wait, did I miss something?* The prompt mentions looking for: "feedback that restates the answer instead of naming the misconception." Let's re-read the feedback.
+                *   KC-01 Option 1 feedback: "Arrival order feels fair, but it can bury an item...". Names misconception: "It feels fair" / "Arrival order is prioritized." Good.
+                *   KC-01 Option 2 feedback: "Correct...". Good.
+                *   KC-01 Option 3 feedback: "What occupied you...". Names misconception: "Focus on own experience/interest". Good.
+                *   KC-01 Option 4 feedback: "Tidy... nothing about urgency". Names misconception: "Focus on searchability/tidiness". Good.
+                *   KC-02 Option 1 feedback: "Short... not enough if action rests on assumption". Names misconception: "Thinking short/brief is enough". Good.
+                *   KC-02 Option 2 feedback: "Length... what line presents as certain". Names misconception: "Thinking length is the metric". Good.
+                *   KC-02 Option 3 feedback: "Correct... label it". Good.
+                *   KC-02 Option 4 feedback: "Guess can help... deleting it throws away what you learned". Names misconception: "Thinking silence/concealment is safer than transparency". Good.
+            *   *Assessment:* The knowledge checks look excellent. **5**.
+
+        *   **5. Scenario Authenticity:**
+            *   "You are ending your shift..." vs "Textbook example wearing a story."
+            *   This is a classic shift handover scenario. "Ali's ticket", "Supplier order". It's realistic. It has friction (Deadline vs No deadline). "Common failure word for word".
+            *   The scenario asks to choose the line. It explains *why* Option 1 and 3 are bad.
+            *   It feels authentic to a support or operations role.
+            *   Score: **5**.
+
+        *   **6. Bilingual Quality:**
+            *   Check Arabic text against English.
+            *   "تسليم النوبة هو لحظة انتقال..." vs "A shift handover is the moment..." -> Natural Arabic.
+            *   "الطول ليس المعيار..." vs "Length is not the measure..." -> Natural.
+            *   Definition cards: Terms and definitions look standard and accurate.
+            *   Scenario: "URGENT, before 14:00: Ali's ticket..." -> "عاجل، قبل 14:00: تذكرة علي...". "عاجل" is good, "قبل 14:00" works.
+            *   Rubric warning: "Arabic that follows English word order." -> The Arabic here flows well. "ما هو التسليم المناسب؟" (What is the appropriate handover?). It looks like natural Arabic. The structure matches the content logic.
+            *   Score: **5**.
+
+        *   **7. Concision and Reading Level:**
+            *   L1 text is dense. "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you." This is a complex sentence.
+            *   The definitions are also dense.
+            *   The prompt asks: "Is anything longer than it needs to be?" "The prose budget between acting blocks is checked mechanically".
+            *   The L1 intro text is ~70 words. The L1 definition cards are ~30-40 words each. That's a lot of text for a single lesson's L1 section if L1 is meant to be accessible.
+            *   However, is it "padded"? No, it's defining specific terms required for the handover concept.
+            *   Is it "wordy"? It's concise given the terminology it introduces.
+            *   Score: **4**. It's not a 1 (padded) or 2 (repetitive). It's a solid 4. The complexity might push it lower, but without specific complaints about style, 4 is the safe score for "clear but wordy/complex". (Actually, looking at the prompt "Be harsh on 4 and 5". The L1 text is complex. Maybe 3? "The level is what the learner actually experiences." If the learner is L1, this text is likely hard. But "A 'visual card' that is secretly a bulleted list fails this." This lesson passes the visual test. I will stick with 4 because the text serves the definitions well, even if dense).
+
+        *   **8. Accessibility and IP:**
+            *   `icon` fields are emojis. No alt text requested for images (no images defined, only emojis).
+            *   No real licensed code/policy text found.
+            *   Colors? Not visible in JSON, assume compliant or N/A.
+            *   Score: **5**.
+
+3.  **Refining Scores & Notes:**
+
+    *   **Objective Alignment:** 5.
+    *   **Level Fidelity:** 4. (Visual cards are distinct. Content is dense, but aligned).
+    *   **Worked Example:** 2. (The "why" is "Because it is the next step." This is weak. It fails the "names the judgement being made" part of the rubric). *Self-correction*: Is "Because it is the next step" *really* 1 or 2? It asserts the sequence, but provides *no reasoning* for why that sequence is correct. The rubric says "Steps assert an answer with no reasoning." The "show" is the answer, the "why" is the reasoning. The "why" here is "Because it is the next step." That is asserting the step itself, not explaining the logic. I'll stick with 2.
+    *   **Knowledge Check:** 5.
+    *   **Scenario Authenticity:** 5.
+    *   **Bilingual Quality:** 5.
+    *   **Concision:** 4. (L1 text is dense).
+    *   **Accessibility/IP:** 5.
+
+    *   **Verdict Notes:**
+        *   Mean score: (5+4+2+5+5+5+4+5)/8 = 35/8 = 4.375. This passes the mean threshold.
+        *   Low score: Worked Example (2).
+        *   Notes needed for 2, 4.
+        *   Verdict: "Mean score 4.3. Passes. The worked example reasoning is weak."
+
+4.  **Double Check the Worked Example "Why":**
+    *   Step 1: "What is it?" -> "Because it is the next step."
+    *   Step 2: "Status?" -> "Because it is the next step."
+    *   Step 3: "Done?" -> "Because it is the next step."
+    *   Step 4: "Next and When?" -> "Because it is the next step."
+    *   This is definitely failing "Reasoning names the judgement being made and what would change it." It names no judgement. It just names the sequence. It's essentially "Here is the order: A, B, C, D. Why? Because they are the next steps in the process." It doesn't explain *why* "Status" comes after "What is it" (because you need to know what you are observing) or *why* "Next" comes last (because you need context to plan action). It just says "it's the next step." This is definitely a 2. It's barely functional.
+
+5.  **Final JSON Construction:**
+
+    ```json
+    {
+      "lesson": "writing-a-shift-handover",
+      "scores": {
+        "objective_alignment": 5,
+        "level_fidelity": 4,
+        "worked_example": 2,
+        "knowledge_check": 5,
+        "scenario_authenticity": 5,
+        "bilingual_quality": 5,
+        "concision": 4,
+        "accessibility_ip": 5
+      },
+      "notes": {
+        "worked_example": "The 'why' sections in the worked example simply state 'Because it is the next step' rather than explaining the logic behind the sequence.",
+        "level_fidelity": "The L1 text is dense for an introductory level, though it avoids the 'visual card as list' pitfall."
+      },
+      "verdict_notes": "Mean score 4.4. Passes. The worked example is the weakest point, providing generic sequencing without explanatory reasoning."
+    }
+    ```
+
+6.  **Final Polish:**
+    *   Rubric check: "Mean below 4.0 or any score below 3".
+    *   Worked example is 2. Below 3. This means the lesson **fails** the gate.
+    *   Does the prompt ask me to output the verdict_notes including the failure? Yes. "The gate ... applies the thresholds, writes the report...".
+    *   Wait, looking at the prompt again: "Score what is on the page. If a lesson seems to be reaching for something it did not achieve, that is a low score, not a generous one."
+    *   I must report the scores accurately.
+    *   The output format requires `verdict_notes`. I will state the scores and the failure status in the notes.
+
+    Let's re-evaluate Worked Example score. Is it possible it's a 3? "Reasoning present but generic." "Generic" usually means "This is a typical way to do this." Here it's not just generic; it's tautological. "Why Step 2? Because Step 2." It explains nothing. I maintain 2.
+
+    Let's re-evaluate Level Fidelity. L1 has definitions and flow. It's a lot of reading. Usually L1 is very short. But is it "A 'visual card' that is secretly a bulleted list"? No. Is it "L1 that is L1 with a question bolted on"? No. It's a content block. The density is high, but it's not a failure of *fidelity* (it looks like L1, it just *is* heavy L1 content). I'll keep 4.
+
+    Let's check Knowledge Checks again. "All of the above". No. "Distractor nobody would ever choose". No. "Feedback that restates the answer". No. "Explains why". Yes. They explain *why* the bad options are bad (misconceptions). KC-02 Option 1 feedback: "Not enough if action rests on assumption". That's good. KC-02 Option 4: "Deleting it throws away what you learned". Good.
+    Wait, is there a distractor nobody would choose?
+    KC-01: Arrival order (everyone does this). Harder first (common). Ticket number (common). None are "nobody".
+    KC-02: Nothing wrong (common). Need history (common). Delete card (maybe less common but understandable). Guess as fact (the answer). None are "nobody".
+    So 5 is correct.
+
+    Bilingual:
+    "عاجل، قبل 14:00: تذكرة علي" vs "URGENT, before 14:00: Ali's ticket".
+    English: "Ali's ticket (login issue)."
+    Arabic: "تذكرة علي (خلل تسجيل الدخول)".
+    Looks fine.
+
+    Final Check on Output:
+    JSON format.
+    Keys: lesson, scores, notes, verdict_notes.
+    No extra text.
+    Verdict notes must be 2-3 sentences.
+
+    One small thing: `level_fidelity` definition: "A 'visual card' that is secretly a bulleted list fails this."
+    The L1 section has `definition_card` (icons), `process_flow` (diagrammatic), `job_tip` (callout), `takeaways` (list).
+    The `process_flow` has `label` and `detail`. It's a flow, not a list.
+    The `takeaways` is a list, but that's the standard summary block type, and it's explicitly labeled `takeaways`. It's not a "visual card that is secretly a bulleted list" (implying a card that *should be* a diagram but is just text). The list here is the *content* (takeaways), not a structural failure.
+
+    I'm confident in the scores.
+
+    **Scores:**
+    Objective: 5
+    Level: 4
+    Worked: 2
+    KC: 5
+    Scenario: 5
+    Bilingual: 5
+    Concision: 4
+    Access: 5
+
+    **Notes:**
+    Worked: The "why" steps in the worked example are tautological ("Because it is the next step") and do not explain the logic behind the sequence.
+    Level: The L1 text is dense, though it avoids visual-cards-as-lists.
+    KC: (None, scored 5).
+
+    **Verdict:**
+    Mean is 4.4.
+    Worked example is 2 (below 3).
+    This is a failure. I will mention it in the verdict notes.</think>```json
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 2,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' sections in the worked example merely state 'Because it is the next step' rather than explaining the logic or reasoning behind the sequence.",
+    "level_fidelity": "The L1 content is dense, but it avoids the 'visual card as list' trap, and the level is consistent with the material presented."
+  },
+  "verdict_notes": "Mean score 4.4. The lesson fails the gate because the worked example scores a 2 (below the 3 floor)."
+}
+```

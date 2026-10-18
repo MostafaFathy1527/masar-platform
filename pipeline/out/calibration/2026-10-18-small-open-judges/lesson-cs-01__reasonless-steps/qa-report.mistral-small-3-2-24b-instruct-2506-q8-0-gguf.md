@@ -1,0 +1,29 @@
+# QA gate report — handling-a-customer-complaint
+
+**Result: PASS**
+
+Mean 4.75 over 8 scored criteria (threshold 4.0); lowest criterion 4 (floor 3).
+
+Lesson levels: L1, L2.
+
+> LLM rubric score, fresh-context judge, self-assessed — not human QA
+
+| Criterion | Score | Note |
+|---|---|---|
+| objective alignment | 5 |  |
+| level fidelity | 5 |  |
+| worked example | 4 | The steps in the worked example explain what to do but could provide more detailed reasoning for each step. |
+| knowledge check | 4 | The knowledge checks are well-designed with plausible distractors and good feedback, but some feedback could be more specific in addressing misconceptions. |
+| scenario authenticity | 5 |  |
+| bilingual quality | 5 |  |
+| concision | 5 |  |
+| accessibility ip | 5 |  |
+
+**Judge independence:**
+
+> This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA.
+
+
+Judge's summary:
+
+> The lesson is well-aligned with its objectives and levels. The worked example and knowledge checks are strong but could benefit from more detailed reasoning and feedback. The scenario is authentic and the bilingual quality is excellent.

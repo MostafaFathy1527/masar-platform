@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "gpt-oss-20b-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:24:04.543333+00:00",
+    "usage": {
+      "inputTokens": 7017,
+      "outputTokens": 1406
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "All distractors are implausible (e.g., \"order lunch for the team\") and feedback for incorrect options merely restates \"not correct\" without addressing misconceptions."
+  },
+  "verdict_notes": "The lesson scores highly overall, but the knowledge checks are poorly designed, scoring 1. The mean is 4.38, above the 4.0 threshold, yet the low knowledge-check score will cause the gate to fail."
+}

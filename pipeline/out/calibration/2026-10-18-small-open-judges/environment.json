@@ -1,0 +1,110 @@
+{
+ "what": "Five open models small enough for one or two 32 GB cards, through calibrate_judges.py: Mistral Small 3.2 24B, Falcon-H1-34B, gpt-oss-20b, GLM-4.7-Flash and Qwen3-30B-A3B-Thinking-2507. The question: can an open judge that fits on a rented card or two be seated?",
+ "date": "2026-10-18",
+ "hardware": "2 x Tesla V100-SXM3-32GB, driver 580.178.04, CUDA 12.9",
+ "llama_cpp_commit": "797de63b2fa7396dcc8caca76834c699ac84e1c3",
+ "llama_cpp_build": "cmake -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=70 -DLLAMA_CURL=OFF -DCMAKE_BUILD_TYPE=Release",
+ "models": [
+  {
+   "file": "GLM-4.7-Flash-Q8_0.gguf",
+   "repository": "unsloth/GLM-4.7-Flash-GGUF",
+   "quantisation_of": "zai-org/GLM-4.7-Flash (mit)",
+   "bytes": 31842799968,
+   "sha256": "8c0922b03326932a40315ce92bbee01cc836ad18664268019143c898bdd7dd0b",
+   "generation_config_sampling": {
+    "temperature": 1.0
+   }
+  },
+  {
+   "file": "gpt-oss-20b-Q8_0.gguf",
+   "repository": "unsloth/gpt-oss-20b-GGUF",
+   "quantisation_of": "openai/gpt-oss-20b (apache-2.0)",
+   "bytes": 12109567168,
+   "sha256": "bcd455d4034ec02f71a875b46cb17df44a97911d7258291973be4d21f98329f3",
+   "generation_config_sampling": {
+    "do_sample": true
+   }
+  },
+  {
+   "file": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+   "repository": "tiiuae/Falcon-H1-34B-Instruct-GGUF",
+   "quantisation_of": "tiiuae/Falcon-H1-34B-Instruct (other)",
+   "bytes": 35765777120,
+   "sha256": "97e3685afe38aa8ef44d03bcf1d8671b436e227d567f12e0297901d830d8e576",
+   "generation_config_sampling": {}
+  },
+  {
+   "file": "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf",
+   "repository": "unsloth/Mistral-Small-3.2-24B-Instruct-2506-GGUF",
+   "quantisation_of": "mistralai/Mistral-Small-3.2-24B-Instruct-2506 (apache-2.0)",
+   "bytes": 25054793248,
+   "sha256": "b2a40e5ef4eab8837d0462c303e8147ec754e2963e41916b551107d2b0ca6527",
+   "generation_config_sampling": {
+    "temperature": 0.15,
+    "do_sample": true
+   }
+  },
+  {
+   "file": "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf",
+   "repository": "unsloth/Qwen3-30B-A3B-Thinking-2507-GGUF",
+   "quantisation_of": "Qwen/Qwen3-30B-A3B-Thinking-2507 (apache-2.0)",
+   "bytes": 32483932576,
+   "sha256": "6326967c7bad05e9820421a593d48e315416b214cef56f1ca3c1f9d9a6e0f1c6",
+   "generation_config_sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "do_sample": true
+   }
+  }
+ ],
+ "hashes_checked": "every sha256 above was computed on the server after download and equals the LFS hash Hugging Face lists for the file",
+ "servers": {
+  "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf": "llama-server -ngl 999 -c 49152 -np 4 --jinja (12,288 tokens a slot)",
+  "Falcon-H1-34B-Instruct-Q8_0.gguf": "llama-server -ngl 999 -c 49152 -np 4 --jinja (12,288 a slot)",
+  "gpt-oss-20b-Q8_0.gguf": "llama-server -ngl 999 -c 98304 -np 4 --jinja (24,576 a slot; default reasoning format, so the reply content is the final channel)",
+  "GLM-4.7-Flash-Q8_0.gguf": "llama-server -ngl 999 -c 98304 -np 4 --jinja --reasoning-format none (24,576 a slot)",
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": "llama-server -ngl 999 -c 98304 -np 4 --jinja --reasoning-format none (24,576 a slot)"
+ },
+ "prompt_tokens": {
+  "how": "each of the 24 judge prompts tokenised by the served model's own tokenizer (/tokenize), before any judgement",
+  "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf": "5,564 to 7,392",
+  "Falcon-H1-34B-Instruct-Q8_0.gguf": "6,350 to 8,552",
+  "gpt-oss-20b-Q8_0.gguf": "5,534 to 7,248",
+  "GLM-4.7-Flash-Q8_0.gguf": "5,542 to 7,721",
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": "5,566 to 7,539"
+ },
+ "templates": {
+  "source": "each GGUF's embedded tokenizer.chat_template, unchanged",
+  "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf": "Mistral's own system prompt from the GGUF template ('You are Mistral-Small-3.2-24B-Instruct-2506 ... created by Mistral AI'), then [INST]PROMPT[/INST]; 563 prompt tokens before the judge prompt"
+ },
+ "decoding": {
+  "rule": "a model's own documented default where it has one (generation_config.json or the model card), otherwise the project default of temperature 0; 4,000 tokens for a model that answers directly, 12,000 for one that reasons first, as in the Fanar-2 run",
+  "Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf": {
+   "temperature": 0.15,
+   "max_tokens": 4000
+  },
+  "Falcon-H1-34B-Instruct-Q8_0.gguf": {
+   "temperature": 0,
+   "max_tokens": 4000
+  },
+  "gpt-oss-20b-Q8_0.gguf": {
+   "temperature": 1.0,
+   "max_tokens": 12000,
+   "reasoning": "default effort; llama.cpp returns the final channel as content"
+  },
+  "GLM-4.7-Flash-Q8_0.gguf": {
+   "temperature": 1.0,
+   "max_tokens": 12000,
+   "reasoning": "--reasoning-format none; the think block is kept in verdict.<tag>.output.txt and stripped before the JSON is read"
+  },
+  "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf": {
+   "temperature": 0.6,
+   "max_tokens": 12000,
+   "reasoning": "--reasoning-format none; top_p and top_k from the generation config are not sent, the judge sends temperature only"
+  }
+ },
+ "family_note": "gpt-oss-20b shares a family with the pipeline's generator (gpt-oss-120b), so it is calibrated here for the record and can never be seated",
+ "rubric": "pipeline/rubric.md as committed",
+ "concurrency": "four judgements in flight at once against one server with four slots; each judgement is its own judge_bedrock.py call"
+}

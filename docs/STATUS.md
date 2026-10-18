@@ -240,6 +240,22 @@ a stand-in server and in `test_judge_bedrock.py`.
   run that is five verdicts: AceGPT's four, now no score, and a sixth Gemma 3 27B copy from
   14 October, noted in that report. A verdict with its own scores and a borrowed note still counts.
 
+**Added 2026-10-18: five small open models as judges; one could be seated.**
+- **The run:** Mistral Small 3.2 24B, Falcon-H1-34B, gpt-oss-20b, GLM-4.7-Flash and
+  Qwen3-30B-A3B-Thinking-2507, each at Q8_0 on two V100 cards with its own default decoding
+  (`pipeline/out/calibration/2026-10-18-small-open-judges`; files, hashes, server commands and
+  decoding in its `environment.json`). The question was whether a judge that fits one or two
+  rented 32 GB cards can be seated.
+- **The result:** Mistral caught 1 of 19 and copied the example once; Falcon-H1-34B 5 of 20 (the
+  worked examples); GLM-4.7-Flash 10 of 19; **gpt-oss-20b 15 of 20** and **Qwen3-30B-A3B-Thinking
+  14 of 20**, both with every knowledge-check and worked-example defect and most of the pasted
+  English. No judge saw an empty scenario. gpt-oss-20b shares the generator's family and cannot be
+  seated; Qwen3-30B-A3B-Thinking-2507 (Apache-2.0, 3B active, one card at Q6_K) can be, if the
+  owner decides so. **Owner's call, not taken here.**
+- **What seating it would need:** a served endpoint the weekly run can reach (the HF Space is
+  CPU-only; a rented card costs about $0.30 an hour while judging), the family check in
+  `panel.py`, and the same drift check K3 got (two runs of identical lessons).
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME

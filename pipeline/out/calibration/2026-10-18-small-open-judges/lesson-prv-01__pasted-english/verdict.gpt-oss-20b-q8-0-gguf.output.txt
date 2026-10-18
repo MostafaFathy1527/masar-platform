@@ -1,0 +1,18 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "bilingual_quality": "Arabic content is not translated; it repeats English text verbatim, resulting in machine‑like output."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson meets objectives and level fidelity with strong worked examples and realistic scenarios. The bilingual section is severely lacking, as Arabic content is effectively English text, which undermines accessibility. Overall, it passes but needs improvement in Arabic translation."
+}

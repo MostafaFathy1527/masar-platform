@@ -1,0 +1,199 @@
+<think>1.  **Analyze the Request:**
+    *   **Task:** Score the provided lesson `recognising-a-phishing-email` against `pipeline/rubric.md`.
+    *   **Constraint 1 (Fresh Context):** I must not know the prompt, source note, or previous verdict.
+    *   **Constraint 2 (Read Rubric):** I must return *exactly* the JSON shape specified in the rubric (lesson, scores, notes, verdict_notes).
+    *   **Constraint 3 (Scoring Rules):**
+        *   Score 1-5 per criterion.
+        *   Do not judge against the prompt, only the content.
+        *   Be harsh on 4 and 5 (only score 5 if it's perfect).
+        *   Gate thresholds: No score below 3, Mean below 4.0.
+    *   **Specific Traps to Avoid:** "Visual card" as bulleted list, distractors nobody would choose, feedback restating answer, steps asserting without explaining why, frictionless scenarios, Arabic following English word order, licensed code/payer policy text (automatic 1 on criterion 8).
+
+2.  **Analyze the Lesson:**
+    *   **Slug:** `recognising-a-phishing-email`
+    *   **Levels:** L1, L2.
+    *   **Bilingual:** Yes.
+    *   **Concepts:** `display_name`, `look_alike_domain`, `link_destination`, `one_time_code`, `engineered_urgency`.
+    *   **Structure:**
+        *   *L1:* Intro (H/P), Definitions (`look_alike_domain`, `one_time_code`), Job Tip (`sec1_tip`), Takeaways (`sec1_take`).
+        *   *L2:* Heading, Worked Example (`sec1_l2_worked`), Knowledge Checks (`sec1_l2_kc1`, `sec1_l2_kc2`), Scenario (`sec1_l2_scenario`).
+
+3.  **Evaluate Criterion by Criterion:**
+
+    *   **1. Objective Alignment (SEC-01):**
+        *   Goal: Recognising phishing emails (specifically checking display name vs address, urgency, OTPs).
+        *   L1 Content: Intro explains the mindset (habit > tool), defines `look_alike_domain` and `one_time_code` (key signals), gives a tip asking about address/link.
+        *   L2 Content: Worked example applies the checks step-by-step.
+        *   Scenario: Manager asking for payment, reply-to vs send address difference.
+        *   Knowledge Checks: Question 1 asks which signal outranks the name (Answer: Address). Question 2 asks what to do after clicking (Report immediately).
+        *   *Assessment:* High alignment. The content is very focused. Even the definitions are relevant to the objective.
+        *   *Score:* 5. Every block serves the objective.
+
+    *   **2. Level Fidelity:**
+        *   *L1:* Definitions, Tip, Takeaways. It's introductory but the definitions are quite detailed (technical terms like TLD, hyphens). Is it too hard for an absolute beginner? Maybe slightly, but it fits the "L1" label in a technical security context often (Level 1 awareness). The rubric says "A 'visual card' that is secretly a bulleted list fails this." The definition cards look like definition cards (icon + term + def), not just a list. The content is "thin" but appropriate for an introductory module.
+        *   *L2:* Worked example, Knowledge check, Scenario. This is the core L2 content.
+        *   *Assessment:* It meets the levels. The definitions are dense, but that's okay for L1 in a security context (it sets the vocabulary).
+        *   *Score:* 5. (Or maybe 4 if I want to be harsh, but the structure is good. Let's stick to 5 because it achieves what it claims to do for that level. It doesn't feel like an L1 just pasted into an L2 slot. It feels like distinct content).
+
+    *   **3. Worked-Example Quality:**
+        *   *Example:* "IT Service Desk" message.
+        *   *Steps:*
+            1.  Read address, not name. Why? "Display name is free text... Address is what they didn't choose."
+            2.  Reveal destination. Why? "Label independent of destination... not ambiguity."
+            3.  Notice 2-hour deadline. Why? "Urgency alone isn't evidence... Urgency + acting outside normal route is close to it."
+            4.  Stop at OTP. Why? "Ends conversation... legitimate party doesn't ask."
+        *   *Analysis:* The "Why" is clear in every step. It explicitly names the judgment being made (e.g., "Label naming one place and a destination going to another is not ambiguity"). It explains *what* is happening.
+        *   *Score:* 5.
+
+    *   **4. Knowledge-Check Quality:**
+        *   *KC-01 (Display Name):*
+            *   Options:
+                *   Real address (Correct). Feedback: "This is always the first check, because it is the one thing not freely typed." (Good).
+                *   Formatting/Typos (Incorrect). Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." (Good, names the misconception that "perfect looking = real").
+                *   Logo (Incorrect). Feedback: "No. A logo is an image copied in seconds..." (Good, names the misconception of visual trust).
+                *   Work address (Incorrect). Feedback: "No. Work addresses are harvested..." (Good, names the misconception of "targeted = trusted").
+            *   *Distractors:* Plausible misconceptions. Feedback explains *why*.
+        *   *KC-02 (Click and Report):*
+            *   Options:
+                *   Report immediately (Correct). Feedback: "Timing is everything..." (Good).
+                *   Wait and see (Incorrect). Feedback: "No. Waiting gives the attacker time..." (Good, names misconception of passivity).
+                *   Delete (Incorrect). Feedback: "No. Deleting destroys the evidence..." (Good, names misconception of containment via deletion).
+                *   Reply to sender (Incorrect). Feedback: "No. A reply confirms the address is live..." (Good, names misconception of verification).
+            *   *Distractors:* Plausible human mistakes.
+        *   *Score:* 5. Strong distractors and deep feedback.
+
+    *   **5. Scenario Authenticity:**
+        *   *Scenario:* "IT Service Desk" urgency + OTP (classic phishing).
+        *   *Scenario (Manager):* Manager in meeting, needs payment moved, reply-to differs. This is a very specific, high-fidelity scenario. It involves "friction" (different reply-to address) and a "real" decision (is it real?).
+        *   *Assessment:* Recognizable. The specific detail of the reply-to address vs the sending address is a key phishing signal often missed or glossed over.
+        *   *Score:* 5.
+
+    *   **6. Bilingual Quality:**
+        *   *Reviewing Arabic Text:*
+            *   "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة..." (Phishing attacks the person...). Natural phrasing. "عطلاً تقنياً" for technical failure.
+            *   "نطاق حقيقي مُسجَّل، اختير ليُقرأ خطأً لا ليُفحَص..." (A genuine registered domain chosen to be misread rather than examined). Natural.
+            *   "الاستعجال مُهندَس: وُضِع ليمنع لحظة التحقق." (Urgency is engineered: placed to prevent the moment of verification). Excellent phrasing.
+            *   "نص الرابط لافتة، ووجهته شيء آخر — اكشف الوجهة قبل أن تتبعها." (Link text is a label, and its destination is another thing...). Natural.
+            *   L2 Worked Example: "الاسم الظاهر نص حر ويُكتب كما يشاء المُرسِل." (Display name is free text...). Natural.
+            *   Knowledge Check: "عناوين العمل تُجمع وتُستهدف تحديداً؛ وصولها للعمل ليس تزكية." (Work addresses are harvested...). Natural. "رسالة مصقولة تماماً شائعة تماماً." (Perfectly polished message is entirely common). Natural.
+        *   *Observations:* The Arabic flows well. It reads like native Arabic writing, not a translation of English word order. "تزكية" (endorsement) is a good word for "endorsement".
+        *   *Score:* 5.
+
+    *   **7. Concision and Reading Level:**
+        *   L1 text is dense but concise. It defines terms precisely.
+        *   L2 text is focused on the workflow.
+        *   The prose earns its space. It's not fluff. The definitions are necessary vocabulary.
+        *   *Score:* 5. (It's tight. It doesn't waste words on "In this lesson we will learn about...").
+
+    *   **8. Accessibility and IP:**
+        *   *Images:* The lesson JSON doesn't show any images, only definition cards with `icon` (likely text or emoji based on the JSON structure, specifically "🔎"). No alt text issues mentioned in the provided text.
+        *   *IP/License:* No payer policy text. No real licensed code descriptors. The terms (`display_name`, `engineered_urgency`) are standard industry terms, not copyrighted text. The glossary (if one existed) isn't here, but the concepts are standard.
+        *   *Constraint Check:* "Any real licensed code descriptor or payer policy text — automatic 1". None found.
+        *   *Score:* 5.
+
+4.  **Synthesize and Refine:**
+    *   **Objective Alignment:** 5.
+    *   **Level Fidelity:** 5. (Definitions are solid for L1).
+    *   **Worked Example:** 5. (Explains the "Why" clearly).
+    *   **Knowledge Check:** 5. (Distractors are good, feedback explains misconceptions).
+    *   **Scenario Authenticity:** 5.
+    *   **Bilingual Quality:** 5. (Natural Arabic).
+    *   **Concision:** 5. (Direct, no fluff).
+    *   **Accessibility/IP:** 5.
+
+    *Self-Correction on 2 (Level Fidelity):* The definitions are quite technical. Is "L1" too low for "Top-level domain", "hyphen", "registered domain"?
+    *Counter-argument:* In the context of cybersecurity awareness, L1 is often just "What is this concept?" and L2 is "How do I apply it?". The lesson follows that pattern. The definitions are the "What". The scenario/worked example is the "How". It fits.
+    *Self-Correction on 4 (Knowledge Check):*
+    KC-02 Option 3 (Delete): Feedback says "Deleting destroys the evidence needed by whoever has to size the campaign." This is strong.
+    KC-02 Option 4 (Reply): Feedback says "Reply confirms address is live." This is strong.
+    KC-01 Option 4 (Work address): Feedback says "Work addresses are harvested...". This is strong.
+    It seems solid. I will stick with 5. I will not mark it down for 4 unless I see something very generic. It's not generic.
+
+    *Wait, let me re-read the "visual card" trap.* The prompt warns about "a visual card that is secretly a bulleted list".
+    The lesson uses `definition_card`. It has `termAr`, `termEn`, `defAr`, `defEn`, `icon`. This is a specific component type, not a generic "visual card" of a bulleted list. So it passes.
+
+    *Let's re-read the "Knowledge Check" trap.* "feedback that restates the answer instead of naming the misconception."
+    KC-01 Option 2 (Typos): Feedback says "No. Typos are weak evidence... perfectly polished message is common." This corrects the misconception that "bad quality = fake" or "good quality = real".
+    KC-01 Option 3 (Logo): Feedback says "No. Logo is an image copied in seconds... part of the message in doubt." This corrects the misconception of "visual trust".
+    KC-01 Option 4 (Work address): Feedback says "No. Work addresses are harvested... arriving at work is not an endorsement." This corrects the misconception of "targeted = trusted".
+    KC-02 Option 2 (Wait): Feedback says "No. Waiting gives the attacker time... hides from team that campaign started." Corrects passivity.
+    KC-02 Option 3 (Delete): Feedback says "No. Deleting destroys the evidence...". Corrects containment through deletion.
+    KC-02 Option 4 (Reply): Feedback says "No. Reply confirms address is live... reaches whoever wrote." Corrects verification via reply.
+    All feedback is strong. No restatement.
+
+    *Scoring:* I am finding very little to fault here.
+    Objective: 5.
+    Level: 5.
+    Worked: 5.
+    KC: 5.
+    Scenario: 5.
+    Bilingual: 5.
+    Concision: 5.
+    IP: 5.
+
+    *Is this too perfect?*
+    Rubric says: "Be harsh on 4 and 5. A 5 means you would not change it."
+    I have to justify a 5 for all.
+    L1 definitions are very dense. Is it "Level 1 fidelity" if it's actually Level 2 material presented as L1?
+    L2 is the "Worked Example". L1 is the "Definitions".
+    Usually, definitions are the foundation. The content is appropriate.
+    The Arabic is definitely native-level quality ("مُهندَس", "تزكية", "عطلاً تقنياً"). That is 5.
+    The worked example reasoning is very explicit ("Label naming one place... is not ambiguity"). That is 5.
+    The scenario is very realistic (Manager payment, Reply-To mismatch). That is 5.
+    The Knowledge checks have distinct misconceptions. That is 5.
+
+    I will submit 5s across the board. The mean is 5.0. The floor is 5.
+
+5.  **Construct Output:**
+    *   `lesson`: "recognising-a-phishing-email"
+    *   `scores`: All 5s.
+    *   `notes`: All empty (or null) since no score is below 4.
+    *   `verdict_notes`: High-quality lesson with natural bilingual delivery and rigorous reasoning in worked examples and feedback. No weaknesses detected.
+
+    *Refining notes:*
+    The prompt says "notes on any criterion you scored below 4".
+    Since I scored all 5, notes can be empty strings or null. I'll leave them out or null to keep it clean.
+
+    *Check constraints:* "Return ONE JSON object and nothing else: keys 'lesson' (the slug), 'scores' (criterion -> integer 1-5), 'notes' (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored), 'not_scored' (criterion -> reason), and 'verdict_notes' (two or three sentences)."
+
+    I have no `not_scored` criteria.
+
+    *Final check on "visual card":*
+    The lesson defines `definition_card`. It is not a generic "card" component that just holds text. It has a specific icon field and structured text. It is distinct.
+
+    *Final check on "distractor nobody would ever choose":*
+    - "Reply to ask if genuine" -> People do this. Feedback explains why it's bad.
+    - "Delete message" -> People do this. Feedback explains why it's bad.
+    - "Wait and see" -> People do this. Feedback explains why it's bad.
+    - "Formatting/Typos" -> People judge emails by typos. Feedback explains why it's unreliable.
+
+    Everything looks solid. I will output the JSON.
+
+    *Self-Correction on "Scenario Authenticity":*
+    The prompt mentions "A textbook example wearing a story."
+    The scenario is "Manager needs payment moved before end of day... reply-to address differs."
+    This is a very specific, high-stakes scenario that happens often in finance/legal. It's not a generic "click here" story. It adds friction (the different reply-to). So it is authentic.
+
+    *Self-Correction on "Arabic":*
+    "نص الرابط لافتة، ووجهته شيء آخر" -> "Link text is a label, and its destination is another thing". Good.
+    "الاستعجال مُهندَس" -> "Urgency is engineered". Good.
+    "لا تضغط، لا تردّ، ولا تفتح أي مرفق." -> Imperative, clear.
+    "نص الرابط لافتة... هذه هي النتيجة." -> "That is the finding." Very professional tone in Arabic.
+
+    I am confident in a 5/5 across the board.</think>```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson demonstrates high quality across all dimensions. The Arabic is natural and professional, the worked example provides clear reasoning for each step, and the knowledge check distractors address real user behaviors while offering precise corrective feedback. No changes are needed."
+}
+```

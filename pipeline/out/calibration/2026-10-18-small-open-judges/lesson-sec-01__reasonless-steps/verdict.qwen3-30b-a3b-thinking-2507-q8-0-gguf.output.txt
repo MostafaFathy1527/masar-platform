@@ -1,0 +1,360 @@
+<think>
+We are scoring the lesson "recognising-a-phishing-email" against the rubric.
+
+We must score each of the 8 criteria on a scale of 1-5, and provide notes for any score below 4.
+
+Let's go through each criterion one by one, based on the lesson content and the rubric.
+
+### Criterion 1: Objective alignment
+- The lesson's objective is "SEC-01".
+- We need to check if every block serves the objective it declares.
+- The lesson has two levels (L1 and L2) and all blocks declare "SEC-01" as the objectiveId.
+- The L1 blocks:
+  - Heading: "The attack is on the reader, not the system" - aligns with teaching that phishing targets the user.
+  - Rich text: Explains that phishing attacks the person, not the system, and introduces the habit of checking two or three things.
+  - Definition cards: Define key terms (look-alike domain, one-time code) that are directly related to phishing.
+  - Job tip: Gives a practical tip about what to ask (address and link destination).
+  - Takeaways: Summarize the key points that align with the objective.
+- The L2 blocks:
+  - Heading: "Work one message, signal by signal" - sets up the worked example.
+  - Worked example: Walks through checking a phishing email step by step, with reasoning for each step (though the reasoning is very minimal, we'll check criterion 3 for that).
+  - Knowledge checks: Test understanding of the key concepts (display name vs address, and what to do after clicking).
+  - Scenario: Presents a realistic phishing scenario and asks for the correct action.
+
+All blocks seem to serve the objective. The objective is about recognizing phishing emails by checking specific signals (display name, link destination, etc.). Every block in the lesson is about that.
+
+Score: 5 (every block earns its objective, and the set covers it).
+
+### Criterion 2: Level fidelity
+- The lesson declares levels: L1, L2.
+- L1: Should be introductory, L2: should be a step up.
+- L1: Introduces the concept of phishing, explains the key signals (display name vs address, one-time code, engineered urgency), and gives a tip and takeaways. This is a good introduction for someone new.
+- L2: Builds on L1 by having a worked example (a step-by-step for a specific scenario) and a scenario that requires applying the concepts. The scenario is more complex than L1, and the knowledge checks are at a higher level (application).
+
+The L2 is not just L1 with an extra question; it requires the learner to apply the concepts in a more realistic context. The level labels are accurate.
+
+Score: 5 (the level is what the learner actually experiences).
+
+### Criterion 3: Worked-example quality
+- The worked example in L2 has steps with "why" for each step.
+- Steps:
+  1. Read the actual address, not the display name. Why: "Because it is the next step." (This is not a good "why" — it doesn't explain *why* it's the next step or *why* it's important. It's just a statement of the step order.)
+  2. Reveal where the button goes before pressing it. Why: "Because it is the next step." (Same issue.)
+  3. Notice the deadline (two hours). Why: "Because it is the next step."
+  4. Stop at the request for the verification code. Why: "Because it is the next step."
+
+The "why" explanations are all the same and don't provide reasoning about *why* that step is important. They don't explain the judgment being made (e.g., "because the display name can be forged, so you must check the address to avoid being tricked"). Instead, they just say it's the next step without context.
+
+This is a weak "why" — it's generic and doesn't teach the learner why this step matters.
+
+Score: 3 (reasoning present but generic).
+
+### Criterion 4: Knowledge-check quality
+- We have two knowledge checks (SEC-01-KC-01 and SEC-01-KC-02).
+- For SEC-01-KC-01:
+  - Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+  - Options:
+    - Correct: "The sender's actual address." Feedback: "Correct. This is always the first check, because it is the one thing not freely typed." (This is good: it names the misconception that the display name is trustworthy, and explains why the address is the signal to trust.)
+    - Incorrect: "How well formatted and typo-free it is." Feedback: "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." (This names a misconception: that a well-formatted message is safe.)
+    - Incorrect: "The organisation's logo appearing in the message." Feedback: "No. A logo is an image copied in seconds, and it is part of the very message in doubt." (Names a misconception: that a logo means it's legitimate.)
+    - Incorrect: "That it arrived at your work address rather than a personal one." Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." (Names a misconception: that work address means it's safe.)
+
+  All distractors are plausible and the feedback explains the misconception.
+
+- For SEC-01-KC-02:
+  - Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+  - Options:
+    - Correct: "Report it immediately, even if you entered nothing." Feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person." (This explains the misconception: that waiting is safe.)
+    - Incorrect: "Wait and see whether anything happens." Feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started." (Names the misconception: that waiting is acceptable.)
+    - Incorrect: "Delete the message so nobody else clicks it." Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." (Names the misconception: that deleting is helpful.)
+    - Incorrect: "Reply to the sender asking whether it was genuine." Feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message." (Names the misconception: that replying is safe.)
+
+  All distractors are plausible and the feedback explains the misconception.
+
+However, note that the rubric says: "a distractor nobody would ever choose teaches nothing." All distractors here are plausible (e.g., people might think a well-formatted message is safe, or that waiting is okay).
+
+But let's check the notes for the knowledge check: the rubric says "feedback that restates the answer instead of naming the misconception". In the correct feedback for KC-01, it says "This is always the first check, because it is the one thing not freely typed." — that is naming the misconception (that the display name is trustworthy) and explaining why.
+
+Similarly, for KC-02, the feedback for the correct option says "Timing is everything here" — that's a bit vague, but the incorrect feedbacks all name the misconception.
+
+However, the problem is that for KC-01, the feedback for the correct option is good, but for the distractors, the feedback is good. But the rubric says "every distractor names a misconception someone actually holds" — and they do.
+
+But wait, the lesson's knowledge_check block (the one that references SEC-01-KC-01) is just a reference. The actual content is in the items. So we are scoring the items, which we have.
+
+So the knowledge checks are good. But note: the rubric says "score what is on the page". The knowledge_check block in the lesson just has "itemRef", but the items are provided. We are to score the items.
+
+So the knowledge checks are well-designed.
+
+But wait: the rubric says "feedback that restates the answer instead of naming the misconception". Let's check the feedback for the correct answer in KC-01: "Correct. This is always the first check, because it is the one thing not freely typed." — This is good, it doesn't restate the stem but explains the reasoning.
+
+Similarly, for the incorrect options, the feedback names the misconception.
+
+So why would we score below 5? Actually, it's 5.
+
+But wait: the example in the rubric says "a distractor nobody would ever choose" — none of these are like that. They are all common misconceptions.
+
+However, note that the rubric says: "No 'all of the above'." and these are standard multiple choice with one correct.
+
+So score for knowledge_check should be 5.
+
+But wait: the example in the rubric for the knowledge_check criterion has a note about "two distractors restate the stem". In this case, we don't see that. Let me double-check the items.
+
+For KC-01, the feedback for the incorrect options:
+- For "How well formatted...": "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common." — This names a misconception (that a well-formatted message is safe).
+- For "Logo": "No. A logo is an image copied in seconds, and it is part of the very message in doubt." — Names a misconception (that a logo means it's legitimate).
+- For "Work address": "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." — Names a misconception.
+
+All good.
+
+For KC-02:
+- Correct: "Report it immediately..." feedback: "Correct. Timing is everything here, and the same message almost never arrives at one person." — This explains why (timing matters, and the same message is rarely sent to one person).
+- Incorrect: "Wait and see" feedback: "No. Waiting gives the attacker time, and hides from the team that a campaign has started." — Names the misconception (that waiting is safe).
+- Incorrect: "Delete the message" feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." — Names the misconception (that deleting is helpful).
+- Incorrect: "Reply to the sender" feedback: "No. A reply confirms the address is live and read, and it reaches whoever wrote the message." — Names the misconception.
+
+So both knowledge checks are excellent. Score: 5.
+
+But wait, the problem says: "a feedback that restates the answer instead of naming the misconception". In the correct feedback, it doesn't restate the answer; it explains why. So it's good.
+
+However, note that in the rubric example, the verdict notes say: "Two distractors restate the stem rather than naming a misconception." But in this lesson, we don't see that. So we should score 5.
+
+But let me check again: the lesson has two knowledge_check blocks, but the actual items are provided. We are to score the items. So it's 5.
+
+But wait: the rubric says "score what is on the page". The page has the knowledge_check blocks that reference the items, but the items are provided in the "applicability" section. So we have to score the items.
+
+Given that, we should score 5.
+
+However, I notice that in the example verdict, the knowledge_check was scored 3. But that was for a different lesson. For this lesson, it's good.
+
+But let's be thorough: is there any feedback that restates the stem? For example, if the feedback for a distractor said "This is not the correct answer", that would be restating. But here, the feedback for the distractors explains why it's wrong, not just that it's wrong.
+
+So I think it's 5.
+
+But wait: the rubric says "feedback that restates the answer". The correct feedback does not restate the answer; it gives a reason. The incorrect feedbacks don't restate the answer either. They explain why it's wrong.
+
+So I think it's 5.
+
+However, let's look at the rubric example: "feedback that restates the answer instead of naming the misconception". In this case, the feedback for the correct answer says "This is always the first check" — which is restating the answer? But it's not restating the stem. The stem asks "which signal", and the feedback says "the sender's actual address" is the first check. But then it explains why. So it's not just restating.
+
+Actually, the feedback for the correct option should not just say "This is correct" and then restate the answer. Here, it says "Correct. This is always the first check, because..." — so it's explaining, not just restating. So it's good.
+
+Therefore, knowledge_check: 5.
+
+But note: the example in the rubric for the verdict says "Two distractors restate the stem". We don't have that here. So we'll score 5.
+
+### Criterion 5: Scenario authenticity
+- The scenario in L2: "A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address."
+
+This is a very common phishing scenario (CEO fraud, manager impersonation). The details are realistic: the manager is in a meeting (so can't be reached by phone), the request is time-sensitive, and the reply-to address being different is a red flag.
+
+The scenario includes friction: the user must break the habit of trusting the display name and check the address, and also the manager's claim of being in a meeting is a common trick to prevent verification.
+
+So it's authentic.
+
+Score: 5.
+
+### Criterion 6: Bilingual quality
+- The lesson is bilingual (bilingual: true).
+- We need to check if the Arabic is natural, or a literal translation.
+- The Arabic text in the lesson:
+  - "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة."
+  - This reads like natural Arabic. It's not a word-for-word translation of the English.
+
+  The English: "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker."
+
+  The Arabic: It uses natural Arabic phrases. For example, "التصيّد" for phishing (a common term in Arabic tech contexts), "الشاشة" for screen, "نظام محدَّث" for fully patched system (meaning updated system), "مهاجم جيد الصياغة" for well-written attacker (which is a bit idiomatic but natural in Arabic).
+
+  The definition cards:
+    - "نطاق مُشابِه" for look-alike domain — natural.
+    - "رمز المرة الواحدة" for one-time code — natural.
+
+  The job tip: "لا تسأل «هل تبدو هذه الرسالة مزيفة؟» — هذا سؤال عن الإحساس. اسأل **«ما العنوان الحقيقي، وإلى أين يذهب الرابط فعلاً؟»** هذان سؤالان لهما إجابة، ويُجابان في عشر ثوانٍ."
+
+  This is natural Arabic. It uses common Arabic expressions.
+
+  The takeaways are also in natural Arabic.
+
+  The scenario and knowledge checks are in natural Arabic.
+
+  There is no sign of English word order. For example, in the scenario: "رسالة من الاسم الظاهر لمديرك" — this is natural (message from the display name of your manager). In English, it would be "message from your manager's display name", but in Arabic, it's structured as "from the display name of your manager", which is the natural way.
+
+  So it's 5.
+
+### Criterion 7: Concision and reading level
+- Check if the prose is concise and earns its space.
+- The L1:
+  - The heading is short.
+  - The rich text: "Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting." — This is concise and to the point.
+  - The definition cards: Each is a single sentence or two, very concise.
+  - The job tip: A short, punchy tip.
+  - The takeaways: Bullet points that are very concise.
+
+- The L2:
+  - Worked example: The steps are very concise, but the "why" is weak (we already scored that in criterion 3). The content is concise.
+  - Scenario: The situation is described in one sentence, then the decisions are listed concisely.
+
+Overall, the lesson is written without fluff. Every sentence serves a purpose.
+
+Score: 5.
+
+### Criterion 8: Accessibility and IP
+- We must check for:
+  - Alt text on any image? The lesson does not have any images (no image tags), so no need for alt text.
+  - No meaning carried by color alone? There are no colors mentioned, so no issue.
+  - No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist.
+
+  The lesson is about phishing, and the terms are:
+    - display_name, look_alike_domain, link_destination, one_time_code, engineered_urgency
+
+  These are not real licensed code descriptors or payer policy text. They are terms being taught.
+
+  We don't see any real code or policy text.
+
+  The rubric says: "No real licensed code descriptors" — meaning if the lesson included a snippet of real code (like from a legal document), that would be bad. But here, it's all fictional.
+
+  The terms are made up for the lesson (they are concepts being taught, not real code).
+
+  So it's compliant.
+
+  Score: 5.
+
+Now, let's summarize the scores:
+
+1. Objective alignment: 5
+2. Level fidelity: 5
+3. Worked-example quality: 3 (because the "why" in the worked example is generic and doesn't explain the judgment)
+4. Knowledge-check quality: 5
+5. Scenario authenticity: 5
+6. Bilingual quality: 5
+7. Concision and reading level: 5
+8. Accessibility and IP: 5
+
+But wait, we have a 3 in criterion 3 (worked-example quality). So we must note that.
+
+In the rubric, criterion 3: "Worked-example quality" — we scored 3.
+
+So we have one criterion below 4.
+
+Now, for the notes: we must provide a string for any criterion scored below 4. So for criterion 3, we need to note why.
+
+We'll say: "The 'why' explanations in the worked example are generic and do not explain the judgment being made (e.g., 'Because it is the next step' instead of explaining why checking the address matters)."
+
+But note: the rubric says "score what is on the page". The page has the worked example with "why" as "Because it is the next step" for every step. That's not good.
+
+So the notes for "worked_example" should be: "The 'why' explanations are generic and do not explain the judgment or why the step is important."
+
+Now, the verdict_notes should be two or three sentences.
+
+"Two criteria are at 5 and one is at 3; mean is (5+5+3+5+5+5+5+5)/8 = 41/8 = 5.125? Wait, 5*7=35, plus 3 is 38, 38/8=4.75. But wait, we have 7 fives and one three: 7*5=35, 35+3=38, 38/8=4.75. But the rubric says the gate fails if any criterion is below 3, and the mean below 4.0. 4.75 is above 4.0, so it passes.
+
+But the verdict_notes should say: "One criterion scored at 3; mean is 4.75. The lesson passes the gate."
+
+However, the example verdict says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part." But in our case, the knowledge check is 5, and the weak part is the worked example.
+
+So we'll say: "One criterion scored at 3; mean 4.75. Passes, but the worked example's reasoning is the weakest part."
+
+But note: the rubric says "do not decide pass or fail" — we are only to provide the JSON. The verdict_notes should be two or three sentences, as per the example.
+
+Now, let's write the JSON.
+
+Important: The JSON must have:
+  "lesson": "recognising-a-phishing-email"
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  }
+  "notes": {
+    "worked_example": "The 'why' explanations are generic and do not explain the judgment being made."
+  }
+  "verdict_notes": "One criterion scored at 3; mean 4.75. Passes, but the worked example's reasoning is the weakest part."
+
+But note: the example in the rubric output has "knowledge_check" in the notes, but we scored it 5 so we don't need to put it in notes. We only put notes for scores below 4.
+
+Also, the example has a "not_scored" key, but we are not skipping any criteria. So we don't need "not_scored".
+
+Now, let's check the rubric: it says "notes (criterion -> string; required for every criterion scored below 4 and for every substitute-evidence criterion you scored)".
+
+We have one criterion below 4: worked_example.
+
+So we have one note.
+
+Now, the JSON must be exactly as specified.
+
+Let's write it.
+
+Note: The lesson slug is "recognising-a-phishing-email", not "05-documentation-that-supports-the-claim" (that was an example).
+
+So:
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations are generic and do not explain the judgment being made."
+  },
+  "verdict_notes": "One criterion scored at 3; mean 4.75. Passes, but the worked example's reasoning is the weakest part."
+}
+
+But wait: the rubric says "score what is on the page". We scored the worked example as 3 because the "why" is weak. The rubric criterion 3 says: "reasoning names the judgement being made and what would change it." — the worked example does not do that.
+
+Also, note that the rubric says "a worked example whose steps assert without explaining why" — this is exactly that.
+
+So 3 is correct.
+
+Now, let's confirm the mean: (5+5+3+5+5+5+5+5) = 38, 38/8 = 4.75.
+
+We'll write the verdict_notes as: "One criterion scored at 3; mean 4.75. Passes, but the worked example's reasoning is the weakest part."
+
+But note: the rubric says "do not adjust a score because of what it would do to the outcome" — we are not adjusting, we are scoring correctly.
+
+Now, we must output only the JSON.
+
+Important: The rubric says "Return exactly the JSON shape it specifies".
+
+We have all the keys.
+
+Let's write it.
+
+Note: The rubric example has "concision" (not "concision_and_reading_level") — the criterion name is "concision" in the rubric.
+
+In the rubric, it's "Concision and reading level" but the key in the JSON is "concision".
+
+Similarly, "accessibility_ip" (not "accessibility_and_ip").
+
+So we use the keys as in the rubric.
+
+Now, the JSON.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "worked_example": "The 'why' explanations are generic ('Because it is the next step') and fail to name the judgment being made or what would change it."
+  },
+  "verdict_notes": "One criterion scored at 3; mean 4.75. Passes, but the worked example's reasoning is the weakest element."
+}

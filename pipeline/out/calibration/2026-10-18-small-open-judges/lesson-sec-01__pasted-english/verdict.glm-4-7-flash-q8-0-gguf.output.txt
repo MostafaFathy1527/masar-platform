@@ -1,0 +1,153 @@
+<think>1.  **Analyze the Request:**
+    *   **Task:** Score a lesson against a specific rubric.
+    *   **Context:** Fresh context, no sight of the generation prompt or previous verdict. Score only what is on the page.
+    *   **Output Format:** JSON only. Keys: `lesson`, `scores`, `notes`, `verdict_notes`.
+    *   **Thresholds:** Pass if *all* scores >= 3 OR mean >= 4.0. Fail otherwise.
+    *   **Lesson Slug:** `recognising-a-phishing-email`.
+    *   **Lesson Content:** Phishing awareness, focusing on display names, look-alike domains, link destinations, and urgency.
+    *   **Bilingual:** Yes (Arabic and English).
+    *   **Levels:** L1 (Intro/Concepts) and L2 (Worked Example/Scenario).
+
+2.  **Analyze the Lesson Content:**
+    *   **Block L1:** Heading, Intro (Rich Text), Definition Cards (Look-alike domain, One-time code), Job Tip, Takeaways.
+    *   **Block L2:** Heading, Worked Example (Step-by-step phishing analysis), Scenario (Manager in meeting, payment request), Knowledge Checks (referenced).
+
+3.  **Evaluate Criteria (1-5 scale):**
+
+    *   **Criterion 1: Objective Alignment**
+        *   *Objective:* SEC-01 (Presumably "Recognise phishing" or similar implicit security objective).
+        *   *L1:* Intro defines phishing attacks vs software. Defines look-alike domain and OTP. Tips on checking address/link. Takeaways summarize. All relevant.
+        *   *L2:* Worked example applies these concepts to a specific phishing template. Scenario applies concepts to a social engineering template (manager request). Knowledge checks assess application.
+        *   *Assessment:* High alignment. The L1 sets the concepts, L2 applies them. No fluff. **Score: 5.**
+
+    *   **Criterion 2: Level Fidelity**
+        *   *L1:* The content is introductory. It introduces concepts (definitions) and the "why" (habit of checking).
+        *   *L2:* It applies the concepts. It uses a "Worked Example" format (Run checks). It uses a "Scenario" format (Decision making).
+        *   *Check:* Is there a "visual card" that is a bulleted list with a border?
+            *   Definition cards are present (`sec1_d_lookalike`, `sec1_d_otp`). Are they bulleted lists with borders? The JSON schema says `type: "definition_card"`. Usually, these are distinct components. Let's look at the text. They have a term and a definition. This seems standard for a definition card, not a generic list.
+        *   *L2 Fidelity:* Does it do what it says? Yes, it works through a message. Is it "thin"? No, the worked example has reasoning steps.
+        *   *Assessment:* Good fidelity. The distinction between L1 and L2 is clear (Concepts vs Application). The L1 isn't just L2 with a question bolted on. **Score: 5.**
+
+    *   **Criterion 3: Worked-Example Quality**
+        *   *Content:* A message arrives -> 4 steps (Check address, Check link, Check urgency, Check OTP).
+        *   *Steps:*
+            1.  Read actual address, not display name. *Why:* Display name is free text, address is not.
+            2.  Reveal where button goes. *Why:* Text is label, destination is another thing. Finding is not ambiguity.
+            3.  Notice deadline. *Why:* Urgency + external route request is strong evidence.
+            4.  Stop at code request. *Why:* OTP purpose is not to be shared.
+        *   *Assessment:* Steps show "what" (actions) and "why" (reasoning based on the nature of the signals). The reasoning is specific to the phishing context (e.g., "display name is free text"). **Score: 5.**
+
+    *   **Criterion 4: Knowledge-Check Quality**
+        *   *Item 1:*
+            *   Stem: Display name matches department. Which outranks? Answer: Address.
+            *   Option A (Correct): Sender's actual address.
+            *   Option B (Distractor): Formatting/Typo-free.
+            *   Option C (Distractor): Logo.
+            *   Option D (Distractor): Arrived at work address.
+            *   Feedback A: "Correct. This is always the first check..."
+            *   Feedback B: "No. Typos are weak evidence..."
+            *   Feedback C: "No. A logo is an image..."
+            *   Feedback D: "No. Work addresses..."
+            *   *Analysis:* All distractors are plausible misconceptions (people trust polish/logos, or assume work email = trusted). Feedback explains *why* they are wrong.
+        *   *Item 2:*
+            *   Stem: Phishing message, clicked link before noticing. Correct action?
+            *   Option A (Correct): Report immediately.
+            *   Option B (Distractor): Wait and see.
+            *   Option C (Distractor): Delete message.
+            *   Option D (Distractor): Reply to sender.
+            *   Feedback A: "Correct. Timing is everything..."
+            *   Feedback B: "No. Waiting gives the attacker time..."
+            *   Feedback C: "No. Deleting destroys evidence..."
+            *   Feedback D: "No. A reply confirms the address..."
+            *   *Analysis:* Distractors are realistic human responses (panic, cover-up, curiosity). Feedback addresses the consequence, not just "you were wrong."
+        *   *Assessment:* Very strong. **Score: 5.** (Wait, the prompt prompt said "Most good work is a 4" and "Be harsh on 4 and 5." Let's re-read. "A 5 means you would not change it." I would not change these. They are solid.)
+
+    *   **Criterion 5: Scenario Authenticity**
+        *   *Scenario:* Message from manager's display name. In a meeting, cannot take calls. Payment request before end of day. Reply-to differs from sending address.
+        *   *Analysis:* This is a classic "CEO fraud" or "Business Email Compromise" (BEC) scenario. It has "friction" (cannot take calls, urgent deadline). It is recognizable to anyone in a corporate environment. The "reply-to differs from sending address" is a subtle but crucial detail that adds realism. It's not a textbook example; it feels like a real email. **Score: 5.**
+
+    *   **Criterion 6: Bilingual Quality**
+        *   *Check:* Arabic text vs English text.
+        *   *L1 Intro:* "Phishing does not attack software. It attacks the person reading the screen... The weakest signal... is the sender's display name..."
+            *   Arabic translation looks like it follows the structure.
+        *   *L2 Worked Example:*
+            *   "A message arrives with the display name “IT Service Desk”. It says your account closes in two hours..."
+            *   Arabic: "تصل رسالة باسم العرض "خدمة العملاء الداخلية"..."
+            *   "Run the checks in order." -> "نفذ الفحوصات بالترتيب."
+        *   *Check for "Arabic that follows English word order":*
+            *   English: "The attack is on the reader, not the system."
+            *   Arabic: "هجوم على القارئ، وليس النظام" (Looks natural).
+            *   English: "A display name is free text... typed as the sender pleases."
+            *   Arabic: "اسم العرض نص حر... يكتبه المرسل كما يشاء."
+            *   English: "Display text is a label, independent of the destination."
+            *   Arabic: "النص المعروض هو اسم، مستقل عن الوجهة."
+        *   *General Flow:* The Arabic seems to be direct, natural translations. It doesn't look like "machine-translated English structure" (e.g., "The attack that is on the reader..."). It flows well in Arabic. **Score: 5.**
+
+    *   **Criterion 7: Concision and Reading Level**
+        *   *Prose Budget:*
+            *   L1 Intro: ~100 words. Essential. Explains the "habit" and the "weakest signal".
+            *   Definitions: Concise.
+            *   Job Tip: Short.
+            *   Worked Example: 4 steps, each with "What" and "Why". Efficient.
+            *   Scenario: Short situation, clear decisions.
+        *   *Reading Level:* L1 is clear. L2 uses "Run the checks in order", "Reveal where the button goes", "Notice that the deadline is two hours". Simple imperative verbs. Appropriate for security awareness training (often non-technical staff).
+        *   *Padded?* No fluff. Every sentence does work.
+        *   *Assessment:* Tight, effective writing. **Score: 5.**
+
+    *   **Criterion 8: Accessibility and IP**
+        *   *Images:* No images defined in the JSON blocks (only icons like 🔍, 🔐 in definition cards). Icons are safe.
+        *   *IP/Policy:* No real code descriptors or payer policy text (e.g., "Medicare Part A" or specific CPT codes). It uses generic terms ("IT Service Desk", "internal support").
+        *   *Color:* N/A (no color info in JSON, assume compliant or not penalized).
+        *   *Alt text:* Not explicitly present in JSON (no image blocks), but no images exist that need it. If icons were images, they are text.
+        *   *Assessment:* Compliant. **Score: 5.**
+
+4.  **Review and Refine Scores:**
+    *   Obj Alignment: 5
+    *   Level Fidelity: 5
+    *   Worked Example: 5
+    *   Knowledge Check: 5
+    *   Scenario Authenticity: 5
+    *   Bilingual: 5
+    *   Concision: 5
+    *   Access/IP: 5
+    *   Mean: 5.0.
+    *   *Verdict:* This is a very high-quality lesson. It is concise, accurate, and addresses the prompt perfectly. The "visual card" warning in criterion 2 didn't trigger because these are definition cards with icons and definitions, not bulleted lists with borders.
+
+    *Self-Correction/Double Check:* Is there any hidden flaw?
+    *   *Knowledge Check 1 Option D:* "That it arrived at your work address rather than a personal one." Feedback: "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement." This is a good distractor and feedback.
+    *   *Knowledge Check 2 Option C:* "Delete the message so nobody else clicks it." Feedback: "No. Deleting destroys the evidence needed by whoever has to size the campaign." This is a realistic human reaction (I'll hide it) and the feedback explains the *consequence* (enabling the attacker). Good.
+    *   *Scenario:* "Reply-to address differs from sending address." This is a classic BEC tactic. The "friction" is the "meeting/urgent" part. It's authentic.
+
+    *Wait, let me check the "Arabic follows English word order" rule again just to be paranoid.*
+    *   "The weakest signal in any message is the sender's display name..."
+    *   "الإشارة الأضعف في أي رسالة هو اسم العرض للمُرسِل" (Natural).
+    *   "Reading the address rather than the name shown is the first check."
+    *   "قراءة العنوان بدلاً من الاسم المعروض هي الخطوة الأولى للتحقق." (Natural).
+
+    Everything looks solid. I will score all 5s.
+
+    *Wait, the prompt said "Be harsh on 4 and 5. A 5 means you would not change it."*
+    I really don't see anything to change here. It's a standard, well-structured lesson. It meets all objectives perfectly. The feedback is specific. The scenario is real.
+
+    *One minor thought on Level Fidelity:* L1 has "Takeaways". Is this too much for L1?
+    L1 is defined as "L1, L2". L1 usually covers concepts. Takeaways summarize them. It's fine. It's not "L2 with a question bolted on".
+
+    *One minor thought on Worked Example:* Step 2 "Reveal where the button goes..." -> Why: "Displayed text is a label... A label naming one place and a destination going to another is not ambiguity — that is the finding." This is slightly abstract language ("not ambiguity — that is the finding"), but it works as "why". It's good.
+
+    I will output the JSON.</think>```json
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "verdict_notes": "The lesson demonstrates high fidelity to its objectives and levels. The worked example and scenario are realistic and leverage genuine security friction. The knowledge checks include plausible distractors and feedback that addresses consequences rather than just correctness."
+}
+```

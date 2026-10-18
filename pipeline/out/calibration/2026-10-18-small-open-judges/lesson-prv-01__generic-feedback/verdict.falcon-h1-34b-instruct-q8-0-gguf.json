@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T23:17:07.593985+00:00",
+    "usage": {
+      "inputTokens": 6870,
+      "outputTokens": 253
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback in PRV-01-KC-01 and PRV-01-KC-02 restates the stem rather than addressing potential misconceptions."
+  },
+  "verdict_notes": "The lesson is well-aligned with its objectives and provides authentic scenarios and high-quality bilingual content. However, the knowledge checks could be improved by providing feedback that addresses common misconceptions rather than simply restating the correct answer. One criterion scored below 4; mean score is 4.375. Passes, but with room for improvement in knowledge checks."
+}

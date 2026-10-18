@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T23:14:58.945326+00:00",
+    "usage": {
+      "inputTokens": 6966,
+      "outputTokens": 216
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Feedback in knowledge checks is minimal and does not address misconceptions directly."
+  },
+  "verdict_notes": "The lesson is well-structured and aligns with its objectives. The worked example and scenario are authentic and instructive. However, the knowledge checks could be improved by providing more detailed feedback that addresses common misconceptions. Overall, the lesson is strong but has room for improvement in its assessment components."
+}

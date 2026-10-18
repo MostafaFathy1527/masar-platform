@@ -1,0 +1,16 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "notes": {},
+  "not_scored": {},
+  "verdict_notes": "All eight criteria achieved a score of 5, giving a mean of 5.0. The lesson fully satisfies the rubric and would pass the QA gate."
+}

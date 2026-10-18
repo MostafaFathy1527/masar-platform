@@ -1,0 +1,274 @@
+<think>1.  **Analyze the Request:**
+    *   **Input:** A lesson JSON (`recognising-a-phishing-email`) and its knowledge check items (`SEC-01-KC-01`, `SEC-01-KC-02`).
+    *   **Role:** Judge (fresh context, no knowledge of prompt/generation).
+    *   **Task:** Score the lesson against `pipeline/rubric.md`.
+    *   **Output Format:** Strict JSON object with specific keys (`lesson`, `scores`, `notes`, `verdict_notes`). No prose before or after.
+    *   **Criteria:**
+        1.  Objective Alignment
+        2.  Level Fidelity
+        3.  Worked Example Quality
+        4.  Knowledge Check Quality
+        5.  Scenario Authenticity
+        6.  Bilingual Quality
+        7.  Concision and Reading Level
+        8.  Accessibility and IP
+    *   **Thresholds:** Fail if any < 3 OR mean < 4.0. (Be harsh on 4 and 5: 5 means "would not change", 4 means "good").
+    *   **Specific Triggers to Watch For:** Visual card that is a list, distractors nobody would choose, feedback restates answer, steps assert without explaining, scenario with no friction, Arabic follows English word order, licensed code/payer policy text (auto-1).
+
+2.  **Analyze the Lesson Content:**
+
+    *   **Slug/Title:** `recognising-a-phishing-email`.
+    *   **Level:** L1, L2.
+    *   **Objective:** SEC-01 (Likely related to security awareness).
+
+    *   **L1 Block Analysis:**
+        *   *Intro:* Explains the "attack is on the reader". Mentions display name vs address. Good concept.
+        *   *Definitions:* Look-alike domain, One-time code. Clear definitions.
+        *   *Job Tip:* "Don't ask if it feels fake, ask where it goes." Good advice.
+        *   *Takeaways:* Bullet points summarizing key concepts.
+        *   *Observation:* Are there "visual cards"? There is a `definition_card` type, but the rubric says a "visual card that is a bulleted list with a border" fails. The definition cards here have a term, definition, and icon. They don't look like the specific failure pattern described (bulleted list border). I need to check if `takeaways` (bulleted list) counts as a visual card issue. The rubric says: "A 'visual card' that is secretly a bulleted list with a border fails this criterion [level fidelity]." The `takeaways` block is just text, maybe a styled card? Let's look closer. The prompt says "A 'visual card' that is a bulleted list with a border". The `takeaways` seems to be just a block of text, possibly styled, but the definitions have icons. It feels safe, but I should be wary of L1 being too "text-heavy" vs "visual".
+
+    *   **L2 Block Analysis:**
+        *   *Heading:* "Work one message, signal by signal".
+        *   *Worked Example:*
+            *   Prompt: IT Service Desk, account closing, verify code button.
+            *   Steps: "Read actual address", "Reveal button destination", "Notice deadline", "Stop at code request".
+            *   Why steps: "Because it is the next step."
+            *   *Critique:* The `why` is repetitive and generic ("Because it is the next step"). It doesn't explain the *reasoning* (judgement) behind the step. It just lists procedural steps. It asserts the action but not the *judgement* (why this matters more than the display name). This aligns more with "3" (reasoning present but generic/weak) or even "2" if interpreted strictly, but "assert without explaining" is a specific warning. The `answer` is good.
+        *   *Scenario:* Manager message, needs payment moved, reply-to differs. This is a common, realistic scenario (CEO fraud/BEC). It has friction (urgent deadline, "can't take calls").
+        *   *Decisions:*
+            *   D1 (Reply): Correct feedback explains the address mismatch.
+            *   D2 (Call number in signature): Feedback explains signature is part of the message. (Distractor is plausible).
+            *   D3 (Call old number): Best option. Feedback explains the engineered urgency.
+        *   *Knowledge Checks:* Referenced items SEC-01-KC-01 and SEC-01-KC-02.
+
+    *   **Knowledge Check Items:**
+        *   **KC-01 (Display name):**
+            *   Stem: Matches internal dept.
+            *   Options:
+                *   Sender address (Correct): Good.
+                *   Formatting/typos: Feedback says "Weak evidence". Plausible distractor (people trust good formatting).
+                *   Logo: Feedback says "image copied". Plausible distractor (people trust logos).
+                *   Arrived at work: Feedback says "harvested". Plausible distractor (people think "it reached my inbox so it's legit").
+            *   *Critique:* These are high-quality distractors. Feedback is strong.
+        *   **KC-02 (Clicked link):**
+            *   Stem: Realized it's phishing, clicked link.
+            *   Options:
+                *   Report immediately (Correct): Good.
+                *   Wait and see: Feedback explains giving attacker time.
+                *   Delete message: Feedback explains destroying evidence.
+                *   Reply to sender: Feedback explains confirming address is live.
+            *   *Critique:* High quality. Real misconception addressed ("delete it to be safe").
+
+3.  **Score Criteria Individually:**
+
+    *   **1. Objective Alignment (SEC-01):** L1 introduces concepts, L2 applies them (work example + scenario). L2 KCs check application. High alignment. Score: 5.
+        *   *Wait:* The L1 `takeaways` are just bullet points. The L1 intro is very text-heavy. Is there *too* much text? It fits the objective of explaining the attack on the reader. I'll stick with 5. It covers the objective thoroughly.
+
+    *   **2. Level Fidelity:**
+        *   L1: Intro, definitions, tip, takeaways. It teaches the concepts. It's not "L1 with a question bolted on".
+        *   L2: Worked example, scenario, knowledge checks. The worked example steps are weak (generic "next step" why), but the *content* is L2 level application.
+        *   *Visual Card check:* The `takeaways` are a bulleted list. Is it a "visual card"? Usually, these blocks are rendered as cards with borders. If it's just a list, it's fine. If it's a styled card, it's still a list. The rubric warns against a "visual card that is secretly a bulleted list". The `takeaways` look like a list. However, the `definition_card` has an icon and specific formatting. The `takeaways` might just be a text block. Let's look at the rubric example: "A bulleted list with a border". If `takeaways` is just text, it's okay. If it's a card with a border, I need to check if that counts as the "visual card" failure. Usually, "visual card" implies a specific UI component. Let's assume the `takeaways` is just a text block, or at least not the egregious failure described. The L2 worked example is the weak link for fidelity (it feels a bit thin/rote). Let's say 4. It gets the job done, but the "why" steps in the worked example are mechanical and don't really deepen the L2 experience.
+
+    *   **3. Worked-example quality:**
+        *   Steps: Read address, Reveal button, Notice deadline, Stop at code.
+        *   Why: "Because it is the next step."
+        *   *Analysis:* This is repetitive and doesn't explain the *judgement* (why checking the address matters more than trusting the name, why stopping at the code matters). It asserts the steps but fails to explain the *reasoning* behind the order or the choice.
+        *   *Score:* 2? The rubric says "1 — steps assert an answer with no reasoning." vs "3 — reasoning present but generic." "Because it is the next step" is barely reasoning. However, the *Answer* section explains the rationale ("The code request settles it..."). Maybe it's a 3 because the *answer* has reasoning? No, the rubric says "each step show what to do *and why*". The steps in this specific block (`sec1_l2_worked`) have very poor "why" explanations. It's just procedural.
+        *   *Decision:* The rubric is harsh on 4/5. "A 5 means you would not change it." I would change this. The "why" text is identical for every step. It's a 2 or a 3. Given the "generic" label for 3, I'll lean towards 3 because there is some text there, even if it's lazy. Wait, "assert without explaining why" is a specific failure mode. I'll score this a 3.
+
+    *   **4. Knowledge-check quality:**
+        *   Items KC-01 and KC-02.
+        *   KC-01: Distractors (Formatting, Logo, Work address) are plausible real misconceptions. Feedback explains them well.
+        *   KC-02: Distractors (Wait, Delete, Reply) are plausible misconceptions. Feedback explains them.
+        *   *Critique:* These are excellent. High quality.
+        *   *Score:* 5.
+
+    *   **5. Scenario authenticity:**
+        *   L1: General explanation.
+        *   L2: "Manager message... payment moved... reply-to differs". This is the classic CEO/Business Email Compromise (BEC) scenario. It has specific, real-world friction ("can't take calls", "before end of day").
+        *   *Score:* 5.
+
+    *   **6. Bilingual quality:**
+        *   The Arabic text needs to be checked for "literal translation".
+        *   *Intro:* "The attack is on the reader... The defence is not a tool — it is a **habit**... The weakest signal... is the sender's **display name**..."
+        *   *Arabic:* "التصيّد لا يهاجم البرمجيات... الدفاع هنا ليس أداة، بل **عادة**: التحقق من شيئين أو ثلاثة قبل التصرّف." -> Looks natural.
+        *   "الاسم الظاهر نص حر... ما لا يُكتب بحرية هو **العنوان** خلفه." -> Natural flow.
+        *   *Definitions:* "نطاق حقيقي... ليُقرأ خطأً لا ليُفحَص...". Natural.
+        *   *Worked Example:* "اقرأ العنوان الحقيقي، لا الاسم الظاهر... لأنها الخطوة التالية." -> Natural.
+        *   *Scenario:* "رسالة من الاسم الظاهر لمديرك... يحتاج تحويل دفعة لمورّد... التوقيع جزء من الرسالة..." -> Natural.
+        *   *Knowledge Checks:* Rationales and feedback look solid and natural, not word-for-word English translations.
+        *   *Score:* 5.
+
+    *   **7. Concision and reading level:**
+        *   L1 block: The intro paragraph is dense. "The defence is not a tool — it is a **habit**: checking two or three things before acting."
+        *   L2 Worked Example: The "why" steps are repetitive.
+        *   Overall: It's a bit dense in places. The worked example "why" is wordy (even if repetitive). Is it longer than it needs to be? The L1 intro is explanatory. The L2 worked example is mechanical.
+        *   *Score:* 3 or 4. It's clear, but dense. I'll give it a 4. It conveys the message, though the worked example steps are a bit verbose with their generic "next step".
+
+    *   **8. Accessibility and IP:**
+        *   No images described. No real code/policy text. No denylisted terms.
+        *   Icons in definition cards (`🔎`, `🔐`) need alt text. The JSON structure doesn't explicitly show alt text properties for these icons in the payload, but the prompt mentions "Alt text on any image." If these are SVGs/Icons without explicit alt text attributes in the JSON, it might be a failure. However, the rubric says "Compliant but minimal" for 3, and "Compliant, and the constraint is used as a teaching point" for 5.
+        *   *Wait:* The rubric says "No meaning carried by colour alone." (Not applicable here).
+        *   *Icons:* The prompt implies the lesson JSON *is* the lesson content. If the JSON represents the rendered page, and it lacks alt text for icons, it might be a failure.
+        *   However, looking at the JSON structure: `"icon": "🔎"`. There is no `alt` field.
+        *   *Is it an automatic 1?* No, only if "real licensed code" or "payer policy text".
+        *   *Is it a failure?* Accessibility requires alt text. If it's missing, that's a failure. The rubric has "3 — compliant but minimal". This is likely a 3 or 4. I will assume the system handles the icons or that the "definition_card" type implies proper rendering. If I have to judge strictly based on the JSON provided: No alt text is specified. But "Definition card with icon" is a standard UI pattern. I'll score it 4. It's compliant (likely handled by the renderer), but maybe not a specific teaching point.
+
+    *   **Recalibrating Scores:**
+
+    *   **Objective Alignment (5):** Strong.
+    *   **Level Fidelity (4):** L1 is text-heavy but educational. L2 has the applied blocks. The worked example is the weak point of fidelity (it's more of a procedure than a deep reasoning experience), so 4 fits.
+    *   **Worked Example (2/3):** The "why" is "Because it is the next step". This is extremely generic and doesn't explain the *judgement* required (e.g., "Checking the address is the only way to verify ownership"). It asserts the step. The "Next step" line is procedural, not explanatory of the *security principle*. I think this is a 2. But looking at the rubric: "3 — reasoning present but generic." The reasoning is present, just lazy. "2" might be too harsh if there is *some* reasoning (the order itself implies a hierarchy). However, "steps assert... without explaining why" is a red flag. I'll stick with 3. It's better than a 2 because the *Answer* explains the logic, even if the step-by-step breakdown is lazy. Actually, let's look at the "next step" line. It says "Because it is the next step." That adds zero value. I will lower it to 2? No, the prompt says "A 5 means you would not change it. Most good work is a 4." If I would change the "why" text to be meaningful, it's a 4. If I would rewrite the whole worked example, it's a 2. "Read address... because it's the next step" is bad, but the prompt for the worked example was "Run the checks in order." Maybe the lesson is trying to teach *pacing*? No, it's security. I'll score it 3. It's functional, even if uninspired.
+    *   **Knowledge Check (5):** Very high quality distractors and feedback.
+    *   **Scenario (5):** Realistic, has friction.
+    *   **Bilingual (5):** Arabic flows well. No translation errors.
+    *   **Concision (4):** Clear, but wordy in the L1 intro and L2 steps.
+    *   **Accessibility (4):** No obvious violations in the text. Icons likely handled or acceptable.
+
+    *   **Mean Calculation:** (5+4+3+5+5+5+4+4) / 8 = 4.375.
+    *   **Verdict:** Passes (mean > 4.0).
+
+    *   **Notes:**
+        *   Worked example: The "why" steps are repetitive ("Because it is the next step") and do not explain the judgment behind the check.
+        *   Concision: L1 introduction is dense.
+
+    *   **Refining Worked Example Score (Self-Correction):**
+        *   Rubric: "3 — reasoning present but generic."
+        *   Rubric: "1 — steps assert an answer with no reasoning."
+        *   The text provided is: `"whyAr": "لأنها الخطوة التالية.", "whyEn": "Because it is the next step."`
+        *   This is arguably "assert without explaining why" because "next step" is a procedural instruction, not a justification for the security check.
+        *   However, the *Answer* block has rich reasoning ("The code request settles it...").
+        *   I'll stick with 3. It's a 2 if I'm being strict about "why", but the rubric allows "generic" reasoning at 3. "Next step" is technically reasoning (sequence), just poor content.
+
+    *   **Refining Level Fidelity:**
+        *   L1 block: `takeaways` is a list. Is it a "visual card that is a bulleted list with a border"?
+        *   The JSON says `"type": "takeaways"`. It doesn't specify styling. In the absence of styling info, I assume standard text block. If it's a card, is it "secretly a bulleted list"? A list is a list. A "visual card that is secretly a bulleted list" implies a visual element *hiding* content, or a card that *is* just a list pretending to be something else.
+        *   Given the L1 content is heavy on text, and L2 is heavy on procedural application, it fits the levels.
+
+    *   **Refining Accessibility:**
+        *   The JSON contains icons `🔎` and `🔐`. The prompt says "Alt text on any image". Icons are images.
+        *   Is the absence of alt text a 1? "1 — any licensed code set or denylisted term present. This is an automatic 1". It is not an automatic 1.
+        *   Is it a 3? "Compliant but minimal."
+        *   Is it a 4? "Compliant, and the constraint is used as a teaching point." (No).
+        *   I will score 3 or 4. If the icons are decorative or handled by the platform, it's fine. If they are informational (which they are), they should have alt text. Since they don't in the JSON, it's a minor failure. I'll give it a 3.
+
+    *   **Final Check on Knowledge Checks:**
+        *   KC-01: Distractor "Formatting/typos". Feedback: "Weak evidence... perfectly polished message is entirely common." This is good.
+        *   KC-02: Distractor "Delete message". Feedback: "Deleting destroys the evidence... needed to size the campaign." This is excellent.
+        *   KC-01: Distractor "Work address". Feedback: "Harvested... arriving at work is not an endorsement." Excellent.
+        *   This section is definitely 5.
+
+    *   **Final Check on Arabic:**
+        *   "التصيّد لا يهاجم البرمجيات" (Phishing does not attack software). Good.
+        *   "الاسم الظاهر نص حر" (Display name is free text). Good.
+        *   "العنوان خلفه هو الدليل" (Address behind it is the proof). Good.
+        *   "نص الرابط لافتة، ووجهته شيء آخر" (Link text is a sign/poster, and its destination is another thing). Idiomatic.
+        *   "الاستعجال مُهندَس" (Urgency is engineered). Good terminology.
+        *   "نطاق مُشابِه" (Look-alike domain).
+        *   "رمز المرة الواحدة" (One-time code).
+        *   No "Arabic that follows English word order" (e.g., "The phishing does not attack software" -> "التصيّد لا يهاجم البرمجيات" - this is correct Arabic word order). English word order would be "Software not attacked by phishing". The lesson is in correct Arabic. Score 5.
+
+    *   **Scores:**
+        1. Objective: 5
+        2. Level: 4
+        3. Worked Example: 3
+        4. Knowledge Check: 5
+        5. Scenario: 5
+        6. Bilingual: 5
+        7. Concision: 4
+        8. Accessibility: 3 (Missing alt text for icons, though not a catastrophic failure, it's below 4).
+
+    *   **Mean:** (5+4+3+5+5+5+4+3)/8 = 4.25.
+    *   **Result:** Pass. One criterion < 4 (Worked Example, Accessibility).
+
+    *   **Notes:**
+        *   Worked Example: The reasoning steps ("Because it is the next step") are generic and do not explain the security judgment being made.
+        *   Accessibility: Icons are present but lack explicit alt text.
+
+    *   **Verdict Notes:**
+        *   The knowledge checks and scenario are strong. The main weaknesses are the generic "next step" justifications in the worked example and missing alt text for the definition icons.
+
+    *   Let's reconsider the "Visual card" failure.
+        *   The `takeaways` are a bulleted list.
+        *   If this is rendered as a "card" (often the default style in these systems), and it's just a list, is it a fail?
+        *   Rubric: "A 'visual card' that is secretly a bulleted list with a border fails this criterion [Level Fidelity]."
+        *   "Secretly" suggests it's not meant to be a list, or it's pretending to be something else.
+        *   "Takeaways" is a standard component for a summary. It is meant to be a list. So "secretly" doesn't apply.
+        *   Also, the `definition_card` has an icon and title. It is more than a list.
+        *   So I don't think this fails level fidelity.
+
+    *   Let's reconsider the "Accessibility" score.
+        *   Rubric: "3 — compliant but minimal."
+        *   Is missing alt text for icons "compliant"? Strictly speaking, no, it's an accessibility failure (WCAG).
+        *   But maybe the prompt implies that as long as there isn't *meaning* lost or *code* present, it's a pass?
+        *   "No meaning carried by colour alone."
+        *   If I score it 1 (Auto-fail), I need licensed code.
+        *   If I score it 3, I acknowledge the lack of alt text but don't penalize it as a "gate failure" (since it's not 1).
+        *   The rubric says "The gate fails if any criterion scores below 3". So 3 is acceptable.
+        *   However, 4/5 implies the constraint is used or there's extra care.
+        *   Since the icons are "🔎" and "🔐", they are not decorative (they convey meaning). They should have alt text.
+        *   I'll stick with 3. It's not a disaster, but it's not "compliant and used as a teaching point" (5) either.
+
+    *   Let's reconsider Worked Example score.
+        *   Steps: 1. Read address. 2. Reveal button. 3. Notice deadline. 4. Stop at code.
+        *   Why: "Because it is the next step."
+        *   Rubric 3 says "reasoning present but generic".
+        *   If the lesson is just checking if the student follows the procedure, then "next step" is sufficient?
+        *   But it's a security lesson. The *value* is in the *why*.
+        *   "Why read the address?" -> "Because it is the next step." (Bad answer).
+        *   "Why read the address?" -> "Because the display name is free text and can be faked." (Good answer).
+        *   The lesson provides the "Good answer" in the `answer` block. It just lazily repeats it in the steps.
+        *   I will keep it at 3.
+
+    *   **Final Score Set:**
+        *   1. 5
+        *   2. 4
+        *   3. 3
+        *   4. 5
+        *   5. 5
+        *   6. 5
+        *   7. 4
+        *   8. 3
+        *   Mean: 4.25. Pass.
+
+    *   **Formatting the JSON:**
+        *   `lesson`: "recognising-a-phishing-email"
+        *   `scores`: as above.
+        *   `notes`: strings for criteria < 4.
+        *   `verdict_notes`: sentence.
+
+    *   **Double Check:**
+        *   Did I see any "real licensed code" or "payer policy"? No.
+        *   Did I see "Arabic follows English word order"? Checked. It looks natural.
+        *   Did I see "Visual card that is a bulleted list with a border"? `takeaways` is a list. Is it a border? Usually, "cards" are bordered. If `takeaways` is rendered as a bordered card, is it a visual card? Yes. Is it a bulleted list? Yes. Is it "secretly"? No, it's meant to be a summary. It's not a failure.
+        *   "Distractor nobody would ever choose" -> KC options are plausible. KC-01 option "Formatting/typo-free" is plausible (people trust polished emails). KC-01 option "Work address" is plausible (people trust internal delivery). KC-02 options are all plausible reactions.
+
+    *   One tiny check on Bilingual 5.
+        *   "The attack is on the reader, not the system" -> "الهجمة على القارئ، لا على النظام". Correct.
+        *   "Phishing does not attack software." -> "التصيّد لا يهاجم البرمجيات". Correct.
+        *   "A display name is free text" -> "الاسم الظاهر نص حر". Correct.
+        *   "Reading the address rather than the name shown" -> "قراءة العنوان نفسه، لا الاسم المعروض". Correct.
+        *   "Look-alike domain" -> "نطاق مُشابِه". Correct.
+        *   "One-time code" -> "رمز المرة الواحدة". Correct.
+        *   "The defence is not a tool — it is a habit" -> "الدفاع هنا ليس أداة، بل **عادة**". Correct.
+        *   Looks very natural.</think>```json
+{
+ "lesson": "recognising-a-phishing-email",
+ "scores": {
+  "objective_alignment": 5,
+  "level_fidelity": 4,
+  "worked_example": 3,
+  "knowledge_check": 5,
+  "scenario_authenticity": 5,
+  "bilingual_quality": 5,
+  "concision": 4,
+  "accessibility_ip": 3
+ },
+ "notes": {
+  "worked_example": "The 'why' justification for each step is generic ('Because it is the next step') and does not explain the security judgement being made.",
+  "accessibility_ip": "The definition cards use icons without explicit alt text."
+ },
+ "verdict_notes": "Strong performance on the scenario and knowledge checks, with high-quality Arabic. The worked example is functional but lacks explanatory depth in its steps. Accessibility is functional but minimal."
+}
+```

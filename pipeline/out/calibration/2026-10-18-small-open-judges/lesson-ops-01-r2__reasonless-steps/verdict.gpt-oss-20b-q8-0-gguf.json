@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "gpt-oss-20b-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 1.0,
+    "scored_at": "2026-10-17T23:24:15.074919+00:00",
+    "usage": {
+      "inputTokens": 7275,
+      "outputTokens": 1484
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step’s “why” is very generic – simply stating “because it is the next step.” It does not explain the reasoning behind why the step is necessary or how changing it would alter the outcome.",
+    "concision": "The lesson is mostly concise, but a few sections (e.g., the introductory rich text) contain slightly verbose phrasing that could be trimmed without loss of meaning."
+  },
+  "verdict_notes": "Overall the lesson meets all major criteria, with the worked example and concision receiving lower scores due to minimal reasoning and modest verbosity. The mean score is 4.8, well above the pass threshold."
+}

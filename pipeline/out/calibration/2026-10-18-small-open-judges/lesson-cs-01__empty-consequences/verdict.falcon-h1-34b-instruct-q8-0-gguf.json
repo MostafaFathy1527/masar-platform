@@ -1,0 +1,35 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "Falcon-H1-34B-Instruct-Q8_0.gguf",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-17T23:16:45.411785+00:00",
+    "usage": {
+      "inputTokens": 7215,
+      "outputTokens": 267
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "The L2 content extends the L1 material appropriately, though the distinction between levels could be sharper.",
+    "concision": "Some blocks could be trimmed slightly without losing meaning, particularly in the rich text explanations."
+  },
+  "verdict_notes": "The lesson is well-constructed and meets most criteria effectively. The worked example is particularly strong, clearly explaining both the 'what' and 'why'. Knowledge checks are solid but could be improved by ensuring feedback addresses misconceptions more directly. The bilingual quality is excellent, and the lesson avoids any IP issues. Minor improvements in concision and level distinction could elevate this further."
+}

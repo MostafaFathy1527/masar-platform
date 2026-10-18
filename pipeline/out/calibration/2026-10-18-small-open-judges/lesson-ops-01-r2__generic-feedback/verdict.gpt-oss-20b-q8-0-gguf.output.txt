@@ -1,0 +1,19 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "notes": {
+    "knowledge_check": "Each option’s feedback simply repeats the answer label (e.g., \"Correct\" or \"Incorrect\") and does not explain why an option is right or wrong, missing the required misconception‑based explanation. The distractors also fail to represent real misconceptions.",
+    "concision": "Several explanatory passages, such as the introductory definition and some tip sections, could be shortened without changing the instructional intent, indicating mild redundancy."
+  },
+  "not_scored": {},
+  "verdict_notes": "The lesson scores highly on alignment, level, worked example, scenario, bilingual quality, and accessibility, but the knowledge checks are insufficient (score 1) and the concision is somewhat wordy. The mean score is 4.38, yet the presence of a criterion below 3 means it would fail the gate."
+}

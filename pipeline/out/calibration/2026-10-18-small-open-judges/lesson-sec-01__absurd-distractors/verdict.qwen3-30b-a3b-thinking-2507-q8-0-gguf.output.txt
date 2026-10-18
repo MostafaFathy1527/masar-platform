@@ -1,0 +1,417 @@
+<think>
+We are judging a lesson titled "recognising-a-phishing-email" (slug: "recognising-a-phishing-email") against the rubric.
+ We are to score 8 criteria: objective_alignment, level_fidelity, worked_example, knowledge_check, scenario_authenticity, bilingual_quality, concision, accessibility_ip.
+
+ Important: We are in a fresh context, so we don't know the prompt. We only look at the lesson as provided.
+
+ Let's go through each criterion one by one.
+
+ 1. Objective alignment:
+    - The lesson declares objective "SEC-01" for all blocks.
+    - We check if each block serves that objective.
+    - The lesson has:
+        * L1: heading, rich_text, two definition_cards, job_tip, takeaways.
+        * L2: heading, worked_example, two knowledge_checks, scenario.
+    - All blocks have "objectiveId": "SEC-01", and the content is about phishing email recognition (e.g., display name, look-alike domain, one-time code, engineered urgency, etc.).
+    - The objective is to recognize phishing emails, and every block is directly about that.
+    - Score: 5 (every block earns its objective, and the set covers it).
+
+ 2. Level fidelity:
+    - The lesson declares levels L1 and L2.
+    - We must check if the content matches the level promise.
+    - L1: introductory, explains the core concepts (display name, look-alike domain, etc.) and the habit of checking.
+    - L2: a worked example (step-by-step on a real example) and a scenario that requires applying the concepts.
+    - The L1 is not too advanced (it's a basic introduction), and L2 is more applied (working through a specific message).
+    - There's no sign of L2 being an L1 with a question bolted on. The L2 has a worked example and a scenario that require application, which is appropriate for L2.
+    - Score: 5 (the level is what the learner actually experiences).
+
+ 3. Worked-example quality:
+    - The worked example (in L2) has steps with "show" and "why".
+    - Each step shows what to do and why.
+        * Step 1: Read the actual address (why: because display name is free text, address is fixed).
+        * Step 2: Reveal where the button goes (why: displayed text is independent of destination).
+        * Step 3: Notice the deadline (why: urgency plus unusual request is a red flag).
+        * Step 4: Stop at the code request (why: legitimate parties don't ask for one-time codes).
+    - The "why" explains the judgment and what would change it (e.g., if the address was legitimate, then the display name might be trusted, but the address is the key).
+    - Score: 5.
+
+ 4. Knowledge-check quality:
+    - We have two knowledge checks (SEC-01-KC-01 and SEC-01-KC-02).
+    - For KC-01:
+        * Stem: "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?"
+        * Options: 
+            A: "The sender's actual address." (correct)
+            B: "Order lunch for the team first." (distractor)
+            C: "Restart your computer." (distractor)
+            D: "Change the colour of the screen." (distractor)
+        * Feedback for correct: "Correct. This is always the first check, because it is the one thing not freely typed." -> This names the misconception (trusting the display name) and explains why the address is the key.
+        * Feedback for incorrect: "Not correct." -> This is too generic and doesn't explain why the distractor is wrong. It doesn't name a misconception.
+        * The distractors (B, C, D) are implausible (no one would choose them as a phishing check) and are clearly wrong. They don't represent a real misconception. They are just nonsense.
+        * This is a problem: the distractors should be drawn from real misconceptions. Here, the distractors are not plausible at all.
+
+    - For KC-02:
+        * Stem: "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?"
+        * Options:
+            A: "Report it immediately, even if you entered nothing." (correct)
+            B: "Order lunch for the team first." (distractor)
+            C: "Restart your computer." (distractor)
+            D: "Change the colour of the screen." (distractor)
+        * Feedback for correct: "Correct. Timing is everything here, and the same message almost never arrives at one person." -> This explains why reporting immediately is important (containment) and names the consequence of delay (not reporting).
+        * Feedback for incorrect: "Not correct." -> Again, generic, doesn't explain the misconception.
+
+    - The problem: the distractors in both knowledge checks are the same nonsense options (B, C, D) and they are not plausible. They don't represent any real misconception. The feedback for incorrect options is just "Not correct", which restates the stem (i.e., it doesn't explain why the option is wrong).
+
+    - According to the rubric: "distractors drawn from real misconceptions", and "feedback that explains why rather than restates the answer".
+
+    - Here, the distractors are not based on real misconceptions (they are absurd), and the feedback for incorrect options is minimal and restates the stem (by saying "Not correct" without explanation).
+
+    - This is a failure. We have two knowledge checks, and both have the same issue.
+
+    - Score: 3 (plausible distractors? No, they are implausible. Feedback thin on some: it is thin for all incorrect options). But note: the rubric says "plausible distractors" — these are not. So it's worse than 3? However, the rubric for 1 is "implausible distractors, or feedback that repeats the stem". Here we have both: implausible distractors and feedback that repeats the stem (for the incorrect options). So it's a 1? But wait, the rubric says 1 is for "implausible distractors, or feedback that repeats the stem". We have both, so it should be 1? However, note that for KC-01, the correct feedback is good, but the incorrect ones are bad.
+
+    - But the rubric says: "a distractor nobody would ever choose teaches nothing." These distractors are not chosen by anyone (they are nonsense), so they are bad.
+
+    - However, the rubric has a threshold: 
+        1: implausible distractors, or feedback that repeats the stem.
+        3: plausible distractors, feedback thin on some.
+        5: every distractor names a misconception.
+
+    - We have implausible distractors (so it's at least a 1) but note that the correct feedback is good. However, the criterion is about the whole knowledge check. Since the distractors are implausible, it's a 1? But wait, the rubric says "or", meaning if either condition holds, it's a 1. However, the rubric also says "a distractor nobody would ever choose" — these are such distractors.
+
+    - But note: the rubric says "a distractor nobody would ever choose" (singular) but here all three distractors are like that. So it's clearly a 1.
+
+    - However, let's compare to the example: the rubric says "a distractor nobody would ever choose" — meaning if even one distractor is implausible, then it's a 1? Actually, the rubric says "implausible distractors" (plural) in the description for 1. So if any distractor is implausible, it's a 1.
+
+    - But note: the example in the rubric says: "a distractor nobody would ever choose" — so if one distractor is implausible, then it's a 1.
+
+    - In this case, all three distractors in both questions are implausible. So it's a 1.
+
+    - However, let's check the actual lesson: the distractors are "Order lunch for the team first", "Restart your computer", "Change the colour of the screen". These are not related to phishing at all. They are clearly wrong and would never be chosen by a learner. So they are implausible.
+
+    - Therefore, knowledge_check should be 1.
+
+    - But wait: the rubric says "a distractor nobody would ever choose" — and these are such. So it's a 1.
+
+    - However, note that the rubric also says: "feedback that restates the answer" — the feedback for incorrect options is "Not correct", which is restating the stem (because the stem is about the correct action, and saying "Not correct" implies the opposite). So we have two problems.
+
+    - But the rubric says "or", so the presence of implausible distractors alone is enough for a 1.
+
+    - Therefore, score for knowledge_check: 1.
+
+    - However, let me double-check: the rubric says for 1: "implausible distractors, or feedback that repeats the stem". We have both, but even one is enough for 1.
+
+    - But note: the rubric also says for 3: "plausible distractors, feedback thin on some". We don't have plausible distractors, so we can't score it as 3.
+
+    - Therefore, knowledge_check: 1.
+
+ 5. Scenario authenticity:
+    - The scenario in L2 (sec1_l2_scenario) is about a message from a manager's display name, in a meeting, asking for a payment transfer.
+    - This is a common phishing tactic (impersonating a manager for urgent financial requests).
+    - The scenario includes friction: the reply-to address differs from the sending address, and the manager says he's in a meeting (which is engineered to prevent the recipient from verifying by calling the known number).
+    - This is a realistic scenario that would be recognized by someone who has seen phishing attempts.
+    - Score: 5 (recognisable, including the awkward parts).
+
+ 6. Bilingual quality:
+    - The lesson is bilingual (declared in the lesson: "bilingual": true).
+    - We need to check the Arabic for naturalness and consistency.
+    - The Arabic in the lesson (in the "payload" fields) is provided and seems to be a natural Arabic translation. It doesn't follow English word order.
+        Example: 
+          "التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة."
+          This is natural Arabic, not a literal translation of "Phishing does not attack software. It attacks the person reading the screen — and that's why a fully patched system still loses to a well-written attacker."
+
+        The Arabic uses natural phrasing and is not word-for-word.
+
+    - Terminology is consistent (e.g., "الاسم الظاهر" for display name, "العنوان" for address, etc.) and matches the glossary (which we don't have, but the terms are used consistently).
+
+    - The Arabic reads as though written in Arabic.
+
+    - Score: 5.
+
+ 7. Concision and reading level:
+    - We check if the prose is as concise as possible.
+    - The lesson is written with clear, direct language. Each block is to the point.
+    - The takeaways are a list of short, memorable points.
+    - There is no padding or repetition.
+    - The worked example steps are concise and to the point.
+    - The scenario is described without unnecessary words.
+    - Score: 5.
+
+ 8. Accessibility and IP:
+    - The rubric says: "Alt text on any image. No meaning carried by colour alone. No real licensed code descriptors, no payer policy text, and nothing from the forbidden-term denylist."
+    - The lesson does not contain any images (so no alt text needed) and no color coding (so no issue).
+    - We check for any real licensed code or policy text: the content is about phishing, and there is no real code or policy text (e.g., no actual Medicare code or insurance policy).
+    - The terms used (like "one-time code", "look-alike domain") are standard and not from a licensed source.
+    - The lesson does not contain any forbidden terms (we don't have the denylist, but the content is about phishing and the terms are standard).
+    - Therefore, it is compliant.
+    - The rubric says: "3 — compliant but minimal. 5 — compliant, and the constraint is used as a teaching point."
+    - The constraint (no real code) is not used as a teaching point, but it is compliant. So it's at least a 3.
+    - However, the rubric says for 5: "compliant, and the constraint is used as a teaching point." Here, the constraint (not using real code) is not used as a teaching point, so it's not a 5. But it is compliant, so 3? But note: the constraint is that we don't use real code, and the lesson doesn't. So it's compliant. The rubric doesn't require that we use the constraint as a teaching point for a 5, but it says "and the constraint is used as a teaching point" for 5. Since it's not used as a teaching point, we can't give 5. However, the lesson is compliant, so it's at least a 3.
+
+    - But note: the rubric for 5 says "compliant, and the constraint is used as a teaching point." Since it's not used as a teaching point, we can't give 5. But is it 3? The rubric says 3 is "compliant but minimal". So we can give 3.
+
+    - However, the lesson does not have any images, so no alt text needed. And it doesn't have any color meaning. So it's compliant. And it's not minimal in the sense of being bare, but the requirement is met. So 3 is acceptable.
+
+    - But note: the rubric says for 1: "any licensed code set or denylisted term present" -> we don't have any, so not 1.
+    - We are compliant, so not 1. We are not using the constraint as a teaching point, so 3.
+
+    - However, the rubric says 5 is for when the constraint is used as a teaching point. Since it's not, we don't give 5. We give 3.
+
+    - But wait: the rubric says "compliant" for 3 and 5. The difference is the teaching point. So without the teaching point, it's 3.
+
+    - Score: 3.
+
+    - However, note: the lesson does not have any images, so the alt text requirement doesn't apply. And there's no color. So it's compliant. And it's not minimal? It's just compliant. So 3.
+
+    - But the rubric says "compliant but minimal" for 3. Is the lesson minimal? The lesson is written in a way that meets the requirement, but it's not minimal in the sense of being sparse — it's concise. However, the requirement for accessibility is met, so it's compliant. The "minimal" in the rubric for 3 might mean that it meets the requirement without going above, but it's not a negative. So we can give 3.
+
+    - However, note: the rubric for 5 says "compliant, and the constraint is used as a teaching point". Since we don't have a teaching point, 3 is the best we can give.
+
+    - But wait: the lesson does not have any content that would require the constraint to be used as a teaching point. It's a phishing lesson, so there's no real code to avoid. So it's just compliant, and we don't need to make a teaching point about it. Therefore, 3 is acceptable.
+
+    - We'll score it 3.
+
+ However, note: the rubric says "No real licensed code descriptors or payer policy text" — we have none. So it's compliant. And since it's not using the constraint as a teaching point, we give 3.
+
+ But wait: the rubric says for 5: "compliant, and the constraint is used as a teaching point." If we don't use it as a teaching point, then we don't get 5. So 3 is the score.
+
+ Now, let's summarize the scores:
+
+  objective_alignment: 5
+  level_fidelity: 5
+  worked_example: 5
+  knowledge_check: 1   (because of implausible distractors and bad feedback for incorrect options)
+  scenario_authenticity: 5
+  bilingual_quality: 5
+  concision: 5
+  accessibility_ip: 3
+
+ But wait: the rubric says for the gate: "the gate fails if any criterion scores below 3, or if the mean is below 4.0."
+
+ Here, knowledge_check is 1 (below 3) and accessibility_ip is 3 (which is not below 3). So the gate fails because knowledge_check is below 3.
+
+ However, the judge is only to score, not to decide pass/fail.
+
+ Now, we must output the JSON.
+
+ But note: the rubric says for "notes": required for every criterion scored below 4.
+
+ We have two criteria below 4: knowledge_check (1) and accessibility_ip (3).
+
+ However, the rubric says: "required for every criterion scored below 4". So we must provide notes for both.
+
+ For knowledge_check: we note the issue with distractors and feedback.
+ For accessibility_ip: we note that it's compliant but the constraint is not used as a teaching point (so we don't have a 5).
+
+ But note: the rubric says for accessibility_ip: we scored 3. The note should explain why we didn't give 5.
+
+ However, the rubric example in the instruction says: "notes" is a dictionary with criterion -> string.
+
+ We'll write:
+   "knowledge_check": "Distractors are implausible (nonsense options) and feedback for incorrect options is generic ('Not correct').",
+   "accessibility_ip": "Compliant but constraint not used as teaching point."
+
+ But wait: the rubric for accessibility_ip says 3 is "compliant but minimal". We don't have a minimal issue, but we don't have the teaching point. So we can say: "Compliant but constraint not used as teaching point."
+
+ Now, the verdict_notes: two or three sentences. We can say: "One criterion (knowledge_check) scores 1, which is below the threshold. The mean score is (5+5+5+1+5+5+5+3)/8 = 34/8 = 4.25. The lesson fails the gate due to knowledge_check being below 3."
+
+ However, note: the rubric says "the gate fails if any criterion scores below 3", so knowledge_check=1 fails the gate.
+
+ But the judge's verdict_notes should be neutral: "One criterion at 1; mean 4.25. Fails the gate."
+
+ However, the instruction says: "the gate — not the judge — decides pass or fail." So we just state the facts.
+
+ But note: the example verdict_notes: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+ In our case, we have a criterion at 1 (not 3) and the mean is 4.25.
+
+ So: "One criterion at 1; mean 4.25. Fails the gate due to knowledge_check below 3."
+
+ However, the example says "Passes" when the mean is above 4 and all above 3. Here, we have a 1, so it fails.
+
+ But note: the instruction says: "You do not decide pass or fail." So we just state the numbers and that it fails.
+
+ However, the example verdict_notes includes the pass/fail. We'll follow the example.
+
+ But the example says: "One criterion at 3; mean 4.1. Passes, but the knowledge checks are the weakest part."
+
+ We'll say: "One criterion at 1; mean 4.25. Fails the gate."
+
+ But note: the mean is 4.25, which is above 4, but the gate fails because of the floor (any criterion below 3).
+
+ Now, let's compute the mean: (5+5+5+1+5+5+5+3) = 34 -> 34/8 = 4.25.
+
+ So:
+
+  scores: {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  }
+
+  notes: {
+    "knowledge_check": "Distractors are implausible (nonsense options) and feedback for incorrect options is generic ('Not correct').",
+    "accessibility_ip": "Compliant but constraint not used as teaching point."
+  }
+
+  verdict_notes: "One criterion at 1; mean 4.25. Fails the gate."
+
+ However, note: the rubric says for the output: "not_scored" is not used because we scored all criteria.
+
+ But wait: the rubric says "not_scored" is for criteria that we didn't score (e.g., if a criterion doesn't apply). But all criteria apply.
+
+ Now, let's write the JSON.
+
+ Important: The lesson slug is "recognising-a-phishing-email".
+
+ But note: the example output says "lesson": "05-documentation-that-supports-the-claim", so we use the slug from the lesson.
+
+ The lesson slug is "recognising-a-phishing-email".
+
+ However, the prompt says: "Applicability: ... the slug" — we have it as "recognising-a-phishing-email".
+
+ Let's output the JSON.
+
+ But note: the rubric says "Return exactly the JSON shape it specifies".
+
+ We'll write:
+
+ {
+   "lesson": "recognising-a-phishing-email",
+   "scores": {
+     "objective_alignment": 5,
+     "level_fidelity": 5,
+     "worked_example": 5,
+     "knowledge_check": 1,
+     "scenario_authenticity": 5,
+     "bilingual_quality": 5,
+     "concision": 5,
+     "accessibility_ip": 3
+   },
+   "notes": {
+     "knowledge_check": "Distractors are implausible (nonsense options) and feedback for incorrect options is generic ('Not correct').",
+     "accessibility_ip": "Compliant but constraint not used as teaching point."
+   },
+   "verdict_notes": "One criterion at 1; mean 4.25. Fails the gate."
+ }
+
+ However, note: the rubric says "not_scored" is an optional field. We don't have any not_scored, so we omit it.
+
+ But the example output includes "not_scored" as empty? Actually, the example output does not have "not_scored" at all. The example output has:
+   "lesson", "scores", "notes", "verdict_notes"
+
+ So we don't include "not_scored".
+
+ But the rubric says: "and 'not_scored' (criterion -> reason), and 'verdict_notes'"
+
+ However, the example output does not have "not_scored". The example output provided in the prompt does not include "not_scored". So we omit it.
+
+ Now, let's double-check the knowledge_check score.
+
+ We said 1 because of implausible distractors. But let's see the rubric again:
+
+   **1** — implausible distractors, or feedback that repeats the stem.
+
+ We have both, so 1 is correct.
+
+ However, note: the rubric says "a distractor nobody would ever choose" — and these distractors are chosen by nobody (they are nonsense), so they are implausible.
+
+ Therefore, knowledge_check=1.
+
+ But wait: the example knowledge check in the rubric (the one they described) had a distractor that was plausible. Here, they are not.
+
+ So we are confident in 1.
+
+ However, note: the lesson has two knowledge checks, and both are flawed the same way.
+
+ Now, let's write the JSON.
+
+ Important: The rubric says "Return exactly the JSON shape it specifies".
+
+ We'll output the JSON without any extra text.
+
+ But note: the rubric says "No markdown fences, no prose before or after the JSON."
+
+ So we output only the JSON.
+
+ Let's format it as a string.
+
+ However, note: the example output in the prompt has a specific structure.
+
+ We'll write:
+
+ {
+   "lesson": "recognising-a-phishing-email",
+   "scores": {
+     "objective_alignment": 5,
+     "level_fidelity": 5,
+     "worked_example": 5,
+     "knowledge_check": 1,
+     "scenario_authenticity": 5,
+     "bilingual_quality": 5,
+     "concision": 5,
+     "accessibility_ip": 3
+   },
+   "notes": {
+     "knowledge_check": "Distractors are implausible (nonsense options) and feedback for incorrect options is generic ('Not correct').",
+     "accessibility_ip": "Compliant but constraint not used as teaching point."
+   },
+   "verdict_notes": "One criterion at 1; mean 4.25. Fails the gate."
+ }
+
+ But note: the example output uses single quotes? No, JSON uses double quotes.
+
+ We'll use double quotes.
+
+ However, the problem says "return exactly the JSON shape", so we use standard JSON.
+
+ But note: the example output in the prompt uses double quotes.
+
+ Let me check the example in the prompt:
+
+   "lesson": "05-documentation-that-supports-the-claim",
+   ...
+
+ So we use double quotes.
+
+ Now, let's write the JSON.
+
+ However, note: the rubric says "the rubric pass" at the top, but we are to judge.
+
+ We are not to be influenced by that.
+
+ We are scoring based on the lesson.
+
+ One more thing: the accessibility_ip score.
+
+ We said 3, but let's reconsider: the rubric says 5 is for when the constraint is used as a teaching point. The lesson doesn't have a teaching point about avoiding real code because it's not relevant. So 3 is correct.
+
+ But note: the rubric says "No real licensed code descriptors or payer policy text" — we have none, so it's compliant. And the constraint (avoiding real code) is inherent in the lesson (they didn't use any), so it's compliant. But the rubric for 5 requires that the constraint is used as a teaching point. Since it's not, 3 is the right score.
+
+ Therefore, the scores are as above.
+
+ Let's output the JSON.
+</think>
+
+{
+  "lesson": "recognising-a-phishing-email",
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 1,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 3
+  },
+  "notes": {
+    "knowledge_check": "Distractors are implausible (nonsense options: 'Order lunch', 'Restart computer', 'Change screen color') and feedback for incorrect options is generic ('Not correct' without misconception explanation).",
+    "accessibility_ip": "Compliant but constraint not used as teaching point."
+  },
+  "verdict_notes": "One criterion at 1; mean 4.25. Fails the gate due to knowledge_check below 3."
+}
