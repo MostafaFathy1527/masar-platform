@@ -212,15 +212,23 @@ def report(lesson: str, entries: list[dict], verdict: dict, superseded: list[str
     return '\n'.join(lines) + '\n'
 
 
-def run_judges(lesson_path: Path, region: str) -> None:
+def run_judges(lesson_path: Path, region: str) -> list[str]:
     """Score the lesson with every seat: the hosted seats on Bedrock in `region`,
     exactly as before; the served seats through the endpoint each one's
     environment variable names, at the seat's own temperature and token budget.
 
     A served seat whose variable is unset, or whose endpoint cannot be reached,
     is named on stderr and left empty; nothing is raised, because the hosted
-    verdicts are still worth writing and the panel reports the empty seat."""
+    verdicts are still worth writing and the panel reports the empty seat.
+
+    Returns the served seats that did not score in this run. A verdict an earlier
+    run left beside the lesson must not stand in for them, so the caller treats
+    those seats as empty. A served verdict the gate refuses is moved to
+    refused-verdicts/ rather than left to stop the whole panel."""
     import judge_bedrock
+    doc = json.loads(lesson_path.read_text(encoding='utf-8'))
+    levels = {str(x).upper() for x in doc.get('levels', [])}
+    not_scored: list[str] = []
     for model, tag in PANEL_MODELS:
         judge_bedrock.main(['--lesson', str(lesson_path), '--model', model, '--tag', tag,
                             '--region', region])
@@ -228,7 +236,10 @@ def run_judges(lesson_path: Path, region: str) -> None:
         endpoint = os.environ.get(spec['endpoint_env'], '').strip()
         if not endpoint:
             print(f'{tag}: {spec["endpoint_env"]} is not set; the seat stays empty', file=sys.stderr)
+            not_scored.append(model)
             continue
+        path = lesson_path.parent / f'verdict.{tag}.json'
+        before = path.stat().st_mtime_ns if path.exists() else None
         try:
             judge_bedrock.main(['--lesson', str(lesson_path), '--model', model, '--tag', tag,
                                 '--endpoint', endpoint,
@@ -237,11 +248,31 @@ def run_judges(lesson_path: Path, region: str) -> None:
         except (urllib.error.URLError, ConnectionError, TimeoutError, http.client.HTTPException) as e:
             print(f'{tag}: {spec["endpoint_env"]} could not be reached ({e}); the seat stays empty',
                   file=sys.stderr)
+            not_scored.append(model)
+            continue
         except (ValueError, KeyError, IndexError, TypeError) as e:
             # Reachable but not an OpenAI-compatible reply (a proxy's HTML page, a body
             # without "choices"). The hosted verdicts are already written and paid for.
             print(f'{tag}: {spec["endpoint_env"]} answered with something that is not a chat '
                   f'completion ({type(e).__name__}: {e}); the seat stays empty', file=sys.stderr)
+            not_scored.append(model)
+            continue
+        if not path.exists() or path.stat().st_mtime_ns == before:
+            # The model answered but wrote no new verdict (unparseable, or the
+            # rubric's example handed back): the old file, if any, is last run's.
+            print(f'{tag}: no new verdict this run; the seat stays empty', file=sys.stderr)
+            not_scored.append(model)
+            continue
+        try:
+            qa_gate.load_verdict(path, levels)
+        except qa_gate.GateError as e:
+            refused = lesson_path.parent / 'refused-verdicts'
+            refused.mkdir(exist_ok=True)
+            path.replace(refused / path.name)
+            print(f'{tag}: the gate refused the verdict ({e}); moved to refused-verdicts/, '
+                  f'the seat stays empty', file=sys.stderr)
+            not_scored.append(model)
+    return not_scored
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -262,11 +293,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f'error: lesson declares no usable levels: {sorted(levels) or "[]"}', file=sys.stderr)
         return 2
 
+    not_scored: list[str] = []
     if args.run:
-        run_judges(args.lesson, args.region)
+        not_scored = run_judges(args.lesson, args.region)
 
     try:
         entries, superseded = collect(args.lesson.parent, levels)
+        # A served seat that did not score in this run is empty, whatever an
+        # earlier run left beside the lesson.
+        entries = [e for e in entries if e['model'] not in not_scored]
         verdict = decide(entries)
     except PanelError as e:
         print(f'error: {e}', file=sys.stderr)

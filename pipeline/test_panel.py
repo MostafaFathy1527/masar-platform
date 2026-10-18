@@ -182,6 +182,39 @@ try:
         said, sys.stderr = sys.stderr.getvalue(), real_err
         check('not a chat completion' in said,
               'an endpoint that answers with something other than JSON leaves the seat empty, not raised')
+
+    print('a served seat that does not score this run is empty, whatever an earlier run left')
+    with tempfile.TemporaryDirectory() as t:
+        d = Path(t)
+        lesson = d / 'lesson.json'
+        lesson.write_text(json.dumps({'levels': ['L1', 'L2']}), encoding='utf-8')
+        write(d, SERVED_TAG, SERVED_MODEL, '1')  # last week's verdict
+        judge_bedrock.main = refused
+        sys.stderr = io.StringIO()
+        empty = panel.run_judges(lesson, 'us-east-1')
+        sys.stderr = real_err
+        check(empty == [SERVED_MODEL], 'an unreachable endpoint is reported as not scored this run')
+
+        judge_bedrock.main = lambda argv: 0  # answers, writes nothing new
+        sys.stderr = io.StringIO()
+        empty = panel.run_judges(lesson, 'us-east-1')
+        said, sys.stderr = sys.stderr.getvalue(), real_err
+        check(empty == [SERVED_MODEL] and 'no new verdict' in said,
+              'an unchanged verdict file from an earlier run does not fill the seat')
+
+        def bad_verdict(argv):
+            if '--endpoint' in argv:
+                (d / f'verdict.{SERVED_TAG}.json').write_text(json.dumps(
+                    {'judge': {'model_id': SERVED_MODEL, 'scored_at': '9'}, 'scores': {'concision': 9}}),
+                    encoding='utf-8')
+            return 0
+        judge_bedrock.main = bad_verdict
+        sys.stderr = io.StringIO()
+        empty = panel.run_judges(lesson, 'us-east-1')
+        said, sys.stderr = sys.stderr.getvalue(), real_err
+        check(empty == [SERVED_MODEL] and (d / 'refused-verdicts' / f'verdict.{SERVED_TAG}.json').exists()
+              and not (d / f'verdict.{SERVED_TAG}.json').exists(),
+              'a served verdict the gate refuses is moved aside, not left to stop the panel')
 finally:
     sys.stderr = real_err
     judge_bedrock.main = real_main
