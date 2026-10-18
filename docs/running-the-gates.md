@@ -31,8 +31,13 @@ python pipeline/test_run_lesson.py
 
 ## Judges
 
-The judges run on Amazon Bedrock. Credentials come from the standard AWS environment
-variables or an assumed role; the region defaults to `us-east-1`.
+The panel has four seats. Three judges run on Amazon Bedrock (`PANEL_MODELS` in
+`pipeline/panel.py`); credentials come from the standard AWS environment variables or an
+assumed role, and the region defaults to `us-east-1`. The fourth is an open model,
+Qwen3-30B-A3B-Thinking-2507 at Q8_0, served by llama.cpp (`SERVED_JUDGES`): the panel reaches
+it at the OpenAI-compatible URL in `JUDGE_QWEN3_ENDPOINT`. With that variable unset, or the
+server unreachable, the seat stays empty and the lesson is NEEDS HUMAN, never PASS. The weekly
+workflow rents a machine for it, serves the file and sets the variable itself.
 
 ```bash
 # one judge, one lesson (--dry-run prints the exact prompt and stops)
@@ -45,8 +50,9 @@ python pipeline/panel.py --lesson path/to/lesson.json --run
 python pipeline/compare_verdicts.py verdict.a.json verdict.b.json --markdown
 
 # calibration: can a judge tell a real lesson from one broken on purpose?
-python pipeline/calibrate_judges.py                    # the seated panel
+python pipeline/calibrate_judges.py                    # the three hosted seats
 python pipeline/calibrate_judges.py --models a,b       # candidate judges
+python pipeline/calibrate_judges.py --endpoint <url> --models <served-name>   # a served model
 ```
 
 ## The whole loop

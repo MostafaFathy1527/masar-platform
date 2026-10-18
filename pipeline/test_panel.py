@@ -128,34 +128,59 @@ check(SERVED_SPEC == {'endpoint_env': 'JUDGE_QWEN3_ENDPOINT', 'temperature': 0.6
                       'family': 'qwen'}, 'endpoint variable, decoding and family as calibrated')
 check(panel.SEATS == tuple(HOSTED) + (SERVED_MODEL,), 'SEATS is every hosted seat, then the served one')
 
-print('run_judges with the endpoint variable unset leaves the open seat empty and does not raise')
+print("run_judges scores every seat, and only this run's verdicts count")
 import io  # noqa: E402
 import os  # noqa: E402
 import urllib.error  # noqa: E402
+from datetime import datetime, timezone  # noqa: E402
 import judge_bedrock  # noqa: E402
 
+TAGS = {m: t for m, t in panel.PANEL_MODELS}
+TAGS[SERVED_MODEL] = SERVED_TAG
 calls: list[list[str]] = []
 real_main, real_err = judge_bedrock.main, sys.stderr
 had = os.environ.pop(SERVED_SPEC['endpoint_env'], None)
-judge_bedrock.main = lambda argv: calls.append(list(argv)) or 0
+
+
+def fresh_judge(argv):
+    """A stand-in that writes a passing verdict, scored now, for the seat it is asked for."""
+    calls.append(list(argv))
+    model = argv[argv.index('--model') + 1]
+    lesson_dir = Path(argv[argv.index('--lesson') + 1]).parent
+    write(lesson_dir, TAGS[model], model, datetime.now(timezone.utc).isoformat())
+    return 0
+
+
+def lesson_in(d: Path) -> Path:
+    lesson = d / 'lesson.json'
+    lesson.write_text(json.dumps({'levels': ['L1', 'L2'], 'slug': 'x'}), encoding='utf-8')
+    return lesson
+
+
+def quiet(fn):
+    sys.stderr = io.StringIO()
+    try:
+        out = fn()
+        return out, sys.stderr.getvalue()
+    finally:
+        sys.stderr = real_err
+
+
 try:
     with tempfile.TemporaryDirectory() as t:
-        lesson = Path(t) / 'lesson.json'
-        lesson.write_text('{}', encoding='utf-8')
-        sys.stderr = io.StringIO()
-        panel.run_judges(lesson, 'us-east-1')
-        said, sys.stderr = sys.stderr.getvalue(), real_err
+        lesson = lesson_in(Path(t))
+        judge_bedrock.main = fresh_judge
+        _, said = quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
         models = [a[a.index('--model') + 1] for a in calls]
         check(models == HOSTED and all('--region' in a and '--endpoint' not in a for a in calls),
-              'the hosted seats are scored through --region; the open seat is skipped')
+              'without the endpoint variable the hosted seats are scored and the open seat is skipped')
+        check(SERVED_SPEC['endpoint_env'] in said and 'empty' in said, 'stderr names the unset variable')
         k3 = next(a for a in calls if a[a.index('--model') + 1] == 'us.moonshotai.kimi-k3')
         check(k3[k3.index('--max-tokens') + 1] == '8000', 'Kimi K3 gets room for its reasoning')
-        check(SERVED_SPEC['endpoint_env'] in said and 'empty' in said, 'stderr names the unset variable')
-        check(not list(Path(t).glob('verdict.*.json')), 'nothing is written for the empty seat')
 
         os.environ[SERVED_SPEC['endpoint_env']] = 'http://h:8080/v1'
         calls.clear()
-        panel.run_judges(lesson, 'us-east-1')
+        quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
         last = calls[-1]
         check(len(calls) == 4 and last[last.index('--model') + 1] == SERVED_MODEL
               and last[last.index('--endpoint') + 1] == 'http://h:8080/v1'
@@ -163,60 +188,80 @@ try:
               and last[last.index('--max-tokens') + 1] == '12000',
               'with the variable set, the open seat is scored at its own temperature and budget')
 
+    print('a seat whose call fails this run is empty, whatever an earlier run left')
+    with tempfile.TemporaryDirectory() as t:
+        d = Path(t)
+        lesson = lesson_in(d)
+        for model, tag in TAGS.items():
+            write(d, tag, model, '2026-01-01T00:00:00+00:00')  # last week's verdicts, all passing
+
+        judge_bedrock.main = lambda argv: 2  # every call fails without writing
+        code, said = quiet(lambda: panel.main(['--lesson', str(lesson), '--run']))
+        check(code == 2 and 'a panel needs at least' in said and not (d / 'panel-report.md').exists(),
+              'no seat scored this run: the old verdicts do not make a PASS, the panel could not run')
+
+        def throttled_hosted(argv):
+            if '--region' in argv and 'deepseek' in ' '.join(argv):
+                raise RuntimeError('ThrottlingException: Too many requests')
+            return fresh_judge(argv)
+        judge_bedrock.main = throttled_hosted
+        calls.clear()
+        code, said = quiet(lambda: panel.main(['--lesson', str(lesson), '--run']))
+        report = (d / 'panel-report.md').read_text(encoding='utf-8')
+        check('ThrottlingException' in said and len(calls) == 3 and code == 1
+              and 'deepseek.v3.2' in report.split('Seats with no verdict')[-1],
+              'a hosted seat that raises is named and left empty; the other seats still score')
+
+        judge_bedrock.main = fresh_judge
+        code, _ = quiet(lambda: panel.main(['--lesson', str(lesson), '--run']))
+        check(code == 0, 'every seat scoring this run, all passing and agreeing -> PASS')
+
+    print('a served seat that cannot be reached, or answers badly, is empty and nothing is raised')
+    with tempfile.TemporaryDirectory() as t:
+        d = Path(t)
+        lesson = lesson_in(d)
+
         def refused(argv):
             if '--endpoint' in argv:
                 raise urllib.error.URLError(ConnectionRefusedError(111, 'Connection refused'))
-            return 0
+            return fresh_judge(argv)
         judge_bedrock.main = refused
-        sys.stderr = io.StringIO()
-        panel.run_judges(lesson, 'us-east-1')
-        said, sys.stderr = sys.stderr.getvalue(), real_err
-        check('Connection refused' in said and SERVED_SPEC['endpoint_env'] in said,
+        _, said = quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
+        check('Connection refused' in said and not (d / f'verdict.{SERVED_TAG}.json').exists(),
               'an endpoint that refuses the connection is reported on stderr, not raised')
 
         def not_a_completion(argv):
             if '--endpoint' in argv:
                 raise ValueError('Expecting value: line 1 column 1 (char 0)')
-            return 0
+            return fresh_judge(argv)
         judge_bedrock.main = not_a_completion
-        sys.stderr = io.StringIO()
-        panel.run_judges(lesson, 'us-east-1')
-        said, sys.stderr = sys.stderr.getvalue(), real_err
-        check('not a chat completion' in said,
-              'an endpoint that answers with something other than JSON leaves the seat empty, not raised')
-
-    print('a served seat that does not score this run is empty, whatever an earlier run left')
-    with tempfile.TemporaryDirectory() as t:
-        d = Path(t)
-        lesson = d / 'lesson.json'
-        lesson.write_text(json.dumps({'levels': ['L1', 'L2']}), encoding='utf-8')
-        write(d, SERVED_TAG, SERVED_MODEL, '1')  # last week's verdict
-        judge_bedrock.main = refused
-        sys.stderr = io.StringIO()
-        empty = panel.run_judges(lesson, 'us-east-1')
-        sys.stderr = real_err
-        check(empty == [SERVED_MODEL], 'an unreachable endpoint is reported as not scored this run')
-
-        judge_bedrock.main = lambda argv: 0  # answers, writes nothing new
-        sys.stderr = io.StringIO()
-        empty = panel.run_judges(lesson, 'us-east-1')
-        said, sys.stderr = sys.stderr.getvalue(), real_err
-        check(empty == [SERVED_MODEL] and 'no new verdict' in said,
-              'an unchanged verdict file from an earlier run does not fill the seat')
+        _, said = quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
+        check('ValueError' in said and 'empty' in said,
+              'an endpoint that answers with something other than JSON leaves the seat empty')
 
         def bad_verdict(argv):
             if '--endpoint' in argv:
                 (d / f'verdict.{SERVED_TAG}.json').write_text(json.dumps(
-                    {'judge': {'model_id': SERVED_MODEL, 'scored_at': '9'}, 'scores': {'concision': 9}}),
-                    encoding='utf-8')
-            return 0
+                    {'judge': {'model_id': SERVED_MODEL, 'scored_at': datetime.now(timezone.utc).isoformat()},
+                     'scores': {'concision': 9}}), encoding='utf-8')
+                return 0
+            return fresh_judge(argv)
         judge_bedrock.main = bad_verdict
-        sys.stderr = io.StringIO()
-        empty = panel.run_judges(lesson, 'us-east-1')
-        said, sys.stderr = sys.stderr.getvalue(), real_err
-        check(empty == [SERVED_MODEL] and (d / 'refused-verdicts' / f'verdict.{SERVED_TAG}.json').exists()
+        quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
+        check((d / 'refused-verdicts' / f'verdict.{SERVED_TAG}.json').exists()
               and not (d / f'verdict.{SERVED_TAG}.json').exists(),
-              'a served verdict the gate refuses is moved aside, not left to stop the panel')
+              'a fresh verdict the gate refuses is moved aside, not left to stop the panel')
+
+    print('a corrupt verdict file is a panel that could not run, not a crash')
+    with tempfile.TemporaryDirectory() as t:
+        d = Path(t)
+        write(d, 'a', 'm1', '1')
+        (d / 'verdict.b.json').write_text('{"judge": {"model_id": "m2"', encoding='utf-8')
+        try:
+            panel.collect(d, L2)
+            check(False, 'truncated JSON raises PanelError')
+        except panel.PanelError as e:
+            check('not valid JSON' in str(e), 'truncated JSON raises PanelError')
 finally:
     sys.stderr = real_err
     judge_bedrock.main = real_main

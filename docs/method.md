@@ -45,8 +45,8 @@ than the real ones.
 
 That test retired the first panel and chose the current one. It also showed where judges
 fail: seven of thirteen models gave every lesson with English pasted into its Arabic fields
-full marks for Arabic quality, and of nine models tested on scenarios whose choices all lead
-nowhere, the best caught three of four. The two judges that caught the pasted English every
+full marks for Arabic quality, and on scenarios whose choices all lead nowhere, Kimi K3 came
+closest of every judge tried, hosted and open, catching three of four. The two judges that caught the pasted English every
 time now sit on the panel, and both defects are also refused by mechanical checks and read
 by a person. Some judges fail by not reading at all: an open Arabic model, Fanar-2-27B, run
 on Kaggle's free GPUs, handed back the example verdict printed in the rubric for all 24
@@ -59,14 +59,17 @@ handed back the example 22 times in 24, four of them with one score changed, and
 scored every lesson but caught 1 of 20 defects. Five smaller general models that fit one or two
 rented cards were tried next: two of them, gpt-oss-20b and Qwen3-30B-A3B-Thinking-2507, caught
 every knowledge-check and worked-example defect, which is the bar the seated judges cleared, and
-three and two of the four pasted-English copies respectively; the first shares the generator's family and is
-ruled out, the second was seated on 18 October as the panel's fourth judge, the one open model on
-it. What remains open is an endpoint the weekly run can reach. The scores are in the calibration
+three and two of the four pasted-English copies respectively (Qwen3 caught one of four on its
+second pass); the first shares the generator's family and is ruled out, the second was seated
+on 18 October as the panel's fourth judge, the one open model on it. The weekly run rents a
+machine with two V100 cards, serves the seated file only if its checksum matches, scores the
+open seat through it and terminates the machine. The scores are in the calibration
 reports for [14 October](../pipeline/out/calibration/2026-10-14/report.md),
 [15 October](../pipeline/out/calibration/2026-10-15/report.md),
 [17 October](../pipeline/out/calibration/2026-10-17/report.md) and
-[17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md)
-and [18 October, five small open models](../pipeline/out/calibration/2026-10-18-small-open-judges/report.md).
+[17 October, the four open Arabic models](../pipeline/out/calibration/2026-10-17-open-arabic-judges/report.md),
+[18 October, five small open models](../pipeline/out/calibration/2026-10-18-small-open-judges/report.md)
+and [18 October, Qwen3's second pass](../pipeline/out/calibration/2026-10-18-qwen3-second-pass/report.md).
 
 ## What a person still has to do
 

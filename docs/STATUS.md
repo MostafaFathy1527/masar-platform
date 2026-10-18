@@ -19,7 +19,7 @@ back on the partner's site. The strip lives in `SiteFooter`, above the footer co
 the link is on every page without a partner badge landing inside a lesson. The application
 form was submitted by the owner; if Techne does not confirm, this strip comes out.
 
-**Added 2026-10-13 — Sentry wired, not yet live in production.** `@sentry/nextjs` 11.7 is
+**Added 2026-10-13 — Sentry wired; live in production.** `@sentry/nextjs` 11.7 is
 installed: `instrumentation.ts` (Node + edge init, `onRequestError`), `instrumentation-client.ts`
 (browser init, replay on error only with default masking, route transitions),
 `app/global-error.tsx`, and `withSentryConfig` from `@sentry/nextjs/config` wrapping the
@@ -27,7 +27,7 @@ next-intl plugin in `next.config.ts`. The SDK is `enabled` only when `NODE_ENV` 
 browser events tunnel through `/api/monitoring` (under `/api` so the proxy matcher skips it),
 and source-map upload runs only when `SENTRY_AUTH_TOKEN` is set. One test event was sent
 straight to the DSN and accepted. The DSN and auth-token variables are on Vercel (13 Oct) and a production deployment
-followed.
+followed; production now reports to Sentry. What is still open is in `LATER.md`.
 The DSN lives in `.env` locally and in `.local/sentry.env`; never in a tracked file.
 
 **Added 2026-10-14 — three more judges, four lessons scored.** `pipeline/judge_bedrock.py`
@@ -146,7 +146,7 @@ commits above are pushed, CI and Lighthouse are green on them. Two real runs of
   that role in the console.
 - First manual runs (14 Oct) failed with "Not authorized to perform sts:AssumeRoleWithWebIdentity".
   The workflow's claims step showed why: GitHub now sends the subject claim with immutable
-  ids, `repo:MostafaFathy1527@91095868/masar-platform@1362039151:ref:refs/heads/main`, and the
+  ids, `repo:MostafaFathy1527@<owner-id>/masar-platform@<repo-id>:ref:refs/heads/main`, and the
   role's trust policy matched the old form `repo:MostafaFathy1527/masar-platform:*`. The
   trust policy's `sub` condition must use the new form; the claims step stays in the
   workflow so a refused role says why.
@@ -251,7 +251,7 @@ a stand-in server and in `test_judge_bedrock.py`.
   14 of 20**, both with every knowledge-check and worked-example defect and most of the pasted
   English. No judge saw an empty scenario. gpt-oss-20b shares the generator's family and cannot be
   seated; Qwen3-30B-A3B-Thinking-2507 (Apache-2.0, 3B active, one card at Q6_K) can be, if the
-  owner decides so. **Owner's call, not taken here.**
+  owner decides so. **Owner's call, not taken here;** taken later the same day (the next entry).
 - **What seating it would need:** a served endpoint the weekly run can reach (the HF Space is
   CPU-only; a rented card costs about $0.30 an hour while judging), the family check in
   `panel.py`, and the same drift check K3 got (two runs of identical lessons).
@@ -276,10 +276,26 @@ a stand-in server and in `test_judge_bedrock.py`.
   V100 cards for the run (`pipeline/served_judge_vm.py`), builds llama.cpp at the calibration's
   commit and serves the seated file only if its sha256 matches (`pipeline/served_judge_setup.sh`),
   reaches it through an SSH tunnel with a key made for that run, and terminates the machine in a
-  final step that always runs. About 40 minutes, $0.58 an hour.
-- **Still open:** the `CLOUDRIFT_API_KEY` repository secret, which the owner creates; until then
-  the seat is empty and the weekly job is red. A served verdict the gate refuses still stops the
-  whole panel for that lesson.
+  final step that always runs. One machine with two V100 cards, about 20 minutes a run, $0.58 an hour.
+- **The first full run** (18 October, run 39124575598, about 20 minutes): the
+  `CLOUDRIFT_API_KEY` repository secret is set and the run succeeded end to end. SEC-01 and
+  PRV-01 PANEL PASS; CS-01 NEEDS HUMAN on accessibility; OPS-01 NEEDS HUMAN. The job shows red
+  whenever a sample goes to a person, by design.
+- **When the open seat fails:** a run that cannot score it counts the seat empty, even if an older
+  verdict from it sits beside the lesson, so a stale verdict never stands in for this week's. A
+  served verdict the gate refuses is moved to `refused-verdicts/` beside the lesson and the seat
+  counts empty; it no longer stops the whole panel.
+
+**Added 2026-10-18 (evening): what a weekly panel run costs, and one judge given room.**
+- **Cost, from the token counts in the four samples' verdicts and AWS's public on-demand price
+  list:** about $0.28 of Bedrock per run (Kimi K3 about $0.23, GLM-5 $0.03, DeepSeek V3.2 $0.02),
+  plus about 20 minutes of the rented machine (two V100 cards, $0.58 an hour) for the open seat. Under $25 a year in all. On-demand
+  only: provisioned throughput would be a commitment the project has no use for.
+- **Kimi K3 gets 8,000 tokens** (`panel.HOSTED_MAX_TOKENS`). Its replies on the samples ran to
+  3,430-3,640 of the default 4,000, so a longer lesson would have cut its verdict off mid-JSON.
+- **An oddity, recorded rather than explained:** Bedrock reports 7 input tokens for every K3
+  verdict, against 6,000-7,700 for the other judges on the same prompt. K3 did read the lessons:
+  its notes name details only the lesson contains. The count is Bedrock's, not the pipeline's.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
@@ -419,13 +435,14 @@ rather than a defect, but worth knowing before someone debugs it twice.
 
 ## The pipeline, what it claims, and what it does not
 
-Three gates exist, each with negative tests proving it refuses things, and all run in CI:
+Four gates exist, each with negative tests proving it refuses things, and all run in CI:
 
 | Gate | Refuses | Negative tests |
 |---|---|---|
-| `validate.py` | structure, undeclared objectives, wrong-level blocks, duplicate ids, prose budget, licensed code sets | 18 |
+| `validate.py` | structure, undeclared objectives, wrong-level blocks, duplicate ids, prose budget, licensed code sets | 20 |
 | `concept_log.py` | re-defining a concept an earlier lesson taught; using one before it is introduced | 6 |
 | `qa_gate.py` | any criterion below 3, a mean below 4.0, a verdict missing criteria, a criterion scored where the registry gives it no evidence, a skipped criterion with no reason | 20 |
+| `panel.py` (tested by `test_panel.py`) | fewer than two distinct judges; PASS while a seat is empty, the judges' outcomes differ or a criterion splits by more than one point; a served verdict the gate refuses, which is moved to `refused-verdicts/` | 26 |
 
 Each set includes a case asserting valid content **passes**, so no gate can satisfy its own
 tests by refusing everything.
@@ -554,7 +571,8 @@ case study in English with an Arabic summary, and `HANDOVER.md`.
 published.
 
 What remains needs a person, not an agent: the **blind inter-rater check** and the
-instructional-design review.
+**lesson 07 practitioner question**. The instructional-design review of the L2 content is done
+(see "Blocked / needs the owner").
 
 The Arabic objective statements are **done** — written by the owner rather than translated,
 and `MI-13` now carries a behavioural statement in both languages where it previously had
@@ -566,7 +584,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **fourteen** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **nineteen** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and
@@ -588,7 +606,7 @@ Arabic prose the one surface where a stale number could sit indefinitely. The me
 since earned itself twice: the pages moved to ten and then to eleven with no edit.
 
 Two things in that file are for the case study rather than the incident list. **Facts that
-were true when written** — four of the fourteen are hardcoded facts that silently stopped
+were true when written** — four of the first fourteen are hardcoded facts that silently stopped
 being true, and the general fix is to interpolate from the source of truth rather than
 restate it. And **the gate has failed twice against one real catch** — a false positive on
 binary blobs, and a false pass that printed `clean` over zero blobs scanned. A third
@@ -833,9 +851,6 @@ thing it describes.
       distinct operational states Arabic RCM practice does not reliably separate and
       practitioners say the English; and every statement is a present-tense observable
       behaviour, never يفهم, so each stays measurable.
-- [ ] **Instructional-design review** — objective alignment, coverage, the assessment
-      blueprint, feedback quality, the depth model, and the Arabic. Labelled as an
-      instructional-design review everywhere, never as a subject-matter or accuracy review.
 - [ ] Day 0 #3 — confirm the fictional entity names read as obviously invented (Week 2).
 - [ ] Day 0 #4 — Stripe availability. Not a v1.0 gate; only affects what `SPEC.md` claims.
 
@@ -949,15 +964,3 @@ second.
   in it is edited by hand. No model is called on the page. Verified on the live URL: validator
   PASS and a forced FAIL, concept log PASS over 5 lessons, gate PASS (mean 4.14) and a forced
   floor FAIL. Purpose: a public, runnable artefact for the open-source pipeline.
-
-**Added 2026-10-18 (evening): what a weekly panel run costs, and one judge given room.**
-- **Cost, from the token counts in the four samples' verdicts and AWS's public on-demand price
-  list:** about $0.28 of Bedrock per run (Kimi K3 about $0.23, GLM-5 $0.03, DeepSeek V3.2 $0.02),
-  plus about 20 minutes of a rented card for the open seat. Under $25 a year in all. On-demand
-  only: provisioned throughput would be a commitment the project has no use for.
-- **Kimi K3 gets 8,000 tokens** (`panel.HOSTED_MAX_TOKENS`). Its replies on the samples ran to
-  3,430-3,640 of the default 4,000, so a longer lesson would have cut its verdict off mid-JSON.
-- **An oddity, recorded rather than explained:** Bedrock reports 7 input tokens for every K3
-  verdict, against 6,000-7,700 for the other judges on the same prompt. K3 did read the lessons:
-  its notes name details only the lesson contains. The count is Bedrock's, not the pipeline's.
-

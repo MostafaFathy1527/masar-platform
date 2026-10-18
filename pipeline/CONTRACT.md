@@ -60,9 +60,11 @@ paying for a judgement on a document that does not parse.
 The judge step can be run more than once with different models (`judge_bedrock.py` writes
 `verdict.<tag>.json` beside the lesson), and `compare_verdicts.py` reports how far they
 disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not move.
-No model call sits in any request path; these are by-hand experiments with credentials
-kept outside the repository. A judge is either a Bedrock model or an open model served on
-your own hardware behind an OpenAI-compatible endpoint (`--endpoint`); the prompt, the
+No model call sits in any request path. The judges run by hand, and every week in
+`.github/workflows/judge-panel.yml`, which reaches Bedrock through GitHub OIDC (no stored key)
+and rents the open seat's GPU with a repository secret; no credential is kept in the
+repository. A judge is either a Bedrock model or an open model served on your own or rented
+hardware behind an OpenAI-compatible endpoint (`--endpoint`); the prompt, the
 parsing and the gate are the same for both, and the verdict records which it was.
 
 A verdict whose scores, notes and closing note all equal the example printed in the rubric is
@@ -83,10 +85,11 @@ points lower. The first panel failed this and was retired (what-failed entry 18)
 sees the items behind the lesson's knowledge checks, and refuses to run if one is missing.
 The seated panel is calibrated on knowledge checks and worked examples, and two of its
 judges, GLM-5 and Kimi K3, also on English pasted into Arabic fields: each caught 4 of 4 where
-DeepSeek V3.2 caught 1, so that defect splits the panel and goes to a person. No judge tested
-is calibrated on scenario consequences: of nine tried, Kimi K3 came closest, catching three of
-four. Kimi K3 replaced Kimi K2.5 on 15 October; it runs at its own default temperature, and
-its verdicts record that. Both defects are also refused by `validate.py`, and a person reads
+DeepSeek V3.2 caught 1 and Qwen3 caught 2 (1 on its second pass), so that defect splits the
+panel and goes to a person. No judge tested is calibrated on scenario consequences: of every
+judge tried, hosted and open, Kimi K3 came closest, catching three of four.
+Kimi K3 replaced Kimi K2.5 on 15 October; it runs at its own default temperature, and its
+verdicts record that. Both defects are also refused by `validate.py`, and a person reads
 scenarios.
 
 `run_lesson.py` runs the whole loop with one command: generate from a source note, the
@@ -130,10 +133,12 @@ pipeline/
   validate.py            structure, semantics, forbidden content
   concept_log.py         re-definition and forward-reference checks
   qa_gate.py             applies the rubric thresholds, writes the report
-  judge_bedrock.py       optional second judge: same rubric, a different model, fresh context
-                         (Bedrock, or an open model behind an OpenAI-compatible endpoint)
-  compare_verdicts.py    criterion-by-criterion agreement between two verdicts
+  judge_bedrock.py       one judge, one lesson: the rubric in a fresh context; scores every
+                         panel seat (Bedrock, or an open model behind an OpenAI-compatible endpoint)
+  compare_verdicts.py    criterion-by-criterion agreement between two or more verdicts
   panel.py               several judges, one decision; any split goes to a human
+  served_judge_vm.py     rents the open seat's GPU machine for a run, and terminates it
+  served_judge_setup.sh  on that machine: builds llama.cpp, serves the seated file if its sha256 matches
   run_lesson.py          the loop end to end: source note to judged draft, one retry
   calibrate_judges.py    planted defects: which judges can tell real items from broken ones
   kaggle_open_judges.ipynb  the same calibration for open models on Kaggle's free GPUs

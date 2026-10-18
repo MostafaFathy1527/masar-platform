@@ -7,14 +7,16 @@ sdk: static
 app_file: index.html
 pinned: false
 license: mit
-short_description: The three gates a lesson must pass before Masār publishes it
+short_description: The three Masār lesson gates that need no model
 ---
 
 # Masār quality gates
 
 The content pipeline behind [masar.mostafafathy.com](https://masar.mostafafathy.com) refuses to
-publish any lesson until it passes three gates. This Space runs them in your browser (Python on
-Pyodide, no server) on the real lesson files from the repository, or on anything you paste.
+publish any lesson until it passes four gates. This Space runs the three that need no model in
+your browser (Python on Pyodide, no server) on the real lesson files from the repository, or on
+anything you paste. The fourth, the judge panel, runs on hosted and rented models, outside the
+Space.
 
 - **Validator** — structure (JSON Schema generated from the renderer's Zod schema), semantics,
   and forbidden content.

@@ -35,7 +35,7 @@ PAGE = r"""<!doctype html>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Masār quality gates</title>
-  <meta name="description" content="The three gates a lesson must pass before Masār publishes it, running in your browser on the real lesson files." />
+  <meta name="description" content="The three gates a Masār lesson must pass that need no model, running in your browser on the real lesson files. The fourth, the judge panel, runs on hosted and rented models." />
   <script src="__PYODIDE__pyodide.js"></script>
   <script src="__MARKED__"></script>
   <style>

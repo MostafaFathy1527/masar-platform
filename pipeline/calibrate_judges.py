@@ -23,14 +23,16 @@ points lower on the broken copy than on the real one, in the same run. A judge
 that does not is not measuring that criterion, whatever its notes say.
 
 Nothing here changes a threshold or the panel. It is the evidence for who sits
-on it: a judge earns its seat by passing this (see PANEL_MODELS in panel.py and
-failure entry 18).
+on it: a judge earns its seat by passing this (see PANEL_MODELS, the hosted
+seats, and SERVED_JUDGES, the open seat served on rented hardware, in panel.py,
+and failure entry 18).
 
-    python pipeline/calibrate_judges.py                    # the seated panel
+    python pipeline/calibrate_judges.py                    # the three hosted seats
     python pipeline/calibrate_judges.py --models a,b       # candidate judges
     python pipeline/calibrate_judges.py --dry-run          # build the copies only
     python pipeline/calibrate_judges.py --endpoint http://localhost:8080/v1 --models <name>
-                                                           # an open model you serve yourself
+                                                           # an open model you serve yourself,
+                                                           # the served seat included
 
 Writes pipeline/out/calibration/<date>/report.md and results.json. Rows for
 judges not in the current run are kept from earlier runs on the same day.
@@ -269,13 +271,17 @@ def main(argv: list[str] | None = None) -> int:
     judges = sorted({r['judge'] for r in rows})
     (root / 'results.json').write_text(json.dumps(rows, indent=2) + '\n', encoding='utf-8')
 
-    seated = [m for m, _ in panel.PANEL_MODELS]
+    seated = list(panel.SEATS)
+    hosted = ', '.join(f'`{m}`' for m, _ in panel.PANEL_MODELS)
+    served = ', '.join(f'`{m}`' for m, _, _ in panel.SERVED_JUDGES)
+    seated_line = (f'Seated panel: {hosted} on Amazon Bedrock'
+                   + (f', and {served} served on rented hardware' if served else '') + '.')
     lines = [
         '# Judge calibration: can each judge see a lesson broken on purpose?', '',
         f'Run {args.date}. Each sample was scored as it is and as copies broken in one '
         'way each, every defect one the rubric names and each aimed at one criterion. A judge that sees '
         f'the defect should score that criterion at least {MIN_DROP} points lower on the broken copy. '
-        'Seated panel: ' + ', '.join(f'`{m}`' for m in seated) + '.',
+        + seated_line,
         '', '## Per judge and criterion', '',
         '| Judge | Criterion | Defects caught | Mean drop |', '|---|---|---|---|',
     ]

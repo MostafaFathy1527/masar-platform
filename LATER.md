@@ -33,15 +33,15 @@ Not promised in the README, the case study, LinkedIn, or the newsletter until bu
   can open a sample on the site instead of on GitHub. Only worth it once drafts are
   rubric-scored by an independent judge.
 
-## Sentry (installed 13 Oct 2026)
-Error monitoring is wired (see `docs/STATUS.md`); still open:
-- `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_AUTH_TOKEN` are set on Vercel (13 Oct);
-  source maps upload from the next successful build.
-- Uptime monitors exist (13 Oct): `masar.mostafafathy.com` and the HF Space, every minute,
-  email on 3 consecutive failures. A cron monitor on the pipeline gates needs the gates to
-  run on a schedule first (they run by hand today), otherwise it only reports misses.
-- Seer Autofix is on for masar-web (repo linked 13 Oct), set to stop after the plan so it
-  never pushes a PR; the owner applies any fix by hand, which keeps the attribution rule.
+## Sentry (installed 13 Oct 2026, live)
+Error monitoring is live: `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` and `SENTRY_AUTH_TOKEN` are
+set on Vercel (13 Oct) and production reports to Sentry (see `docs/STATUS.md`). Uptime
+monitors exist (13 Oct): `masar.mostafafathy.com` and the HF Space, every minute, email on 3
+consecutive failures. Seer Autofix is on for masar-web (repo linked 13 Oct), set to stop after
+the plan so it never pushes a PR; the owner applies any fix by hand, which keeps the
+attribution rule. Still open:
+- A cron monitor on the weekly judge panel (`judge-panel.yml`, every Monday), so a run that
+  never starts is reported rather than only a run that fails.
 - Surface real error/uptime numbers on the case study instead of the unmeasured "99% uptime" line,
   once a month of data exists.
 
@@ -53,6 +53,6 @@ Error monitoring is wired (see `docs/STATUS.md`); still open:
     GLM-4.7-Flash and Qwen3-30B-A3B-Thinking (reports under `pipeline/out/calibration/`). One
     candidate came out of it, Qwen3-30B-A3B-Thinking-2507, seated on 18 October as the panel's
     fourth judge: three hosted judges and one open judge served on rented hardware
-    (`SERVED_JUDGES` in `pipeline/panel.py`). **Still open:** an endpoint the weekly run can
-    reach (`JUDGE_QWEN3_ENDPOINT`); until it is set the seat is empty and every sample reports
-    NEEDS HUMAN. The Space itself stays CPU-only.
+    (`SERVED_JUDGES` in `pipeline/panel.py`). The weekly run rents one machine with two V100
+    cards, serves the seated file there, sets `JUDGE_QWEN3_ENDPOINT` itself and terminates the
+    machine; the first full run was on 18 October. The Space itself stays CPU-only.

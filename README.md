@@ -87,7 +87,7 @@ a rater independent of this project and has not been run. One accuracy question 
 Next.js 16 · React 19 · Tailwind 4 · Prisma · PostgreSQL · Python for the pipeline.
 
 ```bash
-npm run check     # typecheck, lint, tests
+npm run check     # typecheck, lint, tests, prisma validate
 npm run dev
 python pipeline/validate.py --denylist .local/denylist.txt
 ```

@@ -14,6 +14,8 @@
 
 * [What failed](docs/design/what-failed.md)
 * [Judge calibration, 14 October 2026](pipeline/out/calibration/2026-10-14/report.md)
+* [Judge calibration, 18 October 2026: five small open models](pipeline/out/calibration/2026-10-18-small-open-judges/report.md)
+* [Judge calibration, 18 October 2026: Qwen3's second pass](pipeline/out/calibration/2026-10-18-qwen3-second-pass/report.md)
 * [Review: what was done, and what was not](docs/design/sme-review.md)
 
 ## Sample drafts

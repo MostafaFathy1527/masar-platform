@@ -5,13 +5,13 @@ not reconstructed afterwards — which is the only way this section is worth rea
 
 Nineteen so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
-of the fourteen are the same underlying defect wearing different clothes, and that
+of the first fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
 three are **checks that could not do the thing they claimed** — one scanned nothing, one
 gated nothing, and one could not accept the input it existed to judge. The eleventh names a
 second pattern, and it took two independent instances to see it. The twelfth is the only one
 found by a person opening the product rather than by anyone testing it. **The thirteenth is
-the most serious in the record**: the other twelve undermined a feature or a metric, and it
+the most serious in the record**: the twelve before it undermined a feature or a metric, and it
 undermined the only proof of the central claim. The fourteenth is the one that answers
 the README's oldest untested sentence: the method was general, and the gate was not.
 The fifteenth was found by adding judges: one of three skipped a rubric clause, and the
@@ -55,7 +55,7 @@ mean, which is dominated by whichever of precision and recall is worse and there
 delivers the claim at any field count: shotgun 48%, four careful 80%, nothing 0%.
 
 **Why it was found.** Because the claim was written down, and writing it down made it
-testable. This is the easiest of the fourteen to catch.
+testable. This is the easiest of the first fourteen to catch.
 
 ---
 
@@ -886,7 +886,7 @@ back through its own claims can only ever agree with it.
 
 ## The sub-pattern worth naming: facts that were true when written
 
-Four of the fourteen are the same defect. The landing page carried a "Week 1 — under
+Four of the first fourteen are the same defect. The landing page carried a "Week 1 — under
 construction" badge over a finished six-week product. The project's rules file and `docs/STATUS.md`
 told every new session that Week 1 was the next action, long after it shipped. The exam
 page said nine questions and served sixteen. And the flagship lesson told every reader its
