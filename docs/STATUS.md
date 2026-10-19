@@ -334,8 +334,11 @@ a stand-in server and in `test_judge_bedrock.py`.
   accessibility split and OPS-01's splits therefore came from the open seat (Qwen3-30B-A3B-Thinking).
 - **GLM-5 gave 5 on every criterion of every sample, 32 of 32 scores.** It passed calibration, so
   this is not a refusal; it is recorded because a judge that never marks anything down adds no
-  information to a panel, and the next calibration run should check whether it still catches the
-  broken copies.
+  information to a panel. Checked the same afternoon (calibrate.yml, run 39250758377): it still
+  scores the broken copies far lower, 16 of 16 on knowledge checks, pasted English and worked examples
+  (mean drop 3 to 4), and 0 of 4 on empty scenario consequences, as before. Its fives are a lenient
+  reading of good lessons, not a judge that stopped looking; it also missed the one mismatched-numbers
+  pair.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
