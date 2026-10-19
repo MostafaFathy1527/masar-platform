@@ -1,0 +1,68 @@
+name: Generate lessons (on demand)
+
+# Runs pipeline/run_lesson.py on Bedrock for one or more source notes, one after
+# another, and pushes the drafts to a branch for review. Nothing reaches main from
+# here: the owner fetches the branch, runs the local gates (the denylist is not in
+# CI), reads every lesson, and merges by hand. Same OIDC role as the panel. The
+# open seat is not rented for generation, so every draft stops for a person, which
+# is what a draft is for.
+on:
+  workflow_dispatch:
+    inputs:
+      lessons:
+        description: 'Space-separated objective=note pairs, e.g. JOB-01=job-01-writing-a-cv.md'
+        required: true
+      branch:
+        description: 'Branch the drafts are pushed to'
+        required: true
+        default: 'drafts/job-readiness'
+      levels:
+        description: 'Levels for every lesson'
+        required: false
+        default: 'L1,L2'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  generate:
+    if: ${{ vars.AWS_ROLE_ARN != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt boto3
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Generate and judge each lesson
+        env:
+          LESSONS: ${{ inputs.lessons }}
+          LEVELS: ${{ inputs.levels }}
+        run: |
+          set +e
+          echo "## Generated drafts, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
+          for pair in $LESSONS; do
+            obj="${pair%%=*}"; note="${pair#*=}"
+            out="pipeline/out/lesson-$(echo "$obj" | tr 'A-Z' 'a-z')"
+            python pipeline/run_lesson.py --source "pipeline/sources/$note" --objective "$obj" \
+              --out "$out" --levels "$LEVELS" > "run-$obj.log" 2>&1
+            echo "- \`$obj\` (exit $?): $(tail -1 "run-$obj.log")" >> "$GITHUB_STEP_SUMMARY"
+            tail -5 "run-$obj.log"
+          done
+          exit 0
+      - name: Push the drafts to the review branch
+        env:
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add pipeline/out pipeline/memory
+          git commit -m "Drafts: ${{ inputs.lessons }}" || { echo "nothing generated"; exit 0; }
+          git push -f origin "$BRANCH"
