@@ -1,0 +1,58 @@
+name: Calibrate judges (on demand)
+
+# Runs pipeline/calibrate_judges.py on Bedrock for the judges and defects named
+# when it is started, and prints the report into the run's summary, so a new
+# defect or a candidate judge can be measured without a key on anyone's machine.
+# Same OIDC role as the weekly panel; nothing is committed. The report and
+# verdicts are kept as an artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: 'Comma-separated Bedrock model ids (empty = the hosted seats)'
+        required: false
+        default: ''
+      defects:
+        description: 'Comma-separated defects (empty = all)'
+        required: false
+        default: 'mismatched-numbers'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  calibrate:
+    if: ${{ vars.AWS_ROLE_ARN != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt boto3
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Calibrate
+        env:
+          MODELS: ${{ inputs.models }}
+          DEFECTS: ${{ inputs.defects }}
+        run: |
+          args=()
+          [ -n "$MODELS" ] && args+=(--models "$MODELS")
+          [ -n "$DEFECTS" ] && args+=(--defects "$DEFECTS")
+          python pipeline/calibrate_judges.py "${args[@]}"
+      - name: Report
+        if: always()
+        run: |
+          f=$(ls -d pipeline/out/calibration/*/ | sort | tail -1)report.md
+          [ -f "$f" ] && cat "$f" >> "$GITHUB_STEP_SUMMARY" || echo "no report" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: calibration
+          path: pipeline/out/calibration/
+          retention-days: 30
