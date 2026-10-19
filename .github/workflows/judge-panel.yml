@@ -56,7 +56,12 @@ jobs:
       # whatever happened. The SSH key is made for this run and thrown away with
       # it. Without the CLOUDRIFT_API_KEY secret nothing is rented, the seat stays
       # empty, and every sample reports NEEDS HUMAN, never PASS.
+      # When no card is free (CloudRift had none on 19 October), the open seat
+      # stays empty and the three hosted seats still score: a run with three
+      # verdicts and NEEDS HUMAN is evidence, a run that stops here is nothing.
       - name: Rent a GPU and serve the open seat
+        id: rent
+        continue-on-error: true
         env:
           CLOUDRIFT_API_KEY: ${{ secrets.CLOUDRIFT_API_KEY }}
         run: |
@@ -79,6 +84,7 @@ jobs:
           set +e
           status=0
           echo "## Judge panel, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
+          [ "${{ steps.rent.outcome }}" = "failure" ] && echo "> The open seat is empty this week: no GPU could be rented or served (see the rent step). Every sample is NEEDS HUMAN by design." >> "$GITHUB_STEP_SUMMARY"
           for lesson in pipeline/out/lesson-sec-01/v1 pipeline/out/lesson-cs-01/v1 \
                         pipeline/out/lesson-prv-01/v1 pipeline/out/lesson-ops-01-r2/v2; do
             python pipeline/panel.py --lesson "$lesson/lesson.json" --run > panel.log 2>&1
