@@ -1,0 +1,238 @@
+{
+  "slug": "priorities-and-asking-for-help",
+  "titleAr": "الأولويات وطلب المساعدة مبكرًا",
+  "titleEn": "Priorities and Asking for Help Early",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-05"
+  ],
+  "conceptsIntroduced": [
+    "task_prioritization",
+    "urgent_vs_important",
+    "early_communication"
+  ],
+  "bilingual": true,
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "textAr": "ما هي الأولويات وكيفية طلب المساعدة مبكرًا",
+          "textEn": "Priorities and asking for help early",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "mdAr": "في بيئة العمل عادةً ما يكون هناك أكثر مما يمكن إنجازه في الوقت المتاح. المهارة ليست في إنجاز كل شيء، بل في تحديد ما يأتي أولاً وإبلاغ المعنيين مبكرًا عندما لا يمكن إتمام شيء ما.\n\n**اكتب المهام قبل اتخاذ القرار** – اكتب كل مهمة مع موعدها النهائي ومن ينتظرها. المهام التي تبقى في ذهنك فقط قد تُنسى أو تُقلل من أهميتها.\n\n**العاجل والمهم سؤالان مختلفان** – العاجل يعني وجود موعد نهائي قريب، والمهم يعني أن الخطأ أو الإغفال سيؤثر بشدة. رتب أولاً المهام العاجلة والمهمة، ثم خصص وقتًا للمهام المهمة غير العاجلة، وتعامل بسرعة أو سلم المهام العاجلة غير المهمة، واسأل الشخص المسؤول إذا كان باقي العمل ضروريًا.\n\n**قدّر الوقت بصدق** – غالبًا ما تستغرق المهمة وقتًا أطول من التخمين الأول، خاصةً إذا لم تقم بها من قبل. أضف وقتًا للمراجعة وللانقطاعات.\n\n**أبلغ عن المشكلة فور رؤيتها** – عندما تدرك أن موعدًا نهائيًا سيفوت، أخبر مديرك بأسرع ما يمكن. إبلاغه قبل يومين يمنحه خيارات (مزيد من الوقت، مساعدة إضافية، نسخة أصغر، أو أولوية مختلفة). الإبلاغ في اليوم نفسه لا يترك له أي خيار.\n\n**كيف تبلغ عنها** – قل ما هي المهمة، ما المشكلة، ما أنجزته حتى الآن، وما تقترحه كحل.\n\n**اتّفق ثمّ أكّد** – عندما تتغيّر الأولويات، أرسل تأكيدًا كتابيًا مختصرًا للجميع.",
+          "mdEn": "At work there is usually more to do than time to do it. The skill is not doing everything; it is deciding what comes first and saying early when something will not fit.\n\n**List tasks before deciding** – Write every task down with its deadline and who is waiting for it. Tasks held only in your head may be forgotten or underestimated.\n\n**Urgent and important are different questions** – Urgent means it has a near deadline. Important means it matters a lot if it is wrong or missing. Sort first what is both urgent and important, then plan time for what is important but not urgent, handle quickly or hand back what is urgent but not important, and ask the person who set the work if the rest is necessary.\n\n**Estimate time honestly** – Tasks usually take longer than the first guess, especially ones you have not done before. Add time for checking and for interruptions.\n\n**Raise a problem as soon as you see it** – A deadline that will be missed is a fact; the only choice is when people learn it. Telling your manager two days before gives them options: more time, more help, a smaller version, or a different priority. Telling them on the day gives them none.\n\n**How to raise it** – Say what the task is, what the problem is, what you have already done, and what you propose.\n\n**Agree, then confirm** – When priorities change, confirm the new order in writing, briefly, so everyone has the same understanding."
+        }
+      },
+      {
+        "id": "b_l1_def_task_prioritization",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "ترتيب المهام",
+          "termEn": "Task prioritization",
+          "defAr": "ممارسة ترتيب المهام بناءً على العاجل والمهم.",
+          "defEn": "The practice of ordering tasks based on urgency and importance.",
+          "icon": "🔀"
+        }
+      },
+      {
+        "id": "b_l1_def_urgent_vs_important",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "العاجل مقابل المهم",
+          "termEn": "Urgent vs important",
+          "defAr": "تمييز بين المهام التي لها موعد نهائي قريب وتلك التي لها تأثير كبير إذا لم تُنجز.",
+          "defEn": "Distinguishing between tasks that have a near deadline and those whose impact is high if not completed.",
+          "icon": "⚖️"
+        }
+      },
+      {
+        "id": "b_l1_def_early_communication",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "التواصل المبكر",
+          "termEn": "Early communication",
+          "defAr": "إبلاغ أصحاب المصلحة فور اكتشاف مشكلة، مع الحقائق والحل المقترح.",
+          "defEn": "Informing stakeholders as soon as a problem is identified, with facts and a proposed solution.",
+          "icon": "📢"
+        }
+      },
+      {
+        "id": "b_l1_flow_prioritization",
+        "type": "process_flow",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "اكتب المهام",
+              "labelEn": "List tasks",
+              "detailAr": "اكتب كل مهمة مع موعدها النهائي ومن ينتظرها.",
+              "detailEn": "Write every task with its deadline and who is waiting for it."
+            },
+            {
+              "id": "s2",
+              "labelAr": "قيّم العاجل والمهم",
+              "labelEn": "Assess urgency/importance",
+              "detailAr": "حدد ما هو عاجل ومهم، وما هو مهم غير عاجل، وما هو عاجل غير مهم.",
+              "detailEn": "Identify what is urgent and important, important but not urgent, urgent but not important."
+            },
+            {
+              "id": "s3",
+              "labelAr": "قدّر الوقت",
+              "labelEn": "Estimate time",
+              "detailAr": "أضف وقتًا للمراجعة والانقطاعات.",
+              "detailEn": "Add time for checking and interruptions."
+            },
+            {
+              "id": "s4",
+              "labelAr": "أبلغ مبكرًا",
+              "labelEn": "Raise early",
+              "detailAr": "إذا كان هناك خطر فشل موعد نهائي، أخبر المسؤول فورًا مع حل مقترح.",
+              "detailEn": "If a deadline is at risk, tell the manager immediately with a proposed solution."
+            },
+            {
+              "id": "s5",
+              "labelAr": "أكّد الأولويات",
+              "labelEn": "Confirm priorities",
+              "detailAr": "احصل على موافقة مكتوبة على الترتيب الجديد.",
+              "detailEn": "Get written confirmation of the new order."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemsAr": [
+            "اكتب كل مهمة مع موعدها النهائي ومن ينتظرها.",
+            "افصل بين العاجل والمهم لتحديد ما يجب عمله أولًا.",
+            "قدّر الوقت بصدق وأضف هامشًا للمراجعة والانقطاعات.",
+            "أبلغ عن أي خطر فشل في الموعد مبكرًا مع حل مقترح.",
+            "احصل على تأكيد مكتوب عندما تتغيّر الأولويات."
+          ],
+          "itemsEn": [
+            "Write every task with its deadline and who is waiting for it.",
+            "Separate urgent from important to decide what to do first.",
+            "Estimate time honestly and add a buffer for review and interruptions.",
+            "Raise any deadline risk early, offering a proposed solution.",
+            "Get written confirmation when priorities change."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "situationAr": "أنت مسؤول عن ثلاثة تقارير: التقرير A مستحق يوم الأربعاء، التقرير B مستحق يوم الجمعة، والتقرير C مستحق يوم الاثنين. اليوم هو الثلاثاء، وتحتاج إلى بيانات من فريق آخر لإكمال التقرير C، لكنهم لم يرسلوا البيانات بعد. يطلب منك مديرك إضافة تحليل إضافي للتقرير A قبل إرساله. ما هو الإجراء الأنسب؟",
+          "situationEn": "You are responsible for three reports: Report A is due Wednesday, Report B is due Friday, and Report C is due Monday. Today is Tuesday, and you need data from another team to complete Report C, but they have not sent it yet. Your manager asks you to add an extra analysis to Report A before you send it. What is the best action?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أضف التحليل الإضافي إلى التقرير A وأرسل التقارير A وB الآن، ثم انتظر بيانات التقرير C.",
+              "optionEn": "Add the extra analysis to Report A and send Reports A and B now, then wait for Report C data.",
+              "consequenceAr": "سيفوت موعد التقرير A، مما يخلق توترًا مع مديرك، وتبقى بيانات التقرير C غير متوفرة.",
+              "consequenceEn": "Report A will miss its deadline, creating tension with your manager, and Report C data remains unavailable.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "أخبر مديرك الآن أن التقرير C قد يفوت الموعد النهائي، واقترح إرسال التقارير A وB الآن دون التحليل الإضافي، وإرسال التقرير C لاحقًا عند وصول البيانات.",
+              "optionEn": "Tell your manager now that Report C may miss its deadline, propose sending Reports A and B now without the extra analysis, and deliver Report C later when the data arrives.",
+              "consequenceAr": "مديرك يملك الوقت لإعادة ترتيب الأولويات أو توفير مساعدة، وتحافظ على مواعيد التقارير A وB.",
+              "consequenceEn": "Your manager has time to re-prioritize or provide help, and you meet the deadlines for Reports A and B.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "أضف التحليل الإضافي إلى التقرير A وأرسل جميع التقارير الآن، متوقعًا أن تصل بيانات التقرير C في الوقت المناسب.",
+              "optionEn": "Add the extra analysis to Report A and send all reports now, expecting Report C data to arrive in time.",
+              "consequenceAr": "سيفوت موعد التقرير A، وقد لا تصل بيانات التقرير C في الوقت المناسب، مما يؤدي إلى فقدان كلا الموعدين.",
+              "consequenceEn": "Report A will miss its deadline, and Report C data may not arrive in time, causing both deadlines to be missed.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_we_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "promptAr": "لديك ثلاث مهام: التقرير A مستحق يوم الأربعاء، التقرير B مستحق يوم الجمعة، والتقرير C مستحق يوم الاثنين لكن البيانات المطلوبة غير متوفرة بعد. ما هي الخطوات العملية التي تتبعها لتحديد الأولويات وإبلاغ مديرك؟",
+          "promptEn": "You have three tasks: Report A due Wednesday, Report B due Friday, and Report C due Monday but the required data is missing. What practical steps do you take to prioritize and inform your manager?",
+          "steps": [
+            {
+              "showAr": "اكتب قائمة بكل مهمة مع موعدها النهائي ومن ينتظرها.",
+              "showEn": "List every task with its deadline and who is waiting for it.",
+              "whyAr": "يوضح لك ما هو عاجل وما هو مهم ويمنع نسيان أي مهمة.",
+              "whyEn": "Shows you what is urgent and what is important and prevents anything from being forgotten."
+            },
+            {
+              "showAr": "صنّف كل مهمة حسب العاجل والمهم وحدد الاعتماد على الفريق الآخر.",
+              "showEn": "Classify each task by urgency and importance and identify the dependency on the other team.",
+              "whyAr": "التصنيف يظهر أن التقرير C عاجل لكنه غير مهم حتى تصل البيانات، بينما التقارير A وB عاجلة ومهمة.",
+              "whyEn": "Classification shows Report C is urgent but not important until the data arrives, while Reports A and B are both urgent and important."
+            },
+            {
+              "showAr": "أبلغ مديرك الآن: اشرح ما هو جاهز، ما هو مفقود، واقترح إرسال التقارير A وB الآن وتسليم التقرير C لاحقًا عند وصول البيانات.",
+              "showEn": "Raise the issue now: explain what is ready, what is missing, and propose sending Reports A and B now and delivering Report C later when the data arrives.",
+              "whyAr": "الإبلاغ المبكر يمنح المدير خيارات ويظهر أنك تتخذ خطوة استباقية.",
+              "whyEn": "Early communication gives the manager options and shows proactive behavior."
+            }
+          ],
+          "answerAr": "اكتب قائمة المهام، صنّفها، وأبلغ المدير مبكرًا باقتراح واضح لتسليم التقارير A وB الآن وتأخير التقرير C حتى تصل البيانات.",
+          "answerEn": "List the tasks, classify them, and raise the issue early with a clear proposal to deliver Reports A and B now and delay Report C until the data arrives."
+        }
+      },
+      {
+        "id": "b_l2_check_urg_imp",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemRef": "JOB-05-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_early_comm",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemRef": "JOB-05-KC-02"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "source": "pipeline/sources/job-05-priorities-and-asking-for-help.md",
+  "objective": "JOB-05",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:40:02.245389+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 111.4,
+      "usage": {
+        "inputTokens": 23048,
+        "outputTokens": 7583,
+        "totalTokens": 30631,
+        "temperature": 0
+      },
+      "needs_verification": 2
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: concept_log (1)",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 139.0,
+      "usage": {
+        "inputTokens": 30857,
+        "outputTokens": 7529,
+        "totalTokens": 38386,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 69.0,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 4.5,
+        "us.moonshotai.kimi-k3": 4.12
+      },
+      "split": [
+        "knowledge_check"
+      ]
+    },
+    {
+      "version": "v3",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 109.8,
+      "usage": {
+        "inputTokens": 32689,
+        "outputTokens": 7739,
+        "totalTokens": 40428,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v3",
+      "step": "gates",
+      "result": "FAIL: items (1)",
+      "seconds": 0.2
+    }
+  ],
+  "revised_from": "v2",
+  "earlier_outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: knowledge_check",
+  "outcome": "STOPPED after the one retry: v3 still fails; a human decides",
+  "finished": "2026-10-19T17:41:52.269787+00:00"
+}

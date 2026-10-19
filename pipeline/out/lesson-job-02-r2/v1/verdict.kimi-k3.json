@@ -1,0 +1,34 @@
+{
+  "lesson": "answering-interview-questions",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T17:33:09.160105+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6367
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step has a show-plus-why, but the whys are definitional rather than judgemental: 'Situation sets the context', 'Action is the longest part and uses I', 'Result shows what happened and what you learned'. These restate the STAR rules already given in the definition card and takeaways. None names the judgement being made in this specific example or what would change it — e.g., why these particular actions demonstrate the skill, or how the answer would shift if the deadline had been missed or the work shared. Only step 2's Task-versus-Action distinction rises above the generic."
+  },
+  "verdict_notes": "No criterion below 3; mean 3.875, which sits under the 4.0 mean threshold. The weakest element is the worked example, whose per-step reasoning is generic and repeats the rules instead of naming the judgements. The knowledge checks are the strongest part — KC-02's example-reuse distractor corrects a real misconception — and the Arabic is largely natural with only a few calques ('ترتيب في أربع أجزاء', 'لا تسأل عن ما')."
+}

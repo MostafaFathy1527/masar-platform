@@ -1,0 +1,14 @@
+{
+  "model_id": "minimax.minimax-m2.5",
+  "temperature": 0,
+  "usage": {
+    "inputTokens": 28603,
+    "outputTokens": 4422,
+    "totalTokens": 33025,
+    "temperature": 0
+  },
+  "seconds": 52.6,
+  "prompt_chars": 143562,
+  "at": "2026-10-19T17:23:20.993553+00:00",
+  "needs_verification": 0
+}

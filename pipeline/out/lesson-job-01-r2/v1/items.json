@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Knowledge-check items for lesson writing-a-cv.",
+  "items": [
+    {
+      "key": "JOB-01-KC-01",
+      "objectiveId": "JOB-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الإدخالات يجيب مباشرة على إعلان يطلب «إدارة حسابات العملاء وحل الشكاوى بسرعة»؟",
+      "stemEn": "Which of these entries directly answers an advert asking for 'manage client accounts and resolve complaints quickly'?",
+      "rationaleAr": "الإدخال الصحيح يربط الإعلان بما فعلته والنتيجة التي حققتها.",
+      "rationaleEn": "The correct entry connects the advert to what you did and the result you achieved.",
+      "options": [
+        {
+          "textAr": "«مسؤول عن حسابات العملاء»",
+          "textEn": "'Responsible for client accounts'",
+          "isCorrect": false,
+          "feedbackAr": "هذا يصف الدور فقط، دون توضيح ما فعلته أو الأثر الذي حققته.",
+          "feedbackEn": "This describes the role only, without showing what you did or the impact."
+        },
+        {
+          "textAr": "«أدارت حسابات العملاء، وحللت الشكاوى باستخدام نظام CRM، وقللت وقت الاستجابة من يومين إلى أربع ساعات»",
+          "textEn": "'Managed client accounts, resolved complaints using the CRM system, and reduced response time from two days to four hours'",
+          "isCorrect": true,
+          "feedbackAr": "هذا يوضح الفعل، الأداة المستخدمة، والنتيجة، وكلها تطابق الإعلان.",
+          "feedbackEn": "This shows the action, the tool used, and the result, all matching the advert."
+        },
+        {
+          "textAr": "«خبرة في خدمة العملاء»",
+          "textEn": "'Experience in customer service'",
+          "isCorrect": false,
+          "feedbackAr": "هذا عام جدًا ولا يربط الإعلان بما فعلته.",
+          "feedbackEn": "This is too general and does not connect the advert to what you did."
+        },
+        {
+          "textAr": "«استخدمت نظام CRM لإدارة الحسابات»",
+          "textEn": "'Used a CRM system to manage accounts'",
+          "isCorrect": false,
+          "feedbackAr": "هذا يوضح الأداة ولكنه لا يوضح النتيجة أو الأثر.",
+          "feedbackEn": "This shows the tool but not the result or impact."
+        }
+      ]
+    },
+    {
+      "key": "JOB-01-KC-02",
+      "objectiveId": "JOB-01",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "formative": true,
+      "stemAr": "أي من هذه يجب حذفه من السيرة الذاتية بناءً على إعلان يطلب «خبرة في إدارة المشاريع باستخدام أداة محددة»؟",
+      "stemEn": "Which of these should be removed from a CV based on an advert asking for 'experience in project management using a specific tool'?",
+      "rationaleAr": "الإدخالات التي لا تظهر استخدام الأداة المحددة أو مهارات ذات صلة يجب حذفها.",
+      "rationaleEn": "Entries that do not show using the specific tool or relevant skills should be removed.",
+      "options": [
+        {
+          "textAr": "«خبرة في مايكروسوفت أوفيس»",
+          "textEn": "'Experience with Microsoft Office'",
+          "isCorrect": true,
+          "feedbackAr": "ما لم يُظهر كيف استخدمت أوفيس في إدارة المشاريع، لا يضيف شيئًا.",
+          "feedbackEn": "Unless it shows how you used Office for project management, it adds nothing."
+        },
+        {
+          "textAr": "«أنشأت تقارير شهرية باستخدام أداة إدارة المشاريع»",
+          "textEn": "'Created monthly reports using a project management tool'",
+          "isCorrect": false,
+          "feedbackAr": "هذا يوضح استخدام الأداة المحددة مع نتيجة واضحة.",
+          "feedbackEn": "This shows using the specific tool with a clear result."
+        },
+        {
+          "textAr": "«متطوع في تنظيم فعالية مدرسية»",
+          "textEn": "'Volunteered to organise a school event'",
+          "isCorrect": true,
+          "feedbackAr": "ما لم يُعاد كتابته ليوضح مهارات ذات صلة، مثل التخطيط، فهو لا يجيب على الإعلان.",
+          "feedbackEn": "Unless rewritten to show relevant skills like planning, it does not answer the advert."
+        },
+        {
+          "textAr": "«قادت فريقًا لتسليم مشروع في الموعد المحدد»",
+          "textEn": "'Led a team to deliver a project on deadline'",
+          "isCorrect": false,
+          "feedbackAr": "هذا يوضح مهارة ذات صلة بالإعلان مع نتيجة واضحة.",
+          "feedbackEn": "This shows a skill relevant to the advert with a clear result."
+        }
+      ]
+    }
+  ]
+}

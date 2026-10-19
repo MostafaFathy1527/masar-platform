@@ -1,0 +1,38 @@
+{
+  "lesson": "writing-a-cv",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:42:05.096570+00:00",
+    "usage": {
+      "inputTokens": 7380,
+      "outputTokens": 367
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 blocks are present and distinct from L1, but the 'visual card' requirement is not explicitly tested. The L2 scenario and sort activity are good, but the level could be more distinctively interactive.",
+    "worked_example": "Steps show 'what' and 'why', but the 'why' explanations could be more specific about the judgment being made (e.g., why 'responsible for' is insufficient vs. why 'managed' is better).",
+    "knowledge_check": "Distractors are plausible and feedback explains why, but some feedback could more directly name the misconception (e.g., 'confuses role description with demonstrated impact').",
+    "scenario_authenticity": "Scenario is plausible and includes friction (deadline, irrelevant entries), but could include more nuanced awkwardness (e.g., emotional attachment to old entries).",
+    "concision": "Prose is clear and purposeful, but some blocks (e.g., definition cards) could be slightly more succinct without loss."
+  },
+  "verdict_notes": "All criteria at or above 4, mean 4.4. The lesson is well-aligned, with strong bilingual quality and no IP issues. Minor improvements possible in worked-example reasoning and scenario depth."
+}

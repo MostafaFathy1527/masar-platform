@@ -1,0 +1,1 @@
+Disagree with the concision finding: the job tip was removed, but the worked example and scenario are distinct situations (three reports with a data dependency vs. three reports with a manager request for additional scope). The redundancy was intentional to reinforce the concept in different contexts, which aligns with the lesson's objective of applying prioritization principles.

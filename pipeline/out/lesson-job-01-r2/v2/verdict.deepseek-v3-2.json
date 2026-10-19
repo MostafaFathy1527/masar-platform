@@ -1,0 +1,37 @@
+{
+  "lesson": "writing-a-cv",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:46:42.049539+00:00",
+    "usage": {
+      "inputTokens": 7770,
+      "outputTokens": 284
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes a scenario and sort activity, but the L1 definition cards and process flow are somewhat basic for a full L1 experience.",
+    "worked_example": "Steps show 'what' and 'why' clearly, but the reasoning could be slightly more specific to the judgement being made.",
+    "bilingual_quality": "Arabic is accurate and natural in most places, but occasional phrasing feels slightly translated (e.g., 'ما يفتقده').",
+    "concision": "Prose is clear and purposeful, but some blocks (like the compare table) could be slightly more streamlined."
+  },
+  "verdict_notes": "All criteria score 4 or 5, with a mean of 4.4. The lesson is well-aligned, authentic, and accessible. Minor room for improvement in bilingual nuance and concision."
+}

@@ -1,0 +1,14 @@
+{
+  "model_id": "mistral.mistral-large-3-675b-instruct",
+  "temperature": 0,
+  "usage": {
+    "inputTokens": 30857,
+    "outputTokens": 7529,
+    "totalTokens": 38386,
+    "temperature": 0
+  },
+  "seconds": 139.0,
+  "prompt_chars": 151416,
+  "at": "2026-10-19T17:35:08.355882+00:00",
+  "needs_verification": 0
+}

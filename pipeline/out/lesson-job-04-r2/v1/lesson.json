@@ -1,0 +1,395 @@
+{
+  "slug": "your-first-week",
+  "titleAr": "أسبوعك الأول: تعلّم الوظيفة عن قصد",
+  "titleEn": "Your first week: learning the job on purpose",
+  "estMinutes": 35,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-04"
+  ],
+  "conceptsIntroduced": [
+    "what_good_looks_like",
+    "who_to_ask_for_what",
+    "write_things_down",
+    "ask_good_questions",
+    "watch_how_things_are_done",
+    "be_careful_with_changes",
+    "agree_a_check_in"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "textAr": "لماذا الأسبوع الأول مهم",
+          "textEn": "Why the first week matters",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "mdAr": "الأسبوع الأول هو الوقت الأسهل لطرح الأسئلة والأصعب لمعرفة أي الأسئلة يجب طرحها. الأشخاص الذين يبدأون بشكل جيد ليسوا عادةً من يعرفون كل شيء مسبقًا، بل من يكتشفون عمدًا ما يهم.\n\nالهدف ليس أن تبدو كفئًا، بل أن تتعلم بسرعة كيف تُنجز العمل هنا. كل سؤال تطرحه الآن يوفر عليك ساعات من التخمين لاحقًا.",
+          "mdEn": "The first week is when it's easiest to ask questions and hardest to know which ones to ask. People who start well are usually not those who already know everything, but those who deliberately find out what matters.\n\nThe goal isn't to look competent - it's to learn quickly how work gets done here. Every question you ask now saves hours of guessing later."
+        }
+      },
+      {
+        "id": "b_l1_def_good",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "ما يبدو عليه الأداء الجيد",
+          "termEn": "What good looks like",
+          "defAr": "التوقعات الواضحة لما يعتبر نجاحًا في هذه الوظيفة خلال الشهر الأول.",
+          "defEn": "Clear expectations of what success in this role looks like during the first month.",
+          "icon": "🎯",
+          "exampleAr": "مثال تدريبي: مديرك يقول إن الأداء الجيد يعني إرسال 95% من المطالبات النظيفة في الوقت المحدد خلال أول شهر.",
+          "exampleEn": "Training example: Your manager says good performance means submitting 95% of clean claims on time during the first month."
+        }
+      },
+      {
+        "id": "b_l1_def_who_to_ask",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "من تسأل ومتى",
+          "termEn": "Who to ask for what",
+          "defAr": "تحديد الأشخاص المناسبين لكل نوع من الأسئلة أو المساعدة في مكان العمل.",
+          "defEn": "Identifying the right people for each type of question or help in the workplace.",
+          "icon": "👥",
+          "exampleAr": "مثال تدريبي: سارة تعرف الأنظمة، وأحمد يعرف العملاء، وليلى توافق على الأمور.",
+          "exampleEn": "Training example: Sarah knows the systems, Ahmed knows the customers, and Layla approves things."
+        }
+      },
+      {
+        "id": "b_l1_compare_questions",
+        "type": "compare_table",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "captionAr": "أسئلة جيدة مقابل أسئلة غير فعالة",
+          "captionEn": "Good questions vs ineffective questions",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "سؤال جيد",
+              "labelEn": "Good question"
+            },
+            {
+              "labelAr": "سؤال غير فعال",
+              "labelEn": "Ineffective question"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "الاستعداد",
+                "textEn": "Preparation"
+              },
+              {
+                "textAr": "«بحثت في المجلد المشترك والدليل ولم أجد قائمة الأسعار - أين تُحفظ؟»",
+                "textEn": "\"I looked in the shared folder and the guide, and couldn't find the price list - where is it kept?\""
+              },
+              {
+                "textAr": "«أين قائمة الأسعار؟»",
+                "textEn": "\"Where is the price list?\""
+              }
+            ],
+            [
+              {
+                "textAr": "التوقيت",
+                "textEn": "Timing"
+              },
+              {
+                "textAr": "تجميع عدة أسئلة صغيرة في مكالمة واحدة",
+                "textEn": "Grouping several small questions in one call"
+              },
+              {
+                "textAr": "مقاطعة شخص لكل سؤال صغير",
+                "textEn": "Interrupting someone for each small question"
+              }
+            ],
+            [
+              {
+                "textAr": "الوضوح",
+                "textEn": "Clarity"
+              },
+              {
+                "textAr": "«ما هي الخطوات الدقيقة لإرسال مطالبة هنا؟»",
+                "textEn": "\"What are the exact steps to submit a claim here?\""
+              },
+              {
+                "textAr": "«كيف أفعل هذا؟»",
+                "textEn": "\"How do I do this?\""
+              }
+            ],
+            [
+              {
+                "textAr": "النتيجة",
+                "textEn": "Outcome"
+              },
+              {
+                "textAr": "توفير وقت الشخص الآخر وإظهار الجهد",
+                "textEn": "Saves the other person's time and shows effort"
+              },
+              {
+                "textAr": "يبدو وكأنك لم تحاول",
+                "textEn": "Appears like you didn't try"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_first_week",
+        "type": "process_flow",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "اسأل عن التوقعات",
+              "labelEn": "Ask about expectations",
+              "detailAr": "اسأل مديرك مباشرة: كيف يبدو الشهر الأول الجيد؟",
+              "detailEn": "Ask your manager directly: what does a good first month look like?"
+            },
+            {
+              "id": "s2",
+              "labelAr": "تعرّف على الأشخاص الرئيسيين",
+              "labelEn": "Identify key people",
+              "detailAr": "تعلم من يساعد في الأنظمة، من يعرف العملاء، ومن يوافق على الأمور.",
+              "detailEn": "Learn who helps with systems, who knows customers, and who approves things."
+            },
+            {
+              "id": "s3",
+              "labelAr": "دوّن المعلومات",
+              "labelEn": "Write things down",
+              "detailAr": "احتفظ بدفتر ملاحظات شخصي لكيفية إنجاز المهام هنا.",
+              "detailEn": "Keep a personal notebook of how tasks are done here."
+            },
+            {
+              "id": "s4",
+              "labelAr": "راقب الممارسات الفعلية",
+              "labelEn": "Observe actual practices",
+              "detailAr": "لاحظ كيف يتواصل الزملاء وكيف تُتخذ القرارات.",
+              "detailEn": "Notice how colleagues communicate and how decisions are made."
+            },
+            {
+              "id": "s5",
+              "labelAr": "اتفق على متابعة منتظمة",
+              "labelEn": "Agree on regular check-ins",
+              "detailAr": "حدد محادثات قصيرة مع مديرك في الأسابيع الأولى.",
+              "detailEn": "Schedule short conversations with your manager in the first weeks."
+            }
+          ],
+          "interactive": false
+        }
+      },
+      {
+        "id": "b_l1_tip_silence",
+        "type": "job_tip",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "mdAr": "**الخطأ الأكثر شيوعًا هو الصمت.** البقاء صامتًا لتظهر كفاءة غالبًا ما يؤدي إلى اكتشاف بعد أسابيع أنك كنت تقوم بمهمة بشكل خاطئ طوال الوقت. اسأل مبكرًا لتجنب إعادة العمل لاحقًا.",
+          "mdEn": "**The most common mistake is silence.** Staying silent to appear competent often leads to discovering weeks later that you've been doing a task wrong the whole time. Ask early to avoid rework later."
+        }
+      },
+      {
+        "id": "b_l1_tip_changes",
+        "type": "job_tip",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "mdAr": "**كن حذرًا مع التغييرات في وقت مبكر.** قد ترى مشاكل بوضوح، لكن دوّنها واطرحها بعد أن تفهم لماذا تُفعل الأمور بهذه الطريقة - قد يكون هناك سبب لم تره بعد.",
+          "mdEn": "**Be careful with changes early on.** You may see problems clearly, but note them and raise them after you understand why things are done this way - there may be a reason you haven't seen yet."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemsAr": [
+            "الأسبوع الأول هو الوقت الأفضل لطرح الأسئلة التي ستوفر عليك ساعات لاحقًا.",
+            "اكتشف عمدًا ما يعتبر نجاحًا هنا، ومن يساعد في ماذا، وكيف تُنجز المهام فعليًا.",
+            "دوّن المعلومات لتجنب تكرار الأسئلة وتوفير الوقت."
+          ],
+          "itemsEn": [
+            "The first week is the best time to ask questions that will save you hours later.",
+            "Deliberately find out what success looks like here, who helps with what, and how tasks are actually done.",
+            "Write things down to avoid repeating questions and save time."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "textAr": "طبّق ما تعلمته",
+          "textEn": "Put it into practice",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "promptAr": "في يومك الثاني، لاحظت أن زملاءك يستخدمون مجلدًا مختلفًا عن الذي قيل لك في التدريب لتخزين الملفات. ماذا تفعل؟",
+          "promptEn": "On your second day, you notice colleagues using a different folder than the one you were told in training to store files. What do you do?",
+          "steps": [
+            {
+              "showAr": "راقب كيف يستخدم الزملاء المجلد الفعلي.",
+              "showEn": "Observe how colleagues are actually using the real folder.",
+              "whyAr": "الممارسات المكتوبة والفعلية غالبًا ما تختلف. مراقبة الاستخدام الفعلي تظهر لك كيف تُنجز المهام هنا حقًا.",
+              "whyEn": "Written procedures and actual practice often differ. Observing actual use shows you how work really gets done here."
+            },
+            {
+              "showAr": "دوّن المسار الصحيح في دفتر ملاحظاتك.",
+              "showEn": "Write down the correct path in your notebook.",
+              "whyAr": "التوثيق الشخصي يضمن أنك لن تنسى أو تضطر لطرح السؤال مرة أخرى.",
+              "whyEn": "Personal documentation ensures you won't forget or need to ask the question again."
+            },
+            {
+              "showAr": "اسأل زميلًا موثوقًا في وقت مناسب: «لاحظت أن الناس يستخدمون مجلد X بدلاً من Y - هل هذا هو المسار الصحيح؟»",
+              "showEn": "Ask a trusted colleague at a good time: \"I noticed people using folder X instead of Y - is this the correct path?\"",
+              "whyAr": "السؤال في الوقت المناسب مع ملاحظة ما رأيته يظهر أنك منتبه ويقلل من مقاطعة عملهم.",
+              "whyEn": "Asking at a good time with your observation shows you're attentive and minimizes interrupting their work."
+            }
+          ],
+          "answerAr": "راقب الاستخدام الفعلي، دوّن المسار الصحيح، ثم اسأل زميلًا موثوقًا في وقت مناسب لتأكيد ما لاحظته.",
+          "answerEn": "Observe actual use, document the correct path, then ask a trusted colleague at a good time to confirm what you observed."
+        }
+      },
+      {
+        "id": "b_l2_scenario_questions",
+        "type": "scenario",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "situationAr": "في يومك الثالث، لديك ثلاثة أسئلة صغيرة: أين تُحفظ النماذج، كيف تُرسل عبر البريد الإلكتروني الداخلي، وأين قائمة الأسعار. مديرك مشغول في اجتماع.",
+          "situationEn": "On your third day, you have three small questions: where forms are kept, how to send internal email, and where the price list is. Your manager is busy in a meeting.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "انتظر حتى ينتهي الاجتماع واطرح الأسئلة الثلاثة معًا.",
+              "optionEn": "Wait until the meeting ends and ask all three questions together.",
+              "consequenceAr": "مديرك يقدر أنك احترمت وقته ويجيب على الأسئلة الثلاثة في وقت واحد. تتعلم الإجابات وتوفر عليك مقاطعة أخرى لاحقًا.",
+              "consequenceEn": "Your manager appreciates that you respected their time and answers all three questions at once. You learn the answers and save another interruption later.",
+              "isBest": true
+            },
+            {
+              "id": "d2",
+              "optionAr": "اطرح الأسئلة الثلاثة عبر رسالة بريد إلكتروني.",
+              "optionEn": "Send the three questions in an email.",
+              "consequenceAr": "قد يستغرق الأمر وقتًا أطول للحصول على إجابات، وقد لا تكون واضحة كما لو طُرحت شخصيًا. لكنك تحترم وقت مديرك.",
+              "consequenceEn": "It may take longer to get answers, and they might not be as clear as if asked in person. But you respect your manager's time.",
+              "isBest": false
+            },
+            {
+              "id": "d3",
+              "optionAr": "قاطعه في الاجتماع لكل سؤال.",
+              "optionEn": "Interrupt the meeting for each question.",
+              "consequenceAr": "يبدو هذا غير محترف ويزعج مديرك وزملاءه. قد تحصل على إجابات سريعة لكنك تخلق انطباعًا سلبيًا.",
+              "consequenceEn": "This appears unprofessional and disrupts your manager and colleagues. You might get quick answers but create a negative impression.",
+              "isBest": false
+            },
+            {
+              "id": "d4",
+              "optionAr": "تخمين الإجابات بنفسك.",
+              "optionEn": "Guess the answers yourself.",
+              "consequenceAr": "قد ترتكب أخطاء تؤدي إلى إعادة العمل لاحقًا. من الأفضل دائمًا التأكد من الإجابات الصحيحة مبكرًا.",
+              "consequenceEn": "You might make mistakes that lead to rework later. It's always better to confirm correct answers early.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_questions",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "buckets": [
+            {
+              "id": "ask_now",
+              "labelAr": "اسأل الآن",
+              "labelEn": "Ask now"
+            },
+            {
+              "id": "write_down",
+              "labelAr": "دوّن",
+              "labelEn": "Write down"
+            },
+            {
+              "id": "observe_first",
+              "labelAr": "راقب أولًا",
+              "labelEn": "Observe first"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "كيف تُرسل مطالبة نظيفة؟",
+              "textEn": "How to submit a clean claim?",
+              "bucketId": "ask_now",
+              "whyAr": "هذه معلومة أساسية تحتاجها لبدء العمل. من الأفضل أن تسأل مبكرًا لتجنب الأخطاء.",
+              "whyEn": "This is fundamental information you need to start working. Better to ask early to avoid mistakes."
+            },
+            {
+              "id": "c2",
+              "textAr": "أين تُحفظ النماذج؟",
+              "textEn": "Where are the forms kept?",
+              "bucketId": "write_down",
+              "whyAr": "هذه معلومة ستحتاجها كثيرًا. دوّن الإجابة لتجنب تكرار السؤال.",
+              "whyEn": "This is information you'll need often. Write down the answer to avoid asking repeatedly."
+            },
+            {
+              "id": "c3",
+              "textAr": "كيف يتواصل الزملاء عادة؟",
+              "textEn": "How do colleagues usually communicate?",
+              "bucketId": "observe_first",
+              "whyAr": "هذه ممارسة مكان العمل التي ستتعلمها بشكل أفضل من خلال الملاحظة قبل السؤال.",
+              "whyEn": "This is workplace practice you'll learn better by observing before asking."
+            },
+            {
+              "id": "c4",
+              "textAr": "ما هي التوقعات لشهري الأول؟",
+              "textEn": "What are the expectations for my first month?",
+              "bucketId": "ask_now",
+              "whyAr": "هذه معلومة أساسية تحتاجها لفهم ما يعتبر نجاحًا. اسأل مديرك مباشرة.",
+              "whyEn": "This is fundamental information you need to understand what success looks like. Ask your manager directly."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemRef": "JOB-04-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemRef": "JOB-04-KC-02"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+# QA gate report — priorities-and-asking-for-help
+
+**Result: FAIL**
+
+Mean 3.38 over 8 scored criteria (threshold 4.0); lowest criterion 3 (floor 3).
+
+Lesson levels: L1, L2.
+
+> LLM rubric score, fresh-context judge, self-assessed — not human QA
+
+| Criterion | Score | Note |
+|---|---|---|
+| objective alignment | 4 | Teaching blocks cover both prioritization and early escalation, but both knowledge checks assess only escalation; the urgent/important judgement is never directly assessed. |
+| level fidelity | 4 |  |
+| worked example | 3 | Step 2's 'why' asserts Report C is 'urgent but not important,' which contradicts the lesson's own definition (C has the furthest deadline) and never explains the judgement or what would change it; steps 1 and 3 give generic whys (prevents forgetting, shows proactivity) rather than naming the judgement being made. |
+| knowledge check | 3 | Correct-option feedback in both items restates the answer and appeals to 'the lesson' instead of explaining why it works; KC-01's 'ignore the problem hoping it resolves itself' is a straw-man distractor nobody would choose. The wrong-option feedback that names consequences (manager left without options, eroded trust) is the stronger half. |
+| scenario authenticity | 3 | The cross-team data dependency is a real workplace situation, but the decision set has no friction: the best option is telegraphed and both wrong options (ignore two reports entirely; secretly hand off C) are behaviors no one genuinely weighing them would pick. d2 also asserts C 'will be missed' when the setup only puts it at risk. |
+| bilingual quality | 3 | Mostly readable MSA that does not follow English word order, but 'interruptions' is mistranslated as التقاطعات/الالتقاطعات (intersections) in three places, 'ولا يزالوا لم يرسلوا' is ungrammatical MSA, and one bullet drifts from the English ('ask if the remaining work is necessary' vs 'ask when it is unclear'). |
+| concision | 3 | The same five points appear three times in L1 — intro prose, process flow, takeaways — and the job tip restates the two-day rule already in the intro; roughly a third of the level is removable without loss. |
+| accessibility ip | 4 |  |
+
+**Judge independence:**
+
+> This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA.
+
+**Mean 3.38 is below 4.0.**
+
+Judge's summary:
+
+> Every block is on-objective and the L1/L2 structure is genuinely delivered, but the applied layer is weak: the worked example misclassifies its own scenario, the scenario's wrong options are unchoosable, and both checks test only escalation with restating correct-answer feedback. Arabic is serviceable but carries a repeated mistranslation and one clear grammar error. Five of eight criteria sit at 3, for a mean of 3.375.
+
+The pipeline retries once with this report appended to the prompt, then stops for a human decision.

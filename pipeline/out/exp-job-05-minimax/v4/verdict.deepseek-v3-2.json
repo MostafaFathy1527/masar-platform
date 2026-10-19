@@ -1,0 +1,38 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:24:15.221257+00:00",
+    "usage": {
+      "inputTokens": 6778,
+      "outputTokens": 324
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 is present and distinct from L1, but the scenario and worked example are somewhat similar in structure and content.",
+    "worked_example": "Steps show 'what' and 'why', but the 'why' could be more specific to the judgement being made (e.g., why classify before communicating).",
+    "knowledge_check": "Distractors are plausible and feedback explains why, though some feedback could more explicitly name the misconception.",
+    "scenario_authenticity": "Scenario is plausible and includes friction (missing data, extra request), but feels slightly constructed.",
+    "concision": "Prose is clear and purposeful, but some sections (e.g., the rich_text list) could be slightly tightened."
+  },
+  "verdict_notes": "All criteria score 3 or above, and the mean is 4.4. The lesson is well-aligned, with strong bilingual quality and accessibility. Minor improvements could be made to the depth of reasoning in the worked example and the distinctiveness of L2 activities."
+}

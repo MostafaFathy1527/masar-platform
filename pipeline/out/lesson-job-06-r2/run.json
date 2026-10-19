@@ -1,0 +1,66 @@
+{
+  "source": "pipeline/sources/job-06-feedback-and-mistakes.md",
+  "objective": "JOB-06",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:39:32.067949+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 91.0,
+      "usage": {
+        "inputTokens": 23031,
+        "outputTokens": 5894,
+        "totalTokens": 28925,
+        "temperature": 0
+      },
+      "needs_verification": 4
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: concept_log (3)",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 98.1,
+      "usage": {
+        "inputTokens": 29252,
+        "outputTokens": 5920,
+        "totalTokens": 35172,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 51.7,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 5.0,
+        "us.moonshotai.kimi-k3": 4.25
+      },
+      "split": []
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson",
+  "finished": "2026-10-19T17:43:33.090385+00:00"
+}

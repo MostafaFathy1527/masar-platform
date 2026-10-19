@@ -1,0 +1,449 @@
+{
+  "slug": "writing-a-clear-work-message",
+  "titleAr": "كتابة رسالة عمل واضحة",
+  "titleEn": "Writing a clear work message",
+  "estMinutes": 30,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-03"
+  ],
+  "conceptsIntroduced": [
+    "purpose_first",
+    "clear_ask",
+    "subject_line",
+    "short_paragraphs",
+    "tone_check",
+    "before_sending"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "textAr": "لماذا تكتب رسالة عمل؟",
+          "textEn": "Why write a work message?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "mdAr": "رسالة العمل هي أداة، وليست تعبيرًا عن الذات. هدفها أن يعرف القارئ ما تريده بالضبط ومتى تريد ذلك، دون أن يضطر إلى قراءة الرسالة مرتين أو كتابة سؤال للعودة إليك.\n\nالقارئ مشغول، وغالبًا ما يقرأ على هاتف بين مهام أخرى. إذا جعلته يفكر في ما تعنيه رسالتك، فقد يتأخر الرد أو يأتي غير صحيح أو لا يأتي على الإطلاق.",
+          "mdEn": "A work message is a tool, not self-expression. Its purpose is to tell the reader exactly what you want and by when, without making them read it twice or write back to ask.\n\nThe reader is busy, often reading on a phone between other tasks. If you make them work out what your message means, the reply may be late, wrong, or not come at all."
+        }
+      },
+      {
+        "id": "b_l1_def_purpose_first",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "الغرض أولاً",
+          "termEn": "Purpose first",
+          "defAr": "السطر الأول من الرسالة يوضح لماذا تكتب: طلب، تحديث، سؤال، أو قرار مطلوب.",
+          "defEn": "The first line of the message states why you are writing: a request, an update, a question, or a decision needed.",
+          "icon": "↑",
+          "exampleAr": "مثال: \"أحتاج إلى موافقتك على تاريخ التسليم الجديد بحلول يوم الخميس.\"",
+          "exampleEn": "Example: \"I need your approval on the new delivery date by Thursday.\""
+        }
+      },
+      {
+        "id": "b_l1_def_clear_ask",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "طلب واضح",
+          "termEn": "Clear ask",
+          "defAr": "تحديد ما تريده بالضبط، ممن، ومتى. إذا كان هناك أكثر من طلب، رقّمها.",
+          "defEn": "Saying exactly what you want, from whom, and by when. If there are several requests, number them.",
+          "icon": "✓",
+          "exampleAr": "مثال: \"1. هل الأرقام في القسم الثاني نهائية؟\n2. إذا لم تكن كذلك، متى ستكون جاهزة؟\"",
+          "exampleEn": "Example: \"1. Are the figures in section two final?\n2. If not, when will they be ready?\""
+        }
+      },
+      {
+        "id": "b_l1_def_subject_line",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "سطر الموضوع",
+          "termEn": "Subject line",
+          "defAr": "سطر يقول ما بداخل الرسالة، حتى يمكن العثور عليها لاحقًا.",
+          "defEn": "A line that says what is inside the message, so it can be found later.",
+          "icon": "📧",
+          "exampleAr": "مثال: \"تاريخ التسليم لطلب مارس — أحتاج إلى تأكيدك\"",
+          "exampleEn": "Example: \"Delivery date for the March order — need your confirmation\""
+        }
+      },
+      {
+        "id": "b_l1_def_short_paragraphs",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "فقرات قصيرة",
+          "termEn": "Short paragraphs",
+          "defAr": "فكرة واحدة لكل فقرة، بدون مقدمات طويلة أو اعتذارات متكررة.",
+          "defEn": "One idea per paragraph. Avoid long introductions and repeated apologies.",
+          "icon": "✂️",
+          "exampleAr": "مثال: \"التقرير جاهز للمراجعة. هل يمكنك إعادته بحلول يوم الجمعة؟ شكرًا.\"",
+          "exampleEn": "Example: \"The report is ready for review. Can you return it by Friday? Thanks.\""
+        }
+      },
+      {
+        "id": "b_l1_def_tone_check",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "فحص النبرة",
+          "termEn": "Tone check",
+          "defAr": "قراءة الرسالة كما لو كنت القارئ: هل تبدو باردة أو غاضبة؟ لا تكتب وأنت غاضب.",
+          "defEn": "Read the message as if you were the receiver: does it sound cold or angry? Do not write when angry.",
+          "icon": "😊",
+          "exampleAr": "مثال: \"هل يمكنك إرسال الأرقام المحدثة؟ شكرًا.\" بدلاً من \"لم أتلق الأرقام بعد.\"",
+          "exampleEn": "Example: \"Can you send the updated figures? Thanks.\" instead of \"I still haven't received the figures.\""
+        }
+      },
+      {
+        "id": "b_l1_def_before_sending",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "قبل الإرسال",
+          "termEn": "Before sending",
+          "defAr": "التحقق من أن الشخص الصحيح مخاطب، وأن المرفقات مرفقة، وأن الأسماء والتواريخ والأرقام صحيحة.",
+          "defEn": "Check that the right person is addressed, attachments are attached, and names, dates, and numbers are correct.",
+          "icon": "✅",
+          "exampleAr": "مثال: \"هل أضفت ملف الميزانية؟ هل تاريخ الاجتماع صحيح؟\"",
+          "exampleEn": "Example: \"Did I attach the budget file? Is the meeting date correct?\""
+        }
+      },
+      {
+        "id": "b_l1_compare_messages",
+        "type": "compare_table",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "captionAr": "رسالة واضحة مقابل رسالة غير واضحة",
+          "captionEn": "A clear message compared with an unclear one",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "واضح",
+              "labelEn": "Clear"
+            },
+            {
+              "labelAr": "غير واضح",
+              "labelEn": "Unclear"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "السطر الأول",
+                "textEn": "First line"
+              },
+              {
+                "textAr": "يذكر الغرض مباشرة",
+                "textEn": "States the purpose immediately"
+              },
+              {
+                "textAr": "يبدأ بخلفية أو اعتذار",
+                "textEn": "Starts with background or apology"
+              }
+            ],
+            [
+              {
+                "textAr": "الطلب",
+                "textEn": "The ask"
+              },
+              {
+                "textAr": "يقول ما هو مطلوب ومتى",
+                "textEn": "Says what is needed and by when"
+              },
+              {
+                "textAr": "\"هل يمكنك النظر في هذا؟\"",
+                "textEn": "\"Can you look at this?\""
+              }
+            ],
+            [
+              {
+                "textAr": "الطول",
+                "textEn": "Length"
+              },
+              {
+                "textAr": "فقرات قصيرة، فكرة واحدة لكل فقرة",
+                "textEn": "Short paragraphs, one idea each"
+              },
+              {
+                "textAr": "فقرة واحدة طويلة",
+                "textEn": "One long paragraph"
+              }
+            ],
+            [
+              {
+                "textAr": "المرفقات",
+                "textEn": "Attachments"
+              },
+              {
+                "textAr": "تم التحقق من وجودها",
+                "textEn": "Checked for presence"
+              },
+              {
+                "textAr": "قد تُنسى",
+                "textEn": "May be forgotten"
+              }
+            ],
+            [
+              {
+                "textAr": "الرد المتوقع",
+                "textEn": "Expected reply"
+              },
+              {
+                "textAr": "يعرف القارئ ما يجب فعله",
+                "textEn": "Reader knows what to do"
+              },
+              {
+                "textAr": "قد يحتاج القارئ إلى السؤال",
+                "textEn": "Reader may need to ask"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_reply",
+        "type": "job_tip",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "mdAr": "عند الرد، أجب عن كل سؤال بالترتيب الذي سُئل به. إذا لم تستطع الإجابة بعد، قل متى ستفعل.",
+          "mdEn": "When replying, answer every question in the order it was asked. If you cannot answer yet, say when you will."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemsAr": [
+            "السطر الأول يوضح الغرض.",
+            "الطلب الواضح يقول ما تريده ومتى.",
+            "سطر الموضوع يقول ما بداخل الرسالة.",
+            "فقرات قصيرة، فكرة واحدة لكل فقرة.",
+            "اقرأ الرسالة كما لو كنت القارئ.",
+            "قبل الإرسال، تحقق من كل شيء."
+          ],
+          "itemsEn": [
+            "The first line states the purpose.",
+            "A clear ask says what you want and by when.",
+            "The subject line says what is inside.",
+            "Short paragraphs, one idea each.",
+            "Read the message as if you were the receiver.",
+            "Before sending, check everything."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "textAr": "طبّق ما تعلمت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "promptAr": "لديك تقرير جاهز للمراجعة. تريد من زميلك مراجعته وإعادته بحلول يوم الجمعة. كيف تكتب الرسالة؟",
+          "promptEn": "You have a report ready for review. You want your colleague to review it and return it by Friday. How do you write the message?",
+          "steps": [
+            {
+              "showAr": "ابدأ بالغرض مباشرة.",
+              "showEn": "Start with the purpose immediately.",
+              "whyAr": "القارئ يعرف لماذا تكتب قبل أن يقرأ أي شيء آخر.",
+              "whyEn": "The reader knows why you are writing before reading anything else."
+            },
+            {
+              "showAr": "قل ما تريده ومتى.",
+              "showEn": "Say what you want and by when.",
+              "whyAr": "الطلب الواضح لا يترك للقارئ أن يخمن.",
+              "whyEn": "A clear ask leaves no guesswork for the reader."
+            },
+            {
+              "showAr": "استخدم سطر موضوع واضح.",
+              "showEn": "Use a clear subject line.",
+              "whyAr": "سطر الموضوع هو ما سيراه القارئ في صندوق الوارد وفي البحث لاحقًا.",
+              "whyEn": "The subject line is what the reader sees in the inbox and in searches later."
+            },
+            {
+              "showAr": "اقرأ الرسالة كما لو كنت القارئ.",
+              "showEn": "Read the message as if you were the receiver.",
+              "whyAr": "تجنب النبرة التي قد تبدو باردة أو غاضبة.",
+              "whyEn": "Avoid a tone that might sound cold or angry."
+            }
+          ],
+          "answerAr": "الموضوع: تقرير مارس — المراجعة مطلوبة بحلول الجمعة\n\nمرحبًا [الاسم],\n\nأحتاج إلى مراجعتك لتقرير مارس وإعادته إليّ بحلول يوم الجمعة.\n\nشكرًا،\n[اسمك]",
+          "answerEn": "Subject: March report — review needed by Friday\n\nHi [Name],\n\nI need you to review the March report and return it to me by Friday.\n\nThanks,\n[Your name]"
+        }
+      },
+      {
+        "id": "b_l2_scenario_missing_ask",
+        "type": "scenario",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "situationAr": "طلب منك مديرك كتابة رسالة إلى فريق المالية لطلب الأرقام المحدثة للميزانية. الموعد النهائي هو اليوم، وأنت مشغول بمهمة أخرى.",
+          "situationEn": "Your manager has asked you to write a message to the finance team asking for updated budget figures. The deadline is today, and you are busy with another task.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اكتب رسالة طويلة تشرح لماذا تحتاج الأرقام، ثم اطلبها في السطر الأخير.",
+              "optionEn": "Write a long message explaining why you need the figures, then ask for them in the last line.",
+              "consequenceAr": "القارئ قد لا يرى الطلب، أو قد يتأخر في الرد لأنه لا يعرف ما هو مطلوب بالضبط.",
+              "consequenceEn": "The reader may miss the ask, or delay replying because they do not know exactly what is needed.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اكتب رسالة قصيرة تبدأ بالطلب مباشرة، وتحدد الموعد النهائي.",
+              "optionEn": "Write a short message that starts with the ask immediately, and states the deadline.",
+              "consequenceAr": "القارئ يعرف بالضبط ما هو مطلوب ومتى، ويمكنه الرد بسرعة.",
+              "consequenceEn": "The reader knows exactly what is needed and by when, and can reply quickly.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "أرسل رسالة تقول \"هل يمكنك إرسال الأرقام؟\" بدون موعد نهائي.",
+              "optionEn": "Send a message saying \"Can you send the figures?\" without a deadline.",
+              "consequenceAr": "القارئ لا يعرف متى تحتاج الأرقام، وقد يؤجل الرد.",
+              "consequenceEn": "The reader does not know when you need the figures, and may put off replying.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_scenario_tone",
+        "type": "scenario",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "situationAr": "اكتشفت خطأً في تقرير أرسلته بالأمس. تحتاج إلى أن يراجعه زميلك ويصححه اليوم.",
+          "situationEn": "You have found an error in a report you sent yesterday. You need your colleague to review and correct it today.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اكتب رسالة تقول \"أرسلت التقرير الخطأ. أصلحه الآن.\"",
+              "optionEn": "Write a message saying \"I sent the wrong report. Fix it now.\"",
+              "consequenceAr": "قد يقرأ القارئ الرسالة على أنها غاضبة أو فظة، وقد لا يرغب في المساعدة.",
+              "consequenceEn": "The reader may read the message as angry or abrupt, and may not want to help.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اكتب رسالة تقول \"مرحبًا، وجدت خطأً في التقرير الذي أرسلته بالأمس. هل يمكنك مراجعته وتصحيحه اليوم؟ شكرًا.\"",
+              "optionEn": "Write a message saying \"Hi, I found an error in the report I sent yesterday. Can you review and correct it today? Thanks.\"",
+              "consequenceAr": "القارئ يعرف ما هو مطلوب ومتى، والرسالة مهذبة ومباشرة.",
+              "consequenceEn": "The reader knows what is needed and by when, and the message is polite and direct.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "لا تذكر الخطأ، واطلب المراجعة فقط.",
+              "optionEn": "Do not mention the error, just ask for the review.",
+              "consequenceAr": "القارئ قد لا يفهم أهمية التصحيح، وقد لا يعطي الأولوية للمهمة.",
+              "consequenceEn": "The reader may not understand the importance of the correction, and may not prioritise the task.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_parts",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "buckets": [
+            {
+              "id": "purpose",
+              "labelAr": "الغرض",
+              "labelEn": "Purpose"
+            },
+            {
+              "id": "ask",
+              "labelAr": "الطلب",
+              "labelEn": "The ask"
+            },
+            {
+              "id": "background",
+              "labelAr": "الخلفية",
+              "labelEn": "Background"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "\"أحتاج إلى موافقتك على تاريخ التسليم الجديد.\"",
+              "textEn": "\"I need your approval on the new delivery date.\"",
+              "bucketId": "purpose",
+              "whyAr": "يذكر الغرض مباشرة.",
+              "whyEn": "States the purpose immediately."
+            },
+            {
+              "id": "c2",
+              "textAr": "\"هل الأرقام في القسم الثاني نهائية؟\"",
+              "textEn": "\"Are the figures in section two final?\"",
+              "bucketId": "ask",
+              "whyAr": "يحدد ما هو مطلوب بالضبط.",
+              "whyEn": "Specifies exactly what is needed."
+            },
+            {
+              "id": "c3",
+              "textAr": "\"التقرير جاهز للمراجعة.\"",
+              "textEn": "\"The report is ready for review.\"",
+              "bucketId": "background",
+              "whyAr": "يوفر سياقًا، لكنه ليس طلبًا.",
+              "whyEn": "Provides context, but is not an ask."
+            },
+            {
+              "id": "c4",
+              "textAr": "\"أحتاج إلى إعادته بحلول يوم الجمعة.\"",
+              "textEn": "\"I need it returned by Friday.\"",
+              "bucketId": "ask",
+              "whyAr": "يحدد الموعد النهائي.",
+              "whyEn": "Specifies the deadline."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemRef": "JOB-03-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemRef": "JOB-03-KC-02"
+        }
+      }
+    ]
+  }
+}

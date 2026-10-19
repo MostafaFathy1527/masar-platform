@@ -1,0 +1,95 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson JOB-04: Your first week",
+  "items": [
+    {
+      "key": "JOB-04-KC-01",
+      "objectiveId": "JOB-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "في يومك الأول، تريد معرفة ما يعتبر نجاحًا في هذه الوظيفة. ما هو أفضل سؤال تطرحه على مديرك؟",
+      "stemEn": "On your first day, you want to know what success looks like in this role. What's the best question to ask your manager?",
+      "rationaleAr": "السؤال المباشر عن التوقعات المحددة يوضح لك بالضبط ما يُتوقع منك، وهو ما يهدف إليه الهدف JOB-04.",
+      "rationaleEn": "The direct question about specific expectations gives you exactly what you need to know, which is what objective JOB-04 aims for.",
+      "options": [
+        {
+          "textAr": "«كيف يمكنني أن أكون ناجحًا هنا؟»",
+          "textEn": "\"How can I be successful here?\"",
+          "isCorrect": false,
+          "feedbackAr": "هذا سؤال عام جدًا. لا يحدد ما يعتبر نجاحًا في هذه الوظيفة على وجه التحديد.",
+          "feedbackEn": "This is too general. It doesn't specify what success looks like in this particular role."
+        },
+        {
+          "textAr": "«ما الذي يعتبر شهرًا أولًا جيدًا في هذه الوظيفة؟»",
+          "textEn": "\"What does a good first month look like in this role?\"",
+          "isCorrect": true,
+          "feedbackAr": "هذا السؤال يحدد التوقعات بوضوح ويطلب معايير محددة للنجاح.",
+          "feedbackEn": "This question clearly specifies expectations and asks for concrete success criteria."
+        },
+        {
+          "textAr": "«هل هناك أي نصائح للنجاح هنا؟»",
+          "textEn": "\"Are there any tips for success here?\"",
+          "isCorrect": false,
+          "feedbackAr": "هذا سؤال غامض. قد تحصل على نصائح عامة بدلاً من توقعات محددة.",
+          "feedbackEn": "This is vague. You might get general advice rather than specific expectations."
+        },
+        {
+          "textAr": "«ما هي المهام الرئيسية التي سأقوم بها؟»",
+          "textEn": "\"What are the main tasks I'll be doing?\"",
+          "isCorrect": false,
+          "feedbackAr": "هذا يسأل عن المهام وليس عن معايير النجاح. قد تعرف ما تفعله دون معرفة ما يعتبر نجاحًا.",
+          "feedbackEn": "This asks about tasks, not success criteria. You might know what to do without knowing what success looks like."
+        }
+      ]
+    },
+    {
+      "key": "JOB-04-KC-02",
+      "objectiveId": "JOB-04",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الإجراءات تساعدك على تعلم الوظيفة بشكل فعال في الأسبوع الأول؟ (اختر جميع ما ينطبق)",
+      "stemEn": "Which of these actions help you learn the job effectively in your first week? (Select all that apply)",
+      "rationaleAr": "هذه الإجراءات كلها جزء من تعلم الوظيفة عمدًا كما هو موضح في الهدف JOB-04.",
+      "rationaleEn": "These actions are all part of learning the job deliberately as described in objective JOB-04.",
+      "options": [
+        {
+          "textAr": "تحديد الأشخاص الرئيسيين لكل نوع من المساعدة",
+          "textEn": "Identifying key people for each type of help",
+          "isCorrect": true,
+          "feedbackAr": "هذا إجراء أساسي لتعلم من تسأل ومتى، وهو جزء رئيسي من الهدف JOB-04.",
+          "feedbackEn": "This is fundamental to learning who to ask for what, a key part of objective JOB-04."
+        },
+        {
+          "textAr": "البقاء صامتًا لتظهر كفاءة",
+          "textEn": "Staying silent to appear competent",
+          "isCorrect": false,
+          "feedbackAr": "هذا هو الخطأ الأكثر شيوعًا الذي يؤدي إلى اكتشاف الأخطاء لاحقًا.",
+          "feedbackEn": "This is the most common mistake that leads to discovering errors later."
+        },
+        {
+          "textAr": "دوّن المعلومات المهمة في دفتر ملاحظات شخصي",
+          "textEn": "Writing down important information in a personal notebook",
+          "isCorrect": true,
+          "feedbackAr": "هذا يساعدك على تذكر كيفية إنجاز المهام وتجنب تكرار الأسئلة.",
+          "feedbackEn": "This helps you remember how tasks are done and avoids repeating questions."
+        },
+        {
+          "textAr": "اقتراح تغييرات على الإجراءات في يومك الأول",
+          "textEn": "Suggesting changes to procedures on your first day",
+          "isCorrect": false,
+          "feedbackAr": "من الأفضل فهم سبب القيام بالأمور بهذه الطريقة قبل اقتراح التغييرات.",
+          "feedbackEn": "It's better to understand why things are done this way before suggesting changes."
+        },
+        {
+          "textAr": "اتفق على متابعة منتظمة مع مديرك",
+          "textEn": "Agreeing on regular check-ins with your manager",
+          "isCorrect": true,
+          "feedbackAr": "هذا يساعد على اكتشاف سوء الفهم مبكرًا قبل أن يصبح مشكلة كبيرة.",
+          "feedbackEn": "This helps catch misunderstandings early before they become big problems."
+        }
+      ]
+    }
+  ]
+}

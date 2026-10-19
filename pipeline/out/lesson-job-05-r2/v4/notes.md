@@ -1,0 +1,1 @@
+Hand edit (19 October 2026), on top of v3: items[1] (JOB-05-KC-02) type MULTI_SELECT -> MCQ_SINGLE. The v3 revision kept one correct option, as two judges asked (the urgent-not-important email is not done first), but left the type unchanged, so the item gate refused it. Nothing else changed.

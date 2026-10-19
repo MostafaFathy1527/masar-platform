@@ -1,0 +1,82 @@
+{
+  "source": "pipeline/sources/job-01-writing-a-cv.md",
+  "objective": "JOB-01",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:44:10.660862+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 98.1,
+      "usage": {
+        "inputTokens": 23131,
+        "outputTokens": 5848,
+        "totalTokens": 28979,
+        "temperature": 0
+      },
+      "needs_verification": 7
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 61.7,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 4.88,
+        "us.moonshotai.kimi-k3": 3.75
+      },
+      "split": [
+        "bilingual_quality"
+      ]
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 98.5,
+      "usage": {
+        "inputTokens": 30615,
+        "outputTokens": 5959,
+        "totalTokens": 36574,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 59.6,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 5.0,
+        "us.moonshotai.kimi-k3": 4.12
+      },
+      "split": []
+    }
+  ],
+  "revised_from": "v1",
+  "earlier_outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality",
+  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson",
+  "finished": "2026-10-19T17:46:48.954235+00:00"
+}

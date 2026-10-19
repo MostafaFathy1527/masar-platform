@@ -1,0 +1,95 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson JOB-06. Every item tests the objective, not the worked example.",
+  "items": [
+    {
+      "key": "JOB-06-KC-01",
+      "objectiveId": "JOB-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما هو أفضل رد أولي على ملاحظة عامة مثل «هذا التقرير غير واضح»؟",
+      "stemEn": "What is the best initial response to vague feedback like \"This report is unclear\"?",
+      "rationaleAr": "الهدف الأول هو تحديد المشكلة بالضبط، وهذا يتطلب مثالًا محددًا.",
+      "rationaleEn": "The first goal is to pinpoint the problem, which requires a specific example.",
+      "options": [
+        {
+          "textAr": "اشرح لماذا كتبت التقرير بهذه الطريقة.",
+          "textEn": "Explain why you wrote the report that way.",
+          "isCorrect": false,
+          "feedbackAr": "هذا رد دفاعي قبل فهم النقطة.",
+          "feedbackEn": "This is defensive before understanding the point."
+        },
+        {
+          "textAr": "اسأل عن مثال محدد لما وجده غير واضح.",
+          "textEn": "Ask for a specific example of what they found unclear.",
+          "isCorrect": true,
+          "feedbackAr": "هذا يحدد المشكلة ويظهر أنك تريد الفهم.",
+          "feedbackEn": "This pinpoints the problem and shows you want to understand."
+        },
+        {
+          "textAr": "قل إنك ستعيد كتابته بالكامل.",
+          "textEn": "Say you will rewrite it entirely.",
+          "isCorrect": false,
+          "feedbackAr": "هذا افتراض قبل معرفة ما يحتاج إلى تغيير.",
+          "feedbackEn": "This assumes what needs to change before knowing."
+        },
+        {
+          "textAr": "اشكر الشخص وانتظر المزيد من الملاحظات.",
+          "textEn": "Thank the person and wait for more feedback.",
+          "isCorrect": false,
+          "feedbackAr": "هذا لا يحل المشكلة أو يحددها.",
+          "feedbackEn": "This does not solve or identify the problem."
+        }
+      ]
+    },
+    {
+      "key": "JOB-06-KC-02",
+      "objectiveId": "JOB-06",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما الذي يجب أن يتضمنه الاعتراف المبكر بالخطأ؟ (اختر كل ما ينطبق)",
+      "stemEn": "What should an early admission of a mistake include? (Select all that apply)",
+      "rationaleAr": "الاعتراف الكامل يتطلب أربعة عناصر: ما حدث، التأثير، ما تم فعله للحد منه، وما سيتغير.",
+      "rationaleEn": "A complete admission requires four elements: what happened, the effect, what was done to limit it, and what will change.",
+      "options": [
+        {
+          "textAr": "ما حدث بالضبط.",
+          "textEn": "What exactly happened.",
+          "isCorrect": true,
+          "feedbackAr": "هذا ضروري لفهم الخطأ.",
+          "feedbackEn": "This is necessary to understand the mistake."
+        },
+        {
+          "textAr": "تأثير الخطأ.",
+          "textEn": "The effect of the mistake.",
+          "isCorrect": true,
+          "feedbackAr": "هذا ضروري لاتخاذ قرار بشأن الخطوات التالية.",
+          "feedbackEn": "This is necessary to decide next steps."
+        },
+        {
+          "textAr": "ما فعلته بالفعل للحد من الضرر.",
+          "textEn": "What you have already done to limit the damage.",
+          "isCorrect": true,
+          "feedbackAr": "هذا يظهر أنك تتحمل المسؤولية.",
+          "feedbackEn": "This shows you are taking responsibility."
+        },
+        {
+          "textAr": "ما ستفعله لمنع تكرار الخطأ.",
+          "textEn": "What you will do so it does not happen again.",
+          "isCorrect": true,
+          "feedbackAr": "هذا يبني الثقة ويحول الخطأ إلى فرصة للتحسين.",
+          "feedbackEn": "This builds trust and turns the mistake into an improvement opportunity."
+        },
+        {
+          "textAr": "من ساهم في الخطأ.",
+          "textEn": "Who contributed to the mistake.",
+          "isCorrect": false,
+          "feedbackAr": "التركيز على المسؤولية الجماعية يقلل من مسؤوليتك.",
+          "feedbackEn": "Focusing on shared responsibility dilutes your ownership."
+        }
+      ]
+    }
+  ]
+}

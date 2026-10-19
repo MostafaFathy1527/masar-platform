@@ -1,0 +1,397 @@
+{
+  "slug": "writing-a-cv",
+  "titleAr": "كتابة سيرة ذاتية تُقرأ",
+  "titleEn": "Writing a CV that gets read",
+  "estMinutes": 30,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-01"
+  ],
+  "conceptsIntroduced": [
+    "cv_structure",
+    "relevant_result",
+    "action_verb",
+    "outcome_description",
+    "selection_by_advert",
+    "removal_of_irrelevant"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "textAr": "ما الذي يجعل السيرة الذاتية تُقرأ؟",
+          "textEn": "What makes a CV get read?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "mdAr": "السيرة الذاتية ليست قائمة بكل ما فعلته، بل أداة لاختيار ما يهم صاحب العمل. القارئ يبحث عن إجابة واحدة: هل هذا الشخص قادر على أداء هذه الوظيفة المحددة؟ إذا لم يجد الإجابة بسرعة، ينتقل إلى السيرة التالية.\n\nالبداية الصحيحة هي الإعلان الوظيفي، وليس تاريخك. اقرأ الإعلان وحدد المهام والمهارات والأدوات المطلوبة، ثم اختر ما تضعه في السيرة وترتيبه بناءً على مدى ارتباطه بتلك النقاط.",
+          "mdEn": "A CV is not a list of everything you have done — it is a tool to select what matters to the employer. The reader is looking for one answer: can this person do this specific job? If they do not find it quickly, they move to the next CV.\n\nThe right starting point is the job advert, not your history. Read the advert, identify the tasks, skills and tools it asks for, then choose what to put in the CV and in what order, based on how directly it answers those lines."
+        }
+      },
+      {
+        "id": "b_l1_def_cv_structure",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "بنية السيرة الذاتية",
+          "termEn": "CV structure",
+          "defAr": "الترتيب القياسي للأقسام في السيرة الذاتية: المعلومات الشخصية، الملخص، الخبرة، التعليم، المهارات.",
+          "defEn": "The standard order of sections in a CV: personal information, summary, experience, education, skills.",
+          "icon": "📄",
+          "exampleAr": "مثال تدريبي: سيرة ذاتية تبدأ بالاسم والبريد الإلكتروني، ثم سطرين عن الهدف المهني، ثم قائمة بالخبرات من الأحدث إلى الأقدم.",
+          "exampleEn": "Training example: a CV starting with name and email, then two lines about the career goal, then a list of experiences from newest to oldest."
+        }
+      },
+      {
+        "id": "b_l1_def_relevant_result",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "النتيجة ذات الصلة",
+          "termEn": "Relevant result",
+          "defAr": "ما حققته في دور سابق يتطابق مع ما يطلبه الإعلان الوظيفي.",
+          "defEn": "What you achieved in a previous role that matches what the job advert asks for.",
+          "icon": "✔️"
+        }
+      },
+      {
+        "id": "b_l1_def_action_verb",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "الفعل الإجرائي",
+          "termEn": "Action verb",
+          "defAr": "الفعل الذي يبدأ به وصف الإنجاز، مثل «أنشأت»، «حسّنت»، «قلّلت».",
+          "defEn": "The verb that starts a description of an achievement, such as 'created', 'improved', 'reduced'.",
+          "icon": "🔧"
+        }
+      },
+      {
+        "id": "b_l1_def_outcome_description",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "وصف النتيجة",
+          "termEn": "Outcome description",
+          "defAr": "ما تغير بسبب العمل الذي قمت به، وليس مجرد وصف للمهمة.",
+          "defEn": "What changed as a result of the work you did, not just a description of the task.",
+          "icon": "📈"
+        }
+      },
+      {
+        "id": "b_l1_compare_entries",
+        "type": "compare_table",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "captionAr": "المهمة مقابل النتيجة",
+          "captionEn": "Task vs. result",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "مهمة فقط",
+              "labelEn": "Task only"
+            },
+            {
+              "labelAr": "نتيجة ذات صلة",
+              "labelEn": "Relevant result"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "ما يُقال",
+                "textEn": "What is said"
+              },
+              {
+                "textAr": "«مسؤول عن مكالمات العملاء»",
+                "textEn": "'Responsible for customer calls'"
+              },
+              {
+                "textAr": "«أجبت حوالي أربعين مكالمة يوميًا وحللت معظمها دون تحويلها»",
+                "textEn": "'Answered about forty customer calls a day and resolved most of them without passing them on'"
+              }
+            ],
+            [
+              {
+                "textAr": "ما يظهر",
+                "textEn": "What it shows"
+              },
+              {
+                "textAr": "الدور الذي شغلته",
+                "textEn": "The role you held"
+              },
+              {
+                "textAr": "ما فعلته ومدى فعاليتك",
+                "textEn": "What you did and how effective you were"
+              }
+            ],
+            [
+              {
+                "textAr": "ما يفتقده",
+                "textEn": "What it lacks"
+              },
+              {
+                "textAr": "دليل على الأثر",
+                "textEn": "Evidence of impact"
+              },
+              {
+                "textAr": "لا شيء — النتيجة واضحة",
+                "textEn": "Nothing — the result is clear"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_selection",
+        "type": "process_flow",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "اقرأ الإعلان",
+              "labelEn": "Read the advert",
+              "detailAr": "حدد المهام والمهارات والأدوات المطلوبة.",
+              "detailEn": "Identify the tasks, skills and tools asked for."
+            },
+            {
+              "id": "s2",
+              "labelAr": "راجع تاريخك",
+              "labelEn": "Review your history",
+              "detailAr": "ابحث عن أدوار أو مشاريع تتطابق مع الإعلان.",
+              "detailEn": "Look for roles or projects that match the advert."
+            },
+            {
+              "id": "s3",
+              "labelAr": "اكتب النتيجة",
+              "labelEn": "Write the result",
+              "detailAr": "استخدم فعلًا إجرائيًا، وصفًا للعمل، وتأثيرًا.",
+              "detailEn": "Use an action verb, a description of the work, and the impact."
+            },
+            {
+              "id": "s4",
+              "labelAr": "رتب الأقسام",
+              "labelEn": "Order the sections",
+              "detailAr": "ضع الأقسام الأكثر صلة بالأعلى.",
+              "detailEn": "Put the most relevant sections first."
+            },
+            {
+              "id": "s5",
+              "labelAr": "احذف ما لا صلة له",
+              "labelEn": "Remove what is not relevant",
+              "detailAr": "احذف التفاصيل الشخصية غير المطلوبة والمهارات غير المدعومة.",
+              "detailEn": "Remove personal details not asked for and skills not supported."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_advert",
+        "type": "job_tip",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "mdAr": "إذا طلب الإعلان مهارة معينة، ضعها في قسم المهارات فقط إذا كان لديك مثال على استخدامها. وإلا، احذفها — قائمة بالمهارات دون دليل لا تضيف شيئًا.",
+          "mdEn": "If the advert asks for a specific skill, put it in the skills section only if you have an example of using it. Otherwise, remove it — a list of skills with no evidence adds nothing."
+        }
+      },
+      {
+        "id": "b_l1_tip_numbers",
+        "type": "job_tip",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "mdAr": "إذا لم تعرف الرقم الدقيق، لا تخترعه. قل «حسّنت وقت الاستجابة بشكل ملحوظ» بدلًا من «حسّنت وقت الاستجابة بنسبة 30%» إذا لم تكن متأكدًا من النسبة.",
+          "mdEn": "If you do not know the exact number, do not invent it. Say 'improved response time noticeably' instead of 'improved response time by 30%' if you are not sure of the percentage."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemsAr": [
+            "السيرة الذاتية أداة اختيار، تبدأ بالإعلان الوظيفي وليس بتاريخك.",
+            "كل إدخال يوضح نتيجة ذات صلة: فعل إجرائي، ما فعلته، وما تغير.",
+            "رتب الأقسام واحذف ما لا صلة له بناءً على الإعلان."
+          ],
+          "itemsEn": [
+            "A CV is a selection tool, starting from the job advert, not your history.",
+            "Each entry shows a relevant result: an action verb, what you did, and what changed.",
+            "Order the sections and remove what is not relevant, based on the advert."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "textAr": "طبّق ما تعلمته",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "promptAr": "الإعلان الوظيفي يطلب: «إدارة حسابات العملاء، حل الشكاوى بسرعة، استخدام نظام CRM». لديك في مسودتك: «مسؤول عن حسابات العملاء». أعد كتابته.",
+          "promptEn": "The job advert asks for: 'manage client accounts, resolve complaints quickly, use a CRM system'. Your draft says: 'Responsible for client accounts'. Rewrite it.",
+          "steps": [
+            {
+              "showAr": "حدد الفعل الإجرائي: «مسؤول عن» ليست كافية.",
+              "showEn": "Identify the action verb: 'responsible for' is not enough.",
+              "whyAr": "«مسؤول عن» يصف الدور فقط، بينما الفعل الإجرائي يوضح ما فعلته بالضبط. الإعلان يطلب إدارة وحل، لذا يجب أن يظهر الفعلان.",
+              "whyEn": "The verb 'responsible for' only describes the role, not what you actually did. The advert asks for managing and resolving, so both actions must appear."
+            },
+            {
+              "showAr": "أضف ما فعلته: «أدرتُ حسابات العملاء، وحللت الشكاوى باستخدام نظام CRM».",
+              "showEn": "Add what you did: 'managed client accounts, resolved complaints using the CRM system'.",
+              "whyAr": "هذا يربط الإعلان بما فعلته بالفعل، ويظهر استخدام الأداة المحددة.",
+              "whyEn": "This connects the advert to what you actually did, and shows using the specific tool."
+            },
+            {
+              "showAr": "أضف النتيجة: «قللت وقت الاستجابة من يومين إلى أربع ساعات».",
+              "showEn": "Add the result: 'reduced response time from two days to four hours'.",
+              "whyAr": "النتيجة تظهر الأثر، وهو ما يبحث عنه القارئ. بدونها، يبقى الإدخال وصفًا للمهمة فقط.",
+              "whyEn": "The result shows the impact, which is what the reader is looking for. Without it, the entry remains only a description of the task."
+            }
+          ],
+          "answerAr": "«أدرتُ حسابات العملاء، وحللت الشكاوى باستخدام نظام CRM، وقللت وقت الاستجابة من يومين إلى أربع ساعات».",
+          "answerEn": "'Managed client accounts, resolved complaints using the CRM system, and reduced response time from two days to four hours.'"
+        }
+      },
+      {
+        "id": "b_l2_scenario_irrelevant",
+        "type": "scenario",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "situationAr": "الإعلان الوظيفي يطلب خبرة في إدارة المشاريع باستخدام أداة محددة. لديك في مسودتك: «خبرة في مايكروسوفت أوفيس»، و«متطوع في تنظيم فعالية مدرسية». الموعد النهائي لإرسال السيرة اليوم. بالإضافة إلى ذلك، الإدخال التطوعي هو أول تجربة تنظيمية لك، وقد استغرقت وقتًا طويلًا في كتابته.",
+          "situationEn": "The job advert asks for experience in project management using a specific tool. Your draft includes: 'experience with Microsoft Office', and 'volunteered to organise a school event'. The deadline to send the CV is today. Also, the volunteering entry is your first experience of organising anything, and you spent a long time writing it up.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أبقي كلا الإدخالين لأنهما يظهران مهارات متنوعة.",
+              "optionEn": "Keep both entries because they show a range of skills.",
+              "consequenceAr": "القارئ يبحث عن الخبرة ذات الصلة، وليس التنوع. كلا الإدخالين لا يجيبان على ما يطلبه الإعلان، وقد يُنظر إليهما كملء مساحة دون قيمة.",
+              "consequenceEn": "The reader is looking for relevant experience, not variety. Neither entry answers what the advert asks for, and may be seen as filler with no value.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "أبقي إدخال التطوع وأحذف مايكروسوفت أوفيس.",
+              "optionEn": "Keep the volunteering entry and remove Microsoft Office.",
+              "consequenceAr": "إدخال التطوع يمكن إعادة كتابته ليوضح مهارات تنظيمية، لكنه سيبقى بعيدًا عن متطلبات الإعلان. إعادة الكتابة تستغرق وقتًا، والسيرة ستبدو غير مركزة، مما يقلل فرص قراءتها.",
+              "consequenceEn": "The volunteering entry can be rewritten to show organising skills, but it will still not match the advert's requirements. Rewriting takes time, and the CV will look unfocused, reducing the chance it will be read.",
+              "isBest": false
+            },
+            {
+              "id": "d3",
+              "optionAr": "احذف كلا الإدخالين وأركز على ما يتطابق مع الإعلان.",
+              "optionEn": "Remove both entries and focus on what matches the advert.",
+              "consequenceAr": "السيرة تصبح أقصر وأكثر تركيزًا. كل ما يبقى يجيب مباشرة على الإعلان، مما يزيد فرص قراءتها.",
+              "consequenceEn": "The CV becomes shorter and more focused. Everything that remains answers the advert directly, increasing the chance it will be read.",
+              "isBest": true
+            },
+            {
+              "id": "d4",
+              "optionAr": "أبقي إدخال التطوع لأنه أول تجربة تنظيمية لي، وأحذف مايكروسوفت أوفيس.",
+              "optionEn": "Keep the volunteering entry because it is my first organising experience, and remove Microsoft Office.",
+              "consequenceAr": "الإدخال يبقى لأنه يحمل قيمة شخصية، لكنه لا يوضح استخدام الأداة المحددة أو مهارات إدارة المشاريع. السيرة ستبدو غير متطابقة مع الإعلان، وقد يُنظر إلى الإدخال كملء مساحة.",
+              "consequenceEn": "The entry stays because it has personal value, but it does not show using the specific tool or project-management skills. The CV will look mismatched to the advert, and the entry may be seen as filler.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_selection",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "keep",
+              "labelAr": "يُحتفظ به",
+              "labelEn": "Keep"
+            },
+            {
+              "id": "remove",
+              "labelAr": "يُحذف",
+              "labelEn": "Remove"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "خبرة في مايكروسوفت إكسل",
+              "textEn": "Experience with Microsoft Excel",
+              "bucketId": "remove",
+              "whyAr": "ما لم يُظهر كيف استخدمت إكسل في سياق الإعلان، لا يضيف شيئًا.",
+              "whyEn": "Unless it shows how you used Excel in the context the advert asks for, it adds nothing."
+            },
+            {
+              "id": "c2",
+              "textAr": "أنشأت تقارير شهرية باستخدام أداة إدارة المشاريع",
+              "textEn": "Created monthly reports using a project management tool",
+              "bucketId": "keep",
+              "whyAr": "هذا يوضح استخدام الأداة المحددة في الإعلان، مع نتيجة واضحة.",
+              "whyEn": "This shows using the specific tool the advert asks for, with a clear result."
+            },
+            {
+              "id": "c3",
+              "textAr": "متطوع في تنظيم فعالية مدرسية",
+              "textEn": "Volunteered to organise a school event",
+              "bucketId": "remove",
+              "whyAr": "ما لم يُعاد كتابته ليوضح مهارات ذات صلة، مثل التخطيط أو العمل الجماعي، فهو لا يجيب على الإعلان.",
+              "whyEn": "Unless rewritten to show relevant skills like planning or teamwork, it does not answer the advert."
+            },
+            {
+              "id": "c4",
+              "textAr": "قادت فريقًا لتسليم مشروع في الموعد المحدد",
+              "textEn": "Led a team to deliver a project on deadline",
+              "bucketId": "keep",
+              "whyAr": "هذا يوضح مهارة ذات صلة بالإعلان، مع نتيجة واضحة.",
+              "whyEn": "This shows a skill relevant to the advert, with a clear result."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemRef": "JOB-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemRef": "JOB-01-KC-02"
+        }
+      }
+    ]
+  }
+}

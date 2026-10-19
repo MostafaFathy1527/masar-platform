@@ -1,0 +1,34 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:30:17.800894+00:00",
+    "usage": {
+      "inputTokens": 6962,
+      "outputTokens": 252
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The steps are logical and the reasoning is sound, though the reasoning in step 2 (classifying Report C as 'urgent but not important') is slightly confusing given the lesson text's quadrant framework. The lesson says to 'handle quickly or hand back' urgent-but-not-important items, but the example treats it as a blocking dependency. A brief explanation of why this specific dependency changes the classification would strengthen it."
+  },
+  "verdict_notes": "This is a strong lesson that meets its objectives with high fidelity. The Arabic is natural and the knowledge checks use plausible distractors that target real misconceptions. The worked example is the only slight weakness, where the reasoning is present but could be sharper on the edge cases."
+}

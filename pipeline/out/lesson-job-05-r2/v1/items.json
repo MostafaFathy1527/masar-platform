@@ -1,0 +1,129 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Item bank for lesson JOB-05: Priorities, deadlines and asking for help early",
+  "items": [
+    {
+      "key": "JOB-05-KC-01",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما الخطوة الأولى عند اكتشاف أن مهمة لن تُنجز في موعدها؟",
+      "stemEn": "What is the first step when you find a task will not be finished on time?",
+      "rationaleAr": "الإبلاغ المبكر يبدأ بجمع الحقائق والحل المقترح، وليس بإلقاء المشكلة.",
+      "rationaleEn": "Raising early starts with gathering the facts and a proposed solution, not dumping the problem.",
+      "options": [
+        {
+          "textAr": "انتظر لترى إذا كان بإمكانك إنجازها في اللحظة الأخيرة.",
+          "textEn": "Wait to see if you can finish it at the last minute.",
+          "isCorrect": false,
+          "feedbackAr": "هذا هو تجنب المشكلة، وليس حلها.",
+          "feedbackEn": "This is avoiding the problem, not solving it."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا أنك لن تنجز المهمة.",
+          "textEn": "Tell your manager immediately that you will not finish the task.",
+          "isCorrect": false,
+          "feedbackAr": "هذا إلقاء للمشكلة دون حقائق أو حل مقترح.",
+          "feedbackEn": "This is dumping the problem without facts or a proposed solution."
+        },
+        {
+          "textAr": "اجمع الحقائق عن المهمة والمشكلة وما فعلته بالفعل، واقترح حلًا.",
+          "textEn": "Gather the facts about the task, the problem, what you have already done, and propose a solution.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو الإبلاغ المبكر: الحقائق والحل المقترح.",
+          "feedbackEn": "This is raising early: the facts and a proposed solution."
+        },
+        {
+          "textAr": "اطلب من شخص آخر إنجاز المهمة نيابةً عنك.",
+          "textEn": "Ask someone else to do the task for you.",
+          "isCorrect": false,
+          "feedbackAr": "هذا قد يكون جزءًا من الحل، لكنه ليس الخطوة الأولى.",
+          "feedbackEn": "This may be part of the solution, but it is not the first step."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-02",
+      "objectiveId": "JOB-05",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "formative": true,
+      "stemAr": "أي من هذه المهام يجب إنجازها أولاً؟",
+      "stemEn": "Which of these tasks should be done first?",
+      "rationaleAr": "العاجل والمهم يُنجزان أولاً، المهم غير العاجل يُخطط له، والعاجل غير المهم يُنجز بسرعة أو يُعاد توكيله.",
+      "rationaleEn": "Urgent and important is done first, important but not urgent is scheduled, and urgent but not important is handled quickly or delegated.",
+      "options": [
+        {
+          "textAr": "تقرير مطلوب اليوم لدعم قرار مالي",
+          "textEn": "A report due today to support a financial decision",
+          "isCorrect": true,
+          "feedbackAr": "هذا عاجل ومهم، لذا يُنجز أولاً.",
+          "feedbackEn": "This is urgent and important, so it is done first."
+        },
+        {
+          "textAr": "تحديث قاعدة بيانات مطلوب بعد أسبوعين",
+          "textEn": "A database update due in two weeks",
+          "isCorrect": false,
+          "feedbackAr": "هذا مهم لكنه ليس عاجلًا، لذا يُخطط له.",
+          "feedbackEn": "This is important but not urgent, so it is scheduled."
+        },
+        {
+          "textAr": "رد على بريد إلكتروني يطلب معلومات عامة، موعده اليوم",
+          "textEn": "Reply to an email asking for general information, due today",
+          "isCorrect": true,
+          "feedbackAr": "هذا عاجل لكنه ليس مهمًا، لذا يُنجز بسرعة أو يُعاد توكيله.",
+          "feedbackEn": "This is urgent but not important, so it is handled quickly or delegated."
+        },
+        {
+          "textAr": "اجتماع دوري لا يضيف قيمة",
+          "textEn": "A recurring meeting that adds no value",
+          "isCorrect": false,
+          "feedbackAr": "هذا ليس عاجلًا ولا مهمًا، لذا يُسأل هل يحتاج إلى الإنجاز أصلًا.",
+          "feedbackEn": "This is neither urgent nor important, so it is questioned whether it needs doing at all."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-03",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ماذا تفعل بعد الاتفاق على أولويات جديدة مع مديرك؟",
+      "stemEn": "What do you do after agreeing new priorities with your manager?",
+      "rationaleAr": "التأكيد الكتابي يضمن الفهم المشترك ويمنع سوء الفهم لاحقًا.",
+      "rationaleEn": "Confirming in writing ensures shared understanding and prevents later confusion.",
+      "options": [
+        {
+          "textAr": "ابدأ العمل فورًا دون تأكيد.",
+          "textEn": "Start work immediately without confirming.",
+          "isCorrect": false,
+          "feedbackAr": "هذا قد يؤدي إلى سوء فهم إذا تغيرت الأولويات في رأس شخص آخر.",
+          "feedbackEn": "This may lead to confusion if priorities changed in someone else's mind."
+        },
+        {
+          "textAr": "أرسل ملخصًا كتابيًا قصيرًا للتأكد من الفهم المشترك.",
+          "textEn": "Send a brief written summary to confirm shared understanding.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو التأكيد الكتابي: يمنع سوء الفهم لاحقًا.",
+          "feedbackEn": "This is confirming in writing: it prevents later confusion."
+        },
+        {
+          "textAr": "انتظر حتى يسألك مديرك عن التقدم.",
+          "textEn": "Wait until your manager asks about progress.",
+          "isCorrect": false,
+          "feedbackAr": "هذا لا يضمن أن الأولويات واضحة للطرفين.",
+          "feedbackEn": "This does not ensure priorities are clear to both sides."
+        },
+        {
+          "textAr": "اطلب من مديرك إرسال التأكيد.",
+          "textEn": "Ask your manager to send the confirmation.",
+          "isCorrect": false,
+          "feedbackAr": "المسؤولية على الشخص الذي يغير الأولويات.",
+          "feedbackEn": "The responsibility is on the person changing priorities."
+        }
+      ]
+    }
+  ]
+}

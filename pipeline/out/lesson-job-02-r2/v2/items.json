@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson JOB-02, generated from the source note.",
+  "items": [
+    {
+      "key": "JOB-02-KC-01",
+      "objectiveId": "JOB-02",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي جزء من هيكل STAR يجب أن يكون أطول جزء في الإجابة؟",
+      "stemEn": "Which part of the STAR structure should be the longest in your answer?",
+      "rationaleAr": "الإجراء هو الجزء الذي يوضح ما فعلته أنت، خطوة بخطوة، وهذا ما يبحث عنه المحاور.",
+      "rationaleEn": "Action is the part that shows what you did, step by step — this is what the interviewer is looking for.",
+      "options": [
+        {
+          "textAr": "الموقف",
+          "textEn": "Situation",
+          "isCorrect": false,
+          "feedbackAr": "الموقف يضع السياق فقط، ولا يوضح تصرفاتك.",
+          "feedbackEn": "Situation only sets the context, and does not show your actions."
+        },
+        {
+          "textAr": "المهمة",
+          "textEn": "Task",
+          "isCorrect": false,
+          "feedbackAr": "المهمة تحدد ما كان عليك فعله، لكنها لا تصف ما فعلته.",
+          "feedbackEn": "Task defines what you were responsible for, but does not describe what you did."
+        },
+        {
+          "textAr": "الإجراء",
+          "textEn": "Action",
+          "isCorrect": true,
+          "feedbackAr": "الإجراء يوضح ما فعلته أنت، وهذا ما يبحث عنه المحاور.",
+          "feedbackEn": "Action shows what you did yourself — this is what the interviewer wants to hear."
+        },
+        {
+          "textAr": "النتيجة",
+          "textEn": "Result",
+          "isCorrect": false,
+          "feedbackAr": "النتيجة تُظهر ما حدث، لكنها لا تصف تصرفاتك.",
+          "feedbackEn": "Result shows what happened, but does not describe your actions."
+        }
+      ]
+    },
+    {
+      "key": "JOB-02-KC-02",
+      "objectiveId": "JOB-02",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الأخطاء الشائعة يجب تجنبه في الإجابة على سؤال سلوكي؟",
+      "stemEn": "Which of these common mistakes should you avoid when answering a behavioural question?",
+      "rationaleAr": "كل خيار غير صحيح يمثل خطأً شائعًا في الإجابات.",
+      "rationaleEn": "Each incorrect option represents a common mistake in answers.",
+      "options": [
+        {
+          "textAr": "اختيار مثال حيث قام شخص آخر بالجزء المهم",
+          "textEn": "Choosing an example where someone else did the important part",
+          "isCorrect": true,
+          "feedbackAr": "المحاور يريد أن يرى ما فعلته أنت، وليس ما فعله الآخرون.",
+          "feedbackEn": "The interviewer wants to see what you did, not what others did."
+        },
+        {
+          "textAr": "إنفاق معظم الإجابة على وصف الموقف",
+          "textEn": "Spending most of the answer describing the situation",
+          "isCorrect": true,
+          "feedbackAr": "الموقف مهم، لكن الإجراء هو ما يوضح تصرفاتك.",
+          "feedbackEn": "Situation is important, but Action is what shows your actions."
+        },
+        {
+          "textAr": "استخدام مثال واحد للإجابة على عدة أسئلة",
+          "textEn": "Using one example to answer several questions",
+          "isCorrect": false,
+          "feedbackAr": "هذا مقبول، بل وموصى به، إذا كان المثال مناسبًا.",
+          "feedbackEn": "This is acceptable, and even recommended, if the example fits."
+        },
+        {
+          "textAr": "الانتهاء بالإجراء دون ذكر النتيجة",
+          "textEn": "Ending with the Action and not mentioning the Result",
+          "isCorrect": true,
+          "feedbackAr": "النتيجة تُظهر ما حدث وما تعلمته، وهذا جزء مهم من الإجابة.",
+          "feedbackEn": "Result shows what happened and what you learned — an important part of the answer."
+        }
+      ]
+    }
+  ]
+}

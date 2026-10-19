@@ -1,0 +1,373 @@
+{
+  "slug": "answering-interview-questions",
+  "titleAr": "الإجابة على أسئلة المقابلة بأمثلة واقعية",
+  "titleEn": "Answering interview questions with real examples",
+  "estMinutes": 35,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-02"
+  ],
+  "conceptsIntroduced": [
+    "situation_task_action_result",
+    "star_structure",
+    "behavioural_question"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "textAr": "لماذا الأمثلة؟",
+          "textEn": "Why examples matter",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "mdAr": "أسئلة المقابلة السلوكية مثل «حدثني عن وقت تعاملت فيه مع عميل صعب» أو «صف خطأ ارتكبته وماذا فعلت» لا تسأل عن ما تعتقد أنه الإجابة الصحيحة، بل عن كيفية تفكيرك وتصرفك في موقف حقيقي. المثال الواحد الجيد أفضل من قائمة المبادئ العامة، لأن المحاور يريد دليلًا على ما ستفعله يوم الاثنين، وليس ما تقوله الآن.",
+          "mdEn": "Behavioural interview questions like \"Tell me about a time you dealt with a difficult customer\" or \"Describe a mistake you made and what you did\" are not asking for what you think the right answer is. They are asking for how you think and act in a real situation. One good example is better than a list of general principles, because the interviewer wants evidence of what you will do on Monday, not what you say now."
+        }
+      },
+      {
+        "id": "b_l1_def_star",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "هيكل STAR",
+          "termEn": "STAR structure",
+          "defAr": "طريقة لترتيب مثال واحد في أربع أجزاء: Situation (الموقف)، Task (المهمة)، Action (الإجراء)، Result (النتيجة).",
+          "defEn": "A way to organise one example into four parts: Situation, Task, Action, Result.",
+          "icon": "✦",
+          "exampleAr": "مثال تدريبي: في وظيفتي السابقة، كان علينا تسليم تقرير في يومين (الموقف)، وكان دوري جمع البيانات من ثلاثة أقسام (المهمة). اتصلت بكل قسم وطلبت البيانات أولًا، ثم راجعت الأرقام مع كل منهم للتأكد من صحتها (الإجراء)، فأكملنا التقرير في الوقت المحدد وتعلمت أهمية التواصل المبكر (النتيجة).",
+          "exampleEn": "Training example: In my last job, we had to deliver a report in two days (Situation), and my task was to gather data from three departments (Task). I contacted each department first, then reviewed the numbers with each of them to confirm accuracy (Action), and we finished the report on time and I learned the importance of early communication (Result)."
+        }
+      },
+      {
+        "id": "b_l1_def_behavioural",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "السؤال السلوكي",
+          "termEn": "Behavioural question",
+          "defAr": "سؤال يطلب مثالًا محددًا من ماضيك ليرى كيف ستتصرف في المستقبل.",
+          "defEn": "A question that asks for a specific example from your past to see how you will act in the future.",
+          "icon": "?"
+        }
+      },
+      {
+        "id": "b_l1_compare_answers",
+        "type": "compare_table",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "captionAr": "الإجابة العامة مقابل الإجابة بأمثلة",
+          "captionEn": "General answer compared with an example-based answer",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "إجابة عامة",
+              "labelEn": "General answer"
+            },
+            {
+              "labelAr": "إجابة بأمثلة",
+              "labelEn": "Example-based answer"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "ماذا تقول",
+                "textEn": "What you say"
+              },
+              {
+                "textAr": "«أنا دائمًا هادئ مع العملاء الصعبين»",
+                "textEn": "\"I always stay calm with difficult customers.\""
+              },
+              {
+                "textAr": "«في وظيفتي الأخيرة، كان لدينا عميل يطلب تعديلات مستمرة على التقرير. قلت له إن التعديلات الإضافية ستتطلب وقتًا إضافيًا، واتفقنا على موعد نهائي جديد»",
+                "textEn": "\"In my last job, we had a client who kept asking for changes to the report. I told them additional changes would require extra time, and we agreed on a new deadline.\""
+              }
+            ],
+            [
+              {
+                "textAr": "ماذا يظهر",
+                "textEn": "What it shows"
+              },
+              {
+                "textAr": "مبادئ، لا دليلًا",
+                "textEn": "Principles, no evidence"
+              },
+              {
+                "textAr": "موقف حقيقي، تصرفات محددة، نتيجة واضحة",
+                "textEn": "A real situation, specific actions, a clear result"
+              }
+            ],
+            [
+              {
+                "textAr": "كيف يُقيّم",
+                "textEn": "How it is judged"
+              },
+              {
+                "textAr": "«هل هذا صحيح؟»",
+                "textEn": "\"Is this true?\""
+              },
+              {
+                "textAr": "«هل أستطيع أن أرى نفسي أعمل معك؟»",
+                "textEn": "\"Can I see myself working with you?\""
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_star",
+        "type": "process_flow",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "الموقف",
+              "labelEn": "Situation",
+              "detailAr": "أين ومتى حدث هذا؟ (جملة أو اثنتان)",
+              "detailEn": "Where and when did this happen? (one or two sentences)"
+            },
+            {
+              "id": "s2",
+              "labelAr": "المهمة",
+              "labelEn": "Task",
+              "detailAr": "ما كان دورك أو ما كان يجب تحقيقه؟",
+              "detailEn": "What was your responsibility, or what needed to be achieved?"
+            },
+            {
+              "id": "s3",
+              "labelAr": "الإجراء",
+              "labelEn": "Action",
+              "detailAr": "ماذا فعلت أنت، خطوة بخطوة؟ (استخدم «أنا»)",
+              "detailEn": "What did you do, step by step? (Use \"I\")"
+            },
+            {
+              "id": "s4",
+              "labelAr": "النتيجة",
+              "labelEn": "Result",
+              "detailAr": "ماذا حدث، وماذا تعلمت؟",
+              "detailEn": "What happened, and what did you learn?"
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_weakness",
+        "type": "job_tip",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "mdAr": "عندما يُسأل عن نقطة ضعف، اختر نقطة حقيقية ومتواضعة، ثم أظهر ما تفعله حيالها. الإجابة القوية هي: «أحيانًا أركز كثيرًا على التفاصيل حتى أفوّت الصورة العامة، لذلك الآن أخصص وقتًا لمراجعة الأهداف قبل البدء». الإجابة الضعيفة هي: «أنا مثالي جدًا» — المحاور يعرف أنك تتجنب السؤال.",
+          "mdEn": "When asked about a weakness, pick a real, modest one, then show what you are doing about it. A strong answer is: \"Sometimes I focus too much on details and miss the big picture, so now I set aside time to review the goals before I start.\" A weak answer is: \"I am too much of a perfectionist\" — the interviewer knows you are dodging the question."
+        }
+      },
+      {
+        "id": "b_l1_tip_pause",
+        "type": "job_tip",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "mdAr": "إذا احتجت إلى لحظة للتفكير، قل: «اسمح لي أن أفكر لحظة». وقفة قصيرة تليها إجابة واضحة أفضل من إجابة فورية غامضة.",
+          "mdEn": "If you need a moment to think, say: \"Let me think for a moment.\" A short pause followed by a clear answer is better than an immediate vague one."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemsAr": [
+            "الإجابة الجيدة تركز على مثال واحد حقيقي، لا على مبادئ عامة.",
+            "هيكل STAR يرتب المثال في أربع خطوات: الموقف، المهمة، الإجراء، النتيجة.",
+            "الإجراء هو أطول جزء، ويستخدم «أنا» للخطوات التي قمت بها أنت.",
+            "النتيجة تُظهر ما حدث وما تعلمته، وليس فقط ما كان مقصودًا."
+          ],
+          "itemsEn": [
+            "A good answer focuses on one real example, not general principles.",
+            "The STAR structure organises the example into four steps: Situation, Task, Action, Result.",
+            "Action is the longest part, and uses \"I\" for the steps you took yourself.",
+            "Result shows what happened and what you learned, not just what was intended."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "textAr": "طبّق الهيكل",
+          "textEn": "Put the structure to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "promptAr": "السؤال: «حدثني عن وقت عملت فيه مع فريق لتحقيق هدف تحت ضغط الوقت». لديك مثال: في وظيفتك السابقة، كان عليك إعداد تقرير لتحليل بيانات من ثلاثة أقسام، وكان الموعد النهائي بعد يومين.",
+          "promptEn": "Question: \"Tell me about a time you worked with a team to meet a deadline under pressure.\" You have an example: in your previous job, you had to prepare a report analysing data from three departments, with a deadline in two days.",
+          "steps": [
+            {
+              "showAr": "ابدأ بالموقف: «في وظيفتي السابقة، كان علينا تسليم تقرير لتحليل بيانات ثلاثة أقسام في يومين».",
+              "showEn": "Start with the Situation: \"In my previous job, we had to deliver a report analysing data from three departments in two days.\"",
+              "whyAr": "الموقف القصير يضع السياق دون أن يسرق وقت الإجراء. لو وصفت كل قسم وتفاصيل التقرير، لبدا كأنك تتجنب الحديث عن أفعالك.",
+              "whyEn": "A short Situation sets context without stealing time from the Action. If you described each department and report details, it would sound like you're avoiding talking about what you did."
+            },
+            {
+              "showAr": "حدد المهمة: «كان دوري جمع البيانات من كل قسم والتأكد من دقتها».",
+              "showEn": "Define the Task: \"My task was to gather the data from each department and confirm its accuracy.\"",
+              "whyAr": "المهمة توضح مسؤوليتك المحددة، وليس مجرد تكرار الموقف. لو قلت «كان علينا تسليم التقرير»، لبدا كأنك تتجنب تحديد دورك.",
+              "whyEn": "The Task clarifies your specific responsibility, not just restating the Situation. If you said \"We had to deliver the report,\" it would sound like you're avoiding specifying your role."
+            },
+            {
+              "showAr": "صف الإجراء خطوة بخطوة: «اتصلت بكل قسم وطلبت البيانات أولًا، ثم راجعت الأرقام مع كل منهم للتأكد من صحتها».",
+              "showEn": "Describe the Action step by step: \"I contacted each department and requested the data first, then reviewed the numbers with each of them to confirm accuracy.\"",
+              "whyAr": "الإجراء هو الجزء الذي يثبت مهاراتك. لو قلت «جمعنا البيانات»، لبدا كأنك لم تفعل شيئًا بنفسك. استخدام «أنا» يوضح بالضبط ما فعلته.",
+              "whyEn": "Action is where you prove your skills. If you said \"We gathered the data,\" it would sound like you didn't do anything yourself. Using \"I\" makes clear exactly what you did."
+            },
+            {
+              "showAr": "اختم بالنتيجة: «أكملنا التقرير في الوقت المحدد، وتعلمت أهمية التواصل المبكر مع الفرق الأخرى».",
+              "showEn": "End with the Result: \"We finished the report on time, and I learned the importance of early communication with other teams.\"",
+              "whyAr": "النتيجة تُظهر الأثر وليس مجرد النية. لو قلت «التقرير كان جاهزًا»، لبدا كأنك لم تستفد من التجربة. ذكر ما تعلمته يثبت أنك تفكر في التحسين.",
+              "whyEn": "Result shows impact, not just intention. If you said \"The report was ready,\" it would sound like you didn't learn from the experience. Mentioning what you learned proves you think about improvement."
+            }
+          ],
+          "answerAr": "«في وظيفتي السابقة، كان علينا تسليم تقرير لتحليل بيانات ثلاثة أقسام في يومين (الموقف). كان دوري جمع البيانات من كل قسم والتأكد من دقتها (المهمة). اتصلت بكل قسم وطلبت البيانات أولًا، ثم راجعت الأرقام مع كل منهم للتأكد من صحتها (الإجراء). أكملنا التقرير في الوقت المحدد، وتعلمت أهمية التواصل المبكر مع الفرق الأخرى (النتيجة)».",
+          "answerEn": "\"In my previous job, we had to deliver a report analysing data from three departments in two days (Situation). My task was to gather the data from each department and confirm its accuracy (Task). I contacted each department and requested the data first, then reviewed the numbers with each of them to confirm accuracy (Action). We finished the report on time, and I learned the importance of early communication with other teams (Result).\""
+        }
+      },
+      {
+        "id": "b_l2_scenario_weakness",
+        "type": "scenario",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "situationAr": "السؤال: «ما هي أكبر نقطة ضعف لديك؟». لديك مثالان: الأول، أنك أحيانًا تركز على التفاصيل حتى تفوّت الصورة العامة؛ الثاني، أنك تستغرق وقتًا أطول من الآخرين في تعلم البرامج الجديدة.",
+          "situationEn": "Question: \"What is your greatest weakness?\" You have two examples: first, that you sometimes focus on details and miss the big picture; second, that you take longer than others to learn new software.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اختر المثال الثاني، لأنه أقل خطورة.",
+              "optionEn": "Pick the second example, because it is less risky.",
+              "consequenceAr": "المحاور قد يرى أن هذا ضعف تقني يمكن تجاوزه، وليس نمط تفكير قد يؤثر على العمل اليومي.",
+              "consequenceEn": "The interviewer may see this as a technical weakness that can be overcome, not a thinking pattern that will affect daily work.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اختر المثال الأول، وأظهر ما تفعله حياله.",
+              "optionEn": "Pick the first example, and show what you are doing about it.",
+              "consequenceAr": "المثال حقيقي ومتواضع، والإجراء يُظهر أنك تدرك المشكلة وتعمل على حلها، وهذا ما يبحث عنه المحاور.",
+              "consequenceEn": "The example is real and modest, and the action shows you recognise the problem and are working on it — exactly what the interviewer is looking for.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "قل إنك لا تعرف، أو إنك مثالي جدًا.",
+              "optionEn": "Say you don't know, or that you are too much of a perfectionist.",
+              "consequenceAr": "المحاور يعرف أنك تتجنب السؤال، وهذا يترك انطباعًا سلبيًا.",
+              "consequenceEn": "The interviewer knows you are dodging the question, and this leaves a negative impression.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_parts",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "buckets": [
+            {
+              "id": "situation",
+              "labelAr": "الموقف",
+              "labelEn": "Situation"
+            },
+            {
+              "id": "task",
+              "labelAr": "المهمة",
+              "labelEn": "Task"
+            },
+            {
+              "id": "action",
+              "labelAr": "الإجراء",
+              "labelEn": "Action"
+            },
+            {
+              "id": "result",
+              "labelAr": "النتيجة",
+              "labelEn": "Result"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "كان علينا تسليم تقرير في يومين",
+              "textEn": "We had to deliver a report in two days",
+              "bucketId": "situation",
+              "whyAr": "يصف السياق الزمني والمكاني دون تفاصيل غير ضرورية. لو ذكرت تفاصيل التقرير، لبدا كأنك تتجنب الحديث عن أفعالك.",
+              "whyEn": "Describes the time and place context without unnecessary details. If you mentioned report details, it would sound like you're avoiding talking about your actions."
+            },
+            {
+              "id": "c2",
+              "textAr": "كان دوري جمع البيانات من ثلاثة أقسام",
+              "textEn": "My task was to gather data from three departments",
+              "bucketId": "task",
+              "whyAr": "يحدد مسؤوليتك المحددة، وليس مجرد تكرار الموقف. لو قلت «كان علينا تسليم التقرير»، لبدا كأنك تتجنب تحديد دورك.",
+              "whyEn": "Defines your specific responsibility, not just restating the Situation. If you said \"We had to deliver the report,\" it would sound like you're avoiding specifying your role."
+            },
+            {
+              "id": "c3",
+              "textAr": "اتصلت بكل قسم وطلبت البيانات أولًا",
+              "textEn": "I contacted each department and requested the data first",
+              "bucketId": "action",
+              "whyAr": "يصف ما فعلته أنت، وليس ما فعله الفريق. لو قلت «جمعنا البيانات»، لبدا كأنك لم تفعل شيئًا بنفسك.",
+              "whyEn": "Describes what you did, not what the team did. If you said \"We gathered the data,\" it would sound like you didn't do anything yourself."
+            },
+            {
+              "id": "c4",
+              "textAr": "أكملنا التقرير في الوقت المحدد وتعلمت أهمية التواصل المبكر",
+              "textEn": "We finished the report on time and I learned the importance of early communication",
+              "bucketId": "result",
+              "whyAr": "يُظهر الأثر وليس مجرد النية. لو قلت «التقرير كان جاهزًا»، لبدا كأنك لم تستفد من التجربة.",
+              "whyEn": "Shows impact, not just intention. If you said \"The report was ready,\" it would sound like you didn't learn from the experience."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemRef": "JOB-02-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemRef": "JOB-02-KC-02"
+        }
+      }
+    ]
+  }
+}

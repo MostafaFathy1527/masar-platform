@@ -1,0 +1,47 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "priorities-and-asking-for-help",
+  "items": [
+    {
+      "key": "JOB-05-KC-01",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما هو أفضل خطوة أولى عندما تدرك أن موعدًا نهائيًا سيفوت؟",
+      "stemEn": "What is the best first step when you realize a deadline will be missed?",
+      "rationaleAr": "الإبلاغ المبكر مع حل مقترح يمنح المدير الوقت لاتخاذ إجراء بديل.",
+      "rationaleEn": "Early communication with a proposed solution gives the manager time to take alternative action.",
+      "options": [
+        {
+          "textAr": "انتظر حتى اللحظة الأخيرة ثم أخبر مديرك.",
+          "textEn": "Wait until the last minute and then tell your manager.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يمثل تأخيرًا غير ضروريًا؛ يترك للمدير خيارات قليلة أو لا خيارات.",
+          "feedbackEn": "This represents unnecessary delay; it leaves the manager with few or no options."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا بالمشكلة مع اقتراح حل.",
+          "textEn": "Inform your manager immediately about the problem with a proposed solution.",
+          "isCorrect": true,
+          "feedbackAr": "الإبلاغ المبكر مع حل مقترح هو السلوك الصحيح وفقًا للمبادئ المذكورة.",
+          "feedbackEn": "Early notification with a proposed solution is the correct behavior per the lesson."
+        },
+        {
+          "textAr": "تجاهل المشكلة على أمل أن تُحل تلقائيًا.",
+          "textEn": "Ignore the problem hoping it resolves itself.",
+          "isCorrect": false,
+          "feedbackAr": "تجاهل المشكلة يؤدي إلى فشل غير متوقع ولا يتيح أي فرصة للتصحيح.",
+          "feedbackEn": "Ignoring the problem leads to unexpected failure and provides no chance for correction."
+        },
+        {
+          "textAr": "أعد توجيه المهمة إلى زميل دون إبلاغ أي شخص.",
+          "textEn": "Reassign the task to a colleague without informing anyone.",
+          "isCorrect": false,
+          "feedbackAr": "إعادة التوجيه السري يخلق نقصًا في الشفافية وقد يسبب مشاكل لاحقة.",
+          "feedbackEn": "Secretly reassigning creates a lack of transparency and may cause downstream issues."
+        }
+      ]
+    }
+  ]
+}

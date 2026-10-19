@@ -1,0 +1,34 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:36:17.377382+00:00",
+    "usage": {
+      "inputTokens": 9326,
+      "outputTokens": 286
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 2,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "KC-02 contains a significant error in the answer key. Option C ('Reply to an email asking for general information, due today') is marked as correct, but the lesson explicitly teaches that 'Urgent, not important' tasks should be 'handled quickly or delegated', not done 'first' (which is reserved for 'Urgent and important'). This contradicts the lesson's own framework. Additionally, the feedback for the incorrect options in both checks tends to restate the rule rather than diagnosing the specific misconception a learner might hold (e.g., confusing urgency with importance)."
+  },
+  "verdict_notes": "The lesson is strong in structure, bilingual quality, and worked examples, but fails on knowledge check quality due to a marking error in KC-02 that contradicts the core instructional content. The mean is 4.5, but the floor is breached."
+}

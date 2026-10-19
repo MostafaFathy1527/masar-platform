@@ -1,0 +1,66 @@
+{
+  "source": "pipeline/sources/job-03-writing-a-clear-work-message.md",
+  "objective": "JOB-03",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:39:31.594523+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 88.4,
+      "usage": {
+        "inputTokens": 23047,
+        "outputTokens": 5812,
+        "totalTokens": 28859,
+        "temperature": 0
+      },
+      "needs_verification": 3
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: items (2)",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 106.7,
+      "usage": {
+        "inputTokens": 29120,
+        "outputTokens": 5795,
+        "totalTokens": 34915,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 58.6,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 4.62,
+        "us.moonshotai.kimi-k3": 3.75
+      },
+      "split": []
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes",
+  "finished": "2026-10-19T17:43:45.593068+00:00"
+}

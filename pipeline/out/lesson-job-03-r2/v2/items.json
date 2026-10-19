@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson JOB-03: Writing a clear work message",
+  "items": [
+    {
+      "key": "JOB-03-KC-01",
+      "objectiveId": "JOB-03",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما هو الغرض من السطر الأول في رسالة العمل؟",
+      "stemEn": "What is the purpose of the first line in a work message?",
+      "rationaleAr": "السطر الأول يجب أن يوضح لماذا تكتب الرسالة، حتى يعرف القارئ ما يمكن توقعه.",
+      "rationaleEn": "The first line should state why you are writing, so the reader knows what to expect.",
+      "options": [
+        {
+          "textAr": "تقديم اعتذار عن الإزعاج.",
+          "textEn": "To apologise for the interruption.",
+          "isCorrect": false,
+          "feedbackAr": "الاعتذار ليس الغرض من الرسالة، بل توضيح ما تريده.",
+          "feedbackEn": "An apology is not the purpose of the message; it is to clarify what you want."
+        },
+        {
+          "textAr": "شرح الخلفية كاملة.",
+          "textEn": "To explain the full background.",
+          "isCorrect": false,
+          "feedbackAr": "الخلفية تأتي بعد الغرض، وليس قبله.",
+          "feedbackEn": "Background comes after the purpose, not before."
+        },
+        {
+          "textAr": "ذكر الغرض من الرسالة.",
+          "textEn": "To state the purpose of the message.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو الغرض من السطر الأول: أن يعرف القارئ لماذا تكتب.",
+          "feedbackEn": "This is the purpose of the first line: the reader knows why you are writing."
+        },
+        {
+          "textAr": "ترك القارئ يخمن.",
+          "textEn": "To leave the reader guessing.",
+          "isCorrect": false,
+          "feedbackAr": "الرسالة الواضحة لا تترك القارئ يخمن.",
+          "feedbackEn": "A clear message does not leave the reader guessing."
+        }
+      ]
+    },
+    {
+      "key": "JOB-03-KC-02",
+      "objectiveId": "JOB-03",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الطلبات تعتبر واضحة؟ (اختر كل ما ينطبق)",
+      "stemEn": "Which of these asks are clear? (Select all that apply)",
+      "rationaleAr": "الطلب الواضح يقول ما هو مطلوب ومتى، دون ترك مجال للتخمين.",
+      "rationaleEn": "A clear ask says what is needed and by when, without leaving room for guesswork.",
+      "options": [
+        {
+          "textAr": "\"هل يمكنك إرسال الأرقام؟\"",
+          "textEn": "\"Can you send the figures?\"",
+          "isCorrect": false,
+          "feedbackAr": "هذا الطلب لا يحدد ما هي الأرقام المطلوبة أو متى تحتاجها، مما يترك مجالًا للتخمين.",
+          "feedbackEn": "This ask does not specify which figures are needed or when, leaving room for guesswork."
+        },
+        {
+          "textAr": "\"أحتاج إلى الأرقام المحدثة للميزانية بحلول يوم الخميس.\"",
+          "textEn": "\"I need the updated budget figures by Thursday.\"",
+          "isCorrect": true,
+          "feedbackAr": "هذا الطلب واضح: يحدد ما هو مطلوب (الأرقام المحدثة للميزانية) ومتى (يوم الخميس).",
+          "feedbackEn": "This ask is clear: it specifies what is needed (updated budget figures) and by when (Thursday)."
+        },
+        {
+          "textAr": "\"هل يمكنك مراجعة التقرير؟\"",
+          "textEn": "\"Can you review the report?\"",
+          "isCorrect": false,
+          "feedbackAr": "هذا الطلب لا يحدد متى يجب إتمام المراجعة، مما يجعله غير واضح.",
+          "feedbackEn": "This ask does not specify when the review should be completed, making it unclear."
+        },
+        {
+          "textAr": "\"أحتاج إلى مراجعتك للتقرير وإعادته إليّ بحلول يوم الجمعة.\"",
+          "textEn": "\"I need you to review the report and return it to me by Friday.\"",
+          "isCorrect": true,
+          "feedbackAr": "هذا الطلب واضح: يحدد ما هو مطلوب (مراجعة التقرير وإعادته) ومتى (يوم الجمعة).",
+          "feedbackEn": "This ask is clear: it specifies what is needed (review the report and return it) and by when (Friday)."
+        }
+      ]
+    }
+  ]
+}

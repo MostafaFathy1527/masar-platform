@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-cv",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T17:41:54.614245+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6434
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The situation is recognisable but nearly frictionless: given the lesson's own rules, d3 is obvious. Worse, the consequence for d2 ('the volunteering entry can be rewritten to show relevant skills') reads as an endorsement and never explains why rewriting-to-relevance is inferior to deleting, so the one genuinely awkward judgement in the scenario goes untaught.",
+    "bilingual_quality": "Mostly natural Arabic, but the worked example's step 1 is internally inconsistent in Arabic: the draft says «مسؤول عن حسابات العملاء» yet the step quotes «أدارت» as the insufficient verb (the English correctly quotes 'responsible for'), leaving the Arabic version of a key block not tracking its own prompt. Person agreement also drifts (feminine third-person «أدارت»/«قادت» where a CV line implies first person), and there are literal renderings such as «بنسبة ملحوظة» and «كملء مساحة»."
+  },
+  "verdict_notes": "Structure, checks and concision are solid: distractors name real misconceptions, feedback explains rather than restates, and nothing is padded. The lesson is dragged down by a frictionless scenario whose middle option is never argued against, and by an Arabic worked-example step that contradicts its own prompt plus person-agreement drift. Mean 3.75 with two criteria at 3 — the bilingual pass needs another revision round before this ships to Arabic readers."
+}

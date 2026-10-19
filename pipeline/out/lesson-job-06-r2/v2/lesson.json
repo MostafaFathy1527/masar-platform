@@ -1,0 +1,412 @@
+{
+  "slug": "feedback-and-mistakes",
+  "titleAr": "تلقّي الملاحظات والاعتراف بالخطأ",
+  "titleEn": "Receiving feedback and owning a mistake",
+  "estMinutes": 40,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-06"
+  ],
+  "conceptsIntroduced": [
+    "listen_to_understand",
+    "separate_work_from_self",
+    "feedback_correctness",
+    "early_admission",
+    "fix_what_can_be_fixed",
+    "change_something",
+    "admit_the_mistake_early",
+    "not_all_feedback_is_correct",
+    "separate_the_work_from_yourself"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "textAr": "لماذا يهم ما تفعله بعد الخطأ",
+          "textEn": "Why what you do next matters",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "mdAr": "الخطأ نفسه غالبًا ما يُنسى بسرعة. ما يتذكره الزملاء هو كيف استجبت له. الاستجابة الجيدة تقلل الضرر، وتبني الثقة، وتحول الموقف السلبي إلى فرصة للتعلم.",
+          "mdEn": "The mistake itself is often forgotten quickly. What colleagues remember is how you responded to it. A good response limits damage, builds trust, and turns a negative into a learning opportunity."
+        }
+      },
+      {
+        "id": "b_l1_def_listen_to_understand",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "استمع لتفهم",
+          "termEn": "Listen to understand",
+          "defAr": "الهدف الأول عند تلقي الملاحظة هو معرفة ما يقصده الشخص بالضبط، قبل محاولة الرد أو الدفاع.",
+          "defEn": "The first goal when receiving feedback is to know exactly what the person means, before attempting to reply or defend.",
+          "icon": "👂",
+          "exampleAr": "إذا قال أحدهم: «هذا التقرير غير واضح»، اسأل: «هل يمكنك أن تريني الجزء الذي وجدته غير واضح؟»",
+          "exampleEn": "If someone says, \"This report is unclear,\" ask, \"Can you show me which part you found unclear?\""
+        }
+      },
+      {
+        "id": "b_l1_def_separate_the_work_from_yourself",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "افصل العمل عن نفسك",
+          "termEn": "Separate the work from yourself",
+          "defAr": "الملاحظة على المهمة هي معلومات عن المهمة، وليست حكماً على قيمتك كشخص.",
+          "defEn": "Feedback on a task is information about the task. It is not a judgement of your worth as a person.",
+          "icon": "🔄",
+          "exampleAr": "إذا قيل لك إن الجدول غير منظم، فهذا لا يعني أنك غير كفء، بل يعني أن الجدول يحتاج إلى تحسين.",
+          "exampleEn": "If you are told a table is disorganized, that does not mean you are incompetent — it means the table needs improvement."
+        }
+      },
+      {
+        "id": "b_l1_def_not_all_feedback_is_correct",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "ليست كل الملاحظات صحيحة",
+          "termEn": "Not all feedback is correct",
+          "defAr": "إذا اختلفت مع الملاحظة، عبر عن ذلك بهدوء مع ذكر السبب، بعد أن تفهم وجهة نظر الشخص.",
+          "defEn": "If you disagree with feedback, state your reason calmly, after you have understood the other person's point.",
+          "icon": "⚖️",
+          "exampleAr": "«أرى لماذا يبدو هذا الجزء غير مكتمل؛ لقد حذفته لأن العميل طلب نسخة أقصر. هل أضيفه مرة أخرى؟»",
+          "exampleEn": "\"I see why this section looks incomplete; I left it out because the client asked for a shorter version. Should I add it back?\""
+        }
+      },
+      {
+        "id": "b_l1_def_admit_the_mistake_early",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "اعترف بالخطأ مبكرًا",
+          "termEn": "Admit the mistake early",
+          "defAr": "إخفاء الخطأ غالبًا يجعله يتفاقم. أخبر الشخص الذي يحتاج إلى المعرفة فورًا بما حدث وتأثيره.",
+          "defEn": "Hiding a mistake often lets it grow. Tell the person who needs to know, as soon as you know, what happened and its effect.",
+          "icon": "⏳",
+          "exampleAr": "إذا اكتشفت خطأ في فاتورة أرسلتها، أبلغ المحاسب فورًا بدلاً من الانتظار ليرفضها العميل.",
+          "exampleEn": "If you find an error in an invoice you sent, notify the accountant immediately rather than waiting for the client to reject it."
+        }
+      },
+      {
+        "id": "b_l1_flow_response",
+        "type": "process_flow",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "استمع",
+              "labelEn": "Listen",
+              "detailAr": "افهم ما قيل بالضبط.",
+              "detailEn": "Understand exactly what is said."
+            },
+            {
+              "id": "s2",
+              "labelAr": "افصل",
+              "labelEn": "Separate",
+              "detailAr": "افصل بين العمل والنقد الشخصي.",
+              "detailEn": "Separate the work from personal criticism."
+            },
+            {
+              "id": "s3",
+              "labelAr": "قيم",
+              "labelEn": "Evaluate",
+              "detailAr": "قرر ما إذا كانت الملاحظة صحيحة.",
+              "detailEn": "Decide whether the feedback is correct."
+            },
+            {
+              "id": "s4",
+              "labelAr": "اعترف",
+              "labelEn": "Admit",
+              "detailAr": "إذا كان هناك خطأ، اعترف به مبكرًا.",
+              "detailEn": "If there is a mistake, admit it early."
+            },
+            {
+              "id": "s5",
+              "labelAr": "صلح",
+              "labelEn": "Correct",
+              "detailAr": "صلح ما يمكن إصلاحه.",
+              "detailEn": "Fix what can be fixed."
+            },
+            {
+              "id": "s6",
+              "labelAr": "غيّر",
+              "labelEn": "Change",
+              "detailAr": "غيّر شيئًا لمنع تكرار الخطأ.",
+              "detailEn": "Change something to prevent the mistake from happening again."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_thank",
+        "type": "job_tip",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "mdAr": "شكر الشخص على الملاحظة المحددة، حتى لو كانت غير مريحة، يجعله أكثر احتمالًا لإخبارك في المرة القادمة إذا كان هناك خطأ.",
+          "mdEn": "Thanking someone for specific feedback, even if it is uncomfortable, makes them more likely to tell you next time if something is wrong."
+        }
+      },
+      {
+        "id": "b_l1_tip_apology",
+        "type": "job_tip",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "mdAr": "الاعتذار المفرط يركز على المشاعر بدلاً من الإصلاح. قل ما حدث، وما فعلته، وما ستغيره، ثم انتقل.",
+          "mdEn": "Over-apologizing focuses on feelings rather than the fix. Say what happened, what you did, and what you will change, then move on."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemsAr": [
+            "استمع لتفهم قبل الرد.",
+            "افصل بين العمل والنقد الشخصي.",
+            "إذا كان هناك خطأ، اعترف به مبكرًا وقل ما فعلته لإصلاحه.",
+            "غيّر شيئًا لمنع تكرار الخطأ."
+          ],
+          "itemsEn": [
+            "Listen to understand before replying.",
+            "Separate the work from personal criticism.",
+            "If there is a mistake, admit it early and say what you did to correct it.",
+            "Change something to prevent the mistake from happening again."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "textAr": "طبّق ما تعلمته",
+          "textEn": "Put it into practice",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example_vague",
+        "type": "worked_example",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "promptAr": "يقول لك زميلك: «هذا التقرير غير واضح». كيف ترد؟",
+          "promptEn": "A colleague tells you, \"This report is unclear.\" How do you respond?",
+          "steps": [
+            {
+              "showAr": "اسأل عن مثال محدد.",
+              "showEn": "Ask for a specific example.",
+              "whyAr": "الملاحظة العامة لا تخبرك بما يحتاج إلى تغيير. المثال يحدد المشكلة.",
+              "whyEn": "Vague feedback does not tell you what needs to change. An example pinpoints the problem."
+            },
+            {
+              "showAr": "استمع إلى الإجابة دون مقاطعة.",
+              "showEn": "Listen to the answer without interrupting.",
+              "whyAr": "المقاطعة تبدو دفاعية. الاستماع يظهر أنك تريد الفهم.",
+              "whyEn": "Interrupting sounds defensive. Listening shows you want to understand."
+            },
+            {
+              "showAr": "اشكر الشخص على الملاحظة.",
+              "showEn": "Thank the person for the feedback.",
+              "whyAr": "الشكر يجعل الشخص يشعر بأن ملاحظته موضع ترحيب، حتى لو اختلفت معها.",
+              "whyEn": "Thanking makes the person feel their input is welcome, even if you disagree."
+            }
+          ],
+          "answerAr": "اسأل: «أي جزء وجدته غير واضح؟» واستمع إلى الإجابة، ثم اشكر الشخص.",
+          "answerEn": "Ask, \"Which part did you find unclear?\" Listen to the answer, then thank the person."
+        }
+      },
+      {
+        "id": "b_l2_worked_example_mistake",
+        "type": "worked_example",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "promptAr": "اكتشفت أنك أرسلت فاتورة بمبلغ 1,500 جنيه بدلًا من 1,200 جنيه إلى عميل. الموعد النهائي للدفع كان أمس. ماذا تفعل؟",
+          "promptEn": "You discover you sent an invoice for 1,500 instead of 1,200 to a client. The payment deadline was yesterday. What do you do?",
+          "steps": [
+            {
+              "showAr": "أبلغ العميل فورًا.",
+              "showEn": "Notify the client immediately.",
+              "whyAr": "الاعتراف المبكر يقلل من الضرر ويظهر النزاهة.",
+              "whyEn": "Early admission limits damage and shows integrity."
+            },
+            {
+              "showAr": "قل ما حدث وتأثيره.",
+              "showEn": "State what happened and its effect.",
+              "whyAr": "العميل يحتاج إلى معرفة الخطأ وكيف يؤثر عليه لاتخاذ قرار.",
+              "whyEn": "The client needs to know the error and how it affects them to make a decision."
+            },
+            {
+              "showAr": "أرسل الفاتورة المصححة مع اعتذار مختصر.",
+              "showEn": "Send the corrected invoice with a brief apology.",
+              "whyAr": "الفاتورة المصححة هي الإصلاح. الاعتذار المختصر يركز على الحل.",
+              "whyEn": "The corrected invoice is the fix. A brief apology keeps the focus on the solution."
+            },
+            {
+              "showAr": "قل ما ستفعله لمنع تكرار الخطأ.",
+              "showEn": "Say what you will do to prevent the mistake from happening again.",
+              "whyAr": "هذا يبني الثقة ويحول الخطأ إلى فرصة للتحسين.",
+              "whyEn": "This builds trust and turns the mistake into an improvement opportunity."
+            }
+          ],
+          "answerAr": "اتصل بالعميل وقل: «أخطأت في الفاتورة وأرسلت مبلغ 1,500 جنيه بدلًا من 1,200 جنيه. أعتذر عن الخطأ وأرسل الفاتورة المصححة الآن. سأضيف خطوة مراجعة قبل الإرسال لمنع تكرار ذلك.»",
+          "answerEn": "Call the client and say, \"I made a mistake on the invoice and sent 1,500 instead of 1,200. I apologize for the error and am sending the corrected invoice now. I will add a review step before sending to prevent this from happening again.\""
+        }
+      },
+      {
+        "id": "b_l2_scenario_vague_feedback",
+        "type": "scenario",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "situationAr": "يقول لك مشرفك أثناء مراجعة ملف تدريبي: «هذا الجزء غير مفيد».",
+          "situationEn": "Your supervisor says during a review of a training file, \"This section is not helpful.\"",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اشرح لماذا أضفت هذا الجزء.",
+              "optionEn": "Explain why you included this section.",
+              "consequenceAr": "المشرف يكرر أن الجزء غير مفيد، ويبدو أنك تدافع بدلاً من الاستماع.",
+              "consequenceEn": "The supervisor repeats that the section is not helpful, and you appear defensive rather than listening.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اسأل: «ما الذي يجعله غير مفيد؟»",
+              "optionEn": "Ask, \"What makes it not helpful?\"",
+              "consequenceAr": "المشرف يعطي مثالًا محددًا، والآن تعرف بالضبط ما يحتاج إلى تغيير.",
+              "consequenceEn": "The supervisor gives a specific example, and now you know exactly what needs to change.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "قل: «شكرًا، سأحذفه.»",
+              "optionEn": "Say, \"Thank you, I will remove it.\"",
+              "consequenceAr": "تحذف جزءًا ربما كان مفيدًا إذا عُدّل بدلاً من حذفه. لم تفهم السبب.",
+              "consequenceEn": "You remove a section that might have been helpful if revised rather than removed. You did not understand the reason.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_scenario_disagree",
+        "type": "scenario",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "situationAr": "يقول لك زميلك في المطالبات: «لقد أخطأت في ترميز هذا الإجراء. يجب أن يكون PRC-1042، وليس PRC-1043.» السجل يدعم PRC-1043.",
+          "situationEn": "A colleague in claims tells you, \"You coded this procedure wrong. It should be PRC-1042, not PRC-1043.\" The record supports PRC-1043.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "قل: «السجل يدعم PRC-1043، لذا هذا ليس خطأ.»",
+              "optionEn": "Say, \"The record supports PRC-1043, so this is not a mistake.\"",
+              "consequenceAr": "الزميل يشعر بأنك تدافع بدلاً من الاستماع، وقد يتوقف عن إعطائك ملاحظات.",
+              "consequenceEn": "The colleague feels you are defending rather than listening, and may stop giving you feedback.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اسأل: «لماذا تعتقد أنه يجب أن يكون PRC-1042؟»",
+              "optionEn": "Ask, \"Why do you think it should be PRC-1042?\"",
+              "consequenceAr": "تكتشف أن الزميل رأى جزءًا مختلفًا من السجل. الآن يمكنك توضيح أي جزء يدعم الترميز الصحيح.",
+              "consequenceEn": "You discover the colleague saw a different part of the record. Now you can clarify which part supports the correct code.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "غيّر الترميز إلى PRC-1042 لتجنب الجدال.",
+              "optionEn": "Change the code to PRC-1042 to avoid an argument.",
+              "consequenceAr": "المطالبة تُرسل بترميز غير مدعوم، مما قد يؤدي إلى رفض أو طلب مراجعة لاحقًا.",
+              "consequenceEn": "The claim goes out with an unsupported code, which may lead to a rejection or request for review later.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_feedback",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "buckets": [
+            {
+              "id": "correct",
+              "labelAr": "ملاحظة صحيحة",
+              "labelEn": "Correct feedback"
+            },
+            {
+              "id": "incorrect",
+              "labelAr": "ملاحظة غير صحيحة",
+              "labelEn": "Incorrect feedback"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "«هذا الجدول غير منظم.» الجدول يحتوي على أعمدة غير متساوية العرض.",
+              "textEn": "\"This table is disorganized.\" The table has columns of unequal width.",
+              "bucketId": "correct",
+              "whyAr": "الملاحظة محددة وقابلة للتحقق.",
+              "whyEn": "The feedback is specific and verifiable."
+            },
+            {
+              "id": "c2",
+              "textAr": "«هذا التقرير غير واضح.» التقرير يحتوي على جميع المعلومات المطلوبة.",
+              "textEn": "\"This report is unclear.\" The report contains all required information.",
+              "bucketId": "incorrect",
+              "whyAr": "الملاحظة عامة وغير مدعومة بأدلة.",
+              "whyEn": "The feedback is vague and not supported by evidence."
+            },
+            {
+              "id": "c3",
+              "textAr": "«لقد أخطأت في ترميز هذا الإجراء.» السجل يدعم الترميز الحالي.",
+              "textEn": "\"You coded this procedure wrong.\" The record supports the current code.",
+              "bucketId": "incorrect",
+              "whyAr": "الملاحظة تتعارض مع السجل.",
+              "whyEn": "The feedback contradicts the record."
+            },
+            {
+              "id": "c4",
+              "textAr": "«هذا الجزء غير ضروري.» العميل طلب إزالة هذا الجزء بالذات.",
+              "textEn": "\"This section is unnecessary.\" The client specifically asked to remove this section.",
+              "bucketId": "correct",
+              "whyAr": "الملاحظة تتوافق مع طلب العميل.",
+              "whyEn": "The feedback aligns with the client's request."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemRef": "JOB-06-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemRef": "JOB-06-KC-02"
+        }
+      }
+    ]
+  }
+}

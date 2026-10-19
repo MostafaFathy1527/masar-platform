@@ -1,0 +1,142 @@
+{
+  "source": "pipeline/sources/job-05-priorities-and-asking-for-help.md",
+  "objective": "JOB-05",
+  "generator": "minimax.minimax-m2.5",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:22:28.326332+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 38.1,
+      "usage": {
+        "inputTokens": 21915,
+        "outputTokens": 5001,
+        "totalTokens": 26916,
+        "temperature": 0
+      },
+      "needs_verification": 4
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: validate (2)",
+      "seconds": 0.1
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 35.6,
+      "usage": {
+        "inputTokens": 25669,
+        "outputTokens": 5400,
+        "totalTokens": 31069,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.0
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 41.5,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 4.75,
+        "us.moonshotai.kimi-k3": 3.38
+      },
+      "split": [
+        "bilingual_quality",
+        "concision",
+        "knowledge_check",
+        "worked_example"
+      ]
+    },
+    {
+      "version": "v3",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 45.7,
+      "usage": {
+        "inputTokens": 28681,
+        "outputTokens": 6236,
+        "totalTokens": 34917,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v3",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v3",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 53.1,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 5.0,
+        "us.moonshotai.kimi-k3": 3.62
+      },
+      "split": [
+        "accessibility_ip",
+        "bilingual_quality",
+        "concision",
+        "scenario_authenticity"
+      ]
+    },
+    {
+      "version": "v4",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 52.6,
+      "usage": {
+        "inputTokens": 28603,
+        "outputTokens": 4422,
+        "totalTokens": 33025,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v4",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.3
+    },
+    {
+      "version": "v4",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 57.1,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 4.88,
+        "us.moonshotai.kimi-k3": 3.75
+      },
+      "split": [
+        "bilingual_quality"
+      ]
+    }
+  ],
+  "revised_from": "v3",
+  "earlier_outcome": "NEEDS HUMAN at v3: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: accessibility_ip, bilingual_quality, concision, scenario_authenticity",
+  "outcome": "NEEDS HUMAN at v4: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality",
+  "finished": "2026-10-19T17:24:18.335862+00:00"
+}

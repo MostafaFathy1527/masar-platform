@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "priorities-and-asking-for-help",
+  "items": [
+    {
+      "key": "JOB-05-KC-01",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من العبارات التالية يصف بشكل صحيح الفرق بين \"العاجل\" و \"المهم\" في سياق ترتيب المهام؟",
+      "stemEn": "Which of the following statements correctly describes the difference between \"urgent\" and \"important\" when prioritizing tasks?",
+      "rationaleAr": "العاجل يتعلق بالموعد النهائي القريب، بينما المهم يتعلق بتأثير الخطأ أو الإغفال.",
+      "rationaleEn": "Urgent relates to a near deadline, while important relates to the impact of an error or omission.",
+      "options": [
+        {
+          "textAr": "العاجل يعني أن المهمة لها تأثير كبير إذا أخطأت فيها، والمهم يعني أن لها موعد نهائي قريب.",
+          "textEn": "Urgent means the task has high impact if done wrong, and important means it has a near deadline.",
+          "isCorrect": false,
+          "feedbackAr": "هذا عكس التعريف: العاجل يركز على الموعد النهائي، والمهم على التأثير.",
+          "feedbackEn": "This reverses the definition: urgent focuses on the deadline, important on impact."
+        },
+        {
+          "textAr": "العاجل يحدد المهام التي تحتاج إلى إكمال سريع بسبب موعد نهائي قريب، بينما المهم يحدد المهام التي إذا لم تُنجز ستؤثر سلبًا على النتيجة العامة.",
+          "textEn": "Urgent identifies tasks that need quick completion because of a near deadline, while important identifies tasks whose failure would negatively affect the overall outcome.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: هذا يوضح الفرق بين العاجل (الوقت) والمهم (التأثير).",
+          "feedbackEn": "Correct: this clarifies the difference between urgent (time) and important (impact)."
+        },
+        {
+          "textAr": "العاجل والمهم هما نفس الشيء؛ يمكن استبدالهما دون تغيير الأولوية.",
+          "textEn": "Urgent and important are the same; they can be used interchangeably without changing priority.",
+          "isCorrect": false,
+          "feedbackAr": "هذا مفهوم شائع خاطئ؛ الدرس يوضح أنهما مختلفان.",
+          "feedbackEn": "This is a common misconception; the lesson explains they are distinct."
+        },
+        {
+          "textAr": "المهم يقتصر على المهام التي تتطلب موافقة المدير فقط، بينما العاجل يقتصر على المهام التي تتطلب بيانات من فريق آخر.",
+          "textEn": "Important is limited to tasks that need manager approval only, while urgent is limited to tasks that need data from another team.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يخلط بين نوعية الحاجة (موافقة مقابل بيانات) وبين مفهوم العاجل والمهم.",
+          "feedbackEn": "This mixes the type of need (approval vs data) with the urgent/important concept."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-02",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أثناء إعداد تقرير مهم، اكتشفت أن أحد البيانات المطلوبة غير متوفر. ما هو الإجراء الأنسب وفقًا للمبادئ التي تعلمتها؟",
+      "stemEn": "While preparing an important report, you discover a required data point is missing. What is the most appropriate action according to the principles you learned?",
+      "rationaleAr": "الإبلاغ المبكر مع اقتراح حل يتيح للمدير اتخاذ قرار مستنير.",
+      "rationaleEn": "Early communication with a proposed solution allows the manager to make an informed decision.",
+      "options": [
+        {
+          "textAr": "أكمل التقرير بأفضل تخمين للبيان المفقود ثم أرسله.",
+          "textEn": "Complete the report with your best guess for the missing data and send it.",
+          "isCorrect": false,
+          "feedbackAr": "التخمين يخلق معلومات غير موثوقة وقد يؤدي إلى رفض أو تصحيح لاحق.",
+          "feedbackEn": "Guessing creates unreliable information and may lead to later rejection or correction."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا بالمشكلة، ووضح ما هو مفقود، واقترح إما تأجيل التقرير أو تسليم جزء منه الآن.",
+          "textEn": "Tell your manager immediately about the problem, explain what is missing, and propose either postponing the report or delivering a partial version now.",
+          "isCorrect": true,
+          "feedbackAr": "الإبلاغ المبكر مع اقتراح واضح يتماشى مع نهج التواصل المبكر في الدرس.",
+          "feedbackEn": "Early notification with a clear proposal aligns with the early communication approach taught."
+        },
+        {
+          "textAr": "انتظر حتى يأتي البيان ثم أكمل التقرير دون إبلاغ أحد.",
+          "textEn": "Wait for the data to arrive and then finish the report without informing anyone.",
+          "isCorrect": false,
+          "feedbackAr": "التأخير يترك المدير دون خيارات وقد يسبب فقدان الموعد النهائي.",
+          "feedbackEn": "Delaying leaves the manager without options and may cause a missed deadline."
+        },
+        {
+          "textAr": "اطلب من زميلك إكمال الجزء المفقود دون إبلاغ المدير.",
+          "textEn": "Ask a colleague to fill in the missing part without informing the manager.",
+          "isCorrect": false,
+          "feedbackAr": "إخفاء المشكلة يخلق نقصًا في الشفافية وقد يؤدي إلى فقدان الثقة.",
+          "feedbackEn": "Hiding the issue creates a lack of transparency and can erode trust."
+        }
+      ]
+    }
+  ]
+}

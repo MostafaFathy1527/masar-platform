@@ -1,0 +1,47 @@
+{
+  "source": "pipeline/sources/job-04-your-first-week.md",
+  "objective": "JOB-04",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T17:39:31.842830+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 103.2,
+      "usage": {
+        "inputTokens": 23032,
+        "outputTokens": 5606,
+        "totalTokens": 28638,
+        "temperature": 0
+      },
+      "needs_verification": 2
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 48.6,
+      "means": {
+        "deepseek.v3.2": 4.25,
+        "zai.glm-5": 4.88,
+        "us.moonshotai.kimi-k3": 4.38
+      },
+      "split": []
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson",
+  "finished": "2026-10-19T17:42:03.875638+00:00"
+}

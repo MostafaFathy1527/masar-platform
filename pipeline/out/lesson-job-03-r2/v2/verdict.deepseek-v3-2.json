@@ -1,0 +1,37 @@
+{
+  "lesson": "writing-a-clear-work-message",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:43:32.269147+00:00",
+    "usage": {
+      "inputTokens": 7784,
+      "outputTokens": 305
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes required blocks but the sort_buckets activity is relatively simple and could be more interactive.",
+    "worked_example": "Steps show 'what' and 'why' clearly, but the 'why' explanations are somewhat generic (e.g., 'leaves no guesswork').",
+    "knowledge_check": "Distractors are plausible, but one option ('leave the reader guessing') is a bit exaggerated and unlikely to be chosen by a serious learner.",
+    "concision": "Prose is clear and purposeful, but some definition cards could be slightly more concise (e.g., 'Before sending' definition)."
+  },
+  "verdict_notes": "All criteria score 4 or 5, with a mean of 4.5. The lesson is well-aligned, authentic, and features natural Arabic. Minor improvements could be made to the depth of L2 activities and the specificity of reasoning in the worked example."
+}

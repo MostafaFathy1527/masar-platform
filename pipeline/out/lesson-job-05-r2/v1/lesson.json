@@ -1,0 +1,506 @@
+{
+  "slug": "priorities-and-asking-for-help",
+  "titleAr": "الأولويات والمواعيد النهائية والإبلاغ المبكر عن المشكلات",
+  "titleEn": "Priorities, deadlines and asking for help early",
+  "estMinutes": 40,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-05"
+  ],
+  "conceptsIntroduced": [
+    "urgent_important",
+    "task_list",
+    "honest_estimate",
+    "raise_early",
+    "problem_statement"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "textAr": "لماذا ترتيب العمل مهم",
+          "textEn": "Why ordering work matters",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "mdAr": "في العمل، عادة ما يكون هناك أكثر مما يمكنك إنجازه في الوقت المتاح. المهارة ليست في إنجاز كل شيء، بل في تحديد ما يجب إنجازه أولاً والإبلاغ مبكرًا عندما لا يمكن إنجاز شيء ما في موعده.\n\nالمشكلة ليست في وجود عمل كثير، بل في ترك المواعيد النهائية تُفوت دون إبلاغ مسبق. عندما تخبر مديرك قبل يومين من الموعد النهائي، يكون لديه خيارات: مزيد من الوقت، أو مساعدة إضافية، أو نسخة مختصرة، أو أولوية مختلفة. عندما تخبره في يوم الموعد النهائي، لا يكون لديه أي خيارات.",
+          "mdEn": "At work, there is usually more to do than time to do it. The skill is not doing everything; it is deciding what comes first and saying early when something will not be finished on time.\n\nThe problem is not having too much work — it is missing deadlines without warning. When you tell your manager two days before the deadline, they have options: more time, more help, a smaller version, or a different priority. When you tell them on the day, they have none."
+        }
+      },
+      {
+        "id": "b_l1_def_task_list",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "قائمة المهام",
+          "termEn": "Task list",
+          "defAr": "قائمة مكتوبة بكل مهمة، موعدها النهائي، ومن ينتظرها.",
+          "defEn": "A written list of every task, its deadline, and who is waiting for it.",
+          "icon": "📋",
+          "exampleAr": "مثال تدريبي: تقرير التحليل (موعد التسليم الخميس، ينتظره فريق التسويق).",
+          "exampleEn": "Training example: Analytics report (due Thursday, awaited by the marketing team)."
+        }
+      },
+      {
+        "id": "b_l1_def_urgent_important",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "العاجل والمهم",
+          "termEn": "Urgent and important",
+          "defAr": "العاجل له موعد نهائي قريب. المهم له تأثير كبير إذا لم يُنجز أو أُنجز بشكل خاطئ.",
+          "defEn": "Urgent means it has a near deadline. Important means it matters a lot if it is wrong or missing.",
+          "icon": "⏳"
+        }
+      },
+      {
+        "id": "b_l1_compare_urgent_important",
+        "type": "compare_table",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "captionAr": "العاجل مقابل المهم",
+          "captionEn": "Urgent vs. important",
+          "columns": [
+            {
+              "labelAr": "النوع",
+              "labelEn": "Type"
+            },
+            {
+              "labelAr": "العاجل والمهم",
+              "labelEn": "Urgent and important"
+            },
+            {
+              "labelAr": "المهم غير العاجل",
+              "labelEn": "Important, not urgent"
+            },
+            {
+              "labelAr": "العاجل غير المهم",
+              "labelEn": "Urgent, not important"
+            },
+            {
+              "labelAr": "غير العاجل وغير المهم",
+              "labelEn": "Neither"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "ماذا تفعل",
+                "textEn": "What to do"
+              },
+              {
+                "textAr": "أنجز أولاً",
+                "textEn": "Do first"
+              },
+              {
+                "textAr": "خطط للوقت",
+                "textEn": "Schedule time"
+              },
+              {
+                "textAr": "أنجز بسرعة أو أعد التوكيل",
+                "textEn": "Handle quickly or delegate"
+              },
+              {
+                "textAr": "اسأل هل يحتاج إلى الإنجاز أصلًا",
+                "textEn": "Question whether it needs doing at all"
+              }
+            ],
+            [
+              {
+                "textAr": "مثال",
+                "textEn": "Example"
+              },
+              {
+                "textAr": "تقرير مطلوب اليوم لدعم قرار مالي",
+                "textEn": "A report due today to support a financial decision"
+              },
+              {
+                "textAr": "تحديث نظام طويل الأجل",
+                "textEn": "A long-term system upgrade"
+              },
+              {
+                "textAr": "رد على بريد إلكتروني يطلب معلومات عامة",
+                "textEn": "Reply to an email asking for general information"
+              },
+              {
+                "textAr": "اجتماع دوري لا يضيف قيمة",
+                "textEn": "A recurring meeting that adds no value"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_def_honest_estimate",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "التقدير الصادق",
+          "termEn": "Honest estimate",
+          "defAr": "تقدير الوقت الذي ستستغرقه المهمة حقًا، بما في ذلك التحقق وال المقاطعات.",
+          "defEn": "An estimate of how long the task will actually take, including checking and interruptions.",
+          "icon": "⏱️",
+          "exampleAr": "مثال تدريبي: كتابة تقرير مدته ساعة، لكن التقدير الصادق هو ساعتين ونصف مع المراجعة.",
+          "exampleEn": "Training example: writing a report takes one hour, but the honest estimate is two and a half hours with review."
+        }
+      },
+      {
+        "id": "b_l1_flow_raise_early",
+        "type": "process_flow",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "رصد المشكلة",
+              "labelEn": "Notice the problem",
+              "detailAr": "ترى أن المهمة لن تُنجز في موعدها.",
+              "detailEn": "You see that the task will not be finished on time."
+            },
+            {
+              "id": "s2",
+              "labelAr": "جمع الحقائق",
+              "labelEn": "Gather facts",
+              "detailAr": "ما المهمة؟ ما المشكلة؟ ماذا فعلت بالفعل؟",
+              "detailEn": "What is the task? What is the problem? What have you already done?"
+            },
+            {
+              "id": "s3",
+              "labelAr": "اقتراح حل",
+              "labelEn": "Propose a solution",
+              "detailAr": "ماذا تقترح كبديل؟",
+              "detailEn": "What do you propose as an alternative?"
+            },
+            {
+              "id": "s4",
+              "labelAr": "الإبلاغ المبكر",
+              "labelEn": "Raise early",
+              "detailAr": "أخبر الشخص المسؤول بالمشكلة والحل المقترح.",
+              "detailEn": "Tell the responsible person the problem and your proposed solution."
+            },
+            {
+              "id": "s5",
+              "labelAr": "التأكيد الكتابي",
+              "labelEn": "Confirm in writing",
+              "detailAr": "أرسل ملخصًا قصيرًا للتأكد من الفهم المشترك.",
+              "detailEn": "Send a brief summary to confirm shared understanding."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_def_raise_early",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "الإبلاغ المبكر",
+          "termEn": "Raise early",
+          "defAr": "الإبلاغ عن مشكلة محتملة قبل حدوثها، مع الحقائق والحل المقترح.",
+          "defEn": "Reporting a potential problem before it happens, with the facts and a proposed solution.",
+          "icon": "🚨"
+        }
+      },
+      {
+        "id": "b_l1_def_problem_statement",
+        "type": "definition_card",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "termAr": "صياغة المشكلة",
+          "termEn": "Problem statement",
+          "defAr": "جملة واضحة تصف المهمة، المشكلة، ما فعلته بالفعل، والحل المقترح.",
+          "defEn": "A clear sentence describing the task, the problem, what you have already done, and the proposed solution.",
+          "icon": "📝",
+          "exampleAr": "مثال تدريبي: «التقرير مطلوب يوم الخميس. البيانات من الفريق الآخر لم تصل، وبدونها لا يمكنني إنهاء القسم الثالث. سألتهم مرتين. يمكنني إرسال الأقسام الأول والثاني يوم الخميس والقسم الثالث بعد يوم من وصول البيانات — هل هذا مناسب؟»",
+          "exampleEn": "Training example: \"The report is due Thursday. The data from the other team has not arrived, and without it I cannot finish section three. I have asked them twice. I can send sections one and two on Thursday and section three a day after the data arrives — does that work?\""
+        }
+      },
+      {
+        "id": "b_l1_tip_list",
+        "type": "job_tip",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "mdAr": "اكتب قائمة المهام فورًا عند استلامها. المهام التي تبقى في رأسك تُنسى أو يُستهان بها.",
+          "mdEn": "Write the task list as soon as you receive work. Tasks that stay in your head get forgotten or underestimated."
+        }
+      },
+      {
+        "id": "b_l1_tip_ask",
+        "type": "job_tip",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "mdAr": "عندما لا تكون متأكدًا مما هو أهم، اسأل الشخص الذي أعطاك العمل بدلاً من التخمين.",
+          "mdEn": "When you are not sure what matters more, ask the person who set the work instead of guessing."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemsAr": [
+            "اكتب كل مهمة مع موعدها النهائي ومن ينتظرها.",
+            "العاجل والمهم شيئان مختلفان: أنجز أولاً ما هو كلاهما.",
+            "قدّر الوقت بصدق، بما في ذلك التحقق والمقاطعات.",
+            "أبلغ عن المشكلات مبكرًا مع الحقائق والحل المقترح.",
+            "أكد الأولويات الجديدة كتابةً بعد الاتفاق عليها."
+          ],
+          "itemsEn": [
+            "Write every task down with its deadline and who is waiting for it.",
+            "Urgent and important are different: do first what is both.",
+            "Estimate time honestly, including checking and interruptions.",
+            "Raise problems early, with the facts and a proposed solution.",
+            "Confirm new priorities in writing after agreeing them."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example_1",
+        "type": "worked_example",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "promptAr": "لديك ثلاث مهام: \n1. تقرير التحليل (موعد التسليم الخميس، ينتظره فريق التسويق)\n2. تحديث قاعدة البيانات (موعد التسليم الجمعة، ينتظره فريق تكنولوجيا المعلومات)\n3. الرد على بريد إلكتروني من عميل (موعد التسليم اليوم، يطلب معلومات عامة)\n\nما الذي تنجزه أولاً؟",
+          "promptEn": "You have three tasks:\n1. Analytics report (due Thursday, awaited by the marketing team)\n2. Database update (due Friday, awaited by the IT team)\n3. Reply to a client email (due today, asking for general information)\n\nWhat do you do first?",
+          "steps": [
+            {
+              "showAr": "صنّف كل مهمة حسب العاجل والمهم.",
+              "showEn": "Classify each task by urgent and important.",
+              "whyAr": "التصنيف يحدد الأولوية. التقرير عاجل ومهم، التحديث مهم غير عاجل، البريد الإلكتروني عاجل غير مهم.",
+              "whyEn": "The classification decides priority. The report is urgent and important, the update is important but not urgent, the email is urgent but not important."
+            },
+            {
+              "showAr": "أنجز أولاً ما هو عاجل ومهم.",
+              "showEn": "Do first what is both urgent and important.",
+              "whyAr": "هذا هو العمل الذي له تأثير كبير وموعد نهائي قريب.",
+              "whyEn": "This is the work that has high impact and a near deadline."
+            },
+            {
+              "showAr": "خطط للوقت للمهمة المهمة غير العاجلة.",
+              "showEn": "Schedule time for the important, not urgent task.",
+              "whyAr": "التخطيط يمنعها من أن تصبح عاجلة لاحقًا.",
+              "whyEn": "Scheduling prevents it from becoming urgent later."
+            },
+            {
+              "showAr": "أنجز البريد الإلكتروني بسرعة أو أعد توكيله.",
+              "showEn": "Handle the email quickly or delegate it.",
+              "whyAr": "هذا عمل عاجل لكنه ليس مهمًا، لذا لا يستحق وقتًا طويلًا.",
+              "whyEn": "This is urgent but not important, so it does not deserve much time."
+            }
+          ],
+          "answerAr": "ابدأ بتقرير التحليل، ثم خطط وقتًا لتحديث قاعدة البيانات، وأجب على البريد الإلكتروني بسرعة أو أعد توكيله.",
+          "answerEn": "Start with the analytics report, then schedule time for the database update, and reply to the email quickly or delegate it."
+        }
+      },
+      {
+        "id": "b_l2_worked_example_2",
+        "type": "worked_example",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "promptAr": "اكتشفت أن تقرير التحليل لن يُنجز في موعده يوم الخميس لأن البيانات من الفريق الآخر لم تصل. ماذا تقول لمديرك؟",
+          "promptEn": "You find the analytics report will not be finished by Thursday because the data from the other team has not arrived. What do you say to your manager?",
+          "steps": [
+            {
+              "showAr": "ابدأ بالحقيقة: المهمة وموعدها النهائي.",
+              "showEn": "Start with the fact: the task and its deadline.",
+              "whyAr": "هذا يحدد السياق ويظهر أنك تعرف ما هو مطلوب.",
+              "whyEn": "This sets the context and shows you know what is expected."
+            },
+            {
+              "showAr": "اشرح المشكلة بوضوح.",
+              "showEn": "Explain the problem clearly.",
+              "whyAr": "المشكلة ليست في عدم إنجاز العمل، بل في سبب عدم الإنجاز.",
+              "whyEn": "The problem is not that the work is not done — it is why it is not done."
+            },
+            {
+              "showAr": "اذكر ما فعلته بالفعل.",
+              "showEn": "State what you have already done.",
+              "whyAr": "هذا يظهر أنك حاولت حل المشكلة بنفسك أولاً.",
+              "whyEn": "This shows you tried to solve the problem yourself first."
+            },
+            {
+              "showAr": "اقترح حلًا.",
+              "showEn": "Propose a solution.",
+              "whyAr": "الإبلاغ المبكر ليس لإلقاء المشكلة، بل لإظهار أنك تفكر في الحلول.",
+              "whyEn": "Raising early is not dumping the problem — it is showing you are thinking of solutions."
+            }
+          ],
+          "answerAr": "«التقرير مطلوب يوم الخميس. البيانات من الفريق الآخر لم تصل، وبدونها لا يمكنني إنهاء القسم الثالث. سألتهم مرتين. يمكنني إرسال الأقسام الأول والثاني يوم الخميس والقسم الثالث بعد يوم من وصول البيانات — هل هذا مناسب؟»",
+          "answerEn": "\"The report is due Thursday. The data from the other team has not arrived, and without it I cannot finish section three. I have asked them twice. I can send sections one and two on Thursday and section three a day after the data arrives — does that work?\""
+        }
+      },
+      {
+        "id": "b_l2_scenario_1",
+        "type": "scenario",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "situationAr": "لديك أربع مهام: \n1. إعداد عرض تقديمي لعملاء جدد (موعد التسليم بعد ثلاثة أيام، ينتظره فريق المبيعات)\n2. مراجعة عقد مع مورد (موعد التسليم بعد أسبوع، ينتظره القسم القانوني)\n3. الرد على بريد إلكتروني من زميل يطلب معلومات عن مشروع قديم (موعد التسليم اليوم)\n4. حضور اجتماع دوري لفريقك (موعده بعد ساعتين)\n\nما ترتيب الأولويات الذي تختاره؟",
+          "situationEn": "You have four tasks:\n1. Prepare a presentation for new clients (due in three days, awaited by the sales team)\n2. Review a contract with a vendor (due in one week, awaited by the legal department)\n3. Reply to an email from a colleague asking for information about an old project (due today)\n4. Attend your team's recurring meeting (in two hours)\n\nWhat order of priority do you choose?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "الاجتماع، البريد الإلكتروني، العرض التقديمي، العقد",
+              "optionEn": "Meeting, email, presentation, contract",
+              "consequenceAr": "الاجتماع والبريد الإلكتروني عاجلان، لكنهما ليسا مهمين. العرض التقديمي والعقد مهمان، لكنهما يُنجزان في اللحظة الأخيرة، مما يزيد من خطر الخطأ أو الفشل.",
+              "consequenceEn": "The meeting and email are urgent but not important. The presentation and contract are important, but they are done at the last minute, increasing the risk of error or failure.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "العرض التقديمي، العقد، البريد الإلكتروني، الاجتماع",
+              "optionEn": "Presentation, contract, email, meeting",
+              "consequenceAr": "العرض التقديمي والعقد هما الأهم، لذا يُنجزان أولاً. البريد الإلكتروني والاجتماع عاجلان لكنهما ليسا مهمين، لذا يُنجزان بسرعة أو يُعاد توكيلهما.",
+              "consequenceEn": "The presentation and contract are the most important, so they are done first. The email and meeting are urgent but not important, so they are handled quickly or delegated.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "البريد الإلكتروني، العرض التقديمي، العقد، الاجتماع",
+              "optionEn": "Email, presentation, contract, meeting",
+              "consequenceAr": "البريد الإلكتروني يُنجز أولاً لأنه عاجل، لكن العرض التقديمي والعقد هما الأهم ويُنهيان في اللحظة الأخيرة، مما قد يؤدي إلى أخطاء أو تأخير.",
+              "consequenceEn": "The email is done first because it is urgent, but the presentation and contract are the most important and are finished at the last minute, which may lead to errors or delay.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_scenario_2",
+        "type": "scenario",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "situationAr": "اكتشفت أن مراجعة العقد لن تُنجز في موعدها الأسبوع المقبل لأن القسم القانوني طلب معلومات إضافية لم تصل بعد. الموعد النهائي هو الجمعة، واليوم هو الثلاثاء. ماذا تفعل؟",
+          "situationEn": "You find the contract review will not be finished by next week's deadline because the legal department asked for additional information that has not arrived yet. The deadline is Friday, and today is Tuesday. What do you do?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "انتظر حتى يوم الخميس لترى إذا وصلت المعلومات، ثم أبلغ إذا لم تصل.",
+              "optionEn": "Wait until Thursday to see if the information arrives, then raise it if it has not.",
+              "consequenceAr": "إذا لم تصل المعلومات، سيكون لديك يوم واحد فقط لحل المشكلة، مما يقلل من خيارات مديرك.",
+              "consequenceEn": "If the information does not arrive, you will have only one day to solve the problem, reducing your manager's options.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "أبلغ مديرك اليوم بالمشكلة والحل المقترح.",
+              "optionEn": "Raise the problem with your manager today, with the facts and a proposed solution.",
+              "consequenceAr": "مديرك لديه ثلاثة أيام كاملة لاستكشاف الخيارات: مزيد من الوقت، أو مساعدة إضافية، أو نسخة مختصرة من المراجعة.",
+              "consequenceEn": "Your manager has three full days to explore options: more time, more help, or a smaller version of the review.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "أنجز ما تستطيع من المراجعة الآن، ثم أبلغ يوم الجمعة إذا لم تصل المعلومات.",
+              "optionEn": "Do what you can of the review now, then raise it on Friday if the information has not arrived.",
+              "consequenceAr": "هذا يترك لمديرك أقل وقت ممكن، وقد يؤدي إلى عدم إنجاز المراجعة في موعدها.",
+              "consequenceEn": "This leaves your manager the least time possible, and may result in the review not being finished on time.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_buckets",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "buckets": [
+            {
+              "id": "urgent_important",
+              "labelAr": "العاجل والمهم",
+              "labelEn": "Urgent and important"
+            },
+            {
+              "id": "important_not_urgent",
+              "labelAr": "المهم غير العاجل",
+              "labelEn": "Important, not urgent"
+            },
+            {
+              "id": "urgent_not_important",
+              "labelAr": "العاجل غير المهم",
+              "labelEn": "Urgent, not important"
+            },
+            {
+              "id": "neither",
+              "labelAr": "غير العاجل وغير المهم",
+              "labelEn": "Neither"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "تقرير التحليل مطلوب يوم الخميس لدعم قرار مالي",
+              "textEn": "Analytics report due Thursday to support a financial decision",
+              "bucketId": "urgent_important",
+              "whyAr": "له موعد نهائي قريب وتأثير كبير.",
+              "whyEn": "It has a near deadline and high impact."
+            },
+            {
+              "id": "c2",
+              "textAr": "تحديث نظام طويل الأجل",
+              "textEn": "Long-term system upgrade",
+              "bucketId": "important_not_urgent",
+              "whyAr": "مهم لكنه ليس له موعد نهائي قريب.",
+              "whyEn": "It is important but has no near deadline."
+            },
+            {
+              "id": "c3",
+              "textAr": "رد على بريد إلكتروني يطلب معلومات عامة",
+              "textEn": "Reply to an email asking for general information",
+              "bucketId": "urgent_not_important",
+              "whyAr": "عاجل لكنه ليس له تأثير كبير.",
+              "whyEn": "It is urgent but has low impact."
+            },
+            {
+              "id": "c4",
+              "textAr": "اجتماع دوري لا يضيف قيمة",
+              "textEn": "Recurring meeting that adds no value",
+              "bucketId": "neither",
+              "whyAr": "ليس له موعد نهائي قريب ولا تأثير كبير.",
+              "whyEn": "It has no near deadline and no high impact."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemRef": "JOB-05-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-05",
+        "payload": {
+          "itemRef": "JOB-05-KC-02"
+        }
+      }
+    ]
+  }
+}

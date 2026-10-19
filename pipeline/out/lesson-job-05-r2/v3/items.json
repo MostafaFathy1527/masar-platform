@@ -1,0 +1,129 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Item bank for lesson JOB-05: Priorities, deadlines and asking for help early",
+  "items": [
+    {
+      "key": "JOB-05-KC-01",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما الخطوة الأولى عند اكتشاف أن مهمة لن تُنجز في موعدها؟",
+      "stemEn": "What is the first step when you find a task will not be finished on time?",
+      "rationaleAr": "الإبلاغ المبكر يبدأ بجمع الحقائق والحل المقترح، وليس بإلقاء المشكلة.",
+      "rationaleEn": "Raising early starts with gathering the facts and a proposed solution, not dumping the problem.",
+      "options": [
+        {
+          "textAr": "انتظر لترى إذا كان بإمكانك إنجازها في اللحظة الأخيرة.",
+          "textEn": "Wait to see if you can finish it at the last minute.",
+          "isCorrect": false,
+          "feedbackAr": "هذا تجنب للمشكلة بدلاً من حلها، وقد يؤدي إلى فقدان الخيارات المتاحة.",
+          "feedbackEn": "This is avoiding the problem rather than solving it, which may lead to losing available options."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا أنك لن تنجز المهمة.",
+          "textEn": "Tell your manager immediately that you will not finish the task.",
+          "isCorrect": false,
+          "feedbackAr": "هذا إلقاء للمشكلة دون تقديم سياق أو حل، مما يترك المدير بدون خيارات.",
+          "feedbackEn": "This dumps the problem without context or solution, leaving the manager with no options."
+        },
+        {
+          "textAr": "اجمع الحقائق عن المهمة والمشكلة وما فعلته بالفعل، واقترح حلًا.",
+          "textEn": "Gather the facts about the task, the problem, what you have already done, and propose a solution.",
+          "isCorrect": true,
+          "feedbackAr": "هذه هي الخطوة الصحيحة للإبلاغ المبكر: الحقائق والحل المقترح يوفران للمدير خيارات.",
+          "feedbackEn": "This is the correct first step for raising early: facts and a proposed solution give the manager options."
+        },
+        {
+          "textAr": "اطلب من شخص آخر إنجاز المهمة نيابةً عنك.",
+          "textEn": "Ask someone else to do the task for you.",
+          "isCorrect": false,
+          "feedbackAr": "هذا قد يكون جزءًا من الحل لاحقًا، لكنه ليس الخطوة الأولى الصحيحة.",
+          "feedbackEn": "This may be part of a later solution, but it is not the correct first step."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-02",
+      "objectiveId": "JOB-05",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "formative": true,
+      "stemAr": "أي من هذه المهام يجب إنجازها أولاً؟",
+      "stemEn": "Which of these tasks should be done first?",
+      "rationaleAr": "العاجل والمهم يُنجزان أولاً، المهم غير العاجل يُخطط له، والعاجل غير المهم يُنجز بسرعة أو يُعاد توكيله.",
+      "rationaleEn": "Urgent and important is done first, important but not urgent is scheduled, and urgent but not important is handled quickly or delegated.",
+      "options": [
+        {
+          "textAr": "تقرير مطلوب اليوم لدعم قرار مالي",
+          "textEn": "A report due today to support a financial decision",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو العمل العاجل والمهم، لذا يجب إنجازه أولاً.",
+          "feedbackEn": "This is urgent and important work, so it should be done first."
+        },
+        {
+          "textAr": "تحديث قاعدة بيانات مطلوب بعد أسبوعين",
+          "textEn": "A database update due in two weeks",
+          "isCorrect": false,
+          "feedbackAr": "هذا عمل مهم لكنه ليس عاجلًا، لذا يجب تخطيط وقت له وليس إنجازه أولاً.",
+          "feedbackEn": "This is important but not urgent, so it should be scheduled rather than done first."
+        },
+        {
+          "textAr": "رد على بريد إلكتروني يطلب معلومات عامة، موعده اليوم",
+          "textEn": "Reply to an email asking for general information, due today",
+          "isCorrect": false,
+          "feedbackAr": "هذا عمل عاجل لكنه ليس مهمًا، لذا يجب إنجازه بسرعة أو إعادة توكيله، وليس أولاً.",
+          "feedbackEn": "This is urgent but not important, so it should be handled quickly or delegated, not done first."
+        },
+        {
+          "textAr": "اجتماع دوري لا يضيف قيمة",
+          "textEn": "A recurring meeting that adds no value",
+          "isCorrect": false,
+          "feedbackAr": "هذا ليس عاجلًا ولا مهمًا، لذا يجب التشكيك في الحاجة لإنجازه على الإطلاق.",
+          "feedbackEn": "This is neither urgent nor important, so it should be questioned whether it needs doing at all."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-03",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ماذا تفعل بعد الاتفاق على أولويات جديدة مع مديرك؟",
+      "stemEn": "What do you do after agreeing new priorities with your manager?",
+      "rationaleAr": "التأكيد الكتابي يضمن الفهم المشترك ويمنع سوء الفهم لاحقًا.",
+      "rationaleEn": "Confirming in writing ensures shared understanding and prevents later confusion.",
+      "options": [
+        {
+          "textAr": "ابدأ العمل فورًا دون تأكيد.",
+          "textEn": "Start work immediately without confirming.",
+          "isCorrect": false,
+          "feedbackAr": "هذا قد يؤدي إلى سوء فهم إذا تغيرت الأولويات في ذهن شخص آخر.",
+          "feedbackEn": "This may lead to confusion if priorities changed in someone else's mind."
+        },
+        {
+          "textAr": "أرسل ملخصًا كتابيًا قصيرًا للتأكد من الفهم المشترك.",
+          "textEn": "Send a brief written summary to confirm shared understanding.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو التأكيد الكتابي الصحيح الذي يمنع سوء الفهم لاحقًا.",
+          "feedbackEn": "This is the correct written confirmation that prevents later confusion."
+        },
+        {
+          "textAr": "انتظر حتى يسألك مديرك عن التقدم.",
+          "textEn": "Wait until your manager asks about progress.",
+          "isCorrect": false,
+          "feedbackAr": "هذا لا يضمن أن الأولويات واضحة للطرفين.",
+          "feedbackEn": "This does not ensure priorities are clear to both sides."
+        },
+        {
+          "textAr": "اطلب من مديرك إرسال التأكيد.",
+          "textEn": "Ask your manager to send the confirmation.",
+          "isCorrect": false,
+          "feedbackAr": "المسؤولية على الشخص الذي يغير الأولويات.",
+          "feedbackEn": "The responsibility is on the person changing priorities."
+        }
+      ]
+    }
+  ]
+}

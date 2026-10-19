@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-cv",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T17:42:11.259486+00:00",
+    "usage": {
+      "inputTokens": 7417,
+      "outputTokens": 199
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The scenario is plausible and useful, but the friction is mild — a draft with irrelevant entries and a same-day deadline is a common teaching example rather than a situation with awkward interpersonal or political dimensions."
+  },
+  "verdict_notes": "All eight criteria score at 4 or above, with five at 5. The lesson is tight, the Arabic reads naturally, and the knowledge checks use plausible distractors with feedback that names the misconception. A clean pass."
+}

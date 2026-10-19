@@ -1,0 +1,35 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T17:24:07.115684+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6419
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The whys are present but partly generic (step 1: 'prevents forgetting'), and the pivotal step — raising the issue with the manager — is asserted rather than demonstrated. The L1 text teaches a four-part formula for the escalation message (task, problem, progress, proposal), yet the example never shows that message, which is exactly where a learner needs the modelled judgement.",
+    "bilingual_quality": "The Arabic intro drops content present in the English: the fourth quadrant ('question whether the rest needs doing at all') and 'instead of guessing' are missing, so Arabic readers get three quadrants where English readers get four. Some calque-flavoured phrasing ('ارفع المشكلة فور رؤيتها', 'إضافة تحليل إضافي', 'إذا فُشلت') reads as translated rather than written in Arabic."
+  },
+  "verdict_notes": "A coherent, well-aligned lesson: the L2 scenario has real friction (blocked dependency plus a manager adding scope), and the knowledge checks mostly use distractors drawn from genuine behaviour, with KC-02 the stronger item. The weakest points are the worked example, which asserts the escalation step instead of modelling it, and the Arabic, which is mostly natural but silently drops a quadrant of the urgent/important matrix and carries some translated phrasing. Two criteria at 3, mean 3.63."
+}

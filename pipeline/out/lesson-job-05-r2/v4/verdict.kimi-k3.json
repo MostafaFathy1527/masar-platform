@@ -1,0 +1,35 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T17:43:04.569539+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6417
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 3,
+    "concision": 3,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "The Arabic is mostly natural and terminology is consistent (الإبلاغ المبكر, العاجل والمهم throughout), but the flagship problem-statement exemplar contains a grammatical error in its L2 repetition: «لا يمكنني إنهاء القسمين الثالث» mixes dual with a singular ordinal (correct in the L1 version: القسم الثالث). A few phrases follow English structure, e.g. «ترك المواعيد النهائية تُفوت» and «تقرير مدته ساعة».",
+    "concision": "Individual blocks are tight, but material is duplicated across blocks: the full problem-statement exemplar appears verbatim in the L1 definition card and again as the worked example 2 answer, and the sort_buckets cards restate the same four items already classified in the L1 compare table and KC-02. The second verbatim exemplar is removable without loss."
+  },
+  "verdict_notes": "All eight criteria sit at 3 or above; the mean is 3.875. The weakest points are the Arabic exemplar error in the exact sentence learners are meant to imitate, and the verbatim reuse of the same examples and model answer across definition, worked example, sorting, and knowledge check, which flattens both concision and the diagnostic value of the checks. The knowledge checks themselves are otherwise solid — distractors in KC-01 name real misconceptions (wait-and-see, empty-handed escalation) and feedback explains rather than restates."
+}

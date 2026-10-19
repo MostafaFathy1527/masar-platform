@@ -1,0 +1,1 @@
+I've revised the worked example's 'why' explanations to be specific to the example rather than generic restatements of the STAR rules. Each explanation now names the judgement being made in this specific case and what would change it. The sort_buckets 'why' explanations have also been updated to follow the same pattern.
