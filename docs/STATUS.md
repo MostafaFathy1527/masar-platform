@@ -210,7 +210,7 @@ a stand-in server and in `test_judge_bedrock.py`.
   and takes `--audit-copies` and `--date`. The 14 October report keeps its rows, with a note.
 - **Context limits:** ALLaM-7B and Fanar-1-9B were not run; their 4,096-token context is
   shorter than the judge prompt.
-- **The live HF Space README** says nineteen since 17 October; the repo copy says twenty since 19 October (re-upload it).
+- **The live HF Space README** says twenty (re-uploaded 19 October, hash matches the repo).
 
 **Added 2026-10-17: Fanar-2 re-tested at 8-bit, thinking off and on (what-failed entry 19).**
 - **The run:** Fanar-2 at Q8_0 on two V100 cards, four ways: thinking off and on, each with the
@@ -311,7 +311,9 @@ a stand-in server and in `test_judge_bedrock.py`.
 - **`datasets/arabic-lesson-judge/`** (built by `pipeline/judge_dataset.py`, no model calls):
   real-versus-broken lesson pairs from the four pipeline samples and the five human-authored course
   lessons, and every judge's real and broken score from the calibration runs so far. Offered to the
-  Fanar post-training team at QCRI, who said Fanar 2 had no judge-task post-training data. The
+  Fanar post-training team at QCRI, who said Fanar 2 had no judge-task post-training data.
+  Published 19 October at huggingface.co/datasets/masar1/arabic-lesson-judge (CC BY-NC 4.0; its card
+  adds Hugging Face metadata to the repo README). Rebuild and re-upload when the calibration grows. The
   counts are in the dataset's README, computed from the data.
 - **`mismatched-numbers`**, a sixth calibration defect: every number in the Arabic fields moved so
   it no longer matches the English. It applies only where the Arabic has numbers, so 2 of 9 lessons
