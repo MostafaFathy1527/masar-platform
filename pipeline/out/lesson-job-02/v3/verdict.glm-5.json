@@ -1,0 +1,34 @@
+{
+  "lesson": "answering-interview-questions",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:49:37.124416+00:00",
+    "usage": {
+      "inputTokens": 6553,
+      "outputTokens": 192
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The scenario is plausible and relevant, though the friction (interviewer raising an eyebrow) is a mild signal compared to more complex workplace dilemmas."
+  },
+  "verdict_notes": "This is a strong, well-structured lesson. The worked example is exemplary, explicitly stating both the action and the reasoning behind it, and the Arabic translation is natural and fluent. All criteria score well above the threshold."
+}

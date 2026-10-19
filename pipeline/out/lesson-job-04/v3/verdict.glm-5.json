@@ -1,0 +1,35 @@
+{
+  "lesson": "your-first-week",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:52:49.361854+00:00",
+    "usage": {
+      "inputTokens": 6873,
+      "outputTokens": 255
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 4,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The steps show what to say, but the reasoning is generic ('shows you looked', 'helps the manager') rather than naming the specific judgement being made about prior research or how the manager's response would change the approach.",
+    "scenario_authenticity": "The scenario is plausible but frictionless. A new employee would likely have an onboarding contact or be told who to ask during orientation, rather than guessing among three random colleagues. The situation lacks the realistic awkwardness of interrupting busy people."
+  },
+  "verdict_notes": "Two criteria at 3; mean 4.25. The lesson is strong on objective alignment and bilingual quality, but the worked example and scenario lack the depth and friction that would make them genuinely instructive."
+}

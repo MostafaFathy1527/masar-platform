@@ -1,0 +1,88 @@
+{
+  "courseSlug": "answering-interview-questions",
+  "note": "JOB-02 knowledge checks",
+  "items": [
+    {
+      "key": "JOB-02-KC-01",
+      "objectiveId": "JOB-02",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "إذا نسيت تضمين النتيجة في إجابة سؤال سلوكي، أي من العواقب التالية الأكثر احتمالًا أن تحدث؟",
+      "stemEn": "If you forget to include the Result in a behavioural interview answer, which of the following consequences is most likely?",
+      "rationaleAr": "عدم ذكر النتيجة يترك المقابل يتخيل ما حدث، مما يقلل من قوة القصة ويظهر نقصًا في الوعي بالنتائج.",
+      "rationaleEn": "Omitting the Result leaves the interviewer guessing what happened, weakening the story and showing a lack of outcome awareness.",
+      "options": [
+        {
+          "textAr": "المقابل سيُعطيك فرصة لتوضيح النتيجة لاحقًا.",
+          "textEn": "The interviewer will give you a chance to clarify the result later.",
+          "isCorrect": false,
+          "feedbackAr": "المقابل عادةً لا يطلب تفاصيل إضافية؛ يفضّل إجابة مكتملة من البداية.",
+          "feedbackEn": "Interviewers rarely ask for extra details; they prefer a complete answer from the start."
+        },
+        {
+          "textAr": "ستُفقد فرصة إظهار تأثيرك الفعلي على الموقف.",
+          "textEn": "You lose the chance to demonstrate your actual impact on the situation.",
+          "isCorrect": true,
+          "feedbackAr": "بدون النتيجة لا يعرف المقابل ما إذا كان تصرفك أدى إلى نتيجة إيجابية، وهذا يضعف الانطباع.",
+          "feedbackEn": "Without the Result the interviewer cannot see whether your actions led to a positive outcome, weakening the impression."
+        },
+        {
+          "textAr": "سيُعتقد أنك لم تفهم سؤال \"النتيجة\".",
+          "textEn": "It will be assumed you didn’t understand the \"Result\" part of STAR.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يُظهر نقصًا في معرفة الهيكل، لكنه ليس السبب الرئيسي لعدم ذكر النتيجة.",
+          "feedbackEn": "This shows a lack of knowledge of the structure, but it’s not the primary issue of omitting the outcome."
+        },
+        {
+          "textAr": "ستُعطيك فرصة لتكمل الإجابة في سؤال آخر.",
+          "textEn": "You will be given a chance to finish the answer in a later question.",
+          "isCorrect": false,
+          "feedbackAr": "المقابل لا يربط إجاباتك عبر أسئلة مختلفة؛ كل إجابة يجب أن تكون مكتملة بذاتها.",
+          "feedbackEn": "Interviewers do not link answers across different questions; each answer must stand on its own."
+        }
+      ]
+    },
+    {
+      "key": "JOB-02-KC-02",
+      "objectiveId": "JOB-02",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما هو الترتيب الصحيح لمكوّنات STAR عند الإجابة على سؤال سلوكي؟",
+      "stemEn": "Which of the following correctly orders the STAR components when answering a behavioural interview question?",
+      "rationaleAr": "الترتيب الرسمي هو الوضع → المهمة → الإجراء → النتيجة لتقديم إجابة منطقية ومترابطة.",
+      "rationaleEn": "The official order is Situation → Task → Action → Result to give a logical, coherent answer.",
+      "options": [
+        {
+          "textAr": "الوضع، المهمة، الإجراء، النتيجة",
+          "textEn": "Situation, Task, Action, Result",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: هذا هو الترتيب الرسمي لهيكل STAR.",
+          "feedbackEn": "Correct: This is the official STAR order."
+        },
+        {
+          "textAr": "المهمة، الوضع، الإجراء، النتيجة",
+          "textEn": "Task, Situation, Action, Result",
+          "isCorrect": false,
+          "feedbackAr": "خلط بين المهمة والوضع يسبب فقدان السياق قبل شرح ما كان عليك إنجازه.",
+          "feedbackEn": "Swapping Task and Situation loses the context before explaining what you had to achieve."
+        },
+        {
+          "textAr": "الإجراء، الوضع، المهمة، النتيجة",
+          "textEn": "Action, Situation, Task, Result",
+          "isCorrect": false,
+          "feedbackAr": "بدءًا بالإجراء يزيل الحاجة إلى تمهيد الوضع قبل شرح ما فعلت.",
+          "feedbackEn": "Starting with Action removes the necessary lead‑in provided by the Situation."
+        },
+        {
+          "textAr": "النتيجة، الإجراء، المهمة، الوضع",
+          "textEn": "Result, Action, Task, Situation",
+          "isCorrect": false,
+          "feedbackAr": "النتيجة أولًا تجعل المقابل يفتقد الفهم الكامل للموقف قبل معرفة ما حدث.",
+          "feedbackEn": "Putting the Result first leaves the interviewer without full context before learning what happened."
+        }
+      ]
+    }
+  ]
+}

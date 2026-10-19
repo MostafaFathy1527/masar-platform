@@ -1,0 +1,36 @@
+{
+  "lesson": "writing-a-clear-work-message",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T16:50:50.264864+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 4557
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The correct option in both checks is the worked example's answer verbatim — the learner has seen that exact message three times before KC-02, so the labelled APPLY items test recognition of the example, not transfer to a new situation. Distractors are plausible and per-option feedback does name the defect, but both checks also sample only purpose-first/ask/subject-line; tone, pre-send check, and replying are taught and never assessed. Correct answers are also the longest, most complete option in both items.",
+    "scenario_authenticity": "Plausible and recognisable, but frictionless: no competing pressure (the background context might genuinely matter, seniority, CC list, time pressure). Option d3 (split into two messages) is a strawman nobody would choose, so the real choice is binary.",
+    "bilingual_quality": "Accurate and mostly readable MSA, but carries translation artefacts: 'إذا لا يمكنك الإجابة الآن' follows English word order ('if you cannot'), 'يحقق أفضل ممارسات' is a calque of 'achieves best practices', and there is a gender-agreement error in scenario d2 ('وتظهر الطلب الواضح' — الطلب is masculine, يظهر). Terminology for the seven concepts is consistent across blocks."
+  },
+  "verdict_notes": "Objective alignment, level structure, worked example, concision, and compliance are solid 4s; the lesson's weak half is assessment and polish. The knowledge checks give away their answers by lifting the worked example verbatim, the scenario is plausible but frictionless with one strawman option, and the Arabic is serviceable but marked by calques and one agreement error. Three criteria at 3, mean 3.6; the gate applies the thresholds."
+}

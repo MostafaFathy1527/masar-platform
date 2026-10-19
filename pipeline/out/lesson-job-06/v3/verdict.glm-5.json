@@ -1,0 +1,35 @@
+{
+  "lesson": "feedback-and-mistakes",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:56:12.337224+00:00",
+    "usage": {
+      "inputTokens": 6197,
+      "outputTokens": 260
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible and feedback is functional, though some feedback phrases ('Defending before understanding often escalates the conversation') describe the consequence of the error rather than explicitly naming the underlying misconception (e.g., 'defensiveness stems from ego-protection').",
+    "scenario_authenticity": "The scenario is realistic and the friction (vague feedback) is recognizable, but the consequence descriptions for the incorrect options are somewhat generic compared to the nuance of the best option."
+  },
+  "verdict_notes": "This is a strong lesson with excellent alignment and bilingual quality. The worked example is a highlight, correctly showing how to handle feedback that may not even be accurate. The knowledge checks are good but rely slightly on consequence-description rather than misconception-naming."
+}

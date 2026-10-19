@@ -8,7 +8,7 @@
     "zai.glm-5",
     "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
   ],
-  "started": "2026-10-19T15:59:51.229891+00:00",
+  "started": "2026-10-19T16:47:44.106071+00:00",
   "steps": [
     {
       "version": "v1",
@@ -62,8 +62,43 @@
         "bilingual_quality",
         "worked_example"
       ]
+    },
+    {
+      "version": "v3",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 48.7,
+      "usage": {
+        "inputTokens": 28276,
+        "outputTokens": 5762,
+        "totalTokens": 34038,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v3",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v3",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 64.2,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 4.75,
+        "us.moonshotai.kimi-k3": 3.75
+      },
+      "split": [
+        "worked_example"
+      ]
     }
   ],
-  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality, worked_example",
-  "finished": "2026-10-19T16:01:33.709986+00:00"
+  "revised_from": "v2",
+  "earlier_outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality, worked_example",
+  "outcome": "NEEDS HUMAN at v3: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: worked_example",
+  "finished": "2026-10-19T16:49:37.126302+00:00"
 }

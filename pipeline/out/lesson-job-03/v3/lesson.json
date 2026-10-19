@@ -1,0 +1,244 @@
+{
+  "slug": "writing-a-clear-work-message",
+  "titleAr": "كتابة رسالة عمل واضحة",
+  "titleEn": "Writing a clear work message",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-03"
+  ],
+  "conceptsIntroduced": [
+    "purpose_first",
+    "clear_ask",
+    "subject_line",
+    "short_paragraphs",
+    "tone_check",
+    "pre_send_check",
+    "replying"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "textAr": "ما هي رسالة عمل واضحة؟",
+          "textEn": "What makes a work message clear?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_overview",
+        "type": "rich_text",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "mdAr": "رسالة العمل تُقرأ غالبًا على هاتفٍ بين مهامٍ أخرى. إذا لم يحدد القارئ هدف الرسالة بسرعة، قد يتأخر الرد أو يُرسل ردًا غير صحيح. لذلك تُكتب الرسالة بحيث يوضح السطر الأول الغرض، وتُعطى طلبًا واضحًا، وتُختتم بموعد نهائي.\n\nتطبيق هذه القواعد يضمن أن القارئ يعرف ما يُطلب منه دون الحاجة للبحث أو التخمين.",
+          "mdEn": "A work message is often read on a phone between other tasks. If the reader cannot quickly see the purpose, replies may be delayed or incorrect. Therefore the message should state the purpose in the first line, contain a single clear ask, and end with a deadline.\n\nApplying these rules ensures the reader knows exactly what is needed without guessing."
+        }
+      },
+      {
+        "id": "b_l1_def_purpose_first",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "الغاية أولاً",
+          "termEn": "purpose_first",
+          "defAr": "السطر الأول يوضح سبب الكتابة: طلب، تحديث، سؤال أو قرار مطلوب.",
+          "defEn": "The first line states why you are writing: a request, an update, a question, or a decision needed.",
+          "icon": "▶"
+        }
+      },
+      {
+        "id": "b_l1_def_clear_ask",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "طلب واضح",
+          "termEn": "clear_ask",
+          "defAr": "اطلب شيئًا واحدًا بوضوح: ما هو المطلوب، من هو المسؤول، ومتى يجب أن يُستكمل.",
+          "defEn": "Make one clear request: what is needed, from whom, and by when.",
+          "icon": "✎"
+        }
+      },
+      {
+        "id": "b_l1_def_subject_line",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "سطر الموضوع",
+          "termEn": "subject_line",
+          "defAr": "سطر الموضوع يصف محتوى الرسالة بدقة لتسهيل البحث لاحقًا.",
+          "defEn": "The subject line accurately describes the message content for easy searching later.",
+          "icon": "📧"
+        }
+      },
+      {
+        "id": "b_l1_def_short_paragraphs",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "فقرات قصيرة",
+          "termEn": "short_paragraphs",
+          "defAr": "كل فقرة تحمل فكرة واحدة؛ تجنّب المقدّمة الطويلة والاعتذارات المتكررة.",
+          "defEn": "Each paragraph holds a single idea; avoid long introductions and repeated apologies.",
+          "icon": "¶"
+        }
+      },
+      {
+        "id": "b_l1_def_tone_check",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "فحص النبرة",
+          "termEn": "tone_check",
+          "defAr": "اقرأ الرسالة كما سيقرأها المتلقي؛ تجنّب الانطباع البارد أو الغاضب.",
+          "defEn": "Read the message as the recipient would; avoid sounding cold or angry.",
+          "icon": "🔊"
+        }
+      },
+      {
+        "id": "b_l1_def_pre_send_check",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "فحص ما قبل الإرسال",
+          "termEn": "pre_send_check",
+          "defAr": "تأكد من العنوان الصحيح، النسخ المرسل، المرفقات، وصحة الأسماء والتواريخ.",
+          "defEn": "Verify correct addressee, CC list, attachments, and correct names/dates before sending.",
+          "icon": "✅"
+        }
+      },
+      {
+        "id": "b_l1_def_replying",
+        "type": "definition_card",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "termAr": "الرد",
+          "termEn": "replying",
+          "defAr": "أجب على كل سؤال بنفس الترتيب؛ إذا لا يمكنك الإجابة الآن، أخبر بالموعد.",
+          "defEn": "Answer every question in the same order; if you cannot answer now, state when you will.",
+          "icon": "↩"
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemsAr": [
+            "ابدأ السطر الأول بالغاية.",
+            "اطلب شيئًا واحدًا بوضوح مع من ومتى.",
+            "اكتب سطر موضوع يصف المحتوى.",
+            "استخدم فقرات قصيرة وفكرة واحدة لكل فقرة.",
+            "تحقق من النبرة، العنوان، المرفقات، والأسماء قبل الإرسال."
+          ],
+          "itemsEn": [
+            "Start the first line with the purpose.",
+            "Make one clear ask with what, who, and when.",
+            "Write a subject line that describes the content.",
+            "Use short paragraphs with one idea each.",
+            "Check tone, addressee, attachments, and names before sending."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "textAr": "طبق ما تعلمت",
+          "textEn": "Put what you learned into practice",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_we_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "promptAr": "تحتاج إلى طلب تأكيد سارة لتاريخ تسليم طلب مارس بحلول الخميس.",
+          "promptEn": "You need to ask Sara to confirm the delivery date for the March order by Thursday.",
+          "steps": [
+            {
+              "showAr": "الموضوع: تأكيد تاريخ تسليم طلب مارس — يرجى الرد بحلول الخميس",
+              "showEn": "Subject: Confirmation of March order delivery date — please reply by Thursday",
+              "whyAr": "السطر الأول يوضح الغرض ويذكر الموعد النهائي، ما يجعل الرسالة قابلة للبحث ومحددة للمتلقي.",
+              "whyEn": "The subject line states the purpose and includes the deadline, making the email searchable and the request actionable."
+            },
+            {
+              "showAr": "سارة،\nأحتاج إلى تأكيد ما إذا كان تاريخ التسليم للطلب المتعلق بشهر مارس هو 15 أبريل. يرجى الرد بحلول الخميس.",
+              "showEn": "Sara,\nI need confirmation whether the delivery date for the March order is April 15. Please reply by Thursday.",
+              "whyAr": "السطر الأول يحدد الغرض (طلب تأكيد) ويحتوي على طلب واضح مع من (سارة) ومتى (بحلول الخميس).",
+              "whyEn": "The first line states the purpose (request confirmation) and includes a clear ask with who (Sara) and when (by Thursday)."
+            },
+            {
+              "showAr": "شكرًا لتعاونك.",
+              "showEn": "Thank you for your cooperation.",
+              "whyAr": "الختام مهذب ويضيف طابعًا إيجابيًا دون إطالة الرسالة.",
+              "whyEn": "A polite closing adds a positive tone without lengthening the message."
+            }
+          ],
+          "answerAr": "الموضوع: تأكيد تاريخ تسليم طلب مارس — يرجى الرد بحلول الخميس\n\nسارة،\nأحتاج إلى تأكيد ما إذا كان تاريخ التسليم للطلب المتعلق بشهر مارس هو 15 أبريل. يرجى الرد بحلول الخميس.\n\nشكرًا لتعاونك.",
+          "answerEn": "Subject: Confirmation of March order delivery date — please reply by Thursday\n\nSara,\nI need confirmation whether the delivery date for the March order is April 15. Please reply by Thursday.\n\nThank you for your cooperation."
+        }
+      },
+      {
+        "id": "b_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "situationAr": "أنت على وشك إرسال بريد إلكتروني للزميل، لكنه يبدأ بفقرة تمهيدية طويلة ثم يضع الطلب في السطر الأخير. القارئ مشغول ولا يملك وقتًا لقراءة كل النص قبل معرفة ما هو المطلوب.",
+          "situationEn": "You are about to send an email to a colleague, but it starts with a long introductory paragraph and places the request in the very last line. The reader is busy and doesn’t have time to read the whole text before knowing what is needed.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "ترسل الرسالة كما هي دون تعديل.",
+              "optionEn": "Send the message as‑is without changes.",
+              "consequenceAr": "قد لا يلاحظ القارئ الطلب أو يخطئ في فهمه، ما يؤدي إلى تأخير أو رد غير صحيح.",
+              "consequenceEn": "The reader may miss the request or misunderstand it, leading to delay or an incorrect reply.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "تعيد صياغة الرسالة بحيث يبدأ السطر الأول بالغاية وتظهر الطلب الواضح في الفقرة الثانية.",
+              "optionEn": "Rewrite the message so the first line states the purpose and the clear ask appears in the second paragraph.",
+              "consequenceAr": "سيحدد القارئ الغرض فورًا ويعرف ما هو المطلوب، ما يزيد من فرص الحصول على رد سريع وصحيح.",
+              "consequenceEn": "The reader sees the purpose immediately and knows what is asked, increasing the chance of a fast, correct response.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "تقسّم المحتوى إلى رسالتين منفصلتين: واحدة للمقدمة، والأخرى للطلب.",
+              "optionEn": "Split the content into two separate messages: one for the background, another for the request.",
+              "consequenceAr": "قد يسبب ذلك تشتيتًا وتعدد رسائل غير ضرورية، وقد ينسى القارئ أحد الرسائل.",
+              "consequenceEn": "This creates unnecessary fragmentation; the reader might overlook one of the messages.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemRef": "JOB-03-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-03",
+        "payload": {
+          "itemRef": "JOB-03-KC-02"
+        }
+      }
+    ]
+  }
+}

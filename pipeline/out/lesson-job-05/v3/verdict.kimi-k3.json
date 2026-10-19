@@ -1,0 +1,37 @@
+{
+  "lesson": "priorities-and-asking-for-help",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T16:54:19.560192+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6667
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 3,
+    "concision": 3,
+    "accessibility_ip": 3
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The setup is genuinely recognisable — competing deadlines, a cross-team data dependency, and a manager adding scope are the awkward parts of real work. But two of the three decision options are internally incoherent: d1 says 'delay Report A, then submit Reports A and B now', and its consequence ('Report A will be missed') contradicts the option itself; d3 says 'send all reports now' yet its consequence says 'Report A will be late'. A choice nobody could coherently make is an implausible detail, and it undercuts an otherwise authentic situation.",
+    "bilingual_quality": "Accurate and mostly readable, but carries repeated English calques: 'أكثر من ما يمكن إنجازه' (for 'more than can be done'), 'تقرير A يستحق الأربعاء' (for 'due Wednesday'), 'سيُفتقد' (for 'will be missed'), 'ارفع المشكلة' (for 'raise the problem'), 'يُقلَّل من قيمته' (for 'underestimated'), and 'يقتصر على... فقط' ('limited to... only'). The rich text also drifts semantically from the English: 'اسأل صاحب المهمة إذا كان باقي العمل ضروريًا' says 'ask if the remaining work is necessary' where the English says 'ask when it is unclear'.",
+    "concision": "The job tip restates the two-days-early guidance already made in the rich text and is removable without loss. The worked example re-walks nearly the same A/B/C, Wednesday/Friday/Monday situation the scenario just presented, so the learner reads the setup twice. Sentence-level prose is tight, but at block level there is clear redundancy.",
+    "accessibility_ip": "No violations — no images, no colour-carried meaning, no licensed code descriptors or payer text. But compliance is achieved by absence rather than design: nothing exercises alt text, and no IP constraint is used as a teaching point, so this sits at 'compliant but minimal'."
+  },
+  "verdict_notes": "The lesson is well aligned and structurally honest about its levels, with a worked example whose steps explain their reasoning and knowledge checks built on real misconceptions. Its weakest point is the scenario, where two decision options contradict themselves and their own consequences, closely followed by Arabic that leans on English calques and avoidable redundancy between the tip, scenario, and worked example. Mean 3.75 with three criteria at 3; the gate decides."
+}

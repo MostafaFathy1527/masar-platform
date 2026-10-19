@@ -1,0 +1,37 @@
+{
+  "lesson": "answering-interview-questions",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:49:31.245338+00:00",
+    "usage": {
+      "inputTokens": 6489,
+      "outputTokens": 325
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes required interactive and scenario blocks, but the process_flow is a simple list of steps rather than a rich visual card.",
+    "knowledge_check": "Distractors are plausible, but feedback for some incorrect options (e.g., 'Interviewers rarely ask for extra details') could more directly name the specific misconception (e.g., 'Assuming the interviewer will prompt you for missing information is a common but risky assumption').",
+    "scenario_authenticity": "Scenario is plausible and includes a moment of friction (interviewer's eyebrow raise), but the situation is a common textbook example.",
+    "concision": "Prose is clear and purposeful, but the series of definition cards in L1 could be slightly condensed."
+  },
+  "verdict_notes": "All criteria score 4 or 5. The lesson is well-aligned, with strong worked examples and natural Arabic. Minor points for improvement are in the visual presentation of the L2 flow and the depth of some knowledge-check feedback. The lesson comfortably passes the gate thresholds."
+}

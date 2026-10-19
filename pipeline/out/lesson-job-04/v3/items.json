@@ -1,0 +1,95 @@
+{
+  "courseSlug": "your-first-week",
+  "note": "JOB-04 first week practice items",
+  "items": [
+    {
+      "key": "JOB-04-KC-01",
+      "objectiveId": "JOB-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي سؤال هو الأنسب لتسأله لمديرك لفهم توقعات الأداء في الشهر الأول؟",
+      "stemEn": "Which question is most appropriate to ask your manager to understand performance expectations for the first month?",
+      "rationaleAr": "السؤال يركز على ما يحدده المدير كمعايير النجاح بدلاً من طلب مكافأة أو معلومات غير ذات صلة.",
+      "rationaleEn": "The question focuses on the manager's definition of success rather than asking for a raise or unrelated information.",
+      "options": [
+        {
+          "textAr": "ما هو تعريف النجاح في الشهر الأول؟",
+          "textEn": "What does a successful first month look like?",
+          "isCorrect": true,
+          "feedbackAr": "هذا السؤال يطلب مباشرةً تعريف المدير للنجاح، وهو ما تحتاجه لتوجيه عملك.",
+          "feedbackEn": "This asks directly for the manager’s definition of success, which is the information you need."
+        },
+        {
+          "textAr": "متى سأتلقى راتبي الأول؟",
+          "textEn": "When will I receive my first salary?",
+          "isCorrect": false,
+          "feedbackAr": "يركّز على توقيت التعويض بدلاً من توقعات الأداء.",
+          "feedbackEn": "Focuses on compensation timing rather than performance expectations."
+        },
+        {
+          "textAr": "هل لديك وقت فراغ للدردشة؟",
+          "textEn": "Do you have spare time to chat?",
+          "isCorrect": false,
+          "feedbackAr": "طلب محادثة غير محددة لا يوضح ما تحتاجه حول الأداء.",
+          "feedbackEn": "A vague request for a chat does not clarify performance expectations."
+        },
+        {
+          "textAr": "هل يجب أن أبدأ فورًا في جميع المشاريع؟",
+          "textEn": "Should I start working on all projects immediately?",
+          "isCorrect": false,
+          "feedbackAr": "محاولة تحميل نفسك بأكثر من اللازم قبل معرفة الأولويات قد تؤدي إلى إهدار الوقت.",
+          "feedbackEn": "Overloading yourself before knowing priorities can lead to inefficiency."
+        }
+      ]
+    },
+    {
+      "key": "JOB-04-KC-02",
+      "objectiveId": "JOB-04",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من الممارسات التالية تُعدّ جيدة لتسجيل المعلومات الجديدة خلال أسبوعك الأول؟ (اختر كل ما ينطبق)",
+      "stemEn": "Which of the following are good practices for capturing new information during your first week? (Select all that apply)",
+      "rationaleAr": "تُظهر الخيارات الصحيحة مزيجًا من كتابة الملاحظات، حفظ كلمات المرور بأمان، وتحديد من تسأل عن مواضيع محددة.",
+      "rationaleEn": "The correct options show a mix of note‑taking, secure password storage, and identifying who to ask about specific topics.",
+      "options": [
+        {
+          "textAr": "اكتب دفتر ملاحظات شخصي للإجراءات والملفات.",
+          "textEn": "Write a personal notebook of procedures and file locations.",
+          "isCorrect": true,
+          "feedbackAr": "توثيق الإجراءات ومواقع الملفات يخلق مرجعًا موثوقًا للمهام المستقبلية.",
+          "feedbackEn": "Documenting procedures and file locations creates a reliable reference for future tasks."
+        },
+        {
+          "textAr": "سجّل من هو المسؤول عن كل موضوع.",
+          "textEn": "Record who is responsible for each topic.",
+          "isCorrect": true,
+          "feedbackAr": "معرفة من تسأل يقلل من الوقت الضائع في البحث عن الإجابات.",
+          "feedbackEn": "Knowing who to ask saves time that would be spent searching for answers."
+        },
+        {
+          "textAr": "احفظ كلمات المرور في ملف نصي غير محمي.",
+          "textEn": "Save passwords in an unprotected text file.",
+          "isCorrect": false,
+          "feedbackAr": "تخزين كلمات المرور غير محمي يعرض البيانات لخطر الاختراق.",
+          "feedbackEn": "Storing passwords insecurely puts data at risk of a breach."
+        },
+        {
+          "textAr": "اعتمد على الذاكرة فقط دون تدوين شيء.",
+          "textEn": "Rely on memory alone without writing anything down.",
+          "isCorrect": false,
+          "feedbackAr": "الاعتماد على الذاكرة يسبب نسيان التفاصيل بسرعة.",
+          "feedbackEn": "Relying solely on memory leads to forgetting important details quickly."
+        },
+        {
+          "textAr": "اسأل نفس الشخص عن كل شيء لتجنب الارتباك.",
+          "textEn": "Ask the same person about everything to avoid confusion.",
+          "isCorrect": false,
+          "feedbackAr": "إجهاد شخص واحد قد يحد من الحصول على معلومات متخصصة.",
+          "feedbackEn": "Overloading one person can limit access to specialized knowledge."
+        }
+      ]
+    }
+  ]
+}

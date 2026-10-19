@@ -1,0 +1,14 @@
+{
+  "model_id": "openai.gpt-oss-120b-1:0",
+  "temperature": 0,
+  "usage": {
+    "inputTokens": 27916,
+    "outputTokens": 9609,
+    "totalTokens": 37525,
+    "temperature": 0
+  },
+  "seconds": 56.2,
+  "prompt_chars": 140399,
+  "at": "2026-10-19T16:55:24.693005+00:00",
+  "needs_verification": 54
+}

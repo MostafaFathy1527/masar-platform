@@ -1,0 +1,298 @@
+{
+  "slug": "answering-interview-questions",
+  "titleAr": "الإجابة على أسئلة المقابلة",
+  "titleEn": "Answering interview questions",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-02"
+  ],
+  "conceptsIntroduced": [
+    "behavioural_interview_question",
+    "star_structure",
+    "situation",
+    "task",
+    "action",
+    "result",
+    "weakness_question",
+    "pause"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "textAr": "ما هو سؤال المقابلة السلوكي؟",
+          "textEn": "What is a behavioural interview question?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "mdAr": "العديد من أسئلة المقابلة تسأل عن الماضي لتوقع المستقبل: \"احكِ لي عن مرة تعاملت فيها مع عميل صعب\"، \"صف خطأً ارتكبته وماذا فعلت\". لا يبحث المقابل عن القصة المثالية؛ يريد دليلًا على طريقة تفكيرك وتصرفك.",
+          "mdEn": "Many interview questions ask about the past to predict the future: \"Tell me about a time you dealt with a difficult customer\", \"Describe a mistake you made and what you did\". The interviewer is not looking for the perfect story. They want evidence of how you think and act."
+        }
+      },
+      {
+        "id": "b_l1_def_behav_q",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "سؤال المقابلة السلوكي",
+          "termEn": "behavioural_interview_question",
+          "defAr": "سؤال يطلب منك وصف موقف من الماضي لتوقع سلوكك المستقبلي.",
+          "defEn": "A question that asks you to describe a past situation to predict future behaviour."
+        }
+      },
+      {
+        "id": "b_l1_def_star",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "هيكل STAR",
+          "termEn": "star_structure",
+          "defAr": "هيكل شائع يتكون من أربعة أجزاء تُذكر بالترتيب: الوضع، المهمة، الإجراء، النتيجة.",
+          "defEn": "A widely used structure with four parts, often remembered as STAR: Situation, Task, Action, Result."
+        }
+      },
+      {
+        "id": "b_l1_def_situation",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "الوضع",
+          "termEn": "situation",
+          "defAr": "أين ومتى حدثت القصة، عادةً في جملة أو جملتين.",
+          "defEn": "Where and when, in one or two sentences."
+        }
+      },
+      {
+        "id": "b_l1_def_task",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "المهمة",
+          "termEn": "task",
+          "defAr": "ما كنت مسؤولاً عنه أو ما كان يجب تحقيقه.",
+          "defEn": "What you were responsible for, or what had to be achieved."
+        }
+      },
+      {
+        "id": "b_l1_def_action",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "الإجراء",
+          "termEn": "action",
+          "defAr": "ما فعلتَ أنت خطوة بخطوة؛ هذا هو الجزء الأطول. استخدم \"أنا\" وليس \"نحن\" للأجزاء التي قمت بها.",
+          "defEn": "What *you* did, step by step. This is the longest part. Say \"I\", not \"we\", for the parts that were yours."
+        }
+      },
+      {
+        "id": "b_l1_def_result",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "النتيجة",
+          "termEn": "result",
+          "defAr": "ما حدث، وإذا أمكن ما تعلمته أو ما ستفعله بشكل مختلف.",
+          "defEn": "What happened, and if possible what you learned or would do differently."
+        }
+      },
+      {
+        "id": "b_l1_def_weakness",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "سؤال الضعف",
+          "termEn": "weakness_question",
+          "defAr": "أسئلة عن الضعف أو الأخطاء تسأل عما إذا كنت تدرك أخطاءك.",
+          "defEn": "Questions about weaknesses and mistakes are asking whether you can see your own errors."
+        }
+      },
+      {
+        "id": "b_l1_def_pause",
+        "type": "definition_card",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "termAr": "التوقف للتفكير",
+          "termEn": "pause",
+          "defAr": "من المقبول التوقف للتفكير أو طلب إعادة السؤال؛ توقف قصير يسبق إجابة واضحة أفضل من إجابة فورية غامضة.",
+          "defEn": "It is acceptable to pause to think, or to ask for a question to be repeated. A short pause followed by a clear example is better than an immediate vague answer."
+        }
+      },
+      {
+        "id": "b_l1_tip_common_mistakes",
+        "type": "job_tip",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "mdAr": "تجنّب الحديث بصورة عامة (\"أنا دائمًا أظل هادئًا مع العملاء\")؛ ركّز على مثال واحد. لا تقضِ معظم الوقت على الوضع ولا تنسَ الإجراء أو النتيجة.",
+          "mdEn": "Avoid speaking in general (\"I always stay calm with customers\"); focus on a single example. Don’t spend most of the time on the situation and be sure to include action and result."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemsAr": [
+            "استخدم هيكل STAR لتقديم إجابة منظمة.",
+            "اختر مثالًا حقيقيًا يبرز دورك الفردي.",
+            "اشمل كل من الإجراء والنتيجة؛ لا تترك المقابل يتخيل النتيجة."
+          ],
+          "itemsEn": [
+            "Use the STAR structure to give a structured answer.",
+            "Pick a real example that highlights your individual role.",
+            "Include both action and result; don’t leave the interviewer guessing."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "textAr": "طبّق هيكل STAR",
+          "textEn": "Apply the STAR structure",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_flow_star",
+        "type": "process_flow",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "interactive": true,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "الوضع",
+              "labelEn": "Situation",
+              "detailAr": "أين ومتى حدثت القصة.",
+              "detailEn": "Where and when the story took place."
+            },
+            {
+              "id": "s2",
+              "labelAr": "المهمة",
+              "labelEn": "Task",
+              "detailAr": "ما كان عليك إنجازه.",
+              "detailEn": "What you had to achieve."
+            },
+            {
+              "id": "s3",
+              "labelAr": "الإجراء",
+              "labelEn": "Action",
+              "detailAr": "ما فعلتَ خطوة بخطوة.",
+              "detailEn": "What you did step by step."
+            },
+            {
+              "id": "s4",
+              "labelAr": "النتيجة",
+              "labelEn": "Result",
+              "detailAr": "ما حدث وما تعلمته.",
+              "detailEn": "What happened and what you learned."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "promptAr": "سؤال: \"احكِ لي عن مرة تعاملت فيها مع عميل صعب\". استخدم هيكل STAR لتكوين إجابة.",
+          "promptEn": "Question: \"Tell me about a time you dealt with a difficult customer\". Use the STAR structure to craft an answer.",
+          "steps": [
+            {
+              "showAr": "الوضع: في عملي كموظف خدمة عملاء في شركة تدريبية، جاء عميل غاضب بسبب تأخر شحن طلبه.",
+              "showEn": "Situation: In my role as a customer‑service rep at a training company, a customer called angry about a delayed shipment.",
+              "whyAr": "يحدد السياق ويظهر أن هناك مشكلة حقيقية تحتاج إلى حل.",
+              "whyEn": "Sets the context and shows a real problem that needs solving."
+            },
+            {
+              "showAr": "المهمة: كان عليّ تهدئة العميل وإيجاد حل سريع لتجنب تصعيد الشكوى.",
+              "showEn": "Task: I needed to calm the customer and find a quick solution to avoid escalation.",
+              "whyAr": "يوضح ما هو متوقع منك في تلك اللحظة، ما يجعل القصة ذات هدف واضح.",
+              "whyEn": "Clarifies what was expected of you at that moment, giving the story a clear purpose."
+            },
+            {
+              "showAr": "الإجراء: استمعت إلى شكواه دون مقاطعة، اعتذرت عن التأخير، تحققت من حالة الشحنة، ثم عرضت عليه شحنًا سريعًا مجانيًا وتخفيضًا على الطلب التالي.",
+              "showEn": "Action: I listened without interrupting, apologized for the delay, checked the shipment status, then offered free expedited shipping and a discount on the next order.",
+              "whyAr": "يظهر ما فعلتَ شخصيًا لتصحيح الوضع ويبرز مهاراتك في التواصل وحل المشكلات.",
+              "whyEn": "Shows what you personally did to correct the situation and highlights your communication and problem‑solving skills."
+            },
+            {
+              "showAr": "النتيجة: هدأ العميل، استلم الشحنة في اليوم التالي، وأصبح أحد العملاء الدائمين.",
+              "showEn": "Result: The customer calmed down, received the shipment the next day, and became a repeat client.",
+              "whyAr": "يُظهر الأثر الإيجابي ويختتم القصة بنتيجة ملموسة تُظهر قيمتك للمقابل.",
+              "whyEn": "Shows the positive impact and ends the story with a tangible result that demonstrates your value to the interviewer."
+            }
+          ],
+          "answerAr": "أنا استمعت إلى العميل، اعتذرت عن التأخير، وفحصت حالة الشحنة، ثم قدمت شحنًا سريعًا مجانيًا وتخفيضًا على الطلب التالي؛ هدأ العميل، استلم الشحنة في اليوم التالي، وأصبح عميلًا دائمًا.",
+          "answerEn": "I listened to the customer, apologized for the delay, checked the shipment status, then offered free expedited shipping and a discount on the next order; the customer calmed down, received the shipment the next day, and became a repeat client."
+        }
+      },
+      {
+        "id": "b_l2_scenario_wrong_order",
+        "type": "scenario",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "situationAr": "أثناء مقابلة عمل، سُئلت عن موقف صعب مع عميل. بدأت بسرد النتيجة أولاً ثم تلاها الإجراء، ولاحظت أن المقابل يرفع حاجبه.",
+          "situationEn": "During a job interview, you were asked about a difficult customer situation. You started by stating the result first, then the action, and noticed the interviewer raising an eyebrow.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أكمل الإجابة كما هي؛ النتيجة تجذب الانتباه أولًا.",
+              "optionEn": "Continue the answer as is; the result grabs attention first.",
+              "consequenceAr": "المقابل قد يعتقد أنك لا تتبع هيكل STAR، مما يقلل من وضوح إجابتك.",
+              "consequenceEn": "The interviewer may think you’re not following STAR, making your answer less clear.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "أعيد ترتيب الإجابة لتتبع STAR: الوضع، المهمة، الإجراء، ثم النتيجة.",
+              "optionEn": "Re‑order the answer to follow STAR: Situation, Task, Action, then Result.",
+              "consequenceAr": "الإجابة تصبح منظمة وتظهر قدرتك على التفكير المنهجي وتستعيد ثقة المقابل.",
+              "consequenceEn": "The answer becomes organized and shows your systematic thinking, restoring the interviewer's confidence.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "أطلب من المقابل إعادة السؤال لتبدأ من جديد.",
+              "optionEn": "Ask the interviewer to repeat the question so you can start over.",
+              "consequenceAr": "طلب التكرار يُظهر أنك غير مستعد، وقد يُفسَّر كضعف في الثقة بالنفس.",
+              "consequenceEn": "Requesting a repeat can appear as a lack of confidence and preparedness.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemRef": "JOB-02-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-02",
+        "payload": {
+          "itemRef": "JOB-02-KC-02"
+        }
+      }
+    ]
+  }
+}

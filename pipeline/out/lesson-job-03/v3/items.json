@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "writing-a-clear-work-message",
+  "items": [
+    {
+      "key": "JOB-03-KC-01",
+      "objectiveId": "JOB-03",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من مسودات البريد الإلكتروني التالية يتبع أفضل ممارسات كتابة رسالة عمل واضحة كما هو موضح في الدرس؟",
+      "stemEn": "Which of the following email drafts follows the best practices for writing a clear work message as described in the lesson?",
+      "rationaleAr": "الرسالة الصحيحة تبدأ بالغاية، تتضمن طلبًا واضحًا ومحددًا، وتستخدم سطر موضوع وصفي، وفقرات قصيرة، وتتحقق من النبرة قبل الإرسال.",
+      "rationaleEn": "The correct draft starts with the purpose, includes a single clear ask with who/what/when, uses a descriptive subject line, short paragraphs, and checks tone before sending.",
+      "options": [
+        {
+          "textAr": "الموضوع: تحديث\n\nمرحبًا فريق المشروع،\nأردت إبلاغكم أن التقرير جاهز. يرجى مراجعته عندما تتاح لكم الفرصة.\nشكرًا.",
+          "textEn": "Subject: Update\n\nHi Project Team,\nJust wanted to let you know the report is ready. Please review when you can.\nThanks.",
+          "isCorrect": false,
+          "feedbackAr": "يفتقر إلى سطر هدف واضح ولا يحدد طلبًا محددًا أو موعدًا نهائيًا؛ القارئ لا يعرف ما هو المطلوب بالضبط.",
+          "feedbackEn": "Missing a clear purpose line and a specific request or deadline; the reader does not know exactly what is needed."
+        },
+        {
+          "textAr": "الموضوع: طلب معلومات\n\nمرحبًا،\nأحتاج إلى الأرقام المالية، جدول المواعيد، وتقرير الأداء. شكرًا.",
+          "textEn": "Subject: Request for information\n\nHi,\nI need the financial numbers, the schedule, and the performance report. Thanks.",
+          "isCorrect": false,
+          "feedbackAr": "يطلب عدة أشياء في سطر واحد دون تحديد من المسؤول أو موعد التسليم، مما يخلق غموضًا في الرد.",
+          "feedbackEn": "Requests multiple items in one line without specifying who is responsible or a deadline, creating ambiguity in the response."
+        },
+        {
+          "textAr": "الموضوع: تأكيد تاريخ تسليم طلب مارس — يرجى الرد بحلول الخميس\n\nسارة،\nأحتاج إلى تأكيد ما إذا كان تاريخ التسليم للطلب المتعلق بشهر مارس هو 15 أبريل. يرجى الرد بحلول الخميس.\nشكرًا لتعاونك.",
+          "textEn": "Subject: Confirmation of March order delivery date — please reply by Thursday\n\nSara,\nI need confirmation whether the delivery date for the March order is April 15. Please reply by Thursday.\nThank you for your cooperation.",
+          "isCorrect": true,
+          "feedbackAr": "يبدأ السطر الأول بالغاية، يحدد طلبًا واضحًا مع من (سارة) ومتى (بحلول الخميس)، ويستخدم سطر موضوع وصفي.",
+          "feedbackEn": "Starts with the purpose, specifies a clear ask with who (Sara) and when (by Thursday), and uses a descriptive subject line."
+        },
+        {
+          "textAr": "الموضوع: سؤال\n\nمرحبًا،\nهل يمكنك إلقاء نظرة على التقرير؟\nشكرًا.",
+          "textEn": "Subject: Question\n\nHi,\nCan you take a look at the report?\nThanks.",
+          "isCorrect": false,
+          "feedbackAr": "السطر الأول غير محدد ولا يوضح الغرض، والطلب غير مفصل ولا يحتوي على موعد نهائي.",
+          "feedbackEn": "The first line is vague and does not state the purpose; the request is not detailed and lacks a deadline."
+        }
+      ]
+    },
+    {
+      "key": "JOB-03-KC-02",
+      "objectiveId": "JOB-03",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من عناوين البريد الإلكتروني التالية يحقق أفضل ممارسات سطر الموضوع كما هو موضح في الدرس؟",
+      "stemEn": "Which of the following email subject lines best follows the subject‑line best practice described in the lesson?",
+      "rationaleAr": "سطر الموضوع يجب أن يصف محتوى الرسالة بدقة لتسهيل البحث لاحقًا ويجب أن يوضح الغرض من الرسالة.",
+      "rationaleEn": "The subject line should accurately describe the message content for easy later search and convey the purpose of the email.",
+      "options": [
+        {
+          "textAr": "سؤال",
+          "textEn": "Question",
+          "isCorrect": false,
+          "feedbackAr": "لا يصف محتوى الرسالة ولا يوضح الغرض.",
+          "feedbackEn": "Does not describe the content nor convey the purpose."
+        },
+        {
+          "textAr": "تحديث حالة المشروع — مراجعة القسم 2",
+          "textEn": "Project status update — review section 2",
+          "isCorrect": false,
+          "feedbackAr": "يذكر تحديثًا لكنه لا يوضح ما هو الطلب أو الموعد النهائي المطلوب.",
+          "feedbackEn": "Mentions an update but does not clarify the request or required deadline."
+        },
+        {
+          "textAr": "تأكيد تاريخ تسليم طلب مارس — يرجى الرد بحلول الخميس",
+          "textEn": "Confirmation of March order delivery date — please reply by Thursday",
+          "isCorrect": true,
+          "feedbackAr": "يصف محتوى الرسالة (تأكيد تاريخ التسليم) ويحدد الغرض (الرد بحلول الخميس).",
+          "feedbackEn": "Describes the message content (delivery date confirmation) and specifies the purpose (reply by Thursday)."
+        },
+        {
+          "textAr": "طلب معلومات",
+          "textEn": "Request for information",
+          "isCorrect": false,
+          "feedbackAr": "عام جدًا ولا يوضح ما هي المعلومات المطلوبة ولا الموعد.",
+          "feedbackEn": "Too generic; does not specify which information is needed nor a deadline."
+        }
+      ]
+    }
+  ]
+}
