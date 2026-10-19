@@ -99,6 +99,11 @@ sits on the panel, so no judge scores its own family's work. Each run keeps `run
 `run-report.md` beside its versions; no person edits anything between the note and the
 report, and the result is still a DRAFT.
 
+`run_lesson.py --revise` hands the judges' reports on the latest version back to the
+generator once, as a new version, for the case where the one retry was spent on a
+mechanical gate and the judges' findings never reached it. It is the retry, not a second
+loop: it writes one version and stops for a person.
+
 ## Known failure modes
 
 Recorded because they recur, and because a pipeline that does not write these down repeats

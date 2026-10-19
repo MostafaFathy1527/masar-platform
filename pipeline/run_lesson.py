@@ -366,6 +366,33 @@ def write_draft(vdir: Path, raw: dict, model: str, usage: dict, seconds: float, 
     }), encoding='utf-8')
 
 
+def revision_start(out: Path, base_prompt: str) -> tuple[str, dict, str]:
+    """For --revise: the revision prompt built from the latest version under `out`
+    and every report the panel wrote on it, as if that version had just failed.
+
+    Added 19 October 2026: the job-readiness drafts passed the mechanical gates on
+    their one retry, then stopped for a person with one judge failing each of five
+    lessons on Arabic calques, repeated summaries and knowledge checks that could be
+    answered from the worked example. The one-retry loop had already been spent on a
+    gate failure, so the judges' findings never reached the generator. This hands
+    them over once, as a new version; the old ones stay as evidence."""
+    v = next_version(out) - 1
+    vdir = out / f'v{v}'
+    if v < 1 or not (vdir / 'lesson.json').exists():
+        raise RunError(f'{out} holds no version to revise')
+    reports = sorted(vdir.glob('qa-report.*.md'))
+    if not reports:
+        raise RunError(f'{vdir} has no judge reports; revise a version the panel has scored')
+    previous = {'lesson': json.loads((vdir / 'lesson.json').read_text(encoding='utf-8')),
+                'items': json.loads((vdir / 'items.json').read_text(encoding='utf-8'))}
+    findings = '\n\n'.join(p.read_text(encoding='utf-8') for p in reports)
+    panel_report = vdir / 'panel-report.md'
+    if panel_report.exists():
+        findings += '\n\n' + panel_report.read_text(encoding='utf-8')
+    previous_doc = dict(previous['lesson'], _items=(previous['items'] or {}).get('items'))
+    return build_revision_prompt(base_prompt, previous, findings), previous_doc, f'v{v}'
+
+
 def gates_markdown(results: dict) -> str:
     lines = ['# Mechanical gates', '']
     for gate, found in results.items():
@@ -376,7 +403,8 @@ def gates_markdown(results: dict) -> str:
 
 def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str,
         generator: str, region: str, denylist: list, call: ModelCall,
-        judge: Callable[[Path], None], seats: tuple[str, ...] = panel.SEATS) -> dict:
+        judge: Callable[[Path], None], seats: tuple[str, ...] = panel.SEATS,
+        revise: bool = False) -> dict:
     """`judge` scores a version in place and `seats` names the models the panel then
     expects a verdict from; the two go together, so a stand-in judge (the tests) names
     its own seats. A real run uses every seat."""
@@ -387,6 +415,16 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
     base_prompt = build_generation_prompt(source, objective, levels, slug)
     prompt, retried = base_prompt, False
     previous_doc: dict | None = None
+    if revise:
+        prompt, previous_doc, record['revised_from'] = revision_start(out, base_prompt)
+        retried = True
+        # The earlier run's record is history this one continues, not one it replaces.
+        try:
+            earlier = json.loads((out / 'run.json').read_text(encoding='utf-8'))
+            record['steps'] = list(earlier.get('steps') or [])
+            record['earlier_outcome'] = earlier.get('outcome')
+        except (OSError, json.JSONDecodeError):
+            pass
 
     def step(version: str, name: str, result: str, t0: float, **extra) -> None:
         record['steps'].append({'version': version, 'step': name, 'result': result,
@@ -495,6 +533,9 @@ def run_markdown(record: dict) -> str:
         'human review.', '',
         '| Version | Step | Result | Seconds |', '|---|---|---|---|',
     ]
+    if record.get('revised_from'):
+        lines[3:3] = [f'Revised from {record["revised_from"]} with the reports of the panel; the earlier '
+                      f'run ended: {record.get("earlier_outcome") or "unrecorded"}', '']
     for s in record['steps']:
         lines.append(f'| {s["version"]} | {s["step"]} | {s["result"]} | {s["seconds"]} |')
     return '\n'.join(lines) + '\n'
@@ -524,6 +565,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument('--region', default='us-east-1')
     ap.add_argument('--denylist', type=Path)
     ap.add_argument('--dry-run', action='store_true', help='print the generation prompt and stop')
+    ap.add_argument('--revise', action='store_true',
+                    help='revise the latest version under --out from its judge reports')
     args = ap.parse_args(argv)
 
     if SOURCES.resolve() not in args.source.resolve().parents:
@@ -543,7 +586,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.dry_run:
         print(build_generation_prompt(args.source, args.objective, levels, slug))
         return 0
-    if args.out.exists() and any(args.out.glob('v*')):
+    if args.revise and not any(args.out.glob('v*')):
+        print(f'error: --revise needs an earlier run in {args.out}', file=sys.stderr)
+        return 2
+    if not args.revise and args.out.exists() and any(args.out.glob('v*')):
         print(f'error: {args.out} already holds a run; a new run gets a new directory', file=sys.stderr)
         return 2
 
@@ -555,7 +601,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         record = run(args.source, args.objective, args.out, levels=levels, slug=slug,
                      generator=args.generator, region=args.region, denylist=denylist,
-                     call=call, judge=judge_with_panel(args.region))
+                     call=call, judge=judge_with_panel(args.region), revise=args.revise)
     except RunError as e:
         print(f'error: {e}', file=sys.stderr)
         return 2
