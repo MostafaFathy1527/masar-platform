@@ -1,0 +1,34 @@
+{
+  "lesson": "your-first-week",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:06:18.558424+00:00",
+    "usage": {
+      "inputTokens": 6828,
+      "outputTokens": 241
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors in KC-01 are plausible but thin (e.g., 'Can I get a raise now?' is a caricature). Feedback often restates the stem ('asks directly for success criteria') rather than naming a specific misconception. KC-02 distractors are stronger, but some feedback is generic ('memory alone cannot retain all details quickly')."
+  },
+  "verdict_notes": "The lesson is well-aligned and the Arabic reads naturally. The scenario and worked example are solid but could be deeper. The knowledge checks are the weakest part, with distractors that are sometimes implausible and feedback that often restates rather than explains misconceptions."
+}

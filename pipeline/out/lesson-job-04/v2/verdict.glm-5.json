@@ -1,0 +1,35 @@
+{
+  "lesson": "your-first-week",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:06:25.500407+00:00",
+    "usage": {
+      "inputTokens": 6943,
+      "outputTokens": 259
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "The feedback on correct options labels the misconception as 'Correct misconception addressed', which is a category error. Feedback should name the understanding being reinforced, not use a quality label. Distractors are plausible and well-attributed to common mistakes.",
+    "scenario_authenticity": "The scenario presents a frictionless puzzle with an obvious solution. A real first-week situation would involve ambiguity about roles or overlapping responsibilities, not a clean multiple-choice logic puzzle where one department clearly handles inquiries."
+  },
+  "verdict_notes": "The lesson is tight, well-translated, and strongly aligned to its objective. The L2 blocks are present and functional, though the scenario lacks realistic friction. Mean is above threshold but knowledge check feedback phrasing and scenario thinness pull the floor down."
+}

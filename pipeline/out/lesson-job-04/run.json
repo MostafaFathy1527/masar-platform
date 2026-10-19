@@ -1,0 +1,69 @@
+{
+  "source": "pipeline/sources/job-04-your-first-week.md",
+  "objective": "JOB-04",
+  "generator": "openai.gpt-oss-120b-1:0",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T16:04:25.940480+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 51.3,
+      "usage": {
+        "inputTokens": 21903,
+        "outputTokens": 6258,
+        "totalTokens": 28161,
+        "temperature": 0
+      },
+      "needs_verification": 7
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: validate (1)",
+      "seconds": 0.1
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 32.0,
+      "usage": {
+        "inputTokens": 26574,
+        "outputTokens": 5599,
+        "totalTokens": 32173,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.0
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 36.1,
+      "means": {
+        "deepseek.v3.2": 4.25,
+        "zai.glm-5": 4.25,
+        "us.moonshotai.kimi-k3": 3.38
+      },
+      "split": [
+        "bilingual_quality",
+        "concision"
+      ]
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality, concision",
+  "finished": "2026-10-19T16:06:25.502368+00:00"
+}

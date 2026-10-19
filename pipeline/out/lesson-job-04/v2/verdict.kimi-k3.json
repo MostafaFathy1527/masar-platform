@@ -1,0 +1,38 @@
+{
+  "lesson": "your-first-week",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T16:06:14.464331+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 4233
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 3,
+    "scenario_authenticity": 3,
+    "bilingual_quality": 3,
+    "concision": 3,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The 'why' fields are generic ('It shows you've already looked and pinpoints exactly what you need') and restate the tactic rather than naming a judgment or what would change the approach. Step 2 is an optional one-line add-on, not a real step in a process, so the example is closer to a scripted phrase than a worked demonstration of reasoning.",
+    "knowledge_check": "KC-01 has two distractors nobody would choose: 'Can I get a raise now?' and 'Do you have spare time to chat?' are not plausible answers to a stem about understanding performance expectations, so they teach nothing. Feedback on correct options reads 'Correct misconception addressed:' — a template misfire, since a correct answer has no misconception — and most incorrect-option feedback is a one-line label rather than an explanation. KC-02 is materially better (insecure password file, relying on memory, asking one person everything are real misconceptions), which keeps this at 3 rather than lower.",
+    "scenario_authenticity": "Plausible but frictionless. The wrong-option consequences are mild hedges ('may not be familiar', 'may redirect you'), there is no awkwardness (busy colleague, conflicting advice, cost of asking wrong), and the 'best' answer is itself a redirection — asking Mina so she can tell you who actually knows — which blurs the distinction the decision is supposed to teach. Generic texture throughout; no detail that signals an observed workplace.",
+    "bilingual_quality": "Mostly accurate but carries translation tells. 'الشكل الناجح للشهر الأول' is a direct calque of 'what a successful first month looks like' and recurs in the rich text, worked example, takeaways, and KC-01's correct option, amplifying it. Worked-example step 2 has a grammar slip: 'أضف سؤالًا فرعيًا إذا تحتاج تفاصيل إضافية' (should be 'إذا احتجت'). The check-in concept is rendered inconsistently across blocks ('اتفاقية المتابعة' vs 'مراجعة دورية'), against the glossary-consistency requirement.",
+    "concision": "The job tip duplicates the rich-text 'ask good questions' paragraph almost verbatim, including the same shared-folder/price-list example. The takeaways restate the rich text point-for-point (structural for the type, but nothing is compressed), and the five definition cards largely rephrase what the prose already said. The job tip at minimum is removable without loss."
+  },
+  "verdict_notes": "Five criteria at 3 and three at 4; mean 3.375 with nothing below the floor. The structural bones are fine — alignment holds and L2 is genuine practice rather than L1-plus-a-question — but the acting blocks are thin: a two-step worked example with generic 'why', a frictionless scenario, and one knowledge check with throwaway distractors. The Arabic is serviceable but calqued in a phrase the lesson repeats constantly, and the job tip is a copy-paste of prose the learner has already read."
+}

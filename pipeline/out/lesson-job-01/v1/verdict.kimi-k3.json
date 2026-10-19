@@ -1,0 +1,38 @@
+{
+  "lesson": "writing-a-cv",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-19T15:59:38.153321+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6382
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The 'why' lines are generic rather than naming the judgement: 'grabs attention', 'shows the value you added', and step 3's why ('clearly shows the verb, quantity, and result') merely restates what the example displays. Nothing says what would change the choice — e.g. quantify only what you can defend in an interview, or pick the verb that mirrors the skill the advert names.",
+    "knowledge_check": "Seven of eight distractors name real misconceptions (duty phrasing, tool-focus, chronology-first, verbatim copying). The 'add your personal hobbies' option in JOB-01-KC-02 is close to a distractor nobody would choose as a first tailoring step. Feedback is terse but does name the error rather than restate the stem.",
+    "scenario_authenticity": "Recognisable situation with real friction (experience that doesn't obviously match the advert; a tempting duty-line and a panic-delete option). One blemish: the 'best' option asserts Excel/inventory work the situation never established, which sits awkwardly next to the lesson's own honesty rule.",
+    "bilingual_quality": "Arabic reads naturally, not in English word order. Minor blemishes: 'إدعاء' is a misspelling (ادعاء), 'حللت' is ambiguous between 'resolved' and 'analyzed' — unfortunate given the data-analysis scenario — and 'مُدخل النتيجة' is a slightly coined term, though used consistently.",
+    "concision": "Sentence-by-sentence the prose is lean, but the same four points (advert-first, result-not-duty, unpaid experience, structure) are covered three times: overview paragraphs, definition cards, then takeaways. Some of that repetition could go without loss."
+  },
+  "verdict_notes": "One criterion at 3 (worked_example), all others at 4 or 5; mean 4.0. The weakest element is the worked example, whose reasoning describes rather than explains the judgement being made, followed by one implausible distractor in the second knowledge check. Alignment is tight and the Arabic is genuinely fluent with only minor blemishes."
+}

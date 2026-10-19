@@ -1,0 +1,34 @@
+{
+  "lesson": "answering-interview-questions",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:01:30.331850+00:00",
+    "usage": {
+      "inputTokens": 5972,
+      "outputTokens": 262
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible (e.g., mixing order), but feedback is thin, often just restating why the order is wrong without naming a deeper misconception (e.g., 'confuses the story' is generic). The second check is overly simple recall, with distractors that are just the other STAR components, lacking a real misconception about why someone might think Task comes first."
+  },
+  "verdict_notes": "The lesson is well-aligned and has strong bilingual quality. The L2 includes required interactive and scenario blocks, though the process_flow is a simple list. The worked example includes 'why' explanations. The knowledge checks are the weakest part, with thin feedback and one overly simple question. No accessibility or IP issues detected."
+}

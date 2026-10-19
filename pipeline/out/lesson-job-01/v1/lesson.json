@@ -1,0 +1,213 @@
+{
+  "slug": "writing-a-cv",
+  "titleAr": "كتابة سيرة ذاتية تُقرأ",
+  "titleEn": "Writing a CV that gets read",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-01"
+  ],
+  "conceptsIntroduced": [
+    "result_entry",
+    "action_verb",
+    "experience_including_volunteering",
+    "cv_structure"
+  ],
+  "bilingual": true,
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "textAr": "ما هي السيرة الذاتية؟",
+          "textEn": "What is a CV?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_overview",
+        "type": "rich_text",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "mdAr": "السيرة الذاتية تُقرأ بسرعة. القارئ الأول غالبًا ما يمرّ على عدد كبير من السير الذاتية بحثًا عن شيء واحد: هل يبدو المتقدم قادرًا على أداء الوظيفة المعلن عنها؟ سيرة ذاتية تجعل القارئ يبحث عن الجواب عادةً ما تخسر أمام سيرة تضع الإجابة في أعلى الصفحة.\n\n**ابدأ من الإعلان، لا من تاريخك.** اقرأ الإعلان وحدد ما يطلبه: المهام، المهارات، الأدوات. ثم اختر ما ستضعه في السيرة وبأي ترتيب يجيب مباشرةً على تلك المتطلبات. إرسال سيرة مختلفة لكل وظيفة ليس خداعًا؛ إنه اختيار ذكي.\n\n**المدخل هو نتيجة، ليس واجبًا.** \"مسؤول عن مكالمات العملاء\" يصف ما كان عليه العمل. \"أجبت على حوالي أربعين مكالمة يوميًا وحللت معظمها دون تحويلها\" يوضح ما فعلته وكيف كان الأداء.\n\n**الخبرة تشمل أكثر من الوظائف المدفوعة.** التطوع، المشاريع الجامعية، المساعدة في مشروع عائلي، أو تعلم أداة بنفسك كلها تُكتب بنفس الطريقة: ما فعلت وما نتج عن ذلك.\n\n**الهيكل.** الاسم ومعلومات الاتصال في الأعلى، سطر أو سطرين يوضحان نوع العمل الذي تبحث عنه وما تجلبه للمنصب، ثم الخبرة (الأحدث أولًا)، ثم التعليم، ثم المهارات التي يطلبها الإعلان. صفحة إلى صفحتين للمتقدمين الجدد.\n\n**ما يجب إزالته.** التفاصيل الشخصية غير المطلوبة، قوائم طويلة من المهارات الناعمة دون دليل، وأي شيء غير صادق. السيرة التي لا يمكن شرح ما فيها في المقابلة أسوأ من عدم وجود ما فيها.\n\n**التحقق قبل الإرسال.** تدقيق الإملاء، توحيد الخطوط، اسم ملف يحتوي اسمك، وتنسيق الملف المطلوب في الإعلان.",
+          "mdEn": "A CV is read quickly. The first reader often scans many CVs for one thing: does this person look able to do the particular job? A CV that makes the reader search for the answer usually loses to one that puts the answer near the top.\n\n**Start from the advert, not from your history.** Read the advert and underline what it asks for: the tasks, the skills, the tools. Then choose what to put in the CV and in what order, by how directly it answers those lines. Sending a different CV for each job isn’t dishonest; it’s smart selection.\n\n**An entry is a result, not a duty.** \"Responsible for customer calls\" says what the job was. \"Answered about forty customer calls a day and resolved most of them without passing them on\" says what the person did and how well.\n\n**Experience includes more than paid jobs.** Volunteering, a school or university project, helping in a family business, or teaching yourself a tool all count, written the same way: what you did and what came of it.\n\n**Structure.** Name and contact info at the top, a short line or two stating what kind of work you’re looking for and what you bring, matched to the advert. Then experience (newest first), then education, then the skills the advert actually asks about. One to two pages for an early career.\n\n**What to remove.** Personal details the job does not need, unless the advert or local practice asks for them. Long lists of soft skills with no evidence (\"hard‑working, team player\") – the entries should show these instead. Anything untrue: a CV is checked at the interview, and a claim that cannot be explained is worse than no claim.\n\n**Check before sending.** Spelling and names correct, dates consistent, the same font and layout throughout, a file name that includes your name, and the format the advert asked for."
+        }
+      },
+      {
+        "id": "b_l1_def_result_entry",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "مُدخل النتيجة",
+          "termEn": "result_entry",
+          "defAr": "مُدخل يصف نتيجة ملموسة، لا مجرد واجب أو مسؤولية.",
+          "defEn": "An entry that describes a concrete outcome, not just a duty.",
+          "icon": "📈"
+        }
+      },
+      {
+        "id": "b_l1_def_action_verb",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "فعل قوي",
+          "termEn": "action_verb",
+          "defAr": "فعل يبدأ جملة السيرة الذاتية ويُظهر ما فعلته.",
+          "defEn": "A strong verb that begins a CV bullet, showing what you did.",
+          "icon": "⚡"
+        }
+      },
+      {
+        "id": "b_l1_def_experience",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "خبرة تشمل التطوع",
+          "termEn": "experience_including_volunteering",
+          "defAr": "جميع الخبرات ذات الصلة، مدفوعة أو غير مدفوعة، التي تُظهر المهارات المطلوبة.",
+          "defEn": "All relevant experiences, paid or unpaid, that demonstrate the required skills.",
+          "icon": "🤝"
+        }
+      },
+      {
+        "id": "b_l1_def_cv_structure",
+        "type": "definition_card",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "termAr": "هيكل السيرة الذاتية",
+          "termEn": "cv_structure",
+          "defAr": "الترتيب القياسي: معلومات الاتصال، العنوان، الخبرة، التعليم، المهارات.",
+          "defEn": "Standard order: contact info, headline, experience, education, skills.",
+          "icon": "🗂️"
+        }
+      },
+      {
+        "id": "b_l1_tip_remove",
+        "type": "job_tip",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "mdAr": "احذف أي تفاصيل شخصية لا يطلبها الإعلان (مثل الحالة الاجتماعية أو صورة). ركّز على ما يضيف قيمة للوظيفة.",
+          "mdEn": "Remove any personal details the advert doesn’t ask for (e.g., marital status or a photo). Focus on what adds value to the role."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemsAr": [
+            "ابدأ بقراءة الإعلان وحدد ما يطلبه.",
+            "كل سطر في السيرة يجب أن يوضح فعلًا، ما تم إنجازه، والنتيجة.",
+            "استخدم خبرات غير مدفوعة إذا كانت ذات صلة.",
+            "اتبع هيكلًا قياسيًا واحذف ما لا يلزم."
+          ],
+          "itemsEn": [
+            "Start by reading the advert and highlighting required items.",
+            "Each CV bullet should show an action, what was done, and the result.",
+            "Include unpaid experience if it’s relevant.",
+            "Follow a standard structure and strip away irrelevant details."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_scenario_edit",
+        "type": "scenario",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "situationAr": "أنت تُعد سيرة ذاتية لوظيفة تتطلب مهارات تحليل البيانات واستخدام برنامج Excel. لديك خبرة سابقة في تنظيم ملفات إدارية، لكن لا توجد أي إشارة إلى تحليل البيانات. أي تعديل يجب أن تقوم به الآن؟",
+          "situationEn": "You are preparing a CV for a role that requires data‑analysis skills and Excel. Your past experience is organizing administrative files, with no mention of data analysis. What should you do now?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "تضيف سطرًا يقول \"قمت بتنظيم ملفات إدارية\" فقط.",
+              "optionEn": "Add a line that says \"Organized administrative files\" only.",
+              "consequenceAr": "السطر لا يطابق متطلبات الإعلان؛ سيُنظر إليه كعدم صلة.",
+              "consequenceEn": "The bullet does not match the advert’s requirements; it will be seen as irrelevant.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "تعيد صياغة السطر لتظهر كيف استخدمت Excel لتتبع المخزون وتوليد تقارير أسبوعية.",
+              "optionEn": "Re‑write the bullet to show how you used Excel to track inventory and generate weekly reports.",
+              "consequenceAr": "السطر يُظهر مهارة Excel وتحليل بيانات بسيطة، وهو ما يطابق الإعلان.",
+              "consequenceEn": "The bullet demonstrates Excel and basic data analysis, matching the advert.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "تحذف كل الخبرات السابقة وتكتب سطرًا عامًّا عن رغبتك في تعلم Excel.",
+              "optionEn": "Delete all prior experience and write a generic line about wanting to learn Excel.",
+              "consequenceAr": "البيان غير مدعوم بأدلة؛ سيُنظر إليه كإدعاء غير موثوق.",
+              "consequenceEn": "The statement is unsupported; it will be seen as an unsubstantiated claim.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "promptAr": "أعد كتابة السطر التالي ليتبع قاعدة النتيجة: \"مسؤول عن مكالمات العملاء\".",
+          "promptEn": "Rewrite the following line to follow the result rule: \"Responsible for customer calls\".",
+          "steps": [
+            {
+              "showAr": "ابدأ بفعل قوي يوضح ما فعلت.",
+              "showEn": "Start with a strong action verb that shows what you did.",
+              "whyAr": "الفعل القوي يجذب الانتباه ويحدد النشاط.",
+              "whyEn": "A strong verb grabs attention and defines the activity."
+            },
+            {
+              "showAr": "أضف ما أنجزته أو النتيجة التي تحققت.",
+              "showEn": "Add what you accomplished or the outcome achieved.",
+              "whyAr": "النتيجة تُظهر القيمة التي أضفتها.",
+              "whyEn": "The outcome shows the value you added."
+            },
+            {
+              "showAr": "مثال نهائي: \"أجبت على 40 مكالمة يوميًا، وحللت 85٪ منها دون تحويلها\".",
+              "showEn": "Final example: \"Answered 40 customer calls daily, resolving 85% without escalation.\"",
+              "whyAr": "يُظهر الفعل والكمية والنتيجة بوضوح.",
+              "whyEn": "It clearly shows the verb, quantity, and result."
+            }
+          ],
+          "answerAr": "أجبت على 40 مكالمة يوميًا، وحللت 85٪ منها دون تحويلها.",
+          "answerEn": "Answered 40 customer calls daily, resolving 85% without escalation."
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemRef": "JOB-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-01",
+        "payload": {
+          "itemRef": "JOB-01-KC-02"
+        }
+      }
+    ]
+  }
+}

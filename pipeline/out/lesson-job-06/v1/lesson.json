@@ -1,0 +1,266 @@
+{
+  "slug": "feedback-and-mistakes",
+  "titleAr": "التعامل مع الملاحظات والأخطاء",
+  "titleEn": "Taking feedback and owning mistakes",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-06"
+  ],
+  "conceptsIntroduced": [
+    "feedback",
+    "mistake",
+    "ownership"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "textAr": "لماذا الملاحظات مهمة؟",
+          "textEn": "Why feedback matters",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "mdAr": "في أي بيئة عمل، الأخطاء جزء طبيعي من العملية. ما يحدد ما إذا سيتحول الخطأ إلى فرصة تحسين هو طريقة استجابتك للملاحظة. إذا استمعت، فهمت، وصححت، فإنك تبني ثقة وتقلل من تكرار الأخطاء.\n\nالملاحظة الفعّالة ليست هجومًا شخصيًا؛ هي معلومات عن مهمة معينة. التعامل معها بشكل صحيح يرفع من جودة العمل وتعاون الفريق.",
+          "mdEn": "In any workplace, mistakes are inevitable. What turns a mistake into a learning opportunity is how you respond to feedback. Listening, understanding, and correcting builds trust and reduces repeat errors.\n\nEffective feedback is not a personal attack; it is information about a specific task. Handling it well raises work quality and team collaboration."
+        }
+      },
+      {
+        "id": "b_l1_def_feedback",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "الملاحظة",
+          "termEn": "Feedback",
+          "defAr": "ملاحظة تُعطى حول عمل محدد لتوضيح ما يمكن تحسينه أو ما تم إنجازه بشكل جيد.",
+          "defEn": "A comment given about a specific piece of work that clarifies what can be improved or what was done well.",
+          "icon": "💬"
+        }
+      },
+      {
+        "id": "b_l1_def_mistake",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "الخطأ",
+          "termEn": "Mistake",
+          "defAr": "عمل أو قرار غير صحيح ينتج عنه نتيجة غير مقصودة أو نقص في الجودة.",
+          "defEn": "An incorrect action or decision that results in an unintended outcome or a quality gap.",
+          "icon": "❌"
+        }
+      },
+      {
+        "id": "b_l1_def_ownership",
+        "type": "definition_card",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "termAr": "المسؤولية",
+          "termEn": "Ownership",
+          "defAr": "الاعتراف بالخطأ واتخاذ خطوات لتصحيحه ومنع تكراره.",
+          "defEn": "Acknowledging the error and taking steps to fix it and prevent recurrence.",
+          "icon": "🛠️"
+        }
+      },
+      {
+        "id": "b_l1_tip_common",
+        "type": "job_tip",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "mdAr": "**خطأ شائع:** الاعتذار المتكرر دون اتخاذ أي إجراء. يخلق انطباعًا بأنك لا تتعلم من الأخطاء. بدلاً من ذلك، قل \"سأصحح ذلك الآن\" ثم نفّذ التغيير.",
+          "mdEn": "**Common pitfall:** Over‑apologizing without taking action. It signals you aren’t learning. Instead, say \"I’ll fix it now\" and actually make the change."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemsAr": [
+            "استمع أولاً لتفهم الملاحظة قبل الرد.",
+            "افصل بين العمل وشخصك؛ الملاحظة ليست هجومًا شخصيًا.",
+            "اعترف بالخطأ مبكرًا، صلح ما يمكن إصلاحه، وأخبر المتأثرين.",
+            "حدد تغييرًا عمليًا يمنع تكرار الخطأ."
+          ],
+          "itemsEn": [
+            "Listen first to understand the feedback before responding.",
+            "Separate the work from yourself; feedback isn’t a personal attack.",
+            "Own the mistake early, fix what you can, and inform those affected.",
+            "Identify a concrete change that prevents the same error."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "textAr": "طبق ما تعلمت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_flow_steps",
+        "type": "process_flow",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "الاستماع",
+              "labelEn": "Listen",
+              "detailAr": "اطلب توضيحًا إذا كانت الملاحظة غير واضحة.",
+              "detailEn": "Ask for clarification if the feedback is vague."
+            },
+            {
+              "id": "s2",
+              "labelAr": "الفصل",
+              "labelEn": "Separate",
+              "detailAr": "اعرف أن الملاحظة تتعلق بالعمل، لا بشخصك.",
+              "detailEn": "Recognize the feedback is about the work, not you."
+            },
+            {
+              "id": "s3",
+              "labelAr": "الاعتراف",
+              "labelEn": "Own",
+              "detailAr": "اعترف بالخطأ في أقرب وقت ممكن.",
+              "detailEn": "Own the mistake as soon as you become aware."
+            },
+            {
+              "id": "s4",
+              "labelAr": "الإصلاح",
+              "labelEn": "Fix",
+              "detailAr": "صحح ما يمكن تصحيحه وأبلغ المتأثرين.",
+              "detailEn": "Correct what can be corrected and inform those affected."
+            },
+            {
+              "id": "s5",
+              "labelAr": "التغيير",
+              "labelEn": "Change",
+              "detailAr": "حدد إجراءً يمنع تكرار الخطأ في المستقبل.",
+              "detailEn": "Define an action that prevents the same mistake later."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_scenario_vague",
+        "type": "scenario",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "situationAr": "زميلك يرسل لك ملاحظة تقول: \"التقرير غير واضح\" دون إعطاء تفاصيل إضافية. ما هو أفضل رد؟",
+          "situationEn": "Your coworker sends you feedback: \"The report is unclear\" with no further details. What is the best response?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أرسل ردًا تقول فيه إنك لا تفهم ما المقصود وتطلب مثالًا.",
+              "optionEn": "Reply that you don’t understand and ask for an example.",
+              "consequenceAr": "تحصل على توضيح يتيح لك تحسين التقرير بسرعة.",
+              "consequenceEn": "You get clarification that lets you improve the report quickly.",
+              "isBest": true
+            },
+            {
+              "id": "d2",
+              "optionAr": "تدافع عن التقرير وتشرح لماذا تعتقد أنه واضح.",
+              "optionEn": "Defend the report and explain why you think it’s clear.",
+              "consequenceAr": "تُقابل بالمزيد من الإحباط وقد يتصاعد النقاش.",
+              "consequenceEn": "You may meet more frustration and the discussion can escalate.",
+              "isBest": false
+            },
+            {
+              "id": "d3",
+              "optionAr": "تعتذر وتعد بإعادة كتابة التقرير بالكامل دون معرفة ما هو غير واضح.",
+              "optionEn": "Apologize and promise to rewrite the whole report without knowing the issue.",
+              "consequenceAr": "تضيع وقتك وتظهر كأنك لا تفهم الملاحظة.",
+              "consequenceEn": "You waste time and appear not to understand the feedback.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_feedback",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "buckets": [
+            {
+              "id": "task",
+              "labelAr": "ملاحظة على المهمة",
+              "labelEn": "Task‑related feedback"
+            },
+            {
+              "id": "personal",
+              "labelAr": "ملاحظة شخصية",
+              "labelEn": "Personal feedback"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "البيانات في الجدول غير دقيقة",
+              "textEn": "Data in the table is inaccurate",
+              "bucketId": "task",
+              "whyAr": "تتعلق بالمحتوى وليس بالشخص.",
+              "whyEn": "It concerns content, not the person."
+            },
+            {
+              "id": "c2",
+              "textAr": "نبرة رسالتك كانت حادة",
+              "textEn": "Your tone was harsh",
+              "bucketId": "personal",
+              "whyAr": "تُعالج أسلوب التواصل.",
+              "whyEn": "It addresses communication style."
+            },
+            {
+              "id": "c3",
+              "textAr": "لم تُرفق المستندات المطلوبة",
+              "textEn": "Required documents were not attached",
+              "bucketId": "task",
+              "whyAr": "خطأ في إكمال المهمة.",
+              "whyEn": "A task completion error."
+            },
+            {
+              "id": "c4",
+              "textAr": "تظهر لك دائمًا علامات التوتر",
+              "textEn": "You seem constantly stressed",
+              "bucketId": "personal",
+              "whyAr": "تعلق بمظهر شخصي وليس بالعمل.",
+              "whyEn": "It relates to personal demeanor, not work."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemRef": "JOB-06-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-06",
+        "payload": {
+          "itemRef": "JOB-06-KC-02"
+        }
+      }
+    ]
+  }
+}

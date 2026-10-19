@@ -1,0 +1,35 @@
+{
+  "lesson": "writing-a-clear-work-message",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:04:19.332297+00:00",
+    "usage": {
+      "inputTokens": 6338,
+      "outputTokens": 244
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Steps show what to do but the 'why' is generic (e.g., 'tells the reader exactly what the email is about'). It does not name a specific judgement or what would change it.",
+    "knowledge_check": "Distractors are plausible, but feedback often just restates the stem (e.g., 'does not state the purpose clearly') rather than naming a specific misconception someone holds."
+  },
+  "verdict_notes": "Two criteria scored 3. The worked example's reasoning is generic, and the knowledge check feedback restates the problem instead of explaining the misconception. The lesson is otherwise well-aligned and compliant."
+}

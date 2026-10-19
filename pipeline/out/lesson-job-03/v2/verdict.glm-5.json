@@ -1,0 +1,37 @@
+{
+  "lesson": "writing-a-clear-work-message",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:04:25.806185+00:00",
+    "usage": {
+      "inputTokens": 6452,
+      "outputTokens": 262
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 provides a scenario and worked example as required, but the scenario is a single binary decision rather than a more complex application.",
+    "worked_example": "Steps explain the 'what' and 'why' clearly, though the reasoning is somewhat procedural rather than exploring alternative approaches.",
+    "knowledge_check": "Distractors represent plausible errors (vague subjects, multiple requests), though the feedback on the second question's incorrect options is slightly repetitive.",
+    "scenario_authenticity": "The situation is recognisable, though the friction is mild and the decision is straightforward."
+  },
+  "verdict_notes": "A strong, well-aligned lesson with excellent bilingual quality and tight prose. The L2 components are functional but lack complexity, making the lesson good rather than exceptional."
+}

@@ -1,0 +1,47 @@
+{
+  "source": "pipeline/sources/job-01-writing-a-cv.md",
+  "objective": "JOB-01",
+  "generator": "openai.gpt-oss-120b-1:0",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-19T15:57:29.084847+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 91.6,
+      "usage": {
+        "inputTokens": 21999,
+        "outputTokens": 5671,
+        "totalTokens": 27670,
+        "temperature": 0
+      },
+      "needs_verification": 4
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 50.3,
+      "means": {
+        "deepseek.v3.2": 4.25,
+        "zai.glm-5": 4.5,
+        "us.moonshotai.kimi-k3": 4.0
+      },
+      "split": []
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson",
+  "finished": "2026-10-19T15:59:51.092536+00:00"
+}

@@ -1,0 +1,95 @@
+{
+  "courseSlug": "your-first-week",
+  "note": "JOB-04 first week practice items",
+  "items": [
+    {
+      "key": "JOB-04-KC-01",
+      "objectiveId": "JOB-04",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي سؤال هو الأنسب لتسأله لمديرك لفهم توقعات الأداء في الشهر الأول؟",
+      "stemEn": "Which question is most appropriate to ask your manager to understand performance expectations for the first month?",
+      "rationaleAr": "السؤال يركز على ما يحدده المدير كمعايير النجاح بدلاً من طلب مكافأة أو معلومات غير ذات صلة.",
+      "rationaleEn": "The question focuses on the manager's definition of success rather than asking for a raise or unrelated information.",
+      "options": [
+        {
+          "textAr": "ما هو الشكل الناجح للشهر الأول؟",
+          "textEn": "What does a successful first month look like?",
+          "isCorrect": true,
+          "feedbackAr": "مفهوم صحيح: يطلب توضيحًا مباشرًا للمعايير.",
+          "feedbackEn": "Correct misconception addressed: asks directly for success criteria."
+        },
+        {
+          "textAr": "هل يمكنني الحصول على زيادة الآن؟",
+          "textEn": "Can I get a raise now?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: طلب تعويض مبكر قبل إثبات الأداء.",
+          "feedbackEn": "Common mistake: asking for compensation too early."
+        },
+        {
+          "textAr": "هل لديك وقت فراغ للدردشة؟",
+          "textEn": "Do you have spare time to chat?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: سؤال غير محدد ولا يوضح هدفًا.",
+          "feedbackEn": "Common mistake: vague question that does not clarify a goal."
+        },
+        {
+          "textAr": "هل يجب أن أبدأ فورًا في جميع المشاريع؟",
+          "textEn": "Should I start working on all projects immediately?",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: محاولة تحميل نفسك بأكثر من اللازم قبل معرفة الأولويات.",
+          "feedbackEn": "Common mistake: overloading yourself before priorities are known."
+        }
+      ]
+    },
+    {
+      "key": "JOB-04-KC-02",
+      "objectiveId": "JOB-04",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من الممارسات التالية تُعدّ جيدة لتسجيل المعلومات الجديدة خلال أسبوعك الأول؟ (اختر كل ما ينطبق)",
+      "stemEn": "Which of the following are good practices for capturing new information during your first week? (Select all that apply)",
+      "rationaleAr": "تُظهر الخيارات الصحيحة مزيجًا من كتابة الملاحظات، حفظ كلمات المرور بأمان، وتحديد من تسأل عن مواضيع محددة.",
+      "rationaleEn": "The correct options show a mix of note‑taking, secure password storage, and identifying who to ask about specific topics.",
+      "options": [
+        {
+          "textAr": "اكتب دفتر ملاحظات شخصي للإجراءات والملفات.",
+          "textEn": "Write a personal notebook of procedures and file locations.",
+          "isCorrect": true,
+          "feedbackAr": "مفهوم صحيح: توثيق ما تتعلمه يحفظ المعرفة.",
+          "feedbackEn": "Correct misconception addressed: documenting what you learn preserves knowledge."
+        },
+        {
+          "textAr": "سجّل من هو المسؤول عن كل موضوع.",
+          "textEn": "Record who is responsible for each topic.",
+          "isCorrect": true,
+          "feedbackAr": "مفهوم صحيح: معرفة من تسأل يقلل الوقت الضائع.",
+          "feedbackEn": "Correct misconception addressed: knowing who to ask reduces wasted time."
+        },
+        {
+          "textAr": "احفظ كلمات المرور في ملف نصي غير محمي.",
+          "textEn": "Save passwords in an unprotected text file.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: حفظ كلمات المرور غير آمن ويعرض البيانات للخطر.",
+          "feedbackEn": "Common mistake: storing passwords insecurely puts data at risk."
+        },
+        {
+          "textAr": "اعتمد على الذاكرة فقط دون تدوين شيء.",
+          "textEn": "Rely on memory alone without writing anything down.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: الذاكرة لا تحتفظ بكل التفاصيل بسرعة.",
+          "feedbackEn": "Common mistake: memory alone cannot retain all details quickly."
+        },
+        {
+          "textAr": "اسأل نفس الشخص عن كل شيء لتجنب الارتباك.",
+          "textEn": "Ask the same person about everything to avoid confusion.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ شائع: لا أحد يعرف كل شيء؛ توزيع الأسئلة فعال.",
+          "feedbackEn": "Common mistake: no one knows everything; distributing questions is effective."
+        }
+      ]
+    }
+  ]
+}

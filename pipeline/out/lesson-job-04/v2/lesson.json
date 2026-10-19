@@ -1,0 +1,271 @@
+{
+  "slug": "your-first-week",
+  "titleAr": "أول أسبوع في العمل",
+  "titleEn": "Your First Week on the Job",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "JOB-04"
+  ],
+  "conceptsIntroduced": [
+    "first_week_expectations",
+    "question_strategy",
+    "knowledge_capture",
+    "communication_protocol",
+    "check_in_agreement"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "textAr": "ما الذي يجب أن تعرفه في أول أسبوع",
+          "textEn": "What you need to know in your first week",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_overview",
+        "type": "rich_text",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "mdAr": "الأسبوع الأول هو الوقت الأسهل لطرح الأسئلة والأصعب لمعرفة أيّ الأسئلة يجب طرحها. الأشخاص الذين يبدأون جيدًا هم عادةً ليسوا الذين يعرفون كل شيء، بل الذين يكتشفون ما يهم عن قصد.\n\n**اعرف ما يعنيه \"القيام بالوظيفة جيدًا\" هنا.** اسأل مديرك مباشرةً: ما هو الشكل الناجح للشهر الأول؟ أيّ المهام أهم؟ كيف سأعرف إذا كان شيء فعلته خاطئًا؟\n\n**تعلم من يسأل عن ماذا.** معظم أماكن العمل لديها شخص يعرف الأنظمة، وآخر يعرف العملاء، وآخر يوافق على الأشياء. معرفة من هو يساعدك في كل شيء يوفر أيامًا من التخمين.\n\n**اكتب الأشياء.** المعلومات الجديدة تصل أسرع مما يمكنك تذكره: كلمات المرور، الإجراءات، الأسماء، مكان حفظ الملفات. دفتر ملاحظات شخصي \"كيف نفعل X هنا\" يعني أنك تسأل كل سؤال مرة واحدة.\n\n**اسأل أسئلة جيدة.** قبل السؤال، اقضِ بضع دقائق للبحث عن الجواب بنفسك، ثم اسأل، قائلًا ما جربت بالفعل. \"بحثت في المجلد المشترك وفي الدليل، ولم أجد قائمة الأسعار — أين تُحفظ؟\" يحترم وقت الآخرين ويظهر الجهد.\n\n**راقب كيف تُنفّذ الأمور فعليًا.** الإجراءات المكتوبة والواقع غالبًا يختلفان. لاحظ كيف يتواصل الزملاء، ومدى سرعة الرد، وكيف تُتخذ القرارات. انسخ ما ينجح قبل أن تقترح تغييرات.\n\n**كن حذرًا مع التغييرات المبكرة.** الأشخاص الجدد يرون المشكلات بوضوح. دوّنها واطرحها بعد أن تفهم لماذا تُجرى الأمور بهذه الطريقة؛ قد يكون هناك سبب لم تلاحظه بعد.\n\n**اتفق على مراجعة دورية.** محادثة قصيرة منتظمة مع مديرك في الأسابيع الأولى تلتقط سوء الفهم بينما لا يزال صغيرًا.\n\nخطأ شائع هو الصمت لتظهر كأنك قادر، ثم تكتشف بعد أسابيع أن مهمة ما كانت تُنفّذ بطريقة خاطئة طوال الوقت.",
+          "mdEn": "The first week is when it is easiest to ask questions and hardest to know which ones to ask. People who start well are usually not the ones who already know everything, but the ones who find out deliberately what matters.\n\n**Find out what \"doing this job well\" means here.** Ask your manager directly: what does a good first month look like? Which tasks matter most? How will I know if something I did is wrong?\n\n**Learn who to ask for what.** Most workplaces have a person who knows the systems, a person who knows the customers, and a person who approves things. Knowing who they are saves days of guessing.\n\n**Write things down.** New information arrives faster than it can be remembered: passwords, procedures, names, where files are kept. A personal notebook of \"how we do X here\" means you ask each question once.\n\n**Ask good questions.** Before asking, spend a few minutes trying to find the answer yourself, then ask, saying what you already tried. \"I looked in the shared folder and the guide, and could not find the price list — where is it kept?\" respects the other person's time and shows effort.\n\n**Watch how things are actually done.** Written procedures and real practice often differ. Notice how colleagues communicate, how quickly people reply, and how decisions are made. Copy what works before suggesting changes.\n\n**Be careful with changes early.** New people often see problems clearly. Note them and raise them after you understand why things are done the way they are; there may be a reason you have not seen yet.\n\n**Agree a check‑in.** A short regular conversation with your manager in the first weeks catches misunderstandings while they are still small.\n\nA common mistake is staying silent to look capable, then discovering weeks later that a task was being done wrongly the whole time."
+        }
+      },
+      {
+        "id": "b_l1_def_first_week_expectations",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "توقعات الأسبوع الأول",
+          "termEn": "first_week_expectations",
+          "defAr": "ما يعنيه المدير عندما يصف النجاح في الشهر الأول، بما في ذلك المهام ذات الأولوية وكيفية قياس الأداء.",
+          "defEn": "What the manager means when describing a successful first month, including priority tasks and how performance will be measured."
+        }
+      },
+      {
+        "id": "b_l1_def_question_strategy",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "استراتيجية السؤال",
+          "termEn": "question_strategy",
+          "defAr": "طريقة صياغة الأسئلة التي تُظهر ما جربت بالفعل وتطلب توجيهًا محددًا.",
+          "defEn": "A way of phrasing questions that shows what you have already tried and asks for specific guidance."
+        }
+      },
+      {
+        "id": "b_l1_def_knowledge_capture",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "تسجيل المعرفة",
+          "termEn": "knowledge_capture",
+          "defAr": "دفتر ملاحظات شخصي يُجمع فيه كلمات المرور، الإجراءات، أسماء الأشخاص، ومواقع الملفات.",
+          "defEn": "A personal notebook that collects passwords, procedures, people’s names, and file locations."
+        }
+      },
+      {
+        "id": "b_l1_def_communication_protocol",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "بروتوكول التواصل",
+          "termEn": "communication_protocol",
+          "defAr": "القواعد التي تحدد من تسأل عن أي موضوع وكيفية تجميع الأسئلة الصغيرة في مجموعة.",
+          "defEn": "The rules that determine who to ask about which topic and how to bundle small questions together."
+        }
+      },
+      {
+        "id": "b_l1_def_check_in_agreement",
+        "type": "definition_card",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "termAr": "اتفاقية المتابعة",
+          "termEn": "check_in_agreement",
+          "defAr": "محادثة قصيرة منتظمة مع المدير لتأكيد الفهم وتصحيح الأخطاء مبكرًا.",
+          "defEn": "A short regular conversation with the manager to confirm understanding and correct mistakes early."
+        }
+      },
+      {
+        "id": "b_l1_tip_ask_good",
+        "type": "job_tip",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "mdAr": "قبل طرح سؤال، ابحث عن الجواب لمدة دقائق، ثم اسأل مع ذكر ما جربت. مثال: \"بحثت في المجلد المشترك ولم أجد قائمة الأسعار — أين تُحفظ؟\"",
+          "mdEn": "Before asking a question, spend a few minutes looking for the answer, then ask while stating what you tried. Example: \"I looked in the shared folder and couldn't find the price list — where is it kept?\""
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemsAr": [
+            "اسأل مديرك مباشرةً عن ما يعنيه النجاح في الشهر الأول.",
+            "اعرف من يملك المعرفة عن الأنظمة، العملاء، والموافقات.",
+            "دوّن كل شيء في دفتر ملاحظات شخصي.",
+            "استخدم استراتيجية سؤال تُظهر ما جربت بالفعل.",
+            "راقب الفروقات بين الإجراءات المكتوبة والواقع.",
+            "اتفق على مراجعة دورية مع مديرك."
+          ],
+          "itemsEn": [
+            "Ask your manager directly what a successful first month looks like.",
+            "Identify who knows the systems, the customers, and the approvals.",
+            "Write everything down in a personal notebook.",
+            "Use a question strategy that shows what you have already tried.",
+            "Observe differences between written procedures and actual practice.",
+            "Agree on a regular check‑in with your manager."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "textAr": "طبق ما تعلمته",
+          "textEn": "Put what you learned into practice",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_we_ask_good_question",
+        "type": "worked_example",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "promptAr": "أنت تريد معرفة ما يعنيه المدير \"النجاح في الشهر الأول\". كيف تصيغ سؤالك لتظهر أنك حاولت البحث أولاً؟",
+          "promptEn": "You want to know what your manager means by \"success in the first month\". How do you phrase your question to show you tried to find the answer first?",
+          "steps": [
+            {
+              "showAr": "قُل: \"لقد راجعت دليل الموظف ولا أجد تفاصيل حول توقعات الأداء في الشهر الأول. ما هو الشكل الناجح لهذا الشهر؟\"",
+              "showEn": "Say: \"I’ve reviewed the employee guide and couldn’t find details on first‑month performance expectations. What does a successful first month look like?\"",
+              "whyAr": "تظهر أنك بحثت بالفعل وتحدد بالضبط ما تحتاجه.",
+              "whyEn": "It shows you’ve already looked and pinpoints exactly what you need."
+            },
+            {
+              "showAr": "أضف سؤالًا فرعيًا إذا تحتاج تفاصيل إضافية: \"أيّ المهام يجب أن أركز عليها أولاً؟\"",
+              "showEn": "Add a follow‑up if needed: \"Which tasks should I prioritize first?\"",
+              "whyAr": "يساعد على توجيه المدير لتقديم أولويات واضحة.",
+              "whyEn": "Helps the manager give clear priorities."
+            }
+          ],
+          "answerAr": "استخدم صياغة تُظهر البحث المسبق وتحدّد السؤال بدقة، كما في المثال أعلاه.",
+          "answerEn": "Use phrasing that shows prior research and asks the question precisely, as in the example."
+        }
+      },
+      {
+        "id": "b_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "situationAr": "أنت في أول أسبوع لك وتحتاج إلى معرفة من تسأل عن إجراءات الفوترة. لديك ثلاثة أشخاص محتملين: سارة من قسم التقنية، علي من قسم المبيعات، ومينا من قسم الدعم. ما هو أفضل خيار؟",
+          "situationEn": "It's your first week and you need to know who to ask about billing procedures. You have three possible contacts: Sara from IT, Ali from Sales, and Mina from Support. What is the best choice?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اسأل سارة من التقنية لأنها تدير الأنظمة.",
+              "optionEn": "Ask Sara from IT because she manages the systems.",
+              "consequenceAr": "قد لا تكون على دراية بإجراءات الفوترة الخاصة بالمؤسسة.",
+              "consequenceEn": "She may not be familiar with the specific billing procedures.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اسأل مينا من الدعم لأنها تتعامل مع استفسارات الموظفين اليومية.",
+              "optionEn": "Ask Mina from Support because she handles daily employee inquiries.",
+              "consequenceAr": "ستحصل على إجابة دقيقة حول من يملك المعرفة عن الفوترة.",
+              "consequenceEn": "You will get an accurate answer about who knows the billing process.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "اسأل علي من المبيعات لأنه يتعامل مع العملاء.",
+              "optionEn": "Ask Ali from Sales because he deals with customers.",
+              "consequenceAr": "قد يوجهك إلى شخص آخر دون حل فوري.",
+              "consequenceEn": "He may redirect you to someone else without an immediate solution.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_tasks",
+        "type": "sort_buckets",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "buckets": [
+            {
+              "id": "ask",
+              "labelAr": "الأسئلة",
+              "labelEn": "Questions"
+            },
+            {
+              "id": "record",
+              "labelAr": "التوثيق",
+              "labelEn": "Documentation"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "من هو المسؤول عن الفوترة؟",
+              "textEn": "Who is responsible for billing?",
+              "bucketId": "ask",
+              "whyAr": "سؤال يحدد من تسأل للحصول على إجابة دقيقة.",
+              "whyEn": "A question that identifies the right person to ask."
+            },
+            {
+              "id": "c2",
+              "textAr": "قائمة الأسعار الداخلية",
+              "textEn": "Internal price list",
+              "bucketId": "record",
+              "whyAr": "مستند يجب حفظه للرجوع إليه لاحقًا.",
+              "whyEn": "A document to keep for future reference."
+            },
+            {
+              "id": "c3",
+              "textAr": "كلمة المرور للوصول إلى نظام الفوترة",
+              "textEn": "Password for the billing system",
+              "bucketId": "record",
+              "whyAr": "حفظها بأمان يضمن استمرارية العمل.",
+              "whyEn": "Storing it securely ensures continuity of work."
+            },
+            {
+              "id": "c4",
+              "textAr": "متى يتم إرسال الفواتير للعميل؟",
+              "textEn": "When are invoices sent to the client?",
+              "bucketId": "ask",
+              "whyAr": "سؤال يوضح توقيت العملية لتجنب التأخير.",
+              "whyEn": "A question that clarifies timing to avoid delays."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemRef": "JOB-04-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "JOB-04",
+        "payload": {
+          "itemRef": "JOB-04-KC-02"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "feedback-and-mistakes",
+  "items": [
+    {
+      "key": "JOB-06-KC-01",
+      "objectiveId": "JOB-06",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما هو الإجراء الأول المثالي عند تلقي ملاحظة؟",
+      "stemEn": "What is the ideal first action when receiving feedback?",
+      "rationaleAr": "الاستماع قبل الرد يضمن فهم النقطة وتجنب الدفاع المبكر.",
+      "rationaleEn": "Listening before responding ensures you understand the point and avoids premature defense.",
+      "options": [
+        {
+          "textAr": "الاستماع وطلب توضيح إذا لزم الأمر",
+          "textEn": "Listen and ask for clarification if needed",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو السلوك الصحيح؛ يوضح الفهم قبل الرد.",
+          "feedbackEn": "Correct – listening first clarifies the issue before you respond."
+        },
+        {
+          "textAr": "الدفاع عن عملك فورًا",
+          "textEn": "Defend your work immediately",
+          "isCorrect": false,
+          "feedbackAr": "الدفاع قبل الفهم يؤدي إلى تصعيد النقاش.",
+          "feedbackEn": "Defending before understanding often escalates the conversation."
+        },
+        {
+          "textAr": "تجاهل الملاحظة",
+          "textEn": "Ignore the feedback",
+          "isCorrect": false,
+          "feedbackAr": "التجاهل يرسل رسالة بأنك غير مهتم بالتحسين.",
+          "feedbackEn": "Ignoring signals that you don’t care about improvement."
+        },
+        {
+          "textAr": "طلب ترقية كتعويض",
+          "textEn": "Ask for a promotion as compensation",
+          "isCorrect": false,
+          "feedbackAr": "طلب ترقية لا يرتبط بالملاحظة ولا يحل المشكلة.",
+          "feedbackEn": "Requesting a promotion is unrelated and does not address the issue."
+        }
+      ]
+    },
+    {
+      "key": "JOB-06-KC-02",
+      "objectiveId": "JOB-06",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من العبارات التالية تمثل سلوكًا صحيحًا عند اكتشافك لخطأ؟ (اختر كل ما ينطبق)",
+      "stemEn": "Which of the following represent correct behavior when you discover a mistake? (Select all that apply)",
+      "rationaleAr": "الإقرار المبكر، تحديد الأثر، وتحديد تغيير وقائي هي ممارسات موصى بها.",
+      "rationaleEn": "Early admission, impact identification, and defining a preventive change are recommended practices.",
+      "options": [
+        {
+          "textAr": "الإقرار بالخطأ في أقرب وقت ممكن",
+          "textEn": "Admit the mistake as soon as possible",
+          "isCorrect": true,
+          "feedbackAr": "الإقرار المبكر يبني الثقة ويمنع تفاقم الخطأ.",
+          "feedbackEn": "Early admission builds trust and prevents escalation."
+        },
+        {
+          "textAr": "الاعتذار دون اتخاذ أي إجراء تصحيحي",
+          "textEn": "Apologize without taking any corrective action",
+          "isCorrect": false,
+          "feedbackAr": "الاعتذار وحده لا يكفي؛ يحتاج إلى تصحيح.",
+          "feedbackEn": "An apology alone is insufficient; corrective action is needed."
+        },
+        {
+          "textAr": "تحديد الأثر الذي سببته الأخطاء",
+          "textEn": "Identify the impact the mistake caused",
+          "isCorrect": true,
+          "feedbackAr": "تحديد الأثر يساعد على توجيه الإصلاح بشكل مناسب.",
+          "feedbackEn": "Identifying impact helps target the fix appropriately."
+        },
+        {
+          "textAr": "اقتراح تغيير يمنع تكرار الخطأ في المستقبل",
+          "textEn": "Propose a change that prevents the mistake from recurring",
+          "isCorrect": true,
+          "feedbackAr": "التغيير الوقائي هو العنصر الأساسي لإعادة بناء الثقة.",
+          "feedbackEn": "A preventive change is key to rebuilding trust."
+        },
+        {
+          "textAr": "إلقاء اللوم على الظروف أو زملاء آخرين",
+          "textEn": "Blame circumstances or other colleagues",
+          "isCorrect": false,
+          "feedbackAr": "إلقاء اللوم يعرقل التعلم ويقلل من مصداقيتك.",
+          "feedbackEn": "Blaming shifts responsibility and hinders learning."
+        }
+      ]
+    }
+  ]
+}

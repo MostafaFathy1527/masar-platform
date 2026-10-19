@@ -1,0 +1,35 @@
+{
+  "lesson": "feedback-and-mistakes",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-19T16:10:21.587503+00:00",
+    "usage": {
+      "inputTokens": 6047,
+      "outputTokens": 260
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Steps clearly show both action and reasoning. The 'why' is present and specific to the situation, though slightly procedural rather than exploring edge cases or judgment calls.",
+    "knowledge_check": "One distractor in JOB-06-KC-01 ('Ask for a promotion as compensation') is implausible—no reasonable person in a workplace feedback scenario would select this. It fails to represent a real misconception. The other distractors are plausible and the feedback is adequate, naming the issue rather than just restating the answer."
+  },
+  "verdict_notes": "Strong lesson overall with excellent bilingual quality and tight alignment to objectives. The knowledge check contains one throwaway distractor that undermines the quality of assessment, but the rest of the content is well-constructed and practical."
+}

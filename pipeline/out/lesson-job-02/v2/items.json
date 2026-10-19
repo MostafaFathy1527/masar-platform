@@ -1,0 +1,88 @@
+{
+  "courseSlug": "answering-interview-questions",
+  "note": "JOB-02 knowledge checks",
+  "items": [
+    {
+      "key": "JOB-02-KC-01",
+      "objectiveId": "JOB-02",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما هو الترتيب الصحيح لمكوّنات STAR عند الإجابة على سؤال سلوكي؟",
+      "stemEn": "Which of the following correctly orders the STAR components when answering a behavioural interview question?",
+      "rationaleAr": "يجب أن يتبع المتقدِّم للوظيفة تسلسل الوضع → المهمة → الإجراء → النتيجة لتقديم إجابة منطقية.",
+      "rationaleEn": "The candidate should follow the sequence Situation → Task → Action → Result to give a logical answer.",
+      "options": [
+        {
+          "textAr": "الوضع، المهمة، الإجراء، النتيجة",
+          "textEn": "Situation, Task, Action, Result",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: هذا هو الترتيب الرسمي لهيكل STAR.",
+          "feedbackEn": "Correct: This is the official STAR order."
+        },
+        {
+          "textAr": "المهمة، الوضع، الإجراء، النتيجة",
+          "textEn": "Task, Situation, Action, Result",
+          "isCorrect": false,
+          "feedbackAr": "خلط بين المهمة والوضع؛ يخلّف القصة تشويشًا.",
+          "feedbackEn": "Mixing task before situation confuses the story."
+        },
+        {
+          "textAr": "الإجراء، الوضع، المهمة، النتيجة",
+          "textEn": "Action, Situation, Task, Result",
+          "isCorrect": false,
+          "feedbackAr": "بدءًا بالإجراء يزيل السياق الضروري.",
+          "feedbackEn": "Starting with action removes the necessary context."
+        },
+        {
+          "textAr": "النتيجة، الإجراء، المهمة، الوضع",
+          "textEn": "Result, Action, Task, Situation",
+          "isCorrect": false,
+          "feedbackAr": "النتيجة أولًا تجعل المقابل يفتقد الفهم الكامل للموقف.",
+          "feedbackEn": "Putting the result first leaves the interviewer without full context."
+        }
+      ]
+    },
+    {
+      "key": "JOB-02-KC-02",
+      "objectiveId": "JOB-02",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما هو العنصر الأول في هيكل STAR؟",
+      "stemEn": "What is the first component in the STAR structure?",
+      "rationaleAr": "البدء بالوضع يضع السياق قبل الانتقال إلى التفاصيل.",
+      "rationaleEn": "Starting with the Situation sets the context before moving to details.",
+      "options": [
+        {
+          "textAr": "الوضع",
+          "textEn": "Situation",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: يجب أن يبدأ السرد بالوضع لتوضيح السياق.",
+          "feedbackEn": "Correct: The answer should start with the Situation to set context."
+        },
+        {
+          "textAr": "المهمة",
+          "textEn": "Task",
+          "isCorrect": false,
+          "feedbackAr": "الخلط بين المهمة والوضع يخلّف القصة غير مرتبة.",
+          "feedbackEn": "Confusing Task with Situation makes the story unordered."
+        },
+        {
+          "textAr": "الإجراء",
+          "textEn": "Action",
+          "isCorrect": false,
+          "feedbackAr": "بدءًا بالإجراء يفتقد للتمهيد اللازم.",
+          "feedbackEn": "Starting with Action lacks the necessary lead‑in."
+        },
+        {
+          "textAr": "النتيجة",
+          "textEn": "Result",
+          "isCorrect": false,
+          "feedbackAr": "النتيجة يجب أن تُذكر في النهاية، لا في البداية.",
+          "feedbackEn": "Result belongs at the end, not at the beginning."
+        }
+      ]
+    }
+  ]
+}

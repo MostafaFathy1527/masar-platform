@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "writing-a-cv",
+  "items": [
+    {
+      "key": "JOB-01-KC-01",
+      "objectiveId": "JOB-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "أي من النقاط التالية في السيرة الذاتية يتبع قاعدة \"النتيجة، لا الواجب\" بشكل أفضل؟",
+      "stemEn": "Which of the following CV bullet points best follows the \"result, not duty\" rule?",
+      "rationaleAr": "يجب أن تُظهر النقطة نتيجة ملموسة بدلاً من مجرد وصف للواجب.",
+      "rationaleEn": "The bullet should demonstrate a concrete outcome rather than merely describing a duty.",
+      "options": [
+        {
+          "textAr": "أجبت على حوالي أربعين مكالمة يوميًا وحللت معظمها دون تحويلها.",
+          "textEn": "Answered about forty customer calls daily and resolved most without escalation.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: يوضح الفعل والكمية والنتيجة.",
+          "feedbackEn": "Correct: Shows action, quantity, and result."
+        },
+        {
+          "textAr": "مسؤول عن مكالمات العملاء.",
+          "textEn": "Responsible for customer calls.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: يصف الواجب فقط دون نتيجة.",
+          "feedbackEn": "Incorrect: Describes a duty only, no outcome."
+        },
+        {
+          "textAr": "أدرت برنامج مكالمات العملاء.",
+          "textEn": "Managed the customer call software.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: يركز على الأداة وليس على النتيجة.",
+          "feedbackEn": "Incorrect: Focuses on the tool, not the result."
+        },
+        {
+          "textAr": "عملت في خدمة العملاء.",
+          "textEn": "Worked in customer service.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: بيان عام ولا يوضح أي إنجاز.",
+          "feedbackEn": "Incorrect: Vague statement with no achievement."
+        }
+      ]
+    },
+    {
+      "key": "JOB-01-KC-02",
+      "objectiveId": "JOB-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عند تعديل السيرة الذاتية لتتناسب مع إعلان وظيفة، ما هي الخطوة الأولى الصحيحة؟",
+      "stemEn": "When tailoring a CV for a job advert, the first correct step is:",
+      "rationaleAr": "البدء بفهم ما يطلبه الإعلان يوجه كل التعديلات اللاحقة.",
+      "rationaleEn": "Starting by understanding the advert’s requirements guides all subsequent edits.",
+      "options": [
+        {
+          "textAr": "قائمة جميع وظائفك السابقة بترتيب زمني.",
+          "textEn": "List all past jobs chronologically.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: لا يضمن مطابقة المتطلبات.",
+          "feedbackEn": "Incorrect: Does not ensure alignment with requirements."
+        },
+        {
+          "textAr": "قراءة الإعلان وتحديد المهارات المطلوبة.",
+          "textEn": "Read the advert and underline required skills.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح: يحدد ما يجب إبرازه في السيرة.",
+          "feedbackEn": "Correct: Identifies what to highlight in the CV."
+        },
+        {
+          "textAr": "نسخ عبارات الإعلان حرفيًا إلى السيرة.",
+          "textEn": "Copy the advert wording verbatim into the CV.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: لا يوجد دليل يدعم العبارات.",
+          "feedbackEn": "Incorrect: No evidence supports the copied wording."
+        },
+        {
+          "textAr": "إضافة هواياتك الشخصية.",
+          "textEn": "Add your personal hobbies.",
+          "isCorrect": false,
+          "feedbackAr": "خطأ: لا علاقة لها بالوظيفة المطلوبة.",
+          "feedbackEn": "Incorrect: Unrelated to the job requirements."
+        }
+      ]
+    }
+  ]
+}

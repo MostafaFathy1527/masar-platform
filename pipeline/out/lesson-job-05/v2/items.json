@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "priorities-and-asking-for-help",
+  "items": [
+    {
+      "key": "JOB-05-KC-01",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "ما هو أفضل خطوة أولى عندما تدرك أن موعدًا نهائيًا سيفوت؟",
+      "stemEn": "What is the best first step when you realize a deadline will be missed?",
+      "rationaleAr": "الإبلاغ المبكر مع حل مقترح يمنح المدير الوقت لاتخاذ إجراء بديل.",
+      "rationaleEn": "Early communication with a proposed solution gives the manager time to take alternative action.",
+      "options": [
+        {
+          "textAr": "انتظر حتى اللحظة الأخيرة ثم أخبر مديرك.",
+          "textEn": "Wait until the last minute and then tell your manager.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يمثل تأخيرًا غير ضروريًا؛ يترك للمدير خيارات قليلة أو لا خيارات.",
+          "feedbackEn": "This represents unnecessary delay; it leaves the manager with few or no options."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا بالمشكلة مع اقتراح حل.",
+          "textEn": "Inform your manager immediately about the problem with a proposed solution.",
+          "isCorrect": true,
+          "feedbackAr": "الإبلاغ المبكر مع حل مقترح هو السلوك الصحيح وفقًا للمبادئ المذكورة.",
+          "feedbackEn": "Early notification with a proposed solution is the correct behavior per the lesson."
+        },
+        {
+          "textAr": "تجاهل المشكلة على أمل أن تُحل تلقائيًا.",
+          "textEn": "Ignore the problem hoping it resolves itself.",
+          "isCorrect": false,
+          "feedbackAr": "تجاهل المشكلة يؤدي إلى فشل غير متوقع ولا يتيح أي فرصة للتصحيح.",
+          "feedbackEn": "Ignoring the problem leads to unexpected failure and provides no chance for correction."
+        },
+        {
+          "textAr": "أعد توجيه المهمة إلى زميل دون إبلاغ أي شخص.",
+          "textEn": "Reassign the task to a colleague without informing anyone.",
+          "isCorrect": false,
+          "feedbackAr": "إعادة التوجيه السري يخلق نقصًا في الشفافية وقد يسبب مشاكل لاحقة.",
+          "feedbackEn": "Secretly reassigning creates a lack of transparency and may cause downstream issues."
+        }
+      ]
+    },
+    {
+      "key": "JOB-05-KC-02",
+      "objectiveId": "JOB-05",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أثناء إعداد تقرير مهم، اكتشفت أن أحد البيانات المطلوبة غير متوفر. ما هو الإجراء الأنسب وفقًا للمبادئ التي تعلمتها؟",
+      "stemEn": "While preparing an important report, you discover a required data point is missing. What is the most appropriate action according to the principles you learned?",
+      "rationaleAr": "الإبلاغ المبكر مع اقتراح حل يتيح للمدير اتخاذ قرار مستنير.",
+      "rationaleEn": "Early communication with a proposed solution allows the manager to make an informed decision.",
+      "options": [
+        {
+          "textAr": "أكمل التقرير بأفضل تخمين للبيان المفقود ثم أرسله.",
+          "textEn": "Complete the report with your best guess for the missing data and send it.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يُظهر تخمينًا غير موثوق وقد يؤدي إلى رفض أو تصحيح لاحق.",
+          "feedbackEn": "Guessing creates unreliable information and may lead to later rejection or correction."
+        },
+        {
+          "textAr": "أخبر مديرك فورًا بالمشكلة، توضح ما هو مفقود، وتقترح إما تأجيل التقرير أو تسليم جزء منه الآن.",
+          "textEn": "Tell your manager immediately about the problem, explain what is missing, and propose either postponing the report or delivering a partial version now.",
+          "isCorrect": true,
+          "feedbackAr": "الإبلاغ المبكر مع اقتراح واضح يتماشى مع نهج التواصل المبكر في الدرس.",
+          "feedbackEn": "Early notification with a clear proposal aligns with the early communication approach taught."
+        },
+        {
+          "textAr": "انتظر حتى يأتي البيانات ثم أكمل التقرير دون إبلاغ أحد.",
+          "textEn": "Wait for the data to arrive and then finish the report without informing anyone.",
+          "isCorrect": false,
+          "feedbackAr": "التأخير يترك المدير دون خيارات وقد يسبب فقدان موعد نهائي.",
+          "feedbackEn": "Delaying leaves the manager without options and may cause a missed deadline."
+        },
+        {
+          "textAr": "اطلب من زميلك إكمال الجزء المفقود دون إبلاغ المدير.",
+          "textEn": "Ask a colleague to fill in the missing part without informing the manager.",
+          "isCorrect": false,
+          "feedbackAr": "إخفاء المشكلة يخلق نقصًا في الشفافية وقد يؤدي إلى فقدان الثقة.",
+          "feedbackEn": "Hiding the issue creates a lack of transparency and can erode trust."
+        }
+      ]
+    }
+  ]
+}
