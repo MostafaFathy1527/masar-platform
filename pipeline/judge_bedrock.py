@@ -218,7 +218,11 @@ def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int | None
         max_tokens = 4000
     if temperature is None:
         temperature = 0
-    client = boto3.client('bedrock-runtime', region_name=region)
+    from botocore.config import Config
+    # The default 60-second read timeout cut off a large generator writing a whole
+    # lesson (Mistral Large 3, 19 October 2026); a judge or generator call may run minutes.
+    client = boto3.client('bedrock-runtime', region_name=region,
+                          config=Config(read_timeout=900, retries={'max_attempts': 3}))
     messages = [{'role': 'user', 'content': [{'text': prompt}]}]
     used: float | None = temperature
     try:
