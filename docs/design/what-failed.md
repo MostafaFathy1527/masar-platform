@@ -3,7 +3,7 @@
 Raw material for the case study's "what failed" section. Written as the failures happened,
 not reconstructed afterwards — which is the only way this section is worth reading.
 
-Nineteen so far. The first five share one pattern; the sixth, seventh and eighth each break
+Twenty so far. The first five share one pattern; the sixth, seventh and eighth each break
 it in a different direction, which is why they are kept separate rather than folded in. Four
 of the first fourteen are the same underlying defect wearing different clothes, and that
 sub-pattern is named at the end. The ninth and tenth belong with the gate's false pass: all
@@ -20,7 +20,8 @@ retry passed a gate by deleting the thing the gate examined. The seventeenth: ev
 had been scoring knowledge checks it could not see, and said so in notes nobody read. The
 eighteenth: once they could see them, three of three judges failed to notice items broken on
 purpose. The nineteenth: some judges never read the lesson at all, and handed back the example
-verdict printed in the rubric, which the calibration had been counting as a reading.
+verdict printed in the rubric, which the calibration had been counting as a reading. The
+twentieth: the judge read a missing bilingual flag the opposite way from the schema.
 
 > **The falsifiable claims are the ones that break, and they only break when you try to
 > game them.** Every one of these passed code review, passed its schema, passed CI, and
@@ -844,6 +845,32 @@ every run that is five verdicts: AceGPT's four and one Gemma 3 27B verdict from 
 verdict with scores of its own and a borrowed note is still counted, and named in the report,
 because part of it is a reading. A rule that refused those too would also have dropped eight of
 Fanar-2's thinking verdicts and six from 14 and 15 October.
+
+## 20. A lesson that never said it was bilingual was judged as English-only
+
+**Found 19 October 2026, while building the Arabic judge dataset (`pipeline/judge_dataset.py`).**
+
+The lesson schema treats a missing `bilingual` key as `true` (`lib/schema/lesson.ts` defaults it).
+`judge_bedrock.py` read the same missing key as false, and told the judge the lesson was
+English-only by its own declaration, so Arabic fields that mirror the English were "expected, not
+a fault". A judge given that instruction would excuse English pasted into the Arabic, the very
+defect the bilingual criterion exists to catch.
+
+Two lessons had no key: course lesson 04 and the withdrawn OPS-01 drafts (`pipeline/out/lesson-ops-01`,
+v1 and v2). Lesson 04 had never been judged. The OPS-01 verdicts from 14 October were scored under
+the wrong instruction; that draft was withdrawn for other reasons the same day, and its
+successor, OPS-01-r2, declares `bilingual: true`, as every sample on the site does.
+
+**Why nothing caught it.** The validator, the site and the judge each read the flag, and two of
+the three read it the schema's way. No test built a lesson without the key, because every
+fixture set it.
+
+**Fix.** `judge_bedrock.build_prompt` reads an absent flag as bilingual, and
+`test_judge_bedrock.py` now judges a lesson with no key and checks that the judge is told to
+score its Arabic.
+
+**What it shows:** a default is a decision, and two files that each make it are two decisions.
+The schema is the source of truth for the lesson's shape; the judge had quietly made its own.
 
 ## What to say about this in the case study
 

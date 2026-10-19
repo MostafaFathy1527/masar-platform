@@ -97,9 +97,15 @@ def referenced_items(lesson: dict, lesson_dir: Path) -> tuple[list[dict], list[s
     without the question, the options or the feedback: one judge said so, and
     another criticised distractors it had never seen. Returns the items found
     and the refs that could not be resolved."""
-    refs = item_refs(lesson)
     path = lesson_dir / 'items.json'
     bank = json.loads(path.read_text(encoding='utf-8')).get('items', []) if path.exists() else []
+    return items_in_bank(lesson, bank)
+
+
+def items_in_bank(lesson: dict, bank: list) -> tuple[list[dict], list[str]]:
+    """referenced_items without the file: judge_dataset.py builds its records from banks
+    that do not sit beside the lesson, and must show exactly what a judge would see."""
+    refs = item_refs(lesson)
     by_key = {i.get('key'): i for i in bank if isinstance(i, dict)}
     return [by_key[r] for r in refs if r in by_key], [r for r in refs if r not in by_key]
 
@@ -110,7 +116,9 @@ def build_prompt(lesson: dict, levels: set[str], items: list[dict] | None = None
     the model cannot excuse itself."""
     scorable, substitute, unscorable = applicability(levels)
     level_text = ', '.join(sorted(levels))
-    bilingual = lesson.get('bilingual')
+    # Absent means bilingual, as in the schema (lib/schema/lesson.ts defaults it to
+    # true); reading absent as false told the judge to excuse pasted English.
+    bilingual = lesson.get('bilingual', True)
     rules = [
         f'The lesson declares levels: {level_text}.',
         (f'The lesson declares bilingual: {str(bilingual).lower()}. '

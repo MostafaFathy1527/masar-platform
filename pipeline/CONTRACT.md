@@ -143,5 +143,6 @@ pipeline/
   run_lesson.py          the loop end to end: source note to judged draft, one retry
   calibrate_judges.py    planted defects: which judges can tell real items from broken ones
   kaggle_open_judges.ipynb  the same calibration for open models on Kaggle's free GPUs
+  judge_dataset.py       the calibration pairs and verdicts as an open Arabic judge dataset (datasets/)
   test_*.py              negative tests for each gate
 ```

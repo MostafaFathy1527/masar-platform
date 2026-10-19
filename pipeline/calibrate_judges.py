@@ -17,6 +17,15 @@ names, and each targets one criterion:
                                              "Because it is the next step."
   empty-consequences  scenario_authenticity  every decision's consequence becomes
                                              the same empty sentence
+  mismatched-numbers  bilingual_quality      every number in an Arabic field moves
+                                             one up, so the Arabic no longer says
+                                             what the English says; the English,
+                                             the digit script and the width stay
+
+A defect that has nothing to break in a lesson (mismatched-numbers on a lesson
+whose Arabic carries no number) raises NotApplicable, and that copy is neither
+written nor judged: an identical copy would read as a judge missing a defect
+that was never planted.
 
 A judge that sees the defect should score the target criterion at least two
 points lower on the broken copy than on the real one, in the same run. A judge
@@ -142,6 +151,63 @@ def empty_consequences(lesson: dict, bank: dict) -> tuple[dict, dict]:
     return lesson, bank
 
 
+class NotApplicable(Exception):
+    """The lesson has nothing this defect could break."""
+
+
+# Western and Arabic-Indic runs are matched apart, so a run keeps its own script.
+INDIC_DIGITS = ''.join(chr(0x0660 + i) for i in range(10))
+NUMBER = re.compile(r'[0-9]+|[\u0660-\u0669]+')
+ARABIC_LETTER = re.compile(r'[\u0621-\u064A]')
+TO_INDIC = str.maketrans('0123456789', INDIC_DIGITS)
+TO_WESTERN = str.maketrans(INDIC_DIGITS, '0123456789')
+
+
+def _shift_number(m: re.Match) -> str:
+    """One up, wrapping within the run's width: 1,260 -> 2,261 and 16:00 -> 17:01 keep
+    their shape, and a wrap (9 -> 0) still differs, so no number survives unchanged."""
+    run = m.group(0)
+    indic = run[0] in INDIC_DIGITS
+    value = (int(run.translate(TO_WESTERN)) + 1) % 10 ** len(run)
+    out = str(value).zfill(len(run))
+    return out.translate(TO_INDIC) if indic else out
+
+
+def _shift_arabic(node, inside_ar: bool = False) -> int:
+    """Shift the numbers in every string under an xAr key that is written in Arabic.
+    An xAr field holding English (an English-only lesson mirrors its English there) is
+    not Arabic, and changing it would plant a defect in the wrong language. Returns how
+    many strings changed."""
+    changed = 0
+    if isinstance(node, dict):
+        for k in list(node):
+            v = node[k]
+            if isinstance(v, str):
+                if (inside_ar or k.endswith('Ar')) and ARABIC_LETTER.search(v) and NUMBER.search(v):
+                    node[k] = NUMBER.sub(_shift_number, v)
+                    changed += 1
+            else:
+                changed += _shift_arabic(v, inside_ar or k.endswith('Ar'))
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            if isinstance(v, str):
+                if inside_ar and ARABIC_LETTER.search(v) and NUMBER.search(v):
+                    node[i] = NUMBER.sub(_shift_number, v)
+                    changed += 1
+            else:
+                changed += _shift_arabic(v, inside_ar)
+    return changed
+
+
+def mismatched_numbers(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    if lesson.get('bilingual') is False:
+        raise NotApplicable('the lesson declares itself English-only')
+    lesson, bank = copy.deepcopy(lesson), copy.deepcopy(bank)
+    if not _shift_arabic(lesson) + _shift_arabic(bank):
+        raise NotApplicable('no Arabic field carries a number')
+    return lesson, bank
+
+
 # defect -> (criterion it targets, the mutation)
 MUTANTS = {
     'generic-feedback': ('knowledge_check', generic_feedback),
@@ -149,6 +215,7 @@ MUTANTS = {
     'pasted-english': ('bilingual_quality', pasted_english),
     'reasonless-steps': ('worked_example', reasonless_steps),
     'empty-consequences': ('scenario_authenticity', empty_consequences),
+    'mismatched-numbers': ('bilingual_quality', mismatched_numbers),
 }
 
 
@@ -257,6 +324,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         models = [m for m, _ in panel.PANEL_MODELS]
     rows: list[dict] = []
+    built = 0
     for sample in SAMPLES:
         src = qa_gate.REPO / sample
         dirs = {'real-items': root / f'{src.parent.name}__real-items'}
@@ -267,8 +335,14 @@ def main(argv: list[str] | None = None) -> int:
             lesson = json.loads((src / 'lesson.json').read_text(encoding='utf-8'))
             bank = json.loads((src / 'items.json').read_text(encoding='utf-8'))
             write(dirs['real-items'], lesson, bank)
+            built += 1
             for name in defects:
-                write(dirs[name], *MUTANTS[name][1](lesson, bank))
+                try:
+                    write(dirs[name], *MUTANTS[name][1](lesson, bank))
+                    built += 1
+                except NotApplicable as e:
+                    print(f'{src.parent.name}: {name} not applicable ({e})')
+                    del dirs[name]
         if args.dry_run:
             continue
         served = bool(args.endpoint)
@@ -287,7 +361,7 @@ def main(argv: list[str] | None = None) -> int:
         on_disk = {k: verdicts_by_model(d) for k, d in dirs.items()}
         for model in models:
             for name in defects:
-                if args.report_only and model not in on_disk[name]:
+                if name not in on_disk or (args.report_only and model not in on_disk[name]):
                     # Never shown this copy: earlier runs gave some judges only some
                     # defects, and an empty row here would replace a kept one.
                     continue
@@ -298,7 +372,8 @@ def main(argv: list[str] | None = None) -> int:
                              'judge': model, 'real': before, 'broken': after,
                              'drop': None if before is None or after is None else before - after})
     if args.dry_run:
-        print(f'built copies for {len(SAMPLES)} samples x {len(defects) + 1} variants under {root}')
+        print(f'built {built} copies (real and broken) for {len(SAMPLES)} samples '
+              f'and {len(defects)} defects under {root}')
         return 0
 
     prev = root / 'results.json'

@@ -435,6 +435,106 @@ def test_report_only_reads_the_model_from_the_verdict():
           'no empty rows for samples and defects the judges were never shown')
 
 
+def test_mismatched_numbers_moves_only_the_arabic():
+    print('mismatched-numbers changes every number in the Arabic, and nothing else')
+    import calibrate_judges as cj
+    indic = cj.INDIC_DIGITS
+    lesson = {'slug': 'n', 'levels': ['L1'], 'bilingual': True,
+              'titleAr': 'التسليم قبل 16:00', 'titleEn': 'Hand over before 16:00',
+              'blocks': {'l1': [{'type': 'takeaways', 'payload': {
+                  'itemsAr': ['المبلغ 1,260 جنيهًا', 'التذكرة ' + indic[4] + indic[5] + indic[9]],
+                  'itemsEn': ['The amount is 1,260', 'Ticket 459']}},
+                  {'type': 'rich_text', 'payload': {'mdAr': 'Copied English 99', 'mdEn': 'Copied English 99'}}]}}
+    bank = {'items': [{'key': 'K', 'stemAr': 'خلال 9 أيام', 'stemEn': 'Within 9 days', 'options': []}]}
+    before_lesson, before_bank = json.dumps(lesson, ensure_ascii=False), json.dumps(bank, ensure_ascii=False)
+    broken, broken_bank = cj.mismatched_numbers(lesson, bank)
+    check(json.dumps(lesson, ensure_ascii=False) == before_lesson and json.dumps(bank, ensure_ascii=False) == before_bank,
+          'the real lesson and bank are not touched')
+
+    def fields(node, out, path=''):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                fields(v, out, f'{path}.{k}')
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                fields(v, out, f'{path}[{i}]')
+        else:
+            out[path] = node
+        return out
+    real_f = {**fields(lesson, {}), **fields(bank, {}, '#')}
+    broken_f = {**fields(broken, {}), **fields(broken_bank, {}, '#')}
+    changed = {k for k in real_f if real_f[k] != broken_f[k]}
+    check(changed and all('Ar' in k.rsplit('.', 1)[-1] for k in changed),
+          f'only Arabic fields changed ({len(changed)})')
+    check(all(real_f[k] == broken_f[k] for k in real_f if k.rsplit('.', 1)[-1].split('[')[0].endswith('En')),
+          'every English field is unchanged')
+    check(broken['blocks']['l1'][1]['payload']['mdAr'] == 'Copied English 99',
+          'an Arabic field holding English is left alone')
+    for k in changed:
+        old, new = cj.NUMBER.findall(real_f[k]), cj.NUMBER.findall(broken_f[k])
+        check(len(old) == len(new) and all(a != b for a, b in zip(old, new)),
+              f'{k}: every number differs ({old} -> {new})')
+        check(all(len(a) == len(b) and (a[0] in indic) == (b[0] in indic) for a, b in zip(old, new)),
+              f'{k}: digit script and width kept')
+        check(cj.NUMBER.sub('#', real_f[k]) == cj.NUMBER.sub('#', broken_f[k]),
+              f'{k}: only the numbers changed')
+    check(broken['titleAr'].endswith('17:01') and broken_bank['items'][0]['stemAr'] == 'خلال 0 أيام',
+          'a time keeps its shape, and a wrap still differs')
+    check(broken['blocks']['l1'][0]['payload']['itemsAr'][1].endswith(indic[4] + indic[6] + indic[0]),
+          'Arabic-Indic digits stay Arabic-Indic')
+
+    plain = {'slug': 'p', 'levels': ['L1'], 'bilingual': True, 'titleAr': 'بلا أرقام', 'titleEn': 'No numbers 5',
+             'blocks': {}}
+    for label, case in (('a lesson with no number in its Arabic', plain),
+                        ('an English-only lesson', {**lesson, 'bilingual': False})):
+        try:
+            cj.mismatched_numbers(case, {'items': []})
+            check(False, f'{label} is reported not applicable')
+        except cj.NotApplicable:
+            check(True, f'{label} is reported not applicable')
+    check(cj.MUTANTS['mismatched-numbers'][0] == 'bilingual_quality', 'it targets bilingual_quality')
+
+
+def test_calibration_skips_a_defect_with_nothing_to_break():
+    print('calibrate_judges builds no copy for a defect that does not apply, and reports without it')
+    import calibrate_judges
+    seen: list[list[str]] = []
+    real_main, real_root = judge_bedrock.main, calibrate_judges.CALIBRATION_ROOT
+    judge_bedrock.main = lambda argv: seen.append(list(argv)) or 2
+    with tempfile.TemporaryDirectory() as d:
+        calibrate_judges.CALIBRATION_ROOT = Path(d)
+        try:
+            code = calibrate_judges.main(['--models', 'zai.glm-5', '--defects', 'mismatched-numbers',
+                                          '--date', 'test'])
+            dry = calibrate_judges.main(['--dry-run', '--date', 'dry'])
+        finally:
+            judge_bedrock.main, calibrate_judges.CALIBRATION_ROOT = real_main, real_root
+        run = Path(d) / 'test'
+        built = sorted(p.name for p in run.glob('*__mismatched-numbers'))
+        rows = json.loads((run / 'results.json').read_text(encoding='utf-8'))
+        report_ok = (run / 'report.md').exists()
+        dry_copies = len(list((Path(d) / 'dry').glob('*__*')))
+    check(code == 0 and report_ok, 'a run with no verdicts at all still writes its report')
+    check(built == ['lesson-ops-01-r2__mismatched-numbers'],
+          f'only the sample with numbers in its Arabic gets a copy ({built})')
+    check(not any('__mismatched-numbers' in a[a.index('--lesson') + 1] and 'ops-01-r2' not in a[a.index('--lesson') + 1]
+                  for a in seen), 'no judge is shown a copy that was not built')
+    check({r['sample'] for r in rows} == {'lesson-ops-01-r2'} and all(r['drop'] is None for r in rows),
+          'rows exist only where the defect applied, and an unscored row has no drop')
+    check(dry == 0 and dry_copies == len(calibrate_judges.SAMPLES) * (len(calibrate_judges.MUTANTS) + 1) - 3,
+          f'the dry run builds every applicable copy, the new defect included ({dry_copies})')
+
+
+def test_an_absent_bilingual_flag_means_bilingual():
+    print('a lesson without a bilingual key is judged as bilingual, as the schema reads it')
+    lesson = {'slug': 'b', 'levels': ['L1'], 'titleAr': 'عنوان', 'titleEn': 'Title', 'blocks': []}
+    prompt = judge_bedrock.build_prompt(lesson, {'L1'})
+    check('declares bilingual: true' in prompt and 'English-only by its own declaration' not in prompt,
+          'absent flag: the judge scores Arabic quality, it is not told to excuse pasted English')
+    prompt = judge_bedrock.build_prompt({**lesson, 'bilingual': False}, {'L1'})
+    check('English-only by its own declaration' in prompt, 'an explicit false still reads as English-only')
+
+
 if __name__ == '__main__':
     for stream in (sys.stdout, sys.stderr):
         try:
@@ -458,5 +558,8 @@ if __name__ == '__main__':
     test_log_option_keeps_a_judgement_out_of_the_run_log()
     test_calibration_logs_to_the_calibration_log()
     test_report_only_reads_the_model_from_the_verdict()
+    test_mismatched_numbers_moves_only_the_arabic()
+    test_calibration_skips_a_defect_with_nothing_to_break()
+    test_an_absent_bilingual_flag_means_bilingual()
     print('\nFAILS:', FAILS)
     sys.exit(1 if FAILS else 0)

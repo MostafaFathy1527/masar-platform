@@ -210,7 +210,7 @@ a stand-in server and in `test_judge_bedrock.py`.
   and takes `--audit-copies` and `--date`. The 14 October report keeps its rows, with a note.
 - **Context limits:** ALLaM-7B and Fanar-1-9B were not run; their 4,096-token context is
   shorter than the judge prompt.
-- **The live HF Space README** says nineteen since 17 October.
+- **The live HF Space README** says nineteen since 17 October; the repo copy says twenty since 19 October (re-upload it).
 
 **Added 2026-10-17: Fanar-2 re-tested at 8-bit, thinking off and on (what-failed entry 19).**
 - **The run:** Fanar-2 at Q8_0 on two V100 cards, four ways: thinking off and on, each with the
@@ -306,6 +306,19 @@ a stand-in server and in `test_judge_bedrock.py`.
   in a `finally`, so a run that crashes still leaves its record.
 - **The Hugging Face Space carries the same gates** (`demo/hf-space/sync.py`, then
   `build_static.py`); its four changed files were re-uploaded and their hashes match the repo.
+
+**Added 2026-10-19: an open Arabic judge dataset, a sixth defect, and failure 20.**
+- **`datasets/arabic-lesson-judge/`** (built by `pipeline/judge_dataset.py`, no model calls):
+  real-versus-broken lesson pairs from the four pipeline samples and the five human-authored course
+  lessons, and every judge's real and broken score from the calibration runs so far. Offered to the
+  Fanar post-training team at QCRI, who said Fanar 2 had no judge-task post-training data. The
+  counts are in the dataset's README, computed from the data.
+- **`mismatched-numbers`**, a sixth calibration defect: every number in the Arabic fields moved so
+  it no longer matches the English. It applies only where the Arabic has numbers, so 2 of 9 lessons
+  today; a lesson it cannot break is skipped, not judged as a copy of itself. No judge has been run
+  on it yet.
+- **Failure 20:** the judge read a lesson with no `bilingual` key as English-only, the opposite of
+  the schema. Fixed in `judge_bedrock.build_prompt`, with a test.
 
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
@@ -594,7 +607,7 @@ rubric score that carries its own caveat about the judge's independence, and tha
 only resolves when a human scores three lessons blind against the same rubric. Until then
 the page is honest but the number is unconfirmed — which is the state it describes.
 
-`docs/design/what-failed.md` has **nineteen** entries for §0.4 item 4. The first five share
+`docs/design/what-failed.md` has **twenty** entries for §0.4 item 4. The first five share
 one pattern — **the falsifiable claims are the ones that break, and they only break when
 you try to game them.** The sixth, seventh and eighth break it in different directions: the
 code was right and the product was wrong; the product was right and the tool was wrong; and

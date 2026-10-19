@@ -128,6 +128,7 @@ jobs:
           python pipeline/test_judge_bedrock.py
           python pipeline/test_panel.py
           python pipeline/test_run_lesson.py
+          python pipeline/test_judge_dataset.py
 
       - name: Validate authored lesson content
         run: python pipeline/validate.py
