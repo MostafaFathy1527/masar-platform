@@ -323,6 +323,20 @@ a stand-in server and in `test_judge_bedrock.py`.
 - **Failure 20:** the judge read a lesson with no `bilingual` key as English-only, the opposite of
   the schema. Fixed in `judge_bedrock.build_prompt`, with a test.
 
+**Added 2026-10-19 (afternoon): the weekly run without its open seat, and what it settled.**
+- **No GPU to rent.** The scheduled run had not started by 11:50 UTC (GitHub started the daily
+  learner-flow run five and a half hours late the same day), so it was started by hand, and then
+  CloudRift had no free V100 node. The run used to stop there; `judge-panel.yml` now lets the
+  rent step fail, scores with the three hosted seats, and says in the summary that the open seat
+  is empty, so every sample is NEEDS HUMAN by design (run 39248873259).
+- **What the three hosted judges said:** all four samples PASS from each of them, and no criterion
+  split them by more than one point, CS-01's accessibility included. Last week's CS-01
+  accessibility split and OPS-01's splits therefore came from the open seat (Qwen3-30B-A3B-Thinking).
+- **GLM-5 gave 5 on every criterion of every sample, 32 of 32 scores.** It passed calibration, so
+  this is not a refusal; it is recorded because a judge that never marks anything down adds no
+  information to a panel, and the next calibration run should check whether it still catches the
+  broken copies.
+
 **What remains needs a person, not an agent**: the blind
 inter-rater check, and one open accuracy question for a practitioner. The judge sitting and
 the instructional-design review are done. The SME
