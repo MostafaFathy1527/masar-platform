@@ -25,4 +25,9 @@ overridden case by case.
 **If the failure was `needs-verification`**, do not invent support. Remove the claim or
 narrow it to what the source note actually carries.
 
+**Keep an item's type true to its key.** If a fix changes how many options are correct,
+change the type with it: one correct option is `MCQ_SINGLE`, two or more (never all) is
+`MULTI_SELECT`. A revision that fixed a key on 19 October 2026 left a one-answer item
+marked `MULTI_SELECT`, and the item gate refused the whole version.
+
 This is the only automatic retry. If `vN+1` fails, the pipeline stops and a human decides.
