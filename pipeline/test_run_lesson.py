@@ -257,6 +257,35 @@ for reported, expected in (({'temperature': None}, None), ({'temperature': 0}, 0
           f'call reported {reported.get("temperature", "nothing")}: recorded {gen["temperature"]!r}')
     t.cleanup()
 
+print('--revise starts from the judge reports on the latest version, once')
+# A first run where one judge fails the lesson: the retry is spent, the run stops.
+call, _ = generator(GOOD, GOOD)
+rec, out, t = go(call, judges({}, {'concision': 2})[0])
+first_steps = len(rec['steps'])
+last = f'v{run_lesson.next_version(out) - 1}'
+(out / last / 'qa-report.j1.md').write_text('concision 2: the same five points appear three times\n', encoding='utf-8')
+call, prompts = generator(GOOD)
+rec = run_lesson.run(SOURCE, 'CS-01', out, levels=['L1', 'L2'], slug='x',
+                     generator='openai.gpt-oss-120b-1:0', region='us-east-1', denylist=[],
+                     call=call, judge=judges({}, {})[0], seats=('family0.judge', 'family1.judge'),
+                     revise=True)
+check(len(prompts) == 1 and 'the same five points appear three times' in prompts[0],
+      'the revision prompt carries the judge report')
+nxt = f'v{int(last[1:]) + 1}'
+check((out / nxt / 'lesson.json').exists() and (out / last / 'lesson.json').exists(),
+      'a new version beside the old ones, never an edit in place')
+check(rec['revised_from'] == last and len(rec['steps']) > first_steps,
+      'run.json keeps the earlier steps and says what was revised')
+check(f'Revised from {last}' in (out / 'run-report.md').read_text(encoding='utf-8'), 'the report says so')
+t.cleanup()
+t = tempfile.TemporaryDirectory()
+try:
+    run_lesson.revision_start(Path(t.name) / 'empty', 'p')
+    check(False, 'nothing to revise is refused')
+except run_lesson.RunError:
+    check(True, 'nothing to revise is refused')
+t.cleanup()
+
 print('a generator from a judge family never starts')
 call, prompts = generator(GOOD)
 try:

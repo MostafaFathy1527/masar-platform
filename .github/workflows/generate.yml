@@ -20,6 +20,14 @@ on:
         description: 'Levels for every lesson'
         required: false
         default: 'L1,L2'
+      revise:
+        description: 'Revise the latest version of each lesson from its judge reports (run on the drafts branch)'
+        type: boolean
+        default: false
+      generator:
+        description: 'Generator model (must be outside every judge family)'
+        required: false
+        default: 'openai.gpt-oss-120b-1:0'
 
 permissions:
   contents: write
@@ -44,6 +52,8 @@ jobs:
         env:
           LESSONS: ${{ inputs.lessons }}
           LEVELS: ${{ inputs.levels }}
+          REVISE: ${{ inputs.revise && '--revise' || '' }}
+          GENERATOR: ${{ inputs.generator }}
         run: |
           set +e
           echo "## Generated drafts, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
@@ -51,7 +61,7 @@ jobs:
             obj="${pair%%=*}"; note="${pair#*=}"
             out="pipeline/out/lesson-$(echo "$obj" | tr 'A-Z' 'a-z')"
             python pipeline/run_lesson.py --source "pipeline/sources/$note" --objective "$obj" \
-              --out "$out" --levels "$LEVELS" > "run-$obj.log" 2>&1
+              --out "$out" --levels "$LEVELS" --generator "$GENERATOR" $REVISE > "run-$obj.log" 2>&1
             echo "- \`$obj\` (exit $?): $(tail -1 "run-$obj.log")" >> "$GITHUB_STEP_SUMMARY"
             tail -5 "run-$obj.log"
           done
@@ -64,5 +74,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
           git add pipeline/out pipeline/memory
-          git commit -m "Drafts: ${{ inputs.lessons }}" || { echo "nothing generated"; exit 0; }
+          git commit -m "Drafts${{ inputs.revise && ' (revised from judge reports)' || '' }}: ${{ inputs.lessons }}" || { echo "nothing generated"; exit 0; }
           git push -f origin "$BRANCH"
