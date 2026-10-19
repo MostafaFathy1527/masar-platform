@@ -108,4 +108,4 @@ Read it as a site: [masar.gitbook.io/masar-docs](https://masar.gitbook.io/masar-
 **Self-initiated project.** Not a commercial product. Not affiliated with, or recognized
 by, any certification body. Not medical, billing, clinical, legal or regulatory advice.
 
-© 2026 Mostafa Fathy. Code MIT; course content CC BY-NC 4.0.
+© 2026 Mostafa Fathy. Code MIT ([LICENSE](LICENSE)); course content CC BY-NC 4.0 ([LICENSE-content.md](LICENSE-content.md)).
