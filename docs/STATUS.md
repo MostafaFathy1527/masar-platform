@@ -315,8 +315,9 @@ a stand-in server and in `test_judge_bedrock.py`.
   counts are in the dataset's README, computed from the data.
 - **`mismatched-numbers`**, a sixth calibration defect: every number in the Arabic fields moved so
   it no longer matches the English. It applies only where the Arabic has numbers, so 2 of 9 lessons
-  today; a lesson it cannot break is skipped, not judged as a copy of itself. No judge has been run
-  on it yet.
+  today; a lesson it cannot break is skipped, not judged as a copy of itself. First run, 19 October
+  on Bedrock (`pipeline/out/calibration/2026-10-19-mismatched-numbers`): one pair per judge, and only
+  Kimi K3 of nine noticed; the other eight gave the broken Arabic full marks.
 - **Failure 20:** the judge read a lesson with no `bilingual` key as English-only, the opposite of
   the schema. Fixed in `judge_bedrock.build_prompt`, with a test.
 
