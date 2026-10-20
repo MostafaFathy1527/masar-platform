@@ -1,0 +1,82 @@
+{
+  "source": "pipeline/sources/prv-01-what-counts-as-personal-data.md",
+  "objective": "PRV-01",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-20T07:50:41.514087+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 130.6,
+      "usage": {
+        "inputTokens": 23514,
+        "outputTokens": 6818,
+        "totalTokens": 30332,
+        "temperature": 0
+      },
+      "needs_verification": 2
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 120.3,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 4.62,
+        "us.moonshotai.kimi-k3": 3.62
+      },
+      "split": [
+        "bilingual_quality"
+      ]
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 120.0,
+      "usage": {
+        "inputTokens": 32514,
+        "outputTokens": 7369,
+        "totalTokens": 39883,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 101.2,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 4.75,
+        "us.moonshotai.kimi-k3": 3.88
+      },
+      "split": []
+    }
+  ],
+  "revised_from": "v1",
+  "earlier_outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes; judges differ by more than 1 on: bilingual_quality",
+  "outcome": "NEEDS HUMAN at v2: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; the judges send the lesson to different gate outcomes",
+  "finished": "2026-10-20T07:54:23.087444+00:00"
+}

@@ -1,0 +1,1 @@
+The concept 'establish_facts' was defined in the lesson (b_l1_def_establish_facts) and used in the process flow (b_l1_flow_stages, step s3) and in the worked example (b_l2_worked_acknowledge), but was not listed in conceptsIntroduced. This was a mechanical omission, not a disagreement with the finding.

@@ -1,0 +1,129 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson OPS-01. Every knowledge_check block's payload.itemRef matches one item key here.",
+  "items": [
+    {
+      "key": "OPS-01-KC-01",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "RECALL",
+      "formative": true,
+      "stemAr": "ما المعيار الوحيد لتسليم الورديّة الجيد؟",
+      "stemEn": "What is the only test of a good handover?",
+      "rationaleAr": "المعيار الوحيد هو ما إذا كان الشخص التالي يستطيع التصرف دون الاتصال بالشخص المغادر.",
+      "rationaleEn": "The only test is whether the next person can act without contacting the person leaving.",
+      "options": [
+        {
+          "textAr": "أن يكون طويلًا ومفصلًا.",
+          "textEn": "That it is long and detailed.",
+          "isCorrect": false,
+          "feedbackAr": "الطول ليس المعيار. التسليم القصير الذي يمكن التصرف بناءً عليه أفضل من الطويل الذي لا يمكن.",
+          "feedbackEn": "Length is not the test. A short handover that can be acted on is better than a long one that cannot."
+        },
+        {
+          "textAr": "أن يكون مكتوبًا بخط اليد.",
+          "textEn": "That it is handwritten.",
+          "isCorrect": false,
+          "feedbackAr": "المكان مهم، وليس الشكل.",
+          "feedbackEn": "The location matters, not the format."
+        },
+        {
+          "textAr": "أن يستطيع الشخص التالي التصرف بناءً عليه دون الاتصال بك.",
+          "textEn": "That the next person can act on it without contacting you.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو المعيار الوحيد.",
+          "feedbackEn": "This is the only test."
+        },
+        {
+          "textAr": "أن يحتوي على كل التفاصيل التي تعرفها.",
+          "textEn": "That it contains every detail you know.",
+          "isCorrect": false,
+          "feedbackAr": "التفاصيل الزائدة تدفن ما هو مهم.",
+          "feedbackEn": "Too much detail buries what matters."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-02",
+      "objectiveId": "OPS-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه يجب أن يُذكر بوضوح في تسليم الورديّة؟",
+      "stemEn": "Which of these must be clearly stated in a handover?",
+      "rationaleAr": "العناصر العاجلة، الحقائق مقابل التخمينات، والالتزامات يجب ذكرها بوضوح.",
+      "rationaleEn": "Urgent items, facts vs. guesses, and commitments must be clearly stated.",
+      "options": [
+        {
+          "textAr": "العنصر الذي له موعد نهائي خلال الورديّة التالية.",
+          "textEn": "The item with a deadline inside the next shift.",
+          "isCorrect": true,
+          "feedbackAr": "العناصر العاجلة تأتي أولاً وتُشار إليها بوضوح.",
+          "feedbackEn": "Urgent items go first and are clearly marked."
+        },
+        {
+          "textAr": "ما تعتقد أنه قد يكون المشكلة.",
+          "textEn": "What you think might be the problem.",
+          "isCorrect": true,
+          "feedbackAr": "التخمينات يجب تسميتها بوضوح، وإلا قد يُعامل الشخص التالي كحقيقة.",
+          "feedbackEn": "Guesses must be labelled clearly, or the next person may treat them as fact."
+        },
+        {
+          "textAr": "الوعد الذي قطعته لعميل أو زميل.",
+          "textEn": "The promise you made to a customer or colleague.",
+          "isCorrect": true,
+          "feedbackAr": "الالتزامات تنتقل مع العمل، ويجب ذكرها بوضوح.",
+          "feedbackEn": "Commitments travel with the work and must be stated clearly."
+        },
+        {
+          "textAr": "كل التفاصيل التي تعرفها عن التذكرة.",
+          "textEn": "Every detail you know about the ticket.",
+          "isCorrect": false,
+          "feedbackAr": "التفاصيل الزائدة تدفن ما هو مهم.",
+          "feedbackEn": "Too much detail buries what matters."
+        }
+      ]
+    },
+    {
+      "key": "OPS-01-KC-03",
+      "objectiveId": "OPS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "اكتشفت أن تسليم الورديّة الذي كتبته بالأمس لم يذكر وعدًا قطعته لعميل بمعاودة الاتصال اليوم. ماذا تفعل الآن؟",
+      "stemEn": "You discover that yesterday's handover you wrote omitted a promise you made to a customer for a callback today. What do you do now?",
+      "rationaleAr": "الالتزامات تنتقل مع العمل، ويجب ذكرها بوضوح حتى لو تم نسيانها.",
+      "rationaleEn": "Commitments travel with the work, and must be stated clearly even if they were missed.",
+      "options": [
+        {
+          "textAr": "لا تفعل شيئًا. الوعد كان بالأمس، والشخص التالي لم يذكره.",
+          "textEn": "Do nothing. The promise was yesterday, and the next person did not mention it.",
+          "isCorrect": false,
+          "feedbackAr": "الالتزام لا يختفي مع الورديّة. العميل يتوقع معاودة الاتصال.",
+          "feedbackEn": "The commitment does not disappear with the shift. The customer expects the callback."
+        },
+        {
+          "textAr": "اتصل بالعميل الآن وأعترف بالخطأ، ثم اكتب في السجل المشترك أن الوعد لم يُذكر في التسليم.",
+          "textEn": "Call the customer now and acknowledge the oversight, then write in the shared record that the promise was omitted from the handover.",
+          "isCorrect": true,
+          "feedbackAr": "هذا يحفظ الثقة ويضمن عدم تكرار الخطأ.",
+          "feedbackEn": "This preserves trust and ensures the mistake is not repeated."
+        },
+        {
+          "textAr": "اكتب في السجل المشترك أن الوعد كان غير رسمي، لذلك لم يُذكر.",
+          "textEn": "Write in the shared record that the promise was informal, so it was not mentioned.",
+          "isCorrect": false,
+          "feedbackAr": "الالتزامات الرسمية وغير الرسمية تنتقل مع العمل.",
+          "feedbackEn": "Formal and informal commitments travel with the work."
+        },
+        {
+          "textAr": "انتظر حتى يتصل العميل، ثم اعتذر.",
+          "textEn": "Wait for the customer to call, then apologise.",
+          "isCorrect": false,
+          "feedbackAr": "هذا يكسر الوعد ويضر بالثقة.",
+          "feedbackEn": "This breaks the promise and damages trust."
+        }
+      ]
+    }
+  ]
+}

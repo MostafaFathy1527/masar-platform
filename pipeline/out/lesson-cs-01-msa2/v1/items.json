@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "GENERATED for lesson handling-a-customer-complaint. Every knowledge_check block's payload.itemRef equals one item key here.",
+  "items": [
+    {
+      "key": "CS-01-KC-01",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يقول: «طلبت المنتج منذ أسبوع ولم يصل، واتصلت مرتين ولم يرد أحد.» ما أفضل رد أولي؟",
+      "stemEn": "A customer says: “I ordered the product a week ago and it has not arrived. I have called twice and nobody has called me back.” What is the best first response?",
+      "rationaleAr": "الاعتراف يثبت أنك سمعت العميل، وهو الخطوة الأولى لخفض التوتر.",
+      "rationaleEn": "Acknowledgement proves you heard the customer, which is the first step to lowering the temperature.",
+      "options": [
+        {
+          "textAr": "«آسف على الإزعاج. سأتحقق من الطلب الآن.»",
+          "textEn": "“I apologise for the inconvenience. I will check the order now.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا اعتذار قبل تحديد الحقائق، وقد يبدو فارغًا.",
+          "feedbackEn": "This is an apology before facts are established, and may sound hollow."
+        },
+        {
+          "textAr": "«لقد طلبت منذ أسبوع ولم يصل، واتصلت مرتين ولم يتصل بك أحد. أفهم لماذا أنت محبط.»",
+          "textEn": "“You ordered a week ago and it has not arrived, and you have called twice and nobody has called you back. I can see why you are frustrated.”",
+          "isCorrect": true,
+          "feedbackAr": "هذا اعتراف يثبت أنك سمعت العميل ويخفض التوتر.",
+          "feedbackEn": "This is acknowledgement, proving you heard the customer and lowering the temperature."
+        },
+        {
+          "textAr": "«سياسة الشركة تقضي بالرد خلال 48 ساعة.»",
+          "textEn": "“The company policy is to respond within 48 hours.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا دفاع عن السياسة قبل خفض التوتر، وقد يزيد الغضب.",
+          "feedbackEn": "This is a defence of policy before de-escalation, and may increase anger."
+        },
+        {
+          "textAr": "«هل أنت متأكد أنك أدخلت العنوان الصحيح؟»",
+          "textEn": "“Are you sure you entered the correct address?”",
+          "isCorrect": false,
+          "feedbackAr": "هذا سؤال يفترض خطأ العميل قبل تحديد الحقائق.",
+          "feedbackEn": "This is a question that assumes the customer is wrong before facts are established."
+        }
+      ]
+    },
+    {
+      "key": "CS-01-KC-02",
+      "objectiveId": "CS-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الخطوات جزء من «الخطوة التالية المتفق عليها»؟",
+      "stemEn": "Which of these steps are part of an “agreed next step”?",
+      "rationaleAr": "الخطوة التالية المتفق عليها تحتاج إجراءً محددًا ووقتًا محددًا وطريقة محددة.",
+      "rationaleEn": "An agreed next step needs a specific action, a specific time, and a specific way the customer will know.",
+      "options": [
+        {
+          "textAr": "«سأرفع طلب الاسترداد الآن.»",
+          "textEn": "“I will raise the refund request now.”",
+          "isCorrect": true,
+          "feedbackAr": "هذا إجراء محدد.",
+          "feedbackEn": "This is a specific action."
+        },
+        {
+          "textAr": "«سيصل إلى بطاقتك خلال خمسة أيام عمل.»",
+          "textEn": "“It will reach your card within five working days.”",
+          "isCorrect": true,
+          "feedbackAr": "هذا وقت محدد.",
+          "feedbackEn": "This is a specific time."
+        },
+        {
+          "textAr": "«ستتلقى تأكيدًا عبر البريد الإلكتروني اليوم.»",
+          "textEn": "“You will get a confirmation by email today.”",
+          "isCorrect": true,
+          "feedbackAr": "هذه طريقة محددة يعرف بها العميل أن الأمر قد تم.",
+          "feedbackEn": "This is a specific way the customer will know it happened."
+        },
+        {
+          "textAr": "«سأرى ما يمكنني فعله.»",
+          "textEn": "“I will see what I can do.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا وعد غامض، وليس خطوة محددة.",
+          "feedbackEn": "This is a vague promise, not a specific step."
+        }
+      ]
+    }
+  ]
+}

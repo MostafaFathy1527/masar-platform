@@ -1,0 +1,1 @@
+Hand edit (20 October 2026), on top of v2: conceptsIntroduced key establish_facts -> establish_the_facts, to match the definition card's term "Establish the facts". v1 and v2 both failed concept_log on this one key and the retry did not fix it. Nothing else changed.

@@ -1,0 +1,49 @@
+{
+  "source": "pipeline/sources/sec-01-recognising-a-phishing-email.md",
+  "objective": "SEC-01",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-20T07:44:29.244706+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 128.9,
+      "usage": {
+        "inputTokens": 23485,
+        "outputTokens": 7012,
+        "totalTokens": 30497,
+        "temperature": 0
+      },
+      "needs_verification": 3
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 130.3,
+      "means": {
+        "deepseek.v3.2": 4.5,
+        "zai.glm-5": 5.0,
+        "us.moonshotai.kimi-k3": 4.12
+      },
+      "split": [
+        "concision"
+      ]
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; judges differ by more than 1 on: concision",
+  "finished": "2026-10-20T07:48:48.737562+00:00"
+}

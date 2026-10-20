@@ -1,0 +1,95 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for SEC-01, recognising-a-phishing-email. Every item is formative and tests the objective.",
+  "items": [
+    {
+      "key": "SEC-01-KC-01",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "تتلقى رسالة بريد إلكتروني من \"دعم الموارد البشرية\" تطلب منك تحديث معلومات حسابك. اسم العرض هو \"دعم الموارد البشرية\"، والعنوان الفعلي هو hr-support@company-services.net. ما هو أفضل إجراء؟",
+      "stemEn": "You receive an email from \"HR Support\" asking you to update your account information. The display name is \"HR Support\", and the actual address is hr-support@company-services.net. What is the best action?",
+      "rationaleAr": "العنوان الفعلي لا يتطابق مع النطاق المعروف للموارد البشرية، مما يجعل الرسالة مشبوهة. أفضل إجراء هو التحقق عبر قناة معروفة ثم الإبلاغ.",
+      "rationaleEn": "The actual address does not match the known domain for HR, making the message suspicious. The best action is to verify through a known channel and then report.",
+      "options": [
+        {
+          "textAr": "اتبع الرابط لتحديث معلومات حسابك.",
+          "textEn": "Follow the link to update your account information.",
+          "isCorrect": false,
+          "feedbackAr": "هذا هو الإجراء الذي يريد المهاجم منك اتخاذه. النقر على الرابط قد يؤدي إلى موقع مزيف.",
+          "feedbackEn": "This is the action the attacker wants you to take. Clicking the link may lead to a fake site."
+        },
+        {
+          "textAr": "تحقق من الرسالة عبر الاتصال بالموارد البشرية على رقم هاتف معروف.",
+          "textEn": "Verify the message by contacting HR on a known phone number.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو الإجراء الصحيح. التحقق عبر قناة معروفة يمنع المهاجم من تأكيد أن العنوان نشط.",
+          "feedbackEn": "This is the correct action. Verifying through a known channel prevents the attacker from confirming the address is active."
+        },
+        {
+          "textAr": "رد على الرسالة لتأكيد الطلب.",
+          "textEn": "Reply to the message to confirm the request.",
+          "isCorrect": false,
+          "feedbackAr": "الرد قد يذهب إلى المهاجم، الذي قد يستخدمه لإقناع الآخرين بأن الرسالة شرعية.",
+          "feedbackEn": "The reply may go to the attacker, who could use it to convince others the message is legitimate."
+        },
+        {
+          "textAr": "افتح الرسالة وتجاهلها.",
+          "textEn": "Open the message and ignore it.",
+          "isCorrect": false,
+          "feedbackAr": "التجاهل لا يمنع المهاجم من إرسال رسائل أخرى أو استهداف آخرين.",
+          "feedbackEn": "Ignoring it does not prevent the attacker from sending more messages or targeting others."
+        }
+      ]
+    },
+    {
+      "key": "SEC-01-KC-02",
+      "objectiveId": "SEC-01",
+      "type": "MULTI_SELECT",
+      "bloom": "ANALYZE",
+      "formative": true,
+      "stemAr": "أي من الإشارات التالية تدل على أن رسالة البريد الإلكتروني قد تكون محاولة تصيّد؟",
+      "stemEn": "Which of the following signals indicate that an email may be a phishing attempt?",
+      "rationaleAr": "الإشارات الصحيحة هي تلك التي تم تصميمها لخداع المتلقي أو تجاوز الإجراءات المعتادة.",
+      "rationaleEn": "The correct signals are those designed to deceive the recipient or bypass normal procedures.",
+      "options": [
+        {
+          "textAr": "اسم العرض يطابق العنوان الفعلي.",
+          "textEn": "The display name matches the actual address.",
+          "isCorrect": false,
+          "feedbackAr": "هذا ليس إشارة تصيّد — الرسائل الشرعية غالبًا ما يكون فيها اسم العرض والعنوان متطابقين.",
+          "feedbackEn": "This is not a phishing signal — legitimate messages often have matching display names and addresses."
+        },
+        {
+          "textAr": "النطاق معروف ومتسق مع المنظمة.",
+          "textEn": "The domain is known and consistent with the organisation.",
+          "isCorrect": false,
+          "feedbackAr": "هذا ليس إشارة تصيّد — الرسائل الشرعية تأتي من نطاقات معروفة.",
+          "feedbackEn": "This is not a phishing signal — legitimate messages come from known domains."
+        },
+        {
+          "textAr": "نص الرابط يبدو شرعيًا لكن الوجهة مختلفة.",
+          "textEn": "The link text appears legitimate but the destination is different.",
+          "isCorrect": true,
+          "feedbackAr": "هذا هو أحد الإشارات الرئيسية للتصيّد. المهاجمون يخفون الوجهات الحقيقية خلف نصوص تبدو شرعية.",
+          "feedbackEn": "This is a key phishing signal. Attackers hide real destinations behind text that appears legitimate."
+        },
+        {
+          "textAr": "الرسالة تطلب كلمة مرور أو رمز لمرة واحدة.",
+          "textEn": "The message asks for a password or one-time code.",
+          "isCorrect": true,
+          "feedbackAr": "هذا طلب محظور — المنظمات الشرعية لا تطلب كلمات مرور أو رموز لمرة واحدة عبر البريد الإلكتروني.",
+          "feedbackEn": "This is a forbidden request — legitimate organisations never ask for passwords or one-time codes via email."
+        },
+        {
+          "textAr": "عنوان الرد يختلف عن عنوان الإرسال.",
+          "textEn": "The reply-to address differs from the sending address.",
+          "isCorrect": true,
+          "feedbackAr": "هذا إشارة قوية للتصيّد، خاصة إذا كانت الرسالة تطلب إجراءً غير معتاد.",
+          "feedbackEn": "This is a strong phishing signal, especially if the message asks for an unusual action."
+        }
+      ]
+    }
+  ]
+}

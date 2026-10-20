@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "zai.glm-5",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-20T07:48:24.742453+00:00",
+    "usage": {
+      "inputTokens": 9743,
+      "outputTokens": 205
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The example demonstrates the principles well, but Step 3 ('What was done') uses a generic example ('Tried restarting') rather than showing what was actually tried on the specific items in the prompt, missing an opportunity to model the specific case."
+  },
+  "verdict_notes": "A strong, practical lesson with excellent bilingual quality and authentic scenarios that recognize the real friction of shift work. The worked example is good but slightly generic in one step; otherwise, the material is tight and actionable."
+}

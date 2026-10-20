@@ -1,0 +1,54 @@
+{
+  "source": "pipeline/sources/cs-01-handling-a-customer-complaint.md",
+  "objective": "CS-01",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-20T07:50:41.513300+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 109.8,
+      "usage": {
+        "inputTokens": 23537,
+        "outputTokens": 5515,
+        "totalTokens": 29052,
+        "temperature": 0
+      },
+      "needs_verification": 3
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "FAIL: concept_log (1)",
+      "seconds": 0.2
+    },
+    {
+      "version": "v2",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 77.7,
+      "usage": {
+        "inputTokens": 29332,
+        "outputTokens": 5424,
+        "totalTokens": 34756,
+        "temperature": 0
+      },
+      "needs_verification": 0
+    },
+    {
+      "version": "v2",
+      "step": "gates",
+      "result": "FAIL: concept_log (1)",
+      "seconds": 0.1
+    }
+  ],
+  "outcome": "STOPPED after the one retry: v2 still fails; a human decides",
+  "finished": "2026-10-20T07:53:49.200450+00:00"
+}

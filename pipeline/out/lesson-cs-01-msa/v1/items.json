@@ -1,0 +1,91 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "GENERATED for lesson handling-a-customer-complaint. Every item is formative.",
+  "items": [
+    {
+      "key": "CS-01-KC-01",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "يتصل عميل غاضب ويقول إن طلبه لم يصل بعد أسبوع من الموعد الموعود. أي من هذه الردود هو الاعتراف الصحيح؟",
+      "stemEn": "An angry customer calls saying their order has not arrived a week after the promised date. Which of these responses is correct acknowledgement?",
+      "options": [
+        {
+          "textAr": "«أنا آسف لأنك تشعر بهذه الطريقة.»",
+          "textEn": "“I’m sorry you feel that way.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا يعتذر عن الشعور بدلاً من الحدث، والعميل يسمع ذلك.",
+          "feedbackEn": "This apologises for the feeling rather than the event, and the customer hears exactly that."
+        },
+        {
+          "textAr": "«لقد وعدنا بالتوصيل خلال خمسة أيام، وهذا تأخير.»",
+          "textEn": "“We promised delivery within five days, and this is late.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا يقرر أن المنظمة أخفقت قبل أن يثبت ذلك.",
+          "feedbackEn": "This decides the organisation was wrong before establishing it."
+        },
+        {
+          "textAr": "«لقد انتظرت أسبوعًا ولم يصل طلبك بعد. أفهم لماذا أنت غاضب.»",
+          "textEn": "“You have waited a week and your order has not arrived. I can see why you are angry.”",
+          "isCorrect": true,
+          "feedbackAr": "هذا يذكر ما حدث بكلمات العميل، ويقول إنك تفهم لماذا يهم الأمر.",
+          "feedbackEn": "This names what happened in the customer's words, and says you understand why it matters."
+        },
+        {
+          "textAr": "«دعني أتحقق من النظام وأرى ما حدث.»",
+          "textEn": "“Let me check the system and see what happened.”",
+          "isCorrect": false,
+          "feedbackAr": "هذا يقفز إلى الحل قبل الاعتراف.",
+          "feedbackEn": "This jumps to the solution before acknowledging."
+        }
+      ]
+    },
+    {
+      "key": "CS-01-KC-02",
+      "objectiveId": "CS-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه الخطوات جزء من تحديد الحقائق؟",
+      "stemEn": "Which of these steps are part of establishing the facts?",
+      "options": [
+        {
+          "textAr": "اسأل ما حدث.",
+          "textEn": "Ask what happened.",
+          "isCorrect": true,
+          "feedbackAr": "هذا جزء من تحديد الحقائق.",
+          "feedbackEn": "This is part of establishing the facts."
+        },
+        {
+          "textAr": "اسأل متى حدث.",
+          "textEn": "Ask when it happened.",
+          "isCorrect": true,
+          "feedbackAr": "هذا جزء من تحديد الحقائق.",
+          "feedbackEn": "This is part of establishing the facts."
+        },
+        {
+          "textAr": "اسأل ما يريد العميل الآن.",
+          "textEn": "Ask what the customer wants now.",
+          "isCorrect": true,
+          "feedbackAr": "هذا جزء من تحديد الحقائق.",
+          "feedbackEn": "This is part of establishing the facts."
+        },
+        {
+          "textAr": "قل إنك ستصلح المشكلة.",
+          "textEn": "Say you will fix the problem.",
+          "isCorrect": false,
+          "feedbackAr": "هذا وعد قبل معرفة ما حدث.",
+          "feedbackEn": "This is a promise before knowing what happened."
+        },
+        {
+          "textAr": "قل إن السياسة تسمح بذلك.",
+          "textEn": "Say the policy allows it.",
+          "isCorrect": false,
+          "feedbackAr": "هذا دفاع عن السياسة قبل تحديد الحقائق.",
+          "feedbackEn": "This is a policy defence before establishing the facts."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson what-counts-as-personal-data. Every knowledge_check block's payload.itemRef must match one item's key.",
+  "items": [
+    {
+      "key": "PRV-01-KC-01",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه المعلومات يُعتبر بيانات شخصية؟",
+      "stemEn": "Which of these is personal data?",
+      "rationaleAr": "الاختبار هو قابلية التعرف، وليس وجود اسم واضح.",
+      "rationaleEn": "The test is identifiability, not the presence of an obvious name.",
+      "options": [
+        {
+          "textAr": "عنوان الشارع بدون رقم الشقة",
+          "textEn": "A street address without the apartment number",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: العنوان بدون التفاصيل الكاملة ليس بيانات شخصية.",
+          "feedbackEn": "Misconception: an address without full details is not personal data."
+        },
+        {
+          "textAr": "رقم هاتف المريض",
+          "textEn": "A patient's phone number",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: رقم الهاتف يمكن ربطه مباشرة بشخص.",
+          "feedbackEn": "Correct: a phone number can be directly linked to a person."
+        },
+        {
+          "textAr": "«المريض في الغرفة 3»",
+          "textEn": "\"Patient in room 3\"",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الغرفة وحدها لا تحدد شخصًا في جناح كبير.",
+          "feedbackEn": "Misconception: the room alone does not identify a person in a large ward."
+        },
+        {
+          "textAr": "مجموع المبيعات لشهر يناير",
+          "textEn": "Total sales for January",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الأرقام المجمعة ليست بيانات شخصية.",
+          "feedbackEn": "Misconception: aggregate numbers are not personal data."
+        }
+      ]
+    },
+    {
+      "key": "PRV-01-KC-02",
+      "objectiveId": "PRV-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه المواقف يُعتبر خرقًا محتملًا يتطلب الإبلاغ عنه في نفس اليوم؟",
+      "stemEn": "Which of these situations is a potential breach requiring same-day reporting?",
+      "rationaleAr": "الخرق المحتمل هو أي وصول غير مصرح به للبيانات الشخصية، بغض النظر عن النية.",
+      "rationaleEn": "A potential breach is any unauthorised access to personal data, regardless of intent.",
+      "options": [
+        {
+          "textAr": "إرسال بريد إلكتروني يحتوي على تفاصيل مريض إلى زميل خارج الفريق",
+          "textEn": "Emailing a patient's details to a colleague outside the team",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: هذا إفشاء غير مصرح به للبيانات الشخصية.",
+          "feedbackEn": "Correct: this is an unauthorised disclosure of personal data."
+        },
+        {
+          "textAr": "طباعة قائمة بالمرضى وتركها على طابعة مشتركة",
+          "textEn": "Printing a patient list and leaving it on a shared printer",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: البيانات الشخصية أصبحت متاحة لمن لا يحتاجها.",
+          "feedbackEn": "Correct: personal data is now available to people who do not need it."
+        },
+        {
+          "textAr": "نسخ جدول بيانات يحتوي على أسماء الموظفين إلى محرك أقراص شخصي",
+          "textEn": "Copying a spreadsheet with employee names to a personal drive",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: البيانات الشخصية انتقلت إلى مكان خارج الضوابط المؤسسية.",
+          "feedbackEn": "Correct: personal data has moved outside institutional controls."
+        },
+        {
+          "textAr": "حذف ملف يحتوي على معلومات مريض بعد انتهاء الحاجة إليه",
+          "textEn": "Deleting a file containing patient information after it is no longer needed",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الحذف الصحيح ليس خرقًا.",
+          "feedbackEn": "Misconception: proper deletion is not a breach."
+        }
+      ]
+    }
+  ]
+}

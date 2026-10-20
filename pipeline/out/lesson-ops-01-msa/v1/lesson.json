@@ -1,0 +1,477 @@
+{
+  "slug": "writing-a-shift-handover",
+  "titleAr": "كتابة تسليم وردية العمل",
+  "titleEn": "Writing a shift handover",
+  "estMinutes": 30,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "OPS-01"
+  ],
+  "conceptsIntroduced": [
+    "handover",
+    "urgent_item",
+    "fact_guess",
+    "commitment"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "ما تسليم الورديّة؟",
+          "textEn": "What a handover is",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "تسليم الورديّة هو اللحظة التي ينتقل فيها العمل دون السياق. الشخص المغادر يعرف لماذا لم يُكتمل التذكرة، وأي عميل سيردّ الاتصال، وما الذي جُرِّب بالفعل. الشخص القادم لا يعرف شيئًا من ذلك. كل ما لم يُكتب في نهاية الورديّة يُفقد عمليًا.\n\nالمعيار الوحيد لتسليم الورديّة هو: **هل يستطيع الشخص التالي التصرف بناءً عليه دون الاتصال بك؟** إذا احتاجوا إلى الاتصال أو التخمين، فقد فشل التسليم، مهما كان طويلًا. صفحة كاملة من السرد الذي يخفي العنصر العاجل أسوأ من ثلاث أسطر دقيقة.",
+          "mdEn": "A handover is the moment work changes hands while context does not. The person leaving knows why a ticket is half-done, which customer is about to call back, and what was already tried. The person arriving knows none of it. Whatever is not written down at the end of a shift is, for practical purposes, lost.\n\nThe only test of a handover is: **can the next person act on it without contacting you?** If they would have to call, message, or guess, the handover failed, however long it was. A page of narrative that buries the one urgent item is a worse handover than three precise lines."
+        }
+      },
+      {
+        "id": "b_l1_def_handover",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "تسليم الورديّة",
+          "termEn": "Handover",
+          "defAr": "مستند قصير يُنقل فيه العمل المفتوح والسياق إلى الشخص التالي في الورديّة، مكتوب بحيث يمكنهم التصرف دون الاتصال بالشخص المغادر.",
+          "defEn": "A short document that transfers open work and context to the next person on shift, written so they can act without contacting the person leaving.",
+          "icon": "✏️",
+          "exampleAr": "مثال تدريبي: تذكرة دعم رقم 421: العميل طلب استردادًا، تمت الموافقة ولكن لم يُرسل بعد. أرسل قبل الساعة 14:00.",
+          "exampleEn": "Training example: Support ticket #421: Customer requested refund, approved but not sent. Send by 14:00."
+        }
+      },
+      {
+        "id": "b_l1_def_urgent_item",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "العنصر العاجل",
+          "termEn": "Urgent item",
+          "defAr": "عنصر في تسليم الورديّة يحتاج إلى إجراء قبل نهاية الورديّة التالية، ويُشار إليه بوضوح في بداية التسليم.",
+          "defEn": "An item in a handover that requires action before the end of the next shift, marked clearly at the top of the handover.",
+          "icon": "⏰"
+        }
+      },
+      {
+        "id": "b_l1_def_fact_guess",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "الحقيقة / التخمين",
+          "termEn": "Fact / Guess",
+          "defAr": "الحقيقة هي شيء يمكن التحقق منه من السجل أو النظام. التخمين هو تفسير أو رأي، ويجب تسميته بوضوح حتى لا يُعامل كحقيقة.",
+          "defEn": "A fact is something verifiable from the record or system. A guess is an interpretation or opinion, and must be labelled clearly so it is not treated as fact.",
+          "icon": "🔍"
+        }
+      },
+      {
+        "id": "b_l1_def_commitment",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "التزام",
+          "termEn": "Commitment",
+          "defAr": "وعد تم تقديمه لعميل أو زميل أو مدير، مثل معاودة الاتصال أو التحديث بحلول وقت معين. الالتزامات تنتقل مع العمل، وليس مع الشخص.",
+          "defEn": "A promise made to a customer, colleague, or manager, such as a callback or an update by a certain time. Commitments travel with the work, not the person.",
+          "icon": "🤝"
+        }
+      },
+      {
+        "id": "b_l1_compare_handover",
+        "type": "compare_table",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "captionAr": "تسليم جيد مقابل تسليم سيئ",
+          "captionEn": "Good handover vs. bad handover",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "تسليم جيد",
+              "labelEn": "Good handover"
+            },
+            {
+              "labelAr": "تسليم سيئ",
+              "labelEn": "Bad handover"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "العنصر العاجل",
+                "textEn": "Urgent item"
+              },
+              {
+                "textAr": "يُذكر أولاً ويُشار إليه بوضوح.",
+                "textEn": "Mentioned first and clearly marked."
+              },
+              {
+                "textAr": "يُدفن في السرد أو يُذكر في النهاية.",
+                "textEn": "Buried in narrative or mentioned last."
+              }
+            ],
+            [
+              {
+                "textAr": "الحالة الحالية",
+                "textEn": "Current status"
+              },
+              {
+                "textAr": "حالة محددة: \"في انتظار رد المورد على البريد الإلكتروني الصادر في الساعة 15:22\".",
+                "textEn": "Specific state: \"Waiting for supplier reply to email sent at 15:22\"."
+              },
+              {
+                "textAr": "حالة غامضة: \"قيد التنفيذ\"، \"قيد الانتظار\".",
+                "textEn": "Vague state: \"In progress\", \"Pending\"."
+              }
+            ],
+            [
+              {
+                "textAr": "ما تم فعله",
+                "textEn": "What was done"
+              },
+              {
+                "textAr": "يُذكر ما تم تجربته وفشل، مثل \"جرّبت إعادة التشغيل ولكن الخطأ استمر\".",
+                "textEn": "Lists what was tried and failed, e.g., \"Tried restarting but error persisted\"."
+              },
+              {
+                "textAr": "لا يذكر المحاولات السابقة.",
+                "textEn": "Omits previous attempts."
+              }
+            ],
+            [
+              {
+                "textAr": "الإجراء التالي",
+                "textEn": "Next action"
+              },
+              {
+                "textAr": "إجراء محدد مع وقت: \"اتصل بالعميل قبل الساعة 10:00 لتأكيد الاستلام\".",
+                "textEn": "Specific action with time: \"Call customer by 10:00 to confirm receipt\"."
+              },
+              {
+                "textAr": "لا يذكر الإجراء أو الوقت.",
+                "textEn": "No action or time mentioned."
+              }
+            ],
+            [
+              {
+                "textAr": "الالتزامات",
+                "textEn": "Commitments"
+              },
+              {
+                "textAr": "يُذكر بوضوح: \"وعدت العميل بمعاودة الاتصال قبل الظهر\".",
+                "textEn": "Clearly stated: \"Promised customer a callback by noon\"."
+              },
+              {
+                "textAr": "يُترك خارجًا لأنه كان غير رسمي.",
+                "textEn": "Omitted because it felt informal."
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_questions",
+        "type": "process_flow",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "steps": [
+            {
+              "id": "q1",
+              "labelAr": "ما هذا؟",
+              "labelEn": "What is it?",
+              "detailAr": "تحديد واحد للبحث عنه: رقم التذكرة، العميل، المهمة.",
+              "detailEn": "One-line identifier to find it: ticket number, customer, job."
+            },
+            {
+              "id": "q2",
+              "labelAr": "أين يقف؟",
+              "labelEn": "Where does it stand?",
+              "detailAr": "الحالة الحالية كحقيقة، وليس شعورًا.",
+              "detailEn": "Current state as a fact, not a feeling."
+            },
+            {
+              "id": "q3",
+              "labelAr": "ما الذي تم فعله بالفعل؟",
+              "labelEn": "What has already been done?",
+              "detailAr": "خاصة ما تم تجربته ولم ينجح.",
+              "detailEn": "Especially what was tried and did not work."
+            },
+            {
+              "id": "q4",
+              "labelAr": "ما التالي، ومتى؟",
+              "labelEn": "What happens next, and by when?",
+              "detailAr": "إجراء محدد مع وقت.",
+              "detailEn": "Specific action with a time attached."
+            }
+          ],
+          "interactive": false
+        }
+      },
+      {
+        "id": "b_l1_tip_urgent",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**ابدأ بما هو عاجل.** رتّب العناصر حسب موعد الإجراء، وليس حسب وقت الوصول أو الاهتمام. أي شيء له موعد نهائي خلال الورديّة التالية يأتي أولاً ويُشار إليه بوضوح. التسليم الذي يُقرأ من الأعلى لا ينبغي أن يفاجئ القارئ في الأسفل.",
+          "mdEn": "**Lead with what is urgent.** Order items by when they need action, not by when they arrived or how interesting they were. Anything with a deadline inside the next shift goes first and is marked clearly. A handover read from the top should never surprise the reader at the bottom."
+        }
+      },
+      {
+        "id": "b_l1_tip_fact_guess",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**افصل بين الحقائق والتخمينات.** \"فشل الدفع مرتين\" هو حقيقة. \"أعتقد أن البطاقة منتهية الصلاحية\" هو تخمين، ويجب تسميته بوضوح، وإلا سيتصرف الشخص التالي كما لو كان حقيقة.",
+          "mdEn": "**Separate facts from guesses.** \"The payment failed twice\" is a fact. \"I think the card is expired\" is a guess, and it has to be labelled as one, or the next person will act on it as if it were true."
+        }
+      },
+      {
+        "id": "b_l1_tip_commitment",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**الالتزامات تنتقل مع العمل.** إذا وعدت عميلاً أو زميلاً أو مديرًا بشيء — معاودة الاتصال، استرداد، تحديث بحلول وقت معين — فهذا الوعد الآن على عاتق الشخص التالي، ويجب أن يذكر التسليم ذلك بوضوح: من وُعد بماذا، ومتى.",
+          "mdEn": "**Commitments travel with the work.** If you promised a customer, colleague, or manager something — a callback, a refund, an update by a certain time — that promise is now the next person's, and the handover must say so in words: who was promised what, and by when."
+        }
+      },
+      {
+        "id": "b_l1_tip_location",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**اكتبه حيث يعيش العمل.** التسليم على ورقة، رسالة خاصة أو ملاحظة شخصية لا يمكن العثور عليه من قبل من يغطي الورديّة التالية. اكتبه في السجل المشترك — التذكرة، السجل، القناة المتفق عليها — حتى يبقى بعد مغادرة من كتبه.",
+          "mdEn": "**Write it where the work lives.** A handover on a scrap of paper, a private message, or a personal note cannot be found by whoever covers the shift after next. Write it in the shared record — the ticket, the log, the team channel the team agreed on — so it survives the person who wrote it."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemsAr": [
+            "تسليم الورديّة هو مستند قصير يجيب على أربعة أسئلة لكل عنصر مفتوح: ما هذا؟ أين يقف؟ ما الذي تم فعله؟ ما التالي ومتى؟",
+            "العناصر العاجلة تأتي أولاً وتُشار إليها بوضوح.",
+            "افصل بين الحقائق والتخمينات، وسمِّ التخمينات بوضوح.",
+            "الالتزامات تنتقل مع العمل، وليس مع الشخص، ويجب ذكرها بوضوح.",
+            "اكتب التسليم في السجل المشترك حتى يمكن العثور عليه لاحقًا."
+          ],
+          "itemsEn": [
+            "A handover is a short document that answers four questions for every open item: What is it? Where does it stand? What has been done? What happens next, and by when?",
+            "Urgent items go first and are clearly marked.",
+            "Separate facts from guesses, and label guesses clearly.",
+            "Commitments travel with the work, not the person, and must be stated clearly.",
+            "Write the handover in the shared record so it can be found later."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "promptAr": "أنت تغادر الورديّة، ولديك ثلاث مهام مفتوحة:\n\n1. تذكرة دعم رقم 312: عميل أبلغ عن خطأ في الفاتورة، وأرسلت بريدًا إلكترونيًا إلى المحاسبة في الساعة 16:10 ولم يردوا بعد.\n2. طلب استرداد رقم 789: تمت الموافقة ولكن لم يُرسل بعد، والعميل يتوقع استلامه اليوم.\n3. تقرير أسبوعي: يجب إرساله بحلول الساعة 17:00، ولم يبدأ بعد.\n\nاكتب تسليم الورديّة.",
+          "promptEn": "You are leaving shift, and you have three open items:\n\n1. Support ticket #312: Customer reported a billing error. You emailed Accounting at 16:10 and have not heard back.\n2. Refund request #789: Approved but not sent. Customer expects it today.\n3. Weekly report: Due by 17:00, not started yet.\n\nWrite the handover.",
+          "steps": [
+            {
+              "showAr": "**العنصر العاجل أولاً:** طلب الاسترداد رقم 789 يأتي أولاً لأنه يجب إرساله اليوم.",
+              "showEn": "**Lead with the urgent item:** Refund request #789 goes first because it must be sent today.",
+              "whyAr": "العميل يتوقع الاستلام اليوم، والتأخير يعني وعدًا مكسورًا.",
+              "whyEn": "The customer expects it today, and delay means a broken promise."
+            },
+            {
+              "showAr": "**الحالة الحالية كحقيقة:** \"في انتظار رد المحاسبة\" ليس حالة، بل \"أرسلت بريدًا إلكترونيًا في الساعة 16:10 ولم يردوا بعد\".",
+              "showEn": "**Current state as fact:** \"Waiting for Accounting\" is not a state. \"Emailed at 16:10, no reply yet\" is.",
+              "whyAr": "الحالة الغامضة تجعل الشخص التالي يخمن ما يجب فعله.",
+              "whyEn": "A vague state makes the next person guess what to do."
+            },
+            {
+              "showAr": "**ما تم فعله:** اذكر ما تم تجربته وفشل، مثل \"جرّبت إعادة التشغيل ولكن الخطأ استمر\".",
+              "showEn": "**What was done:** List what was tried and failed, e.g., \"Tried restarting but error persisted\".",
+              "whyAr": "بدون ذلك، قد يكرر الشخص التالي المحاولة الفاشلة.",
+              "whyEn": "Without it, the next person may repeat the failed attempt."
+            },
+            {
+              "showAr": "**الإجراء التالي مع وقت:** \"أرسل الاسترداد قبل نهاية الورديّة\" وليس \"أرسل الاسترداد قريبًا\".",
+              "showEn": "**Next action with time:** \"Send refund before end of shift\" not \"Send refund soon\".",
+              "whyAr": "الوقت المحدد يمنع التأخير.",
+              "whyEn": "A specific time prevents delay."
+            },
+            {
+              "showAr": "**الالتزامات:** إذا وعدت العميل بمعاودة الاتصال، فاكتب ذلك حتى يعرف الشخص التالي.",
+              "showEn": "**Commitments:** If you promised the customer a callback, write it so the next person knows.",
+              "whyAr": "الالتزام ينتقل مع العمل، وليس مع الشخص.",
+              "whyEn": "The commitment travels with the work, not the person."
+            }
+          ],
+          "answerAr": "**تسليم الورديّة:**\n\n1. **طلب الاسترداد رقم 789** (عاجل): تمت الموافقة ولكن لم يُرسل بعد. العميل يتوقع استلامه اليوم. أرسل قبل نهاية الورديّة.\n2. تذكرة الدعم رقم 312: أبلغ العميل عن خطأ في الفاتورة. أرسلت بريدًا إلكترونيًا إلى المحاسبة في الساعة 16:10 ولم يردوا بعد. اتبع معهم قبل الساعة 10:00 غدًا.\n3. التقرير الأسبوعي: يجب إرساله بحلول الساعة 17:00، ولم يبدأ بعد. أكمله وأرسله قبل الموعد النهائي.",
+          "answerEn": "**Handover:**\n\n1. **Refund request #789** (urgent): Approved but not sent. Customer expects it today. Send before end of shift.\n2. Support ticket #312: Customer reported billing error. Emailed Accounting at 16:10, no reply yet. Follow up by 10:00 tomorrow.\n3. Weekly report: Due by 17:00, not started. Complete and send before deadline."
+        }
+      },
+      {
+        "id": "b_l2_scenario_missing_commitment",
+        "type": "scenario",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "situationAr": "أنت تغادر الورديّة، ولديك تذكرة دعم مفتوحة: العميل أبلغ عن مشكلة في الشحن، وأرسلت بريدًا إلكترونيًا إلى الشحن في الساعة 15:30 ولم يردوا بعد. وعدت العميل بمعاودة الاتصال بحلول الساعة 16:00 لتحديثه، ولكن الساعة الآن 15:55 ولم تتلق ردًا بعد.",
+          "situationEn": "You are leaving shift, and you have one open support ticket: Customer reported a shipping issue. You emailed Shipping at 15:30 and have not heard back. You promised the customer a callback by 16:00 with an update, but it is now 15:55 and you have no reply yet.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اكتب في التسليم: \"التذكرة رقم 123: في انتظار رد الشحن. اتبع معهم غدًا.\"",
+              "optionEn": "Write in the handover: \"Ticket #123: Waiting for Shipping reply. Follow up tomorrow.\"",
+              "consequenceAr": "الشخص التالي لا يعرف عن الوعد بمعاودة الاتصال، والعميل لن يتلقى تحديثًا بحلول الساعة 16:00. الوعد يُعتبر مكسورًا.",
+              "consequenceEn": "The next person does not know about the callback promise, and the customer will not receive an update by 16:00. The promise is treated as broken.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اتصل بالعميل الآن وقل إنك لم تتلق ردًا بعد، ثم اكتب في التسليم: \"التذكرة رقم 123: وعدت العميل بمعاودة الاتصال بحلول الساعة 16:00. أرسلت بريدًا إلكترونيًا إلى الشحن في الساعة 15:30 ولم يردوا بعد. اتصل بالعميل قبل الساعة 16:00 لتحديثه.\"",
+              "optionEn": "Call the customer now and say you have not received a reply yet, then write in the handover: \"Ticket #123: Promised customer callback by 16:00. Emailed Shipping at 15:30, no reply yet. Call customer by 16:00 with update.\"",
+              "consequenceAr": "العميل يتلقى تحديثًا فوريًا، والالتزام يُنقل بوضوح إلى الشخص التالي. الوعد يُحفظ.",
+              "consequenceEn": "The customer receives an immediate update, and the commitment is clearly transferred to the next person. The promise is kept.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "اكتب في التسليم: \"التذكرة رقم 123: في انتظار رد الشحن. اتصل بالعميل إذا لم يردوا بحلول الساعة 16:00.\"",
+              "optionEn": "Write in the handover: \"Ticket #123: Waiting for Shipping reply. Call customer if they do not reply by 16:00.\"",
+              "consequenceAr": "الالتزام بمعاودة الاتصال بحلول الساعة 16:00 غير واضح، وقد يفوته الشخص التالي. الوعد قد يُكسر.",
+              "consequenceEn": "The commitment to call back by 16:00 is not clear, and the next person may miss it. The promise may be broken.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_scenario_vague_status",
+        "type": "scenario",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "situationAr": "أنت تغادر الورديّة، ولديك تذكرة دعم مفتوحة: العميل طلب استردادًا، وأرسلت الطلب إلى المحاسبة. تكتب في التسليم: \"التذكرة رقم 456: قيد الانتظار.\"",
+          "situationEn": "You are leaving shift, and you have one open support ticket: Customer requested a refund, and you sent the request to Accounting. You write in the handover: \"Ticket #456: Pending.\"",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "اترك التسليم كما هو.",
+              "optionEn": "Leave the handover as is.",
+              "consequenceAr": "الشخص التالي لا يعرف ما يعني \"قيد الانتظار\"، وقد يفترض أن المحاسبة ستتصرف قريبًا. قد ينتظر دون متابعة، مما يؤخر الاسترداد.",
+              "consequenceEn": "The next person does not know what \"pending\" means, and may assume Accounting will act soon. They may wait without following up, delaying the refund.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اكتب: \"التذكرة رقم 456: أرسلت الطلب إلى المحاسبة في الساعة 14:45 ولم يردوا بعد. اتبع معهم قبل الساعة 10:00 غدًا.\"",
+              "optionEn": "Write: \"Ticket #456: Sent request to Accounting at 14:45, no reply yet. Follow up by 10:00 tomorrow.\"",
+              "consequenceAr": "الشخص التالي يعرف بالضبط ما حدث ومتى يتصرف. الاسترداد يُسرع.",
+              "consequenceEn": "The next person knows exactly what happened and when to act. The refund is expedited.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "اكتب: \"التذكرة رقم 456: قيد الانتظار. المحاسبة بطيئة دائمًا.\"",
+              "optionEn": "Write: \"Ticket #456: Pending. Accounting is always slow.\"",
+              "consequenceAr": "الحالة ليست حقيقة، والتخمين غير مسمّى. قد يتصرف الشخص التالي بناءً على التخمين، وليس على الحقائق.",
+              "consequenceEn": "The state is not a fact, and the guess is unlabelled. The next person may act on the guess, not the facts.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_fact_guess",
+        "type": "sort_buckets",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "fact",
+              "labelAr": "حقيقة",
+              "labelEn": "Fact"
+            },
+            {
+              "id": "guess",
+              "labelAr": "تخمين",
+              "labelEn": "Guess"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "فشل الدفع مرتين.",
+              "textEn": "The payment failed twice.",
+              "bucketId": "fact",
+              "whyAr": "يمكن التحقق من ذلك من السجل.",
+              "whyEn": "Verifiable from the record."
+            },
+            {
+              "id": "c2",
+              "textAr": "أعتقد أن البطاقة منتهية الصلاحية.",
+              "textEn": "I think the card is expired.",
+              "bucketId": "guess",
+              "whyAr": "ليس مؤكدًا، ويجب تسميته بوضوح.",
+              "whyEn": "Not certain, and must be labelled clearly."
+            },
+            {
+              "id": "c3",
+              "textAr": "أرسلت بريدًا إلكترونيًا إلى المورد في الساعة 15:22 ولم يردوا بعد.",
+              "textEn": "Emailed the supplier at 15:22, no reply yet.",
+              "bucketId": "fact",
+              "whyAr": "يمكن التحقق من ذلك من سجل البريد الإلكتروني.",
+              "whyEn": "Verifiable from the email log."
+            },
+            {
+              "id": "c4",
+              "textAr": "ربما يكون المورد في إجازة.",
+              "textEn": "Maybe the supplier is on holiday.",
+              "bucketId": "guess",
+              "whyAr": "ليس مؤكدًا، ويجب تسميته بوضوح.",
+              "whyEn": "Not certain, and must be labelled clearly."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

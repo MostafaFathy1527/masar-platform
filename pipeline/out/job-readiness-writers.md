@@ -29,3 +29,17 @@ Two changes made the difference, and they were separate:
 What K3 still marks down on JOB-03 and JOB-05 is small and specific (one dual/singular
 slip, an exemplar repeated verbatim in two blocks): the kind of edit a reviewer makes, not
 a reason for another generation. The `lesson-job-0N` folders (gpt-oss) stay as the record.
+
+## Lessons 7 to 10, regenerated in Modern Standard Arabic (20 October 2026)
+
+Same writer and prompt. K3's mean on the final version of each:
+
+| Lesson | Folder | K3 |
+|---|---|---|
+| CS-01 | `lesson-cs-01-msa2` v3 (one-field hand edit: a concept key the retry would not fix; see notes.md). The first attempt, `lesson-cs-01-msa`, stopped at the gates. | 3.88 |
+| OPS-01 | `lesson-ops-01-msa` v1 | 4.00 |
+| PRV-01 | `lesson-prv-01-msa` v2 (revised from the judges' reports) | 3.88 |
+| SEC-01 | `lesson-sec-01-msa` v1 | 4.12 |
+
+Across the ten lessons, K3 passes six and puts the other four between 3.75 and 3.88. All ten
+stop for a person: the open seat was empty, and every lesson is reviewed before it is published.

@@ -1,0 +1,396 @@
+{
+  "slug": "handling-a-customer-complaint",
+  "titleAr": "التعامل مع شكوى العميل",
+  "titleEn": "Handling a customer complaint",
+  "estMinutes": 40,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "CS-01"
+  ],
+  "conceptsIntroduced": [
+    "acknowledgement",
+    "establish_facts",
+    "ownership",
+    "agreed_next_step"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "ما الشكوى؟",
+          "textEn": "What a complaint is",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "الشكوى ليست هجومًا وليست طلب اعتذار. هي العميل يخبرك أن الفجوة بين ما توقع وما حصل أصبحت تستحق وقته للإبلاغ عنها. معظم العملاء الذين يخيب أملهم لا يقولون شيئًا ويغادرون. الذي يشكو يمنحك الفرصة التي لم يمنحها الآخرون.\n\nالدقيقة الأولى تحدد العشرين التالية. العميل الذي يبدأ غاضبًا يحمل مشكلتين: الشيء الذي أخفق، والشعور بأن أحدًا لم يستمع إليه. يجب التعامل مع الثانية أولًا، لأن الشخص الذي لا يشعر بأنه سمع لا يمكنه سماع أي شيء تقوله.",
+          "mdEn": "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not.\n\nThe first minute decides the next twenty. A customer who opens angry is carrying two problems: the thing that went wrong, and the feeling that nobody has listened. The second has to be dealt with first, because a person who does not feel heard cannot hear anything you say."
+        }
+      },
+      {
+        "id": "b_l1_def_acknowledgement",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "الاعتراف",
+          "termEn": "Acknowledgement",
+          "defAr": "تسمية ما حدث بكلمات العميل، والقول إنك تفهم لماذا يهم، قبل أي شيء عن الأسباب أو الحلول.",
+          "defEn": "Naming what happened in the customer's words, and saying you understand why it matters, before saying anything about causes or fixes.",
+          "icon": "👂",
+          "exampleAr": "«تم خصم المبلغ مرتين ولم يتصل بك أحد، وقد قضيت ساعة في هذا. أفهم لماذا أنت غاضب.»",
+          "exampleEn": "“You were charged twice and nobody called you back, and you have spent an hour on this. I can see why you are angry.”"
+        }
+      },
+      {
+        "id": "b_l1_def_establish_facts",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "تحديد الحقائق",
+          "termEn": "Establish the facts",
+          "defAr": "الترتيب الصحيح للأسئلة: ما حدث، ومتى، وما فعله العميل حياله بالفعل، وما يريد الآن.",
+          "defEn": "The correct order of questions: what happened, when, what the customer has already done about it, and what they now want.",
+          "icon": "🔍"
+        }
+      },
+      {
+        "id": "b_l1_def_ownership",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "الملكية",
+          "termEn": "Ownership",
+          "defAr": "الشكوى تحمل اسمًا واحدًا حتى تُغلق، وهذا الاسم هو اسمك.",
+          "defEn": "The complaint has one name on it until it is closed, and that name is yours.",
+          "icon": "📛"
+        }
+      },
+      {
+        "id": "b_l1_def_agreed_next_step",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "الخطوة التالية المتفق عليها",
+          "termEn": "Agreed next step",
+          "defAr": "إجراء محدد، وقت محدد، وطريقة محددة يعرف بها العميل أنه تم.",
+          "defEn": "A specific action, a specific time, and a specific way the customer will know it happened.",
+          "icon": "✅",
+          "exampleAr": "«سأرفع طلب الاسترداد الآن؛ سيصل إلى بطاقتك خلال خمسة أيام عمل؛ ستتلقى تأكيدًا عبر البريد الإلكتروني اليوم.»",
+          "exampleEn": "“I will raise the refund now; it reaches your card within five working days; you will get a confirmation by email today.”"
+        }
+      },
+      {
+        "id": "b_l1_compare_acknowledgement",
+        "type": "compare_table",
+        "objectiveId": "CS-01",
+        "payload": {
+          "captionAr": "ما الاعتراف به وما ليس اعترافًا",
+          "captionEn": "What acknowledgement is and is not",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "اعتراف",
+              "labelEn": "Acknowledgement"
+            },
+            {
+              "labelAr": "ليس اعترافًا",
+              "labelEn": "Not acknowledgement"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "التركيز",
+                "textEn": "Focus"
+              },
+              {
+                "textAr": "تجربة العميل",
+                "textEn": "The customer's experience"
+              },
+              {
+                "textAr": "منظمة أو سياسة",
+                "textEn": "The organisation or policy"
+              }
+            ],
+            [
+              {
+                "textAr": "اللغة",
+                "textEn": "Language"
+              },
+              {
+                "textAr": "«أرى لماذا أنت غاضب»",
+                "textEn": "“I can see why you are angry”"
+              },
+              {
+                "textAr": "«آسف لأنك تشعر بهذه الطريقة»",
+                "textEn": "“I'm sorry you feel that way”"
+              }
+            ],
+            [
+              {
+                "textAr": "النتيجة",
+                "textEn": "Outcome"
+              },
+              {
+                "textAr": "يخفض درجة الغضب",
+                "textEn": "Lowers anger"
+              },
+              {
+                "textAr": "يزيد الغضب",
+                "textEn": "Increases anger"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_stages",
+        "type": "process_flow",
+        "objectiveId": "CS-01",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "الاعتراف",
+              "labelEn": "Acknowledge",
+              "detailAr": "قل ما حدث بكلمات العميل.",
+              "detailEn": "Say what happened in the customer's words."
+            },
+            {
+              "id": "s2",
+              "labelAr": "خفض التوتر",
+              "labelEn": "De-escalate",
+              "detailAr": "قل إنك تفهم لماذا يهم.",
+              "detailEn": "Say you understand why it matters."
+            },
+            {
+              "id": "s3",
+              "labelAr": "تحديد الحقائق",
+              "labelEn": "Establish facts",
+              "detailAr": "اسأل: ما حدث، ومتى، وما فعله العميل بالفعل، وما يريد الآن.",
+              "detailEn": "Ask: what happened, when, what the customer has already done, and what they now want."
+            },
+            {
+              "id": "s4",
+              "labelAr": "التحقق من السجل",
+              "labelEn": "Check the record",
+              "detailAr": "افحص السجل أثناء تواجد العميل.",
+              "detailEn": "Check the record while the customer is with you."
+            },
+            {
+              "id": "s5",
+              "labelAr": "الملكية",
+              "labelEn": "Take ownership",
+              "detailAr": "كن الاسم الوحيد على الشكوى حتى تُغلق.",
+              "detailEn": "Be the only name on the complaint until it is closed."
+            },
+            {
+              "id": "s6",
+              "labelAr": "الاتفاق على الخطوة التالية",
+              "labelEn": "Agree next step",
+              "detailAr": "حدد إجراءً محددًا ووقتًا محددًا.",
+              "detailEn": "Specify a specific action and a specific time."
+            },
+            {
+              "id": "s7",
+              "labelAr": "الإغلاق",
+              "labelEn": "Close",
+              "detailAr": "قل كيف سيعرف العميل أن الأمر قد تم.",
+              "detailEn": "Say how the customer will know it happened."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_avoid",
+        "type": "job_tip",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "**ثلاثة أشياء لا تفعلها أبدًا:**\n- لا تعد بشيء لا يمكنك تحقيقه بنفسك؛ وعد بما يمكنك فعله والوقت الذي ستعود فيه.\n- لا تجادل السياسة؛ اشرحها مرة واحدة، ثم انتقل إلى ما يمكن فعله ضمنها.\n- لا تأخذ الغضب على محمل شخصي، ولا ترد عليه؛ العميل غاضب من الموقف وأنت أول شخص يمكنه تغييره.",
+          "mdEn": "**Three things never to do:**\n- Do not promise what you cannot personally make true; promise what you can do and the time by which you will report back.\n- Do not argue the policy; explain it once, then move to what can be done within it.\n- Do not take the anger personally, and do not match it; the customer is angry at a situation and you are the first person who could change it."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemsAr": [
+            "الشكوى فرصة وليست هجومًا: العميل الذي يشكو يمنحك فرصة لتصحيح الأمر.",
+            "الاعتراف يخفض التوتر قبل تحديد الحقائق.",
+            "الملكية تعني اسمًا واحدًا على الشكوى حتى تُغلق.",
+            "الخطوة التالية المتفق عليها تمنع تكرار الشكوى."
+          ],
+          "itemsEn": [
+            "A complaint is an opportunity, not an attack: the customer who complains is giving you a chance to put it right.",
+            "Acknowledgement lowers the temperature before facts are established.",
+            "Ownership means one name on the complaint until it is closed.",
+            "An agreed next step prevents the complaint from becoming a repeat complaint."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_acknowledge",
+        "type": "worked_example",
+        "objectiveId": "CS-01",
+        "payload": {
+          "promptAr": "تصل مكالمة من عميل يقول: «طلبت المنتج منذ أسبوعين ولم يصل، واتصلت ثلاث مرات ولم يرد أحد.» كيف تبدأ الرد؟",
+          "promptEn": "A call arrives from a customer saying: “I ordered the product two weeks ago and it has not arrived. I have called three times and nobody has called me back.” How do you start?",
+          "steps": [
+            {
+              "showAr": "قل ما حدث بكلماته.",
+              "showEn": "Say what happened in their words.",
+              "whyAr": "هذا يثبت أنك سمعت ما قاله، وليس ما توقعت أن يقوله.",
+              "whyEn": "This proves you heard what they said, not what you expected them to say."
+            },
+            {
+              "showAr": "قل إنك تفهم لماذا يهم.",
+              "showEn": "Say you understand why it matters.",
+              "whyAr": "العميل يحتاج أن يعرف أنك ترى الأمر من منظوره قبل أن ينتقل إلى الحلول.",
+              "whyEn": "The customer needs to know you see it from their perspective before moving to fixes."
+            },
+            {
+              "showAr": "لا تعتذر بعد، ولا تعد بشيء.",
+              "showEn": "Do not apologise yet, and do not promise anything.",
+              "whyAr": "الاعتذار الآن يبدو فارغًا، والوعد الآن قد لا يتحقق.",
+              "whyEn": "An apology now sounds hollow, and a promise now may not be deliverable."
+            }
+          ],
+          "answerAr": "«لقد طلبت منذ أسبوعين ولم يصل، واتصلت ثلاث مرات ولم يتصل بك أحد. أفهم لماذا أنت محبط.»",
+          "answerEn": "“You ordered two weeks ago and it has not arrived, and you have called three times and nobody called you back. I can see why you are frustrated.”"
+        }
+      },
+      {
+        "id": "b_l2_scenario_ownership",
+        "type": "scenario",
+        "objectiveId": "CS-01",
+        "payload": {
+          "situationAr": "عميل يتصل ليقول إن طلبه لم يصل بعد ثلاثة أسابيع. لقد اتصلت بقسم الشحن وهم يقولون إن الطلب وصل منذ عشرة أيام. الموعد النهائي لإغلاق الشكوى اليوم.",
+          "situationEn": "A customer calls to say their order has not arrived after three weeks. You call the shipping department and they say the order was delivered ten days ago. The complaint must be closed today.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "قل للعميل إن الشحن يؤكد الوصول وأغلق المكالمة.",
+              "optionEn": "Tell the customer shipping confirms delivery and close the call.",
+              "consequenceAr": "العميل لا يشعر بأنه سمع، والشكوى ستتكرر.",
+              "consequenceEn": "The customer does not feel heard, and the complaint will repeat.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اطلب من العميل التحقق من العنوان، ثم أغلق.",
+              "optionEn": "Ask the customer to check the address, then close.",
+              "consequenceAr": "العميل يشعر بأنه تُرك وحده لحل المشكلة.",
+              "consequenceEn": "The customer feels left to solve the problem alone.",
+              "isBest": false
+            },
+            {
+              "id": "d3",
+              "optionAr": "تواصل مع قسم الشحن لتحصل على إثبات التسليم، ثم اتصل بالعميل لتخبره بالنتيجة.",
+              "optionEn": "Contact shipping for proof of delivery, then call the customer back with the result.",
+              "consequenceAr": "العميل يعرف أن الشكوى تحمل اسمًا واحدًا وأنه سيُسمع منه اليوم. الملكية محفوظة.",
+              "consequenceEn": "The customer knows the complaint has one name and they will hear back today. Ownership is preserved.",
+              "isBest": true
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_facts",
+        "type": "sort_buckets",
+        "objectiveId": "CS-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "customer",
+              "labelAr": "ما قاله العميل",
+              "labelEn": "What the customer said"
+            },
+            {
+              "id": "record",
+              "labelAr": "ما يظهره السجل",
+              "labelEn": "What the record shows"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "«لم يصل طلبي بعد ثلاثة أسابيع.»",
+              "textEn": "“My order has not arrived after three weeks.”",
+              "bucketId": "customer",
+              "whyAr": "هذا ما قاله العميل، وليس بالضرورة ما حدث.",
+              "whyEn": "This is what the customer said, not necessarily what happened."
+            },
+            {
+              "id": "c2",
+              "textAr": "«اتصلت ثلاث مرات ولم يرد أحد.»",
+              "textEn": "“I have called three times and nobody called me back.”",
+              "bucketId": "customer",
+              "whyAr": "هذا ما يشعر به العميل، وليس بالضرورة ما حدث.",
+              "whyEn": "This is how the customer feels, not necessarily what happened."
+            },
+            {
+              "id": "c3",
+              "textAr": "طلب رقم 1428 أُرسل في 5 مايو.",
+              "textEn": "Order 1428 was dispatched on 5 May.",
+              "bucketId": "record",
+              "whyAr": "هذا ما يظهره السجل، وليس بالضرورة ما تلقاه العميل.",
+              "whyEn": "This is what the record shows, not necessarily what the customer received."
+            },
+            {
+              "id": "c4",
+              "textAr": "إثبات التسليم موقع في 15 مايو.",
+              "textEn": "Proof of delivery signed on 15 May.",
+              "bucketId": "record",
+              "whyAr": "هذا ما يظهره السجل، وليس بالضرورة ما تلقاه العميل.",
+              "whyEn": "This is what the record shows, not necessarily what the customer received."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

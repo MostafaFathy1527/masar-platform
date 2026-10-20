@@ -1,0 +1,49 @@
+{
+  "source": "pipeline/sources/ops-01-writing-a-shift-handover.md",
+  "objective": "OPS-01",
+  "generator": "mistral.mistral-large-3-675b-instruct",
+  "judges": [
+    "us.moonshotai.kimi-k3",
+    "deepseek.v3.2",
+    "zai.glm-5",
+    "Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf"
+  ],
+  "started": "2026-10-20T07:44:29.245597+00:00",
+  "steps": [
+    {
+      "version": "v1",
+      "step": "generate",
+      "result": "ok",
+      "seconds": 146.6,
+      "usage": {
+        "inputTokens": 23420,
+        "outputTokens": 8319,
+        "totalTokens": 31739,
+        "temperature": 0
+      },
+      "needs_verification": 3
+    },
+    {
+      "version": "v1",
+      "step": "gates",
+      "result": "PASS",
+      "seconds": 0.2
+    },
+    {
+      "version": "v1",
+      "step": "panel",
+      "result": "NEEDS HUMAN",
+      "seconds": 88.6,
+      "means": {
+        "deepseek.v3.2": 4.38,
+        "zai.glm-5": 4.75,
+        "us.moonshotai.kimi-k3": 4.0
+      },
+      "split": [
+        "bilingual_quality"
+      ]
+    }
+  ],
+  "outcome": "NEEDS HUMAN at v1: seat empty: Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf has not scored this lesson; judges differ by more than 1 on: bilingual_quality",
+  "finished": "2026-10-20T07:48:24.769453+00:00"
+}

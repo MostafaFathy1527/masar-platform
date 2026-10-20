@@ -1,0 +1,37 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-20T07:54:08.442304+00:00",
+    "usage": {
+      "inputTokens": 9190,
+      "outputTokens": 330
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "level_fidelity": "L2 includes a sort_buckets activity, which is a good interactive element, but the L1 to L2 progression could be more distinct in terms of cognitive demand.",
+    "worked_example": "Steps show reasoning but could more explicitly name the specific judgement (e.g., 'identifiability test') and what would change the conclusion.",
+    "knowledge_check": "Distractors are plausible, but some feedback could be more specific about the misconception (e.g., 'The misconception is focusing on the absence of a name rather than the possibility of identification').",
+    "concision": "Prose is clear and purposeful, but some blocks (e.g., the rich_text intro) are slightly verbose and could be tightened without loss."
+  },
+  "verdict_notes": "All criteria score 4 or 5, with a mean of 4.5. The lesson is strong, particularly in objective alignment, scenario authenticity, and bilingual quality. Minor improvements could be made to the specificity of reasoning in the worked example and the concision of some prose."
+}

@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-20T07:56:21.549295+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6116
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "KC-01 has genuinely good distractors (premature apology, policy-defence, blaming the customer) with feedback that names each misconception, but its correct answer is near-verbatim the worked example's answer, so it rewards recognition over transfer. KC-02 is weaker: its three correct options are the three clauses of the L1 definition card's example split apart, there is only one distractor, and per-option feedback ('This is a specific action') restates the classification rather than explaining why. Plausible distractors, feedback thin on one of two items."
+  },
+  "verdict_notes": "Seven criteria at 4 and one at 3; mean 3.875. The lesson is aligned, lean, and mostly natural in Arabic, with an authentic record-vs-customer dispute at its centre. The knowledge checks are the weakest element: both lean on recycled lesson language, and KC-02's feedback asserts rather than explains."
+}

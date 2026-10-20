@@ -1,0 +1,29 @@
+# QA gate report — recognising-a-phishing-email
+
+**Result: PASS**
+
+Mean 4.12 over 8 scored criteria (threshold 4.0); lowest criterion 3 (floor 3).
+
+Lesson levels: L1, L2.
+
+> LLM rubric score, fresh-context judge, self-assessed — not human QA
+
+| Criterion | Score | Note |
+|---|---|---|
+| objective alignment | 5 |  |
+| level fidelity | 4 |  |
+| worked example | 4 |  |
+| knowledge check | 4 |  |
+| scenario authenticity | 4 |  |
+| bilingual quality | 5 |  |
+| concision | 3 | The same four or five signals are repackaged across definition cards, the compare table, the process flow, two job tips, and takeaways; both job tips are pure restatements of their definition cards and are removable without loss. L2 repeats the pattern: the sort_buckets cards are near-verbatim copies of the compare-table rows, and KC-02 then re-tests those identical signals, while KC-01 re-runs the worked example's scenario with 'HR Support' swapped for 'IT Support'. |
+| accessibility ip | 4 |  |
+
+**Judge independence:**
+
+> This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA.
+
+
+Judge's summary:
+
+> Every block serves SEC-01 and the Arabic reads as natively written with consistent terminology; the L1/L2 split delivers genuine exposition then practice, and the worked example and knowledge checks mostly name the reasoning behind each judgement. The weakest area is block-level redundancy: the tips, sort, and KC-02 recycle already-taught content almost verbatim. One criterion at 3, mean 4.1.

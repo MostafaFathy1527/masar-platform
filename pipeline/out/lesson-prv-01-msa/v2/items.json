@@ -1,0 +1,88 @@
+{
+  "courseSlug": "rcm-foundations",
+  "note": "Items for lesson what-counts-as-personal-data. Every knowledge_check block's payload.itemRef must match one item's key.",
+  "items": [
+    {
+      "key": "PRV-01-KC-01",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه المعلومات يُعتبر بيانات شخصية؟",
+      "stemEn": "Which of these is personal data?",
+      "rationaleAr": "الاختبار هو قابلية التعرف، وليس وجود اسم واضح. المعلومات الشخصية هي أي معلومة يمكن ربطها بشخص محدد، سواء بمفردها أو مع معلومات أخرى متاحة بشكل معقول.",
+      "rationaleEn": "The test is identifiability, not the presence of an obvious name. Personal data is any information that can be linked to a specific person, either alone or with other reasonably available information.",
+      "options": [
+        {
+          "textAr": "عنوان الشارع بدون رقم الشقة",
+          "textEn": "A street address without the apartment number",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: العنوان بدون رقم الشقة قد يكون كافيًا للتعرف على الشخص في سياق محدد، مثل حي صغير أو إذا كان العنوان فريدًا.",
+          "feedbackEn": "Misconception: A street address without the apartment number may be sufficient to identify a person in a specific context, such as a small neighborhood or if the address is unique."
+        },
+        {
+          "textAr": "رقم هاتف المريض",
+          "textEn": "A patient's phone number",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: رقم الهاتف يمكن ربطه مباشرة بشخص محدد، مما يجعله بيانات شخصية بغض النظر عن السياق.",
+          "feedbackEn": "Correct: A phone number can be directly linked to a specific person, making it personal data regardless of context."
+        },
+        {
+          "textAr": "«المريض في الغرفة 3»",
+          "textEn": "\"Patient in room 3\"",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الغرفة وحدها لا تحدد شخصًا في جناح كبير ما لم تكن هناك معلومات أخرى متاحة بشكل معقول.",
+          "feedbackEn": "Misconception: The room alone does not identify a person in a large ward unless other reasonably available information is present."
+        },
+        {
+          "textAr": "مجموع المبيعات لشهر يناير",
+          "textEn": "Total sales for January",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الأرقام المجمعة لا تتعلق بشخص محدد.",
+          "feedbackEn": "Misconception: Aggregate numbers do not relate to an identified person."
+        }
+      ]
+    },
+    {
+      "key": "PRV-01-KC-02",
+      "objectiveId": "PRV-01",
+      "type": "MULTI_SELECT",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "أي من هذه المواقف يُعتبر خرقًا محتملًا يتطلب الإبلاغ عنه في نفس اليوم؟",
+      "stemEn": "Which of these situations is a potential breach requiring same-day reporting?",
+      "rationaleAr": "الخرق المحتمل هو أي وصول غير مصرح به للبيانات الشخصية إلى مكان لا ينبغي أن تكون فيه، بغض النظر عن النية أو الضرر.",
+      "rationaleEn": "A potential breach is any unauthorized access of personal data to a place it should not be, regardless of intent or harm.",
+      "options": [
+        {
+          "textAr": "إرسال بريد إلكتروني يحتوي على تفاصيل مريض إلى زميل خارج الفريق",
+          "textEn": "Emailing a patient's details to a colleague outside the team",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: هذا إفشاء غير مصرح به للبيانات الشخصية إلى شخص لا يحتاجها، مما يجعله خرقًا محتملًا.",
+          "feedbackEn": "Correct: This is an unauthorized disclosure of personal data to someone who does not need it, making it a potential breach."
+        },
+        {
+          "textAr": "طباعة قائمة بالمرضى وتركها على طابعة مشتركة",
+          "textEn": "Printing a patient list and leaving it on a shared printer",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: البيانات الشخصية أصبحت متاحة لأشخاص لا يحتاجونها، مما يشكل خرقًا محتملًا.",
+          "feedbackEn": "Correct: Personal data is now available to people who do not need it, constituting a potential breach."
+        },
+        {
+          "textAr": "نسخ جدول بيانات يحتوي على أسماء الموظفين إلى محرك أقراص شخصي",
+          "textEn": "Copying a spreadsheet with employee names to a personal drive",
+          "isCorrect": true,
+          "feedbackAr": "الصحيح: البيانات الشخصية انتقلت إلى مكان خارج الضوابط المؤسسية، مما يشكل خرقًا محتملًا.",
+          "feedbackEn": "Correct: Personal data has moved to a place outside institutional controls, constituting a potential breach."
+        },
+        {
+          "textAr": "حذف ملف يحتوي على معلومات مريض بعد انتهاء الحاجة إليه",
+          "textEn": "Deleting a file containing patient information after it is no longer needed",
+          "isCorrect": false,
+          "feedbackAr": "المفهوم الخاطئ: الحذف الصحيح للبيانات الشخصية بعد انتهاء الحاجة إليها ليس خرقًا، بل هو ممارسة جيدة.",
+          "feedbackEn": "Misconception: Properly deleting personal data after it is no longer needed is not a breach, but good practice."
+        }
+      ]
+    }
+  ]
+}

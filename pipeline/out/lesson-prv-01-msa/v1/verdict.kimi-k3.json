@@ -1,0 +1,37 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-10-20T07:48:21.668612+00:00",
+    "usage": {
+      "inputTokens": 7,
+      "outputTokens": 6658
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 3,
+    "knowledge_check": 3,
+    "scenario_authenticity": 4,
+    "bilingual_quality": 3,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Steps 1–2 give real reasoning (ward size as the thing that would change the call; health data sensitive regardless of provenance), but step 3's 'why' restates its conclusion, and the final answer adds same-day reporting — an action no step develops or justifies. The solution outruns the worked steps.",
+    "knowledge_check": "Distractors are mostly plausible, but the feedback convention is broken: every incorrect option's feedback states the correct reasoning prefixed with 'Misconception:' (e.g., 'Misconception: proper deletion is not a breach'), which restates the answer under the wrong label instead of naming the error a chooser of that option would actually hold. Worse, KC-01's first distractor (street address without apartment number) is marked not-personal-data on a 'missing details' rationale that contradicts the lesson's own identifiability test. KC-01 also recycles three of the six sort-bucket cards, so the check largely re-asks the sort activity.",
+    "bilingual_quality": "Arabic is accurate and mostly readable but carries repeated English calques: 'إذا طلب النموذج تاريخ الميلاد ولم يستخدمه العملية أبدًا' (gender disagreement — العملية is feminine), 'ولهذا السبب هذا هو أكثر أنواع الخروقات شيوعًا', 'القناة المريحة' for 'the convenient channel', 'فهذا الحقل مسؤولية وليس راحة' for 'liability, not convenience', 'بنفس قدر تحديد اسمه' for 'as surely as their name', and 'just in case' rendered as 'للتأكد فقط', which shifts the meaning. Terminology itself is consistent.",
+    "accessibility_ip": "No images (so no alt-text failures), no colour-carried meaning, and the diagnosis code is the invented 'DX-A102' — no licensed descriptors or policy text. Compliant but does nothing to surface the constraint as a teaching point; the emoji-icon definition cards are fine but the compliance is minimal rather than exploited."
+  },
+  "verdict_notes": "A solid, well-structured lesson whose L2 practice is genuine — the scenarios in particular have real friction (the approved-channel trap, the delete-vs-retention-policy tension). Its weak points are the knowledge checks, where feedback mislabels correct explanations as misconceptions and one distractor teaches against the lesson's core principle, and Arabic that is serviceable but visibly translated in the prose blocks. The worked example's answer also asserts a reporting step its reasoning never walks through."
+}

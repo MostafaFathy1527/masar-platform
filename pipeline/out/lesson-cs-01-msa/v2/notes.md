@@ -1,0 +1,1 @@
+Disagree with the concept_log finding: 'establish_facts' is defined in the lesson (b_l1_def_establish_facts) and used consistently throughout. The source note explicitly names 'establish the facts' as a key step, so it should be considered a declared concept. However, I have added it to conceptsIntroduced to comply with the gate's requirement.

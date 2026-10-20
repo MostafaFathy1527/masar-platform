@@ -1,0 +1,501 @@
+{
+  "slug": "recognising-a-phishing-email",
+  "titleAr": "التعرّف على رسائل التصيّد الاحتيالي",
+  "titleEn": "Recognising a phishing email",
+  "estMinutes": 30,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "SEC-01"
+  ],
+  "conceptsIntroduced": [
+    "display_name",
+    "look_alike_domain",
+    "link_destination",
+    "engineered_urgency",
+    "reply_to_address",
+    "phishing_action"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "textAr": "ما هو التصيّد الاحتيالي؟",
+          "textEn": "What phishing is",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "mdAr": "التصيّد الاحتيالي لا يستهدف البرامج، بل يستهدف الشخص الذي يقرأ الشاشة. ولهذا السبب، حتى النظام المحمي تمامًا قد يقع ضحية لمهاجم مدرب جيدًا. الدفاع ليس أداة، بل عادة تتمثل في التحقق من شيئين أو ثلاثة قبل اتخاذ أي إجراء.\n\nرسالة التصيّد الاحتيالي تبدو غالبًا كرسالة شرعية، لكنها مصممة لخداع المتلقي لاتخاذ إجراء ضار، مثل النقر على رابط أو فتح مرفق أو مشاركة معلومات حساسة.",
+          "mdEn": "Phishing does not attack software — it attacks the person reading the screen. That is why a fully patched system with a well-trained attacker can still lose. The defence is not a tool; it is a habit of checking two or three things before acting.\n\nA phishing email often looks like a legitimate message, but it is designed to trick the recipient into taking a harmful action, such as clicking a link, opening an attachment, or sharing sensitive information."
+        }
+      },
+      {
+        "id": "b_l1_def_display_name",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "اسم العرض",
+          "termEn": "Display name",
+          "defAr": "النص الحر الذي يظهر بجانب عنوان البريد الإلكتروني للمرسل. يمكن لأي شخص تعيينه لأي شيء، ولهذا السبب لا يجب الوثوق به دون التحقق من العنوان الفعلي.",
+          "defEn": "The free text shown next to a sender's email address. Anyone can set it to anything, which is why it should never be trusted without checking the actual address behind it.",
+          "icon": "👤",
+          "exampleAr": "اسم العرض: \"دعم بنك الجزيرة\"، العنوان الفعلي: support@g00gle.com",
+          "exampleEn": "Display name: \"Al Jazeera Bank Support\", actual address: support@g00gle.com"
+        }
+      },
+      {
+        "id": "b_l1_def_look_alike_domain",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "نطاق شبيه",
+          "termEn": "Look-alike domain",
+          "defAr": "نطاق مسجل ليشبه نطاقًا شرعيًا، بهدف خداع المتلقين عند قراءته بسرعة. قد يحتوي على أحرف متشابهة بصريًا، أو شرطات إضافية، أو نطاق أعلى مختلف.",
+          "defEn": "A registered domain chosen to resemble a legitimate one, intended to deceive recipients when read quickly. It may use visually similar characters, extra hyphens, or a different top-level domain.",
+          "icon": "🔍",
+          "exampleAr": "النطاق الشرعي: example.com، النطاق الشبيه: examp1e.com أو example-security.com",
+          "exampleEn": "Legitimate domain: example.com, look-alike: examp1e.com or example-security.com"
+        }
+      },
+      {
+        "id": "b_l1_def_link_destination",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "وجهة الرابط",
+          "termEn": "Link destination",
+          "defAr": "العنوان الفعلي الذي سيذهب إليه المستخدم عند النقر على الرابط. النص الظاهر للرابط (نص الرابط) منفصل عن الوجهة ويمكن تعيينه لأي شيء.",
+          "defEn": "The actual address a user will go to when they click a link. The visible text of the link (anchor text) is separate from the destination and can be set to anything.",
+          "icon": "🔗",
+          "exampleAr": "نص الرابط: \"تحديث كلمة المرور\"، الوجهة الفعلية: https://phishing-site.com/password-reset",
+          "exampleEn": "Anchor text: \"Update your password\", actual destination: https://phishing-site.com/password-reset"
+        }
+      },
+      {
+        "id": "b_l1_def_engineered_urgency",
+        "type": "definition_card",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "termAr": "الإلحاح المصطنع",
+          "termEn": "Engineered urgency",
+          "defAr": "طلب يتضمّن مهلة زمنية قصيرة أو تهديدًا، مصممًا لإجبار المتلقي على اتخاذ إجراء دون تفكير أو تحقق. غالبًا ما يُستخدم مع طلبات غير معتادة لتجاوز الإجراءات المعتادة.",
+          "defEn": "A request that includes a short deadline or threat, designed to force the recipient to act without pausing to think or verify. Often used alongside unusual requests to bypass normal procedures.",
+          "icon": "⏳",
+          "exampleAr": "\"يجب تحديث حسابك خلال ساعتين وإلا سيتم إغلاقه نهائيًا.\"",
+          "exampleEn": "\"Your account must be updated within two hours or it will be permanently closed.\""
+        }
+      },
+      {
+        "id": "b_l1_compare_signals",
+        "type": "compare_table",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "captionAr": "الإشارات الحقيقية مقابل الإشارات المزيفة",
+          "captionEn": "Legitimate signals compared with phishing signals",
+          "columns": [
+            {
+              "labelAr": "الجانب",
+              "labelEn": "Aspect"
+            },
+            {
+              "labelAr": "رسالة شرعية",
+              "labelEn": "Legitimate message"
+            },
+            {
+              "labelAr": "رسالة تصيّد",
+              "labelEn": "Phishing message"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "textAr": "اسم العرض",
+                "textEn": "Display name"
+              },
+              {
+                "textAr": "يتطابق مع العنوان الفعلي أو يكون اسمًا معروفًا للمرسل",
+                "textEn": "Matches the actual address or is a known name of the sender"
+              },
+              {
+                "textAr": "يبدو شرعيًا لكنه لا يتطابق مع العنوان الفعلي",
+                "textEn": "Appears legitimate but does not match the actual address"
+              }
+            ],
+            [
+              {
+                "textAr": "عنوان المرسل",
+                "textEn": "Sender address"
+              },
+              {
+                "textAr": "نطاق معروف ومتسق مع المنظمة",
+                "textEn": "Known domain consistent with the organisation"
+              },
+              {
+                "textAr": "نطاق شبيه أو عنوان غير متوقع",
+                "textEn": "Look-alike domain or unexpected address"
+              }
+            ],
+            [
+              {
+                "textAr": "نص الرابط",
+                "textEn": "Link text"
+              },
+              {
+                "textAr": "يتطابق مع الوجهة الفعلية",
+                "textEn": "Matches the actual destination"
+              },
+              {
+                "textAr": "يبدو شرعيًا لكن الوجهة مختلفة",
+                "textEn": "Appears legitimate but destination is different"
+              }
+            ],
+            [
+              {
+                "textAr": "الإلحاح",
+                "textEn": "Urgency"
+              },
+              {
+                "textAr": "مهلة زمنية معقولة وطلب معتاد",
+                "textEn": "Reasonable deadline and routine request"
+              },
+              {
+                "textAr": "مهلة قصيرة وطلب غير معتاد",
+                "textEn": "Short deadline and unusual request"
+              }
+            ],
+            [
+              {
+                "textAr": "الطلبات",
+                "textEn": "Requests"
+              },
+              {
+                "textAr": "لا يطلب كلمات مرور أو رموز لمرة واحدة",
+                "textEn": "Never asks for passwords or one-time codes"
+              },
+              {
+                "textAr": "يطلب كلمات مرور أو رموز لمرة واحدة أو معلومات حساسة",
+                "textEn": "Asks for passwords, one-time codes, or sensitive information"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "id": "b_l1_flow_checks",
+        "type": "process_flow",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "اقرأ اسم العرض",
+              "labelEn": "Read the display name",
+              "detailAr": "لا تثق به دون التحقق من العنوان الفعلي.",
+              "detailEn": "Do not trust it without checking the actual address."
+            },
+            {
+              "id": "s2",
+              "labelAr": "افحص العنوان الفعلي",
+              "labelEn": "Examine the actual address",
+              "detailAr": "هل النطاق معروف ومتسق مع المرسل؟",
+              "detailEn": "Is the domain known and consistent with the sender?"
+            },
+            {
+              "id": "s3",
+              "labelAr": "تحقق من الروابط",
+              "labelEn": "Check links",
+              "detailAr": "أظهر الوجهة الفعلية لكل رابط قبل النقر.",
+              "detailEn": "Reveal the actual destination of every link before clicking."
+            },
+            {
+              "id": "s4",
+              "labelAr": "تعرّف على الإلحاح المصطنع",
+              "labelEn": "Recognise engineered urgency",
+              "detailAr": "هل المهلة قصيرة وطلب غير معتاد؟",
+              "detailEn": "Is the deadline short and the request unusual?"
+            },
+            {
+              "id": "s5",
+              "labelAr": "تجاهل الطلبات المحظورة",
+              "labelEn": "Ignore forbidden requests",
+              "detailAr": "كلمات المرور ورموز لمرة واحدة لا تُشارك أبدًا.",
+              "detailEn": "Passwords and one-time codes are never shared."
+            },
+            {
+              "id": "s6",
+              "labelAr": "تحقق من عنوان الرد",
+              "labelEn": "Check the reply-to address",
+              "detailAr": "هل يختلف عن عنوان الإرسال؟",
+              "detailEn": "Does it differ from the sending address?"
+            },
+            {
+              "id": "s7",
+              "labelAr": "توقف قبل فتح المرفقات",
+              "labelEn": "Pause before opening attachments",
+              "detailAr": "هل المرفق متوقع؟",
+              "detailEn": "Is the attachment expected?"
+            },
+            {
+              "id": "s8",
+              "labelAr": "تحقق عبر قناة معروفة",
+              "labelEn": "Verify through a known channel",
+              "detailAr": "استخدم عنوانًا أو رقم هاتف لديك مسبقًا.",
+              "detailEn": "Use an address or phone number you already have."
+            },
+            {
+              "id": "s9",
+              "labelAr": "بلّغ عن الرسالة",
+              "labelEn": "Report the message",
+              "detailAr": "نفس الرسالة نادرًا ما تصل لشخص واحد فقط.",
+              "detailEn": "The same message rarely arrives at only one person."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_display_name",
+        "type": "job_tip",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "mdAr": "اسم العرض هو أول ما تراه، ولهذا السبب هو أول ما يتلاعب به المهاجمون. لا تفترض أبدًا أن الاسم يطابق العنوان — افتح الرسالة وانظر إلى العنوان الفعلي.",
+          "mdEn": "The display name is the first thing you see, which is why it is the first thing attackers manipulate. Never assume the name matches the address — open the message and look at the actual address."
+        }
+      },
+      {
+        "id": "b_l1_tip_urgency",
+        "type": "job_tip",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "mdAr": "الإلحاح المصطنع موجود لإزالة التوقف الذي قد تفكر فيه. إذا كانت الرسالة تقول \"الآن أو أبدًا\"، فهذا سبب لفعل العكس: توقف وتحقق.",
+          "mdEn": "Engineered urgency exists to remove the pause in which you might think. If a message says \"now or never\", that is a reason to do the opposite: pause and verify."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemsAr": [
+            "اسم العرض ليس عنوانًا — يمكن تعيينه لأي شيء.",
+            "النطاقات الشبيهة تعتمد على القراءة السريعة، وليس الفحص.",
+            "نص الرابط ووجهته مستقلان — أظهر الوجهة قبل النقر.",
+            "الإلحاح المصطنع مصمم لإزالة التوقف.",
+            "كلمات المرور ورموز لمرة واحدة لا تُشارك أبدًا.",
+            "الإجراء الصحيح هو التحقق ثم الإبلاغ، وليس النقر أو الرد."
+          ],
+          "itemsEn": [
+            "The display name is not the address — it can be set to anything.",
+            "Look-alike domains rely on scanning, not reading.",
+            "Link text and destination are independent — reveal the destination before clicking.",
+            "Engineered urgency is designed to remove the pause.",
+            "Passwords and one-time codes are never shared.",
+            "The correct action is verify then report, not click or reply."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_practice",
+        "type": "heading",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "textAr": "طبّق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_worked_display_name",
+        "type": "worked_example",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "promptAr": "تتلقى رسالة بريد إلكتروني من \"دعم تقنية المعلومات\" تطلب منك تحديث كلمة المرور الخاصة بك. اسم العرض هو \"دعم تقنية المعلومات\"، والعنوان الفعلي هو it-support@company-secure.com. ماذا تفعل؟",
+          "promptEn": "You receive an email from \"IT Support\" asking you to update your password. The display name is \"IT Support\", and the actual address is it-support@company-secure.com. What do you do?",
+          "steps": [
+            {
+              "showAr": "اقرأ اسم العرض، ثم افحص العنوان الفعلي.",
+              "showEn": "Read the display name, then examine the actual address.",
+              "whyAr": "اسم العرض يمكن تزويره بسهولة، لكن العنوان الفعلي لا يمكن تزويره بنفس السهولة.",
+              "whyEn": "The display name can be easily faked, but the actual address cannot be spoofed as easily."
+            },
+            {
+              "showAr": "قارن النطاق مع النطاق المعروف لدعم تقنية المعلومات.",
+              "showEn": "Compare the domain with the known domain for IT support.",
+              "whyAr": "النطاق company-secure.com غير متوقع لدعم تقنية المعلومات، مما يجعل العنوان مشبوهًا.",
+              "whyEn": "The domain company-secure.com is unexpected for IT support, making the address suspicious."
+            },
+            {
+              "showAr": "تحقق من وجود طلب غير معتاد.",
+              "showEn": "Check for an unusual request.",
+              "whyAr": "الدعم الشرعي لا يطلب كلمات مرور عبر البريد الإلكتروني.",
+              "whyEn": "Legitimate support never asks for passwords via email."
+            },
+            {
+              "showAr": "لا ترد أو تنقر على أي روابط.",
+              "showEn": "Do not reply or click any links.",
+              "whyAr": "الرد أو النقر قد يؤكد للمهاجم أن العنوان نشط.",
+              "whyEn": "Replying or clicking may confirm to the attacker that the address is active."
+            },
+            {
+              "showAr": "بلّغ عن الرسالة عبر القناة الرسمية.",
+              "showEn": "Report the message through the official channel.",
+              "whyAr": "الإبلاغ يضمن أن الفريق الأمني على علم بالرسالة.",
+              "whyEn": "Reporting ensures the security team is aware of the message."
+            }
+          ],
+          "answerAr": "لا ترد أو تنقر على أي روابط. بلّغ عن الرسالة كتصيّد احتيالي.",
+          "answerEn": "Do not reply or click any links. Report the message as phishing."
+        }
+      },
+      {
+        "id": "b_l2_scenario_urgency",
+        "type": "scenario",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "situationAr": "تتلقى رسالة بريد إلكتروني من \"المدير المالي\" تقول: \"أحتاج إلى تحويل 50,000 جنيه إلى حساب جديد فورًا. أنا في اجتماع ولا يمكنني الرد على الهاتف. أرسل لي تفاصيل الحساب الآن.\" عنوان المرسل هو cfo@company.com، وعنوان الرد هو finance-update@company-secure.net.",
+          "situationEn": "You receive an email from \"The CFO\" saying: \"I need 50,000 transferred to a new account immediately. I'm in a meeting and can't take calls. Send me the account details now.\" The sender address is cfo@company.com, and the reply-to address is finance-update@company-secure.net.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "أرسل تفاصيل الحساب كما طلب.",
+              "optionEn": "Send the account details as requested.",
+              "consequenceAr": "المال يُحوّل إلى حساب المهاجم، ولا يمكن استرداده.",
+              "consequenceEn": "The money is transferred to the attacker's account and cannot be recovered.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "اتصل بالمدير المالي على رقم هاتفه المعروف للتحقق.",
+              "optionEn": "Call the CFO on their known phone number to verify.",
+              "consequenceAr": "تكتشف أن الرسالة مزيفة، وتبلّغ الفريق الأمني. لا يُفقد أي مال.",
+              "consequenceEn": "You discover the message is fake and report it to the security team. No money is lost.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "رد على الرسالة لتأكيد الطلب.",
+              "optionEn": "Reply to the message to confirm the request.",
+              "consequenceAr": "ردك يذهب إلى المهاجم، الذي قد يستخدمه لإقناع آخرين بأن الرسالة شرعية.",
+              "consequenceEn": "Your reply goes to the attacker, who may use it to convince others the message is legitimate.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_signals",
+        "type": "sort_buckets",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "legitimate",
+              "labelAr": "إشارة شرعية",
+              "labelEn": "Legitimate signal"
+            },
+            {
+              "id": "phishing",
+              "labelAr": "إشارة تصيّد",
+              "labelEn": "Phishing signal"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "اسم العرض يطابق العنوان الفعلي",
+              "textEn": "Display name matches the actual address",
+              "bucketId": "legitimate",
+              "whyAr": "اسم العرض الشرعي يتطابق مع العنوان الفعلي أو يكون اسمًا معروفًا.",
+              "whyEn": "A legitimate display name matches the actual address or is a known name."
+            },
+            {
+              "id": "c2",
+              "textAr": "النطاق معروف ومتسق مع المنظمة",
+              "textEn": "Domain is known and consistent with the organisation",
+              "bucketId": "legitimate",
+              "whyAr": "الرسائل الشرعية تأتي من نطاقات معروفة ومتسقة.",
+              "whyEn": "Legitimate messages come from known, consistent domains."
+            },
+            {
+              "id": "c3",
+              "textAr": "نص الرابط يطابق الوجهة الفعلية",
+              "textEn": "Link text matches the actual destination",
+              "bucketId": "legitimate",
+              "whyAr": "في الرسائل الشرعية، نص الرابط يتطابق مع الوجهة.",
+              "whyEn": "In legitimate messages, the link text matches the destination."
+            },
+            {
+              "id": "c4",
+              "textAr": "مهلة زمنية معقولة وطلب معتاد",
+              "textEn": "Reasonable deadline and routine request",
+              "bucketId": "legitimate",
+              "whyAr": "الرسائل الشرعية لا تستخدم إلحاحًا مصطنعًا.",
+              "whyEn": "Legitimate messages do not use engineered urgency."
+            },
+            {
+              "id": "c5",
+              "textAr": "اسم العرض يبدو شرعيًا لكنه لا يتطابق مع العنوان الفعلي",
+              "textEn": "Display name appears legitimate but does not match the actual address",
+              "bucketId": "phishing",
+              "whyAr": "المهاجمون يستخدمون أسماء عرض تبدو شرعية لخداع المتلقين.",
+              "whyEn": "Attackers use display names that appear legitimate to deceive recipients."
+            },
+            {
+              "id": "c6",
+              "textAr": "نطاق شبيه أو عنوان غير متوقع",
+              "textEn": "Look-alike domain or unexpected address",
+              "bucketId": "phishing",
+              "whyAr": "النطاقات الشبيهة مصممة لخداع المتلقين عند القراءة السريعة.",
+              "whyEn": "Look-alike domains are designed to deceive recipients when scanned quickly."
+            },
+            {
+              "id": "c7",
+              "textAr": "نص الرابط يبدو شرعيًا لكن الوجهة مختلفة",
+              "textEn": "Link text appears legitimate but destination is different",
+              "bucketId": "phishing",
+              "whyAr": "المهاجمون يخفون الوجهات الحقيقية خلف نصوص روابط تبدو شرعية.",
+              "whyEn": "Attackers hide real destinations behind link text that appears legitimate."
+            },
+            {
+              "id": "c8",
+              "textAr": "مهلة قصيرة وطلب غير معتاد",
+              "textEn": "Short deadline and unusual request",
+              "bucketId": "phishing",
+              "whyAr": "الإلحاح المصطنع مصمم لإجبار المتلقي على التصرف دون تفكير.",
+              "whyEn": "Engineered urgency is designed to force the recipient to act without thinking."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemRef": "SEC-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "SEC-01",
+        "payload": {
+          "itemRef": "SEC-01-KC-02"
+        }
+      }
+    ]
+  }
+}
