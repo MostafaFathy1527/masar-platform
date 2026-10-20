@@ -12,6 +12,8 @@ organisation that works in shifts has the problem, and almost none teaches it.
 Objective: **OPS-01** — given the end of a shift with work still open, write a handover
 that the next person can act on without having to contact you.
 
+
+Arabic register: Modern Standard Arabic throughout the Arabic fields.
 ---
 
 A handover is the moment work changes hands and context does not. The person leaving
