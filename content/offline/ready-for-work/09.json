@@ -1,0 +1,566 @@
+{
+ "source": "pipeline/out/lesson-prv-01-msa/v2",
+ "lesson": {
+  "slug": "what-counts-as-personal-data",
+  "titleAr": "ما الذي يُعتبر بيانات شخصية؟",
+  "titleEn": "What counts as personal data?",
+  "estMinutes": 30,
+  "bilingual": true,
+  "levels": [
+   "L1",
+   "L2"
+  ],
+  "objectives": [
+   "PRV-01"
+  ],
+  "conceptsIntroduced": [
+   "personal_data",
+   "identifiability",
+   "sensitive_data",
+   "data_subject_request",
+   "potential_breach"
+  ],
+  "blocks": {
+   "l1": [
+    {
+     "id": "b_l1_h_intro",
+     "type": "heading",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "textAr": "ما البيانات الشخصية؟",
+      "textEn": "What is personal data?",
+      "level": 2
+     }
+    },
+    {
+     "id": "b_l1_text_intro",
+     "type": "rich_text",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "mdAr": "البيانات الشخصية هي أي معلومة تتعلق بشخص حي محدد أو يمكن تحديده. الاختبار ليس في وجود اسم واضح، بل في إمكانية التعرف على الشخص. الاسم هو بيانات شخصية، وكذلك رقم الموظف، وعنوان البريد الإلكتروني، ورقم الهاتف، والصورة الفوتوغرافية، ولوحة السيارة، ومعرف الجهاز، والعنوان السكني. وكذلك مجموعة من الحقائق العادية التي تبدو غير ضارة، ولكنها معًا تشير إلى شخص واحد: مثل المسمى الوظيفي بالإضافة إلى القسم بالإضافة إلى تاريخ البدء يمكن أن تحدد شخصًا في فريق صغير مثلما تحدد اسمه.",
+      "mdEn": "Personal data is any information that relates to an identified or identifiable living person. The test is not whether there's an obvious name, but whether someone could work out who this is about. A name is personal data. So is an employee number, an email address, a phone number, a photograph, a vehicle plate, a device identifier, and a home address. So is a combination of ordinarily harmless facts that, together, point at one person: a job title plus a department plus a start date can identify someone in a small team just as their name would."
+     }
+    },
+    {
+     "id": "b_l1_def_personal_data",
+     "type": "definition_card",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "termAr": "البيانات الشخصية",
+      "termEn": "Personal data",
+      "defAr": "أي معلومة تتعلق بشخص حي محدد أو يمكن تحديده، سواء كانت مباشرة أو غير مباشرة.",
+      "defEn": "Any information relating to an identified or identifiable living person, whether directly or indirectly.",
+      "icon": "👤",
+      "exampleAr": "مثال تدريبي: عنوان البريد الإلكتروني لمريض في سجلات العيادة.",
+      "exampleEn": "Training example: a patient's email address in clinic records."
+     }
+    },
+    {
+     "id": "b_l1_def_identifiability",
+     "type": "definition_card",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "termAr": "قابلية التعرف",
+      "termEn": "Identifiability",
+      "defAr": "إمكانية الربط بين معلومة وشخص محدد، سواء بمفردها أو مع معلومات أخرى متاحة بشكل معقول.",
+      "defEn": "The ability to link information to a specific person, either alone or in combination with other reasonably available information.",
+      "icon": "🔍"
+     }
+    },
+    {
+     "id": "b_l1_def_sensitive_data",
+     "type": "definition_card",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "termAr": "البيانات الحساسة",
+      "termEn": "Sensitive data",
+      "defAr": "بيانات شخصية تتطلب حماية أعلى بسبب المخاطر المحتملة عند الكشف عنها، مثل المعلومات الصحية أو الدينية أو العرقية.",
+      "defEn": "Personal data requiring higher protection due to potential risks if disclosed, such as health information, religion, or ethnic origin.",
+      "icon": "🔒",
+      "exampleAr": "مثال تدريبي: سبب الإجازة المرضية المسجل في ملف الموظف.",
+      "exampleEn": "Training example: the reason for sick leave recorded in an employee file."
+     }
+    },
+    {
+     "id": "b_l1_compare_tests",
+     "type": "compare_table",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "captionAr": "اختبار الاسم مقابل اختبار التعرف",
+      "captionEn": "Name test vs. identifiability test",
+      "columns": [
+       {
+        "labelAr": "الجانب",
+        "labelEn": "Aspect"
+       },
+       {
+        "labelAr": "اختبار الاسم",
+        "labelEn": "Name test"
+       },
+       {
+        "labelAr": "اختبار التعرف",
+        "labelEn": "Identifiability test"
+       }
+      ],
+      "rows": [
+       [
+        {
+         "textAr": "السؤال",
+         "textEn": "Question"
+        },
+        {
+         "textAr": "هل يوجد اسم؟",
+         "textEn": "Is there a name?"
+        },
+        {
+         "textAr": "هل يمكن لشخص ما معرفة من يتعلق الأمر؟",
+         "textEn": "Could someone work out who this is about?"
+        }
+       ],
+       [
+        {
+         "textAr": "المثال الإيجابي",
+         "textEn": "Positive example"
+        },
+        {
+         "textAr": "«محمد علي»",
+         "textEn": "\"Mohamed Ali\""
+        },
+        {
+         "textAr": "«الموظف الجديد في قسم المحاسبة الذي بدأ في 15 يناير»",
+         "textEn": "\"The new employee in accounting who started on January 15\""
+        }
+       ],
+       [
+        {
+         "textAr": "المثال السلبي",
+         "textEn": "Negative example"
+        },
+        {
+         "textAr": "«المريض في الغرفة 3»",
+         "textEn": "\"Patient in room 3\""
+        },
+        {
+         "textAr": "«مجموع المبيعات لشهر يناير»",
+         "textEn": "\"Total sales for January\""
+        }
+       ]
+      ]
+     }
+    },
+    {
+     "id": "b_l1_flow_habits",
+     "type": "process_flow",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "interactive": false,
+      "steps": [
+       {
+        "id": "s1",
+        "labelAr": "الملاحظة",
+        "labelEn": "Notice",
+        "detailAr": "هل هذه المعلومة تتعلق بشخص؟",
+        "detailEn": "Is this information about a person?"
+       },
+       {
+        "id": "s2",
+        "labelAr": "التقييم",
+        "labelEn": "Assess",
+        "detailAr": "هل يمكن التعرف على الشخص؟",
+        "detailEn": "Could the person be identified?"
+       },
+       {
+        "id": "s3",
+        "labelAr": "التصنيف",
+        "labelEn": "Classify",
+        "detailAr": "هل هي بيانات حساسة؟",
+        "detailEn": "Is it sensitive data?"
+       },
+       {
+        "id": "s4",
+        "labelAr": "التصرف",
+        "labelEn": "Act",
+        "detailAr": "طبق قواعد التعامل المناسبة.",
+        "detailEn": "Apply the appropriate handling rules."
+       }
+      ]
+     }
+    },
+    {
+     "id": "b_l1_tip_collect",
+     "type": "job_tip",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "mdAr": "اجمع واستخدم فقط ما تحتاجه المهمة. إذا طلب النموذج تاريخ الميلاد ولم يستخدمه العملية أبدًا، فهذا الحقل مسؤولية وليس راحة. وينطبق الشيء نفسه على النسخ: جدول بيانات مُصدَّر «للتأكد فقط» هو نسخة ثانية من البيانات الشخصية التي لا يحميها أحد.",
+      "mdEn": "Collect and use only what the task needs. If a form asks for a date of birth and the process never uses it, that field is a liability, not a convenience. The same applies to copying: a spreadsheet exported \"just in case\" is a second copy of personal data that nobody is protecting."
+     }
+    },
+    {
+     "id": "b_l1_tip_share",
+     "type": "job_tip",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "mdAr": "شارك المعلومات على أساس الحاجة إلى المعرفة، عبر القنوات المعتمدة فقط. إرسال تفاصيل العميل إلى زميل لا يحتاجها هو إفشاء، حتى داخليًا. إرسالها عبر تطبيق مراسلة شخصي أو عنوان بريد إلكتروني شخصي ينقلها خارج كل الضوابط التي تمتلكها المؤسسة، ولهذا السبب هذا هو أكثر أنواع الخروقات شيوعًا في العمل المكتبي العادي. القناة المريحة ليست دائمًا القناة الصحيحة.",
+      "mdEn": "Share information on a need-to-know basis, through approved channels only. Forwarding a customer's details to a colleague who does not need them is a disclosure, even internally. Sending them over a personal messaging app or a personal email address moves them outside every control the organisation has, which is why that is the single most common breach in ordinary office work. The convenient channel is not always the right one."
+     }
+    },
+    {
+     "id": "b_l1_def_ds_request",
+     "type": "definition_card",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "termAr": "طلب صاحب البيانات",
+      "termEn": "Data-subject request",
+      "defAr": "طلب من شخص لمعرفة البيانات التي تحتفظ بها المؤسسة عنه، أو لتصحيحها، أو لحذفها.",
+      "defEn": "A request from a person to know what data the organisation holds about them, to correct it, or to delete it.",
+      "icon": "📩",
+      "exampleAr": "مثال تدريبي: مريض يطلب نسخة من سجلاته الطبية.",
+      "exampleEn": "Training example: a patient asking for a copy of their medical records."
+     }
+    },
+    {
+     "id": "b_l1_def_breach",
+     "type": "definition_card",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "termAr": "خرق محتمل",
+      "termEn": "Potential breach",
+      "defAr": "أي موقف تصل فيه البيانات الشخصية إلى مكان لا ينبغي أن تكون فيه، مثل المستلم الخطأ أو الجهاز المفقود.",
+      "defEn": "Any situation where personal data has gone somewhere it should not have, such as the wrong recipient or a lost device.",
+      "icon": "⚠️",
+      "exampleAr": "مثال تدريبي: إرسال بريد إلكتروني يحتوي على تفاصيل مريض إلى زميل خارج الفريق.",
+      "exampleEn": "Training example: emailing a patient's details to a colleague outside the team."
+     }
+    },
+    {
+     "id": "b_l1_tip_breach",
+     "type": "job_tip",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "mdAr": "إذا وصلت البيانات الشخصية إلى مكان لا ينبغي أن تكون فيه، أبلغ عن ذلك في نفس اليوم إلى الشخص المسؤول. التزامات المؤسسة بالإبلاغ تقاس بالساعات والأيام، والساعة تبدأ عادةً عندما يعلم أي موظف، وليس عندما يعلم مسؤول الخصوصية.",
+      "mdEn": "If personal data has gone somewhere it should not have, report it the same day to the person responsible. The organisation's reporting obligations are measured in hours and days, and the clock usually starts when any employee becomes aware, not when the privacy officer does."
+     }
+    },
+    {
+     "id": "b_l1_takeaways",
+     "type": "takeaways",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "itemsAr": [
+       "البيانات الشخصية هي أي معلومة يمكن أن تحدد شخصًا، وليس فقط ما يحمل اسمًا.",
+       "البيانات الحساسة تتطلب حماية أعلى بسبب المخاطر المحتملة عند الكشف عنها.",
+       "ثلاثة عادات تغطي معظم ما يتوقع من الموظف القيام به: جمع واستخدام ما تحتاجه المهمة فقط، والمشاركة على أساس الحاجة إلى المعرفة عبر القنوات المعتمدة فقط، والاحتفاظ بالبيانات فقط طالما كانت هناك حاجة إليها ثم التخلص منها بشكل صحيح.",
+       "إذا طلب شخص ما معرفة البيانات التي تحتفظ بها عنه أو تصحيحها أو حذفها، فهذا طلب صاحب بيانات، ويجب إرساله إلى الشخص المسؤول في نفس اليوم.",
+       "إذا وصلت البيانات الشخصية إلى مكان لا ينبغي أن تكون فيه، فهذا خرق محتمل، ويجب الإبلاغ عنه في نفس اليوم."
+      ],
+      "itemsEn": [
+       "Personal data is any information that could identify a person, not just what carries a name.",
+       "Sensitive data requires higher protection due to potential risks if disclosed.",
+       "Three habits cover most of what an employee is expected to do: collect and use only what the task needs, share on a need-to-know basis through approved channels only, and keep data only as long as needed then dispose of it properly.",
+       "If a person asks what data you hold about them, asks for it to be corrected, or asks for it to be deleted, that is a data-subject request, and it must be sent to the responsible person the same day.",
+       "If personal data has gone somewhere it should not have, that is a potential breach, and it must be reported the same day."
+      ]
+     }
+    }
+   ],
+   "l2": [
+    {
+     "id": "b_l2_h_practice",
+     "type": "heading",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "textAr": "طبّق ما قرأت",
+      "textEn": "Put it to work",
+      "level": 2
+     }
+    },
+    {
+     "id": "b_l2_worked_example",
+     "type": "worked_example",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "promptAr": "تجد ملفًا على محرك أقراص مشترك يحمل اسم «ملاحظات الاجتماع». عند فتحه، ترى ملاحظات مكتوبة بخط اليد تتضمن: «المريض في الغرفة 4، تشخيص أولي DX-A102، بدأ العلاج اليوم، سيحتاج إلى متابعة لمدة أسبوعين». هل هذه بيانات شخصية؟",
+      "promptEn": "You find a file on a shared drive named \"Meeting notes\". Opening it, you see handwritten notes that include: \"Patient in room 4, preliminary diagnosis DX-A102, started treatment today, will need follow-up for two weeks.\" Is this personal data?",
+      "steps": [
+       {
+        "showAr": "اسأل: هل يمكن لشخص ما معرفة من يتعلق الأمر؟",
+        "showEn": "Ask: could someone work out who this is about?",
+        "whyAr": "الغرفة 4 وحدها قد لا تكون كافية، لكن التشخيص والعلاج يضيقان النطاق. في جناح صغير، يمكن أن يحددا شخصًا.",
+        "whyEn": "Room 4 alone might not be enough, but the diagnosis and treatment narrow it down. In a small ward, they could identify someone."
+       },
+       {
+        "showAr": "صنّف المعلومات: هذا سجل صحي.",
+        "showEn": "Classify the information: this is health information.",
+        "whyAr": "السجلات الصحية هي بيانات حساسة بغض النظر عن كيفية وصولها.",
+        "whyEn": "Health records are sensitive data regardless of how they arrived."
+       },
+       {
+        "showAr": "قرر ما يجب فعله: احمِ الملف وأبلغ عن وجوده.",
+        "showEn": "Decide what to do: secure the file and report its presence.",
+        "whyAr": "المعلومات حساسة ويمكن التعرف عليها، لذا يجب تأمينها والإبلاغ عنها وفقًا لقواعد المؤسسة.",
+        "whyEn": "The information is sensitive and identifiable, so it must be secured and reported according to the organisation's rules."
+       }
+      ],
+      "answerAr": "نعم، هذه بيانات شخصية حساسة. يجب تأمين الملف والإبلاغ عن وجوده إلى الشخص المسؤول عن الخصوصية في نفس اليوم.",
+      "answerEn": "Yes, this is sensitive personal data. The file must be secured and its presence reported to the privacy responsible person the same day."
+     }
+    },
+    {
+     "id": "b_l2_scenario_share",
+     "type": "scenario",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "situationAr": "تلقيت بريدًا إلكترونيًا من زميل يطلب منك إرسال قائمة بأسماء جميع المرضى الذين لديهم موعد غدًا لمساعدته في التحضير. القائمة موجودة في جدول بيانات على محرك أقراص مشترك.",
+      "situationEn": "You receive an email from a colleague asking you to send a list of all patients who have appointments tomorrow to help them prepare. The list exists in a spreadsheet on a shared drive.",
+      "decisions": [
+       {
+        "id": "d1",
+        "optionAr": "أرسل القائمة عبر البريد الإلكتروني كما هي.",
+        "optionEn": "Send the list by email as-is.",
+        "consequenceAr": "البيانات الشخصية تصل إلى شخص لا يحتاجها بالضرورة، عبر قناة غير محمية. هذا إفشاء غير ضروري.",
+        "consequenceEn": "The personal data reaches someone who may not need it, through an unprotected channel. This is an unnecessary disclosure.",
+        "isBest": false
+       },
+       {
+        "id": "d2",
+        "optionAr": "أرسل فقط الأسماء الأولى، دون أي تفاصيل أخرى.",
+        "optionEn": "Send only first names, with no other details.",
+        "consequenceAr": "الأسماء الأولى وحدها قد تكون كافية للتعرف على المرضى في سياق صغير، خاصة إذا كانت غير شائعة.",
+        "consequenceEn": "First names alone may be enough to identify patients in a small context, especially if uncommon.",
+        "isBest": false
+       },
+       {
+        "id": "d3",
+        "optionAr": "اطلب توضيحًا: ما الذي يحتاجه الزميل بالضبط ولماذا؟",
+        "optionEn": "Ask for clarification: what exactly does the colleague need, and why?",
+        "consequenceAr": "قد يكتشف أن ما يحتاجه يمكن توفيره دون مشاركة البيانات الشخصية، أو أن هناك طريقة معتمدة لمشاركتها.",
+        "consequenceEn": "You may find that what they need can be provided without sharing personal data, or that there is an approved way to share it.",
+        "isBest": true
+       },
+       {
+        "id": "d4",
+        "optionAr": "أرسل القائمة عبر القناة المعتمدة للمشاركة الداخلية.",
+        "optionEn": "Send the list through the approved internal sharing channel.",
+        "consequenceAr": "البيانات تصل إلى الشخص المناسب بالطريقة الصحيحة، لكن لا يزال هناك إفشاء غير ضروري إذا كان الزميل لا يحتاج القائمة الكاملة.",
+        "consequenceEn": "The data reaches the right person in the right way, but it is still an unnecessary disclosure if the colleague does not need the full list.",
+        "isBest": false
+       }
+      ]
+     }
+    },
+    {
+     "id": "b_l2_scenario_retention",
+     "type": "scenario",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "situationAr": "تجد مجلدًا على جهاز كمبيوتر قديم يحتوي على نسخ من ملفات المرضى من عام 2020. لم يتم الوصول إلى المجلد منذ عامين، ولا يوجد سجل لاحتياج أي شخص لهذه الملفات.",
+      "situationEn": "You find a folder on an old computer containing copies of patient files from 2020. The folder has not been accessed in two years, and there is no record of anyone needing these files.",
+      "decisions": [
+       {
+        "id": "d1",
+        "optionAr": "اترك الملفات كما هي. إذا احتاجها أحد، فسيبحث عنها.",
+        "optionEn": "Leave the files as they are. If someone needs them, they will look for them.",
+        "consequenceAr": "البيانات الشخصية تبقى دون حماية، والمسؤولية عن أي خرق مستمرة.",
+        "consequenceEn": "The personal data remains unprotected, and liability for any breach continues.",
+        "isBest": false
+       },
+       {
+        "id": "d2",
+        "optionAr": "احذف الملفات الآن.",
+        "optionEn": "Delete the files now.",
+        "consequenceAr": "الاحتفاظ لم يعد مبررًا، والحذف هو التصرف الصحيح، لكن يجب التأكد من عدم وجود سياسة احتفاظ تتطلب أرشفة أولًا.",
+        "consequenceEn": "Retention is no longer justified, and deletion is the right action, but you must check whether a retention policy requires archiving first.",
+        "isBest": false
+       },
+       {
+        "id": "d3",
+        "optionAr": "أبلغ الشخص المسؤول عن الخصوصية في نفس اليوم.",
+        "optionEn": "Report the folder to the privacy responsible person the same day.",
+        "consequenceAr": "الخبراء يقررون ما إذا كان يجب أرشفة الملفات أو حذفها، ويضمنون التخلص منها بشكل صحيح.",
+        "consequenceEn": "The experts decide whether the files should be archived or deleted, and ensure proper disposal.",
+        "isBest": true
+       },
+       {
+        "id": "d4",
+        "optionAr": "انقل الملفات إلى محرك أقراص مشترك حيث يمكن للآخرين الوصول إليها.",
+        "optionEn": "Move the files to a shared drive where others can access them.",
+        "consequenceAr": "هذا يزيد من عدد النسخ ويوسع نطاق الوصول دون سبب، مما يزيد من المخاطر.",
+        "consequenceEn": "This increases the number of copies and broadens access without cause, increasing risk.",
+        "isBest": false
+       }
+      ]
+     }
+    },
+    {
+     "id": "b_l2_sort_identifiability",
+     "type": "sort_buckets",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "buckets": [
+       {
+        "id": "personal",
+        "labelAr": "بيانات شخصية",
+        "labelEn": "Personal data"
+       },
+       {
+        "id": "not_personal",
+        "labelAr": "ليست بيانات شخصية",
+        "labelEn": "Not personal data"
+       }
+      ],
+      "cards": [
+       {
+        "id": "c1",
+        "textAr": "رقم هاتف المريض",
+        "textEn": "Patient's phone number",
+        "bucketId": "personal",
+        "whyAr": "يمكن ربط رقم الهاتف مباشرة بشخص.",
+        "whyEn": "A phone number can be directly linked to a person."
+       },
+       {
+        "id": "c2",
+        "textAr": "عنوان البريد الإلكتروني للموظف",
+        "textEn": "Employee's email address",
+        "bucketId": "personal",
+        "whyAr": "يمكن ربط عنوان البريد الإلكتروني مباشرة بشخص.",
+        "whyEn": "An email address can be directly linked to a person."
+       },
+       {
+        "id": "c3",
+        "textAr": "«المريض في الغرفة 3»",
+        "textEn": "\"Patient in room 3\"",
+        "bucketId": "not_personal",
+        "whyAr": "الغرفة وحدها لا تحدد شخصًا في جناح كبير، ولا توجد معلومات أخرى متاحة بشكل معقول.",
+        "whyEn": "The room alone does not identify a person in a large ward, and no other reasonably available information is present."
+       },
+       {
+        "id": "c4",
+        "textAr": "«المريض الذي بدأ العلاج في 15 يناير»",
+        "textEn": "\"Patient who started treatment on January 15\"",
+        "bucketId": "personal",
+        "whyAr": "في جناح صغير، يمكن أن يحدد التاريخ شخصًا إذا كان متاحًا بشكل معقول.",
+        "whyEn": "In a small ward, the date could identify someone if it is reasonably available."
+       },
+       {
+        "id": "c5",
+        "textAr": "مجموع المبيعات لشهر يناير",
+        "textEn": "Total sales for January",
+        "bucketId": "not_personal",
+        "whyAr": "الأرقام المجمعة لا تتعلق بشخص محدد.",
+        "whyEn": "Aggregate numbers do not relate to an identified person."
+       },
+       {
+        "id": "c6",
+        "textAr": "«الموظف الجديد في قسم المحاسبة الذي بدأ في 1 مارس»",
+        "textEn": "\"The new employee in accounting who started on March 1\"",
+        "bucketId": "personal",
+        "whyAr": "في فريق صغير، يمكن أن تحدد المجموعة شخصًا إذا كانت متاحة بشكل معقول.",
+        "whyEn": "In a small team, the combination could identify someone if reasonably available."
+       }
+      ]
+     }
+    },
+    {
+     "id": "b_l2_check_1",
+     "type": "knowledge_check",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "itemRef": "PRV-01-KC-01"
+     }
+    },
+    {
+     "id": "b_l2_check_2",
+     "type": "knowledge_check",
+     "objectiveId": "PRV-01",
+     "payload": {
+      "itemRef": "PRV-01-KC-02"
+     }
+    }
+   ]
+  }
+ },
+ "items": [
+  {
+   "key": "PRV-01-KC-01",
+   "objectiveId": "PRV-01",
+   "type": "MCQ_SINGLE",
+   "bloom": "APPLY",
+   "formative": true,
+   "stemAr": "أي من هذه المعلومات يُعتبر بيانات شخصية؟",
+   "stemEn": "Which of these is personal data?",
+   "rationaleAr": "الاختبار هو قابلية التعرف، وليس وجود اسم واضح. المعلومات الشخصية هي أي معلومة يمكن ربطها بشخص محدد، سواء بمفردها أو مع معلومات أخرى متاحة بشكل معقول.",
+   "rationaleEn": "The test is identifiability, not the presence of an obvious name. Personal data is any information that can be linked to a specific person, either alone or with other reasonably available information.",
+   "options": [
+    {
+     "textAr": "عنوان الشارع بدون رقم الشقة",
+     "textEn": "A street address without the apartment number",
+     "isCorrect": false,
+     "feedbackAr": "المفهوم الخاطئ: العنوان بدون رقم الشقة قد يكون كافيًا للتعرف على الشخص في سياق محدد، مثل حي صغير أو إذا كان العنوان فريدًا.",
+     "feedbackEn": "Misconception: A street address without the apartment number may be sufficient to identify a person in a specific context, such as a small neighborhood or if the address is unique."
+    },
+    {
+     "textAr": "رقم هاتف المريض",
+     "textEn": "A patient's phone number",
+     "isCorrect": true,
+     "feedbackAr": "الصحيح: رقم الهاتف يمكن ربطه مباشرة بشخص محدد، مما يجعله بيانات شخصية بغض النظر عن السياق.",
+     "feedbackEn": "Correct: A phone number can be directly linked to a specific person, making it personal data regardless of context."
+    },
+    {
+     "textAr": "«المريض في الغرفة 3»",
+     "textEn": "\"Patient in room 3\"",
+     "isCorrect": false,
+     "feedbackAr": "المفهوم الخاطئ: الغرفة وحدها لا تحدد شخصًا في جناح كبير ما لم تكن هناك معلومات أخرى متاحة بشكل معقول.",
+     "feedbackEn": "Misconception: The room alone does not identify a person in a large ward unless other reasonably available information is present."
+    },
+    {
+     "textAr": "مجموع المبيعات لشهر يناير",
+     "textEn": "Total sales for January",
+     "isCorrect": false,
+     "feedbackAr": "المفهوم الخاطئ: الأرقام المجمعة لا تتعلق بشخص محدد.",
+     "feedbackEn": "Misconception: Aggregate numbers do not relate to an identified person."
+    }
+   ]
+  },
+  {
+   "key": "PRV-01-KC-02",
+   "objectiveId": "PRV-01",
+   "type": "MULTI_SELECT",
+   "bloom": "APPLY",
+   "formative": true,
+   "stemAr": "أي من هذه المواقف يُعتبر خرقًا محتملًا يتطلب الإبلاغ عنه في نفس اليوم؟",
+   "stemEn": "Which of these situations is a potential breach requiring same-day reporting?",
+   "rationaleAr": "الخرق المحتمل هو أي وصول غير مصرح به للبيانات الشخصية إلى مكان لا ينبغي أن تكون فيه، بغض النظر عن النية أو الضرر.",
+   "rationaleEn": "A potential breach is any unauthorized access of personal data to a place it should not be, regardless of intent or harm.",
+   "options": [
+    {
+     "textAr": "إرسال بريد إلكتروني يحتوي على تفاصيل مريض إلى زميل خارج الفريق",
+     "textEn": "Emailing a patient's details to a colleague outside the team",
+     "isCorrect": true,
+     "feedbackAr": "الصحيح: هذا إفشاء غير مصرح به للبيانات الشخصية إلى شخص لا يحتاجها، مما يجعله خرقًا محتملًا.",
+     "feedbackEn": "Correct: This is an unauthorized disclosure of personal data to someone who does not need it, making it a potential breach."
+    },
+    {
+     "textAr": "طباعة قائمة بالمرضى وتركها على طابعة مشتركة",
+     "textEn": "Printing a patient list and leaving it on a shared printer",
+     "isCorrect": true,
+     "feedbackAr": "الصحيح: البيانات الشخصية أصبحت متاحة لأشخاص لا يحتاجونها، مما يشكل خرقًا محتملًا.",
+     "feedbackEn": "Correct: Personal data is now available to people who do not need it, constituting a potential breach."
+    },
+    {
+     "textAr": "نسخ جدول بيانات يحتوي على أسماء الموظفين إلى محرك أقراص شخصي",
+     "textEn": "Copying a spreadsheet with employee names to a personal drive",
+     "isCorrect": true,
+     "feedbackAr": "الصحيح: البيانات الشخصية انتقلت إلى مكان خارج الضوابط المؤسسية، مما يشكل خرقًا محتملًا.",
+     "feedbackEn": "Correct: Personal data has moved to a place outside institutional controls, constituting a potential breach."
+    },
+    {
+     "textAr": "حذف ملف يحتوي على معلومات مريض بعد انتهاء الحاجة إليه",
+     "textEn": "Deleting a file containing patient information after it is no longer needed",
+     "isCorrect": false,
+     "feedbackAr": "المفهوم الخاطئ: الحذف الصحيح للبيانات الشخصية بعد انتهاء الحاجة إليها ليس خرقًا، بل هو ممارسة جيدة.",
+     "feedbackEn": "Misconception: Properly deleting personal data after it is no longer needed is not a breach, but good practice."
+    }
+   ]
+  }
+ ]
+}

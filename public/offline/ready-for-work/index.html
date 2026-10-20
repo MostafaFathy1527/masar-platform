@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الاستعداد لسوق العمل · Ready for work</title>
+<meta name="description" content="A free, offline-ready job-readiness practice course in Modern Standard Arabic with an English mirror.">
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2321;--muted:#5f6864;--line:#dedbd2;--accent:#1f5f7a;--accent-soft:#e3eef3;
+  --good:#2d6a46;--good-soft:#e5f1e9;--bad:#9a3b2e;--bad-soft:#f7e6e2;--tip:#7a5a12;--tip-soft:#f6efdc;
+  --ar:"Noto Naskh Arabic","Amiri","Traditional Arabic","Segoe UI",Tahoma,serif;--ui:"Segoe UI",Tahoma,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#141816;--card:#1c2220;--ink:#e8ece9;--muted:#9da7a2;--line:#313a36;--accent:#8db7df;--accent-soft:#1f2f3d;
+  --good:#86c79c;--good-soft:#1b2e22;--bad:#e79a8c;--bad-soft:#36211d;--tip:#e0c27a;--tip-soft:#2f2816;color-scheme:dark}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.bar{max-width:820px;margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:inherit}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;min-height:42px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--card);font-weight:600}
+main{max-width:820px;margin:0 auto;padding:18px 16px 60px}
+[lang="ar"] .text{font-family:var(--ar);font-size:18.5px;line-height:1.95}
+h1{font-size:1.7em;line-height:1.3;margin:.2em 0 .3em}
+h2{font-size:1.25em;margin:1.4em 0 .4em}h3{font-size:1.05em;margin:1em 0 .3em}
+p{margin:.55em 0}
+.label{background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:.92em;margin:12px 0}
+.lessons{display:grid;gap:10px;margin-top:16px}
+.lessons a{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:inherit}
+.lessons .n{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;flex:none}
+.lessons .done .n{background:var(--good);color:var(--card)}
+.lessons small{display:block;color:var(--muted)}
+.level{display:flex;gap:10px;align-items:center;margin:1.8em 0 .4em;color:var(--accent);font-weight:600;font-family:var(--ui);font-size:.9em}
+.level::after{content:"";flex:1;height:1px;background:var(--line)}
+.blk{margin:1em 0}
+.kind{display:block;font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.term{font-weight:700}.ex{color:var(--muted);font-size:.93em;margin-top:6px}
+.tip{background:var(--tip-soft);border-inline-start:4px solid var(--tip);border-radius:10px;padding:12px 14px}
+.take{background:var(--good-soft);border-radius:10px;padding:12px 16px}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:.92em}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{background:var(--accent-soft);font-family:var(--ui);font-size:.85em}
+caption{caption-side:top;text-align:start;padding:9px 10px;font-weight:700}
+.flow{list-style:none;padding:0;margin:0;display:grid;gap:8px;counter-reset:s}
+.flow li{counter-increment:s;display:grid;grid-template-columns:2em 1fr;gap:10px}
+.flow li::before{content:counter(s);width:2em;height:2em;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:var(--ui);font-size:.85em}
+.det{color:var(--muted);font-size:.93em}
+.step{padding:10px 0;border-top:1px dashed var(--line)}.step:first-of-type{border-top:0}
+.why{color:var(--muted);font-size:.93em}.why b{color:var(--accent);font-family:var(--ui);font-size:.8em;margin-inline-end:6px}
+.answer{margin-top:8px;padding:10px 12px;border-radius:8px;background:var(--accent-soft)}
+.opt{display:block;width:100%;text-align:start;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0}
+.opt.sel{border-color:var(--accent)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)}
+.opt.no{border-color:var(--bad);background:var(--bad-soft)}
+.fb{font-size:.92em;margin-top:6px}
+.tag{display:inline-block;font-family:var(--ui);font-size:12px;font-weight:700;padding:1px 8px;border-radius:99px;margin-inline-end:6px}
+.tag.ok{background:var(--good);color:var(--card)}.tag.no{background:var(--bad);color:var(--card)}
+.stem{font-weight:700}
+.sort{display:grid;gap:8px}
+.sort .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.sort .row span{flex:1;min-width:160px}
+.sort select{font:inherit;border:1px solid var(--line);border-radius:8px;padding:6px;background:var(--card);color:inherit;max-width:100%}
+.sort .row.ok{border-color:var(--good)}.sort .row.no{border-color:var(--bad)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:28px;flex-wrap:wrap}
+.muted{color:var(--muted);font-size:.9em}
+footer{max-width:820px;margin:0 auto;padding:0 16px 30px;color:var(--muted);font-size:.85em}
+</style>
+</head>
+<body>
+<header><div class="bar"><a href="#/" class="brand" id="brand"></a><button class="btn" id="lang"></button></div></header>
+<main id="app" class="text"></main>
+<footer id="foot"></footer>
+<script src="course-data.js"></script>
+<script>
+const C = window.COURSE
+const UI = {
+  ar: { brand: 'الاستعداد لسوق العمل', other: 'English', intro: 'دورة تدريب عملي مجانية من عشرة دروس لمن يستعد لأول وظيفة أو بدأها للتو. كل درس فيه شرح قصير، ثم أسئلة تشرح لماذا كانت كل إجابة صحيحة أو خاطئة، ثم موقف من العمل تختار فيه ماذا تفعل. تعمل الدورة كلها دون إنترنت.',
+        label: 'كتب الذكاء الاصطناعي مسوّدات هذه الدروس من ملاحظات كتبها مصمم تعليمي، ثم قيّمتها لجنة من النماذج، ثم راجعها المصمم وصحّحها قبل النشر. ليست نصيحة مهنية أو قانونية أو مالية.',
+        start: 'ابدأ', lesson: 'الدرس', min: 'دقيقة', done: 'أتممته', markDone: 'أنهيت هذا الدرس', next: 'الدرس التالي', prev: 'الدرس السابق', home: 'كل الدروس',
+        levels: { L1: 'المستوى الأول · افهم', L2: 'المستوى الثاني · طبّق', L3: 'المستوى الثالث · مارِس' },
+        kinds: { definition_card: 'تعريف', compare_table: 'مقارنة', process_flow: 'خطوات', job_tip: 'نصيحة من العمل', takeaways: 'الخلاصة', worked_example: 'مثال محلول', scenario: 'موقف من العمل', sort_buckets: 'صنِّف', knowledge_check: 'اختبر فهمك' },
+        why: 'لماذا', answer: 'الإجابة', check: 'تحقّق', correct: 'صحيح', wrong: 'غير صحيح', pickAll: 'اختر كل الإجابات الصحيحة، ثم تحقّق.', pickOne: 'اختر إجابة.', rationale: 'الخلاصة',
+        best: 'أفضل اختيار', notBest: 'ليس الأفضل', tryOthers: 'جرّب الاختيارات الأخرى لترى نتائجها.', choose: 'اختر…', sortHint: 'ضع كل بطاقة في الفئة المناسبة، ثم تحقّق.', sim: 'تمرين محاكاة متاح في النسخة المتصلة.',
+        foot: 'المحتوى مرخّص بـ CC BY-NC 4.0 · مسار · masar.mostafafathy.com' },
+  en: { brand: 'Ready for work', other: 'العربية', intro: 'A free, ten-lesson practice course for anyone getting ready for, or just starting, a first job. Each lesson has a short explanation, then questions that explain why each answer is right or wrong, then a workplace situation where you choose what to do. The whole course works with no internet.',
+        label: 'These lessons were drafted by AI from an instructional designer’s notes, scored by a panel of model judges, then reviewed and corrected by the designer before publication. Not career, legal or financial advice.',
+        start: 'Start', lesson: 'Lesson', min: 'min', done: 'Done', markDone: 'I finished this lesson', next: 'Next lesson', prev: 'Previous lesson', home: 'All lessons',
+        levels: { L1: 'Level 1 · Understand', L2: 'Level 2 · Apply', L3: 'Level 3 · Practise' },
+        kinds: { definition_card: 'Definition', compare_table: 'Comparison', process_flow: 'Steps', job_tip: 'On the job', takeaways: 'Takeaways', worked_example: 'Worked example', scenario: 'Workplace situation', sort_buckets: 'Sort it', knowledge_check: 'Check your understanding' },
+        why: 'Why', answer: 'Answer', check: 'Check', correct: 'Correct', wrong: 'Not correct', pickAll: 'Choose every correct answer, then check.', pickOne: 'Choose an answer.', rationale: 'In short',
+        best: 'Best choice', notBest: 'Not the best', tryOthers: 'Try the other options to see what happens.', choose: 'Choose…', sortHint: 'Put each card in the right group, then check.', sim: 'A simulation exercise is available in the online version.',
+        foot: 'Content licensed CC BY-NC 4.0 · Masār · masar.mostafafathy.com' },
+}
+const store = { get(k, d) { try { const v = localStorage.getItem('rfw-' + k); return v === null ? d : JSON.parse(v) } catch { return d } },
+                set(k, v) { try { localStorage.setItem('rfw-' + k, JSON.stringify(v)) } catch {} } }
+let LANG = store.get('lang', 'ar')
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+const L = (o, b) => o ? (o[b + (LANG === 'ar' ? 'Ar' : 'En')] ?? '') : ''
+function md(src) {
+  const inline = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  const out = []
+  for (const para of String(src ?? '').replace(/\r/g, '').split(/\n{2,}/)) {
+    let list = null, buf = []
+    const flushBuf = () => { if (buf.length) { out.push('<p>' + buf.map(inline).join('<br>') + '</p>'); buf = [] } }
+    const flushList = () => { if (list) { out.push(`<${list.t}>${list.i.map((x) => '<li>' + inline(x) + '</li>').join('')}</${list.t}>`); list = null } }
+    for (const ln of para.split('\n')) {
+      let m
+      if ((m = ln.match(/^\s*[-*•]\s+(.*)$/))) { flushBuf(); if (!list || list.t !== 'ul') { flushList(); list = { t: 'ul', i: [] } } list.i.push(m[1]) }
+      else if ((m = ln.match(/^\s*\d+[.)]\s+(.*)$/))) { flushBuf(); if (!list || list.t !== 'ol') { flushList(); list = { t: 'ol', i: [] } } list.i.push(m[1]) }
+      else if (ln.trim()) { flushList(); buf.push(ln) }
+    }
+    flushBuf(); flushList()
+  }
+  return out.join('')
+}
+
+function block(b, items, key) {
+  const p = b.payload || {}, u = UI[LANG], k = u.kinds[b.type] ? `<span class="kind">${u.kinds[b.type]}</span>` : ''
+  switch (b.type) {
+    case 'heading': return p.level === 3 ? `<h3>${esc(L(p, 'text'))}</h3>` : `<h2>${esc(L(p, 'text'))}</h2>`
+    case 'rich_text': return `<div class="blk">${md(L(p, 'md'))}</div>`
+    case 'definition_card': return `<div class="blk card">${k}<div class="term">${esc(L(p, 'term'))}</div>${md(L(p, 'def'))}${L(p, 'example') ? `<div class="ex">${md(L(p, 'example'))}</div>` : ''}</div>`
+    case 'job_tip': return `<div class="blk tip">${k}${md(L(p, 'md'))}</div>`
+    case 'takeaways': return `<div class="blk take">${k}<ul>${(p['items' + (LANG === 'ar' ? 'Ar' : 'En')] || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>`
+    case 'compare_table': return `<div class="blk">${k}<div class="tablebox"><table>${L(p, 'caption') ? `<caption>${esc(L(p, 'caption'))}</caption>` : ''}<thead><tr>${(p.columns || []).map((c) => `<th>${esc(L(c, 'label'))}</th>`).join('')}</tr></thead><tbody>${(p.rows || []).map((r) => `<tr>${(Array.isArray(r) ? r : r.cells || []).map((c) => `<td>${esc(typeof c === 'string' ? c : L(c, 'text'))}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`
+    case 'process_flow': return `<div class="blk">${k}<ol class="flow">${(p.steps || []).map((s) => `<li><div><b>${esc(L(s, 'label'))}</b>${L(s, 'detail') ? `<div class="det">${esc(L(s, 'detail'))}</div>` : ''}</div></li>`).join('')}</ol></div>`
+    case 'worked_example': return `<div class="blk card">${k}<div class="stem">${md(L(p, 'prompt'))}</div>${(p.steps || []).map((s) => `<div class="step">${md(L(s, 'show'))}<div class="why"><b>${u.why}</b>${esc(L(s, 'why'))}</div></div>`).join('')}${L(p, 'answer') ? `<div class="answer"><b>${u.answer}:</b> ${md(L(p, 'answer'))}</div>` : ''}</div>`
+    case 'scenario': return `<div class="blk card" data-scn="${key}">${k}<div class="stem">${md(L(p, 'situation'))}</div>${(p.decisions || []).map((d, i) => `<button class="opt" data-i="${i}">${esc(L(d, 'option'))}<div class="fb" hidden></div></button>`).join('')}<p class="muted" hidden>${u.tryOthers}</p></div>`
+    case 'sort_buckets': return `<div class="blk card" data-sort="${key}">${k}<p class="muted">${u.sortHint}</p><div class="sort">${(p.cards || []).map((c, i) => `<div class="row" data-i="${i}"><span>${esc(L(c, 'text'))}</span><select aria-label="${esc(L(c, 'text'))}"><option value="">${u.choose}</option>${(p.buckets || []).map((bk) => `<option value="${esc(bk.id)}">${esc(L(bk, 'label'))}</option>`).join('')}</select><div class="fb" hidden style="flex-basis:100%"></div></div>`).join('')}</div><button class="btn primary" style="margin-top:10px">${u.check}</button></div>`
+    case 'knowledge_check': {
+      const it = items.find((x) => x.key === p.itemRef); if (!it) return ''
+      const multi = it.type === 'MULTI_SELECT'
+      return `<div class="blk card" data-kc="${esc(it.key)}">${k}<div class="stem">${md(L(it, 'stem'))}</div><p class="muted">${multi ? u.pickAll : u.pickOne}</p>${(it.options || []).map((o, i) => `<button class="opt" data-i="${i}" aria-pressed="false">${esc(L(o, 'text'))}<div class="fb" hidden></div></button>`).join('')}${multi ? `<button class="btn primary" data-check>${u.check}</button>` : ''}<div class="answer" hidden>${esc(L(it, 'rationale'))}</div></div>`
+    }
+    case 'practice_sim': return `<div class="blk card"><p class="muted">${u.sim}</p></div>`
+    default: return ''
+  }
+}
+
+function wire(lesson, items) {
+  const el = document.getElementById('app')
+  el.querySelectorAll('[data-kc]').forEach((box) => {
+    const it = items.find((x) => x.key === box.dataset.kc), multi = it.type === 'MULTI_SELECT', u = UI[LANG]
+    const opts = [...box.querySelectorAll('.opt')]
+    const reveal = (chosen) => {
+      opts.forEach((b, i) => {
+        const o = it.options[i], picked = chosen.includes(i)
+        b.classList.toggle('ok', o.isCorrect); b.classList.toggle('no', picked && !o.isCorrect)
+        const fb = b.querySelector('.fb')
+        if (picked || o.isCorrect) { fb.hidden = false; fb.innerHTML = `<span class="tag ${o.isCorrect ? 'ok' : 'no'}">${o.isCorrect ? u.correct : u.wrong}</span>${esc(L(o, 'feedback'))}` }
+      })
+      box.querySelector('.answer').hidden = !L(it, 'rationale')
+    }
+    opts.forEach((b, i) => b.addEventListener('click', () => {
+      if (!multi) return reveal([i])
+      const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); b.classList.toggle('sel', on)
+    }))
+    const chk = box.querySelector('[data-check]')
+    if (chk) chk.addEventListener('click', () => reveal(opts.map((b, i) => (b.getAttribute('aria-pressed') === 'true' ? i : -1)).filter((i) => i >= 0)))
+  })
+  el.querySelectorAll('[data-scn]').forEach((box) => {
+    const p = findBlock(lesson, box.dataset.scn).payload, u = UI[LANG]
+    box.querySelectorAll('.opt').forEach((b) => b.addEventListener('click', () => {
+      const d = p.decisions[+b.dataset.i]
+      b.classList.add(d.isBest ? 'ok' : 'no')
+      const fb = b.querySelector('.fb'); fb.hidden = false
+      fb.innerHTML = `<span class="tag ${d.isBest ? 'ok' : 'no'}">${d.isBest ? u.best : u.notBest}</span>${esc(L(d, 'consequence'))}`
+      box.querySelector('.muted').hidden = false
+    }))
+  })
+  el.querySelectorAll('[data-sort]').forEach((box) => {
+    const p = findBlock(lesson, box.dataset.sort).payload, u = UI[LANG]
+    box.querySelector('.btn').addEventListener('click', () => box.querySelectorAll('.row').forEach((row) => {
+      const c = p.cards[+row.dataset.i], v = row.querySelector('select').value, ok = v === c.bucketId
+      row.classList.toggle('ok', ok); row.classList.toggle('no', !ok)
+      const right = (p.buckets.find((x) => x.id === c.bucketId) || {})
+      const fb = row.querySelector('.fb'); fb.hidden = false
+      fb.innerHTML = `<span class="tag ${ok ? 'ok' : 'no'}">${ok ? u.correct : u.wrong}</span>${ok ? '' : esc(L(right, 'label')) + ' — '}${esc(L(c, 'why'))}`
+    }))
+  })
+}
+function findBlock(lesson, key) { const [lv, i] = key.split(':'); return lesson.blocks[lv][+i] }
+
+function render() {
+  const u = UI[LANG]
+  document.documentElement.lang = LANG; document.documentElement.dir = LANG === 'ar' ? 'rtl' : 'ltr'
+  document.getElementById('app').lang = LANG
+  document.getElementById('brand').textContent = u.brand
+  document.getElementById('lang').textContent = u.other
+  document.getElementById('foot').textContent = u.foot
+  document.title = u.brand
+  const done = store.get('done', [])
+  const m = location.hash.match(/^#\/lesson\/(\d+)/)
+  const app = document.getElementById('app')
+  if (!m) {
+    app.innerHTML = `<h1>${u.brand}</h1><p>${u.intro}</p><div class="label">${u.label}</div><div class="lessons">${C.lessons.map((x, i) => `<a href="#/lesson/${i + 1}" class="${done.includes(i + 1) ? 'done' : ''}"><span class="n">${done.includes(i + 1) ? '✓' : i + 1}</span><span><b>${esc(L(x.lesson, 'title'))}</b><small>${x.lesson.estMinutes ? x.lesson.estMinutes + ' ' + u.min : ''}${done.includes(i + 1) ? ' · ' + u.done : ''}</small></span></a>`).join('')}</div>`
+    window.scrollTo(0, 0); return
+  }
+  const n = +m[1], x = C.lessons[n - 1]; if (!x) { location.hash = '#/'; return }
+  const lesson = x.lesson
+  let html = `<p class="muted">${u.lesson} ${n} / ${C.lessons.length}</p><h1>${esc(L(lesson, 'title'))}</h1>`
+  for (const [lv, blocks] of Object.entries(lesson.blocks || {})) {
+    html += `<div class="level">${u.levels[lv.toUpperCase()] || lv}</div>`
+    html += blocks.map((b, i) => block(b, x.items, `${lv}:${i}`)).join('')
+  }
+  html += `<div class="nav">${n > 1 ? `<a class="btn" href="#/lesson/${n - 1}">${u.prev}</a>` : `<a class="btn" href="#/">${u.home}</a>`}<button class="btn primary" id="finish">${done.includes(n) ? '✓ ' + u.done : u.markDone}</button>${n < C.lessons.length ? `<a class="btn" href="#/lesson/${n + 1}">${u.next}</a>` : `<a class="btn" href="#/">${u.home}</a>`}</div>`
+  app.innerHTML = html
+  wire(lesson, x.items)
+  document.getElementById('finish').addEventListener('click', () => { const d = new Set(store.get('done', [])); d.add(n); store.set('done', [...d]); location.hash = n < C.lessons.length ? `#/lesson/${n + 1}` : '#/' })
+  window.scrollTo(0, 0)
+}
+document.getElementById('lang').addEventListener('click', () => { LANG = LANG === 'ar' ? 'en' : 'ar'; store.set('lang', LANG); render() })
+window.addEventListener('hashchange', render)
+render()
+</script>
+</body>
+</html>

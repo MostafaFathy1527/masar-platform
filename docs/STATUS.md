@@ -2,6 +2,15 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 20 October 2026: "Ready for work" published offline
+
+The ten job-readiness lessons the owner reviewed are copied, as approved, into
+`content/offline/ready-for-work/` (each file records the pipeline version it came from), and
+`scripts/build_offline_course.py` builds them into `public/offline/ready-for-work/`: one
+`index.html` and one `course-data.js`, no server, no network, every question, scenario and
+sort scored in the browser, Arabic first with an English mirror. Served at
+`/offline/ready-for-work/index.html`, and meant to be packaged as a ZIM for Kiwix.
+
 ## 20 October 2026: the blind human rating is built
 
 The one open item that needs a person now has its tool. `/rate/index.html` (not linked, not
