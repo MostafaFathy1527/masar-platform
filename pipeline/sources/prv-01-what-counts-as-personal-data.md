@@ -14,6 +14,8 @@ is personal data and what that obliges them to do.
 Objective: **PRV-01** — given a piece of information encountered at work, decide whether it
 is personal data, whether it is sensitive, and what handling that decision requires.
 
+
+Arabic register: Modern Standard Arabic throughout the Arabic fields.
 ---
 
 **Personal data** is any information that relates to an identified or identifiable living

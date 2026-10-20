@@ -2,6 +2,18 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 20 October 2026: the blind human rating is built
+
+The one open item that needs a person now has its tool. `/rate/index.html` (not linked, not
+indexed) shows a rater 50 lesson samples, shuffled and identified only as L01 to L50: drafts
+from both writers and copies broken in the calibration's named ways. Each is shown in Arabic,
+then as its English mirror, fully rendered with every answer and its feedback visible, and
+scored on the eight rubric criteria, with a reason required for any score of 3 or below. No
+model's score and no sample's source appears on the page; the key that maps L01 to a source is
+kept outside the repository. A second rater scores an overlapping 15 for agreement. Raters
+reach it with a private code whose hash is in `lib/rating/raters.ts`; scores are stored in
+`HumanRating` (migration `20261020080000_add_human_rating`, applied to production 20 October).
+
 ## Now
 **v1.0 is complete and deployed.** All six weeks shipped at `masar.mostafafathy.com`, CI is
 green, and `npm run check` passes with no warnings. The interior has since been rebuilt on a

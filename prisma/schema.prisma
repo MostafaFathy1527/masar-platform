@@ -481,3 +481,27 @@ model Order {
 
   @@index([userId, courseId])
 }
+
+// ---------------------------------------------------------------- human rating
+
+/// A person's blind score of one lesson sample against the eight-criterion rubric
+/// (pipeline/rubric.md): the human check on the model judges. Raters are named by an
+/// opaque id, never by name, and reach the form with a private access code whose
+/// hash is in lib/rating/raters.ts.
+model HumanRating {
+  id        String   @id @default(cuid())
+  rater     String
+  sampleId  String
+  lang      Locale
+  /// criterion key -> 1..5, in rubric order
+  scores    Json
+  /// criterion key -> why, required for any score of 3 or below
+  notes     Json
+  overall   String   @default("")
+  seconds   Int      @default(0)
+  complete  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([rater, sampleId, lang])
+}

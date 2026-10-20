@@ -13,6 +13,8 @@ Monday.
 Objective: **CS-01** — given a customer complaint, de-escalate it, establish the facts, and
 close it with an agreed next step that the customer can hold you to.
 
+
+Arabic register: Modern Standard Arabic throughout the Arabic fields.
 ---
 
 A complaint is not an attack and it is not a request for an apology. It is a customer

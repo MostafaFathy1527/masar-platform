@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Masār Lesson Rater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: a reading column for the lesson, a sticky scoring sheet beside it on wide screens, below it on phones. */
+:root{
+  --paper:#f6f6f1; --sheet:#ffffff; --ink:#1e2422; --muted:#5d6763; --line:#dcded6;
+  --accent:#2c5a86; --accent-soft:#e6eef6; --good:#2d6a46; --good-soft:#e5f1e9;
+  --bad:#9a3b2e; --bad-soft:#f7e9e5; --tip:#7a5a12; --tip-soft:#f6efdc;
+  --f-ar:"Noto Naskh Arabic","Amiri","Traditional Arabic",serif;
+  --f-ui:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --f-en:"Source Serif 4",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#151917; --sheet:#1d2220; --ink:#e7ebe8; --muted:#a1aaa6; --line:#323a37;
+  --accent:#8db7df; --accent-soft:#1f2f3e; --good:#86c79c; --good-soft:#1c2e23;
+  --bad:#e79a8c; --bad-soft:#36211d; --tip:#e0c27a; --tip-soft:#2f2816; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#151917; --sheet:#1d2220; --ink:#e7ebe8; --muted:#a1aaa6; --line:#323a37;
+  --accent:#8db7df; --accent-soft:#1f2f3e; --good:#86c79c; --good-soft:#1c2e23;
+  --bad:#e79a8c; --bad-soft:#36211d; --tip:#e0c27a; --tip-soft:#2f2816; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.6}
+button,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-block:10px}
+.brand{font-weight:600;font-size:15px;margin-inline-end:auto}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.nav{display:flex;align-items:center;gap:6px}
+.btn{border:1px solid var(--line);background:var(--sheet);border-radius:8px;padding:6px 12px;cursor:pointer;min-height:36px}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--sheet)}
+.pill{font-family:var(--f-mono);font-size:13px;padding:4px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-variant-numeric:tabular-nums}
+.progress{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{height:4px;background:var(--line)}
+.meter i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+
+/* main grid */
+main .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:28px;padding-block:24px 120px;align-items:start}
+@media (max-width:980px){main .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* lesson */
+.lesson{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,44px);min-width:0}
+.lesson[lang="ar"]{font-family:var(--f-ar);font-size:19px;line-height:1.95}
+.lesson[lang="en"]{font-family:var(--f-en);font-size:18px;line-height:1.7}
+.lesson .meta{font-family:var(--f-ui);font-size:13px;color:var(--muted);margin-bottom:6px}
+.lesson h1{font-size:1.55em;line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.lesson h2{font-size:1.2em;margin:1.6em 0 .4em;text-wrap:balance}
+.lesson h3{font-size:1.05em;margin:1.3em 0 .3em}
+.lesson p{margin:.6em 0}
+.lesson ul,.lesson ol{margin:.5em 0;padding-inline-start:1.4em}
+.prose{max-width:68ch}
+.level{display:flex;align-items:center;gap:12px;margin:2.2em 0 .6em;font-family:var(--f-ui);font-size:13px;color:var(--muted);letter-spacing:.02em}
+.level:first-of-type{margin-top:1.2em}
+.level b{color:var(--accent);font-weight:600}
+.level::after{content:"";flex:1;height:1px;background:var(--line)}
+.blk{margin:1.1em 0}
+.kind{display:block;font-family:var(--f-ui);font-size:12px;color:var(--muted);margin-bottom:6px;letter-spacing:.03em}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px 18px;background:var(--paper)}
+.def .term{font-weight:700;font-size:1.08em}
+.def .ex{margin-top:6px;color:var(--muted);font-size:.92em}
+.tip{background:var(--tip-soft);border-inline-start:4px solid var(--tip);border-radius:8px;padding:12px 16px}
+.tip .kind{color:var(--tip)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:.9em;min-width:480px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{background:var(--accent-soft);font-family:var(--f-ui);font-size:13px;font-weight:600}
+caption{caption-side:top;text-align:start;padding:10px 12px;font-weight:600}
+.flow{list-style:none;padding:0;margin:0;display:grid;gap:8px;counter-reset:s}
+.flow li{counter-increment:s;display:grid;grid-template-columns:2em 1fr;gap:10px;align-items:start}
+.flow li::before{content:counter(s);font-family:var(--f-mono);font-size:13px;width:2em;height:2em;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.flow .lbl{font-weight:700}
+.flow .det{color:var(--muted);font-size:.93em}
+.take{background:var(--good-soft);border-radius:10px;padding:12px 18px}
+.take .kind{color:var(--good)}
+.we .step{display:grid;gap:4px;padding:10px 0;border-top:1px dashed var(--line)}
+.we .step:first-of-type{border-top:0}
+.why{font-size:.93em;color:var(--muted)}
+.why b{color:var(--accent);font-family:var(--f-ui);font-size:12px;font-weight:600;margin-inline-end:6px}
+.answer{margin-top:10px;padding:10px 14px;border-radius:8px;background:var(--accent-soft)}
+.opt{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0;background:var(--sheet)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)}
+.tag{display:inline-block;font-family:var(--f-ui);font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;margin-inline-end:8px;vertical-align:middle}
+.tag.ok{background:var(--good);color:var(--sheet)}
+.tag.no{background:var(--line);color:var(--muted)}
+.fb{font-size:.92em;color:var(--muted);margin-top:4px}
+.stem{font-weight:700}
+.rat{font-size:.92em;margin-top:8px;color:var(--muted)}
+.buckets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.bucket{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--sheet);min-width:0}
+.bucket h4{margin:0 0 6px;font-size:.95em;color:var(--accent)}
+.bucket .c{padding:6px 0;border-top:1px solid var(--line);font-size:.93em}
+.bucket .c:first-of-type{border-top:0}
+.note{font-family:var(--f-ui);font-size:13px;color:var(--muted);font-style:italic}
+
+/* rating sheet */
+.sheet{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);max-height:calc(100vh - 90px);overflow:auto;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+@media (max-width:980px){.sheet{position:static;max-height:none}}
+.sheet h2{margin:0 0 2px;font-size:17px}
+.sheet .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+.crit{padding:12px 0;border-top:1px solid var(--line)}
+.crit .name{font-weight:600}
+.crit .name small{color:var(--muted);font-weight:400;font-family:var(--f-mono);font-size:11px;margin-inline-start:6px}
+.anchors{font-size:12.5px;color:var(--muted);margin:4px 0 8px;display:grid;gap:2px}
+.anchors span b{font-family:var(--f-mono);color:var(--ink);margin-inline-end:4px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button{min-height:42px;border:1px solid var(--line);background:var(--paper);border-radius:8px;cursor:pointer;font-family:var(--f-mono);font-size:16px}
+.scale button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--sheet)}
+.scale button.low[aria-pressed="true"]{background:var(--bad);border-color:var(--bad)}
+.just{margin-top:8px}
+.just label{font-size:12.5px;color:var(--bad);display:block;margin-bottom:4px}
+.just textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--paper);resize:vertical}
+.overall{margin-top:12px}
+.overall textarea{width:100%;min-height:60px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--paper)}
+.status{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;font-size:13px;flex-wrap:wrap}
+.state{padding:3px 10px;border-radius:99px;background:var(--line);color:var(--muted)}
+.state.done{background:var(--good-soft);color:var(--good)}
+.state.err{background:var(--bad-soft);color:var(--bad)}
+.banner{background:var(--tip-soft);color:var(--tip);border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:12px}
+
+/* queue drawer */
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--sheet);color:var(--ink);padding:0;width:min(560px,calc(100vw - 32px));max-height:80vh}
+dialog::backdrop{background:rgba(0,0,0,.35)}
+.qhead{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);gap:8px;flex-wrap:wrap}
+.qlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;padding:16px;overflow:auto;max-height:calc(80vh - 70px)}
+.qlist button{border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:8px 6px;cursor:pointer;font-family:var(--f-mono);font-size:13px;display:grid;gap:2px;justify-items:center}
+.qlist button .s{font-family:var(--f-ui);font-size:11px;color:var(--muted)}
+.qlist button.done{background:var(--good-soft);border-color:var(--good)}
+.qlist button.part{background:var(--tip-soft);border-color:var(--tip)}
+.qlist button.cur{outline:2px solid var(--accent)}
+.jump{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline-end:max(16px,env(safe-area-inset-right,0px));z-index:6;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+@media (min-width:981px){.jump{display:none}}
+.loading{padding:60px 0;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div dir="rtl">
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">مقيِّم دروس مسار<small id="who">التقييم أعمى: لا تظهر هنا درجات أي نموذج ولا مصدر الدرس</small></div>
+    <div class="nav">
+      <button class="btn" id="prev" aria-label="الدرس السابق">→ السابق</button>
+      <span class="pill" id="cur">…</span>
+      <button class="btn" id="next" aria-label="الدرس التالي">التالي ←</button>
+    </div>
+    <button class="btn" id="openQ">كل العينات</button>
+    <span class="progress" id="prog">0 / 0</span>
+  </div>
+  <div class="meter"><i id="meter"></i></div>
+</header>
+
+<main><div class="wrap">
+  <article class="lesson" id="lesson" lang="ar" dir="rtl"><div class="loading">جارٍ تحميل الدروس…</div></article>
+  <aside class="sheet" id="sheet" aria-label="نموذج التقييم"></aside>
+</div></main>
+
+<button class="btn primary jump" id="jump">انتقل إلى التقييم ↓</button>
+
+<dialog id="queue">
+  <div class="qhead">
+    <strong>العينات</strong>
+    <div class="nav">
+      <select id="filter" class="btn" aria-label="تصفية">
+        <option value="all">الكل</option><option value="todo">لم تُقيَّم</option><option value="ar">العربية</option><option value="en">الإنجليزية</option>
+      </select>
+      <button class="btn" id="nextTodo">أول عينة لم تُقيَّم</button>
+      <button class="btn" id="closeQ">إغلاق</button>
+    </div>
+  </div>
+  <div class="qlist" id="qlist"></div>
+</dialog>
+</div>
+
+<script>
+const CRITERIA = [
+  {k:'objective_alignment', ar:'توافق الهدف', en:'Objective alignment',
+   a:['كتل تحمل أهدافًا لا تطابق محتواها','متوافقة غالبًا؛ كتلة أو اثنتان تتجاوز هدفها','كل كتلة تخدم هدفها، والمجموع يغطيه']},
+  {k:'level_fidelity', ar:'الوفاء بالمستوى', en:'Level fidelity',
+   a:['تسمية المستوى مجرد ادعاء','الكتل المطلوبة موجودة لكنها رقيقة','المستوى هو ما يعيشه المتعلم فعلًا (بطاقة هي قائمة نقاط = فشل)']},
+  {k:'worked_example', ar:'المثال المحلول', en:'Worked example',
+   a:['خطوات تقرّر الإجابة بلا تعليل','التعليل موجود لكنه عام','التعليل يسمّي الحكم المتخذ وما الذي قد يغيّره']},
+  {k:'knowledge_check', ar:'أسئلة التحقق', en:'Knowledge check',
+   a:['مشتتات لا يختارها أحد، أو تغذية راجعة تكرر السؤال','مشتتات معقولة، والتغذية الراجعة ضعيفة في بعضها','كل مشتت يمثل فهمًا خاطئًا حقيقيًا، والتغذية الراجعة تشرح لماذا']},
+  {k:'scenario_authenticity', ar:'واقعية السيناريو', en:'Scenario authenticity',
+   a:['مثال كتاب مدرسي في ثوب قصة','معقول لكن بلا احتكاك','مألوف لمن يؤدي هذا العمل، بما فيه الجوانب المحرجة']},
+  {k:'bilingual_quality', ar:'جودة العربية', en:'Language quality', arEn:'جودة الإنجليزية',
+   a:['ترجمة حرفية تتبع ترتيب الكلمات الإنجليزي','دقيقة لكن متكلفة أحيانًا','تُقرأ كأنها كُتبت بالعربية أصلًا'],
+   aEn:['Literal or machine-like English','Accurate, occasionally stiff','Reads as written by a fluent writer']},
+  {k:'concision', ar:'الإيجاز', en:'Concision',
+   a:['حشو وتكرار','واضح لكنه مطوّل','لا شيء يمكن حذفه دون خسارة']},
+  {k:'accessibility_ip', ar:'الإتاحة والملكية الفكرية', en:'Accessibility & IP',
+   a:['رمز مرخّص حقيقي أو مصطلح محظور (درجة 1 تلقائيًا)','ملتزم لكن بالحد الأدنى','ملتزم، ويُستخدم القيد نقطةً تعليمية']},
+];
+const LEVEL_NAMES = {ar:{L1:'المستوى الأول · منظَّم',L2:'المستوى الثاني · تفاعلي',L3:'المستوى الثالث · تطبيقي'},
+                     en:{L1:'Level 1 · Structured',L2:'Level 2 · Interactive',L3:'Level 3 · Applied practice'}};
+const KIND = {ar:{definition_card:'بطاقة تعريف',compare_table:'جدول مقارنة',process_flow:'خطوات',job_tip:'نصيحة عملية',takeaways:'الخلاصة',
+  worked_example:'مثال محلول',scenario:'سيناريو',sort_buckets:'تصنيف',knowledge_check:'سؤال تحقق',practice_sim:'محاكاة'},
+  en:{definition_card:'Definition',compare_table:'Comparison',process_flow:'Steps',job_tip:'On the job',takeaways:'Takeaways',
+  worked_example:'Worked example',scenario:'Scenario',sort_buckets:'Sorting task',knowledge_check:'Knowledge check',practice_sim:'Simulation'}};
+const T = {ar:{why:'لماذا',answer:'الإجابة',best:'الخيار الأفضل',other:'خيار',conseq:'النتيجة',correct:'إجابة صحيحة',wrong:'إجابة خاطئة',
+  rationale:'التعليل',sim:'محاكاة تفاعلية تُعرض في المنصة ولا تدخل في هذا التقييم.',missing:'سؤال غير موجود في بنك الأسئلة: ',topic:'الموضوع',min:'دقيقة'},
+  en:{why:'Why',answer:'Answer',best:'Best choice',other:'Option',conseq:'Consequence',correct:'Correct',wrong:'Incorrect',
+  rationale:'Rationale',sim:'Interactive simulation, shown on the platform and outside this rating.',missing:'Item missing from the bank: ',topic:'Topic',min:'min'}};
+
+const OVERLAP = ["L01-ar","L03-ar","L04-ar","L05-ar","L07-ar","L09-ar","L15-ar","L18-ar","L26-ar","L28-ar","L30-ar","L38-ar","L39-ar","L48-ar","L49-ar"];
+const CODE = new URLSearchParams(location.search).get('k') || '';
+let CONN='pending', SAMPLES=[], QUEUE=[], idx=0, ratings={}, store=null, uid='local', saveTimer=null, openedAt=Date.now();
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function md(src){
+  // Lesson text arrives as light markdown; render it so the reader never sees the syntax.
+  const inline = t => esc(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g,'$1<em>$2</em>').replace(/`(.+?)`/g,'<code>$1</code>');
+  const out=[]; let list=null;
+  const flush=()=>{ if(list){ out.push(`<${list.t}>${list.items.map(i=>`<li>${inline(i)}</li>`).join('')}</${list.t}>`); list=null; } };
+  const paras = String(src??'').replace(/\r/g,'').split(/\n{2,}/);
+  for(const para of paras){
+    const lines = para.split('\n');
+    let buf=[];
+    const pushBuf=()=>{ if(buf.length){ out.push(`<p>${buf.map(inline).join('<br>')}</p>`); buf=[]; } };
+    for(const ln of lines){
+      let m;
+      if((m=ln.match(/^\s*[-*•]\s+(.*)$/))){ pushBuf(); if(!list||list.t!=='ul'){flush(); list={t:'ul',items:[]};} list.items.push(m[1]); }
+      else if((m=ln.match(/^\s*\d+[.)]\s+(.*)$/))){ pushBuf(); if(!list||list.t!=='ol'){flush(); list={t:'ol',items:[]};} list.items.push(m[1]); }
+      else if((m=ln.match(/^\s*#{1,6}\s+(.*)$/))){ pushBuf(); flush(); out.push(`<h3>${inline(m[1])}</h3>`); }
+      else if(ln.trim()){ flush(); buf.push(ln); }
+    }
+    pushBuf(); flush();
+  }
+  return out.join('');
+}
+const L = (o,base,lang) => o ? (o[base+(lang==='ar'?'Ar':'En')] ?? '') : '';
+
+function renderBlock(b, lang, items){
+  const p=b.payload||{}, k=KIND[lang][b.type], t=T[lang];
+  const label = k ? `<span class="kind">${esc(k)}</span>` : '';
+  switch(b.type){
+    case 'heading': return p.level===3 ? `<h3>${esc(L(p,'text',lang))}</h3>` : `<h2>${esc(L(p,'text',lang))}</h2>`;
+    case 'rich_text': return `<div class="blk prose">${md(L(p,'md',lang))}</div>`;
+    case 'definition_card': return `<div class="blk card def">${label}<div class="term">${esc(L(p,'term',lang))}</div><div>${md(L(p,'def',lang))}</div>${L(p,'example',lang)?`<div class="ex">${md(L(p,'example',lang))}</div>`:''}</div>`;
+    case 'job_tip': return `<div class="blk tip">${label}${md(L(p,'md',lang))}</div>`;
+    case 'takeaways': return `<div class="blk take">${label}<ul>${(p['items'+(lang==='ar'?'Ar':'En')]||[]).map(i=>`<li>${md(i).replace(/^<p>|<\/p>$/g,'')}</li>`).join('')}</ul></div>`;
+    case 'compare_table': {
+      const cols=p.columns||[], rows=p.rows||[];
+      return `<div class="blk">${label}<div class="tablebox"><table>${L(p,'caption',lang)?`<caption>${esc(L(p,'caption',lang))}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${esc(L(c,'label',lang))}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${(Array.isArray(r)?r:(r.cells||[])).map(c=>`<td>${esc(typeof c==='string'?c:L(c,'text',lang))}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
+    }
+    case 'process_flow': return `<div class="blk">${label}<ol class="flow">${(p.steps||[]).map(s=>`<li><div><div class="lbl">${esc(L(s,'label',lang))}</div>${L(s,'detail',lang)?`<div class="det">${esc(L(s,'detail',lang))}</div>`:''}</div></li>`).join('')}</ol></div>`;
+    case 'worked_example': return `<div class="blk card we">${label}<div class="stem">${md(L(p,'prompt',lang))}</div>${(p.steps||[]).map(s=>`<div class="step"><div>${md(L(s,'show',lang))}</div><div class="why"><b>${t.why}</b>${esc(L(s,'why',lang))}</div></div>`).join('')}${L(p,'answer',lang)?`<div class="answer"><b>${t.answer}:</b> ${md(L(p,'answer',lang))}</div>`:''}</div>`;
+    case 'scenario': return `<div class="blk card">${label}<div class="stem">${md(L(p,'situation',lang))}</div>${(p.decisions||[]).map(d=>`<div class="opt ${d.isBest?'ok':''}"><span class="tag ${d.isBest?'ok':'no'}">${d.isBest?t.best:t.other}</span>${esc(L(d,'option',lang))}<div class="fb"><b>${t.conseq}:</b> ${esc(L(d,'consequence',lang))}</div></div>`).join('')}</div>`;
+    case 'sort_buckets': {
+      const cards=p.cards||[];
+      return `<div class="blk">${label}<div class="buckets">${(p.buckets||[]).map(bk=>`<div class="bucket"><h4>${esc(L(bk,'label',lang))}</h4>${cards.filter(c=>c.bucketId===bk.id).map(c=>`<div class="c">${esc(L(c,'text',lang))}${L(c,'why',lang)?`<div class="why"><b>${t.why}</b>${esc(L(c,'why',lang))}</div>`:''}</div>`).join('')}</div>`).join('')}</div></div>`;
+    }
+    case 'knowledge_check': {
+      const it=items.find(i=>i.key===p.itemRef);
+      if(!it) return `<div class="blk card">${label}<p class="note">${t.missing}${esc(p.itemRef)}</p></div>`;
+      return `<div class="blk card">${label}<div class="stem">${md(L(it,'stem',lang))}</div>${(it.options||[]).map(o=>`<div class="opt ${o.isCorrect?'ok':''}"><span class="tag ${o.isCorrect?'ok':'no'}">${o.isCorrect?t.correct:t.wrong}</span>${esc(L(o,'text',lang))}<div class="fb">${esc(L(o,'feedback',lang))}</div></div>`).join('')}${L(it,'rationale',lang)?`<div class="rat"><b>${t.rationale}:</b> ${esc(L(it,'rationale',lang))}</div>`:''}</div>`;
+    }
+    case 'practice_sim': return `<div class="blk card">${label}<p class="note">${t.sim}</p></div>`;
+    default: return `<div class="blk"><p class="note">${esc(b.type)}</p></div>`;
+  }
+}
+
+function renderLesson(){
+  const q=QUEUE[idx]; if(!q) return;
+  const s=q.s, lang=q.lang, l=s.lesson, el=document.getElementById('lesson');
+  el.lang=lang; el.dir= lang==='ar'?'rtl':'ltr';
+  const levels = l.blocks && typeof l.blocks==='object' ? Object.keys(l.blocks) : [];
+  let html = `<div class="meta">${esc(lang==='ar'?s.topicAr:s.topicEn)}${l.estMinutes?` · ${l.estMinutes} ${T[lang].min}`:''}</div><h1>${esc(L(l,'title',lang))}</h1>`;
+  for(const lv of levels){
+    const name = LEVEL_NAMES[lang][lv.toUpperCase()] || lv;
+    html += `<div class="level"><b>${esc(name)}</b></div>`;
+    html += (l.blocks[lv]||[]).map(b=>renderBlock(b,lang,s.items||[])).join('');
+  }
+  el.innerHTML = html;
+  window.scrollTo({top:0});
+}
+
+function key(q){ return `${q.s.id}-${q.lang}`; }
+function rec(q){ return ratings[key(q)] || {scores:{},notes:{},overall:''}; }
+function isDone(r){ return r && CRITERIA.every(c=>r.scores[c.k]) && CRITERIA.every(c=>r.scores[c.k]>3 || (r.notes[c.k]||'').trim()); }
+function isPart(r){ return r && Object.keys(r.scores||{}).length>0 && !isDone(r); }
+
+function renderSheet(){
+  const q=QUEUE[idx]; if(!q) return;
+  const r=rec(q), lang=q.lang, el=document.getElementById('sheet');
+  el.innerHTML = `${CONN!=='failed'?'':'<div class="banner">تعذّر الاتصال بالخادم، فالتقييمات تُحفظ على هذا الجهاز مؤقتًا. أعد تحميل الصفحة لاحقًا.</div>'}
+    <h2>تقييم ${esc(q.s.id)} · ${lang==='ar'?'العربية':'الإنجليزية'}</h2>
+    <p class="sub">من 1 إلى 5 لكل معيار. أي درجة 3 أو أقل تحتاج سببًا قصيرًا. اضغط الدرجة المختارة مرة أخرى لإلغائها. يُحفظ كل تغيير تلقائيًا.</p>
+    ${CRITERIA.map((c,i)=>{
+      const v=r.scores[c.k]||0, an = (lang==='en'&&c.aEn)?c.aEn:c.a, nm=(lang==='en'&&c.arEn)?c.arEn:c.ar;
+      return `<div class="crit" data-k="${c.k}">
+        <div class="name">${i+1}. ${esc(nm)}<small>${esc(c.en)}</small></div>
+        <div class="anchors"><span><b>1</b>${esc(an[0])}</span><span><b>3</b>${esc(an[1])}</span><span><b>5</b>${esc(an[2])}</span></div>
+        <div class="scale" role="group" aria-label="${esc(nm)}">${[1,2,3,4,5].map(n=>`<button type="button" class="${n<=3?'low':''}" data-n="${n}" aria-pressed="${v===n}">${n}</button>`).join('')}</div>
+        ${v && v<=3 ? `<div class="just"><label for="j-${c.k}">لماذا ${v}؟ ما المشكلة تحديدًا</label><textarea id="j-${c.k}" data-k="${c.k}">${esc(r.notes[c.k]||'')}</textarea></div>`:''}
+      </div>`;}).join('')}
+    <div class="overall"><label for="overall" class="sub" style="display:block;margin:0 0 4px">ملاحظة عامة (اختيارية)</label><textarea id="overall">${esc(r.overall||'')}</textarea></div>
+    <div class="status"><span class="state ${isDone(r)?'done':''}" id="state">${isDone(r)?'مكتمل ومحفوظ':(isPart(r)?'غير مكتمل':'لم يبدأ')}</span>
+      <button class="btn primary" id="saveNext">${isDone(r)?'التالي ←':'احفظ وانتقل للتالي ←'}</button></div>`;
+  el.querySelectorAll('.scale button').forEach(btn=>btn.addEventListener('click',()=>{
+    const k=btn.closest('.crit').dataset.k, n=+btn.dataset.n, cur=rec(q);
+    const sc={...cur.scores}; if(sc[k]===n) delete sc[k]; else sc[k]=n;  // tapping the chosen score again clears it
+    cur.scores=sc; ratings[key(q)]=cur; queueSave(q); renderSheet(); updateProgress();
+    const t=document.getElementById('j-'+k); if(t && !t.value) t.focus();
+  }));
+  el.querySelectorAll('.just textarea').forEach(ta=>ta.addEventListener('input',()=>{
+    const cur=rec(q); cur.notes={...cur.notes,[ta.dataset.k]:ta.value}; ratings[key(q)]=cur; queueSave(q); setState(cur);
+  }));
+  document.getElementById('overall').addEventListener('input',e=>{ const cur=rec(q); cur.overall=e.target.value; ratings[key(q)]=cur; queueSave(q); });
+  document.getElementById('saveNext').addEventListener('click',async()=>{ await flushSave(); go(idx+1); });
+}
+function setState(r){ const s=document.getElementById('state'); if(!s) return; s.className='state '+(isDone(r)?'done':''); s.textContent=isDone(r)?'مكتمل':'غير مكتمل'; }
+
+function queueSave(q){ clearTimeout(saveTimer); const st=document.getElementById('state'); if(st){st.textContent='جارٍ الحفظ…';} saveTimer=setTimeout(()=>save(q),700); }
+async function flushSave(){ if(saveTimer){ clearTimeout(saveTimer); await save(QUEUE[idx]); } }
+async function save(q){
+  saveTimer=null;
+  const r=rec(q), spent=Math.round((Date.now()-openedAt)/1000); openedAt=Date.now();
+  r.seconds=(r.seconds||0)+Math.min(spent,1800);
+  const doc={sampleId:q.s.id, lang:q.lang, scores:r.scores, notes:r.notes, overall:r.overall||'', complete:isDone(r), seconds:r.seconds, updatedAt:new Date().toISOString()};
+  ratings[key(q)]=r;
+  try{
+    if(store){
+      const res = await fetch('/api/rate',{method:'PUT',headers:{'content-type':'application/json'},
+        body:JSON.stringify({k:CODE,sampleId:q.s.id,lang:q.lang,scores:r.scores,notes:r.notes,overall:r.overall||'',seconds:r.seconds})});
+      if(!res.ok) throw {code: res.status===403 ? 'رمز الدخول غير صالح' : 'HTTP '+res.status};
+    }
+    else { localStorage.setItem('masar-rater', JSON.stringify(ratings)); }
+    const st=document.getElementById('state'); if(st && QUEUE[idx]===q){ st.className='state '+(isDone(r)?'done':''); st.textContent=isDone(r)?'مكتمل ومحفوظ':'محفوظ، غير مكتمل'; }
+  }catch(e){
+    const st=document.getElementById('state'); if(st){ st.className='state err'; st.textContent='لم يُحفظ: '+(e&&e.code||'خطأ')+'. أعد المحاولة بتغيير أي درجة.'; }
+  }
+  updateProgress(); renderQueue();
+}
+
+function updateProgress(){
+  const done=QUEUE.filter(q=>isDone(ratings[key(q)])).length;
+  document.getElementById('prog').textContent=`${done} / ${QUEUE.length} مكتملة`;
+  document.getElementById('meter').style.width=(QUEUE.length?done/QUEUE.length*100:0)+'%';
+  const q=QUEUE[idx]; if(q) document.getElementById('cur').textContent=`${q.s.id} · ${q.lang==='ar'?'ع':'EN'}`;
+}
+function renderQueue(){
+  const f=document.getElementById('filter').value, box=document.getElementById('qlist');
+  box.innerHTML = QUEUE.map((q,i)=>({q,i})).filter(({q})=>{
+    const r=ratings[key(q)];
+    return f==='all' || (f==='todo' && !isDone(r)) || f===q.lang;
+  }).map(({q,i})=>{ const r=ratings[key(q)];
+    return `<button type="button" data-i="${i}" class="${isDone(r)?'done':isPart(r)?'part':''} ${i===idx?'cur':''}">${esc(q.s.id)}<span class="s">${q.lang==='ar'?'عربي':'English'} · ${isDone(r)?'مكتمل':isPart(r)?'جزئي':'جديد'}</span></button>`; }).join('');
+  box.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ document.getElementById('queue').close(); go(+b.dataset.i); }));
+}
+async function go(i){
+  if(!QUEUE.length) return;
+  await flushSave();
+  idx=(i+QUEUE.length)%QUEUE.length; openedAt=Date.now();
+  try{ localStorage.setItem('masar-rater-pos-'+CODE.slice(0,6), String(idx)); }catch(e){}
+  renderLesson(); renderSheet(); updateProgress();
+}
+
+document.getElementById('prev').onclick=()=>go(idx-1);
+document.getElementById('next').onclick=()=>go(idx+1);
+document.getElementById('openQ').onclick=()=>{ renderQueue(); document.getElementById('queue').showModal(); };
+document.getElementById('closeQ').onclick=()=>document.getElementById('queue').close();
+document.getElementById('filter').onchange=renderQueue;
+document.getElementById('nextTodo').onclick=()=>{ const i=QUEUE.findIndex(q=>!isDone(ratings[key(q)])); document.getElementById('queue').close(); if(i>=0) go(i); };
+document.getElementById('jump').onclick=()=>document.getElementById('sheet').scrollIntoView({behavior:'smooth'});
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') openedAt=Date.now(); });
+
+async function boot(){
+  try{ SAMPLES = await (await fetch('samples.json')).json(); }
+  catch(e){ document.getElementById('lesson').innerHTML='<div class="loading">تعذّر تحميل الدروس. أعد تحميل الصفحة.</div>'; return; }
+  // Arabic first for every lesson, then the English mirror; a lesson whose English side is not its own is not asked twice.
+  QUEUE = [...SAMPLES.map(s=>({s,lang:'ar'})), ...SAMPLES.filter(s=>s.en).map(s=>({s,lang:'en'}))];
+  try{ const p=+localStorage.getItem('masar-rater-pos-'+CODE.slice(0,6)); if(p>=0 && p<QUEUE.length) idx=p; }catch(e){}
+  renderLesson(); renderSheet(); updateProgress();
+  if(!CODE){ document.getElementById('lesson').innerHTML='<div class="loading">هذه الصفحة تحتاج رابط الدخول الخاص بك. افتح الرابط الذي وصلك كما هو.</div>'; document.getElementById('sheet').hidden=true; return; }
+  try{
+    const res = await fetch('/api/rate?k='+encodeURIComponent(CODE));
+    if(res.status===403){ document.getElementById('lesson').innerHTML='<div class="loading">رمز الدخول غير صالح. افتح الرابط الذي وصلك كما هو.</div>'; document.getElementById('sheet').hidden=true; return; }
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const me = await res.json();
+    store = true; CONN='ok'; uid = me.rater;
+    // The second rater scores only the overlap set, in Arabic, so agreement is measured on the same lessons.
+    if(me.scope==='overlap'){ QUEUE = QUEUE.filter(q=>OVERLAP.includes(key(q))); idx=0; renderLesson(); }
+    const remote={};
+    for(const v of me.ratings){ remote[`${v.sampleId}-${v.lang}`]={scores:v.scores||{},notes:v.notes||{},overall:v.overall||'',seconds:v.seconds||0}; }
+    ratings = remote;
+    document.getElementById('who').textContent = 'التقييم أعمى: لا تظهر هنا درجات أي نموذج ولا مصدر الدرس';
+  }catch(e){ store=null; CONN='failed'; }
+  renderSheet(); updateProgress();
+}
+boot();
+</script>
+</body>
+</html>

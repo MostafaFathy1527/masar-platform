@@ -13,6 +13,8 @@ reasonably gets.
 Objective: **SEC-01** — given an email, identify the signals that distinguish a phishing
 attempt from a legitimate message, and take the correct action.
 
+
+Arabic register: Modern Standard Arabic throughout the Arabic fields.
 ---
 
 Phishing does not attack software. It attacks the person reading the screen, which is why
