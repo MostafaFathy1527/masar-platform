@@ -183,6 +183,15 @@ export default async function LandingPage({
                 {ar
                   ? 'خمسة دروس في التأمين الطبي، ومحاكاة لمراجعة مطالبة، واختبار مبني على مخطط. ادخل كزائر ولا تسجّل شيئًا.'
                   : 'Five lessons in medical insurance, a claim-review simulation and a blueprint-built exam. Enter as a guest and register nothing.'}
+                {' '}
+                {/* A static page under public/, so a plain anchor: Link would add the locale prefix. */}
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                <a className="link" href="/offline/ready-for-work/index.html">
+                  {ar ? 'أو دورة «الاستعداد لسوق العمل»' : 'Or the “Ready for work” course'}
+                </a>
+                {ar
+                  ? ': عشرة دروس تعمل دون إنترنت.'
+                  : ': ten lessons that work with no internet.'}
               </p>
             </li>
             <li data-reveal style={{ ['--i' as string]: 1 }}>
