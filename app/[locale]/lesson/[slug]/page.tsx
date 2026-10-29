@@ -3,6 +3,9 @@ import { pageSeo } from '@/lib/seo'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { DepthView } from '@/components/player/DepthView'
+import { AskLesson } from '@/components/player/AskLesson'
+import { askSources } from '@/lib/ask/passages'
+import { ASK_RETENTION_DAYS } from '@/lib/ask/limits'
 import { pick } from '@/lib/content-locale'
 import { deepestLevel, lessonBySlug, lessonIndex, lessonNeighbours } from '@/lib/lessons'
 import { objectiveFor } from '@/lib/objectives'
@@ -69,6 +72,20 @@ const COPY = {
     englishOnlyNotice:
       'هذا الدرس متاح بالإنجليزية فقط في هذه النسخة. واجهة المنصة والدرس الرابع بالعربية بالكامل.',
     onlyLevel: 'منشور بالمستوى الأول فقط',
+    ask: {
+      title: 'اسأل الدرس',
+      lead: 'اكتب سؤالك بالعربية أو الإنجليزية. الإجابة من هذا الدرس فقط، ومع كل إجابة روابط للأجزاء التي جاءت منها.',
+      placeholder: 'مثلًا: ما الفرق بين الرفض قبل التقييم وبعده؟',
+      ask: 'اسأل',
+      asking: 'يبحث في الدرس…',
+      sources: 'من الدرس:',
+      notCovered: 'هذا الدرس لا يتناول هذا السؤال. جرّب صياغة أخرى، أو سؤالًا عن موضوع الدرس.',
+      limitedVisitor: 'وصلت إلى حد الأسئلة لهذه الساعة. جرّب بعد قليل.',
+      limitedDay: 'وصلت المنصة إلى حد الأسئلة لهذا اليوم. جرّب غدًا.',
+      failed: 'تعذّر الحصول على إجابة الآن. جرّب مرة أخرى بعد قليل.',
+      disclaimer:
+        'الإجابة يكتبها نموذج لغوي من نصوص الدرس، وقد تخطئ: الدرس نفسه هو المرجع. يُرسَل سؤالك ونصوص الدرس إلى Cohere لكتابة الإجابة، ويُحفظ السؤال {days} يومًا. التفاصيل في صفحة الخصوصية.',
+    },
     disclaimer:
       'محتوى تدريبي أصلي. كل الرموز والجهات في هذا الدرس خيالية للتدريب فقط. ليست استشارة طبية أو فوترية أو إكلينيكية أو قانونية أو تنظيمية.',
   },
@@ -90,6 +107,20 @@ const COPY = {
     blockCountTemplate: '{n} blocks shown',
     englishOnlyNotice: 'This lesson is English-only in this build.',
     onlyLevel: 'Published at L1 only',
+    ask: {
+      title: 'Ask the lesson',
+      lead: 'Ask in Arabic or English. The answer comes from this lesson only, with links to the parts it came from.',
+      placeholder: 'For example: what is the difference between a rejection and a denial?',
+      ask: 'Ask',
+      asking: 'Searching the lesson…',
+      sources: 'From the lesson:',
+      notCovered: 'This lesson does not cover that question. Try rephrasing it, or ask about what the lesson teaches.',
+      limitedVisitor: 'You have reached the question limit for this hour. Try again shortly.',
+      limitedDay: 'The site has reached its question limit for today. Try again tomorrow.',
+      failed: 'Could not get an answer right now. Try again shortly.',
+      disclaimer:
+        'Answers are written by a language model from the lesson text and can be wrong: the lesson itself is the reference. Your question and the lesson text are sent to Cohere to write the answer, and the question is kept for {days} days. Details on the privacy page.',
+    },
     disclaimer:
       'Original training content. Every code and organisation in this lesson is fictional and for training only. Not medical, billing, clinical, legal or regulatory advice.',
   },
@@ -189,6 +220,16 @@ export default async function LessonPage({
               }}
             />
           </div>
+
+          {/* Built with the key present or not at all: without it the box would only ever fail. */}
+          {process.env.COHERE_API_KEY ? (
+            <AskLesson
+              slug={lesson.slug}
+              locale={l}
+              sources={askSources(lesson, l)}
+              copy={{ ...t.ask, disclaimer: t.ask.disclaimer.replace('{days}', String(ASK_RETENTION_DAYS)) }}
+            />
+          ) : null}
 
           <nav className="lesson-nav" aria-label={ar ? 'التنقل بين الدروس' : 'Lesson navigation'}>
             <div>

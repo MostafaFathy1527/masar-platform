@@ -2,6 +2,38 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 29 October 2026: "Ask the lesson"
+
+The owner lifted the "no features without a named buyer" rule (8 October), and asked for this.
+
+- **What it is:** a box under every lesson. A learner asks in Arabic or English; the answer comes
+  from that lesson's text only, and each source is a link that scrolls to the block it came from
+  (switching depth first if the block sits deeper than the one on screen).
+- **How** (`lib/ask/`): `passages.ts` cuts a lesson into one passage per block, and leaves out
+  what would give an exercise away (a scenario's options and consequences, where a sort card
+  goes, every knowledge check). `cohere.ts` reranks every passage against the question
+  (`rerank-v5.0-fast`); if none scores 0.03 or more the lesson does not cover it and no model is
+  called. Otherwise Command A+ answers from the top five, with a 1,500-token thinking budget,
+  marking each sentence with its block id; only ids it was given become links.
+- **Tuning, measured:** off-topic questions scored 0.001 to 0.003 on every lesson; an on-topic
+  Egyptian-Arabic question 0.097. The chat API's own citations come back empty when thinking is
+  on, and with thinking off the reasoning leaked into the answer, hence the markers. Answers took
+  5 to 10 seconds; Egyptian questions are answered in Egyptian.
+- **Caps** (`lib/ask/limits.ts`): 8 questions an hour per visitor, 150 a day for the site, read
+  from the stored rows so they hold across instances. A visitor is a keyed hash of the address
+  and the day, never the address. Questions are kept 30 days (`AskQuestion`, migration
+  `20261029120000_add_ask_question`, applied), cleared by the route that writes them; `/privacy`
+  says so, and that questions go to Cohere.
+- **Off without the key:** the box is rendered only when `COHERE_API_KEY` is set at build time,
+  so a deploy without it shows no box rather than one that always fails.
+- **Rules changed to match:** hard rule 4 now asks for a hard cap on any model call a page can
+  trigger, and rule 6 reads "nothing is promised before it exists" rather than "scope is v1.0".
+- **An exercise's answer, tested:** asked outright which scenario decision was best, the first
+  version named it (it could see the options and work the answer out from the action table). The
+  scenario's options are now left out with its consequences, and the prompt says never to say
+  which choice is right; asked again in English and Arabic, twice each, it gave the rule and left
+  the choice. This is still a prompt plus missing text, not a gate.
+
 ## 29 October 2026: Command A+ seated as the fifth judge
 
 - **Why a fifth seat:** a family no seat or generator shares (Cohere), hosted by its maker, so it
@@ -25,8 +57,8 @@ Update this file at the end of every session. It is the first thing the next ses
   names; unset, the seat is empty and the lesson NEEDS HUMAN). `judge_bedrock.py` gains
   `--cohere`, `--thinking-budget`, `--key-env` and `--provider`, and `extract_json` now reads the
   first complete object when a sentence after it holds a brace. `calibrate_judges.py --cohere`.
-- **Waiting on the owner:** the `COHERE_API_KEY` repository secret, read by `judge-panel.yml`.
-  Until it is set, the weekly run leaves the fifth seat empty and every sample is NEEDS HUMAN.
+- **The `COHERE_API_KEY` repository secret is set** (owner, 29 October), so the weekly run fills
+  the fifth seat.
 - **Not done:** the open dataset (`datasets/arabic-lesson-judge`) was not rebuilt with these
   verdicts; rebuild and re-upload it in one step when it is next refreshed.
 

@@ -1,9 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { AppLocale } from '@/i18n/routing'
 import type { Block, Level } from '@/lib/schema/lesson'
 import { BlockList } from '@/components/blocks/BlockRenderer'
+
+/** Asks the reader to show a level, e.g. when "Ask the lesson" cites a deeper block. */
+export const LEVEL_EVENT = 'masar:show-level'
 
 type Copy = {
   levelName: Record<Level, string>
@@ -49,6 +52,15 @@ export function DepthView({
   initialLevel?: Level
 }) {
   const [level, setLevel] = useState<Level>(initialLevel ?? levels[0])
+
+  useEffect(() => {
+    const onLevel = (e: Event) => {
+      const wanted = (e as CustomEvent<Level | undefined>).detail
+      if (wanted && levels.includes(wanted)) setLevel(wanted)
+    }
+    window.addEventListener(LEVEL_EVENT, onLevel)
+    return () => window.removeEventListener(LEVEL_EVENT, onLevel)
+  }, [levels])
 
   const shown: Block[] = [
     ...blocks.l1,

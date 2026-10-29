@@ -3,6 +3,7 @@ import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import { requireUser } from '@/lib/auth-guard'
 import { GUEST_RETENTION_DAYS } from '@/lib/retention'
+import { ASK_RETENTION_DAYS } from '@/lib/ask/limits'
 import type { AppLocale } from '@/i18n/routing'
 
 // The export and delete controls act on the visitor's own account, so the page
@@ -46,10 +47,11 @@ const COPY = {
       'بصمة كلمة المرور (bcrypt)، لا كلمة المرور نفسها.',
       'بيانات التعلّم: التسجيل في الدورة، تقدّم الدروس، محاولات التقييم والإجابات المُرسلة، ومحاولات التدريب التطبيقي ونتائجها.',
       'الشهادات: الرقم التسلسلي وتاريخ الإصدار والنتيجة والأهداف التي أُثبتت.',
+      'أسئلة «اسأل الدرس»: نص السؤال، والدرس، والأجزاء التي استشهدت بها الإجابة، ورمز زائر يومي هو بصمة مُشفّرة لعنوان الشبكة واليوم، لا العنوان نفسه، ويتغيّر كل يوم. يُستخدم الرمز لتحديد عدد الأسئلة فقط، وتُحذف الأسئلة بعد {askDays} يومًا. يُرسَل السؤال ونصوص الدرس إلى Cohere لكتابة الإجابة.',
     ],
     notStoredTitle: 'ما الذي لا يُخزَّن',
     notStored: [
-      'لا عناوين IP ولا سجلات وصول من صنع هذا التطبيق.',
+      'لا عناوين IP ولا سجلات وصول من صنع هذا التطبيق. رمز «اسأل الدرس» بصمة لا يمكن عكسها إلى العنوان.',
       'لا تتبّع من طرف ثالث على صفحات المتعلّم — إطلاقًا. بيانات التعلّم صفوف في قاعدة بيانات هذا المشروع، وهذه هي نقطة الملكية.',
       'لا بيانات دفع: لا يوجد مزوّد دفع مُفعَّل في هذه النسخة.',
     ],
@@ -77,10 +79,11 @@ const COPY = {
       'A password hash (bcrypt), never the password.',
       'Learning data: course enrolment, lesson progress, assessment attempts and the answers submitted, and applied-practice attempts and their scores.',
       'Certificates: serial, issue date, score, and the objectives demonstrated.',
+      '“Ask the lesson” questions: the question, the lesson, the parts the answer cited, and a daily visitor code, a keyed hash of the network address and the day rather than the address, which changes every day. The code is used only to cap how many questions one visitor asks, and questions are deleted after {askDays} days. The question and the lesson text are sent to Cohere to write the answer.',
     ],
     notStoredTitle: 'What is not stored',
     notStored: [
-      'No IP addresses and no access logs created by this application.',
+      'No IP addresses and no access logs created by this application. The “Ask the lesson” code is a hash that cannot be turned back into the address.',
       'No third-party tracking on learner pages, ever. Learning data is rows in this project’s own database, which is the whole ownership argument.',
       'No payment data: no payment provider is active in this build.',
     ],
@@ -122,7 +125,7 @@ export default async function PrivacyPage({
       <h2 className="admin-q">{t.storedTitle}</h2>
       <ul className="privacy-list">
         {t.stored.map((line) => (
-          <li key={line}>{line}</li>
+          <li key={line}>{line.replace('{askDays}', String(ASK_RETENTION_DAYS))}</li>
         ))}
       </ul>
 

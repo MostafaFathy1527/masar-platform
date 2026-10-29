@@ -15,12 +15,13 @@ These are never broken, by anyone, for any reason.
 3. **No client material.** Every lesson, question, code and case in the demo course is
    original, authored from public knowledge. Fictional payers, clinics, patients and
    procedure codes only, labelled as fictional.
-4. **Zero budget.** Free tiers, open source, sandbox and test payment modes only. No paid API
-   call anywhere.
+4. **Zero budget.** Free tiers, open source, sandbox and test payment modes; nothing costs the
+   owner money. A model call that a public page can trigger carries a hard cap in code
+   ("Ask the lesson": `lib/ask/limits.ts`), so no visitor can run up a bill.
 5. **No invented numbers.** No fake users, learners, revenue or outcomes. Seeded demo data is
    always visibly badged as synthetic.
-6. **Scope is v1.0.** Anything outside it goes in `LATER.md`, and is never promised in the
-   README, the case study, or on LinkedIn.
+6. **Nothing is promised before it exists.** Anything not yet built goes in `LATER.md`, and is
+   never promised in the README, the case study, or on LinkedIn.
 7. **Not medical, billing, clinical, legal or regulatory advice.** That disclaimer stays in
    the footer.
 8. **No named certification.** The course is "certification-style exam preparation" or

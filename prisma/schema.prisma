@@ -505,3 +505,32 @@ model HumanRating {
 
   @@unique([rater, sampleId, lang])
 }
+
+// ---------------------------------------------------------------- ask the lesson
+
+enum AskOutcome {
+  ANSWERED
+  NOT_COVERED
+  FAILED
+}
+
+/// One question asked of a lesson through "Ask the lesson" (lib/ask). Kept to cap use
+/// (per visitor and per day) and to see what learners ask; deleted after
+/// ASK_RETENTION_DAYS by the route that writes it. `visitor` is a keyed hash of the
+/// network address and the day, never the address, so it cannot be followed across days.
+model AskQuestion {
+  id         String     @id @default(cuid())
+  lessonSlug String
+  locale     Locale
+  question   String
+  outcome    AskOutcome
+  /// block ids the answer cites, in order
+  cites      String[]
+  ms         Int        @default(0)
+  visitor    String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@index([createdAt])
+  @@index([visitor, createdAt])
+}

@@ -60,7 +60,8 @@ paying for a judgement on a document that does not parse.
 The judge step can be run more than once with different models (`judge_bedrock.py` writes
 `verdict.<tag>.json` beside the lesson), and `compare_verdicts.py` reports how far they
 disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not move.
-No model call sits in any request path. The judges run by hand, and every week in
+No pipeline model call sits in any request path (the one model call a page can make is
+"Ask the lesson", outside the pipeline, in `lib/ask/`). The judges run by hand, and every week in
 `.github/workflows/judge-panel.yml`, which reaches Bedrock through GitHub OIDC (no stored key)
 and rents the open seat's GPU with a repository secret; no credential is kept in the
 repository. A judge is a Bedrock model, an open model served on your own or rented
