@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "command-a-plus-05-2026",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-29T05:35:58.799217+00:00",
+    "usage": {
+      "inputTokens": 6248,
+      "outputTokens": 5383
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "Arabic text is a literal translation of English, following English word order rather than reading as natural Arabic."
+  },
+  "verdict_notes": "The lesson scores highly on all criteria except bilingual quality, where the Arabic content is a direct literal rendering, earning a 1. This critical issue causes the gate to fail despite an overall mean of 4.5. The Arabic needs to be rewritten to read naturally."
+}

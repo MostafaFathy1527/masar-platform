@@ -31,13 +31,16 @@ python pipeline/test_run_lesson.py
 
 ## Judges
 
-The panel has four seats. Three judges run on Amazon Bedrock (`PANEL_MODELS` in
+The panel has five seats. Three judges run on Amazon Bedrock (`PANEL_MODELS` in
 `pipeline/panel.py`); credentials come from the standard AWS environment variables or an
 assumed role, and the region defaults to `us-east-1`. The fourth is an open model,
 Qwen3-30B-A3B-Thinking-2507 at Q8_0, served by llama.cpp (`SERVED_JUDGES`): the panel reaches
 it at the OpenAI-compatible URL in `JUDGE_QWEN3_ENDPOINT`. With that variable unset, or the
 server unreachable, the seat stays empty and the lesson is NEEDS HUMAN, never PASS. The weekly
-workflow rents a machine for it, serves the file and sets the variable itself.
+workflow rents a machine for it, serves the file and sets the variable itself. The fifth is
+Command A+, reached through Cohere's own chat API (`API_JUDGES`, `--cohere`) with its thinking
+held to a 6,000-token budget; its key is read from `COHERE_API_KEY`, and without it the seat
+stays empty in the same way.
 
 ```bash
 # one judge, one lesson (--dry-run prints the exact prompt and stops)
@@ -53,6 +56,7 @@ python pipeline/compare_verdicts.py verdict.a.json verdict.b.json --markdown
 python pipeline/calibrate_judges.py                    # the three hosted seats
 python pipeline/calibrate_judges.py --models a,b       # candidate judges
 python pipeline/calibrate_judges.py --endpoint <url> --models <served-name>   # a served model
+python pipeline/calibrate_judges.py --cohere --models command-a-plus-05-2026     # the API seat
 ```
 
 ## The whole loop

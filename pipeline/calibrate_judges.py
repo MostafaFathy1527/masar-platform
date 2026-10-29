@@ -42,6 +42,9 @@ and failure entry 18).
     python pipeline/calibrate_judges.py --endpoint http://localhost:8080/v1 --models <name>
                                                            # an open model you serve yourself,
                                                            # the served seat included
+    python pipeline/calibrate_judges.py --cohere --models command-a-plus-05-2026
+                                                           # a model on Cohere's own API,
+                                                           # the API seat included
 
 Writes pipeline/out/calibration/<date>/report.md and results.json. Rows for
 judges not in the current run are kept from earlier runs on the same day. Each
@@ -300,6 +303,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument('--models', help='comma-separated Bedrock model ids (default: the seated panel)')
     ap.add_argument('--endpoint',
                     help='an OpenAI-compatible base URL; --models then names the served models')
+    ap.add_argument('--cohere', action='store_true',
+                    help="--models then names models on Cohere's own API (key in COHERE_API_KEY), "
+                         'thinking within --thinking-budget')
+    ap.add_argument('--thinking-budget', default='6000', dest='thinking_budget')
+    ap.add_argument('--max-tokens', default='10000', dest='max_tokens',
+                    help='with --cohere: the reply budget, thinking included (default 10000)')
     ap.add_argument('--defects', help=f'comma-separated subset of: {", ".join(MUTANTS)}')
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--date', default=date.today().isoformat(),
@@ -345,8 +354,13 @@ def main(argv: list[str] | None = None) -> int:
                     del dirs[name]
         if args.dry_run:
             continue
-        served = bool(args.endpoint)
-        transport = ['--endpoint', args.endpoint] if served else ['--region', args.region]
+        served = bool(args.endpoint) or args.cohere
+        if args.cohere:
+            transport = ['--cohere', '--thinking-budget', args.thinking_budget, '--max-tokens', args.max_tokens]
+        elif args.endpoint:
+            transport = ['--endpoint', args.endpoint]
+        else:
+            transport = ['--region', args.region]
         for d in ([] if args.report_only else dirs.values()):
             have = verdicts_by_model(d)
             for model in models:

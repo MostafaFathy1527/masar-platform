@@ -1,0 +1,88 @@
+{
+  "courseSlug": "security-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "SEC-01-KC-01",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي تعرفه. ما الإشارة التي تُقدَّم على هذا الاسم؟",
+      "stemEn": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?",
+      "rationaleAr": "الاسم الظاهر نص حر يكتبه المُرسِل كما يشاء، فلا يحمل أي دليل. العنوان خلفه هو ما لم يخترْه بحرية.",
+      "rationaleEn": "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely.",
+      "options": [
+        {
+          "textAr": "عنوان المُرسِل الحقيقي.",
+          "textEn": "The sender's actual address.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح.",
+          "feedbackEn": "Correct."
+        },
+        {
+          "textAr": "جودة التنسيق وخلوّه من الأخطاء الإملائية.",
+          "textEn": "How well formatted and typo-free it is.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "وجود شعار الجهة في الرسالة.",
+          "textEn": "The organisation's logo appearing in the message.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "أن الرسالة وصلت إلى بريد العمل لا البريد الشخصي.",
+          "textEn": "That it arrived at your work address rather than a personal one.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    },
+    {
+      "key": "SEC-01-KC-02",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "اقتنعت أن رسالة تصيّد، وضغطت الرابط قبل أن تنتبه. ما الإجراء الصحيح؟",
+      "stemEn": "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?",
+      "rationaleAr": "البلاغ السريع قابل للاحتواء؛ الضغطة المخفية يومين غالباً لا. إخفاء الحادثة هو ما يحوّل خطأً صغيراً إلى خسارة.",
+      "rationaleEn": "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss.",
+      "options": [
+        {
+          "textAr": "تُبلِغ فوراً، حتى لو لم تُدخل أي بيانات.",
+          "textEn": "Report it immediately, even if you entered nothing.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح.",
+          "feedbackEn": "Correct."
+        },
+        {
+          "textAr": "تنتظر لترى إن كان شيء سيحدث.",
+          "textEn": "Wait and see whether anything happens.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "تحذف الرسالة حتى لا يضغطها أحد.",
+          "textEn": "Delete the message so nobody else clicks it.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        },
+        {
+          "textAr": "ترد على المُرسِل لتسأله إن كانت الرسالة حقيقية.",
+          "textEn": "Reply to the sender asking whether it was genuine.",
+          "isCorrect": false,
+          "feedbackAr": "غير صحيح.",
+          "feedbackEn": "Not correct."
+        }
+      ]
+    }
+  ]
+}

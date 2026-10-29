@@ -85,10 +85,10 @@ def family(model_id: str) -> str:
 
 
 def check_independence(generator: str, judges=panel.PANEL_MODELS,
-                       served=panel.SERVED_JUDGES) -> None:
-    """Hosted seats are known by their Bedrock id; a served seat's family comes
-    from its seat spec, since a GGUF file name carries no provider family() can
-    read."""
+                       served=panel.SERVED_JUDGES + panel.API_JUDGES) -> None:
+    """Hosted seats are known by their Bedrock id; a served or API seat's family
+    comes from its seat spec, since a GGUF file name or a maker's own model name
+    carries no provider family() can read."""
     taken = {family(m) for m, _ in judges} | {spec['family'] for _, _, spec in served}
     if family(generator) in taken:
         raise RunError(

@@ -83,6 +83,7 @@ check(v is None and 'refused' in err, 'malformed verdict -> panel refuses to dec
 
 HOSTED = [m for m, _ in panel.PANEL_MODELS]
 SERVED_MODEL, SERVED_TAG, SERVED_SPEC = panel.SERVED_JUDGES[0]
+API_MODEL, API_TAG, API_SPEC = panel.API_JUDGES[0]
 
 
 def seat_all(d: Path, **scores) -> None:
@@ -91,14 +92,16 @@ def seat_all(d: Path, **scores) -> None:
 
 
 def seat_hosted_only(d: Path, **scores) -> None:
+    """Every seat but the open one: the Bedrock seats and the API seat."""
     for m, tag in panel.PANEL_MODELS:
         write(d, tag, m, '1', **scores)
+    write(d, API_TAG, API_MODEL, '1', **scores)
 
 
 print('every seat present and passing -> PASS')
 v, _ = run(seat_all, seats=panel.SEATS)
-check(v['decision'] == 'PASS' and v['empty_seats'] == [] and len(v['outcomes']) == 4,
-      'three hosted seats and the open seat, all pass -> PASS')
+check(v['decision'] == 'PASS' and v['empty_seats'] == [] and len(v['outcomes']) == 5,
+      'three Bedrock seats, the open seat and the API seat, all pass -> PASS')
 
 print('an empty seat goes to a human, whatever the present judges say')
 reason = f'seat empty: {SERVED_MODEL} has not scored this lesson'
@@ -126,7 +129,17 @@ check((Path('pipeline/out/calibration/2026-10-18-small-open-judges/lesson-sec-01
        / f'verdict.{SERVED_TAG}.json').exists(), 'and that folder holds verdicts under it')
 check(SERVED_SPEC == {'endpoint_env': 'JUDGE_QWEN3_ENDPOINT', 'temperature': 0.6, 'max_tokens': 12000,
                       'family': 'qwen'}, 'endpoint variable, decoding and family as calibrated')
-check(panel.SEATS == tuple(HOSTED) + (SERVED_MODEL,), 'SEATS is every hosted seat, then the served one')
+check(panel.SEATS == tuple(HOSTED) + (SERVED_MODEL, API_MODEL),
+      'SEATS is every Bedrock seat, then the served one, then the API one')
+
+print('the API seat is the model that passed calibration, under the calibration tag')
+check(API_MODEL == 'command-a-plus-05-2026' and calibrate_judges.tag_for(API_MODEL, served=True) == API_TAG,
+      'the dated model id, under the tag the calibration folder uses')
+check((Path('pipeline/out/calibration/2026-10-29-command-a-plus-native/lesson-sec-01__real-items')
+       / f'verdict.{API_TAG}.json').exists(), 'and that folder holds verdicts under it')
+check(API_SPEC == {'key_env': 'COHERE_API_KEY', 'temperature': 0, 'thinking_budget': 6000,
+                   'max_tokens': 10000, 'family': 'cohere'},
+      'key variable, decoding and family as calibrated')
 
 print("run_judges scores every seat, and only this run's verdicts count")
 import io  # noqa: E402
@@ -137,9 +150,11 @@ import judge_bedrock  # noqa: E402
 
 TAGS = {m: t for m, t in panel.PANEL_MODELS}
 TAGS[SERVED_MODEL] = SERVED_TAG
+TAGS[API_MODEL] = API_TAG
 calls: list[list[str]] = []
 real_main, real_err = judge_bedrock.main, sys.stderr
 had = os.environ.pop(SERVED_SPEC['endpoint_env'], None)
+had_key = os.environ.pop(API_SPEC['key_env'], None)
 
 
 def fresh_judge(argv):
@@ -175,6 +190,7 @@ try:
         check(models == HOSTED and all('--region' in a and '--endpoint' not in a for a in calls),
               'without the endpoint variable the hosted seats are scored and the open seat is skipped')
         check(SERVED_SPEC['endpoint_env'] in said and 'empty' in said, 'stderr names the unset variable')
+        check(API_SPEC['key_env'] in said, 'and the API seat without its key is named too')
         k3 = next(a for a in calls if a[a.index('--model') + 1] == 'us.moonshotai.kimi-k3')
         check(k3[k3.index('--max-tokens') + 1] == '8000', 'Kimi K3 gets room for its reasoning')
 
@@ -187,6 +203,19 @@ try:
               and last[last.index('--temperature') + 1] == '0.6'
               and last[last.index('--max-tokens') + 1] == '12000',
               'with the variable set, the open seat is scored at its own temperature and budget')
+
+        os.environ[API_SPEC['key_env']] = 'k'
+        calls.clear()
+        quiet(lambda: panel.run_judges(lesson, 'us-east-1'))
+        last = calls[-1]
+        check(len(calls) == 5 and last[last.index('--model') + 1] == API_MODEL
+              and '--cohere' in last and '--endpoint' not in last and '--region' not in last
+              and last[last.index('--key-env') + 1] == 'COHERE_API_KEY'
+              and last[last.index('--thinking-budget') + 1] == '6000'
+              and last[last.index('--max-tokens') + 1] == '10000'
+              and 'k' not in last,
+              "with its key set, the API seat is scored on its maker's API, the key named, never passed")
+        del os.environ[API_SPEC['key_env']]
 
     print('a seat whose call fails this run is empty, whatever an earlier run left')
     with tempfile.TemporaryDirectory() as t:
@@ -213,7 +242,9 @@ try:
               'a hosted seat that raises is named and left empty; the other seats still score')
 
         judge_bedrock.main = fresh_judge
+        os.environ[API_SPEC['key_env']] = 'k'
         code, _ = quiet(lambda: panel.main(['--lesson', str(lesson), '--run']))
+        del os.environ[API_SPEC['key_env']]
         check(code == 0, 'every seat scoring this run, all passing and agreeing -> PASS')
 
     print('a served seat that cannot be reached, or answers badly, is empty and nothing is raised')
@@ -268,6 +299,9 @@ finally:
     os.environ.pop(SERVED_SPEC['endpoint_env'], None)
     if had is not None:
         os.environ[SERVED_SPEC['endpoint_env']] = had
+    os.environ.pop(API_SPEC['key_env'], None)
+    if had_key is not None:
+        os.environ[API_SPEC['key_env']] = had_key
 
 print('\nFAILS:', FAILS)
 sys.exit(1 if FAILS else 0)

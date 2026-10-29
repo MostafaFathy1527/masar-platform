@@ -1,0 +1,88 @@
+{
+  "courseSlug": "security-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "SEC-01-KC-01",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?",
+      "stemEn": "A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?",
+      "rationaleAr": "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely.",
+      "rationaleEn": "A display name is free text the sender types at will, so it carries no evidence. The address behind it is what they did not choose freely.",
+      "options": [
+        {
+          "textAr": "The sender's actual address.",
+          "textEn": "The sender's actual address.",
+          "isCorrect": true,
+          "feedbackAr": "Correct. This is always the first check, because it is the one thing not freely typed.",
+          "feedbackEn": "Correct. This is always the first check, because it is the one thing not freely typed."
+        },
+        {
+          "textAr": "How well formatted and typo-free it is.",
+          "textEn": "How well formatted and typo-free it is.",
+          "isCorrect": false,
+          "feedbackAr": "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common.",
+          "feedbackEn": "No. Typos are weak evidence in both directions; a perfectly polished message is entirely common."
+        },
+        {
+          "textAr": "The organisation's logo appearing in the message.",
+          "textEn": "The organisation's logo appearing in the message.",
+          "isCorrect": false,
+          "feedbackAr": "No. A logo is an image copied in seconds, and it is part of the very message in doubt.",
+          "feedbackEn": "No. A logo is an image copied in seconds, and it is part of the very message in doubt."
+        },
+        {
+          "textAr": "That it arrived at your work address rather than a personal one.",
+          "textEn": "That it arrived at your work address rather than a personal one.",
+          "isCorrect": false,
+          "feedbackAr": "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement.",
+          "feedbackEn": "No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement."
+        }
+      ]
+    },
+    {
+      "key": "SEC-01-KC-02",
+      "objectiveId": "SEC-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?",
+      "stemEn": "You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?",
+      "rationaleAr": "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss.",
+      "rationaleEn": "A fast report is containable; a click hidden for two days usually is not. Concealment is what turns a small mistake into a loss.",
+      "options": [
+        {
+          "textAr": "Report it immediately, even if you entered nothing.",
+          "textEn": "Report it immediately, even if you entered nothing.",
+          "isCorrect": true,
+          "feedbackAr": "Correct. Timing is everything here, and the same message almost never arrives at one person.",
+          "feedbackEn": "Correct. Timing is everything here, and the same message almost never arrives at one person."
+        },
+        {
+          "textAr": "Wait and see whether anything happens.",
+          "textEn": "Wait and see whether anything happens.",
+          "isCorrect": false,
+          "feedbackAr": "No. Waiting gives the attacker time, and hides from the team that a campaign has started.",
+          "feedbackEn": "No. Waiting gives the attacker time, and hides from the team that a campaign has started."
+        },
+        {
+          "textAr": "Delete the message so nobody else clicks it.",
+          "textEn": "Delete the message so nobody else clicks it.",
+          "isCorrect": false,
+          "feedbackAr": "No. Deleting destroys the evidence needed by whoever has to size the campaign.",
+          "feedbackEn": "No. Deleting destroys the evidence needed by whoever has to size the campaign."
+        },
+        {
+          "textAr": "Reply to the sender asking whether it was genuine.",
+          "textEn": "Reply to the sender asking whether it was genuine.",
+          "isCorrect": false,
+          "feedbackAr": "No. A reply confirms the address is live and read, and it reaches whoever wrote the message.",
+          "feedbackEn": "No. A reply confirms the address is live and read, and it reaches whoever wrote the message."
+        }
+      ]
+    }
+  ]
+}

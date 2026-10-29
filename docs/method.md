@@ -24,8 +24,9 @@ source note → generate → mechanical gates → judge panel → one retry → 
    - every scenario choice leads somewhere different;
    - no concept is taught twice, or used before it is taught.
 4. **The judge panel.** Independent models score the draft against [the rubric](../pipeline/rubric.md),
-   each in a fresh context that never saw the generation prompt: three hosted judges and, since
-   18 October, one open judge served on rented hardware. The panel passes a lesson only if every
+   each in a fresh context that never saw the generation prompt: three hosted judges, since
+   18 October one open judge served on rented hardware, and since 29 October one judge reached
+   through its maker's own API. The panel passes a lesson only if every
    seat has scored, every judge passes it and no criterion splits them by more than one point. A
    split goes to a person; it is never averaged away. So does an empty seat.
 5. **One retry, then a person.** A failed draft gets one revision with the findings
@@ -61,7 +62,10 @@ rented cards were tried next: two of them, gpt-oss-20b and Qwen3-30B-A3B-Thinkin
 every knowledge-check and worked-example defect, which is the bar the seated judges cleared, and
 three and two of the four pasted-English copies respectively (Qwen3 caught one of four on its
 second pass); the first shares the generator's family and is ruled out, the second was seated
-on 18 October as the panel's fourth judge, the one open model on it. The weekly run rents a
+on 18 October as the panel's fourth judge, the one open model on it. On 29 October Command A+
+took a fifth seat after the same test: 16 of 21, every knowledge-check and worked-example defect
+and four of five on the Arabic, the most of any judge on the panel's two-run drift check (1 of
+32 scores moved, by one point). The weekly run rents a
 machine with two V100 cards, serves the seated file only if its checksum matches, scores the
 open seat through it and terminates the machine. The scores are in the calibration
 reports for [14 October](../pipeline/out/calibration/2026-10-14/report.md),

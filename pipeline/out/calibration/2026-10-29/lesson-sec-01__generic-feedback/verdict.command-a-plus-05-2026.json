@@ -1,0 +1,34 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "command-a-plus-05-2026",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-29T05:29:20.699857+00:00",
+    "usage": {
+      "inputTokens": 5359,
+      "outputTokens": 4149
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 3,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Two distractors restate the stem rather than naming a misconception, and feedback for all options is generic, simply stating “Correct” or “Not correct” without explanation."
+  },
+  "verdict_notes": "The lesson scores 5 on seven criteria, with only knowledge_check scoring 3 due to weak feedback and distractors. The mean score is 4.75, exceeding the 4.0 threshold, and no criterion falls below 3, so the lesson passes the gate."
+}

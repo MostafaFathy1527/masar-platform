@@ -2,6 +2,34 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 29 October 2026: Command A+ seated as the fifth judge
+
+- **Why a fifth seat:** a family no seat or generator shares (Cohere), hosted by its maker, so it
+  needs no rented card. `run_lesson.py` now refuses a Cohere generator too.
+- **Calibration** (`pipeline/out/calibration/2026-10-29-command-a-plus-native`): **16 of 21**:
+  knowledge checks 8 of 8, worked examples 4 of 4, pasted English and moved numbers 4 of 5, empty
+  scenarios 0 of 4 (as every judge; `validate.py` guards them). Qwen3 cleared the bar at 14 of 20.
+- **The first attempt failed, and is kept** (`pipeline/out/calibration/2026-10-29`): through
+  Cohere's OpenAI-compatible endpoint the model's thinking has no budget. On one real lesson it
+  thought aloud until 20,000 tokens ran out, three runs of three, and never reached the JSON;
+  that pass caught 14 of 21 with five scores missing. The seat therefore uses Cohere's own chat
+  API (`judge_bedrock.py --cohere`): thinking held to 6,000 tokens, the answer a separate part,
+  temperature 0, 10,000 tokens in all. A different transport is a different judge, so it was
+  recalibrated from scratch rather than carried over.
+- **Drift check** (`pipeline/out/calibration/2026-10-29-command-a-plus-native-second-pass`): two
+  runs on the four real lessons moved **1 of 32 scores, by one point** (SEC-01 level fidelity 5
+  to 4). K3 moved 10 of 32 and Qwen3 2 of 32 on the same check.
+- **The four samples with five judges:** SEC-01, CS-01 and PRV-01 PANEL PASS; OPS-01 NEEDS HUMAN
+  on its Arabic (bilingual quality), as before.
+- **The code:** `panel.API_JUDGES` is a third kind of seat (key read from the variable the seat
+  names; unset, the seat is empty and the lesson NEEDS HUMAN). `judge_bedrock.py` gains
+  `--cohere`, `--thinking-budget`, `--key-env` and `--provider`, and `extract_json` now reads the
+  first complete object when a sentence after it holds a brace. `calibrate_judges.py --cohere`.
+- **Waiting on the owner:** the `COHERE_API_KEY` repository secret, read by `judge-panel.yml`.
+  Until it is set, the weekly run leaves the fifth seat empty and every sample is NEEDS HUMAN.
+- **Not done:** the open dataset (`datasets/arabic-lesson-judge`) was not rebuilt with these
+  verdicts; rebuild and re-upload it in one step when it is next refreshed.
+
 ## 20 October 2026: "Ready for work" published offline
 
 The ten job-readiness lessons the owner reviewed are copied, as approved, into

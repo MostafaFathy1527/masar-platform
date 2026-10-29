@@ -36,7 +36,8 @@ pass the endpoint instead of a region:
         --endpoint http://localhost:8080/v1 --model <served model name> --tag model-b
 
 The prompt, the parsing and the gate are identical; only the transport differs. If the
-server wants a key, it is read from JUDGE_API_KEY in the environment, never from a file.
+server wants a key, it is read from JUDGE_API_KEY in the environment (or the variable
+`--key-env` names), never from a file.
 With JUDGE_KEEP_OUTPUT set, the model's whole reply, any reasoning included, is kept
 beside the verdict as `verdict.<tag>.output.txt`.
 
@@ -207,7 +208,12 @@ def extract_json(text: str) -> dict:
     start, end = text.find('{'), text.rfind('}')
     if start < 0 or end < 0:
         raise ValueError('no JSON object in the model output')
-    return json.loads(text[start:end + 1])
+    try:
+        return json.loads(text[start:end + 1])
+    except json.JSONDecodeError:
+        # A sentence after the object that itself holds a brace (Command A+, 29 October
+        # 2026: "Extra data"): read the first complete object and ignore the rest.
+        return json.JSONDecoder().raw_decode(text[start:])[0]
 
 
 def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int | None = None,
@@ -243,7 +249,8 @@ def call_bedrock(prompt: str, model_id: str, region: str, max_tokens: int | None
 
 
 def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: int | None = None,
-                           timeout: float = 1800, temperature: float | None = None) -> tuple[str, dict]:
+                           timeout: float = 1800, temperature: float | None = None,
+                           key_env: str = 'JUDGE_API_KEY') -> tuple[str, dict]:
     """The same judgement from a model served on your own hardware. The timeout is
     long on purpose: an open model on a CPU node can take minutes per lesson.
 
@@ -263,7 +270,7 @@ def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: i
         'temperature': temperature,
     }).encode('utf-8')
     headers = {'Content-Type': 'application/json'}
-    key = os.environ.get('JUDGE_API_KEY')
+    key = os.environ.get(key_env)
     if key:
         headers['Authorization'] = f'Bearer {key}'
     req = urllib.request.Request(endpoint.rstrip('/') + '/chat/completions', data=body,
@@ -274,6 +281,42 @@ def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: i
     raw_usage = data.get('usage') or {}
     usage = {'inputTokens': raw_usage.get('prompt_tokens'),
              'outputTokens': raw_usage.get('completion_tokens'),
+             'temperature': temperature}
+    return text, usage
+
+
+COHERE_CHAT = 'https://api.cohere.com/v2/chat'
+
+
+def call_cohere(prompt: str, model: str, max_tokens: int | None = None,
+                temperature: float | None = None, thinking_budget: int = 6000,
+                key_env: str = 'COHERE_API_KEY', timeout: float = 900) -> tuple[str, dict]:
+    """The same judgement from a model its maker hosts, through Cohere's own chat API.
+
+    Not the OpenAI-compatible endpoint: there a reasoning model's thinking has no
+    budget, and on 29 October 2026 Command A+ thought aloud on one lesson until the
+    reply ran out, three runs of three, without reaching the JSON. Here the thinking
+    gets a fixed budget and the answer is a separate text part, so only that part is
+    parsed. The key is read from the environment variable named, never from a file."""
+    if max_tokens is None:
+        max_tokens = 4000
+    if temperature is None:
+        temperature = 0
+    body = json.dumps({
+        'model': model,
+        'messages': [{'role': 'user', 'content': prompt}],
+        'max_tokens': max_tokens,
+        'temperature': temperature,
+        'thinking': {'type': 'enabled', 'token_budget': thinking_budget},
+    }).encode('utf-8')
+    req = urllib.request.Request(COHERE_CHAT, data=body, method='POST', headers={
+        'Content-Type': 'application/json', 'Authorization': f'Bearer {os.environ.get(key_env, "")}'})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode('utf-8'))
+    parts = (data.get('message') or {}).get('content') or []
+    text = ''.join(p.get('text', '') for p in parts if p.get('type') == 'text')
+    tokens = (data.get('usage') or {}).get('tokens') or {}
+    usage = {'inputTokens': tokens.get('input_tokens'), 'outputTokens': tokens.get('output_tokens'),
              'temperature': temperature}
     return text, usage
 
@@ -333,6 +376,16 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument('--max-tokens', type=int, dest='max_tokens',
                     help='reply budget, reasoning included; default 4000 (a served model: '
                          'JUDGE_MAX_TOKENS, then 4000)')
+    ap.add_argument('--cohere', action='store_true',
+                    help="Cohere's own chat API instead of Bedrock or an endpoint (key in COHERE_API_KEY)")
+    ap.add_argument('--thinking-budget', type=int, default=6000, dest='thinking_budget',
+                    help='with --cohere: the tokens the model may think before it answers (default 6000)')
+    ap.add_argument('--key-env',
+                    help='the environment variable holding the key (default JUDGE_API_KEY, or '
+                         'COHERE_API_KEY with --cohere); '
+                         'a hosted API seat names its own')
+    ap.add_argument('--provider', default='openai-compatible',
+                    help='who serves the endpoint, recorded in the verdict (default openai-compatible)')
     ap.add_argument('--dry-run', action='store_true',
                     help='print the prompt and stop; no model call, nothing written')
     ap.add_argument('--log', type=Path,
@@ -357,10 +410,16 @@ def main(argv: list[str] | None = None) -> int:
         print(prompt)
         return 0
 
-    if args.endpoint:
+    if args.cohere:
+        text, usage = call_cohere(prompt, args.model, max_tokens=args.max_tokens,
+                                  temperature=args.temperature, thinking_budget=args.thinking_budget,
+                                  key_env=args.key_env or 'COHERE_API_KEY')
+        provider = 'cohere'
+    elif args.endpoint:
         text, usage = call_openai_compatible(prompt, args.model, args.endpoint,
-                                             max_tokens=args.max_tokens, temperature=args.temperature)
-        provider = 'openai-compatible'
+                                             max_tokens=args.max_tokens, temperature=args.temperature,
+                                             key_env=args.key_env or 'JUDGE_API_KEY')
+        provider = args.provider
     else:
         text, usage = call_bedrock(prompt, args.model, args.region,
                                    max_tokens=args.max_tokens, temperature=args.temperature)

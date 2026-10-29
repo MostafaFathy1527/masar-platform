@@ -63,9 +63,10 @@ disagree. Every verdict still goes through `qa_gate.py`; the thresholds do not m
 No model call sits in any request path. The judges run by hand, and every week in
 `.github/workflows/judge-panel.yml`, which reaches Bedrock through GitHub OIDC (no stored key)
 and rents the open seat's GPU with a repository secret; no credential is kept in the
-repository. A judge is either a Bedrock model or an open model served on your own or rented
-hardware behind an OpenAI-compatible endpoint (`--endpoint`); the prompt, the
-parsing and the gate are the same for both, and the verdict records which it was.
+repository. A judge is a Bedrock model, an open model served on your own or rented
+hardware behind an OpenAI-compatible endpoint (`--endpoint`), or a model on its maker's own
+API (`--cohere`); the prompt, the parsing and the gate are the same for all three, and the
+verdict records which it was.
 
 A verdict whose scores, notes and closing note all equal the example printed in the rubric is
 refused like unparseable output: the judge handed the example back instead of reading the
@@ -75,9 +76,10 @@ served by llama.cpp on Kaggle's free GPUs.
 `panel.py` turns several verdicts into one decision: PASS only if every seat has scored, every
 judge passes and no criterion splits them by more than one point; a split, a disagreement on
 the outcome or an empty seat is NEEDS HUMAN, not an average. The latest verdict per model
-counts. One judge is refused. The panel has four seats: three hosted on Bedrock (Kimi K3,
-DeepSeek V3.2, GLM-5) and, since 18 October, one open judge, Qwen3-30B-A3B-Thinking-2507,
-served by llama.cpp behind the endpoint in `JUDGE_QWEN3_ENDPOINT`.
+counts. One judge is refused. The panel has five seats: three hosted on Bedrock (Kimi K3,
+DeepSeek V3.2, GLM-5), since 18 October one open judge, Qwen3-30B-A3B-Thinking-2507,
+served by llama.cpp behind the endpoint in `JUDGE_QWEN3_ENDPOINT`, and since 29 October
+Command A+, reached through Cohere's own chat API with its key in `COHERE_API_KEY`.
 
 A judge earns a panel seat by passing `calibrate_judges.py`: given a lesson's real items and
 copies broken in ways rubric criterion 4 names, it must score the broken copies at least two

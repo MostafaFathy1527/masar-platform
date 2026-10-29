@@ -1,0 +1,34 @@
+{
+  "lesson": "handling-a-customer-complaint",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "openai-compatible",
+    "model_id": "command-a-plus-05-2026",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0.0,
+    "scored_at": "2026-10-29T05:36:22.296618+00:00",
+    "usage": {
+      "inputTokens": 6210,
+      "outputTokens": 5589
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step includes only a generic explanation that it is the next step, rather than naming the specific judgement or rationale for the action. The why does not explain the purpose of the step or how it contributes to the overall process, resulting in generic reasoning."
+  },
+  "verdict_notes": "All criteria are aligned with the objective and demonstrate high quality, with only the worked example falling short due to generic reasoning. The lesson meets level expectations, includes an authentic scenario and bilingual content, and adheres to accessibility standards. The mean score of 4.75 exceeds the 4.0 threshold, and no criterion scores below 3, so the lesson passes."
+}

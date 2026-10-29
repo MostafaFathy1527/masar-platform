@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "cohere",
+    "model_id": "command-a-plus-05-2026",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-29T06:28:31.062590+00:00",
+    "usage": {
+      "inputTokens": 7064,
+      "outputTokens": 6192
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 3,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "The worked example’s steps provide only generic reasoning (\"because it is the next step\") rather than naming the judgement being made and what would change it."
+  },
+  "verdict_notes": "The lesson aligns well with its objective, demonstrates proper level fidelity, and includes strong knowledge checks and authentic scenarios. The worked example lacks detailed reasoning, but the overall lesson meets the required standards. Mean score 4.75, passing the gate."
+}

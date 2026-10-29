@@ -23,10 +23,12 @@ prompt fix), only its latest verdict counts, and the report says which were
 superseded. Fewer than MIN_JUDGES distinct models is refused: one judge is not a
 panel.
 
-The seats are PANEL_MODELS, hosted on Amazon Bedrock, and SERVED_JUDGES, open
+The seats are PANEL_MODELS, hosted on Amazon Bedrock; SERVED_JUDGES, open
 models served behind an OpenAI-compatible endpoint whose URL is read from the
-environment variable each seat names. With that variable unset, or the endpoint
-out of reach, the seat stays empty and the panel says so.
+environment variable each seat names; and API_JUDGES, models hosted by their
+maker and reached through the maker's own API, whose key is read from the
+variable each seat names. With that variable unset, or the endpoint out of
+reach, the seat stays empty and the panel says so.
 
     python pipeline/panel.py --lesson pipeline/out/lesson-sec-01/v1/lesson.json
     python pipeline/panel.py --lesson ... --run      # score with every seat first
@@ -108,8 +110,37 @@ SERVED_JUDGES = (
       'family': 'qwen'}),
 )
 
-# Every seated model, hosted then served. decide() wants a verdict from each.
-SEATS = tuple(m for m, _ in PANEL_MODELS) + tuple(m for m, _, _ in SERVED_JUDGES)
+# The API seats: (model, tag, spec). Hosted by their maker and reached through the
+# maker's own chat API rather than Bedrock, so the spec carries the environment
+# variable that holds its key, the seat's decoding (thinking budget included), and
+# the family run_lesson.py's independence check reads. With the key unset the seat
+# stays empty and the panel says so.
+#
+# On 29 October 2026 Command A+ (Cohere, a family no other seat or generator
+# shares) was calibrated through Cohere's compatibility endpoint and caught 14 of
+# On 29 October 2026 Command A+ (Cohere, a family no other seat or generator
+# shares) took the fifth seat after the same test: 16 of 21 (knowledge checks 8 of
+# 8, worked examples 4 of 4, pasted English and moved numbers 4 of 5, empty
+# scenarios 0 of 4), above the bar Qwen3 cleared (14 of 20). It reasons before it
+# answers, and through Cohere's OpenAI-compatible endpoint that thinking has no
+# budget: one lesson ran out of 20,000 tokens mid-thought three times of three, and
+# that first calibration caught 14 of 21 with five scores missing
+# (pipeline/out/calibration/2026-10-29). Through Cohere's own chat API the thinking
+# is held to 6,000 tokens and the answer comes back as its own part; every call of
+# the calibration that seated it returned a verdict, one after a server error. Its
+# two-run drift check moved 1 of 32 scores, by one point, the steadiest of any
+# seat (docs/STATUS.md). Apache-2.0 open weights, so the seat could move to served
+# hardware, at the cost of recalibrating: another transport is another judge.
+API_JUDGES = (
+    ('command-a-plus-05-2026', 'command-a-plus-05-2026',
+     {'key_env': 'COHERE_API_KEY', 'temperature': 0, 'thinking_budget': 6000, 'max_tokens': 10000,
+      'family': 'cohere'}),
+)
+
+# Every seated model: hosted on Bedrock, served, then hosted API. decide() wants a
+# verdict from each.
+SEATS = (tuple(m for m, _ in PANEL_MODELS) + tuple(m for m, _, _ in SERVED_JUDGES)
+         + tuple(m for m, _, _ in API_JUDGES))
 
 
 class PanelError(Exception):
@@ -250,6 +281,15 @@ def run_judges(lesson_path: Path, region: str) -> str:
             continue
         calls.append((tag, ['--lesson', str(lesson_path), '--model', model, '--tag', tag,
                             '--endpoint', endpoint,
+                            '--temperature', str(spec['temperature']),
+                            '--max-tokens', str(spec['max_tokens'])]))
+    for model, tag, spec in API_JUDGES:
+        if not os.environ.get(spec['key_env'], '').strip():
+            print(f'{tag}: {spec["key_env"]} is not set; the seat stays empty', file=sys.stderr)
+            continue
+        calls.append((tag, ['--lesson', str(lesson_path), '--model', model, '--tag', tag,
+                            '--cohere', '--key-env', spec['key_env'],
+                            '--thinking-budget', str(spec['thinking_budget']),
                             '--temperature', str(spec['temperature']),
                             '--max-tokens', str(spec['max_tokens'])]))
     for tag, argv in calls:

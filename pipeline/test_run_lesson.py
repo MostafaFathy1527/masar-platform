@@ -107,8 +107,13 @@ try:
     check(False, "a generator from the open seat's family (qwen) is refused")
 except run_lesson.RunError as e:
     check('qwen' in str(e), "a generator from the open seat's family (qwen) is refused")
-check(run_lesson.run.__kwdefaults__['seats'] == panel.SEATS and len(panel.SEATS) == 4,
-      'a real run expects a verdict from every seat, hosted and served')
+try:
+    run_lesson.check_independence('cohere.command-r-plus-v1:0')
+    check(False, "a generator from the API seat's family (cohere) is refused")
+except run_lesson.RunError as e:
+    check('cohere' in str(e), "a generator from the API seat's family (cohere) is refused")
+check(run_lesson.run.__kwdefaults__['seats'] == panel.SEATS and len(panel.SEATS) == 5,
+      'a real run expects a verdict from every seat: Bedrock, served and API')
 
 print('item check')
 check(run_lesson.check_items(GOOD['lesson'], GOOD['items'], 'cs') == [], 'the CS-01 bank passes')

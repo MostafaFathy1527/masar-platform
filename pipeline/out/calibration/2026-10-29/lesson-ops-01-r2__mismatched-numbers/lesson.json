@@ -1,0 +1,372 @@
+{
+  "slug": "writing-a-shift-handover",
+  "titleAr": "كتابة تسليم النوبة",
+  "titleEn": "Writing a Shift Handover",
+  "estMinutes": 30,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "OPS-01"
+  ],
+  "conceptsIntroduced": [
+    "shift_handover",
+    "open_item",
+    "urgent_item",
+    "fact_vs_guess",
+    "commitment",
+    "shared_record"
+  ],
+  "bilingual": true,
+  "blocks": {
+    "l1": [
+      {
+        "id": "b_l1_h_intro",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "ما هو تسليم النوبة؟",
+          "textEn": "What is a shift handover?",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l1_text_intro",
+        "type": "rich_text",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "تسليم النوبة هو لحظة انتقال العمل من شخص إلى آخر في نهاية نوبته، مع توثيق كل السياق الضروري حتى يتمكن القادم من المتابعة دون الحاجة للاتصال بالمنتهي. الاختبار البسيط لتسليم ناجح هو: **هل يستطيع الشخص التالي اتخاذ إجراء مباشرةً دون سؤالك؟**\n\nالطول ليس المعيار؛ صفحة من السرد التي تخفي العنصر العاجل أسوأ من ثلاث سطور دقيقة.",
+          "mdEn": "A shift handover is the moment work changes hands at the end of a shift, with all relevant context recorded so the next person can continue without asking you. The simple test of a successful handover is: **Can the next person act on it without contacting you?**\n\nLength is not the measure; a page of narrative that buries the one urgent item is worse than three precise lines."
+        }
+      },
+      {
+        "id": "b_l1_def_shift_handover",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "تسليم النوبة",
+          "termEn": "Shift handover",
+          "defAr": "اللحظة التي ينتقل فيها العمل من شخص إلى آخر في نهاية نوبته، مع توثيق كل التفاصيل الضرورية.",
+          "defEn": "The moment work changes hands at the end of a shift, with all relevant details recorded.",
+          "icon": "↔"
+        }
+      },
+      {
+        "id": "b_l1_def_open_item",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "عنصر مفتوح",
+          "termEn": "Open item",
+          "defAr": "تذكرة أو طلب أو مهمة لم تُحلّ بعد عندما تنتهي النوبة.",
+          "defEn": "A ticket, order, or task that is not yet resolved when the shift ends.",
+          "icon": "✏️"
+        }
+      },
+      {
+        "id": "b_l1_def_urgent_item",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "عنصر عاجل",
+          "termEn": "Urgent item",
+          "defAr": "عنصر مفتوح يحتاج إلى إجراء قبل انتهاء النوبة التالية، عادةً ما يُحدَّد بموعد نهائي.",
+          "defEn": "An open item that requires action before the next shift ends, usually marked with a deadline.",
+          "icon": "⚡"
+        }
+      },
+      {
+        "id": "b_l1_def_fact_vs_guess",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "حقيقة مقابل تخمين",
+          "termEn": "Fact vs guess",
+          "defAr": "تمييز بين ما هو مؤكد (حقيقة) وما هو مجرد افتراض (تخمين).",
+          "defEn": "Separate verified statements (facts) from assumptions (guesses).",
+          "icon": "✔️/❓"
+        }
+      },
+      {
+        "id": "b_l1_def_commitment",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "التزام",
+          "termEn": "Commitment",
+          "defAr": "وعد بإنجاز فعل معين لعميل أو زميل أو مدير بحلول وقت محدد.",
+          "defEn": "A promise to complete a specific action for a customer, colleague, or manager by a certain time.",
+          "icon": "🤝"
+        }
+      },
+      {
+        "id": "b_l1_def_shared_record",
+        "type": "definition_card",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "termAr": "سجل مشترك",
+          "termEn": "Shared record",
+          "defAr": "النظام المركزي (تذكرة، سجل، قناة) حيث يُكتب التسليم ليجده أي شخص يغطي النوبة.",
+          "defEn": "The central system (ticket, log, channel) where the handover is written so anyone covering the shift can find it.",
+          "icon": "📂"
+        }
+      },
+      {
+        "id": "b_l1_flow_questions",
+        "type": "process_flow",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "interactive": false,
+          "steps": [
+            {
+              "id": "q1",
+              "labelAr": "ما هو؟",
+              "labelEn": "What is it?",
+              "detailAr": "سطر يحدد العنصر بدقة (التذكرة، الطلب، العميل).",
+              "detailEn": "One line that precisely identifies the item (ticket, order, customer)."
+            },
+            {
+              "id": "q2",
+              "labelAr": "ما هو الوضع؟",
+              "labelEn": "What is the status?",
+              "detailAr": "حالة العنصر كحقيقة، لا كإحساس.",
+              "detailEn": "Current state as a fact, not a feeling."
+            },
+            {
+              "id": "q3",
+              "labelAr": "ما الذي تم فعله؟",
+              "labelEn": "What has been done?",
+              "detailAr": "ما جُرب وما فشل، لتجنب التكرار.",
+              "detailEn": "What has already been tried and failed, so the next person does not repeat it."
+            },
+            {
+              "id": "q4",
+              "labelAr": "ما التالي ومتى؟",
+              "labelEn": "What happens next and by when?",
+              "detailAr": "إجراء محدد بوقت نهائي واضح.",
+              "detailEn": "Specific next action with a clear deadline."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l1_tip_urgent",
+        "type": "job_tip",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "mdAr": "**قدِّم العنصر العاجل أولًا.** رتّب العناصر بحسب موعد احتياجها إلى إجراء، لا بحسب وقت وصولها. كل ما له موعد نهائي داخل النوبة القادمة يأتي في الأعلى، وعليه علامة واضحة. الأسئلة الأربعة ترتّب ما تكتبه عن العنصر الواحد؛ أما الاستعجال فيرتّب العناصر نفسها.",
+          "mdEn": "**Lead with the urgent item.** Order items by when they need action, not by when they arrived. Anything with a deadline inside the next shift goes first and is marked as such. The four questions order what you write about one item; urgency orders the items."
+        }
+      },
+      {
+        "id": "b_l1_takeaways",
+        "type": "takeaways",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemsAr": [
+            "اكتب التسليم في سجل مشترك، لا في ورقة شخصية.",
+            "رتّب العناصر بحسب الاستعجال، ثم أجب عن الأسئلة الأربعة لكل عنصر بالترتيب.",
+            "افصل بين الحقائق والتخمينات؛ ضع التخمينات في قوس أو علامة."
+          ],
+          "itemsEn": [
+            "Write the handover in a shared record, not on a personal scrap.",
+            "Order items by urgency, then answer the four questions for each item, in order.",
+            "Separate facts from guesses; label guesses clearly."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "b_l2_h_apply",
+        "type": "heading",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "textAr": "طبق ما قرأت",
+          "textEn": "Put it to work",
+          "level": 2
+        }
+      },
+      {
+        "id": "b_l2_flow_write",
+        "type": "process_flow",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "interactive": true,
+          "steps": [
+            {
+              "id": "s1",
+              "labelAr": "حدد العنصر",
+              "labelEn": "Identify the item",
+              "detailAr": "اكتب رقم التذكرة أو اسم العميل.",
+              "detailEn": "Write the ticket number or customer name."
+            },
+            {
+              "id": "s2",
+              "labelAr": "صف الحالة",
+              "labelEn": "State the status",
+              "detailAr": "استخدم عبارات مثل \"في انتظار المورد\".",
+              "detailEn": "Use phrases like \"waiting for supplier\"."
+            },
+            {
+              "id": "s3",
+              "labelAr": "سجل ما تم فعله",
+              "labelEn": "Log what has been done",
+              "detailAr": "اذكر المحاولات التي فشلت.",
+              "detailEn": "List attempts that have already failed."
+            },
+            {
+              "id": "s4",
+              "labelAr": "حدد الإجراء التالي والموعد",
+              "labelEn": "Define next action and deadline",
+              "detailAr": "مثال: \"اتصل بالعميل قبل 11:01\".",
+              "detailEn": "Example: \"Call the customer before 10:00\"."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_worked_example",
+        "type": "worked_example",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "promptAr": "تذكرة رقم 4524 عن فشل دفع لدى عميل. أُعيدت محاولة الدفع مرتين دون نجاح، ووُعد العميل بردّ قبل نهاية اليوم. ما التسليم المناسب؟",
+          "promptEn": "Ticket #4523 concerns a customer payment failure. Two retry attempts have already been made without success. The customer asked for a response before the end of the day. Write the appropriate handover.",
+          "steps": [
+            {
+              "showAr": "ما هو؟ – تذكرة 4524: فشل دفع العميل.",
+              "showEn": "What is it? – Ticket #4523: customer payment failure.",
+              "whyAr": "تحديد واضح يتيح للمتلقي العثور على التذكرة بسرعة.",
+              "whyEn": "A clear identifier lets the receiver locate the ticket quickly."
+            },
+            {
+              "showAr": "ما هو الوضع؟ – في انتظار حل الدفع بعد محاولتين فاشلتين.",
+              "showEn": "What is the status? – Awaiting payment resolution after two failed retries.",
+              "whyAr": "يُظهر الحالة كحقيقة، لا كإحساس.",
+              "whyEn": "Shows the status as a fact, not a feeling."
+            },
+            {
+              "showAr": "ما الذي تم فعله؟ – أُعيدت المحاولة مرتين، ولا توجد معلومات إضافية.",
+              "showEn": "What has been done? – Two retry attempts made; no additional information.",
+              "whyAr": "يمنع تكرار نفس الخطوات.",
+              "whyEn": "Prevents repeating the same attempts."
+            },
+            {
+              "showAr": "ما التالي ومتى؟ – اتصل بالعميل قبل 17:01 لتحديثه بالنتيجة.",
+              "showEn": "What happens next and by when? – Call the customer before 4 PM with an update.",
+              "whyAr": "إجراء واضح بموعد نهائي يضمن عدم فقدان الوعد.",
+              "whyEn": "A clear action with a deadline ensures the promise is kept."
+            }
+          ],
+          "answerAr": "ما هو؟ تذكرة 4524: فشل دفع العميل.\nما هو الوضع؟ في انتظار حل الدفع بعد محاولتين فاشلتين.\nما الذي تم فعله؟ أُعيدت المحاولة مرتين، ولا توجد معلومات إضافية.\nما التالي ومتى؟ اتصل بالعميل قبل 17:01 لتحديثه بالنتيجة.",
+          "answerEn": "What is it? Ticket #4523: customer payment failure.\nWhat is the status? Awaiting payment resolution after two failed retries.\nWhat has been done? Two retry attempts made; no additional information.\nWhat happens next and by when? Call the customer before 4 PM with an update."
+        }
+      },
+      {
+        "id": "b_l2_scenario_best_line",
+        "type": "scenario",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "situationAr": "تنهي نوبتك وأمامك عنصران مفتوحان: تذكرة العميل «علي» عن خلل في تسجيل الدخول، وقد وُعد بردّ قبل الساعة 15:01 اليوم؛ وطلب ينتظر أن يؤكد المورد موعد التسليم، ولا موعد نهائي له اليوم. الطلب وصل أولًا. أيّ سطر يفتتح به تسليمك؟",
+          "situationEn": "You are ending your shift with two open items: a ticket from customer \"Ali\" about a login issue, who was promised a reply before 14:00 today; and an order waiting for the supplier to confirm a delivery date, with no deadline today. The order arrived first. Which line opens your handover?",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "طلب ينتظر أن يؤكد المورد موعد التسليم.",
+              "optionEn": "Order waiting for the supplier to confirm a delivery date.",
+              "consequenceAr": "رتّبت بحسب وقت الوصول. العنصر الذي له موعد بعد ساعة صار في السطر الثاني، وقد يقرأ الزميل الأول ويظن أن لا شيء عاجل.",
+              "consequenceEn": "You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+              "isBest": false
+            },
+            {
+              "id": "d2",
+              "optionAr": "عاجل، قبل 15:01: تذكرة علي (خلل تسجيل الدخول). وُعد بردّ قبل 15:01، والوعد الآن عليك.",
+              "optionEn": "URGENT, before 14:00: Ali's ticket (login issue). He was promised a reply by 14:00; that promise is now yours.",
+              "consequenceAr": "الأفضل. الموعد يظهر قبل أي شيء آخر، والوعد ينتقل مع العمل بالكلمات. تحت هذا السطر تجيب عن الأسئلة الأربعة لهذه التذكرة.",
+              "consequenceEn": "Best. The deadline is seen before anything else, and the promise travels with the work in words. Under this line you answer the four questions for this ticket.",
+              "isBest": true
+            },
+            {
+              "id": "d3",
+              "optionAr": "كل شيء تمام، لا شيء كبير؛ تذكرتان مفتوحتان.",
+              "optionEn": "All good, nothing major; two tickets open.",
+              "consequenceAr": "هذا من الأخطاء الشائعة بعينه: «لا شيء كبير» وهناك عنصر بموعد نهائي. الوعد لعلي سيُكسر، وبالنسبة إليه المؤسسة هي التي وعدت.",
+              "consequenceEn": "This is one of the common failures word for word: \"nothing major\" with an item on a deadline. Ali's promise will be broken, and to him the organisation made it.",
+              "isBest": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_sort_fact_guess",
+        "type": "sort_buckets",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "buckets": [
+            {
+              "id": "fact",
+              "labelAr": "حقيقة",
+              "labelEn": "Fact"
+            },
+            {
+              "id": "guess",
+              "labelAr": "تخمين",
+              "labelEn": "Guess"
+            }
+          ],
+          "cards": [
+            {
+              "id": "c1",
+              "textAr": "فشل الدفع مرتين",
+              "textEn": "Payment failed twice",
+              "bucketId": "fact",
+              "whyAr": "يمكن التحقق من سجل المعاملات.",
+              "whyEn": "Can be verified in the transaction log."
+            },
+            {
+              "id": "c2",
+              "textAr": "أعتقد أن البطاقة منتهية الصلاحية",
+              "textEn": "I think the card is expired",
+              "bucketId": "guess",
+              "whyAr": "ليس هناك دليل واضح في النظام.",
+              "whyEn": "No clear evidence in the system."
+            },
+            {
+              "id": "c3",
+              "textAr": "ننتظر أن يؤكد المورد موعد التسليم",
+              "textEn": "Waiting for the supplier to confirm a delivery date",
+              "bucketId": "fact",
+              "whyAr": "يصف أين يقف العنصر الآن كما هو، لا كإحساس.",
+              "whyEn": "It states where the item stands now, as a fact rather than a feeling."
+            },
+            {
+              "id": "c4",
+              "textAr": "من المحتمل أن تكون الشبكة معطلة",
+              "textEn": "Probably the network is down",
+              "bucketId": "guess",
+              "whyAr": "كلمة «من المحتمل» تعلن افتراضًا لم يتحقق منه أحد.",
+              "whyEn": "\"Probably\" announces an assumption nobody has checked."
+            }
+          ]
+        }
+      },
+      {
+        "id": "b_l2_check_1",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-01"
+        }
+      },
+      {
+        "id": "b_l2_check_2",
+        "type": "knowledge_check",
+        "objectiveId": "OPS-01",
+        "payload": {
+          "itemRef": "OPS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

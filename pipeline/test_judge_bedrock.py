@@ -67,6 +67,8 @@ def test_extract_json_tolerates_fences_and_prose():
     check(judge_bedrock.extract_json(body)['scores']['concision'] == 4, 'bare JSON')
     check(judge_bedrock.extract_json('```json\n' + body + '\n```')['lesson'] == 'x', 'fenced JSON')
     check(judge_bedrock.extract_json('Here you go:\n' + body + '\nDone.')['lesson'] == 'x', 'JSON inside prose')
+    check(judge_bedrock.extract_json(body + '\nNote: scores use {1..5}.')['lesson'] == 'x',
+          'a sentence after the object that holds a brace is ignored')
     thinking = '<think>The shape is {"scores": {...}}; item 2 looks weak.</think>\n' + body
     check(judge_bedrock.extract_json(thinking)['lesson'] == 'x',
           'a think block with braces in it is dropped before the JSON is read')
@@ -141,6 +143,51 @@ def test_judge_sees_the_items_its_checks_reference():
     check(code == 0, 'dry run with items present still works')
 
 
+def test_cohere_reads_only_the_answer():
+    print("Cohere's own API: the thinking has a budget, and only the answer is parsed")
+    import os
+    import urllib.request
+
+    seen = {}
+
+    class Reply:
+        def read(self):
+            return json.dumps({'message': {'content': [
+                {'type': 'thinking', 'thinking': 'The shape is {"scores": {...}}'},
+                {'type': 'text', 'text': '{"scores": {"concision": 4}}'}]},
+                'usage': {'tokens': {'input_tokens': 100, 'output_tokens': 50}}}).encode('utf-8')
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(req, timeout=None):
+        seen['url'] = req.full_url
+        seen['body'] = json.loads(req.data.decode('utf-8'))
+        seen['auth'] = req.get_header('Authorization')
+        return Reply()
+
+    real = urllib.request.urlopen
+    urllib.request.urlopen = fake_urlopen
+    os.environ['SEAT_KEY'] = 'c'
+    try:
+        text, usage = judge_bedrock.call_cohere('PROMPT', 'command-a-plus-05-2026', max_tokens=10000,
+                                                thinking_budget=6000, key_env='SEAT_KEY')
+        check(seen['url'] == 'https://api.cohere.com/v2/chat', "posts to Cohere's chat API")
+        check(seen['body']['thinking'] == {'type': 'enabled', 'token_budget': 6000}
+              and seen['body']['temperature'] == 0 and seen['body']['max_tokens'] == 10000,
+              'the thinking budget, temperature 0 and the reply budget are sent')
+        check(seen['auth'] == 'Bearer c', 'the key comes from the variable named')
+        check(text == '{"scores": {"concision": 4}}', 'the thinking part is not part of the text parsed')
+        check(usage == {'inputTokens': 100, 'outputTokens': 50, 'temperature': 0},
+              'token counts come back in the Bedrock shape')
+    finally:
+        urllib.request.urlopen = real
+        del os.environ['SEAT_KEY']
+
+
 def test_served_model_uses_the_same_request():
     print('an open model behind an OpenAI-compatible endpoint')
     import os
@@ -184,6 +231,10 @@ def test_served_model_uses_the_same_request():
         os.environ['JUDGE_API_KEY'] = 'k'
         judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1')
         check(seen['auth'] == 'Bearer k', 'the key comes from the environment')
+        os.environ['SEAT_KEY'] = 's'
+        judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1', key_env='SEAT_KEY')
+        check(seen['auth'] == 'Bearer s', 'a hosted API seat reads the key from the variable it names')
+        del os.environ['SEAT_KEY']
         check(seen['body']['max_tokens'] == 4000, 'the default token budget is the one every judge uses')
         os.environ['JUDGE_MAX_TOKENS'], os.environ['JUDGE_TEMPERATURE'] = '12000', '0.6'
         _, usage = judge_bedrock.call_openai_compatible('PROMPT', 'open-model', 'http://h:8080/v1')
@@ -286,8 +337,10 @@ def test_explicit_decoding_overrides_the_environment(tmp: Path):
     got: dict = {}
     reply = json.dumps(judge_bedrock.rubric_example())
 
-    def fake_call(prompt, model, endpoint, max_tokens=None, timeout=1800, temperature=None):
-        got.update(model=model, endpoint=endpoint, max_tokens=max_tokens, temperature=temperature)
+    def fake_call(prompt, model, endpoint, max_tokens=None, timeout=1800, temperature=None,
+                  key_env='JUDGE_API_KEY'):
+        got.update(model=model, endpoint=endpoint, max_tokens=max_tokens, temperature=temperature,
+                   key_env=key_env)
         return reply, {'temperature': temperature}
 
     lesson = tmp / 'lesson.json'
@@ -299,7 +352,8 @@ def test_explicit_decoding_overrides_the_environment(tmp: Path):
                             '--endpoint', 'http://h:8080/v1', '--temperature', '0.6',
                             '--max-tokens', '12000'])
         check(got == {'model': 'open-model', 'endpoint': 'http://h:8080/v1', 'max_tokens': 12000,
-                      'temperature': 0.6}, '--temperature 0.6 and --max-tokens 12000 arrive as arguments')
+                      'temperature': 0.6, 'key_env': 'JUDGE_API_KEY'},
+              '--temperature 0.6 and --max-tokens 12000 arrive as arguments')
         got.clear()
         judge_bedrock.main(['--lesson', str(lesson), '--model', 'open-model', '--tag', 'opt',
                             '--endpoint', 'http://h:8080/v1'])
@@ -549,6 +603,7 @@ if __name__ == '__main__':
     test_compare_reports_disagreement()
     test_judge_sees_the_items_its_checks_reference()
     test_served_model_uses_the_same_request()
+    test_cohere_reads_only_the_answer()
     with tempfile.TemporaryDirectory() as d:
         test_a_copy_of_the_rubric_example_is_not_a_verdict(Path(d))
     with tempfile.TemporaryDirectory() as d:

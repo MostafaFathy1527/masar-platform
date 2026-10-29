@@ -1,0 +1,198 @@
+{
+  "slug": "handling-a-customer-complaint",
+  "titleAr": "Handling a customer complaint",
+  "titleEn": "Handling a customer complaint",
+  "estMinutes": 25,
+  "bilingual": true,
+  "levels": [
+    "L1",
+    "L2"
+  ],
+  "objectives": [
+    "CS-01"
+  ],
+  "conceptsIntroduced": [
+    "acknowledgement",
+    "establishing_the_facts",
+    "complaint_ownership",
+    "warm_handover",
+    "agreed_next_step"
+  ],
+  "blocks": {
+    "l1": [
+      {
+        "id": "cs1_h_intro",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "A complaint is the chance the others did not give you",
+          "textEn": "A complaint is the chance the others did not give you",
+          "level": 2
+        }
+      },
+      {
+        "id": "cs1_p_intro",
+        "type": "rich_text",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not.\n\n**The first minute decides the next twenty.** An angry customer is carrying two problems: the thing that went wrong, and the feeling that nobody has listened. The second is dealt with first, because a person who does not feel heard cannot hear anything you say.",
+          "mdEn": "A complaint is not an attack and it is not a request for an apology. It is a customer telling you that the gap between what they expected and what they got has become worth their time to report. Most customers who are let down say nothing and leave. The one who complains is giving you the chance the others did not.\n\n**The first minute decides the next twenty.** An angry customer is carrying two problems: the thing that went wrong, and the feeling that nobody has listened. The second is dealt with first, because a person who does not feel heard cannot hear anything you say."
+        }
+      },
+      {
+        "id": "cs1_d_ack",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "Acknowledgement",
+          "termEn": "Acknowledgement",
+          "defAr": "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes. Not an admission of a fault not yet established, but agreement that the customer's experience was bad, which is a fact they own. \"I'm sorry you feel that way\" is not acknowledgement; it apologises for the feeling rather than the event, and the customer hears exactly that.",
+          "defEn": "Naming what happened in the customer's own words, and saying you understand why it matters — before anything about causes or fixes. Not an admission of a fault not yet established, but agreement that the customer's experience was bad, which is a fact they own. \"I'm sorry you feel that way\" is not acknowledgement; it apologises for the feeling rather than the event, and the customer hears exactly that.",
+          "icon": "🗣️"
+        }
+      },
+      {
+        "id": "cs1_d_next",
+        "type": "definition_card",
+        "objectiveId": "CS-01",
+        "payload": {
+          "termAr": "Agreed next step",
+          "termEn": "Agreed next step",
+          "defAr": "A specific action, a specific time, and a specific way the customer will know it happened. \"I will raise the refund now; it reaches your card within five working days; you will get a confirmation by email today.\" A vague close (\"someone will look into it\") is where a complaint becomes a repeat complaint, because the customer has nothing to hold the organisation to, and calls back to create it.",
+          "defEn": "A specific action, a specific time, and a specific way the customer will know it happened. \"I will raise the refund now; it reaches your card within five working days; you will get a confirmation by email today.\" A vague close (\"someone will look into it\") is where a complaint becomes a repeat complaint, because the customer has nothing to hold the organisation to, and calls back to create it.",
+          "icon": "📌"
+        }
+      },
+      {
+        "id": "cs1_tip",
+        "type": "job_tip",
+        "objectiveId": "CS-01",
+        "payload": {
+          "mdAr": "The question most agents skip is the one that saves the most time: **\"What do you want to happen now?\"** Someone complaining about a late delivery may want a refund, the item today, or only the truth about when it arrives. Ask; do not guess. A fix the customer did not ask for is a second complaint.",
+          "mdEn": "The question most agents skip is the one that saves the most time: **\"What do you want to happen now?\"** Someone complaining about a late delivery may want a refund, the item today, or only the truth about when it arrives. Ask; do not guess. A fix the customer did not ask for is a second complaint."
+        }
+      },
+      {
+        "id": "cs1_take",
+        "type": "takeaways",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemsAr": [
+            "Acknowledge the experience first, in the customer's words, before causes and fixes.",
+            "Facts come from the record, not from anyone's memory — check it while the customer is with you, and say what you are doing.",
+            "Ask the customer what they want; do not guess.",
+            "A complaint has one name on it until it is closed; if you pass it on, pass the facts with it.",
+            "Close with a specific step: an action, a time, and a way the customer will know it happened."
+          ],
+          "itemsEn": [
+            "Acknowledge the experience first, in the customer's words, before causes and fixes.",
+            "Facts come from the record, not from anyone's memory — check it while the customer is with you, and say what you are doing.",
+            "Ask the customer what they want; do not guess.",
+            "A complaint has one name on it until it is closed; if you pass it on, pass the facts with it.",
+            "Close with a specific step: an action, a time, and a way the customer will know it happened."
+          ]
+        }
+      }
+    ],
+    "l2": [
+      {
+        "id": "cs1_l2_h",
+        "type": "heading",
+        "objectiveId": "CS-01",
+        "payload": {
+          "textAr": "Work one complaint from open to close",
+          "textEn": "Work one complaint from open to close",
+          "level": 2
+        }
+      },
+      {
+        "id": "cs1_l2_worked",
+        "type": "worked_example",
+        "objectiveId": "CS-01",
+        "payload": {
+          "promptAr": "A customer calls, angry: she was charged twice for this month's subscription, she emailed support four days ago and nobody replied, and she wants to know \"who is responsible\". Take the call step by step.",
+          "promptEn": "A customer calls, angry: she was charged twice for this month's subscription, she emailed support four days ago and nobody replied, and she wants to know \"who is responsible\". Take the call step by step.",
+          "steps": [
+            {
+              "showAr": "Acknowledge in her words: \"You were charged twice, you emailed four days ago, and nobody replied. I can see why you are angry.\"",
+              "showEn": "Acknowledge in her words: \"You were charged twice, you emailed four days ago, and nobody replied. I can see why you are angry.\"",
+              "whyAr": "You have not agreed that the organisation was wrong; you have agreed that her experience was bad, which is a fact she owns. Without that, she will not hear anything that follows.",
+              "whyEn": "You have not agreed that the organisation was wrong; you have agreed that her experience was bad, which is a fact she owns. Without that, she will not hear anything that follows."
+            },
+            {
+              "showAr": "Open the record and say so: \"I am looking at your account now.\" Then ask: what do you want to happen now?",
+              "showEn": "Open the record and say so: \"I am looking at your account now.\" Then ask: what do you want to happen now?",
+              "whyAr": "Silence on a call reads as abandonment. Asking what she wants prevents a fix she did not ask for — she may want only the refund, or she may want assurance it will not happen again.",
+              "whyEn": "Silence on a call reads as abandonment. Asking what she wants prevents a fix she did not ask for — she may want only the refund, or she may want assurance it will not happen again."
+            },
+            {
+              "showAr": "The record shows two charges, and her email is sitting in a queue. State what the record shows without blaming her or defending the queue.",
+              "showEn": "The record shows two charges, and her email is sitting in a queue. State what the record shows without blaming her or defending the queue.",
+              "whyAr": "Arguing the policy lengthens the call and changes nothing. Explain it once, then move to what can be done within it.",
+              "whyEn": "Arguing the policy lengthens the call and changes nothing. Explain it once, then move to what can be done within it."
+            },
+            {
+              "showAr": "Close with an agreed next step: \"I am raising the refund now; it reaches your card within five working days; you get a confirmation email today. My name is on this until it is closed.\"",
+              "showEn": "Close with an agreed next step: \"I am raising the refund now; it reaches your card within five working days; you get a confirmation email today. My name is on this until it is closed.\"",
+              "whyAr": "An action, a time, a way to verify. And promise only what you can personally make true; promise what you will do and when you will report back.",
+              "whyEn": "An action, a time, a way to verify. And promise only what you can personally make true; promise what you will do and when you will report back."
+            }
+          ],
+          "answerAr": "\"Who is responsible\" is answered by an action, not a name: you are, from this moment, for closing it. Record the complaint honestly, including the email that waited four days — the pattern across fifty complaints is where the next fix lives.",
+          "answerEn": "\"Who is responsible\" is answered by an action, not a name: you are, from this moment, for closing it. Record the complaint honestly, including the email that waited four days — the pattern across fifty complaints is where the next fix lives."
+        }
+      },
+      {
+        "id": "cs1_l2_kc1",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-01"
+        }
+      },
+      {
+        "id": "cs1_l2_scenario",
+        "type": "scenario",
+        "objectiveId": "CS-01",
+        "payload": {
+          "situationAr": "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone.",
+          "situationEn": "A customer in a chat asks for something you cannot authorise: waiving a contractual fee. The team that can is in tomorrow. The customer has written three long messages so far and says he will not explain this again to anyone.",
+          "decisions": [
+            {
+              "id": "d1",
+              "optionAr": "Transfer him to the right team and end the chat.",
+              "optionEn": "Transfer him to the right team and end the chat.",
+              "isBest": false,
+              "consequenceAr": "He will explain everything again tomorrow, which is exactly what he said he would not do. A transfer without a warm handover is the second most common cause of escalation after not being listened to.",
+              "consequenceEn": "He will explain everything again tomorrow, which is exactly what he said he would not do. A transfer without a warm handover is the second most common cause of escalation after not being listened to."
+            },
+            {
+              "id": "d2",
+              "optionAr": "Promise the waiver to defuse things, and let the other team sort it out.",
+              "optionEn": "Promise the waiver to defuse things, and let the other team sort it out.",
+              "isBest": false,
+              "consequenceAr": "You promised something you cannot personally make true. If it is refused tomorrow, the complaint is now about a broken promise, not a fee — and that is far harder.",
+              "consequenceEn": "You promised something you cannot personally make true. If it is refused tomorrow, the complaint is now about a broken promise, not a fee — and that is far harder."
+            },
+            {
+              "id": "d3",
+              "optionAr": "Write the facts into the record, tell him who will own it and when he will hear back, and keep your name on it until someone does.",
+              "optionEn": "Write the facts into the record, tell him who will own it and when he will hear back, and keep your name on it until someone does.",
+              "isBest": true,
+              "consequenceAr": "A warm handover: the facts travel instead of the customer. You promised not the outcome but what you actually control — that he hears back by a specific time.",
+              "consequenceEn": "A warm handover: the facts travel instead of the customer. You promised not the outcome but what you actually control — that he hears back by a specific time."
+            }
+          ]
+        }
+      },
+      {
+        "id": "cs1_l2_kc2",
+        "type": "knowledge_check",
+        "objectiveId": "CS-01",
+        "payload": {
+          "itemRef": "CS-01-KC-02"
+        }
+      }
+    ]
+  }
+}

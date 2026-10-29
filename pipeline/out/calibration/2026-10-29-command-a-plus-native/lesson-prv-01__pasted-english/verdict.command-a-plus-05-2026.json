@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "cohere",
+    "model_id": "command-a-plus-05-2026",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-10-29T06:24:29.349553+00:00",
+    "usage": {
+      "inputTokens": 6148,
+      "outputTokens": 6208
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 1,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "Arabic content is identical to English text, not translated, and reads as machine output rather than natural Arabic."
+  },
+  "verdict_notes": "The lesson scores highly on objective alignment, level fidelity, worked example quality, knowledge check, scenario authenticity, concision, and accessibility, but the Arabic version is a copy of the English text, resulting in a score of 1 for bilingual quality. This low score causes a gate failure despite the overall strong quality of the lesson."
+}

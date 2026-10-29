@@ -1,8 +1,9 @@
 name: Judge panel (weekly)
 
 # Re-scores every sample with the seated judge panel, once a week and on demand:
-# three judges on Amazon Bedrock and one open judge behind an OpenAI-compatible
-# endpoint. Model providers update their models without notice, and a judge that
+# three judges on Amazon Bedrock, one open judge behind an OpenAI-compatible
+# endpoint on rented hardware, and one judge hosted by its maker behind the same
+# kind of endpoint. Model providers update their models without notice, and a judge that
 # passed calibration last month may not judge the same way today; a sample that
 # drops out of PANEL PASS here is the first sign.
 #
@@ -57,7 +58,7 @@ jobs:
       # it. Without the CLOUDRIFT_API_KEY secret nothing is rented, the seat stays
       # empty, and every sample reports NEEDS HUMAN, never PASS.
       # When no card is free (CloudRift had none on 19 October), the open seat
-      # stays empty and the three hosted seats still score: a run with three
+      # stays empty and the other seats still score: a run with three
       # verdicts and NEEDS HUMAN is evidence, a run that stops here is nothing.
       - name: Rent a GPU and serve the open seat
         id: rent
@@ -79,7 +80,12 @@ jobs:
           ssh $ssh_opts -fN -L 18080:127.0.0.1:8080 riftuser@"$ip"
           curl -sf http://127.0.0.1:18080/health
           echo "JUDGE_QWEN3_ENDPOINT=http://127.0.0.1:18080/v1" >> "$GITHUB_ENV"
+      # The API seat (API_JUDGES in pipeline/panel.py) reads its key from the
+      # COHERE_API_KEY secret. Without it the seat stays empty and every sample
+      # reports NEEDS HUMAN, never PASS.
       - name: Score every sample with the panel
+        env:
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
         run: |
           set +e
           status=0

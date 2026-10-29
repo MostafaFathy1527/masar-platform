@@ -37,7 +37,7 @@ passed a gate:
 | [`pipeline/validate.py`](pipeline/validate.py) | Schema violations, forbidden real-world code sets, a lesson claiming bilingual support while repeating its English |
 | [`pipeline/concept_log.py`](pipeline/concept_log.py) | A lesson that re-teaches a concept already taught, or contradicts one |
 | [`pipeline/qa_gate.py`](pipeline/qa_gate.py) | Content that fails the instructional-design rubric |
-| [`pipeline/panel.py`](pipeline/panel.py) | A lesson the independent judges disagree on, or that one of the four seats has not scored; either goes to a person |
+| [`pipeline/panel.py`](pipeline/panel.py) | A lesson the independent judges disagree on, or that one of the five seats has not scored; either goes to a person |
 
 The gates have their own tests. A gate nobody tests is a gate that passes everything, and a
 judge nobody tests is a judge that likes everything: before a model may score lessons,
