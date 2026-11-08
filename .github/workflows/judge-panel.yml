@@ -23,7 +23,9 @@ jobs:
   panel:
     if: ${{ vars.AWS_ROLE_ARN != '' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # On one rented card (the fallback when no two-card node is free) the open
+    # seat takes up to an hour a lesson, so the run needs room for four.
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -86,13 +88,28 @@ jobs:
       - name: Score every sample with the panel
         env:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          ROLE: ${{ vars.AWS_ROLE_ARN }}
+          JUDGE_SERVED_TIMEOUT: '3600'
         run: |
           set +e
           status=0
+          # The Bedrock credentials last an hour, and a slow open seat can outlast
+          # them (on 8 November every Bedrock call on the third lesson failed with
+          # ExpiredToken). A fresh OIDC token buys fresh credentials per lesson.
+          refresh_aws() {
+            local tok creds
+            tok=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | python -c 'import json,sys; print(json.load(sys.stdin)["value"])')
+            creds=$(aws sts assume-role-with-web-identity --role-arn "$ROLE" --role-session-name "panel-$RANDOM" \
+              --web-identity-token "$tok" --query Credentials --output text) || { echo "could not refresh AWS credentials"; return; }
+            read -r AWS_ACCESS_KEY_ID _ AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN <<< "$creds"
+            export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+          }
           echo "## Judge panel, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
           [ "${{ steps.rent.outcome }}" = "failure" ] && echo "> The open seat is empty this week: no GPU could be rented or served (see the rent step). Every sample is NEEDS HUMAN by design." >> "$GITHUB_STEP_SUMMARY"
           for lesson in pipeline/out/lesson-sec-01/v1 pipeline/out/lesson-cs-01/v1 \
                         pipeline/out/lesson-prv-01/v1 pipeline/out/lesson-ops-01-r2/v2; do
+            refresh_aws
             python pipeline/panel.py --lesson "$lesson/lesson.json" --run > panel.log 2>&1
             code=$?
             # Every line, so a seat that stays empty says why (on 2 November the

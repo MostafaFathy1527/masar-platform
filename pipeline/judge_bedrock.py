@@ -263,6 +263,9 @@ def call_openai_compatible(prompt: str, model: str, endpoint: str, max_tokens: i
         max_tokens = int(os.environ.get('JUDGE_MAX_TOKENS', '4000'))
     if temperature is None:
         temperature = float(os.environ.get('JUDGE_TEMPERATURE', '0'))
+    # JUDGE_SERVED_TIMEOUT stretches it for a slower machine: on one card, with
+    # layers in system memory, a long lesson took more than 30 minutes (8 November).
+    timeout = float(os.environ.get('JUDGE_SERVED_TIMEOUT', timeout))
     body = json.dumps({
         'model': model,
         'messages': [{'role': 'user', 'content': prompt}],

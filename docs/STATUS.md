@@ -15,6 +15,14 @@ Update this file at the end of every session. It is the first thing the next ses
   quantisation would fit one card but is not the calibrated file, so it was not used.
 - **The Cohere seat:** `judge-panel.yml` now prints every line of `panel.log`, so the next empty
   seat says why. The cause on 2 November is still unknown.
+- **The test run the same day** (42465847324) proved the fallback: a one-card node was rented,
+  38 layers offloaded, and the open seat scored SEC-01 (PASS) and PRV-01. It also showed three
+  more faults, fixed after it: the open seat timed out on CS-01 at 30 minutes (now
+  `JUDGE_SERVED_TIMEOUT=3600`); the Bedrock credentials expired after an hour, so the third
+  lesson lost every Bedrock seat (the workflow now takes fresh OIDC credentials before each
+  lesson); and the 90-minute job limit cancelled the run (now 300).
+- **The Cohere seat answers HTTP 401 Unauthorized:** the `COHERE_API_KEY` secret is no longer
+  valid. The owner replaces it with a current key; nothing in the code changes.
 - **The 5 November learner-flow failure** was the runner's Chrome not opening its debugging port,
   not the site; the walk passed on 6 and 7 November.
 
