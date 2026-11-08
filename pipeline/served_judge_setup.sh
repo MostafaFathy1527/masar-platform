@@ -29,9 +29,16 @@ cmake --build ~/llama.cpp/build --config Release -j "$(nproc)" --target llama-se
 wait "$download"
 echo "$SHA256  $HOME/models/$GGUF" | sha256sum -c --quiet || { echo "sha256 mismatch: not the seated file"; exit 1; }
 
+# Two cards hold every layer. On one 32 GB card (the fallback when no two-card
+# node is free) 38 of the 48 layers fit beside the KV cache and the rest stay in
+# system memory: the same weights, slower.
+cards=$(nvidia-smi -L | wc -l)
+if [ "$cards" -ge 2 ]; then ngl=999; else ngl=38; fi
+echo "$cards card(s): offloading $ngl layers"
+
 # One slot: the panel scores lessons one at a time. 24,576 tokens holds the
 # judge prompt (up to about 7,600 tokens) and the 12,000-token reply.
-nohup ~/llama.cpp/build/bin/llama-server -m ~/models/$GGUF -ngl 999 -c 24576 -np 1 \
+nohup ~/llama.cpp/build/bin/llama-server -m ~/models/$GGUF -ngl "$ngl" -c 24576 -np 1 \
   --host 127.0.0.1 --port 8080 --jinja --reasoning-format none \
   > ~/logs/server.log 2>&1 < /dev/null &
 for i in $(seq 1 120); do

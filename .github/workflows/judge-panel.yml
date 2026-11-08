@@ -95,6 +95,9 @@ jobs:
                         pipeline/out/lesson-prv-01/v1 pipeline/out/lesson-ops-01-r2/v2; do
             python pipeline/panel.py --lesson "$lesson/lesson.json" --run > panel.log 2>&1
             code=$?
+            # Every line, so a seat that stays empty says why (on 2 November the
+            # Cohere seat failed and the reason was lost with this file).
+            cat panel.log
             out=$(tail -1 panel.log)
             echo "- \`$lesson\`: $out" >> "$GITHUB_STEP_SUMMARY"
             # The judge-by-judge table, so a split can be read on the run page.

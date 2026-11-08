@@ -28,8 +28,12 @@ from pathlib import Path
 API = 'https://api.cloudrift.ai/api/v1'
 TAG = 'masar-open-judge'
 # Two 32 GB V100 cards: the seated Q8_0 file is 32.5 GB. The first variant that
-# has a free node is rented.
-VARIANTS = ('v100-5-85-400-generic.2', 'v100-5-85-800-generic.2')
+# has a free node is rented. On 2 November no two-card node was free anywhere,
+# so one card is the fallback: served_judge_setup.sh counts the cards and keeps
+# the layers that do not fit in system memory. It is the same file at the same
+# settings, slower, not a smaller quantisation that would need its own calibration.
+VARIANTS = ('v100-5-85-400-generic.2', 'v100-5-85-800-generic.2',
+            'v100-5-85-400-generic.1', 'v100-6-52-400-generic.1')
 IMAGE = ('https://storage.googleapis.com/cloudrift-vm-disks/disks/github/'
          'ubuntu-noble-server-gpup-580-129-20260916-043401.img')
 

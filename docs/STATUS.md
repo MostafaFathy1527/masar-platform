@@ -2,6 +2,22 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 8 November 2026: the 2 November panel ran with two seats empty
+
+- **What happened:** run 41482142257 scored every sample with three judges, so all four went to
+  NEEDS HUMAN. The open seat was empty because CloudRift had no free two-card V100 node ("no free
+  node for any of v100-5-85-400-generic.2, v100-5-85-800-generic.2"), and on 8 November only
+  one-card nodes were free. The Command A+ seat was empty because its call made no new verdict;
+  the reason was in `panel.log`, which the workflow overwrote per lesson and never printed.
+- **The open seat:** `served_judge_vm.py` now falls back to a one-card V100 node, and
+  `served_judge_setup.sh` counts the cards: on one card it offloads 38 of the 48 layers and keeps
+  the rest in system memory. Same file, same sha256, same settings; slower. A smaller
+  quantisation would fit one card but is not the calibrated file, so it was not used.
+- **The Cohere seat:** `judge-panel.yml` now prints every line of `panel.log`, so the next empty
+  seat says why. The cause on 2 November is still unknown.
+- **The 5 November learner-flow failure** was the runner's Chrome not opening its debugging port,
+  not the site; the walk passed on 6 and 7 November.
+
 ## 29 October 2026: "Ask the lesson"
 
 The owner lifted the "no features without a named buyer" rule (8 October), and asked for this.
