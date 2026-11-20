@@ -16,6 +16,12 @@ Update this file at the end of every session. It is the first thing the next ses
   with 0 of 8 false alarms over two runs; DeepSeek V3.2 keeps one steady false alarm on
   SEC-01's best option, and the Arabic side shows the same one. Four real scenarios is too
   few to seat anything. Report: `probe-report-v2.md` in the same folder; cost at most $0.33.
+- Harder defect, two weak options trading consequences (tone stays right): v2 caught 6 of
+  11. Prompt v3 makes the model write "Because you <option>, <consequence>" first:
+  DeepSeek V3.2 or GLM-5 flagging caught 9 of 11 in both of two runs, with 0 false alarms
+  in 44 verdicts on real lessons. Reports: `2026-11-20-probe-wider`, `-probe-weak-swap`,
+  `-probe-v3`. Cost of the three at most $0.71 (estimate). Not a seat; at most an advisory
+  line.
 - Panel: a seat whose key is refused (HTTP 401/403) prints `SEAT KEY REJECTED: <seat>`,
   is skipped for the remaining lessons of the run, and leads the run summary.
 

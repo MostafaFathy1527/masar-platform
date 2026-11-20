@@ -70,7 +70,36 @@ Reply with JSON only, no other text:
  "scenario_ok": true or false}}
 scenario_ok is false if any option's consequence fails the match or the tone check."""
 
-PROMPTS = {'v1': PROMPT, 'v2': PROMPT_V2}
+# v3 (20 November): v2 caught every full swap but about half of a weak-for-weak swap,
+# where the tone stays right. v3 makes the model join each option to its consequence
+# in one sentence, "Because you <option>, <consequence>", and judge whether that
+# sentence is true to the situation: a consequence about another action makes a
+# sentence that does not hold together.
+PROMPT_V3 = """You check one branching scenario from a training lesson. A learner reads the situation,
+picks an option, and is then shown the consequence written under that option.
+
+For each option, write ONE sentence of the form
+  "Because you <the option, in a few words>, <what the consequence says happens or is true>."
+Then judge that sentence: is the second half something that actually follows from the
+first half, in this situation? If the consequence is really about a different action
+(for example another option's), the sentence will not hold together: mark it false.
+
+Weak options are meant to get consequences that describe a bad outcome or name the
+mistake; that is correct, not a defect. A best option's consequence should not warn
+against it, and a weak option's should not praise it.
+
+Situation:
+{situation}
+
+Options:
+{options}
+
+Reply with JSON only, no other text:
+{{"decisions": [{{"id": "<option id>", "because": "<your one sentence>", "follows": true or false, "reason": "<one short sentence>"}}],
+ "scenario_ok": true or false}}
+scenario_ok is false if any option's sentence does not hold together."""
+
+PROMPTS = {'v1': PROMPT, 'v2': PROMPT_V2, 'v3': PROMPT_V3}
 
 
 def scenarios(lesson: dict):

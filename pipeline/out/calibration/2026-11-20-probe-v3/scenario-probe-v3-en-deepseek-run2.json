@@ -1,0 +1,794 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "follows": true,
+     "reason": "A cold transfer forces the customer to repeat their story."
+    },
+    {
+     "id": "d2",
+     "because": "Because you promise the waiver to defuse things, and let the other team sort it out, you promised something you cannot personally make true.",
+     "follows": true,
+     "reason": "The promise is made without the authority to fulfill it."
+    },
+    {
+     "id": "d3",
+     "because": "Because you write the facts into the record, tell him who will own it and when he will hear back, and keep your name on it until someone does, you create a warm handover where the facts travel instead of the customer.",
+     "follows": true,
+     "reason": "Documenting and committing to follow-up enables a handover without repetition."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 497,
+   "outputTokens": 253,
+   "totalTokens": 750,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__weak-swap",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you transfer him to the right team and end the chat, you promised something you cannot personally make true, and if it is refused tomorrow, the complaint is now about a broken promise.",
+     "follows": false,
+     "reason": "The consequence describes promising something, but the option is a transfer without a promise."
+    },
+    {
+     "id": "d2",
+     "because": "Because you promise the waiver to defuse things, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "follows": true,
+     "reason": "The consequence logically follows from making a promise that requires re-explanation."
+    },
+    {
+     "id": "d3",
+     "because": "Because you write the facts into the record, tell him who will own it and when he will hear back, and keep your name on it, you achieve a warm handover where the facts travel instead of the customer.",
+     "follows": true,
+     "reason": "The consequence directly describes the result of the described actions."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 497,
+   "outputTokens": 262,
+   "totalTokens": 759,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you identify Ali's ticket and the login issue, the receiver can locate the ticket quickly.",
+     "follows": true,
+     "reason": "The consequence directly describes the benefit of the action taken."
+    },
+    {
+     "id": "d2",
+     "because": "Because you state the action to call the customer before 2 PM, the receiver is left unsure what the action refers to.",
+     "follows": true,
+     "reason": "The consequence logically follows from stating an action before identifying the item."
+    },
+    {
+     "id": "d3",
+     "because": "Because you provide the status without first identifying the item, it can cause confusion.",
+     "follows": true,
+     "reason": "The consequence is a direct result of the described action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 418,
+   "outputTokens": 206,
+   "totalTokens": 624,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you identify Ali's ticket and the login issue, the receiver can locate the ticket quickly.",
+     "follows": true,
+     "reason": "The consequence directly describes the benefit of identifying the item first."
+    },
+    {
+     "id": "d2",
+     "because": "Because you say to call the customer before 2 PM, you provide status without first identifying the item, which can cause confusion.",
+     "follows": true,
+     "reason": "The consequence correctly describes the mistake of stating an action before identifying the item."
+    },
+    {
+     "id": "d3",
+     "because": "Because you state the status is waiting for tech team response, you show the action before identifying the item, leaving the receiver unsure what the action refers to.",
+     "follows": true,
+     "reason": "The consequence correctly describes the mistake of stating status before identifying the item."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 418,
+   "outputTokens": 228,
+   "totalTokens": 646,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you choose the order waiting for the supplier to confirm a delivery date, the item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+     "follows": true,
+     "reason": "Choosing the non-urgent order first directly pushes the urgent item down, causing the described risk."
+    },
+    {
+     "id": "d2",
+     "because": "Because you choose 'URGENT, before 14:00: Ali's ticket (login issue)', the deadline is seen before anything else, and the promise travels with the work in words.",
+     "follows": true,
+     "reason": "Choosing the urgent item first ensures its deadline is immediately visible, which matches the consequence."
+    },
+    {
+     "id": "d3",
+     "because": "Because you choose 'All good, nothing major; two tickets open', this is one of the common failures word for word: 'nothing major' with an item on a deadline.",
+     "follows": true,
+     "reason": "Choosing a vague summary that ignores the urgent deadline directly leads to the described failure."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 504,
+   "outputTokens": 279,
+   "totalTokens": 783,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you choose the order waiting for the supplier, Ali's promise will be broken, and to him the organisation made it.",
+     "follows": true,
+     "reason": "Choosing the non-urgent order directly causes the deadline on Ali's ticket to be missed."
+    },
+    {
+     "id": "d2",
+     "because": "Because you choose Ali's urgent ticket, the deadline is seen before anything else, and the promise travels with the work in words.",
+     "follows": true,
+     "reason": "Choosing the urgent ticket correctly prioritizes the deadline, which is the stated consequence."
+    },
+    {
+     "id": "d3",
+     "because": "Because you say all good, nothing major, the item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+     "follows": false,
+     "reason": "The consequence describes ordering by arrival, which is a different action than the one chosen in the option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 504,
+   "outputTokens": 251,
+   "totalTokens": 755,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__real-items",
+  "block": "b_l2_scenario_handover",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you write a generic note saying the ticket is open and awaiting follow-up, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "follows": true,
+     "reason": "A generic note fails to provide actionable details, leading to the described delay."
+    },
+    {
+     "id": "d2",
+     "because": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline before 3 PM, the next colleague has all needed information to act immediately without contacting you.",
+     "follows": true,
+     "reason": "Providing complete, actionable handover information enables immediate, independent follow-up."
+    },
+    {
+     "id": "d3",
+     "because": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "follows": true,
+     "reason": "Deleting a ticket removes it from the tracking system, directly causing the loss of visibility."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 427,
+   "outputTokens": 265,
+   "totalTokens": 692,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__weak-swap",
+  "block": "b_l2_scenario_handover",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you write a generic note saying the ticket is open and awaiting follow-up, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "follows": false,
+     "reason": "A generic note would not logically cause the ticket to disappear."
+    },
+    {
+     "id": "d2",
+     "because": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline before 3 PM, the next colleague has all needed information to act immediately without contacting you.",
+     "follows": true,
+     "reason": "Providing detailed, actionable information logically enables the colleague to act."
+    },
+    {
+     "id": "d3",
+     "because": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "follows": true,
+     "reason": "Deleting the ticket logically removes the information, causing a delay."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 427,
+   "outputTokens": 255,
+   "totalTokens": 682,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you recall the message and watch whether anyone notices, recall rarely works outside your own organisation, and waiting hides from the owner that the clock has started.",
+     "follows": true,
+     "reason": "The consequence directly describes the likely failure and risk of the chosen action."
+    },
+    {
+     "id": "d2",
+     "because": "Because you report it now to the privacy owner with what was sent and to whom, and ask the wrong recipient to delete it and confirm, a fast report is containable; the organisation's obligations are measured in hours, and 5 pm does not postpone them to tomorrow.",
+     "follows": true,
+     "reason": "The consequence explains why this specific action is correct and timely."
+    },
+    {
+     "id": "d3",
+     "because": "Because you resend the statement to the right customer and consider it closed, since the information is not sensitive, an account statement is personal data even if not sensitive, and its arrival at the wrong recipient is the definition of a potential breach.",
+     "follows": true,
+     "reason": "The consequence directly critiques the reasoning and explains the breach created by the action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 286,
+   "totalTokens": 768,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__weak-swap",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you recall the message and watch whether anyone notices, an account statement is personal data even if not sensitive, and its arrival at the wrong recipient is the definition of a potential breach.",
+     "follows": true,
+     "reason": "The consequence directly critiques the passive approach of recalling and waiting."
+    },
+    {
+     "id": "d2",
+     "because": "Because you report it now to the privacy owner and ask the wrong recipient to delete it, a fast report is containable and the organisation's obligations are measured in hours.",
+     "follows": true,
+     "reason": "The consequence praises the proactive reporting action described in the option."
+    },
+    {
+     "id": "d3",
+     "because": "Because you resend the statement to the right customer and consider it closed, recall rarely works outside your own organisation and waiting hides from the owner that the clock has started.",
+     "follows": false,
+     "reason": "The consequence criticizes recalling and waiting, which are actions from option d1, not d3."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 260,
+   "totalTokens": 742,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you reply to the message asking for confirmation, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "follows": true,
+     "reason": "The consequence directly describes what happens when you perform the described action."
+    },
+    {
+     "id": "d2",
+     "because": "Because you call the number in the message signature, you are attempting verification from inside the thing you doubt, which is not verification.",
+     "follows": true,
+     "reason": "The consequence logically explains why the action is flawed."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call him on a number you had before the message and report it, you are performing the correct action despite the message's engineered obstacle.",
+     "follows": true,
+     "reason": "The consequence praises the action and explains why it is correct."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 443,
+   "outputTokens": 227,
+   "totalTokens": 670,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__weak-swap",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you reply to the message asking for confirmation, verifying from inside the thing you doubt is not verification.",
+     "follows": true,
+     "reason": "The consequence directly critiques the verification method described in the option."
+    },
+    {
+     "id": "d2",
+     "because": "Because you call the number in the message signature, your reply reaches the different reply-to address and the confirmation is from whoever wrote the message.",
+     "follows": false,
+     "reason": "The consequence describes replying to an email, not calling a number."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call him on a number you had before the message and report it, you take the correct action as 'cannot take calls' is engineered to stop this check.",
+     "follows": true,
+     "reason": "The consequence praises the action and explains why the option is correct."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 443,
+   "outputTokens": 233,
+   "totalTokens": 676,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__real-items",
+  "block": "b01_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you explain that 160 is the member's share and show how it was reached, the member now knows the bill is correct and whose rule produced it.",
+     "follows": true,
+     "reason": "The consequence directly describes the outcome of explaining the calculation."
+    },
+    {
+     "id": "d2",
+     "because": "Because you waive the 160 so the member stops complaining, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "follows": true,
+     "reason": "The consequence describes the direct results of waiving the fee."
+    },
+    {
+     "id": "d3",
+     "because": "Because you tell the member to take it up with the payer, the payer confirms the 160 is the member's share and the member returns more frustrated.",
+     "follows": true,
+     "reason": "The consequence logically follows from redirecting the member to the payer."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 461,
+   "outputTokens": 238,
+   "totalTokens": 699,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__weak-swap",
+  "block": "b01_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you explain that 160 is the member's share and show how it was reached, the member now knows the bill is correct and whose rule produced it.",
+     "follows": true,
+     "reason": "The consequence directly describes the outcome of explaining the calculation."
+    },
+    {
+     "id": "d2",
+     "because": "Because you waive the 160 so the member stops complaining, the payer confirms the 160 is the member's share and the member returns more frustrated.",
+     "follows": false,
+     "reason": "The consequence describes a different action (not waiving) and its outcome."
+    },
+    {
+     "id": "d3",
+     "because": "Because you tell the member to take it up with the payer, the clinic absorbs the loss and waiving the share can breach the agreement.",
+     "follows": false,
+     "reason": "The consequence describes waiving the fee, not telling the member to contact the payer."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 461,
+   "outputTokens": 245,
+   "totalTokens": 706,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__real-items",
+  "block": "b03_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you proceed and bill the payer assuming the renewal will appear, if coverage is not active on the service date, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "follows": true,
+     "reason": "The consequence directly describes the risk of proceeding without active coverage."
+    },
+    {
+     "id": "d2",
+     "because": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response with its reference number, the patient decides with the facts in front of them, and if the renewal does appear, the recorded reference makes the correction straightforward.",
+     "follows": true,
+     "reason": "The consequence logically follows from the transparent and documented approach."
+    },
+    {
+     "id": "d3",
+     "because": "Because you proceed and mark the claim as urgent, urgency does not create coverage and the claim is judged against the policy on the service date whatever it is labelled.",
+     "follows": true,
+     "reason": "The consequence correctly states that labeling a claim urgent does not affect coverage eligibility."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 446,
+   "outputTokens": 271,
+   "totalTokens": 717,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__weak-swap",
+  "block": "b03_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you proceed and bill the payer assuming renewal will appear, the claim is judged against the policy on the service date whatever it is labelled.",
+     "follows": true,
+     "reason": "The consequence directly describes the outcome of proceeding with billing despite no active coverage."
+    },
+    {
+     "id": "d2",
+     "because": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, if the renewal does appear, the recorded reference makes the correction straightforward.",
+     "follows": true,
+     "reason": "The consequence logically follows from the careful documentation and options offered."
+    },
+    {
+     "id": "d3",
+     "because": "Because you proceed and mark the claim as urgent, if coverage is not active on the service date, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "follows": true,
+     "reason": "The consequence describes the specific negative outcome of proceeding without active coverage, regardless of the 'urgent' marking."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 446,
+   "outputTokens": 259,
+   "totalTokens": 705,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__real-items",
+  "block": "b_l2_scenario_missing",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you submit now and add the name later if it is rejected, the claim is rejected at the first edit and you lose a full cycle.",
+     "follows": true,
+     "reason": "Submitting incomplete leads to immediate rejection and delay."
+    },
+    {
+     "id": "d2",
+     "because": "Because you get the name from the service record now and then submit, the claim goes out complete and passes on the first attempt.",
+     "follows": true,
+     "reason": "Completing the missing information before submission ensures a clean claim."
+    },
+    {
+     "id": "d3",
+     "because": "Because you enter the department's supervising physician instead, the field is now complete but wrong and may later read as a documentation failure.",
+     "follows": true,
+     "reason": "Substituting an incorrect provider creates a false completion with serious risks."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 416,
+   "outputTokens": 228,
+   "totalTokens": 644,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__weak-swap",
+  "block": "b_l2_scenario_missing",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you submit now and add the name later if it is rejected, the field is now complete but wrong and may pass the automated edit and later read as a documentation failure — worse than a rejection.",
+     "follows": true,
+     "reason": "The consequence directly describes the outcome of submitting an incomplete claim."
+    },
+    {
+     "id": "d2",
+     "because": "Because you get the name from the service record now, then submit, the claim goes out complete and passes on the first attempt, meeting the deadline and wasting no cycle.",
+     "follows": true,
+     "reason": "The consequence logically follows from taking the time to complete the claim correctly before submitting."
+    },
+    {
+     "id": "d3",
+     "because": "Because you enter the department's supervising physician instead, the claim is rejected at the first edit, causing you to lose a full cycle and return to the start weeks later.",
+     "follows": true,
+     "reason": "The consequence directly results from entering incorrect provider information."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 416,
+   "outputTokens": 257,
+   "totalTokens": 673,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__real-items",
+  "block": "b05_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you quietly downgrade those claims yourself before they go out, you have changed claims without the record changing — the same move you noticed, in the other direction.",
+     "follows": true,
+     "reason": "The consequence directly describes the action and its problematic parallel."
+    },
+    {
+     "id": "d2",
+     "because": "Because you treat it as a pattern and raise it through the compliance route, citing the claims and what their records show, a repeated mismatch is a pattern someone is answerable for.",
+     "follows": true,
+     "reason": "The consequence logically follows from the described action of formally reporting the pattern."
+    },
+    {
+     "id": "d3",
+     "because": "Because you assume the clinician sees more complex patients and move on, if the record does not show the complexity, the level is not supported.",
+     "follows": true,
+     "reason": "The consequence explains the risk of the assumption given the evidence in the records."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 473,
+   "outputTokens": 248,
+   "totalTokens": 721,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__weak-swap",
+  "block": "b05_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you quietly downgrade those claims yourself before they go out, perhaps they do — but if the record does not show the complexity, the level is not supported.",
+     "follows": true,
+     "reason": "The consequence directly addresses the action of downgrading claims without proper review."
+    },
+    {
+     "id": "d2",
+     "because": "Because you treat it as a pattern and raise it through the compliance route, citing the claims and what their records show, a repeated mismatch is a pattern someone is answerable for.",
+     "follows": true,
+     "reason": "The consequence logically follows from the action of formally reporting the pattern with evidence."
+    },
+    {
+     "id": "d3",
+     "because": "Because you assume the clinician sees more complex patients and move on, you have changed claims without the record changing — the same move you noticed, in the other direction.",
+     "follows": false,
+     "reason": "The consequence describes changing claims, which is not part of this option's action."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 473,
+   "outputTokens": 258,
+   "totalTokens": 731,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__real-items",
+  "block": "b07_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you let the appeal go ahead, there is no decision to appeal, the appeal is slow, consumes the filing window, and will lose an argument it never needed to enter.",
+     "follows": true,
+     "reason": "The consequence directly describes the negative outcomes of choosing to appeal when there is no refusal decision."
+    },
+    {
+     "id": "d2",
+     "because": "Because you stop the appeal, correct the blank field, and resubmit, it is a rejection: corrected and resubmitted, it is treated as a new claim rather than a disputed one, taking hours, not weeks.",
+     "follows": true,
+     "reason": "The consequence logically follows from the action of correcting and resubmitting the incomplete claim."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call the payer to dispute the refusal, the payer will confirm the claim was never processed and there is nothing to dispute until it is resubmitted.",
+     "follows": true,
+     "reason": "The consequence correctly states the result of disputing a non-existent refusal."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 429,
+   "outputTokens": 274,
+   "totalTokens": 703,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__weak-swap",
+  "block": "b07_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you let the appeal go ahead, the payer will confirm the claim was never processed.",
+     "follows": true,
+     "reason": "The consequence directly describes the outcome of choosing to proceed with the appeal."
+    },
+    {
+     "id": "d2",
+     "because": "Because you stop the appeal, correct the blank field, and resubmit, it is a rejection: corrected and resubmitted, it is treated as a new claim rather than a disputed one.",
+     "follows": true,
+     "reason": "The consequence logically follows from the described action of correcting and resubmitting."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call the payer to dispute the refusal, there is no decision to appeal.",
+     "follows": false,
+     "reason": "The consequence describes the state before the call, not a result of making the call."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 429,
+   "outputTokens": 232,
+   "totalTokens": 661,
+   "temperature": 0
+  }
+ }
+]
