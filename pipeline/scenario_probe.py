@@ -41,6 +41,37 @@ Reply with JSON only, no other text:
  "scenario_ok": true or false}}
 scenario_ok is false if any option's consequence does not follow."""
 
+# v2 (20 November): v1 read a weak option's honest warning as a consequence that
+# "does not follow" (OPS-01, real lesson, d1 and d3). A weak option is SUPPOSED to
+# get a bad outcome; the defect is a consequence about another option's action.
+# So the model first says, in its own words, what each consequence is about, then
+# matches it to the option, and only then looks at tone.
+PROMPT_V2 = """You check one branching scenario from a training lesson. A learner reads the situation,
+picks an option, and is then shown the consequence written under that option.
+
+Weak options are meant to get consequences that describe a bad outcome or name the
+mistake. That is correct, not a defect. Judge only these two things, for each option:
+1. Match: is the consequence about THIS option's action (what the learner just chose),
+   and not about what a different option does?
+2. Tone: a best option's consequence should not warn against it, and a weak option's
+   consequence should not praise it as best.
+
+For each option, first write in a few words what action the consequence is reacting
+to, then decide.
+
+Situation:
+{situation}
+
+Options:
+{options}
+
+Reply with JSON only, no other text:
+{{"decisions": [{{"id": "<option id>", "consequence_reacts_to": "<a few words>", "follows": true or false, "reason": "<one short sentence>"}}],
+ "scenario_ok": true or false}}
+scenario_ok is false if any option's consequence fails the match or the tone check."""
+
+PROMPTS = {'v1': PROMPT, 'v2': PROMPT_V2}
+
 
 def scenarios(lesson: dict):
     for bs in (lesson.get('blocks') or {}).values():
@@ -49,13 +80,13 @@ def scenarios(lesson: dict):
                 yield b
 
 
-def build(b: dict) -> str:
+def build(b: dict, prompt: str = 'v1', lang: str = 'En') -> str:
     p = b['payload']
     opts = '\n'.join(
         f"- id {d['id']}{' (marked best)' if d.get('isBest') else ''}\n"
-        f"  option: {d['optionEn']}\n  consequence: {d['consequenceEn']}"
+        f"  option: {d['option' + lang]}\n  consequence: {d['consequence' + lang]}"
         for d in p['decisions'])
-    return PROMPT.format(situation=p['situationEn'], options=opts)
+    return PROMPTS[prompt].format(situation=p['situation' + lang], options=opts)
 
 
 def main(argv=None) -> int:
@@ -63,9 +94,13 @@ def main(argv=None) -> int:
     ap.add_argument('--root', required=True)
     ap.add_argument('--models', required=True)
     ap.add_argument('--region', default='us-east-1')
+    ap.add_argument('--prompt', choices=sorted(PROMPTS), default='v1')
+    ap.add_argument('--lang', choices=('En', 'Ar'), default='En',
+                    help='which side of the bilingual scenario the probe reads')
+    ap.add_argument('--tag', default='', help='a suffix for the results file, e.g. v2-run1')
     args = ap.parse_args(argv)
     root = Path(args.root)
-    out = root / 'scenario-probe.json'
+    out = root / (f'scenario-probe-{args.tag}.json' if args.tag else 'scenario-probe.json')
     rows = json.loads(out.read_text()) if out.exists() else []
     done = {(r['copy'], r['block'], r['model']) for r in rows}
     for d in sorted(root.glob('*__*')):
@@ -74,7 +109,7 @@ def main(argv=None) -> int:
             for m in args.models.split(','):
                 if (d.name, b['id'], m) in done:
                     continue
-                text, usage = judge_bedrock.call_bedrock(build(b), m, args.region, max_tokens=1500)
+                text, usage = judge_bedrock.call_bedrock(build(b, args.prompt, args.lang), m, args.region, max_tokens=6000 if 'kimi' in m else 1500)
                 try:
                     v = judge_bedrock.extract_json(text)
                     ok = bool(v.get('scenario_ok'))

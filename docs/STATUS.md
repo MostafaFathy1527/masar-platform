@@ -12,6 +12,12 @@ Update this file at the end of every session. It is the first thing the next ses
   flagged 4 of 4 swapped copies with 1 false alarm in 4 real lessons; Nova Pro 4 of 4 with 3.
 - Report: `pipeline/out/calibration/2026-11-20-swapped-consequences/probe-report.md`. Cost at
   most $0.31 (estimate). Next: tighten the probe prompt, run it twice for drift.
+- Probe prompt v2 (same day): the OPS-01 false alarm is gone. GLM-5 (English) caught 8 of 8
+  with 0 of 8 false alarms over two runs; DeepSeek V3.2 keeps one steady false alarm on
+  SEC-01's best option, and the Arabic side shows the same one. Four real scenarios is too
+  few to seat anything. Report: `probe-report-v2.md` in the same folder; cost at most $0.33.
+- Panel: a seat whose key is refused (HTTP 401/403) prints `SEAT KEY REJECTED: <seat>`,
+  is skipped for the remaining lessons of the run, and leads the run summary.
 
 ## 8 November 2026: the 2 November panel ran with two seats empty
 

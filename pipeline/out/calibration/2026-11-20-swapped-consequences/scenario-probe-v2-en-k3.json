@@ -1,0 +1,306 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "cold transfer ending chat, forcing repeat explanation",
+     "follows": true,
+     "reason": "The consequence directly addresses transferring without a warm handover, and the negative outcome correctly fits a weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "promising a waiver the learner cannot authorise",
+     "follows": true,
+     "reason": "The consequence addresses the unauthorised promise and its fallout, correctly negative for a weak option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "warm handover with facts recorded and a callback commitment",
+     "follows": true,
+     "reason": "The consequence praises the warm handover and controlled promise, matching and appropriately affirming the best option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 561,
+   "outputTokens": 457,
+   "totalTokens": 1018,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "promising an unauthorised waiver",
+     "follows": false,
+     "reason": "It warns about a broken waiver promise, not about transferring him and ending the chat."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "warm handover with controlled callback",
+     "follows": false,
+     "reason": "It praises a warm handover, which is not the action of promising the waiver."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "cold transfer making him repeat himself",
+     "follows": false,
+     "reason": "It criticises a poor handover, so it warns against the marked-best action instead of confirming it."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 561,
+   "outputTokens": 917,
+   "totalTokens": 1478,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Leading the handover with the supplier order (arrival order)",
+     "follows": true,
+     "reason": "Consequence describes the bad result of putting the non-urgent order first, which is exactly this option's action, and appropriately warns a weak choice."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Opening with the urgent 14:00 Ali ticket",
+     "follows": true,
+     "reason": "Consequence praises surfacing the deadline first, matching this best option's action with appropriate positive tone."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Claiming 'nothing major' with two tickets open",
+     "follows": true,
+     "reason": "Consequence names this exact phrasing as a failure and shows the broken promise, matching the action and correctly warning a weak option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 568,
+   "outputTokens": 479,
+   "totalTokens": 1047,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "opening with Ali's 14:00 ticket",
+     "follows": false,
+     "reason": "It praises the deadline-first Ali line, not choosing the supplier order first."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "saying 'nothing major' despite a deadline",
+     "follows": false,
+     "reason": "It warns against the 'nothing major' failure, not the urgent Ali-first handover."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "ordering the two items by arrival",
+     "follows": false,
+     "reason": "It describes putting the order first by arrival, not opening with 'all good, nothing major.'"
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 568,
+   "outputTokens": 1864,
+   "totalTokens": 2432,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "recalling and waiting to see",
+     "follows": true,
+     "reason": "Consequence addresses recall failing and hiding the breach, matching this option's recall-and-watch action with appropriate negative tone."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "reporting immediately to privacy owner",
+     "follows": true,
+     "reason": "Consequence praises fast reporting and explains time pressure, matching this best option's action with appropriate approving tone."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "resending and dismissing as not sensitive",
+     "follows": true,
+     "reason": "Consequence rebuts the 'not sensitive' claim and the idea that resending closes it, matching this option with appropriate negative tone."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 543,
+   "outputTokens": 441,
+   "totalTokens": 984,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "reporting the breach quickly",
+     "follows": false,
+     "reason": "The consequence praises fast reporting (a different option's action) and calls this weak recall-and-watch choice 'the correct action,' failing both match and tone."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "dismissing it as not sensitive / just fixing the send",
+     "follows": false,
+     "reason": "The consequence rebuts the downplaying rationale of a weak option instead of reacting to this option's report-and-confirm-deletion action."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "recalling the message and waiting",
+     "follows": false,
+     "reason": "The consequence warns about recall failing and silent waiting, which is a different option's action, not resending to the right customer."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 543,
+   "outputTokens": 2063,
+   "totalTokens": 2606,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "replying to the message for confirmation",
+     "follows": true,
+     "reason": "Correctly shows that replying goes to the attacker's reply-to address, so the 'confirmation' is worthless — a fitting bad outcome for this weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the message signature",
+     "follows": true,
+     "reason": "Directly addresses using the signature number, naming the mistake of verifying via the suspect message itself — appropriate for a weak option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling a previously known number and reporting",
+     "follows": true,
+     "reason": "Praises this option as correct and explains why the 'cannot take calls' line was meant to block exactly this trusted-number check, matching the best-option tone."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 507,
+   "outputTokens": 752,
+   "totalTokens": 1259,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "us.moonshotai.kimi-k3",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Using the signature to verify",
+     "follows": false,
+     "reason": "It argues against trusting the signature (d2's action), not against replying to the message."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the manager to verify",
+     "follows": false,
+     "reason": "It praises this weak option as 'the correct action,' praise that fits calling a known number (d3), not the number in the signature."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Replying to the message for confirmation",
+     "follows": false,
+     "reason": "It describes the bad outcome of replying (d1's action) and so warns against the option marked best."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 507,
+   "outputTokens": 2034,
+   "totalTokens": 2541,
+   "cacheReadInputTokens": 0,
+   "cacheWriteInputTokens": 0,
+   "temperature": null
+  }
+ }
+]
