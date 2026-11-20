@@ -292,9 +292,23 @@ def run_judges(lesson_path: Path, region: str) -> str:
                             '--thinking-budget', str(spec['thinking_budget']),
                             '--temperature', str(spec['temperature']),
                             '--max-tokens', str(spec['max_tokens'])]))
+    rejected = _rejected_seats()
     for tag, argv in calls:
+        if tag in rejected:
+            print(f'SEAT KEY REJECTED: {tag} (refused earlier in this run; not called again)',
+                  file=sys.stderr)
+            continue
         try:
             judge_bedrock.main(argv)
+        except urllib.error.HTTPError as e:
+            if e.code in KEY_REJECTED:
+                # A refused key is not a judge that disagreed, and it will not start
+                # working on the next lesson: name it once, plainly, and stop calling it.
+                print(f'SEAT KEY REJECTED: {tag} (HTTP {e.code}); the seat stays empty', file=sys.stderr)
+                _remember_rejected(tag)
+            else:
+                print(f'{tag}: could not be reached ({e}); the seat stays empty', file=sys.stderr)
+            continue
         except (urllib.error.URLError, ConnectionError, TimeoutError, http.client.HTTPException) as e:
             print(f'{tag}: could not be reached ({e}); the seat stays empty', file=sys.stderr)
             continue
@@ -315,6 +329,31 @@ def run_judges(lesson_path: Path, region: str) -> str:
             print(f'{tag}: the gate refused the verdict ({e}); moved to refused-verdicts/, '
                   f'the seat stays empty', file=sys.stderr)
     return started
+
+
+# An API seat answering 401 or 403 has had its key refused. Only the API and
+# served seats are held to this: a Bedrock 403 can be credentials that expired
+# mid-run (ExpiredToken, 8 November), which the next lesson's fresh credentials
+# cure, so a Bedrock seat is always called again.
+KEY_REJECTED = (401, 403)
+# The workflow scores one lesson per process. This file, named by the variable,
+# carries the refused seats from one lesson to the next, so the first lesson pays
+# for the refusal and the others do not.
+REJECTED_FILE_ENV = 'PANEL_REJECTED_SEATS_FILE'
+
+
+def _rejected_seats() -> set[str]:
+    path = os.environ.get(REJECTED_FILE_ENV, '').strip()
+    if not path or not Path(path).exists():
+        return set()
+    return {line.strip() for line in Path(path).read_text(encoding='utf-8').splitlines() if line.strip()}
+
+
+def _remember_rejected(tag: str) -> None:
+    path = os.environ.get(REJECTED_FILE_ENV, '').strip()
+    if path:
+        with open(path, 'a', encoding='utf-8') as f:
+            f.write(tag + '\n')
 
 
 def _scored_at(path: Path) -> str:

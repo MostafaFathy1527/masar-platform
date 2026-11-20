@@ -106,6 +106,12 @@ jobs:
             export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
           }
           echo "## Judge panel, $(date -u +%F)" >> "$GITHUB_STEP_SUMMARY"
+          # A seat whose key is refused (HTTP 401/403) is written here by panel.py
+          # and not called again for the later lessons; the summary says so first,
+          # so a dead key never reads as judges that disagreed.
+          export PANEL_REJECTED_SEATS_FILE="$RUNNER_TEMP/rejected-seats.txt"
+          : > "$PANEL_REJECTED_SEATS_FILE"
+          announced=""
           [ "${{ steps.rent.outcome }}" = "failure" ] && echo "> The open seat is empty this week: no GPU could be rented or served (see the rent step). Every sample is NEEDS HUMAN by design." >> "$GITHUB_STEP_SUMMARY"
           for lesson in pipeline/out/lesson-sec-01/v1 pipeline/out/lesson-cs-01/v1 \
                         pipeline/out/lesson-prv-01/v1 pipeline/out/lesson-ops-01-r2/v2; do
@@ -116,6 +122,13 @@ jobs:
             # Cohere seat failed and the reason was lost with this file).
             cat panel.log
             out=$(tail -1 panel.log)
+            while read -r seat; do
+              [ -z "$seat" ] && continue
+              case " $announced " in *" $seat "*) continue;; esac
+              echo "> **SEAT KEY REJECTED: $seat.** Its key was refused (HTTP 401/403), so it was not called for the remaining lessons. Every lesson is NEEDS HUMAN until the key is replaced; this is not a split verdict." >> "$GITHUB_STEP_SUMMARY"
+              echo "SEAT KEY REJECTED: $seat"
+              announced="$announced $seat"
+            done < "$PANEL_REJECTED_SEATS_FILE"
             echo "- \`$lesson\`: $out" >> "$GITHUB_STEP_SUMMARY"
             # The judge-by-judge table, so a split can be read on the run page.
             [ -f "$lesson/panel-report.md" ] && { echo; echo "<details><summary>$lesson, judge by judge</summary>"; echo; sed -n '/^| Criterion/,/^| \*\*gate/p' "$lesson/panel-report.md"; echo; echo "</details>"; echo; } >> "$GITHUB_STEP_SUMMARY"
