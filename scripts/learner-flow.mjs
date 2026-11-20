@@ -236,13 +236,39 @@ await step('A pipeline draft opens from /samples, marked as a draft', async () =
   await open(href)
   return evaluate(`(() => {
     if (!/DRAFT/i.test(document.body.innerText)) throw new Error('the draft page does not say DRAFT')
+    if (!document.querySelector('a[href="/en/commission"]')) throw new Error('the draft page has no link to /en/commission')
     return location.pathname
   })()`)
 })
 
+await step('An Arabic draft, phone width', async () => {
+  await open('/ar/samples')
+  const href = await evaluate(`(() => {
+    const a = [...document.querySelectorAll('a[href^="/ar/samples/"]')][0]
+    if (!a) throw new Error('no draft linked from /ar/samples')
+    return a.getAttribute('href')
+  })()`)
+  await open(href, 390, 844)
+  return evaluate(noOverflow)
+})
+
+// The buyer's path ends here: the page must still carry a way to send material.
 await step('The commissioning page', async () => {
   await open('/en/commission')
-  return evaluate(`document.querySelector('h1')?.textContent.trim().slice(0, 80) || (() => { throw new Error('no h1') })()`)
+  return evaluate(`(() => {
+    const h1 = document.querySelector('h1')?.textContent.trim()
+    if (!h1) throw new Error('no h1')
+    if (!document.querySelector('a[href^="mailto:"]')) throw new Error('no mailto link on /en/commission')
+    return h1.slice(0, 80)
+  })()`)
+})
+
+await step('The commissioning page, Arabic, phone width', async () => {
+  await open('/ar/commission', 390, 844)
+  return evaluate(`(() => {
+    if (!document.querySelector('a[href^="mailto:"]')) throw new Error('no mailto link on /ar/commission')
+    return ${noOverflow}
+  })()`)
 })
 
 cdp.close()
