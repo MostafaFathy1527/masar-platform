@@ -1,0 +1,794 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "لأنك حولته إلى القسم المختص وأنهيت المحادثة، سيشرح كل شيء من جديد غداً وهذا ما قال إنه لن يفعله.",
+     "follows": true,
+     "reason": "إنهاء المحادثة دون تسليم يعني بالضرورة أن يشرح الموضوع مجدداً."
+    },
+    {
+     "id": "d2",
+     "because": "لأنك وعدته بإلغاء الرسوم لتُنهي التوتر، وعدت بما لا تستطيع أنت أن تجعله يحدث.",
+     "follows": true,
+     "reason": "الوعد بإلغاء الرسوم يتناقض مع كونك لا تملك صلاحية الإلغاء."
+    },
+    {
+     "id": "d3",
+     "because": "لأنك لخصت الحقائق وأخبرته من سيتولى الأمر، تنتقل الحقائق بدلاً من العميل.",
+     "follows": true,
+     "reason": "تسجيل الحقائق في السجل يغني العميل عن الحاجة لإعادة الشرح."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 599,
+   "outputTokens": 295,
+   "totalTokens": 894,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__weak-swap",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you transfer him to the relevant department and end the conversation, the transfer without context forces him to explain again, which is a leading cause of escalation.",
+     "follows": false,
+     "reason": "The consequence text incorrectly describes a broken promise, which is the consequence for option d2, not the action of transferring described here."
+    },
+    {
+     "id": "d2",
+     "because": "Because you promise to cancel the fees to end the tension, you promised what you cannot deliver, making a future rejection a complaint about a broken promise.",
+     "follows": false,
+     "reason": "The consequence text incorrectly describes the customer having to explain again, which is the consequence for option d1, not the action of making a false promise."
+    },
+    {
+     "id": "d3",
+     "because": "Because you summarize the facts and inform him who will handle the matter, you provided a warm handoff where facts transfer instead of the customer repeating himself.",
+     "follows": true,
+     "reason": "The consequence accurately describes the result of the action taken in the option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 599,
+   "outputTokens": 270,
+   "totalTokens": 869,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you define the item immediately with the ticket details, it allows the receiver to find the ticket quickly.",
+     "follows": true,
+     "reason": "The consequence accurately describes the positive result of the chosen action."
+    },
+    {
+     "id": "d2",
+     "because": "Because you state the action before defining the item, it may leave the receiver unsure of what the item is.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the structural mistake and its negative effect."
+    },
+    {
+     "id": "d3",
+     "because": "Because you provide a status without first defining the item, it may cause confusion.",
+     "follows": true,
+     "reason": "The consequence logically follows from the mistake of prioritizing status over context."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 491,
+   "outputTokens": 206,
+   "totalTokens": 697,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you start with 'Ticket Ali: Login glitch', the consequence says it identifies the item immediately and allows the receiver to find the ticket quickly.",
+     "follows": true,
+     "reason": "The consequence accurately describes the benefit of the chosen opening line."
+    },
+    {
+     "id": "d2",
+     "because": "Because you start with 'Call the customer before 14:00', the consequence says it provides status without identifying the item first, which may cause confusion.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the structural flaw in the chosen opening line."
+    },
+    {
+     "id": "d3",
+     "because": "Because you start with 'Waiting for tech team response', the consequence says it shows action before identifying the item, potentially leaving the receiver unsure.",
+     "follows": true,
+     "reason": "The consequence accurately critiques the lack of context in the chosen opening."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 491,
+   "outputTokens": 235,
+   "totalTokens": 726,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you opened with the supplier request, the item with a deadline ended up second and might be missed by a colleague.",
+     "follows": true,
+     "reason": "The consequence accurately describes the negative outcome of prioritizing the wrong item."
+    },
+    {
+     "id": "d2",
+     "because": "Because you opened with Ali's ticket, the deadline is visible first and the promise is kept.",
+     "follows": true,
+     "reason": "The consequence correctly identifies this as the best action and explains why."
+    },
+    {
+     "id": "d3",
+     "because": "Because you wrote 'nothing major', you made a common mistake and will break the promise to Ali.",
+     "follows": true,
+     "reason": "The consequence accurately identifies the specific mistake and its negative result."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 593,
+   "outputTokens": 211,
+   "totalTokens": 804,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you started with the order waiting for supplier confirmation, you broke the promise to Ali and committed a common error by ignoring the deadline.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of prioritizing a non-urgent item over one with a deadline."
+    },
+    {
+     "id": "d2",
+     "because": "Because you started with Ali's ticket due before 14:00, you prioritized the deadline correctly and assumed responsibility for the promise.",
+     "follows": true,
+     "reason": "The consequence accurately praises the correct prioritization of the item with a deadline."
+    },
+    {
+     "id": "d3",
+     "because": "Because you stated 'all good, nothing major', you arranged by arrival time and risked a colleague missing the urgent deadline.",
+     "follows": true,
+     "reason": "The consequence correctly describes the risk of using a status update that hides the urgent priority."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 593,
+   "outputTokens": 240,
+   "totalTokens": 833,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__real-items",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you write a general note saying the ticket is open and awaiting follow-up, the incoming colleague does not know what is urgent and lacks a clear plan, which may cause a delay.",
+     "follows": true,
+     "reason": "A vague note logically results in a lack of clarity for the next colleague."
+    },
+    {
+     "id": "d2",
+     "because": "Because you identify the urgent item, mention the current status, what was tried, and the next action with its time before 15:00, the incoming colleague has all the necessary information to act immediately without needing to call you.",
+     "follows": true,
+     "reason": "Providing comprehensive details logically enables the colleague to proceed without assistance."
+    },
+    {
+     "id": "d3",
+     "because": "Because you delete the ticket from the record temporarily to avoid confusing the incoming colleague, the ticket will be lost and become impossible to follow up on, creating a bigger problem.",
+     "follows": true,
+     "reason": "Deleting a record logically leads to the loss of that information and an inability to track it."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 527,
+   "outputTokens": 272,
+   "totalTokens": 799,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__weak-swap",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you write a general note saying the ticket is open, the ticket gets lost and becomes impossible to follow up on, creating a bigger problem.",
+     "follows": true,
+     "reason": "A vague handover note can indeed lead to the ticket being overlooked or lost, causing the stated negative outcome."
+    },
+    {
+     "id": "d2",
+     "because": "Because you identify the urgent item, mention the current status, what was tried, and the next action with its time before 15:00, the incoming colleague has all the necessary information to act immediately without needing to call you.",
+     "follows": true,
+     "reason": "Providing comprehensive details logically results in the colleague being fully informed and able to act independently."
+    },
+    {
+     "id": "d3",
+     "because": "Because you temporarily delete the ticket from the record to avoid confusing the incoming colleague, the incoming colleague does not know what is urgent and has no clear plan, which may cause a delay.",
+     "follows": false,
+     "reason": "Deleting the ticket removes the information, but the consequence text describes the result of a vague or incomplete handover rather than the specific act of deletion."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 527,
+   "outputTokens": 290,
+   "totalTokens": 817,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you withdraw the message and wait to see if anyone notices, the withdrawal rarely succeeds and the hidden breach is discovered later by those harmed.",
+     "follows": true,
+     "reason": "The consequence accurately describes the likely failure and negative outcome of the chosen action."
+    },
+    {
+     "id": "d2",
+     "because": "Because you report to the privacy officer now and request deletion, the action is correct and the quick report allows for containment.",
+     "follows": true,
+     "reason": "The consequence correctly praises the action as the correct procedure and notes the benefit of timeliness."
+    },
+    {
+     "id": "d3",
+     "because": "Because you resend to the correct client and consider the matter closed, the account statement is personal data and the breach remains unaddressed.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the legal nature of the data and the error in assuming the breach is resolved."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 601,
+   "outputTokens": 241,
+   "totalTokens": 842,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__weak-swap",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you withdraw the message and monitor, the consequence states that the data disclosure still occurred and constitutes a potential breach.",
+     "follows": true,
+     "reason": "The consequence correctly identifies that the action does not undo the error."
+    },
+    {
+     "id": "d2",
+     "because": "Because you report to the privacy officer and request deletion, the consequence confirms this is the correct procedure that meets time obligations.",
+     "follows": true,
+     "reason": "The consequence appropriately praises the correct action."
+    },
+    {
+     "id": "d3",
+     "because": "Because you resend to the correct client and consider it finished, the consequence warns that hiding the issue risks later discovery by the harmed party.",
+     "follows": true,
+     "reason": "The consequence correctly critiques the mistake of failing to report the breach."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 601,
+   "outputTokens": 217,
+   "totalTokens": 818,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you reply to the message asking for confirmation, your reply goes to the different reply address, which is not the apparent sender.",
+     "follows": true,
+     "reason": "The consequence correctly describes the technical result of using the 'reply' function on a spoofed email."
+    },
+    {
+     "id": "d2",
+     "because": "Because you call the number in the message signature, you are verifying the suspicious message using information contained within it.",
+     "follows": true,
+     "reason": "The consequence logically critiques the action of trusting contact details provided in a potentially fraudulent message."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call a number you had prior to the message to inform him, this is the correct procedure.",
+     "follows": true,
+     "reason": "The consequence correctly identifies this as the correct action and explains why the attacker tried to block it."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 523,
+   "outputTokens": 234,
+   "totalTokens": 757,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__weak-swap",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you reply to the message asking for confirmation, the signature is part of the message and verifying from within the suspicious object is not valid verification.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the logical flaw in trusting a potentially forged signature."
+    },
+    {
+     "id": "d2",
+     "because": "Because you call the number in the message signature, your response goes to the different reply address and the confirmation comes from the actual sender.",
+     "follows": true,
+     "reason": "The consequence accurately describes the technical result of calling the number provided in a suspicious email."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call him on a number you had before the message to inform him, this is the correct procedure.",
+     "follows": true,
+     "reason": "The consequence appropriately validates the action as correct, though the second sentence explains the trap rather than the direct result."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 523,
+   "outputTokens": 240,
+   "totalTokens": 763,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__real-items",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you explain that 160 is the share the policy leaves to the member, the member may still be unhappy, but they now know the bill is correct and whose rule produced it.",
+     "follows": true,
+     "reason": "The consequence logically results from the action of explaining the calculation and responsibility."
+    },
+    {
+     "id": "d2",
+     "because": "Because you waive the 160 so the member stops complaining, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "follows": true,
+     "reason": "The negative outcome is a direct and logical consequence of choosing to waive the fee."
+    },
+    {
+     "id": "d3",
+     "because": "Because you tell the member to take it up with the payer, the member returns to the clinic more frustrated, and nothing has been explained.",
+     "follows": true,
+     "reason": "The consequence accurately reflects the likely result of deflecting the member to the payer without assistance."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 455,
+   "outputTokens": 249,
+   "totalTokens": 704,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__weak-swap",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you explain that 160 is the share the policy leaves to the member, the member may still be unhappy, but they now know the bill is correct and whose rule produced it.",
+     "follows": true,
+     "reason": "Explaining the calculation logically leads to the member understanding the bill's validity."
+    },
+    {
+     "id": "d2",
+     "because": "Because you waive the 160 so the member stops complaining, the member returns to the clinic more frustrated, and nothing has been explained.",
+     "follows": false,
+     "reason": "The consequence text incorrectly discusses the payer confirming the share, which contradicts the action of waiving the fee."
+    },
+    {
+     "id": "d3",
+     "because": "Because you tell the member to take it up with the payer, the clinic absorbs the loss.",
+     "follows": false,
+     "reason": "Telling the member to contact the payer does not cause the clinic to absorb a loss; the consequence text belongs to the 'waive' option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 455,
+   "outputTokens": 259,
+   "totalTokens": 714,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__real-items",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you proceed and bill the payer assuming the renewal will appear, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "follows": true,
+     "reason": "Billing a payer without active coverage logically results in denial and patient liability."
+    },
+    {
+     "id": "d2",
+     "because": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them, and if the renewal does appear, the recorded reference makes the correction straightforward.",
+     "follows": true,
+     "reason": "Providing options empowers the patient to decide, and documentation facilitates future corrections."
+    },
+    {
+     "id": "d3",
+     "because": "Because you proceed and mark the claim as urgent, urgency does not create coverage and the claim is judged against the policy on the service date whatever it is labelled.",
+     "follows": true,
+     "reason": "Marking a claim urgent affects processing speed but cannot create benefits where none exist."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 437,
+   "outputTokens": 262,
+   "totalTokens": 699,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__weak-swap",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you proceed and bill the payer assuming the renewal will appear, the claim is judged against the policy on the service date whatever it is labelled.",
+     "follows": true,
+     "reason": "Billing with an assumption naturally leads to the reality of the claim judgment described."
+    },
+    {
+     "id": "d2",
+     "because": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them and any correction is straightforward.",
+     "follows": true,
+     "reason": "Providing options empowers the patient to decide, and recording the event facilitates future corrections."
+    },
+    {
+     "id": "d3",
+     "because": "Because you proceed and mark the claim as urgent, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "follows": true,
+     "reason": "Marking a claim urgent does not validate coverage, so billing an inactive policy results in refusal and patient liability."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 437,
+   "outputTokens": 255,
+   "totalTokens": 692,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__real-items",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you send the claim now and add the name later, it is rejected at initial review, causing a lost cycle.",
+     "follows": true,
+     "reason": "Sending an incomplete claim directly leads to the stated rejection and delay."
+    },
+    {
+     "id": "d2",
+     "because": "Because you get the name from the service record now, the claim is sent complete and passes the first check.",
+     "follows": true,
+     "reason": "Retrieving the missing information logically results in a complete and successful submission."
+    },
+    {
+     "id": "d3",
+     "because": "Because you enter the department head's name instead, the field is completed but incorrect.",
+     "follows": true,
+     "reason": "Entering a substitute name fills the field but violates the requirement for accuracy."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 517,
+   "outputTokens": 213,
+   "totalTokens": 730,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__weak-swap",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you send the claim now and add the name later, the field becomes complete but incorrect, potentially reading as a documentation error.",
+     "follows": true,
+     "reason": "The consequence accurately describes the negative outcome of submitting incomplete information."
+    },
+    {
+     "id": "d2",
+     "because": "Because you get the name from the service record now and then send, the claim is sent complete and passes the check on the first attempt.",
+     "follows": true,
+     "reason": "The consequence logically follows the action of correcting the error before submission."
+    },
+    {
+     "id": "d3",
+     "because": "Because you enter the department head's name instead, the claim is rejected at the initial check.",
+     "follows": true,
+     "reason": "The consequence correctly identifies that submitting incorrect information leads to rejection."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 517,
+   "outputTokens": 219,
+   "totalTokens": 736,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__real-items",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you quietly downgrade those claims yourself, you have changed claims without the record changing and the pattern itself is never examined.",
+     "follows": true,
+     "reason": "The consequence accurately describes the result of taking unilateral action without investigation."
+    },
+    {
+     "id": "d2",
+     "because": "Because you treat it as a pattern and raise it through the compliance route, a repeated mismatch is identified as a pattern someone is answerable for.",
+     "follows": true,
+     "reason": "The consequence logically follows the action of formally reporting the observed pattern."
+    },
+    {
+     "id": "d3",
+     "because": "Because you assume the clinician sees more complex patients and move on, assuming the best of a pattern is how upcoding persists.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the negative outcome of ignoring the red flags."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 469,
+   "outputTokens": 227,
+   "totalTokens": 696,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__weak-swap",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you quietly downgrade those claims yourself, you have changed claims without the record changing.",
+     "follows": false,
+     "reason": "The consequence text describes altering claims without documentation, which matches the action of option d3 rather than d1."
+    },
+    {
+     "id": "d2",
+     "because": "Because you treat it as a pattern and raise it through the compliance route, the pattern is examined and kept about evidence rather than the clinician.",
+     "follows": true,
+     "reason": "The consequence logically flows from the action of reporting the pattern through proper channels."
+    },
+    {
+     "id": "d3",
+     "because": "Because you assume the clinician sees more complex patients and move on, the pattern itself is never examined and continues.",
+     "follows": true,
+     "reason": "The consequence accurately describes the result of ignoring the identified pattern."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 469,
+   "outputTokens": 227,
+   "totalTokens": 696,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__real-items",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you let the appeal go ahead, there is no decision to appeal and the process wastes time.",
+     "follows": true,
+     "reason": "The consequence correctly identifies that appealing a non-decision is a futile mistake."
+    },
+    {
+     "id": "d2",
+     "because": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "follows": false,
+     "reason": "The consequence incorrectly labels the action a 'rejection' and warns the learner, contradicting the 'best' designation."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call the payer to dispute the refusal, the payer will confirm the claim was never processed.",
+     "follows": true,
+     "reason": "The consequence logically follows from the fact that the claim was not actually refused."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 423,
+   "outputTokens": 208,
+   "totalTokens": 631,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__weak-swap",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because": "Because you let the appeal go ahead, the payer will confirm the claim was never processed and there is nothing to dispute.",
+     "follows": true,
+     "reason": "The consequence correctly identifies that appealing an unprocessed claim is a futile action."
+    },
+    {
+     "id": "d2",
+     "because": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "follows": true,
+     "reason": "The consequence accurately describes the efficient outcome of correcting the technical error."
+    },
+    {
+     "id": "d3",
+     "because": "Because you call the payer to dispute the refusal, the appeal is slow and will lose an argument it never needed to enter.",
+     "follows": true,
+     "reason": "The consequence correctly warns that disputing a technical rejection is an unnecessary waste of time."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 423,
+   "outputTokens": 232,
+   "totalTokens": 655,
+   "temperature": 0
+  }
+ }
+]

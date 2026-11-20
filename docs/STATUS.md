@@ -20,8 +20,9 @@ Update this file at the end of every session. It is the first thing the next ses
   11. Prompt v3 makes the model write "Because you <option>, <consequence>" first:
   DeepSeek V3.2 or GLM-5 flagging caught 9 of 11 in both of two runs, with 0 false alarms
   in 44 verdicts on real lessons. Reports: `2026-11-20-probe-wider`, `-probe-weak-swap`,
-  `-probe-v3`. Cost of the three at most $0.71 (estimate). Not a seat; at most an advisory
-  line.
+  `-probe-v3`. On the Arabic side the same v3 caught only 5 of 11, with 1 false alarm.
+  Cost of the three at most $0.95 (estimate). Not a seat; at most an advisory line, English
+  side only.
 - Panel: a seat whose key is refused (HTTP 401/403) prints `SEAT KEY REJECTED: <seat>`,
   is skipped for the remaining lessons of the run, and leads the run summary.
 

@@ -26,10 +26,17 @@ rcm-03 was never caught.
 the realistic defect with no false alarm in 44 real-lesson verdicts, and it held over two
 runs. Still a small set: 11 scenarios, one planted defect type.
 
+**Arabic side (`--lang Ar`, one run, same copies).** DeepSeek V3.2 5 of 11, GLM-5 4 of
+11, either one 5 of 11; one false alarm (GLM-5 on rcm-07's real copy). The same
+scenarios, the same prompt, and the catch rate falls from 9 to 5 of 11. These models
+check meaning less well in Arabic, so an Arabic-only lesson would get a much weaker check.
+
 **Recommendation.** v3 with "either DeepSeek V3.2 or GLM-5 flags" is good enough to try
 as an advisory line in the panel report (never a seat, never a PASS/FAIL input) once
-Tarek agrees. Before that: more scenarios (each new lesson adds one) and an Arabic-side
-run of v3.
+Tarek agrees. Run it on the English side only; for the Arabic side, the next test is a probe
+that reads both sides at once, or an Arabic-strong model. Before any of that: more
+scenarios (each new lesson adds one).
 
-**Cost.** 88 Bedrock calls, 39,684 input and 21,434 output tokens. At most $0.44
-(estimate, priced high), on AWS credits.
+**Cost.** English: 88 Bedrock calls, 39,684 input and 21,434 output tokens, at most
+$0.44. Arabic: 44 calls, 22,366 input and 11,408 output tokens, at most $0.24. Estimates,
+priced high, on AWS credits.
