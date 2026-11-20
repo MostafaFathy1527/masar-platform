@@ -1,0 +1,88 @@
+{
+  "courseSlug": "customer-service",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge.",
+  "items": [
+    {
+      "key": "CS-01-KC-01",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يفتتح المكالمة غاضباً عن طلب وصل متأخراً ومكسوراً. ما أول جملة ينبغي أن تقولها؟",
+      "stemEn": "A customer opens the call angry about an order that arrived late and broken. What is the first thing you should say?",
+      "rationaleAr": "من لا يشعر أنه مسموع لا يسمع. الإقرار يسمّي التجربة بكلمات العميل قبل أي كلام عن السبب أو الحل، وهو ليس اعترافاً بخطأ لم يثبت.",
+      "rationaleEn": "A person who does not feel heard cannot hear. Acknowledgement names the experience in the customer's words before any cause or fix, and it is not an admission of a fault not yet established.",
+      "options": [
+        {
+          "textAr": "«آسف لأنك تشعر بهذا الشكل، دعني أشرح سياسة الشحن.»",
+          "textEn": "\"I'm sorry you feel that way; let me explain our shipping policy.\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. هذه تعتذر عن الشعور لا عن الحدث، ثم تنتقل مباشرة إلى الدفاع عن السياسة. العميل يسمع الاثنين كصدّ.",
+          "feedbackEn": "No. This apologises for the feeling rather than the event, then goes straight to defending a policy. The customer hears both as a brush-off."
+        },
+        {
+          "textAr": "«وصلك الطلب متأخراً ومكسوراً، وأفهم لماذا أنت غاضب.»",
+          "textEn": "\"Your order arrived late and broken, and I can see why you are angry.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. سمّيت ما حدث بكلماته، ووافقت على أن تجربته سيئة — وهي حقيقة يملكها — من دون أن تحكم بعد على من أخطأ.",
+          "feedbackEn": "Correct. You named what happened in his words and agreed his experience was bad — a fact he owns — without yet ruling on who was at fault."
+        },
+        {
+          "textAr": "«سأحوّلك إلى قسم الشحن فهم المسؤولون عن التوصيل.»",
+          "textEn": "\"I'll transfer you to shipping; they handle deliveries.\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. نقل عميل غاضب قبل أن يُسمَع، وبلا تسليم، يجعله يشرح كل شيء من جديد — وهذا طريق التصعيد.",
+          "feedbackEn": "No. Transferring an angry customer before he is heard, and without a handover, makes him explain everything again — which is the road to escalation."
+        },
+        {
+          "textAr": "«سنعوّضك عن كل شيء، لا تقلق.»",
+          "textEn": "\"We'll make it all up to you, don't worry.\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. وعد بنتيجة لم تثبت حقائقها بعد ولا تملك أنت بالضرورة صلاحيتها. إن لم يتحقق صارت الشكوى عن وعد مكسور.",
+          "feedbackEn": "No. A promise of an outcome whose facts are not yet established and which you may not have authority over. If it does not happen, the complaint becomes about a broken promise."
+        }
+      ]
+    },
+    {
+      "key": "CS-01-KC-02",
+      "objectiveId": "CS-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "حدّدت المشكلة واتفقتما على استرداد المبلغ. أي إغلاق هو الخطوة التالية المتفق عليها؟",
+      "stemEn": "You have established the facts and agreed on a refund. Which close is an agreed next step?",
+      "rationaleAr": "الخطوة المتفق عليها تحتاج ثلاثة أشياء: إجراء محدد، ووقت محدد، وطريقة يعرف بها العميل أنها تمّت. ما ينقصه أي منها يعيد العميل إلى الاتصال ليصنعه بنفسه.",
+      "rationaleEn": "An agreed next step needs three things: a specific action, a specific time, and a way the customer will know it happened. Anything missing one of them sends the customer back to call and create it.",
+      "options": [
+        {
+          "textAr": "«سيتابع أحد الزملاء الموضوع قريباً.»",
+          "textEn": "\"One of my colleagues will follow up soon.\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. لا اسم، ولا وقت، ولا طريقة تحقق. هذا هو الإغلاق الذي يصنع الشكوى المتكررة.",
+          "feedbackEn": "No. No name, no time, no way to verify. This is the close that manufactures the repeat complaint."
+        },
+        {
+          "textAr": "«تم. هل هناك شيء آخر أستطيع مساعدتك به؟»",
+          "textEn": "\"Done. Is there anything else I can help with?\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. «تم» لا تقول ماذا تم ولا متى يراه العميل. سيكتشف غداً أنه لا يعرف ما إذا كان شيء قد حدث فعلاً.",
+          "feedbackEn": "No. \"Done\" says neither what was done nor when the customer will see it. Tomorrow he will discover he has no idea whether anything happened."
+        },
+        {
+          "textAr": "«رفعت الاسترداد الآن؛ يصل بطاقتك خلال خمسة أيام عمل، وستصلك رسالة تأكيد اليوم.»",
+          "textEn": "\"I've raised the refund now; it reaches your card within five working days, and you'll get a confirmation email today.\"",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. إجراء، ووقت، وطريقة يعرف بها العميل أنه حدث — ثلاثة أشياء يمكنه أن يحاسبك عليها.",
+          "feedbackEn": "Correct. An action, a time, and a way the customer will know it happened — three things he can hold you to."
+        },
+        {
+          "textAr": "«راسلنا على البريد إن لم يصلك المبلغ.»",
+          "textEn": "\"Email us if the refund doesn't arrive.\"",
+          "isCorrect": false,
+          "feedbackAr": "لا. هذا ينقل عبء المتابعة إلى العميل الذي اشتكى أصلاً من أن بريده لم يُجَب. الاسم على الشكوى اسمك حتى تُغلق.",
+          "feedbackEn": "No. This hands the follow-up burden back to the customer who complained that his email went unanswered. The name on the complaint is yours until it closes."
+        }
+      ]
+    }
+  ]
+}

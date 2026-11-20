@@ -1,0 +1,34 @@
+{
+  "lesson": "writing-a-shift-handover",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-11-20T12:10:45.364404+00:00",
+    "usage": {
+      "inputTokens": 8145,
+      "outputTokens": 3342
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 4,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 2,
+    "bilingual_quality": 4,
+    "concision": 4,
+    "accessibility_ip": 4
+  },
+  "not_scored": {},
+  "notes": {
+    "scenario_authenticity": "The decision consequences are misassigned to options. d2 (the urgent-first line, flagged isBest) carries the consequence text describing the 'nothing major' failure, which belongs to d3. d3 ('All good, nothing major') carries the 'you ordered by arrival' text, which describes d1. d1 (supplier order first) is told 'Best'. As shipped, a learner who picks the correct answer is told it is a classic failure, and a learner who picks the weak answer is praised. The situation itself is authentic with real friction (arrival order vs deadline), but the scrambled feedback makes the block actively teach the wrong lesson."
+  },
+  "verdict_notes": "Knowledge checks are excellent — every distractor is a live misconception and the feedback names it. The lesson is badly damaged by the scenario block, whose consequence texts are rotated one option off from their isBest flags, delivering wrong feedback to every choice. Fix that mapping and this is a solid lesson; as submitted, criterion 5 sits below the floor."
+}

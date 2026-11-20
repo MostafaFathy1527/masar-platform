@@ -1,0 +1,35 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "deepseek.v3.2",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": 0,
+    "scored_at": "2026-11-20T12:04:49.762484+00:00",
+    "usage": {
+      "inputTokens": 6030,
+      "outputTokens": 260
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 4,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "knowledge_check": "Distractors are plausible and drawn from real misconceptions, but feedback for some incorrect options could more explicitly name the specific misconception (e.g., 'believing that a logo proves authenticity' vs. 'a logo is an image copied in seconds').",
+    "concision": "Prose is clear and purposeful, but some sections (e.g., the introductory rich_text) are slightly verbose. The content earns its space, but could be tightened without loss."
+  },
+  "verdict_notes": "All criteria score 4 or 5. The lesson is well-aligned, authentic, and provides high-quality examples and scenarios. The knowledge checks are strong but have minor room for improvement in feedback specificity. The Arabic reads naturally."
+}

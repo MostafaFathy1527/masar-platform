@@ -1,0 +1,530 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The consequence plausibly describes the frustration of repeating the story after a cold transfer."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence plausibly describes the risk of escalating a broken promise."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence plausibly describes the benefit of a warm handover and a controlled promise."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 414,
+   "outputTokens": 142,
+   "totalTokens": 556,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence describes a negative outcome that aligns with the customer's stated frustration, but it incorrectly suggests that a transfer without a warm handover is chosen, which is not the action described in the option."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence accurately reflects the risk of making a promise you cannot fulfill, leading to a complaint about a broken promise."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence correctly describes a positive outcome where the situation is handled professionally without making unfulfillable promises, justifying why this option is marked as best."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 403,
+   "outputTokens": 183,
+   "totalTokens": 586,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence describes promising something (which d1 does not do) rather than the abrupt transfer."
+    },
+    {
+     "id": "d2",
+     "follows": false,
+     "reason": "The consequence praises a warm handover and a controlled promise, but d2 actually promises the waiver, which is not controlled."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence describes a transfer without a warm handover, but d3 explicitly keeps ownership and does not transfer the customer."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 414,
+   "outputTokens": 164,
+   "totalTokens": 578,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence incorrectly suggests a broken promise, which is not the direct result of transferring the customer."
+    },
+    {
+     "id": "d2",
+     "follows": false,
+     "reason": "The consequence misrepresents the action taken; promising the waiver is not the same as a warm handover."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence correctly reflects the potential outcome of the best option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 403,
+   "outputTokens": 142,
+   "totalTokens": 545,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence describes a risk of missing Ali's urgent deadline, which contradicts choosing the non-urgent order first."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence correctly explains why prioritizing the urgent, promised item is best practice."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence criticizes the option as a failure, which does not fit the option's own description."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 154,
+   "totalTokens": 575,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The consequence correctly describes the scenario where the order is prioritized by arrival, making the urgent ticket seem less immediate."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence appropriately highlights the urgency and importance of Ali's ticket, which aligns with it being marked as the best option."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence incorrectly downplays the urgency of Ali's ticket, leading to a broken promise, which contradicts the scenario's requirements."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 165,
+   "totalTokens": 586,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence praises it as 'Best' and describes proper handover procedure, but the option ignores the urgent deadline for Ali's ticket."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence correctly warns that choosing 'nothing major' would break Ali's promise, which aligns with this option's focus on the urgent deadline."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence describes ordering by arrival and hiding urgency, but the option text itself is 'All good, nothing major,' which the consequence is criticizing."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 180,
+   "totalTokens": 601,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence incorrectly describes the action of the best option."
+    },
+    {
+     "id": "d2",
+     "follows": false,
+     "reason": "The consequence incorrectly states a negative outcome for the best option."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence incorrectly describes the action and downplays the urgency."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 126,
+   "totalTokens": 547,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The consequence plausibly describes why recalling and waiting is risky and could worsen the breach."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence correctly explains why immediate reporting is the proper, time-sensitive response."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence accurately explains why resending alone does not address the data breach that already occurred."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 399,
+   "outputTokens": 146,
+   "totalTokens": 545,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The consequence correctly explains the ineffectiveness of recalling the message and the hidden risk of a breach."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence accurately describes the correct and prompt action to take, aligning with the organization's obligations."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence properly identifies the issue with resending the statement and the ongoing risk of a breach."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 393,
+   "outputTokens": 149,
+   "totalTokens": 542,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": false,
+     "reason": "The consequence praises it as correct, but the option suggests passive monitoring instead of immediate reporting."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence correctly explains why immediate reporting is necessary for a potential breach."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "The consequence explains why resending alone is insufficient and hides the breach."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 399,
+   "outputTokens": 142,
+   "totalTokens": 541,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The consequence correctly describes the action of recalling the message and monitoring the situation."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "The consequence accurately reflects the importance of reporting the incident and addressing the potential breach."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence incorrectly downplays the severity of the situation and the need for immediate action."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 393,
+   "outputTokens": 139,
+   "totalTokens": 532,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "Replying to the different reply-to address would indeed go to someone other than the apparent sender, matching the suspicious detail."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "Calling a number provided in the suspicious message does not verify the sender, as the message itself is in doubt."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "Calling a known number bypasses the engineered 'cannot take calls' obstacle, which is the correct verification step."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 360,
+   "outputTokens": 166,
+   "totalTokens": 526,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "The reply reaches the different reply-to address, which aligns with the action taken."
+    },
+    {
+     "id": "d2",
+     "follows": true,
+     "reason": "Calling the number in the message signature is rightly questioned as it doesn't provide external verification."
+    },
+    {
+     "id": "d3",
+     "follows": false,
+     "reason": "The consequence incorrectly states that calling him is the correct action despite the message saying 'cannot take calls', which suggests this method is meant to be avoided."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 356,
+   "outputTokens": 158,
+   "totalTokens": 514,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "Replying to the message for confirmation would indeed send the reply to the suspicious reply-to address, not verify the sender."
+    },
+    {
+     "id": "d2",
+     "follows": false,
+     "reason": "The consequence praises the option as correct, but the scenario marks d3 as best and warns against calling the number in the message."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "Calling a known number and reporting the suspicious message is the recommended action, and the consequence correctly describes the risk of replying."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 360,
+   "outputTokens": 172,
+   "totalTokens": 532,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "us.amazon.nova-pro-v1:0",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "follows": true,
+     "reason": "Correctly identifies the flaw in verifying through the doubtful message itself."
+    },
+    {
+     "id": "d2",
+     "follows": false,
+     "reason": "Incorrectly identifies calling the number as the correct action despite the message stating 'cannot take calls'."
+    },
+    {
+     "id": "d3",
+     "follows": true,
+     "reason": "Accurately describes the consequence of using a previously known contact method and reporting the situation."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 356,
+   "outputTokens": 142,
+   "totalTokens": 498,
+   "temperature": 0
+  }
+ }
+]

@@ -1,0 +1,36 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-11-20T12:08:41.668034+00:00",
+    "usage": {
+      "inputTokens": 7491,
+      "outputTokens": 3575
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 4,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 1,
+    "bilingual_quality": 5,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "objective_alignment": "Every block serves PRV-01, but the L1 takeaways assert points L1 never teaches: data-subject requests (takeaway 5) and need-to-know sharing (takeaway 4) have no L1 content — only sensitive data and potential breach get definition cards. An L1-only learner is told to remember things they were not taught.",
+    "worked_example": "Steps show what and why, and step 3 names the test (does it serve the task). But step 4's 'why' (preventing the colleague asking someone else tomorrow) justifies the explanation, not the withholding itself, and the steps stop short of what would change the decision — a true need for names, a larger team where aggregation fails. Meets the letter of the rubric, not its full depth.",
+    "scenario_authenticity": "The situation itself is excellent (autocomplete wrong-recipient, 5 pm), but the consequences are miswired. d1 ('recall and watch', marked wrong) carries the consequence that begins 'The correct action. A fast report is containable...' — text that belongs to d2. d2 (the correct option) carries the rebuttal to d3's 'not sensitive' reasoning ('personal data even if not sensitive... fixing the send does not undo the disclosure'). d3 carries the rebuttal to d1 ('recall rarely works outside your organisation... waiting hides that the clock started'). As shipped, choosing the wrong answer is praised as correct and choosing the right answer is answered with a rebuttal to an option the learner did not pick. The scored experience is broken regardless of how authentic the setup is."
+  },
+  "verdict_notes": "The scenario block's consequence payloads are rotated across the three decisions: the incorrect recall option is congratulated as 'the correct action', and the correct report option receives the rebuttal meant for the resend option. That is an automatic 1 on scenario authenticity and a gate failure on the floor criterion. Everything else is strong — the knowledge checks are the best part, with distractors drawn from real misconceptions — but this lesson cannot ship until the consequence mapping is fixed."
+}

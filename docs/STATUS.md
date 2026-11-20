@@ -2,6 +2,17 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 20 November 2026: swapped scenario consequences, a new planted defect
+
+- `calibrate_judges.py` gains `swapped-consequences`: every decision shows the next one's
+  consequence. `validate.py` passes all four copies, so only a reader can catch it.
+- Hosted seats, full rubric: Kimi K3 4 of 4, DeepSeek V3.2 0 of 4, GLM-5 0 of 4 (both scored 5
+  on every copy). The split rule sends each copy to NEEDS HUMAN, through one seat only.
+- `scenario_probe.py` (experiment, not a seat) asks one question per scenario: DeepSeek V3.2
+  flagged 4 of 4 swapped copies with 1 false alarm in 4 real lessons; Nova Pro 4 of 4 with 3.
+- Report: `pipeline/out/calibration/2026-11-20-swapped-consequences/probe-report.md`. Cost at
+  most $0.31 (estimate). Next: tighten the probe prompt, run it twice for drift.
+
 ## 8 November 2026: the 2 November panel ran with two seats empty
 
 - **What happened:** run 41482142257 scored every sample with three judges, so all four went to

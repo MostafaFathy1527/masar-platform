@@ -1,0 +1,88 @@
+{
+  "courseSlug": "privacy-awareness",
+  "note": "DRAFT output of a pipeline run outside the medical-insurance domain. Not seeded. Every scenario is fictional and authored from public knowledge; no law or regulator is named.",
+  "items": [
+    {
+      "key": "PRV-01-KC-01",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "جدول بلا أسماء فيه: المسمّى الوظيفي، القسم، تاريخ الالتحاق، وتقييم الأداء، لفريق من ستة أشخاص. هل هو بيانات شخصية؟",
+      "stemEn": "A spreadsheet with no names: job title, department, start date and performance rating, for a team of six. Is it personal data?",
+      "rationaleAr": "المعيار إمكانية التعرّف لا وجود الاسم. في فريق من ستة، مسمّى وقسم وتاريخ التحاق تحدد الشخص بيقين، فتقييمه صار معلومة عنه.",
+      "rationaleEn": "The test is identifiability, not the presence of a name. In a team of six, title plus department plus start date pins down the person, so the rating is information about them.",
+      "options": [
+        {
+          "textAr": "لا، لأنه لا يحتوي على أسماء.",
+          "textEn": "No, because it contains no names.",
+          "isCorrect": false,
+          "feedbackAr": "لا. غياب الاسم لا يعني غياب الهوية. السؤال هو: هل يستطيع أحد أن يعرف عمّن هذا؟ وفي فريق من ستة، نعم.",
+          "feedbackEn": "No. The absence of a name is not the absence of identity. The question is whether someone could work out who this is about — and in a team of six, they can."
+        },
+        {
+          "textAr": "نعم، لأن المجموعة تحدد كل شخص في فريق بهذا الحجم.",
+          "textEn": "Yes, because the combination identifies each person in a team that size.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. حقائق عادية مجتمعةً تشير إلى شخص واحد، فهي بيانات شخصية والقواعد تنطبق عليها.",
+          "feedbackEn": "Correct. Ordinarily harmless facts that together point at one person are personal data, and the rules apply."
+        },
+        {
+          "textAr": "نعم، لكن فقط إن كان التقييم سلبياً.",
+          "textEn": "Yes, but only if the rating is negative.",
+          "isCorrect": false,
+          "feedbackAr": "لا. كون المعلومة بيانات شخصية لا يعتمد على أنها مُحرجة؛ يعتمد على أنها تتعلق بشخص يمكن تحديده.",
+          "feedbackEn": "No. Whether information is personal data does not depend on whether it is embarrassing; it depends on whether it relates to an identifiable person."
+        },
+        {
+          "textAr": "لا، لأن بيانات الموظفين داخلية ولا تُعدّ شخصية.",
+          "textEn": "No, because employee data is internal and does not count as personal.",
+          "isCorrect": false,
+          "feedbackAr": "لا. الموظفون أشخاص، وبياناتهم شخصية سواء بقيت داخل المؤسسة أو لا. «داخلي» يحدد القناة لا التصنيف.",
+          "feedbackEn": "No. Employees are people, and their data is personal whether it stays inside the organisation or not. \"Internal\" describes the channel, not the classification."
+        }
+      ]
+    },
+    {
+      "key": "PRV-01-KC-02",
+      "objectiveId": "PRV-01",
+      "type": "MCQ_SINGLE",
+      "bloom": "APPLY",
+      "formative": true,
+      "stemAr": "عميل يكتب لك: «أريد نسخة من كل ما تحتفظون به عني، واحذفوا رقم هاتفي.» ما الإجراء الصحيح؟",
+      "stemEn": "A customer writes: \"I want a copy of everything you hold about me, and delete my phone number.\" What is the correct action?",
+      "rationaleAr": "هذا طلب صاحب بيانات، وعليه عدّاد في معظم الأنظمة يبدأ من يوم الوصول. يذهب إلى مسؤول الخصوصية في اليوم نفسه، ولا يُنفَّذ جزئياً ولا يُؤجَّل.",
+      "rationaleEn": "This is a data-subject request, and in most regimes it carries a clock that starts the day it arrives. It goes to the privacy owner the same day, neither partially fulfilled nor parked.",
+      "options": [
+        {
+          "textAr": "تحذف رقم الهاتف فوراً وترسل له ما تجده في نظامك.",
+          "textEn": "Delete the phone number straight away and send him whatever you can find in your system.",
+          "isCorrect": false,
+          "feedbackAr": "لا. ما تجده أنت ليس «كل ما تحتفظ به المؤسسة»، والحذف قبل التحقق من الهوية قد يكون هو نفسه مشكلة. الطلب له مسار.",
+          "feedbackEn": "No. What you can find is not \"everything the organisation holds\", and deleting before identity is verified can itself be a problem. The request has a route."
+        },
+        {
+          "textAr": "ترد أنكم لا تقدّمون نسخاً من البيانات لأسباب أمنية.",
+          "textEn": "Reply that you do not provide copies of data for security reasons.",
+          "isCorrect": false,
+          "feedbackAr": "لا. حق الاطلاع على بياناتك الشخصية من ثوابت كل نظام حديث تقريباً، ورفضه بلا مسار يعرّض المؤسسة لا يحميها.",
+          "feedbackEn": "No. Access to your own personal data is a fixture of almost every modern regime; refusing it without a process exposes the organisation rather than protecting it."
+        },
+        {
+          "textAr": "تضعه في قائمة المهام لتتعامل معه عندما يهدأ العمل.",
+          "textEn": "Add it to your to-do list for when work quiets down.",
+          "isCorrect": false,
+          "feedbackAr": "لا. العدّاد بدأ من يوم الوصول لا من يوم أن تجد الوقت، والتأخير هنا هو المخالفة نفسها.",
+          "feedbackEn": "No. The clock started the day it arrived, not the day you find time, and the delay here is itself the failure."
+        },
+        {
+          "textAr": "تحوّله إلى مسؤول الخصوصية في اليوم نفسه، وتخبر العميل أن طلبه سُجّل.",
+          "textEn": "Pass it to the privacy owner the same day, and tell the customer it has been logged.",
+          "isCorrect": true,
+          "feedbackAr": "صحيح. طلب صاحب البيانات عليه عدّاد بدأ عند وصوله، والمسؤول عن الخصوصية هو من يملك عملية الرد.",
+          "feedbackEn": "Correct. A data-subject request carries a clock that started on arrival, and the privacy owner holds the process for answering it."
+        }
+      ]
+    }
+  ]
+}
