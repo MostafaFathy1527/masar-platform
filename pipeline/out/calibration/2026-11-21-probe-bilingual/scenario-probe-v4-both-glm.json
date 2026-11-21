@@ -1,0 +1,1487 @@
+[
+ {
+  "copy": "lesson-cs-01__ar-only-swap",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "because_ar": "Because you transfer him to the right team and end the chat, you promised something you cannot personally make true.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text belongs to option d2 and does not match the action taken in d1."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you promise the waiver to defuse things, you promised something you cannot personally make true.",
+     "because_ar": "Because you promise the waiver to defuse things, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text belongs to option d1 and does not match the action taken in d2."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write the facts into the record and keep your name on it, the facts travel instead of the customer.",
+     "because_ar": "Because you write the facts into the record and keep your name on it, the facts travel instead of the customer.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of a warm handover."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 953,
+   "outputTokens": 383,
+   "totalTokens": 1336,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "because_ar": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the negative outcome of a cold transfer."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you promise the waiver to defuse things, you promised something you cannot personally make true.",
+     "because_ar": "Because you promise the waiver to defuse things, you promised something you cannot personally make true.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the risk of making a promise you cannot keep."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write the facts into the record and tell him who will own it, a warm handover ensures the facts travel instead of the customer.",
+     "because_ar": "Because you write the facts into the record and tell him who will own it, a warm handover ensures the facts travel instead of the customer.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the benefit of the warm handover process."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 953,
+   "outputTokens": 381,
+   "totalTokens": 1334,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__weak-swap",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "because_ar": "Because you transfer him to the right team and end the chat, he will explain everything again tomorrow, which is exactly what he said he would not do.",
+     "en_follows": false,
+     "ar_follows": false,
+     "sides_agree": true,
+     "reason": "The consequence text describes a lack of handover, which matches option d2, not the action described in option d1."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you promise the waiver to defuse things, you promised something you cannot personally make true.",
+     "because_ar": "Because you promise the waiver to defuse things, you promised something you cannot personally make true.",
+     "en_follows": false,
+     "ar_follows": false,
+     "sides_agree": true,
+     "reason": "The consequence text describes a broken promise, which matches option d1, not the action described in option d2."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write the facts into the record and tell him who will own it, a warm handover means the facts travel instead of the customer.",
+     "because_ar": "Because you summarize the facts in the record and tell him who will own it, a warm handover means the facts travel instead of the customer.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the positive outcome of the best option action."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 953,
+   "outputTokens": 403,
+   "totalTokens": 1356,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__ar-only-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you write 'What is it? Ali’s ticket: login issue', it identifies the item immediately, letting the receiver locate the ticket quickly.",
+     "because_ar": "Because you write 'What is it? Ali’s ticket: login issue', it identifies the item immediately, letting the receiver locate the ticket quickly.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the best option with matching positive consequences."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you write 'What happens next and by when? Call the customer before 2 PM', it shows the action before identifying the item, leaving the receiver unsure what the action refers to.",
+     "because_ar": "Because you write 'What happens next and by when? Call the customer before 2 PM', it presents a situation without identifying the item first, which may cause confusion.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the mistake of prioritizing action over identification, though the Arabic phrasing differs slightly."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write 'What is the status? Waiting for tech team response', it provides status without first identifying the item, which can cause confusion.",
+     "because_ar": "Because you write 'What is the status? Waiting for tech team response', it shows the action before defining the item, leaving the receiver unsure of what the item is.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence incorrectly claims the option shows an 'action' and mismatches the English text which correctly mentions 'status'."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 763,
+   "outputTokens": 437,
+   "totalTokens": 1200,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you wrote 'Ali’s ticket: login issue', it identifies the item immediately, letting the receiver locate the ticket quickly.",
+     "because_ar": "Because you wrote 'Ali’s ticket: login issue', it identifies the item immediately, allowing the receiver to find the ticket quickly.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of identifying the item first."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you wrote 'Call the customer before 2 PM', it shows the action before identifying the item, leaving the receiver unsure what the action refers to.",
+     "because_ar": "Because you wrote 'Call the customer before 2 PM', it shows the action before identifying the item, which may leave the receiver unsure of what the item is.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the mistake of prioritizing action over identification."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you wrote 'Waiting for tech team response', it provides status without first identifying the item, which can cause confusion.",
+     "because_ar": "Because you wrote 'Waiting for tech team response', it provides status without first identifying the item, which can cause confusion.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative consequence of omitting the initial identification."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 763,
+   "outputTokens": 387,
+   "totalTokens": 1150,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you identify the item immediately, the receiver can locate the ticket quickly.",
+     "because_ar": "Because you identify the item immediately, the receiver can locate the ticket quickly.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly praises the best option for identifying the item first."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you provide status without first identifying the item, it can cause confusion.",
+     "because_ar": "Because you provide status without first identifying the item, it can cause confusion.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the weakness of not identifying the item first."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you show the action before identifying the item, the receiver is unsure what the action refers to.",
+     "because_ar": "Because you show the action before identifying the item, the receiver is unsure what the action refers to.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the mistake of prioritizing action over identification."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 763,
+   "outputTokens": 323,
+   "totalTokens": 1086,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__ar-only-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you open with the order waiting for the supplier, you ordered by arrival and the urgent item is buried.",
+     "because_ar": "Because you open with the order waiting for the supplier, this is a common error and Ali's promise will be broken.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The English consequence describes the sequencing logic, while the Arabic consequence describes the broken promise and error type."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you open with Ali's urgent ticket, the deadline is seen first and the promise travels with the work.",
+     "because_ar": "Because you open with Ali's urgent ticket, the deadline appears before anything else and the promise travels with the work.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the best option and describe the benefit of prioritizing the deadline."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write 'All good, nothing major', this is a common failure and Ali's promise will be broken.",
+     "because_ar": "Because you write 'All good, nothing major', you ordered by arrival and the urgent item is buried.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The English consequence criticizes the 'nothing major' phrasing, while the Arabic consequence criticizes the arrival-order sequencing."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 954,
+   "outputTokens": 382,
+   "totalTokens": 1336,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you listed the order waiting for the supplier first, you ordered by arrival and the urgent item is now second.",
+     "because_ar": "Because you listed the order waiting for the supplier first, you ordered by arrival and the urgent item is now second.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the mistake of prioritizing arrival order over urgency."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you opened with Ali's urgent ticket, the deadline is seen first and the promise is kept.",
+     "because_ar": "Because you opened with Ali's urgent ticket, the deadline is seen first and the promise is kept.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the best option that highlights the deadline."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you wrote 'nothing major', you made a common mistake since Ali's item has a deadline.",
+     "because_ar": "Because you wrote 'nothing major', you made a common mistake since Ali's item has a deadline.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the contradiction of saying 'nothing major' with a deadline present."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 954,
+   "outputTokens": 355,
+   "totalTokens": 1309,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__weak-swap",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you open with the order waiting for confirmation, Ali's promise will be broken.",
+     "because_ar": "Because you open with the order waiting for confirmation, Ali's promise will be broken.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify that prioritizing the order leads to breaking the promise to Ali."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you open with Ali's ticket marked urgent, the deadline is seen before anything else.",
+     "because_ar": "Because you open with Ali's ticket marked urgent, the deadline is seen before anything else.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly link the best action to the clear visibility of the deadline."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you write 'nothing major', a reader who stops at the first line assumes nothing is urgent.",
+     "because_ar": "Because you write 'nothing major', a reader who stops at the first line assumes nothing is urgent.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly explain that the vague opening causes the reader to miss the urgent item."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 954,
+   "outputTokens": 343,
+   "totalTokens": 1297,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__ar-only-swap",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you write a generic note saying the ticket is open and awaiting follow-up, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "because_ar": "Because you write a generic note saying the ticket is open and awaiting follow-up, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes the ticket disappearing, which does not follow from writing a generic note and contradicts the English consequence."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline before 3 PM, the next colleague has all needed information to act immediately without contacting you.",
+     "because_ar": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline before 3 PM, the next colleague has all needed information to act immediately without contacting you.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides logically follow from the action and describe the same positive outcome."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "because_ar": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the next colleague does not know what is urgent and lacks a clear plan, likely causing a delay.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes a lack of clarity rather than the ticket disappearing, which does not accurately reflect the severity of deleting the ticket."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 810,
+   "outputTokens": 462,
+   "totalTokens": 1272,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__real-items",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you write a generic note saying the ticket is open and awaiting follow-up, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "because_ar": "Because you write a generic note saying the ticket is open and awaiting follow-up, the next colleague does not know what is urgent and lacks a clear plan, which may cause a delay.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative outcome of providing insufficient detail."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline before 3 PM, the next colleague has all needed information to act immediately without contacting you.",
+     "because_ar": "Because you identify the urgent item, state the current status, what has been tried, and the next action with a deadline before 3 PM, the next colleague has all the necessary information to act immediately without needing to contact you.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of providing a comprehensive hand-over."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "because_ar": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the ticket is lost and becomes untrackable, creating a bigger problem.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the severe negative outcome of deleting a ticket."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 810,
+   "outputTokens": 442,
+   "totalTokens": 1252,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__weak-swap",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you write a generic note saying the ticket is open and awaiting follow-up, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "because_ar": "Because you write a generic note saying the ticket is open and awaiting follow-up, the ticket disappears and becomes untrackable, creating a bigger problem.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe a negative outcome where the ticket is lost due to a vague hand-over note."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline, the next colleague has all needed information to act immediately without contacting you.",
+     "because_ar": "Because you identify the urgent item, state the current status, what's been tried, and the next action with a deadline, the next colleague has all needed information to act immediately without contacting you.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of providing a detailed hand-over."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "because_ar": "Because you delete the ticket from the record temporarily to avoid confusing the next colleague, the next colleague lacks a clear urgent item and plan, likely causing a delay.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative outcome of removing the ticket information."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 810,
+   "outputTokens": 433,
+   "totalTokens": 1243,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__ar-only-swap",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you recall the message and watch whether anyone notices, waiting hides from the owner that the clock has started.",
+     "because_ar": "Because you withdraw the message and watch whether anyone notices, waiting hides from the owner that the clock has started.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text incorrectly discusses data disclosure instead of the risks of recalling and waiting."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you report it now to the privacy owner and ask the wrong recipient to delete it, a fast report is containable.",
+     "because_ar": "Because you report to the privacy officer now and ask the wrong recipient to delete it, a fast report is containable.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the correct action and agree on the outcome."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you resend the statement to the right customer and consider it closed, an account statement is personal data even if not sensitive.",
+     "because_ar": "Because you resend the statement to the right customer and consider it closed, recalling rarely works outside your organization.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text incorrectly discusses recalling messages instead of the risks of assuming non-sensitive data."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 939,
+   "outputTokens": 373,
+   "totalTokens": 1312,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you recall the message and watch whether anyone notices, a hidden breach is discovered later — by the person it harmed.",
+     "because_ar": "Because you withdraw the message and watch whether anyone notices, a hidden breach is discovered later — by the person it harmed.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative outcome of attempting to hide the mistake."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you report it now to the privacy owner, the correct action is taken as a fast report is containable.",
+     "because_ar": "Because you report to the privacy officer now, the correct action is taken as a fast report is containable.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the correct action with a valid justification."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you resend the statement and consider it closed, fixing the send does not undo what was disclosed.",
+     "because_ar": "Because you resend the statement and consider it closed, fixing the send does not undo what was disclosed.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly explain why the user's rationale is incorrect."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 939,
+   "outputTokens": 357,
+   "totalTokens": 1296,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__weak-swap",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you recall the message and watch whether anyone notices, an account statement arriving at the wrong recipient is the definition of a potential breach.",
+     "because_ar": "Because you withdraw the message and watch whether anyone notices, an account statement arriving at the wrong recipient is the definition of a potential breach.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the mistake of treating a recall as a sufficient fix for a data breach."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you report it now to the privacy owner and ask the wrong recipient to delete it, this is the correct action and a fast report is containable.",
+     "because_ar": "Because you report to the privacy owner now and ask the wrong recipient to delete it, this is the correct action and a fast report is containable.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence appropriately praises the option as the correct action and explains why speed matters."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you resend the statement to the right customer and consider it closed, recall rarely works and waiting hides from the owner that the clock has started.",
+     "because_ar": "Because you resend the statement to the right customer and consider it closed, recall rarely works and waiting hides from the owner that the clock has started.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly warns that resending does not fix the breach caused by the first action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 939,
+   "outputTokens": 410,
+   "totalTokens": 1349,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__ar-only-swap",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you reply to the message asking for confirmation, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "because_ar": "Because you reply to the message asking for confirmation, the signature is part of the message, and the message is what is in doubt.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text belongs to option d2 and does not follow from this action."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you call the number in the message signature, the signature is part of the message, and the message is what is in doubt.",
+     "because_ar": "Because you call the number in the message signature, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "en_follows": false,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The English consequence text belongs to option d1 and does not follow from this action, while the Arabic consequence describes a reply rather than a call."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call him on a number you had before the message, and report it, this is the correct action.",
+     "because_ar": "Because you call him on a number you had before the message, and report it, this is the correct action.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify this as the best action and agree on the consequence."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 823,
+   "outputTokens": 397,
+   "totalTokens": 1220,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you reply to the message asking for confirmation, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "because_ar": "Because you reply to the message asking for confirmation, your reply reaches the different reply-to address, which is someone other than the apparent sender.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the outcome of reaching the unverified sender, and the logic holds."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you call the number in the message signature, verifying from inside the thing you doubt is not verification.",
+     "because_ar": "Because you call the number in the message signature, verifying from inside the thing you doubt is not verification.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify the logical flaw in using the message's own contact details for verification."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call him on a number you had before the message and report it, this is the correct action.",
+     "because_ar": "Because you call him on a number you had before the message and report it, this is the correct action.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides confirm this is the correct action and explain why the barrier ('cannot take calls') was engineered."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 823,
+   "outputTokens": 381,
+   "totalTokens": 1204,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__weak-swap",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you reply to the message asking for confirmation, the signature is part of the message, and the message is what is in doubt.",
+     "because_ar": "Because you reply to the message asking for confirmation, the signature is part of the message, and the message is what is in doubt.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly explain why replying to a suspicious message is ineffective."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you call the number in the message signature, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "because_ar": "Because you call the number in the message signature, your reply reaches the different reply-to address — someone other than the apparent sender.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify that the number in the signature leads to the attacker."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call him on a number you had before the message, and report it, this is the correct action.",
+     "because_ar": "Because you call him on a number you had before the message, and report it, this is the correct action.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly affirm the action and explain the social engineering tactic."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 823,
+   "outputTokens": 378,
+   "totalTokens": 1201,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__ar-only-swap",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you explain that 160 is the share the policy leaves to the member, the member may still be unhappy, but they now know the bill is correct and whose rule produced it.",
+     "because_ar": "Because you explain that 160 is the share the policy leaves to the member, the member may still be unhappy, but they now know the bill is correct and whose rule produced it.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe a positive resolution where the member understands the bill."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you waive the 160 so the member stops complaining, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "because_ar": "Because you waive the 160 so the member stops complaining, the payer confirms the 160 is the member's share and the member returns more frustrated.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes the outcome of option d3 instead of the selected option d2."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you tell the member to take it up with the payer, the payer confirms the 160 is the member's share and the member returns more frustrated.",
+     "because_ar": "Because you tell the member to take it up with the payer, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes the outcome of option d2 instead of the selected option d3."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 773,
+   "outputTokens": 424,
+   "totalTokens": 1197,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__real-items",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you explain that 160 is the member's share, the member now knows the bill is correct and whose rule produced it.",
+     "because_ar": "Because you explain that 160 is the member's share, the member now knows the bill is correct and whose rule produced it.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes a positive outcome for the best option, and both languages match."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you waive the 160, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "because_ar": "Because you waive the 160, the clinic absorbs the loss and risks breaching the agreement with the payer.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the negative outcome of a weak option, and both languages match."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you tell the member to take it up with the payer, the member returns to the clinic more frustrated with nothing explained.",
+     "because_ar": "Because you tell the member to take it up with the payer, the member returns to the clinic more frustrated with nothing explained.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the negative outcome of a weak option, and both languages match."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 773,
+   "outputTokens": 381,
+   "totalTokens": 1154,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__weak-swap",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you explain that 160 is the member's share, the member may still be unhappy, but they now know the bill is correct.",
+     "because_ar": "Because you explain that 160 is the member's share, the member may still be unhappy, but they now know the bill is correct.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence logically follows the action, and both languages match."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you waive the 160, the payer confirms the 160 is the member's share and the member returns frustrated.",
+     "because_ar": "Because you waive the 160, the payer confirms the 160 is the member's share and the member returns frustrated.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the negative outcome of this weak option."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you tell the member to take it up with the payer, the clinic absorbs the loss and risks breaching the agreement.",
+     "because_ar": "Because you tell the member to take it up with the payer, the clinic absorbs the loss and risks breaching the agreement.",
+     "en_follows": false,
+     "ar_follows": false,
+     "sides_agree": true,
+     "reason": "The consequence text describes the outcome of waiving the fee (option d2), not redirecting the member."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 773,
+   "outputTokens": 384,
+   "totalTokens": 1157,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__ar-only-swap",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you proceed and bill the payer assuming the renewal will appear, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "because_ar": "Because you proceed and bill the payer assuming the renewal will appear, the claim is judged against the policy on the service date whatever it is labelled.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The English consequence describes a bad financial outcome while the Arabic consequence describes a rule about claim judgment."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them.",
+     "because_ar": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides describe the same positive outcome of transparency and proper documentation."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you proceed and mark the claim as urgent, the claim is judged against the policy on the service date whatever it is labelled.",
+     "because_ar": "Because you proceed and mark the claim as urgent, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The English consequence explains that urgency does not change the rule, while the Arabic consequence describes the financial penalty."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 737,
+   "outputTokens": 409,
+   "totalTokens": 1146,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__real-items",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you proceed and bill the payer assuming the renewal will appear, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "because_ar": "Because you proceed and bill the payer assuming the renewal will appear, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the negative outcome of the weak option in both languages."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them and the recorded reference makes the correction straightforward.",
+     "because_ar": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them and the recorded reference makes the correction straightforward.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the positive outcome of the best option in both languages."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you proceed and mark the claim as urgent, the claim is judged against the policy on the service date whatever it is labelled.",
+     "because_ar": "Because you proceed and mark the claim as urgent, the claim is judged against the policy on the service date whatever it is labelled.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the mistake of assuming urgency creates coverage in both languages."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 737,
+   "outputTokens": 417,
+   "totalTokens": 1154,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__weak-swap",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you proceed and bill the payer assuming the renewal will appear, the claim is judged against the policy on the service date whatever it is labelled.",
+     "because_ar": "Because you proceed and bill the payer assuming the renewal will appear, the claim is judged against the policy on the service date whatever it is labelled.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the risk of billing without active coverage."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them and the recorded reference makes correction straightforward.",
+     "because_ar": "Because you explain the result, offer to reschedule or proceed as self-pay, and record the response, the patient decides with the facts in front of them and the recorded reference makes correction straightforward.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence logically follows the best practice action."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you proceed and mark the claim as urgent, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "because_ar": "Because you proceed and mark the claim as urgent, payment is refused afterwards and the balance reaches the patient later, by surprise.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence accurately describes the negative outcome of ignoring the coverage status."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 737,
+   "outputTokens": 404,
+   "totalTokens": 1141,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__ar-only-swap",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you submit now and add the name later if it is rejected, the claim is rejected at the first edit and you lose a full cycle.",
+     "because_ar": "Because you submit the claim now and add the name later upon rejection, the field becomes complete but incorrect, which may read as a documentation failure.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes a wrong data entry outcome, which matches option d3, not the submission delay described in d1's English text."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you get the name from the service record now, then submit, the claim goes out complete and passes on the first attempt.",
+     "because_ar": "Because you get the name from the service record now, then submit, the claim is sent complete and passes the check from the first attempt.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the successful outcome of the best option."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you enter the department's supervising physician instead, the field is now complete but wrong, risking a documentation failure.",
+     "because_ar": "Because you enter the name of the physician responsible for the department instead, the claim is rejected at the preliminary check and you lose a full cycle.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence describes a rejection and lost cycle, which matches option d1, not the documentation error described in d3's English text."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 791,
+   "outputTokens": 417,
+   "totalTokens": 1208,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__real-items",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you submit now and add the name later, the claim is rejected at the first edit and you lose a full cycle.",
+     "because_ar": "Because you send the claim now and add the name later, it is rejected at the initial check and you lose a full cycle.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative outcome of submitting an incomplete claim."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you get the name from the service record now, the claim goes out complete and passes on the first attempt.",
+     "because_ar": "Because you get the name from the service record now, the claim is sent complete and passes the check on the first attempt.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of correcting the claim before submission."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you enter the supervising physician instead, the field is complete but wrong and may pass the automated edit.",
+     "because_ar": "Because you enter the name of the doctor in charge of the department instead, the field becomes complete but incorrect.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the specific risk of entering incorrect but plausible data."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 791,
+   "outputTokens": 368,
+   "totalTokens": 1159,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__weak-swap",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you submit now and add the name later if it is rejected, the field is now complete but wrong and may pass the automated edit but later read as a documentation failure.",
+     "because_ar": "Because you send the claim now and add the name later upon rejection, the field becomes complete but incorrect, which bypasses the automated check and may be read later as a documentation error.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe a negative outcome where a technically complete claim creates a worse documentation failure."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you get the name from the service record now and then submit, the claim goes out complete and passes on the first attempt.",
+     "because_ar": "Because you get the name from the service record now and then send, the claim is sent complete and passes the check on the first attempt.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the positive outcome of meeting the deadline with a complete claim."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you enter the department's supervising physician instead, the claim is rejected at the first edit and you lose a full cycle.",
+     "because_ar": "Because you enter the name of the physician responsible for the department instead, the claim is rejected at the initial check and you lose a full cycle.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative consequence of rejection and lost time due to using the wrong provider."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 791,
+   "outputTokens": 418,
+   "totalTokens": 1209,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__ar-only-swap",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you quietly downgrade those claims yourself, you have changed claims without the record changing, so the pattern itself is never examined.",
+     "because_ar": "Because you quietly downgrade those claims yourself, assuming the best of a pattern is how upcoding persists.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text is mismatched and belongs to option d3."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you treat it as a pattern and raise it through the compliance route, a repeated mismatch is a pattern someone is answerable for.",
+     "because_ar": "Because you treat it as a pattern and raise it through the compliance route, a repeated mismatch is a pattern someone is answerable for.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides present the same logical consequence for the best option."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you assume the clinician sees more complex patients and move on, assuming the best of a pattern is how upcoding persists.",
+     "because_ar": "Because you assume the clinician sees more complex patients and move on, you have changed claims without the record changing, so the pattern itself is never examined.",
+     "en_follows": true,
+     "ar_follows": false,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text is mismatched and belongs to option d1."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 801,
+   "outputTokens": 380,
+   "totalTokens": 1181,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__real-items",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you quietly downgrade those claims yourself, you have changed claims without the record changing and the pattern itself is never examined.",
+     "because_ar": "Because you quietly downgrade those claims yourself, you have changed claims without the record changing and the pattern itself is never examined.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence accurately describes the negative outcome of bypassing proper channels to alter the claims."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you treat it as a pattern and raise it through the compliance route, a repeated mismatch is recognized as a pattern someone is answerable for and the focus remains on evidence.",
+     "because_ar": "Because you treat it as a pattern and raise it through the compliance route, a repeated mismatch is recognized as a pattern someone is answerable for and the focus remains on evidence.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly validates the best option by explaining why this approach is appropriate and effective."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you assume the clinician sees more complex patients and move on, assuming the best of a pattern is how upcoding persists.",
+     "because_ar": "Because you assume the clinician sees more complex patients and move on, assuming the best of a pattern is how upcoding persists.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the risk and negative outcome of ignoring the suspicious billing pattern."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 801,
+   "outputTokens": 404,
+   "totalTokens": 1205,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__weak-swap",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you quietly downgrade those claims yourself, the level is not supported if the record does not show the complexity, and assuming the best of a pattern is how upcoding persists.",
+     "because_ar": "Because you quietly downgrade those claims yourself, the level is not supported if the record does not show the complexity, and assuming the best of a pattern is how upcoding persists.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies the risk of the action and the logic holds in both languages."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you treat it as a pattern and raise it through the compliance route, pointing at the records keeps it about evidence rather than about the clinician.",
+     "because_ar": "Because you treat it as a pattern and raise it through the compliance route, pointing at the records keeps it about evidence rather than about the clinician.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence appropriately validates the best option and the text is identical."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you assume the clinician sees more complex patients and move on, the pattern itself is never examined, so it continues.",
+     "because_ar": "Because you assume the clinician sees more complex patients and move on, the pattern itself is never examined, so it continues.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly describes the negative outcome of inaction and matches on both sides."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 801,
+   "outputTokens": 410,
+   "totalTokens": 1211,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__ar-only-swap",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you let the appeal go ahead, there is no decision to appeal and it will lose an argument it never needed to enter.",
+     "because_ar": "Because you let the appeal go ahead, the payer will confirm the claim was never processed and there is nothing to dispute.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The English consequence warns that the appeal is invalid, while the Arabic consequence focuses on confirmation that there is nothing to dispute."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "because_ar": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly identify that the situation is a rejection to be resubmitted, not an appeal."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call the payer to dispute the refusal, the payer will confirm the claim was never processed.",
+     "because_ar": "Because you call the payer to dispute the refusal, there is no decision to appeal and it will lose an argument it never needed to enter.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": false,
+     "reason": "The Arabic consequence text appears to belong to option d1, as it discusses the appeal process rather than the phone call outcome."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 709,
+   "outputTokens": 409,
+   "totalTokens": 1118,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__real-items",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you let the appeal go ahead, the appeal is slow, consumes the filing window, and will lose an argument it never needed to enter.",
+     "because_ar": "Because you let the appeal go ahead, the appeal is slow, consumes the filing window, and will lose an argument it never needed to enter.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the negative outcome of appealing a non-existent decision."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "because_ar": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim rather than a disputed one.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the efficient resolution of treating the rejection as a new claim."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call the payer to dispute the refusal, the payer will confirm the claim was never processed.",
+     "because_ar": "Because you call the payer to dispute the refusal, the payer will confirm the claim was never processed.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "Both sides correctly describe the payer confirming that the claim was not processed."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 709,
+   "outputTokens": 384,
+   "totalTokens": 1093,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__weak-swap",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "because_en": "Because you let the appeal go ahead, the payer will confirm the claim was never processed and there is nothing to dispute.",
+     "because_ar": "Because you let the appeal go ahead, the payer will confirm the claim was never processed and there is nothing to dispute.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly identifies that appealing an unprocessed claim is futile."
+    },
+    {
+     "id": "d2",
+     "because_en": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim and resolved in hours.",
+     "because_ar": "Because you stop the appeal, correct the blank field, and resubmit, it is treated as a new claim and resolved in hours.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly explains the benefit of treating the error as a rejection rather than a refusal."
+    },
+    {
+     "id": "d3",
+     "because_en": "Because you call the payer to dispute the refusal, the appeal is slow and will lose an argument it never needed to enter.",
+     "because_ar": "Because you call the payer to dispute the refusal, the appeal is slow and will lose an argument it never needed to enter.",
+     "en_follows": true,
+     "ar_follows": true,
+     "sides_agree": true,
+     "reason": "The consequence correctly warns that disputing a non-decision wastes time."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 709,
+   "outputTokens": 383,
+   "totalTokens": 1092,
+   "temperature": 0
+  }
+ }
+]

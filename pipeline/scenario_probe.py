@@ -99,7 +99,44 @@ Reply with JSON only, no other text:
  "scenario_ok": true or false}}
 scenario_ok is false if any option's sentence does not hold together."""
 
-PROMPTS = {'v1': PROMPT, 'v2': PROMPT_V2, 'v3': PROMPT_V3}
+# v4 (21 November): v3 on the Arabic side caught 5 of 11 against 9 of 11 in English.
+# The lessons are bilingual, so the probe can read both sides of each option at once:
+# the English side helps it understand the Arabic, and a consequence whose Arabic says
+# something different from its English (a translation that drifted, or an Arabic-only
+# swap) becomes visible. The model judges each side and whether the two sides agree.
+PROMPT_V4 = """You check one bilingual branching scenario from a training lesson. Every option and
+every consequence is written in English and in Arabic; learners may read either side.
+A learner picks an option and is then shown the consequence written under it.
+
+For each option, write ONE sentence in English of the form
+  "Because you <the option, in a few words>, <what the consequence says happens or is true>."
+Do it once from the English text and once from the Arabic text (translate it in your head).
+Then judge:
+1. en_follows: does the English sentence hold together in this situation?
+2. ar_follows: does the Arabic sentence hold together in this situation?
+3. sides_agree: do the English and Arabic consequences say the same thing?
+If a consequence is really about a different action (for example another option's), its
+sentence will not hold together: mark that side false.
+
+Weak options are meant to get consequences that describe a bad outcome or name the
+mistake; that is correct, not a defect. A best option's consequence should not warn
+against it, and a weak option's should not praise it.
+
+Situation (English):
+{situation}
+
+Situation (Arabic):
+{situation_ar}
+
+Options:
+{options}
+
+Reply with JSON only, no other text:
+{{"decisions": [{{"id": "<option id>", "because_en": "<sentence>", "because_ar": "<sentence>", "en_follows": true or false, "ar_follows": true or false, "sides_agree": true or false, "reason": "<one short sentence>"}}],
+ "scenario_ok": true or false}}
+scenario_ok is false if any option fails any of the three checks."""
+
+PROMPTS = {'v1': PROMPT, 'v2': PROMPT_V2, 'v3': PROMPT_V3, 'v4': PROMPT_V4}
 
 
 def scenarios(lesson: dict):
@@ -111,6 +148,13 @@ def scenarios(lesson: dict):
 
 def build(b: dict, prompt: str = 'v1', lang: str = 'En') -> str:
     p = b['payload']
+    if lang == 'Both':
+        opts = '\n'.join(
+            f"- id {d['id']}{' (marked best)' if d.get('isBest') else ''}\n"
+            f"  option (EN): {d['optionEn']}\n  option (AR): {d['optionAr']}\n"
+            f"  consequence (EN): {d['consequenceEn']}\n  consequence (AR): {d['consequenceAr']}"
+            for d in p['decisions'])
+        return PROMPTS[prompt].format(situation=p['situationEn'], situation_ar=p['situationAr'], options=opts)
     opts = '\n'.join(
         f"- id {d['id']}{' (marked best)' if d.get('isBest') else ''}\n"
         f"  option: {d['option' + lang]}\n  consequence: {d['consequence' + lang]}"
@@ -124,8 +168,8 @@ def main(argv=None) -> int:
     ap.add_argument('--models', required=True)
     ap.add_argument('--region', default='us-east-1')
     ap.add_argument('--prompt', choices=sorted(PROMPTS), default='v1')
-    ap.add_argument('--lang', choices=('En', 'Ar'), default='En',
-                    help='which side of the bilingual scenario the probe reads')
+    ap.add_argument('--lang', choices=('En', 'Ar', 'Both'), default='En',
+                    help='which side of the bilingual scenario the probe reads (Both needs --prompt v4)')
     ap.add_argument('--tag', default='', help='a suffix for the results file, e.g. v2-run1')
     args = ap.parse_args(argv)
     root = Path(args.root)

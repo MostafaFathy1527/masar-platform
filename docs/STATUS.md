@@ -23,6 +23,10 @@ Update this file at the end of every session. It is the first thing the next ses
   `-probe-v3`. On the Arabic side the same v3 caught only 5 of 11, with 1 false alarm.
   Cost of the three at most $0.95 (estimate). Not a seat; at most an advisory line, English
   side only.
+  Prompt v4 reads both languages together (`2026-11-21-probe-bilingual`): it caught every
+  Arabic-only swap (11 of 11, both models, 0 false alarms) but only 3 of 11 swaps on both
+  sides. So the match check stays v3 on English, and a separate check compares the two sides.
+  Cost at most $0.60 (estimate).
 - Panel: a seat whose key is refused (HTTP 401/403) prints `SEAT KEY REJECTED: <seat>`,
   is skipped for the remaining lessons of the run, and leads the run summary.
 
