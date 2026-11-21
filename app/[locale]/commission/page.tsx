@@ -42,7 +42,7 @@ export async function generateMetadata({
  */
 
 const REPO = 'https://github.com/MostafaFathy1527/masar-platform'
-const CONTACT = 'mostafafathy1503@gmail.com'
+const CONTACT = 'mostafa@mostafafathy.com'
 
 
 export default async function CommissionPage({
