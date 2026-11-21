@@ -22,7 +22,7 @@ permissions:
 jobs:
   panel:
     if: ${{ vars.AWS_ROLE_ARN != '' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # On one rented card (the fallback when no two-card node is free) the open
     # seat takes up to an hour a lesson, so the run needs room for four.
     timeout-minutes: 300

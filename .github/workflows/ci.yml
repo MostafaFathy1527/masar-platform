@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       # prisma validate resolves env('DATABASE_URL') from prisma.config.ts.
       # A syntactically valid placeholder is enough; CI never connects.
@@ -48,7 +48,7 @@ jobs:
   # open outbound TCP 5432, so it had never been replayed against a real
   # Postgres. This job is that check, run on every push rather than once.
   migrations:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16
@@ -98,7 +98,7 @@ jobs:
   # contract still holds. The negative tests run first: a validator that has
   # only ever returned PASS proves nothing.
   content:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -144,7 +144,7 @@ jobs:
           git diff --exit-code -- pipeline/memory/concept-log.json
 
   publish-safety:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
         with:
