@@ -254,6 +254,15 @@ export default async function HowItWasBuiltPage({
             ? `الدروس الخمسة المنشورة كُتبت يدويًا. ومنذ ذلك الحين وُلِّد عبر خط الإنتاج ${arDrafts(drafts)} من ملاحظة مصدر، واجتاز البوابتين الحتميتين: التحقق البنيوي وسجل المفاهيم. ولم يُنشر، لأن مخرجات خط الإنتاج مسودّة يقرر إنسان نشرها.`
             : `The five published lessons were hand-authored. ${drafts} ${drafts === 1 ? 'lesson has' : 'lessons have'} since been generated through the pipeline from a source note, and passed both deterministic gates: structural validation and the concept log. ${drafts === 1 ? 'It is' : 'They are'} not published, because pipeline output is a draft and a human decides whether it ships.`}
         </p>
+        {/* The samples page shows four sector drafts; lesson 02 belongs to the demo course.
+            The sentence names five, so it only renders while the draft count is five. */}
+        {drafts === 5 && (
+          <p className="mt-3 max-w-prose leading-relaxed">
+            {ar
+              ? 'أربع من هذه المسودّات معروضة في صفحة العينات. أما الخامسة، الدرس 02، فكانت أول مسودّة تجريبية لخط الإنتاج وكُتبت ضمن مقرر العرض، لذلك لا تُعرض كعيّنة مستقلة.'
+              : 'Four of these drafts are on the samples page. The fifth, lesson 02, was the pipeline’s first test draft, written as part of the demo course, so it is not shown as a standalone sample.'}
+          </p>
+        )}
         <p className="mt-3 max-w-prose leading-relaxed">
           {latest
             ? ar
