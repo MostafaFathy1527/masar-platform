@@ -34,7 +34,8 @@ describe('rater access', () => {
 describe('a complete rating', () => {
   it('needs every criterion scored', () => {
     expect(isComplete(full, {})).toBe(true)
-    const { concision: _, ...missing } = full
+    const missing = { ...full }
+    delete missing.concision
     expect(isComplete(missing, {})).toBe(false)
   })
 
