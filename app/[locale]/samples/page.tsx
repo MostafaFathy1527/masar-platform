@@ -39,12 +39,12 @@ export default async function SamplesPage({ params }: { params: Promise<{ locale
       <ul className="rule-list" style={{ marginBlockStart: '1.75rem' }}>
         {drafts.map((d) => (
           <li key={d.code}>
-            <h3 className="h-item">
+            <h2 className="h-item">
               <a href={`/${l}/samples/${d.code}`}>
                 <span className="chip" data-latin="true" style={{ marginInlineEnd: '0.5rem' }}>{d.code}</span>
                 {ar ? d.titleAr : d.titleEn}
               </a>
-            </h3>
+            </h2>
             <p style={{ marginBlockStart: '0.4rem', color: 'var(--color-muted)' }}>
               {ar ? d.domainAr : d.domainEn} · {d.estMinutes} {ar ? 'دقيقة' : 'min'} · {d.levels.join(' + ')} ·{' '}
               {d.bilingual ? (ar ? 'عربي + إنجليزي' : 'AR + EN') : ar ? 'إنجليزي فقط' : 'EN only'}
