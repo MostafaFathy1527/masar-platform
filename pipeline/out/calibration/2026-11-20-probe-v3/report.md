@@ -39,4 +39,4 @@ scenarios (each new lesson adds one).
 
 **Cost.** English: 88 Bedrock calls, 39,684 input and 21,434 output tokens, at most
 $0.44. Arabic: 44 calls, 22,366 input and 11,408 output tokens, at most $0.24. Estimates,
-priced high, on AWS credits.
+priced high.

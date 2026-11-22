@@ -35,4 +35,4 @@ thing?" check for translation drift. Do not use v4 for the match. Next test: sub
 (one changed fact or a negation in the Arabic only) with a sides-agree-only prompt.
 
 **Cost.** 66 Bedrock calls, 54,336 input and 29,414 output tokens, at most $0.60
-(estimate, priced high like the v3 runs), on AWS credits.
+(estimate, priced high like the v3 runs).

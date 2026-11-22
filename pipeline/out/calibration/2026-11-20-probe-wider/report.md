@@ -32,4 +32,4 @@ For lesson writing: ask that each consequence describe what happens next, not re
 the rule (to Layla, via Tarek).
 
 **Cost.** 42 Bedrock calls, 18,462 input and 7,691 output tokens. At most $0.17
-(estimate, priced high), on AWS credits.
+(estimate, priced high).

@@ -35,4 +35,4 @@ experiment: ask the probe model to rewrite each consequence's first clause as "B
 <option>, ..." and check whether that forced restatement catches the weak swap.
 
 **Cost.** 22 Bedrock calls, 9,734 input and 4,087 output tokens. At most $0.10 (estimate,
-priced high), on AWS credits.
+priced high).

@@ -34,7 +34,7 @@ when asked only this question.
 
 Arm A: 24 calls, 170,632 input and 30,820 output tokens (Kimi K3 wrote 27,830 of them). Arm B:
 16 calls, 6,334 input and 2,470 output tokens. At no more than $1 per million input and $4 per
-million output, the total is at most $0.31. Paid from existing AWS credits.
+million output, the total is at most $0.31.
 
 ## What this does not show
 

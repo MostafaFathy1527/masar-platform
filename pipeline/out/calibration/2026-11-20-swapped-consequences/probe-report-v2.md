@@ -38,4 +38,4 @@ in the course lessons and samples, real and swapped, before deciding whether it 
 cheap gate in front of the panel.
 
 **Cost.** 48 Bedrock calls: 28,384 input and 18,400 output tokens in all. At most $0.33
-(estimate, priced high), on AWS credits.
+(estimate, priced high).
