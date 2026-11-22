@@ -135,6 +135,31 @@ bad['items'][0]['formative'] = False
 check(any('disagree' in f for f in run_lesson.check_items(GOOD['lesson'], bad, 'cs')),
       'a -KC- key that is not formative refused')
 
+print('negative stems are refused, ordinary negation is not')
+import validate  # noqa: E402
+for en, ar in (('Which of these is NOT a sign of fraud?', ''),
+               ('Which step would not breach the policy?', ''),
+               ('All of the following are controls except:', ''),
+               ('', 'أيٌّ مما يلي ليس من علامات الاحتيال؟'),
+               ('', 'جميع ما يلي صحيح عدا:'),
+               ('', 'كل الخطوات مطلوبة باستثناء واحدة، ما هي؟')):
+    check(validate.negative_stem(en, ar) is not None, f'negative stem caught: {en or ar}')
+for en, ar in (('The customer did not receive the card. Which step comes next?', ''),
+               ('Coverage is active, and the service, which has not been obtained, needs approval. '
+                'What is the correct action?', ''),
+               ('', 'العميل لا يملك بطاقة. ما الخطوة التالية؟'),
+               ('', 'ليس لدى الموظف صلاحية. ماذا يفعل أولاً؟')):
+    check(validate.negative_stem(en, ar) is None, f'ordinary negation passes: {en or ar}')
+bad = copy.deepcopy(GOOD['items'])
+bad['items'][0]['stemEn'] = 'Which of the following is NOT part of a complaint reply?'
+check(any('negative stem' in f for f in run_lesson.check_items(GOOD['lesson'], bad, 'cs')),
+      'the item gate refuses a negative stem')
+bad = copy.deepcopy(GOOD['items'])
+bad['items'][0]['stemAr'] = 'أيٌّ مما يلي ليس جزءًا من الرد على الشكوى؟'
+check(any('negative stem' in f for f in run_lesson.check_items(GOOD['lesson'], bad, 'cs')),
+      'the item gate refuses an Arabic negative stem')
+check('negative stem' in run_lesson.ITEM_RULES, 'the generator is told not to write one')
+
 print('feedback that only states the verdict is refused')
 import calibrate_judges  # noqa: E402
 _, broken = calibrate_judges.generic_feedback(GOOD['lesson'], GOOD['items'])
