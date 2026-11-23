@@ -1,0 +1,57 @@
+name: Judge panel (private lessons)
+
+# Scores lessons that must not appear in this public repository, such as a
+# client's material, with the same panel and gate as the weekly run. The
+# lessons arrive encrypted in the PRIVATE_PANEL_PAYLOAD secret, are decrypted
+# only on the runner, and every result leaves encrypted with PRIVATE_PANEL_KEY.
+# Nothing about the lessons is printed to the log: only how many were scored.
+# The open seat's GPU is not rented here, so every lesson reports NEEDS HUMAN
+# with that seat empty; the hosted seats' verdicts are the evidence.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  panel:
+    if: ${{ vars.AWS_ROLE_ARN != '' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: pip install -r pipeline/requirements.txt boto3
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Score the private lessons
+        env:
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          PAYLOAD: ${{ secrets.PRIVATE_PANEL_PAYLOAD }}
+          KEY: ${{ secrets.PRIVATE_PANEL_KEY }}
+        run: |
+          set +e
+          work="$RUNNER_TEMP/private"
+          mkdir -p "$work"
+          printf '%s' "$PAYLOAD" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -pass env:KEY | tar xz -C "$work" \
+            || { echo "could not decrypt the payload"; exit 1; }
+          n=0
+          for lesson in "$work"/*/lesson.json; do
+            dir=$(dirname "$lesson")
+            python pipeline/panel.py --lesson "$lesson" --run > "$dir/panel.log" 2>&1
+            n=$((n + 1))
+            echo "scored lesson $n"
+          done
+          tar czf - -C "$work" . | openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:KEY -out "$RUNNER_TEMP/results.enc"
+          rm -rf "$work"
+          echo "scored $n lesson(s); results are encrypted"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: private-panel-results
+          path: ${{ runner.temp }}/results.enc
+          retention-days: 3
