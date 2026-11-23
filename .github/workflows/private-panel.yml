@@ -19,6 +19,14 @@ jobs:
     if: ${{ vars.AWS_ROLE_ARN != '' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
+    # A secret holds at most 48 KB, about three lessons, so a batch is split
+    # across PRIVATE_PANEL_PAYLOAD (part 0) and PRIVATE_PANEL_PAYLOAD_1 to _9.
+    # A part whose secret is empty is skipped.
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        part: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -32,10 +40,11 @@ jobs:
       - name: Score the private lessons
         env:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
-          PAYLOAD: ${{ secrets.PRIVATE_PANEL_PAYLOAD }}
+          PAYLOAD: ${{ matrix.part == 0 && secrets.PRIVATE_PANEL_PAYLOAD || secrets[format('PRIVATE_PANEL_PAYLOAD_{0}', matrix.part)] }}
           KEY: ${{ secrets.PRIVATE_PANEL_KEY }}
         run: |
           set +e
+          [ -z "$PAYLOAD" ] && { echo "part ${{ matrix.part }} is empty"; echo "skip=1" >> "$GITHUB_ENV"; exit 0; }
           work="$RUNNER_TEMP/private"
           mkdir -p "$work"
           printf '%s' "$PAYLOAD" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -pass env:KEY | tar xz -C "$work" \
@@ -51,7 +60,8 @@ jobs:
           rm -rf "$work"
           echo "scored $n lesson(s); results are encrypted"
       - uses: actions/upload-artifact@v7
+        if: ${{ env.skip != '1' }}
         with:
-          name: private-panel-results
+          name: private-panel-results-${{ matrix.part }}
           path: ${{ runner.temp }}/results.enc
           retention-days: 3
