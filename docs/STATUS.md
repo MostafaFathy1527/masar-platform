@@ -2,6 +2,21 @@
 
 Update this file at the end of every session. It is the first thing the next session reads.
 
+## 23 November 2026: auditing a course as a plain document
+
+- `pipeline/audit_course.py` (experiment, not a seat) reads a course as plain bilingual
+  text, the way a client's Word or PDF module would arrive, and returns findings with the
+  exact words they object to. Measured on the four samples flattened to text, plus copies
+  with one planted defect each (25 documents).
+- GLM-5 caught 17 of 21 and 16 of 21 planted defects in two runs: every wrong answer key,
+  negative stem, absurd distractor set and mismatched number, swapped consequences 4 of 4
+  then 3 of 4, and no generic-feedback copy (a string check covers that). On the four real
+  lessons it raised one false alarm in eight reads, and in both runs it found a real English
+  wording slip in OPS-01 item 2 feedback ("is written with a guess label"). DeepSeek V3.2
+  caught 18 of 21 but raised 8 findings on the real lessons, mostly false.
+- Report: `pipeline/out/calibration/2026-11-23-course-audit/report.md`. Cost at most $0.35
+  (estimate). Next: a course that is not ours, in its own layout.
+
 ## 20 November 2026: swapped scenario consequences, a new planted defect
 
 - `calibrate_judges.py` gains `swapped-consequences`: every decision shows the next one's

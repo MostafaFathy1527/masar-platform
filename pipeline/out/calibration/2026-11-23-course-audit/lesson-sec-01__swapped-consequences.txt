@@ -1,0 +1,69 @@
+# Recognising a phishing email / كيف تتعرّف على رسالة تصيّد
+
+[p1] ## The attack is on the reader, not the system / الهجمة على القارئ، لا على النظام
+
+[p2] Phishing does not attack software. It attacks the person reading the screen, which is why a fully patched system still loses to a well-written attacker. The defence is not a tool — it is a **habit**: checking two or three things before acting.
+
+The weakest signal in any message is the sender's **display name**, and it is the one people trust most. A display name is free text: a sender can type a colleague's name, an internal department, or a bank, and it renders exactly as typed. What cannot be set freely is the **address** behind it. Reading the address rather than the name shown is the first check.
+التصيّد لا يهاجم البرمجيات. يهاجم الشخص الذي يقرأ الشاشة — ولهذا يخسر نظام محدَّث بالكامل أمام مهاجم جيد الصياغة. الدفاع هنا ليس أداة، بل **عادة**: التحقق من شيئين أو ثلاثة قبل التصرّف.
+
+وأضعف إشارة في أي رسالة هي **الاسم الظاهر للمُرسِل**، وهي أكثر ما يثق به الناس. الاسم الظاهر نص حر: يستطيع المُرسِل أن يكتب فيه اسم زميل، أو جهة داخلية، أو بنك، وسيظهر كما كُتب تماماً. ما لا يُكتب بحرية هو **العنوان** خلفه. قراءة العنوان نفسه، لا الاسم المعروض، هي الفحص الأول.
+
+[p3] Look-alike domain: A genuine registered domain chosen to be misread rather than examined: a letter pair that takes another shape at a glance, an added or removed hyphen, a different top-level domain on an otherwise correct name. Not a technical failure — it relies entirely on a reader scanning instead of reading.
+نطاق مُشابِه: نطاق حقيقي مُسجَّل، اختير ليُقرأ خطأً لا ليُفحَص: زوج حروف يأخذ شكل حرف آخر عند المرور السريع، أو شرطة زائدة أو ناقصة، أو امتداد مختلف على اسم صحيح فيما عداه. ليس عطلاً تقنياً — يعتمد كلياً على أن القارئ يمسح بعينه بدل أن يقرأ.
+
+[p4] One-time code: A temporary code sent to you to prove who you are. It exists precisely because it is not shareable. Anyone asking for it — including someone claiming to be internal support — is asking for the only thing standing between an attacker and an account whose password they already have.
+رمز المرة الواحدة: رمز مؤقت يُرسَل إليك لإثبات هويتك. وُجِد تحديداً لأنه غير قابل للمشاركة. ومن يطلبه منك — بما في ذلك من يقول إنه الدعم الداخلي — يطلب الشيء الوحيد الفاصل بين مهاجم وحساب يملك كلمة سره بالفعل.
+
+[p5] Do not ask whether the message feels fake — that is a question about instinct. Ask **what the actual address is, and where the link actually goes.** Those are two questions with answers, and they take ten seconds.
+لا تسأل «هل تبدو هذه الرسالة مزيفة؟» — هذا سؤال عن الإحساس. اسأل **«ما العنوان الحقيقي، وإلى أين يذهب الرابط فعلاً؟»** هذان سؤالان لهما إجابة، ويُجابان في عشر ثوانٍ.
+
+[p6] Key points:
+- A display name is free text; the address behind it is the evidence. / الاسم الظاهر نص حر؛ العنوان خلفه هو الدليل.
+- Link text is a label and its destination is another thing — reveal the destination before following it. / نص الرابط لافتة، ووجهته شيء آخر — اكشف الوجهة قبل أن تتبعها.
+- Urgency is engineered: it is there to remove the pause in which you would check. / الاستعجال مُهندَس: وُضِع ليمنع لحظة التحقق.
+- A request for a password or a one-time code ends the conversation, however convincing the rest is. / طلب كلمة سر أو رمز مرة واحدة يُنهي المحادثة، مهما كان الباقي مقنعاً.
+- Verify through a channel you already had, never through anything inside the message. / التحقق يكون عبر قناة تملكها من قبل، لا عبر شيء داخل الرسالة.
+
+[p7] ## Work one message, signal by signal / افحص رسالة، إشارة بإشارة
+
+[p8] Worked example: A message arrives with the display name “IT Service Desk”. It says your account closes in two hours, carries a “Confirm account” button, and asks for the verification code you are about to receive. Run the checks in order.
+وصلت رسالة اسمها الظاهر «IT Service Desk». تقول إن حسابك سيُغلق خلال ساعتين، وفيها زر «تأكيد الحساب»، وتطلب رمز التحقق الذي سيصلك. أجرِ الفحوص بالترتيب.
+  1. Read the actual address, not the display name. (why: The display name is free text, typed as the sender pleases. The address is the one thing they did not choose freely.) / اقرأ العنوان الحقيقي، لا الاسم الظاهر. (الاسم الظاهر نص حر ويُكتب كما يشاء المُرسِل. العنوان هو الشيء الوحيد الذي لم يختره بحرية.)
+  2. Reveal where the button goes before pressing it. (why: Displayed text is a label, independent of the destination. A label naming one place and a destination going to another is not ambiguity — that is the finding.) / اكشف وجهة الزر قبل الضغط. (النص المعروض لافتة مستقلة عن الوجهة. لافتة تسمّي جهة ووجهة تذهب لجهة أخرى ليست غموضاً — هذه هي النتيجة.)
+  3. Notice that the deadline is two hours. (why: Urgency alone is not evidence. Urgency plus a request to act outside the normal route is very close to it.) / لاحظ أن المهلة ساعتان. (الاستعجال وحده ليس دليلاً. لكن استعجالاً مع طلب تصرّف خارج المسار المعتاد قريب جداً من أن يكون دليلاً.)
+  4. Stop at the request for the verification code. (why: This is where it ends. No legitimate party asks for a one-time code — its entire purpose rests on not being shared.) / قف عند طلب رمز التحقق. (هنا تنتهي المحادثة. لا جهة شرعية تطلب رمز مرة واحدة — وجوده كله قائم على أنه لا يُشارَك.)
+  Answer: The code request settles it on its own. Do not click, do not reply, do not open any attachment. Verify through a channel you had before the message, then report it — the same message almost never arrives at one person. / طلب الرمز يحسم الأمر وحده. لا تضغط، لا تردّ، ولا تفتح أي مرفق. تحقّق عبر قناة كانت عندك قبل الرسالة، ثم أبلِغ — فنفس الرسالة نادراً ما تصل لشخص واحد.
+
+[Q1] A message carries a display name that exactly matches an internal department you know. Which signal outranks that name?
+      رسالة اسمها الظاهر مطابق تماماً لاسم قسم داخلي تعرفه. ما الإشارة التي تُقدَّم على هذا الاسم؟
+  A) The sender's actual address. / عنوان المُرسِل الحقيقي.
+     feedback: Correct. This is always the first check, because it is the one thing not freely typed. / صحيح. هذا هو الفحص الأول دائماً، لأنه الشيء الوحيد الذي لا يُكتب بحرية.
+  B) How well formatted and typo-free it is. / جودة التنسيق وخلوّه من الأخطاء الإملائية.
+     feedback: No. Typos are weak evidence in both directions; a perfectly polished message is entirely common. / لا. الأخطاء الإملائية دليل ضعيف في الاتجاهين؛ رسالة مصقولة تماماً شائعة تماماً.
+  C) The organisation's logo appearing in the message. / وجود شعار الجهة في الرسالة.
+     feedback: No. A logo is an image copied in seconds, and it is part of the very message in doubt. / لا. الشعار صورة تُنسخ في ثوانٍ، وهو جزء من الرسالة محل الشك.
+  D) That it arrived at your work address rather than a personal one. / أن الرسالة وصلت إلى بريد العمل لا البريد الشخصي.
+     feedback: No. Work addresses are harvested and targeted specifically; arriving at work is not an endorsement. / لا. عناوين العمل تُجمع وتُستهدف تحديداً؛ وصولها للعمل ليس تزكية.
+  Answer key: A
+
+[p9] Scenario: A message from your manager's display name: he is in a meeting and cannot take calls, and needs a supplier payment moved before end of day. The tone reads like his, and the reply-to address differs from the sending address.
+رسالة من الاسم الظاهر لمديرك: هو في اجتماع ولا يستطيع الرد على الهاتف، ويحتاج تحويل دفعة لمورّد قبل نهاية اليوم. الأسلوب يشبه أسلوبه، ويوجد عنوان رد مختلف عن عنوان الإرسال.
+  - Option: Reply to the message asking for confirmation. / تردّ على الرسالة طالباً تأكيداً.
+    Then: The signature is part of the message, and the message is what is in doubt. Verifying from inside the thing you doubt is not verification. / التوقيع جزء من الرسالة، والرسالة هي محل الشك. التحقق من داخل الشيء المشكوك فيه ليس تحققاً.
+  - Option: Call the number in the message signature. / تتصل بالرقم الموجود في توقيع الرسالة.
+    Then: The correct action. “Cannot take calls” is precisely the part engineered to stop you making this one check. / الإجراء الصحيح. «لا يستطيع الرد على الهاتف» هو بالضبط الجزء المُهندَس ليمنعك من هذا الفحص تحديداً.
+  - Option: Call him on a number you had before the message, and report it. / تتصل به على رقم كان لديك قبل الرسالة، وتُبلِغ. (best)
+    Then: Your reply reaches the different reply-to address — someone other than the apparent sender. The confirmation that comes back is from whoever wrote the message. / ردّك يصل إلى عنوان الرد المختلف، أي إلى شخص غير المُرسِل الظاهر. التأكيد الذي يعود إليك يأتي ممن كتب الرسالة.
+
+[Q2] You are now sure a message was phishing, and you clicked the link before you noticed. What is the correct action?
+      اقتنعت أن رسالة تصيّد، وضغطت الرابط قبل أن تنتبه. ما الإجراء الصحيح؟
+  A) Report it immediately, even if you entered nothing. / تُبلِغ فوراً، حتى لو لم تُدخل أي بيانات.
+     feedback: Correct. Timing is everything here, and the same message almost never arrives at one person. / صحيح. التوقيت هو كل شيء هنا، ونفس الرسالة نادراً ما تصل لشخص واحد.
+  B) Wait and see whether anything happens. / تنتظر لترى إن كان شيء سيحدث.
+     feedback: No. Waiting gives the attacker time, and hides from the team that a campaign has started. / لا. الانتظار يمنح المهاجم الوقت، ويُخفي عن الفريق أن الحملة بدأت.
+  C) Delete the message so nobody else clicks it. / تحذف الرسالة حتى لا يضغطها أحد.
+     feedback: No. Deleting destroys the evidence needed by whoever has to size the campaign. / لا. الحذف يُتلف الدليل الذي يحتاجه من سيحدد مدى الحملة.
+  D) Reply to the sender asking whether it was genuine. / ترد على المُرسِل لتسأله إن كانت الرسالة حقيقية.
+     feedback: No. A reply confirms the address is live and read, and it reaches whoever wrote the message. / لا. الرد يؤكد أن العنوان حي ومقروء، ويصل لمن كتب الرسالة.
+  Answer key: A
