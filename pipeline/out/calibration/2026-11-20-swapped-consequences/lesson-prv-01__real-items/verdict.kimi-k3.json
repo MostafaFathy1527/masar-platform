@@ -1,0 +1,34 @@
+{
+  "lesson": "what-counts-as-personal-data",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-11-20T12:08:08.712800+00:00",
+    "usage": {
+      "inputTokens": 7491,
+      "outputTokens": 3442
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 5,
+    "knowledge_check": 5,
+    "scenario_authenticity": 5,
+    "bilingual_quality": 4,
+    "concision": 5,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "bilingual_quality": "Arabic is fluent, idiomatic MSA with strong economy (إصلاح الإرسال لا يُلغي ما أُفصح عنه) and consistent terminology (إمكانية التعرّف, البيانات الحسّاسة, العدّاد, طلب صاحب البيانات). Held at 4 for a handful of slight constructions: the cognate السؤال الذي تسأله where تطرحه would be more idiomatic, بيقين where بكل تأكيد reads more naturally in register, and the heavy chaining of مع in مسمّى وظيفي مع قسم مع تاريخ التحاق. English renderings like handle it are looser than the Arabic يتعامل معها. Nothing approaches machine-translation word order; the Arabic clearly leads rather than follows the English."
+  },
+  "verdict_notes": "Every block earns its objective, the L2 is a genuine apply-and-decide level (worked example with real 'why' reasoning, an autocomplete-wrong-recipient scenario with authentic friction including the 5 pm pull to wait), and both knowledge checks use distractors drawn from misconceptions people actually hold, with feedback that names the error rather than restating the answer. No licensed code sets or payer text anywhere, so no automatic floor hit on criterion 8. The only sub-5 is bilingual quality at 4: the Arabic is natural and terminology-consistent, with a few mildly stiff constructions keeping it short of 'would not change a word'."
+}

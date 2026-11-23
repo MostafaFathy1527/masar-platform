@@ -17,6 +17,10 @@ names, and each targets one criterion:
                                              "Because it is the next step."
   empty-consequences  scenario_authenticity  every decision's consequence becomes
                                              the same empty sentence
+  swapped-consequences scenario_authenticity every decision gets the next decision's
+                                             consequence: each stays distinct and long
+                                             enough to pass validate.py, but no longer
+                                             follows from the choice it is shown under
   mismatched-numbers  bilingual_quality      every number in an Arabic field moves
                                              one up, so the Arabic no longer says
                                              what the English says; the English,
@@ -158,6 +162,26 @@ class NotApplicable(Exception):
     """The lesson has nothing this defect could break."""
 
 
+def swapped_consequences(lesson: dict, bank: dict) -> tuple[dict, dict]:
+    # empty-consequences is refused by validate.py before any judge sees it; this one
+    # is not, so it measures what only a reader can catch.
+    lesson = copy.deepcopy(lesson)
+    swapped = 0
+    for b in _blocks(lesson):
+        if b.get('type') != 'scenario':
+            continue
+        ds = b['payload'].get('decisions', [])
+        if len(ds) < 2:
+            continue
+        pairs = [(d['consequenceEn'], d['consequenceAr']) for d in ds]
+        for i, d in enumerate(ds):
+            d['consequenceEn'], d['consequenceAr'] = pairs[(i + 1) % len(ds)]
+        swapped += 1
+    if not swapped:
+        raise NotApplicable('no scenario has two decisions')
+    return lesson, bank
+
+
 # Western and Arabic-Indic runs are matched apart, so a run keeps its own script.
 INDIC_DIGITS = ''.join(chr(0x0660 + i) for i in range(10))
 NUMBER = re.compile(r'[0-9]+|[\u0660-\u0669]+')
@@ -218,6 +242,7 @@ MUTANTS = {
     'pasted-english': ('bilingual_quality', pasted_english),
     'reasonless-steps': ('worked_example', reasonless_steps),
     'empty-consequences': ('scenario_authenticity', empty_consequences),
+    'swapped-consequences': ('scenario_authenticity', swapped_consequences),
     'mismatched-numbers': ('bilingual_quality', mismatched_numbers),
 }
 

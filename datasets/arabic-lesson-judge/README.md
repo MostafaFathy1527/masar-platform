@@ -6,8 +6,8 @@ It is built from the lessons of Masar, an open-source Arabic-first learning plat
 
 ## Files
 
-- `pairs.jsonl`: 47 pairs from 9 source lessons.
-- `judge_behaviour.jsonl`: 360 records from 24 judge models across 7 calibration runs.
+- `pairs.jsonl`: 56 pairs from 9 source lessons.
+- `judge_behaviour.jsonl`: 414 records from 25 judge models across 10 calibration runs.
 - `README.md`: this card.
 
 ## How it was built
@@ -26,6 +26,7 @@ It is built from the lessons of Masar, an open-source Arabic-first learning plat
 | `pasted-english` | bilingual_quality | 5 | 4 | 9 |
 | `reasonless-steps` | worked_example | 5 | 4 | 9 |
 | `empty-consequences` | scenario_authenticity | 5 | 4 | 9 |
+| `swapped-consequences` | scenario_authenticity | 5 | 4 | 9 |
 | `mismatched-numbers` | bilingual_quality | 1 | 1 | 2 |
 
 - `generic-feedback`: every option's feedback becomes "Correct." or "Not correct.".
@@ -78,7 +79,8 @@ Pairs not made, and why:
 | `Mistral-Small-3.2-24B-Instruct-2506-Q8_0.gguf` | 19 | 1 | 1 |
 | `Qwen3-30B-A3B-Thinking-2507-Q8_0.gguf` | 40 | 25 | 2 |
 | `amazon.nova-pro-v1:0` | 8 | 0 | 1 |
-| `deepseek.v3.2` | 20 | 12 | 1 |
+| `command-a-plus-05-2026` | 42 | 30 | 2 |
+| `deepseek.v3.2` | 24 | 12 | 2 |
 | `google.gemma-3-27b-it` | 1 | 0 | 1 |
 | `gpt-oss-20b-Q8_0.gguf` | 20 | 15 | 1 |
 | `minimax.minimax-m2.5` | 14 | 4 | 2 |
@@ -90,18 +92,19 @@ Pairs not made, and why:
 | `qwen.qwen3-vl-235b-a22b` | 8 | 0 | 2 |
 | `us.meta.llama3-3-70b-instruct-v1:0` | 8 | 1 | 1 |
 | `us.meta.llama4-maverick-17b-instruct-v1:0` | 4 | 0 | 1 |
-| `us.moonshotai.kimi-k3` | 20 | 19 | 2 |
+| `us.moonshotai.kimi-k3` | 24 | 23 | 3 |
 | `zai.glm-4.7` | 8 | 2 | 2 |
-| `zai.glm-5` | 20 | 16 | 1 |
+| `zai.glm-5` | 24 | 16 | 2 |
 
 | Defect | Records | Caught |
 |---|---|---|
-| `generic-feedback` | 75 | 34 |
-| `absurd-distractors` | 72 | 38 |
-| `pasted-english` | 83 | 20 |
-| `reasonless-steps` | 55 | 39 |
-| `empty-consequences` | 75 | 5 |
-| `mismatched-numbers` | 0 | 0 |
+| `generic-feedback` | 83 | 42 |
+| `absurd-distractors` | 80 | 46 |
+| `pasted-english` | 91 | 27 |
+| `reasonless-steps` | 63 | 46 |
+| `empty-consequences` | 83 | 5 |
+| `swapped-consequences` | 12 | 4 |
+| `mismatched-numbers` | 2 | 0 |
 
 Scores are integers from 1 to 5 on the rubric in `pipeline/rubric.md`. A verdict that hands back the rubric's printed example is not counted.
 

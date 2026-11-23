@@ -1,0 +1,578 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "transferring without warm handover",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of this weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "promising a waiver you cannot deliver",
+     "follows": true,
+     "reason": "Consequence correctly describes the risk of this weak option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "documenting facts and promising follow-up",
+     "follows": true,
+     "reason": "Consequence correctly praises the best option without warning against it."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 184,
+   "totalTokens": 673,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Transferring without a warm handover",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of transferring without context, matching the weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Promising a waiver without authorisation",
+     "follows": true,
+     "reason": "The consequence correctly describes the negative outcome of making an unauthorized promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Performing a warm handover and managing expectations",
+     "follows": true,
+     "reason": "The consequence correctly praises the action as a 'warm handover' and validates the approach for the best option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 199,
+   "totalTokens": 681,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Transferring and ending chat",
+     "follows": false,
+     "reason": "Consequence warns against promising something you cannot make true, but the option does not include making a promise."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Promising the waiver",
+     "follows": false,
+     "reason": "Consequence praises the action as a warm handover, but this is a weak option that involves making a false promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Writing facts, telling who will own it, keeping name on it",
+     "follows": false,
+     "reason": "Consequence warns against a transfer without warm handover, but the option describes a warm handover with ownership."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 218,
+   "totalTokens": 707,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Promising a waiver",
+     "follows": false,
+     "reason": "The consequence describes a broken promise, but the option was a direct transfer without making a promise."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Making a warm handover with a specific timeframe",
+     "follows": false,
+     "reason": "The consequence praises a warm handover, but the option was to promise the waiver itself."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Transferring without a warm handover",
+     "follows": false,
+     "reason": "The consequence describes a cold transfer, but the option explicitly describes keeping ownership and providing details."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 172,
+   "totalTokens": 654,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "choosing the order first",
+     "follows": true,
+     "reason": "Consequence correctly describes the risk of deprioritizing the urgent ticket."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "choosing Ali's urgent ticket first",
+     "follows": true,
+     "reason": "Consequence praises the choice and explains why it is best."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "claiming nothing major is open",
+     "follows": true,
+     "reason": "Consequence clearly names the mistake and describes the bad outcome."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 496,
+   "outputTokens": 186,
+   "totalTokens": 682,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Prioritizing the order by arrival time.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of prioritizing arrival over urgency."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Prioritizing Ali's urgent ticket.",
+     "follows": true,
+     "reason": "The consequence appropriately praises the correct action of prioritizing the deadline."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Dismissing the items as 'nothing major'.",
+     "follows": true,
+     "reason": "The consequence correctly criticizes the failure to acknowledge the urgent deadline."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 187,
+   "totalTokens": 676,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "choosing the order line first",
+     "follows": false,
+     "reason": "Tone fails: consequence praises a weak option as best."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "choosing Ali's urgent ticket line first",
+     "follows": false,
+     "reason": "Tone fails: consequence warns against the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "choosing 'All good, nothing major'",
+     "follows": true,
+     "reason": "Consequence matches the action and has appropriate negative tone."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 496,
+   "outputTokens": 186,
+   "totalTokens": 682,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Choosing the order as the first line.",
+     "follows": false,
+     "reason": "The consequence praises a weak option as 'Best'."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Choosing Ali's ticket as the first line.",
+     "follows": false,
+     "reason": "The consequence warns against the best option, describing it as a failure."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Choosing the 'nothing major' summary line.",
+     "follows": true,
+     "reason": "The consequence correctly describes the negative outcome of this weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 184,
+   "totalTokens": 673,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "recalling the message and waiting",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the recall-and-wait approach as ineffective and risky."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "reporting immediately to the privacy owner",
+     "follows": true,
+     "reason": "Consequence praises this as the correct action without warning against it."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "only resending to the right customer",
+     "follows": true,
+     "reason": "Consequence correctly explains why merely resending is insufficient and constitutes a breach."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 474,
+   "outputTokens": 193,
+   "totalTokens": 667,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Recalling the message and waiting",
+     "follows": true,
+     "reason": "The consequence correctly identifies the risks of recalling and waiting."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Reporting to the privacy owner and asking for deletion",
+     "follows": true,
+     "reason": "The consequence praises the action as correct, which matches the best option tone."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Resending and closing the issue",
+     "follows": true,
+     "reason": "The consequence explains why closing the issue is a mistake, matching the weak option tone."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 466,
+   "outputTokens": 188,
+   "totalTokens": 654,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "recalling the message and watching",
+     "follows": false,
+     "reason": "Consequence praises a weak option as the correct action."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "reporting to privacy owner and contacting wrong recipient",
+     "follows": true,
+     "reason": "Consequence correctly explains why this action is necessary."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "resending to right customer and considering it closed",
+     "follows": true,
+     "reason": "Consequence explains the risks of this weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 474,
+   "outputTokens": 184,
+   "totalTokens": 658,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Reporting the breach immediately",
+     "follows": false,
+     "reason": "The consequence describes reporting as correct, but the option chooses to recall and watch instead."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Resending the statement",
+     "follows": false,
+     "reason": "The consequence critiques the breach and resending, but the option is the best action of reporting the breach."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Recalling the message and waiting",
+     "follows": false,
+     "reason": "The consequence reacts to recalling and waiting, but the option chooses to resend and close the case."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 466,
+   "outputTokens": 195,
+   "totalTokens": 661,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "replying to the message",
+     "follows": true,
+     "reason": "Consequence directly addresses the action of replying and correctly warns of risk."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the signature",
+     "follows": true,
+     "reason": "Consequence matches the action and correctly explains why it's a weak verification."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling a known number to verify",
+     "follows": false,
+     "reason": "Consequence praises the action as correct but then warns against it, creating mixed tone."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 435,
+   "outputTokens": 195,
+   "totalTokens": 630,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Replying to the message",
+     "follows": true,
+     "reason": "The consequence correctly describes the result of replying to the different address."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the number in the signature",
+     "follows": true,
+     "reason": "The consequence correctly identifies the flaw in verifying using the message itself."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling a known number and reporting",
+     "follows": true,
+     "reason": "The consequence correctly validates the action as correct and explains the attacker's tactic."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 159,
+   "totalTokens": 587,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "replying to the message for confirmation",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the action of verifying from within the suspicious message."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the signature",
+     "follows": false,
+     "reason": "Consequence praises a weak option as 'the correct action', violating tone rules."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling a known number and reporting",
+     "follows": false,
+     "reason": "Consequence describes a bad outcome for the best option, violating tone rules."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 435,
+   "outputTokens": 196,
+   "totalTokens": 631,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Replying to the message for verification",
+     "follows": true,
+     "reason": "The consequence correctly identifies the flaw in verifying a suspicious message by replying to it."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the number in the message signature",
+     "follows": true,
+     "reason": "The consequence explains why calling the provided number is the correct action despite the 'meeting' excuse."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Replying to the message",
+     "follows": false,
+     "reason": "The consequence describes the result of replying to the message (d1), not calling a known number."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 200,
+   "totalTokens": 628,
+   "temperature": 0
+  }
+ }
+]

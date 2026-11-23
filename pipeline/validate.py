@@ -388,6 +388,40 @@ def check_prose_budget(doc, file: str) -> list[Finding]:
 # ----------------------------------------------------------------- layer 3
 
 
+# Negative stems ("Which is NOT...", "أي مما يلي ليس...") invite two right answers:
+# BNK-01's generator wrote them in 2 of 3 runs and all three judges missed one
+# (decided 2026-11-21: multiple-choice items never use them). Only the stem is
+# read, and only stem shapes: a negator after a question word, an all-caps NOT or
+# EXCEPT, or an exclusion word. A bare "not" or "لا" elsewhere is ordinary prose.
+_AR_MARKS = re.compile("[\u064B-\u0652\u0640]")  # harakat and tatweel
+NEGATIVE_STEM_EN = [
+    re.compile(r"\b(NOT|EXCEPT)\b"),
+    # A question word that opens a sentence, then the negator within six words:
+    # "Which step would not...", but not "...service, which has not been obtained".
+    re.compile(r"(?:^|[.?!:]\s+)(?:which|what|who)\b(?:\W+\w+){0,6}?(?:\W+(?:not|except)\b|n't\b)", re.I),
+    re.compile(r"\ball of the following\b[^?.]*\bexcept\b", re.I),
+]
+_AR = "[\u0621-\u064A]"
+NEGATIVE_STEM_AR = [
+    re.compile(rf"(?<!{_AR})(?:[وف]?(?:ما )?عدا|[وف]?باستثناء)(?!{_AR})"),
+    re.compile(rf"(?<!{_AR})(?:اي|ايها|ما|ماذا|من)(?!{_AR})(?:\s+\S+){{0,4}}?\s+(?:ليس|ليست|ليسوا|ليسا|لا يعد|لا تعد)(?!{_AR})"),
+]
+
+
+def negative_stem(stem_en: str, stem_ar: str) -> str | None:
+    """The first negative-stem pattern either stem matches, quoted, or None."""
+    for pattern in NEGATIVE_STEM_EN:
+        m = pattern.search(stem_en or "")
+        if m:
+            return m.group(0)
+    ar = re.sub("[أإآ]", "ا", _AR_MARKS.sub("", stem_ar or ""))
+    for pattern in NEGATIVE_STEM_AR:
+        m = pattern.search(ar)
+        if m:
+            return m.group(0)
+    return None
+
+
 def check_content(doc, file: str, extra_terms: list[re.Pattern[str]]) -> list[Finding]:
     findings: list[Finding] = []
     for path, text in walk_strings(doc):

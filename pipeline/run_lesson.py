@@ -114,7 +114,10 @@ Each item: key, objectiveId, type ("MCQ_SINGLE" or "MULTI_SELECT"), bloom ("RECA
 - MCQ_SINGLE has exactly one correct option. MULTI_SELECT has at least two, never all.
 - 2 to 6 options. Every option has textAr, textEn, isCorrect, feedbackAr, feedbackEn, and
   the feedback names the misconception the option represents.
-- Vary the authored position of the correct option across items."""
+- Vary the authored position of the correct option across items.
+- Never write a negative stem: no "Which is NOT...", "...EXCEPT", "All of the following
+  except", and in Arabic no "أي مما يلي ليس..." or "عدا / باستثناء". Ask for what is right;
+  a negative stem invites two defensible answers."""
 
 OUTPUT_SHAPE = """\
 Return ONE JSON object and nothing else, with exactly these keys:
@@ -219,6 +222,10 @@ def check_items(lesson: dict, bank: dict, name: str) -> list[str]:
         for f, n in (('stemAr', 1), ('stemEn', 1), ('rationaleAr', 10), ('rationaleEn', 10)):
             if len(str(it.get(f, '')).strip()) < n:
                 out.append(f'{where}: {f} missing or too short')
+        neg = validate.negative_stem(str(it.get('stemEn', '')), str(it.get('stemAr', '')))
+        if neg:
+            out.append(f'{where}: negative stem ("{neg}"); ask for the right answer, '
+                       f'never "which is NOT"')
         opts = it.get('options') or []
         if not 2 <= len(opts) <= 6:
             out.append(f'{where}: {len(opts)} options; 2 to 6 allowed')

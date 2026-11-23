@@ -1,0 +1,36 @@
+{
+  "lesson": "recognising-a-phishing-email",
+  "judge": {
+    "label": "LLM rubric score, fresh-context judge, self-assessed — not human QA.",
+    "provider": "amazon-bedrock",
+    "model_id": "us.moonshotai.kimi-k3",
+    "saw_generation_prompt": false,
+    "saw_source_note": false,
+    "saw_previous_verdicts": false,
+    "authored_lesson": false,
+    "temperature": null,
+    "scored_at": "2026-11-20T12:05:43.626209+00:00",
+    "usage": {
+      "inputTokens": 6517,
+      "outputTokens": 3579
+    },
+    "independence_caveat": "This judge is a different model family and a fresh context: it saw only the judge prompt, the rubric and the lesson. It did not direct the project and did not author anything in it. It is still a language model scoring a language model's output, so the label applies: not human QA."
+  },
+  "scores": {
+    "objective_alignment": 5,
+    "level_fidelity": 5,
+    "worked_example": 4,
+    "knowledge_check": 5,
+    "scenario_authenticity": 2,
+    "bilingual_quality": 5,
+    "concision": 4,
+    "accessibility_ip": 5
+  },
+  "not_scored": {},
+  "notes": {
+    "worked_example": "Each step gives a genuine 'why', and step 3 names the judgement (urgency alone vs urgency plus an out-of-band request). But the prompt never supplies the actual sender address or the link destination, so steps 1 and 2 instruct the learner to inspect evidence that is not on the page — the findings are asserted rather than demonstrated. Adding the concrete address and destination would let the learner see the mismatch instead of being told about it.",
+    "scenario_authenticity": "The situation itself is highly authentic — a recognisable BEC attempt with real friction (manager unreachable, end-of-day pressure, reply-to mismatch). But the three consequence texts are rotated onto the wrong options. d1 (reply asking for confirmation) carries the consequence about the signature being part of the doubted message — which belongs to d2 (call the number in the signature). d2 carries 'The correct action…' — which belongs to d3, the option flagged isBest. d3, flagged best, carries the consequence about a reply reaching the reply-to address — which describes d1, and makes no sense for a phone call. As rendered, the scenario affirms a wrong action as correct and gives the learner who chose correctly feedback about a different action entirely. That is worse than frictionless: it actively mis-teaches.",
+    "concision": "Prose is dense and purposeful with almost no padding, but there is some redundancy across blocks: 'display name is free text' is restated in the intro, the tip, a takeaway, worked-example step 1, and the KC rationale with little added each time. A small trim is possible without loss, so not a 5."
+  },
+  "verdict_notes": "The lesson is strong across most criteria: natural Arabic, knowledge-check distractors drawn from real misconceptions, and a worked example whose steps explain their reasoning. The decisive defect is in the scenario block, where the consequence texts are attached to the wrong decisions — the flagged-best option carries feedback that describes replying, and a wrong option is described in its feedback as 'the correct action'. That single block undermines the lesson's strongest material and would need to be re-wired before this teaches what it intends to."
+}

@@ -1,0 +1,506 @@
+[
+ {
+  "copy": "lesson-ops-01-r2-v1__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "identifying the ticket first",
+     "follows": true,
+     "reason": "Consequence correctly praises the best option's action of identifying the item immediately."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "stating action before identifying item",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the weak option's action of showing action before identifying the item."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "providing status without identifying item",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the weak option's action of giving status first."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 410,
+   "outputTokens": 194,
+   "totalTokens": 604,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "starting with 'What is it?' before identifying item",
+     "follows": false,
+     "reason": "Consequence criticizes the action but this is marked as the best option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "starting with 'What happens next and by when?' before identifying item",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the weak option's action."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "starting with 'What is the status?' before identifying item",
+     "follows": false,
+     "reason": "Consequence praises the action but this is not marked as the best option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 410,
+   "outputTokens": 204,
+   "totalTokens": 614,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__real-items",
+  "block": "b_l2_scenario_handover",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "writing a generic note",
+     "follows": true,
+     "reason": "Consequence directly describes the bad outcome of a vague handover."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "providing a detailed handover",
+     "follows": true,
+     "reason": "Consequence praises the action appropriately as the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "deleting the ticket",
+     "follows": true,
+     "reason": "Consequence correctly warns against the harmful action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 419,
+   "outputTokens": 177,
+   "totalTokens": 596,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__swapped-consequences",
+  "block": "b_l2_scenario_handover",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "writing a generic note",
+     "follows": false,
+     "reason": "Tone fails: a weak option's consequence praises it as best."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "providing detailed handover",
+     "follows": false,
+     "reason": "Tone fails: the best option's consequence warns against it."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "deleting the ticket",
+     "follows": true,
+     "reason": "Consequence matches the action and has appropriate tone for a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 419,
+   "outputTokens": 184,
+   "totalTokens": 603,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__real-items",
+  "block": "b01_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "explaining the bill calculation",
+     "follows": true,
+     "reason": "The consequence correctly reacts to explaining the calculation and praises the approach."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "waiving the member's share",
+     "follows": true,
+     "reason": "The consequence correctly reacts to waiving the fee and describes a bad outcome."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "telling member to contact payer",
+     "follows": true,
+     "reason": "The consequence correctly reacts to redirecting the member and describes a bad outcome."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 453,
+   "outputTokens": 188,
+   "totalTokens": 641,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__swapped-consequences",
+  "block": "b01_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "waiving the member's share",
+     "follows": false,
+     "reason": "Consequence warns against waiving, but d1 is explaining, not waiving."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "waiving the 160",
+     "follows": true,
+     "reason": "Consequence correctly describes a bad outcome for waiving."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "telling member to contact payer",
+     "follows": true,
+     "reason": "Consequence neutrally describes outcome of redirecting to payer."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 453,
+   "outputTokens": 185,
+   "totalTokens": 638,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__real-items",
+  "block": "b03_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "proceeding and billing payer assuming renewal",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of that specific action."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "explaining, offering reschedule/self-pay, recording",
+     "follows": true,
+     "reason": "Consequence appropriately praises the best option's outcome."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "proceeding and marking claim as urgent",
+     "follows": true,
+     "reason": "Consequence correctly names the mistake of that specific weak option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 438,
+   "outputTokens": 189,
+   "totalTokens": 627,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__swapped-consequences",
+  "block": "b03_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "proceeding and billing payer assuming renewal",
+     "follows": false,
+     "reason": "Consequence praises a weak option as straightforward."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "explaining result, offering reschedule/self-pay, recording",
+     "follows": false,
+     "reason": "Consequence warns against the best option with a negative outcome."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "proceeding and marking claim as urgent",
+     "follows": true,
+     "reason": "Consequence correctly describes a bad outcome for a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 438,
+   "outputTokens": 189,
+   "totalTokens": 627,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__real-items",
+  "block": "b_l2_scenario_missing",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "submitting without provider name",
+     "follows": true,
+     "reason": "Consequence matches the action and correctly describes a bad outcome for a weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "getting the name now before submitting",
+     "follows": true,
+     "reason": "Consequence matches the action and praises the best option appropriately."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "entering supervising physician instead",
+     "follows": true,
+     "reason": "Consequence matches the action and correctly describes a bad outcome for a weak option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 408,
+   "outputTokens": 189,
+   "totalTokens": 597,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__swapped-consequences",
+  "block": "b_l2_scenario_missing",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "submitting now and adding name later",
+     "follows": false,
+     "reason": "Consequence praises a weak option as best."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "getting the name from service record now",
+     "follows": false,
+     "reason": "Consequence warns against the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "entering supervising physician instead",
+     "follows": true,
+     "reason": "Consequence correctly describes a bad outcome for a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 408,
+   "outputTokens": 177,
+   "totalTokens": 585,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__real-items",
+  "block": "b05_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "downgrading claims without changing records",
+     "follows": true,
+     "reason": "Consequence correctly describes the risk of altering claims without addressing the underlying pattern."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "raising the pattern through compliance with evidence",
+     "follows": true,
+     "reason": "Consequence appropriately supports this best option by explaining why it is the correct approach."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "assuming the clinician sees more complex patients",
+     "follows": true,
+     "reason": "Consequence correctly warns against ignoring a pattern and explains the risk of upcoding."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 465,
+   "outputTokens": 198,
+   "totalTokens": 663,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__swapped-consequences",
+  "block": "b05_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "downgrading claims yourself",
+     "follows": false,
+     "reason": "Consequence describes raising it through compliance, not the chosen action of self-downgrading."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "assuming the best and moving on",
+     "follows": false,
+     "reason": "Consequence reacts to option d3's action, not the chosen action of raising through compliance."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "changing claims without record support",
+     "follows": true,
+     "reason": "Consequence correctly reacts to the chosen action of assuming and moving on, and has appropriate tone for a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 465,
+   "outputTokens": 208,
+   "totalTokens": 673,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__real-items",
+  "block": "b07_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "letting the appeal go ahead",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of pursuing an appeal when there is no decision."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "correcting and resubmitting",
+     "follows": true,
+     "reason": "Consequence praises the efficiency of the best option without warning against it."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling to dispute the refusal",
+     "follows": true,
+     "reason": "Consequence correctly explains why disputing now is pointless, matching the weak option's action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 196,
+   "totalTokens": 617,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__swapped-consequences",
+  "block": "b07_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "letting appeal go ahead",
+     "follows": false,
+     "reason": "Consequence describes correcting and resubmitting, which is the opposite action."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "stopping appeal and resubmitting",
+     "follows": true,
+     "reason": "Consequence correctly explains why resubmitting is the right action."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling to dispute refusal",
+     "follows": true,
+     "reason": "Consequence explains why disputing is unnecessary and wasteful."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 421,
+   "outputTokens": 185,
+   "totalTokens": 606,
+   "temperature": 0
+  }
+ }
+]

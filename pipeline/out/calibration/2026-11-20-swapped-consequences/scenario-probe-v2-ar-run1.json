@@ -1,0 +1,578 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "transferring without warm handoff",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of this weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "promising a result you cannot deliver",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of this weak option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "summarizing facts and setting clear expectations",
+     "follows": true,
+     "reason": "Consequence praises the best option appropriately without warning against it."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 577,
+   "outputTokens": 186,
+   "totalTokens": 763,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Transferring to the department without explanation",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of forcing the client to repeat themselves."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Promising a cancellation to ease tension",
+     "follows": true,
+     "reason": "The consequence accurately predicts the negative outcome of making a false promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Summarizing facts and ensuring follow-up",
+     "follows": true,
+     "reason": "The consequence praises the correct actions of a warm handoff without warning against them."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 590,
+   "outputTokens": 190,
+   "totalTokens": 780,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "تحويل العميل وإنهاء المحادثة",
+     "follows": true,
+     "reason": "النتيجة تتحدث عن وعد غير ممكن وتصعيد الشكوى، وهو يتناسب مع خيار ضعيف."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "وعد العميل بإلغاء الرسوم وإنهاء المحادثة",
+     "follows": false,
+     "reason": "النتيجة تمدح التسليم الدافئ وتبرر الوعد، بينما الخيار ضعيف."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "تلخيص الحقائق وإعلام العميل بالمسؤول والموعد",
+     "follows": false,
+     "reason": "النتيجة تنتقد النقل بدون تسليم دافئ وتحذر من التصعيد، بينما الخيار هو الأفضل."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 577,
+   "outputTokens": 254,
+   "totalTokens": 831,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Transferring and closing the chat",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of making an implicit promise by transferring without context."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Promising fees will be cancelled",
+     "follows": false,
+     "reason": "The consequence praises the action as a 'warm handoff' and best practice, despite the option being a weak choice that makes a false promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Summarizing facts and assigning ownership",
+     "follows": false,
+     "reason": "The consequence warns against the action and predicts a bad outcome, contradicting the fact that this is marked as the best option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 590,
+   "outputTokens": 214,
+   "totalTokens": 804,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "choosing the non-urgent request first",
+     "follows": true,
+     "reason": "Consequence correctly describes the bad outcome of prioritizing by arrival time."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "choosing the urgent ticket with deadline",
+     "follows": true,
+     "reason": "Consequence praises this best option appropriately without warning against it."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "saying everything is fine with no urgency",
+     "follows": true,
+     "reason": "Consequence correctly names the mistake and describes the bad outcome."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 578,
+   "outputTokens": 190,
+   "totalTokens": 768,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Choosing the request without a deadline",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of prioritizing arrival time over the deadline."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Prioritizing the ticket with the deadline",
+     "follows": true,
+     "reason": "The consequence appropriately praises the action of prioritizing the urgent promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Dismissing the items as unimportant",
+     "follows": true,
+     "reason": "The consequence correctly warns against the mistake of ignoring the deadline."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 584,
+   "outputTokens": 185,
+   "totalTokens": 769,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "choosing the delivery confirmation ticket first",
+     "follows": true,
+     "reason": "Consequence correctly praises this option as best and explains why it's the right choice."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "choosing the urgent ticket with a deadline",
+     "follows": false,
+     "reason": "Tone check fails: this is marked as the best option, but its consequence criticizes it as a common mistake with a bad outcome."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "choosing the vague 'everything is fine' option",
+     "follows": true,
+     "reason": "Consequence correctly describes the negative outcome of this weak option (delayed urgent item)."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 578,
+   "outputTokens": 217,
+   "totalTokens": 795,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Choosing the supplier request line",
+     "follows": true,
+     "reason": "The consequence praises the action as 'Best', which is an appropriate tone for a correct option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Choosing Ali's ticket line",
+     "follows": false,
+     "reason": "The option is marked best, but the consequence warns that it is a 'common mistake' and leads to a broken promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Choosing the 'all fine' line",
+     "follows": true,
+     "reason": "The consequence correctly identifies the negative outcome of misprioritizing the urgent ticket."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 584,
+   "outputTokens": 201,
+   "totalTokens": 785,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "سحب الرسالة والانتظار",
+     "follows": true,
+     "reason": "النتيجة تتحدث عن مشاكل السحب والانتظار المذكورين في الخيار."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "الإبلاغ لمسؤول الخصوصية وطلب الحذف",
+     "follows": true,
+     "reason": "النتيجة تمدح وتؤيد الإجراء المذكور في الخيار كإجراء صحيح."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "إعادة الإرسال للعميل الصحيح واعتبار الأمر منتهياً",
+     "follows": true,
+     "reason": "النتيجة تنتقد إهمال الإفصاح وعدم معالجة الاختراق المحتمل المذكور في الخيار."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 569,
+   "outputTokens": 250,
+   "totalTokens": 819,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Withdrawing the message and waiting.",
+     "follows": true,
+     "reason": "The consequence correctly addresses the failure of withdrawal and the risk of hiding the breach."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Reporting to the privacy officer now.",
+     "follows": true,
+     "reason": "The consequence appropriately praises the action as correct for a best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Re-sending to the correct client and ignoring the breach.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of ignoring the data breach."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 592,
+   "outputTokens": 188,
+   "totalTokens": 780,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "سحب الرسالة والانتظار ليرى إن كان أحد سيلاحظ",
+     "follows": false,
+     "reason": "النتيجة تمدح الإجراء بأنه الصحيح رغم أن الخيار ضعيف."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "الإبلاغ لمسؤول الخصوصية وطلب الحذف من المتلقي الخاطئ",
+     "follows": true,
+     "reason": "النتيجة تتعلق بالخيار وتؤكد أهميته دون تحذير ضده."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "إعادة الإرسال للعميل الصحيح واعتبار الأمر منتهياً",
+     "follows": true,
+     "reason": "النتيجة تتعلق بالخيار وتوضح عواقب سلبية دون مدحه."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 569,
+   "outputTokens": 252,
+   "totalTokens": 821,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Reporting to the privacy officer",
+     "follows": false,
+     "reason": "The consequence praises reporting immediately, which is the action of option d2, not the withdrawal action chosen here."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Sending the account statement",
+     "follows": true,
+     "reason": "The consequence correctly identifies the risk of the data breach, matching the gravity of the chosen best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Withdrawal and waiting",
+     "follows": false,
+     "reason": "The consequence criticizes withdrawal and waiting, which are the actions of option d1, not the resend action chosen here."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 592,
+   "outputTokens": 175,
+   "totalTokens": 767,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "replying to the email asking for confirmation",
+     "follows": true,
+     "reason": "Consequence correctly describes the risk of replying to a different address."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the email signature",
+     "follows": true,
+     "reason": "Consequence correctly warns that verifying from within the suspicious message is insufficient."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling a pre-known number to inform",
+     "follows": false,
+     "reason": "Tone fails: consequence for the best option warns against it, calling it the exact thing the scam prevents."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 491,
+   "outputTokens": 203,
+   "totalTokens": 694,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Replying to the message",
+     "follows": true,
+     "reason": "The consequence correctly describes the result of replying to the spoofed address."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the number in the signature",
+     "follows": true,
+     "reason": "The consequence correctly critiques relying on the signature for verification."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling a known number",
+     "follows": false,
+     "reason": "The consequence warns against the action by explaining the trap, contradicting the 'best' marking."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 514,
+   "outputTokens": 184,
+   "totalTokens": 698,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "deepseek.v3.2",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "asking for confirmation via reply",
+     "follows": true,
+     "reason": "Consequence correctly criticizes the weak option's action."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the signature",
+     "follows": false,
+     "reason": "Consequence praises a weak option as the correct procedure."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "calling a pre-known number",
+     "follows": false,
+     "reason": "Consequence warns against the marked best option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 491,
+   "outputTokens": 178,
+   "totalTokens": 669,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Replying to the message asking for confirmation",
+     "follows": true,
+     "reason": "The consequence correctly identifies that verifying the suspicious message using the message itself is invalid."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the number in the message signature",
+     "follows": false,
+     "reason": "The consequence praises this weak option as 'Correct procedure' instead of explaining the risk of calling a fraudulent number."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling a pre-existing number to report",
+     "follows": false,
+     "reason": "The consequence describes a negative outcome typical of a weak option, contradicting the best option marking."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 514,
+   "outputTokens": 203,
+   "totalTokens": 717,
+   "temperature": 0
+  }
+ }
+]

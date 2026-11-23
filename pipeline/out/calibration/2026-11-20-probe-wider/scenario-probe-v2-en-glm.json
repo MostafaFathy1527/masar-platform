@@ -1,0 +1,506 @@
+[
+ {
+  "copy": "lesson-ops-01-r2-v1__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Identifying the ticket immediately",
+     "follows": true,
+     "reason": "The consequence correctly praises the best option for prioritizing quick identification."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Showing action before identification",
+     "follows": true,
+     "reason": "The consequence correctly critiques the weak option for poor information ordering."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Providing status without identification",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of omitting the item's identity."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 400,
+   "outputTokens": 153,
+   "totalTokens": 553,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2-v1__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Writing the line 'What is it? Ali’s ticket...'",
+     "follows": false,
+     "reason": "The consequence warns against the action, but this is marked as the best option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Writing the line 'What happens next...'",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of not identifying the item first."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Writing the line 'What is the status?...'",
+     "follows": false,
+     "reason": "The consequence praises the action, but this is a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 400,
+   "outputTokens": 196,
+   "totalTokens": 596,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__real-items",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "writing a generic note",
+     "follows": true,
+     "reason": "The consequence correctly identifies the negative outcome of providing insufficient detail."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "providing a detailed hand-over",
+     "follows": true,
+     "reason": "The consequence appropriately praises the clear communication of the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "deleting the ticket",
+     "follows": true,
+     "reason": "The consequence correctly describes the bad outcome of this weak action."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 411,
+   "outputTokens": 175,
+   "totalTokens": 586,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-v2__swapped-consequences",
+  "block": "b_l2_scenario_handover",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "writing a generic note",
+     "follows": false,
+     "reason": "The consequence praises a generic note as having all needed information, which is an incorrect tone for a weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "deleting the ticket",
+     "follows": false,
+     "reason": "The consequence describes the result of deleting a ticket, not providing a detailed hand-over, failing the match check."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "deleting the ticket",
+     "follows": true,
+     "reason": "The consequence accurately matches the action of deleting the ticket and correctly describes the negative outcome."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 411,
+   "outputTokens": 169,
+   "totalTokens": 580,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__real-items",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Explaining the bill calculation and origin",
+     "follows": true,
+     "reason": "The consequence matches the action and appropriately describes a positive outcome without warning against it."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Waiving the member's share",
+     "follows": true,
+     "reason": "The consequence matches the action and correctly identifies the negative outcome of absorbing the loss."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Telling the member to contact the payer",
+     "follows": true,
+     "reason": "The consequence matches the action and correctly identifies the negative outcome of increased frustration."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 446,
+   "outputTokens": 192,
+   "totalTokens": 638,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-01__swapped-consequences",
+  "block": "b01_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Waiving the member's share",
+     "follows": false,
+     "reason": "The consequence describes the outcome of waiving the fee, which is the action in option d2, not the explanation action chosen here."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Waiving the fee",
+     "follows": true,
+     "reason": "The consequence correctly describes the negative outcome of waiving the fee without explanation."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Telling the member to contact the payer",
+     "follows": true,
+     "reason": "The consequence accurately reflects the result of directing the member to the payer."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 446,
+   "outputTokens": 198,
+   "totalTokens": 644,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__real-items",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "proceeding without active coverage",
+     "follows": true,
+     "reason": "The consequence correctly describes the negative financial outcome of billing without coverage."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "explaining options and recording the response",
+     "follows": true,
+     "reason": "The consequence appropriately praises the action for allowing informed decision-making and easy correction."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "marking the claim as urgent",
+     "follows": true,
+     "reason": "The consequence correctly identifies that urgency does not impact coverage status."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 183,
+   "totalTokens": 611,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-03__swapped-consequences",
+  "block": "b03_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "A different option (offering choices and recording reference).",
+     "follows": false,
+     "reason": "The consequence describes the outcome of a different action (offering facts and recording) rather than the chosen action of proceeding without verification."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Proceeding and billing despite the lapse.",
+     "follows": false,
+     "reason": "The consequence warns against proceeding without coverage, which contradicts the tone required for the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Proceeding without coverage verification.",
+     "follows": true,
+     "reason": "The consequence correctly matches the action and uses an appropriate negative tone for a weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 209,
+   "totalTokens": 637,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__real-items",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Submitting an incomplete claim",
+     "follows": true,
+     "reason": "The consequence correctly describes the negative outcome of a rejection and lost time."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Getting the name and submitting",
+     "follows": true,
+     "reason": "The consequence correctly praises the action as successful and efficient."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Entering the wrong physician",
+     "follows": true,
+     "reason": "The consequence correctly identifies the error and warns of the negative outcome."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 402,
+   "outputTokens": 175,
+   "totalTokens": 577,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-04__swapped-consequences",
+  "block": "b_l2_scenario_missing",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Submitting the claim now",
+     "follows": false,
+     "reason": "The consequence describes a successful outcome for a weak option that should result in a negative outcome."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Getting the name from the service record",
+     "follows": false,
+     "reason": "The consequence warns against the action for an option marked as best."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Entering the supervising physician",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake and negative outcome for this weak option."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 402,
+   "outputTokens": 185,
+   "totalTokens": 587,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__real-items",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Quietly downgrading claims",
+     "follows": true,
+     "reason": "The consequence correctly identifies the error of altering claims without addressing the underlying pattern."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Raising the issue through compliance",
+     "follows": true,
+     "reason": "The consequence appropriately praises the best option for focusing on evidence rather than personality."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Assuming complexity and moving on",
+     "follows": true,
+     "reason": "The consequence correctly warns that assuming the best allows the pattern of upcoding to persist."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 460,
+   "outputTokens": 188,
+   "totalTokens": 648,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-05__swapped-consequences",
+  "block": "b05_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "raising the issue through proper channels",
+     "follows": false,
+     "reason": "The consequence discusses pointing at records and evidence, which describes the action of reporting (Option d2), not downgrading claims."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "assuming the clinician sees complex patients",
+     "follows": false,
+     "reason": "The consequence warns against assuming the best, which matches the action of Option d3, not the action of raising a compliance issue."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "changing claims without record changes",
+     "follows": false,
+     "reason": "The consequence describes the action of downgrading claims (Option d1), not the action of assuming complexity and moving on."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 460,
+   "outputTokens": 189,
+   "totalTokens": 649,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__real-items",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Letting the appeal go ahead",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of appealing a non-decision."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Correcting and resubmitting",
+     "follows": true,
+     "reason": "The consequence appropriately praises the efficiency of the best option."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling to dispute",
+     "follows": true,
+     "reason": "The consequence correctly explains why disputing is impossible."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 414,
+   "outputTokens": 174,
+   "totalTokens": 588,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "rcm-07__swapped-consequences",
+  "block": "b07_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Letting the appeal go ahead",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of treating a technical rejection as a final refusal."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Stopping the appeal and resubmitting",
+     "follows": true,
+     "reason": "The consequence explains the positive outcome of this best option without warning against it."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling to dispute the refusal",
+     "follows": true,
+     "reason": "The consequence appropriately describes the bad outcome of pursuing an unnecessary appeal."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 414,
+   "outputTokens": 187,
+   "totalTokens": 601,
+   "temperature": 0
+  }
+ }
+]

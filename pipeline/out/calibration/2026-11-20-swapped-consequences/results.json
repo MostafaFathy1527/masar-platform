@@ -1,0 +1,110 @@
+[
+  {
+    "sample": "lesson-sec-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-sec-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-cs-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 5,
+    "broken": 1,
+    "drop": 4
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-prv-01",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "us.moonshotai.kimi-k3",
+    "real": 4,
+    "broken": 2,
+    "drop": 2
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "deepseek.v3.2",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  },
+  {
+    "sample": "lesson-ops-01-r2",
+    "defect": "swapped-consequences",
+    "criterion": "scenario_authenticity",
+    "judge": "zai.glm-5",
+    "real": 5,
+    "broken": 5,
+    "drop": 0
+  }
+]

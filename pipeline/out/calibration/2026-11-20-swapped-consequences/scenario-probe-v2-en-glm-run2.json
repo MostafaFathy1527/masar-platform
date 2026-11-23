@@ -1,0 +1,290 @@
+[
+ {
+  "copy": "lesson-cs-01__real-items",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Transferring without a warm handover",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of transferring without explanation, matching the weak option."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Promising a waiver without authorisation",
+     "follows": true,
+     "reason": "The consequence appropriately describes the negative outcome of making an unauthorized promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Performing a warm handover and managing follow-up",
+     "follows": true,
+     "reason": "The consequence correctly praises the action as a 'warm handover' and validates the best option."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 197,
+   "totalTokens": 679,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-cs-01__swapped-consequences",
+  "block": "cs1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Promising a waiver",
+     "follows": false,
+     "reason": "The consequence reacts to a promise of outcome, but the option describes a transfer without that promise."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "A warm handover with a specific timeline",
+     "follows": false,
+     "reason": "The consequence praises a professional handover, but the option describes making a false promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Transferring without a warm handover",
+     "follows": false,
+     "reason": "The consequence describes a negative outcome for a cold transfer, but the option describes keeping ownership and providing details."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 482,
+   "outputTokens": 173,
+   "totalTokens": 655,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__real-items",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Prioritizing the order by arrival time",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of ordering by arrival rather than deadline."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Prioritizing Ali's urgent ticket",
+     "follows": true,
+     "reason": "The consequence correctly praises the choice to prioritize the deadline."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Writing a vague handover with no urgency",
+     "follows": true,
+     "reason": "The consequence correctly describes the bad outcome of breaking the promise."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 184,
+   "totalTokens": 673,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-ops-01-r2__swapped-consequences",
+  "block": "b_l2_scenario_best_line",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Choosing the order as the first line.",
+     "follows": true,
+     "reason": "The consequence correctly identifies this as the best action and explains why."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Choosing Ali's ticket as the first line.",
+     "follows": false,
+     "reason": "The best option is incorrectly criticized as a common failure that breaks a promise."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Using a vague 'nothing major' opening line.",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of ordering by arrival and hiding the urgent item."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 489,
+   "outputTokens": 192,
+   "totalTokens": 681,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__real-items",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Recalling the message and waiting to see if anyone notices",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of hiding the breach rather than reporting it."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Reporting the breach immediately and asking for deletion",
+     "follows": true,
+     "reason": "The consequence praises the action as correct and explains why immediate reporting is necessary."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Resending to the right person and considering the matter closed",
+     "follows": true,
+     "reason": "The consequence correctly identifies the mistake of assuming the breach is resolved just because the data isn't sensitive."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 466,
+   "outputTokens": 204,
+   "totalTokens": 670,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-prv-01__swapped-consequences",
+  "block": "prv1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Reporting the breach immediately",
+     "follows": false,
+     "reason": "The consequence praises reporting immediately, which does not match the option's action of recalling the message."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Resending the statement or ignoring the breach",
+     "follows": false,
+     "reason": "The consequence criticizes a different action (resending/ignoring) rather than reacting to the correct action chosen."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Recalling the message or hiding the breach",
+     "follows": false,
+     "reason": "The consequence describes the failure of a recall attempt, which does not match the option's action of resending and closing the case."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 466,
+   "outputTokens": 212,
+   "totalTokens": 678,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__real-items",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": false,
+  "scenario_ok": true,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "Replying to the message",
+     "follows": true,
+     "reason": "The consequence accurately describes the result of replying to the different address."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "Calling the number in the signature",
+     "follows": true,
+     "reason": "The consequence correctly identifies the flaw in using the message's own contact details."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "Calling a known number to report",
+     "follows": true,
+     "reason": "The consequence confirms the action is correct and explains why the situation was designed to prevent it."
+    }
+   ],
+   "scenario_ok": true
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 188,
+   "totalTokens": 616,
+   "temperature": 0
+  }
+ },
+ {
+  "copy": "lesson-sec-01__swapped-consequences",
+  "block": "sec1_l2_scenario",
+  "model": "zai.glm-5",
+  "broken": true,
+  "scenario_ok": false,
+  "verdict": {
+   "decisions": [
+    {
+     "id": "d1",
+     "consequence_reacts_to": "replying to the message",
+     "follows": true,
+     "reason": "The consequence correctly identifies that replying to the suspicious message is not a valid verification method."
+    },
+    {
+     "id": "d2",
+     "consequence_reacts_to": "calling the number in the signature",
+     "follows": false,
+     "reason": "The consequence praises the action as correct, but the option is not marked as best."
+    },
+    {
+     "id": "d3",
+     "consequence_reacts_to": "replying to the message",
+     "follows": false,
+     "reason": "The consequence describes the outcome of replying to the message (d1) rather than calling a known number."
+    }
+   ],
+   "scenario_ok": false
+  },
+  "usage": {
+   "inputTokens": 428,
+   "outputTokens": 197,
+   "totalTokens": 625,
+   "temperature": 0
+  }
+ }
+]

@@ -283,6 +283,60 @@ try:
               and not (d / f'verdict.{SERVED_TAG}.json').exists(),
               'a fresh verdict the gate refuses is moved aside, not left to stop the panel')
 
+    print('a seat whose key is refused is named once and not called for the next lesson')
+    with tempfile.TemporaryDirectory() as t:
+        d = Path(t)
+        os.environ[API_SPEC['key_env']] = 'k'
+        os.environ[panel.REJECTED_FILE_ENV] = str(d / 'rejected.txt')
+
+        def key_refused(argv):
+            if '--cohere' in argv:
+                calls.append(list(argv))
+                raise urllib.error.HTTPError('https://api', 401, 'Unauthorized', {}, None)
+            return fresh_judge(argv)
+        judge_bedrock.main = key_refused
+        calls.clear()
+        first, second = d / 'a', d / 'b'
+        first.mkdir(); second.mkdir()
+        _, said = quiet(lambda: panel.run_judges(lesson_in(first), 'us-east-1'))
+        check(f'SEAT KEY REJECTED: {API_TAG} (HTTP 401)' in said and len(calls) == 5
+              and sum('--cohere' in a for a in calls) == 1,
+              'the first lesson calls the seat once and names the refusal in one plain line')
+        calls.clear()
+        _, said = quiet(lambda: panel.run_judges(lesson_in(second), 'us-east-1'))
+        check(f'SEAT KEY REJECTED: {API_TAG}' in said
+              and not any('--cohere' in a for a in calls) and len(calls) == 4,
+              'the next lesson does not call the refused seat again; the other seats still score')
+        code, _ = quiet(lambda: panel.main(['--lesson', str(second / 'lesson.json')]))
+        check(code == 1, 'the refused seat is still an empty seat: NEEDS HUMAN, never PASS')
+
+        def server_error(argv):
+            if '--cohere' in argv:
+                calls.append(list(argv))
+                raise urllib.error.HTTPError('https://api', 500, 'Server Error', {}, None)
+            return fresh_judge(argv)
+        os.environ[panel.REJECTED_FILE_ENV] = str(d / 'other.txt')
+        judge_bedrock.main = server_error
+        for sub in ('c', 'e'):
+            (d / sub).mkdir()
+            calls.clear()
+            _, said = quiet(lambda: panel.run_judges(lesson_in(d / sub), 'us-east-1'))
+        check('SEAT KEY REJECTED' not in said and any('--cohere' in a for a in calls),
+              'a server error is not a refused key: the seat is tried again on the next lesson')
+
+        def bedrock_denied(argv):
+            if '--region' in argv and 'glm' in ' '.join(argv):
+                raise RuntimeError('ExpiredTokenException: 403 The security token included in the request is expired')
+            return fresh_judge(argv)
+        os.environ[panel.REJECTED_FILE_ENV] = str(d / 'third.txt')
+        judge_bedrock.main = bedrock_denied
+        (d / 'f').mkdir()
+        _, said = quiet(lambda: panel.run_judges(lesson_in(d / 'f'), 'us-east-1'))
+        check('SEAT KEY REJECTED' not in said and not (d / 'third.txt').exists(),
+              'a Bedrock 403 (expired credentials) is never remembered as a refused key')
+        del os.environ[panel.REJECTED_FILE_ENV]
+        del os.environ[API_SPEC['key_env']]
+
     print('a corrupt verdict file is a panel that could not run, not a crash')
     with tempfile.TemporaryDirectory() as t:
         d = Path(t)
@@ -300,6 +354,7 @@ finally:
     if had is not None:
         os.environ[SERVED_SPEC['endpoint_env']] = had
     os.environ.pop(API_SPEC['key_env'], None)
+    os.environ.pop(panel.REJECTED_FILE_ENV, None)
     if had_key is not None:
         os.environ[API_SPEC['key_env']] = had_key
 
