@@ -70,14 +70,22 @@ async function launch() {
     'about:blank',
   ], { stdio: ['ignore', 'ignore', 'pipe'] })
   let stderr = ''
-  proc.stderr.on('data', (d) => { stderr = (stderr + d).slice(-STDERR_KEEP) })
+  // Chrome also announces the port on stderr ("DevTools listening on
+  // ws://127.0.0.1:<port>/..."). Some builds are slow to write the port file,
+  // so whichever comes first wins.
+  let announced = null
+  proc.stderr.on('data', (d) => {
+    stderr = (stderr + d).slice(-STDERR_KEEP)
+    const m = /DevTools listening on ws:\/\/[^:]+:(\d+)\//.exec(String(d))
+    if (m) announced = m[1]
+  })
   let exited = null
   proc.on('exit', (code, signal) => { exited = signal || `code ${code}` })
   proc.on('error', (e) => { exited = `spawn error: ${e.message}` })
   const portFile = join(profile, 'DevToolsActivePort')
   const t0 = Date.now()
-  while (Date.now() - t0 < START_WAIT_MS && !existsSync(portFile) && exited === null) await sleep(100)
-  if (!existsSync(portFile)) {
+  while (Date.now() - t0 < START_WAIT_MS && !existsSync(portFile) && announced === null && exited === null) await sleep(100)
+  if (!existsSync(portFile) && announced === null) {
     proc.kill()
     const why = exited !== null ? `Chrome exited (${exited})` : `no port after ${START_WAIT_MS / 1000} s`
     const tail = stderr.trim()
@@ -87,7 +95,7 @@ async function launch() {
   // From here on Chrome's chatter is noise; keep draining so its pipe never fills.
   proc.stderr.removeAllListeners('data')
   proc.stderr.resume()
-  const port = readFileSync(portFile, 'utf-8').split('\n')[0].trim()
+  const port = existsSync(portFile) ? readFileSync(portFile, 'utf-8').split('\n')[0].trim() : announced
   const list = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()
   const page = list.find((t) => t.type === 'page')
   return {
