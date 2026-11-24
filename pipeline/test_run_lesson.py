@@ -142,13 +142,23 @@ for en, ar in (('Which of these is NOT a sign of fraud?', ''),
                ('All of the following are controls except:', ''),
                ('', 'أيٌّ مما يلي ليس من علامات الاحتيال؟'),
                ('', 'جميع ما يلي صحيح عدا:'),
-               ('', 'كل الخطوات مطلوبة باستثناء واحدة، ما هي؟')):
+               ('', 'كل الخطوات مطلوبة فيما عدا واحدة، ما هي؟'),
+               ('', 'كل الخطوات مطلوبة باستثناء واحدة، ما هي؟'),
+               ('Which statement is false?', ''),
+               ('Which of the following options is incorrect?', ''),
+               ('', 'أي العبارات التالية خاطئة؟'),
+               ('', 'أيٌّ مما يلي غير صحيح؟'),
+               ('', 'أيها خطأ؟')):
     check(validate.negative_stem(en, ar) is not None, f'negative stem caught: {en or ar}')
 for en, ar in (('The customer did not receive the card. Which step comes next?', ''),
                ('Coverage is active, and the service, which has not been obtained, needs approval. '
                 'What is the correct action?', ''),
                ('', 'العميل لا يملك بطاقة. ما الخطوة التالية؟'),
-               ('', 'ليس لدى الموظف صلاحية. ماذا يفعل أولاً؟')):
+               ('', 'ليس لدى الموظف صلاحية. ماذا يفعل أولاً؟'),
+               ('What happens if the PIN is incorrect?', ''),
+               ('The code on the form is wrong. Which step comes next?', ''),
+               ('', 'الرقم المكتوب خاطئ. ما الخطوة التالية؟'),
+               ('', 'لم يذكر التسليم وعدًا قطعته لعميل. ماذا تفعل الآن؟')):
     check(validate.negative_stem(en, ar) is None, f'ordinary negation passes: {en or ar}')
 bad = copy.deepcopy(GOOD['items'])
 bad['items'][0]['stemEn'] = 'Which of the following is NOT part of a complaint reply?'

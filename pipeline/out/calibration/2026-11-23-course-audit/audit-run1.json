@@ -1,0 +1,1352 @@
+[
+ {
+  "sample": "lesson-sec-01",
+  "defect": "real",
+  "model": "deepseek.v3.2",
+  "caught": null,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "The confirmation that comes back is from whoever wrote the message.",
+    "problem": "The described consequence does not logically follow from replying to ask for confirmation, as it assumes the attacker will always reply with a confirmation, which is not a guaranteed or instructive outcome."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3071,
+   "outputTokens": 78,
+   "totalTokens": 3149,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 11,
+   "totalTokens": 3259,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "wrong-key",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The marked correct answer is B, but the correct answer according to the module's own logic and the feedback is A."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Then: Your reply reaches the different reply-to address — someone other than the apparent sender. The confirmation that comes back is from whoever wrote the message.",
+    "problem": "The consequence describes replying to the message, but the scenario's 'Option' is to reply asking for confirmation, which is exactly the action that leads to the bad outcome, making the scenario logic inconsistent."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3071,
+   "outputTokens": 177,
+   "totalTokens": 3248,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The answer key marks B as correct, but the feedback for A correctly identifies it as the right answer."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 71,
+   "totalTokens": 3319,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "negative-stem",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The answer key marks option A as correct, but the question asks for what is NOT true, and option A ('The sender's actual address') is actually true according to the module's own instruction that it is the first check."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3035,
+   "outputTokens": 101,
+   "totalTokens": 3136,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true?",
+    "problem": "Option A is a true statement, so it is a correct answer to the 'NOT true' question, but the feedback implies it is the right action to take, creating confusion between factual truth and procedural correctness."
+   },
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The question asks for what is NOT true, but the correct answer marked (A) is a true statement, resulting in a logical contradiction where the 'correct' answer is factually false."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3209,
+   "outputTokens": 172,
+   "totalTokens": 3381,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "absurd-distractors",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / أطلب الغداء للفريق أولًا.",
+    "problem": "The distractors (B, C, D) are absurd and unrelated to the topic, making the question trivial and not useful for learning."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / أطلب الغداء للفريق أولًا.",
+    "problem": "The same absurd distractors are reused, which undermines the assessment's credibility and does not test the learner's understanding."
+   }
+  ],
+  "usage": {
+   "inputTokens": 2808,
+   "outputTokens": 169,
+   "totalTokens": 2977,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "Options B, C, and D are nonsensical actions that do not plausibly compete with the correct answer, failing to test the learner's understanding."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "Options B, C, and D are nonsensical actions that do not plausibly compete with the correct answer, failing to test the learner's understanding."
+   }
+  ],
+  "usage": {
+   "inputTokens": 2973,
+   "outputTokens": 136,
+   "totalTokens": 3109,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "generic-feedback",
+  "model": "deepseek.v3.2",
+  "caught": false,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q2]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The answer key is wrong because clicking a phishing link can trigger malware or compromise the system even if no data is entered, so the correct action is to report it immediately, which option A correctly states."
+   }
+  ],
+  "usage": {
+   "inputTokens": 2770,
+   "outputTokens": 91,
+   "totalTokens": 2861,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 2930,
+   "outputTokens": 11,
+   "totalTokens": 2941,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "swapped-consequences",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Call the number in the message signature. / تتصل بالرقم الموجود في توقيع الرسالة.\n    Then: The correct action.",
+    "problem": "The scenario labels calling the number in the message signature as 'the correct action', but this contradicts the module's core rule to verify only through a pre-existing channel, not anything inside the suspicious message."
+   },
+   {
+    "where": "[p9]",
+    "category": "language_mismatch",
+    "quote": "Then: Your reply reaches the different reply-to address — someone other than the apparent sender. The confirmation that comes back is from whoever wrote the message.",
+    "problem": "The English feedback for the 'best' option describes replying to the message, but the Arabic text for that option describes calling on a pre-existing number and reporting, which are two different actions."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3071,
+   "outputTokens": 221,
+   "totalTokens": 3292,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Call the number in the message signature. / ... Then: The correct action.",
+    "problem": "The feedback incorrectly marks calling a number inside a suspicious message as the correct action, contradicting the module's core rule to verify only through pre-existing channels."
+   },
+   {
+    "where": "[p9]",
+    "category": "language_mismatch",
+    "quote": "Then: The correct action.",
+    "problem": "The English text incorrectly states 'The correct action', while the Arabic translation correctly identifies it as a mistake ('إجراء خاطئ')."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 158,
+   "totalTokens": 3406,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "real",
+  "model": "deepseek.v3.2",
+  "caught": null,
+  "n_findings": 3,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The marked answer is wrong because option A also correctly follows the module's principle of acknowledging the customer's experience in their own words before explaining policy."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Write the facts into the record... (best)",
+    "problem": "The consequence does not follow, as the customer explicitly said he will not explain again, and waiting until tomorrow still requires him to re-engage."
+   },
+   {
+    "where": "[p8]",
+    "category": "language_mismatch",
+    "quote": "the pattern across fifty complaints",
+    "problem": "The English says 'fifty complaints' while the Arabic says 'خمسين شكوى' (fifty complaints), but the context suggests a specific number that may not be accurate or consistent."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3950,
+   "outputTokens": 231,
+   "totalTokens": 4181,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 11,
+   "totalTokens": 4110,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "wrong-key",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 3,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The marked correct answer (A) is wrong according to the module's own teaching, which explicitly states that \"I'm sorry you feel that way\" is not acknowledgement."
+   },
+   {
+    "where": "[Q1]",
+    "category": "feedback",
+    "quote": "feedback: Correct.",
+    "problem": "The feedback for option A incorrectly labels it as correct, contradicting the lesson in [p3] and the feedback's own explanation."
+   },
+   {
+    "where": "[p8]",
+    "category": "language_mismatch",
+    "quote": "English: \"check it while the customer is with you\" / Arabic: \"افحص السجل والعميل معك\"",
+    "problem": "The Arabic translation incorrectly says \"check the record and the customer with you\" instead of accurately conveying the English instruction to check the record while the customer is present."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3950,
+   "outputTokens": 238,
+   "totalTokens": 4188,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The answer key marks A as correct, but the feedback for A correctly identifies it as a wrong answer and B as the right one."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 75,
+   "totalTokens": 4174,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "negative-stem",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The marked answer is wrong because the question asks 'Which of the following is NOT true?' and option B is true according to the module's own feedback."
+   },
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true? / أيّ مما يلي ليس صحيحًا؟",
+    "problem": "The question uses a negative stem ('NOT true') which can be confusing, especially for non-native speakers, and is flagged as a potential defect type."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3905,
+   "outputTokens": 164,
+   "totalTokens": 4069,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The answer key marks B as the correct answer, but B is the only option that is true according to the text, making the key incorrect."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4054,
+   "outputTokens": 70,
+   "totalTokens": 4124,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "absurd-distractors",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / Restart your computer. / Change the colour of the screen.",
+    "problem": "The distractors are absurd and unrelated to customer service, making the question trivial and unhelpful for learning."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / Restart your computer. / Change the colour of the screen.",
+    "problem": "The distractors are identical to Q1 and are nonsensical, which undermines the assessment's credibility and learning value."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3504,
+   "outputTokens": 168,
+   "totalTokens": 3672,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 6,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "The distractor is absurd and unrelated to the context of handling a customer complaint."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Restart your computer.",
+    "problem": "The distractor is absurd and unrelated to the context of handling a customer complaint."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Change the colour of the screen.",
+    "problem": "The distractor is absurd and unrelated to the context of handling a customer complaint."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "The distractor is absurd and unrelated to the context of closing a customer interaction."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Restart your computer.",
+    "problem": "The distractor is absurd and unrelated to the context of closing a customer interaction."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Change the colour of the screen.",
+    "problem": "The distractor is absurd and unrelated to the context of closing a customer interaction."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3638,
+   "outputTokens": 286,
+   "totalTokens": 3924,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "generic-feedback",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 4,
+  "findings": [
+   {
+    "where": "[p2]",
+    "category": "language_mismatch",
+    "quote": "Most customers who are let down say nothing and leave. / معظم من يُخذَلون لا يقولون شيئاً ويرحلون.",
+    "problem": "The Arabic translation omits 'customers' and uses a passive construction ('يُخذَلون') which changes the subject from 'customers' to a general 'those who are let down', creating a subtle mismatch in specificity."
+   },
+   {
+    "where": "[p6]",
+    "category": "language_mismatch",
+    "quote": "Facts come from the record, not from anyone's memory — check it while the customer is with you, and say what you are doing. / الحقائق من السجل لا من ذاكرة أي طرف — وافحص السجل والعميل معك، وقل ما تفعله.",
+    "problem": "The Arabic translation adds 'والعميل معك' (and the customer is with you), which is not present in the English instruction 'check it while the customer is with you', creating a slight but meaningful difference in the action described."
+   },
+   {
+    "where": "[Q1]",
+    "category": "feedback",
+    "quote": "feedback: Not correct. / غير صحيح.",
+    "problem": "The feedback for options A, C, and D only states 'Not correct' without explaining why, which fails to teach the learner why those choices are wrong."
+   },
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "feedback: Not correct. / غير صحيح.",
+    "problem": "The feedback for options A, B, and D only states 'Not correct' without explaining why, which fails to teach the learner why those choices are wrong."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3461,
+   "outputTokens": 411,
+   "totalTokens": 3872,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3595,
+   "outputTokens": 11,
+   "totalTokens": 3606,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "swapped-consequences",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Write the facts into the record... (best) Then: He will explain everything again tomorrow...",
+    "problem": "The consequence under the 'best' option describes a negative outcome that contradicts the option's recommended action."
+   },
+   {
+    "where": "[p9]",
+    "category": "language_mismatch",
+    "quote": "Option: Promise the waiver to defuse things... Then: A warm handover...",
+    "problem": "The English consequence describes a 'warm handover' but the Arabic translates it as a 'handover' without the positive descriptor, changing the meaning."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3950,
+   "outputTokens": 170,
+   "totalTokens": 4120,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Transfer him to the right team",
+    "problem": "The consequence text below this option describes a broken promise, which logically follows the 'Promise the waiver' option instead."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Promise the waiver to defuse things",
+    "problem": "The consequence text below this option describes a warm handover, which logically follows the 'Transfer him' option instead."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 119,
+   "totalTokens": 4218,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "real",
+  "model": "deepseek.v3.2",
+  "caught": null,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The answer key is wrong because option A is also correct according to the module's own definition, as the combination of facts in a team of six makes the data identifiable."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Recall rarely works outside your own organisation",
+    "problem": "The consequence under the first option incorrectly assumes the recipient is external, but the scenario does not specify whether the wrong customer is internal or external."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3783,
+   "outputTokens": 152,
+   "totalTokens": 3935,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 11,
+   "totalTokens": 4034,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "wrong-key",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The marked answer A is wrong; the correct answer is B, as explained in the feedback."
+   },
+   {
+    "where": "[p9]",
+    "category": "language_mismatch",
+    "quote": "Recall rarely works outside your own organisation",
+    "problem": "The English says 'outside your own organisation' but the Arabic says 'خارج مؤسستك' (outside your organization), omitting 'your own' which changes the meaning slightly."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3783,
+   "outputTokens": 148,
+   "totalTokens": 3931,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The answer key marks A (No) as correct, but the feedback for A explains why the data *is* personal data, and option B (Yes) is the correct answer."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 79,
+   "totalTokens": 4102,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "negative-stem",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 4,
+  "findings": [
+   {
+    "where": "Q1",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true? ... Answer key: B",
+    "problem": "The answer key is wrong because option B is a true statement, not the NOT true one requested by the question."
+   },
+   {
+    "where": "Q1",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true? / أيّ مما يلي ليس صحيحًا؟",
+    "problem": "The question is a negative stem ('NOT true'), which is a known source of confusion and misreading for learners."
+   },
+   {
+    "where": "Q1",
+    "category": "distractors",
+    "quote": "C) Yes, but only if the rating is negative.",
+    "problem": "Option C is an absurd distractor that no knowledgeable person would pick, as the text clearly states identifiability is the test, not the content's positivity."
+   },
+   {
+    "where": "p9",
+    "category": "scenario",
+    "quote": "Option: Recall the message and watch whether anyone notices. / تسحب الرسالة من البريد، وتراقب إن كان أحد سيلاحظ.",
+    "problem": "The consequence 'A hidden breach is discovered later — by the person it harmed' does not logically follow from the action of recalling and watching; it's a separate, worst-case outcome."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3727,
+   "outputTokens": 329,
+   "totalTokens": 4056,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The question asks what is NOT true, but the answer key (B) and its feedback state that option B is 'Correct' and factually true."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3963,
+   "outputTokens": 73,
+   "totalTokens": 4036,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "absurd-distractors",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / Restart your computer. / Change the colour of the screen.",
+    "problem": "Three of the four answer options are absurd, non-serious distractors unrelated to the learning objective."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first. / Restart your computer. / Change the colour of the screen.",
+    "problem": "Three of the four answer options are absurd, non-serious distractors unrelated to the learning objective."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3345,
+   "outputTokens": 161,
+   "totalTokens": 3506,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 6,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Restart your computer.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Restart your computer.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "C) Change the colour of the screen.",
+    "problem": "The option is absurd and unrelated to the question, serving no purpose as a plausible distractor."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3558,
+   "outputTokens": 363,
+   "totalTokens": 3921,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "generic-feedback",
+  "model": "deepseek.v3.2",
+  "caught": false,
+  "n_findings": 3,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The answer key is wrong because both B and C are correct according to the module's own logic."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Yes, but only if the rating is negative.",
+    "problem": "Option C is not a plausible distractor; it contradicts the module's teaching that identifiability, not content, defines personal data."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Then: Recall rarely works outside your own organisation, and waiting hides from the owner that the clock has started.",
+    "problem": "The consequence does not follow from the option, which suggests recalling *and* watching, not just waiting."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3318,
+   "outputTokens": 216,
+   "totalTokens": 3534,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3531,
+   "outputTokens": 11,
+   "totalTokens": 3542,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "swapped-consequences",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Recall the message and watch whether anyone notices. / تسحب الرسالة من البريد، وتراقب إن كان أحد سيلاحظ.\n    Then: The correct action.",
+    "problem": "The scenario labels 'Recall the message and watch' as 'The correct action' when it is actually a poor practice, contradicting the later correct advice to report immediately."
+   },
+   {
+    "where": "[Q2]",
+    "category": "accuracy",
+    "quote": "A customer writes: \"I want a copy of everything you hold about me, and delete my phone number.\"",
+    "problem": "The question combines a data subject access request with a deletion request, which are two distinct legal processes with different requirements, creating a misleading scenario."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3783,
+   "outputTokens": 201,
+   "totalTokens": 3984,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Recall the message and watch whether anyone notices. ... Then: The correct action.",
+    "problem": "The feedback incorrectly labels the 'Recall and watch' option as the correct action, contradicting the text's own definition of a breach and the other option marked as (best)."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 85,
+   "totalTokens": 4108,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "real",
+  "model": "deepseek.v3.2",
+  "caught": null,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "before 4 PM / قبل 16:00",
+    "problem": "The English says 'before 4 PM' but the Arabic says 'before 16:00', which are not the same time (4 PM is 16:00, so 'before 4 PM' is not equivalent to 'before 16:00')."
+   },
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "The item due within the hour is now the second line",
+    "problem": "The scenario states the deadline is before 14:00, but the feedback incorrectly says the item is 'due within the hour', which is not supported by the given information."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4060,
+   "outputTokens": 193,
+   "totalTokens": 4253,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback contradicts the scenario, which describes a handover that presents a guess as a fact without a label."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 78,
+   "totalTokens": 4286,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "wrong-key",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The marked answer A is wrong; the correct answer according to the module's own teaching is B."
+   },
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "Then: You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+    "problem": "The consequence described does not logically follow from the option, as ordering by arrival does not inherently cause a reader to stop at the first line."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4060,
+   "outputTokens": 162,
+   "totalTokens": 4222,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The marked answer A contradicts the correct answer B, which aligns with the text's instruction to order items by urgency."
+   },
+   {
+    "where": "[Q2]",
+    "category": "accuracy",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback claims the handover example includes a 'guess' label, but the quoted text shows no such label."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 138,
+   "totalTokens": 4346,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "negative-stem",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The marked answer (B) is correct, but the question asks 'Which of the following is NOT true?'"
+   },
+   {
+    "where": "[p15]",
+    "category": "language_mismatch",
+    "quote": "Ali's ticket (login issue). He was promised a reply by 14:00",
+    "problem": "The English says 'promised a reply by 14:00' while the Arabic says 'وُعد بردّ قبل الساعة 14:00' (before 14:00), which are not the same."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4041,
+   "outputTokens": 170,
+   "totalTokens": 4211,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The question asks what is NOT true, but the answer key marks option B, which is a true statement, making the question logic incoherent."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4189,
+   "outputTokens": 72,
+   "totalTokens": 4261,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "absurd-distractors",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 7,
+  "findings": [
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "Then: You ordered by arrival. The item due within the hour is now the second line, and a reader who stops at the first assumes nothing is urgent.",
+    "problem": "The described consequence (reader assumes nothing is urgent) does not logically follow from ordering by arrival, as the reader would still see the second line if they read the full handover."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "This option is an absurd distractor unrelated to shift handover content ordering."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Restart your computer.",
+    "problem": "This option is an absurd distractor unrelated to shift handover content ordering."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "This option is an absurd distractor unrelated to shift handover content ordering."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "This option is an absurd distractor unrelated to analyzing a handover entry."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Restart your computer.",
+    "problem": "This option is an absurd distractor unrelated to analyzing a handover entry."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "This option is an absurd distractor unrelated to analyzing a handover entry."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3749,
+   "outputTokens": 446,
+   "totalTokens": 4195,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 3,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "Options A, C, and D are nonsensical actions completely unrelated to the topic of handovers, making the correct answer obvious."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "Order lunch for the team first.",
+    "problem": "Options A, B, and D are nonsensical actions completely unrelated to the scenario, making the correct answer obvious."
+   },
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback incorrectly states the colleague's handover included a 'guess' label, contradicting the scenario which implies the guess was presented as fact."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3875,
+   "outputTokens": 185,
+   "totalTokens": 4060,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "generic-feedback",
+  "model": "deepseek.v3.2",
+  "caught": false,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "before 4 PM with an update. / قبل 16:00 لتحديثه بالنتيجة.",
+    "problem": "The English says 'with an update' while the Arabic says 'لتحديثه بالنتيجة' (to update him with the result), which are not equivalent actions."
+   },
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The answer key is wrong because option B is not the only correct answer; the module's own instruction in [p10] states 'Order items by when they need action, not by when they arrived', which option B matches, but option D ('By ticket number, so they are easy to find') could also be correct in some contexts, as it facilitates finding the item."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3690,
+   "outputTokens": 221,
+   "totalTokens": 3911,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[p15]",
+    "category": "language_mismatch",
+    "quote": "within the next shift goes first",
+    "problem": "The English text states that items with a deadline 'within the next shift' go first, while the Arabic translation incorrectly states 'inside the next shift' (داخل النوبة القادمة), changing the urgency criteria."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3817,
+   "outputTokens": 97,
+   "totalTokens": 3914,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "swapped-consequences",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "Option: Order waiting for the supplier... Then: Best.",
+    "problem": "The scenario feedback incorrectly labels the non-urgent order as the 'Best' choice, contradicting the lesson's rule to lead with urgent items."
+   },
+   {
+    "where": "[p15]",
+    "category": "answer_key",
+    "quote": "Option: URGENT, before 14:00: Ali's ticket... (best)",
+    "problem": "The scenario has two contradictory 'best' answers, one for the urgent ticket and one for the non-urgent order, which is confusing and wrong."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4060,
+   "outputTokens": 169,
+   "totalTokens": 4229,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "Option: Order waiting for the supplier... Then: Best.",
+    "problem": "The feedback incorrectly identifies the non-urgent option as 'Best', contradicting the module's core rule to lead with urgent items."
+   },
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "Option: URGENT... Then: This is one of the common failures",
+    "problem": "The feedback incorrectly describes the correct urgent option as a 'common failure', confusing the learner."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 126,
+   "totalTokens": 4334,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "mismatched-numbers",
+  "model": "deepseek.v3.2",
+  "caught": true,
+  "n_findings": 4,
+  "findings": [
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "Ticket #4523 / تذكرة رقم 4524",
+    "problem": "The English example uses ticket #4523 while the Arabic uses ticket #4524, creating a mismatch that could confuse a learner."
+   },
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "before 4 PM / قبل 17:01",
+    "problem": "The English deadline is 'before 4 PM' while the Arabic says 'before 17:01' (5:01 PM), presenting different times."
+   },
+   {
+    "where": "[p15]",
+    "category": "language_mismatch",
+    "quote": "before 14:00 / قبل الساعة 15:01",
+    "problem": "The English scenario says the customer was promised a reply 'before 14:00' (2 PM) while the Arabic says 'before 15:01' (3:01 PM)."
+   },
+   {
+    "where": "[p15]",
+    "category": "scenario",
+    "quote": "The item due within the hour is now the second line",
+    "problem": "The scenario states the deadline is 'before 14:00' and the handover is written at shift end, so the item is not 'due within the hour' but is already overdue or imminent."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4060,
+   "outputTokens": 334,
+   "totalTokens": 4394,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "mismatched-numbers",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 4,
+  "findings": [
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "Ticket #4523 / تذكرة رقم 4524",
+    "problem": "The English text refers to ticket #4523 while the Arabic translation refers to ticket #4524."
+   },
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "before 4 PM / قبل 17:01",
+    "problem": "The English text specifies a deadline of 4 PM, while the Arabic translation specifies 17:01."
+   },
+   {
+    "where": "[p15]",
+    "category": "language_mismatch",
+    "quote": "before 14:00 / قبل 15:01",
+    "problem": "The English text specifies a deadline of 14:00, while the Arabic translation specifies 15:01."
+   },
+   {
+    "where": "[Q2]",
+    "category": "language_mismatch",
+    "quote": "Ticket 77 / تذكرة 78",
+    "problem": "The English question refers to Ticket 77 while the Arabic translation refers to Ticket 78."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 246,
+   "totalTokens": 4454,
+   "temperature": 0
+  }
+ }
+]

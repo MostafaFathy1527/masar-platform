@@ -1,0 +1,636 @@
+[
+ {
+  "sample": "lesson-sec-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 11,
+   "totalTokens": 3259,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: B",
+    "problem": "The answer key incorrectly marks B as correct, whereas the feedback and text identify option A as the correct first check."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 65,
+   "totalTokens": 3313,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The stem asks what is NOT true, but the answer key marks option A, which is a true statement, making the key incorrect for a negative question."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3209,
+   "outputTokens": 72,
+   "totalTokens": 3281,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "B) Order lunch for the team first.",
+    "problem": "The distractors are nonsensical and irrelevant to information security, failing to test the learner's ability to distinguish plausible incorrect actions."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Order lunch for the team first.",
+    "problem": "The distractors are nonsensical and irrelevant to information security, failing to test the learner's ability to distinguish plausible incorrect actions."
+   }
+  ],
+  "usage": {
+   "inputTokens": 2973,
+   "outputTokens": 128,
+   "totalTokens": 3101,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 2930,
+   "outputTokens": 11,
+   "totalTokens": 2941,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-sec-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Call the number in the message signature.",
+    "problem": "The feedback incorrectly identifies this wrong option as the 'correct action', contradicting the text and the other option marked as 'best'."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Call him on a number you had before the message... (best)",
+    "problem": "The feedback describes a wrong outcome (replying to the attacker) that contradicts the correct action described in the option text."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3248,
+   "outputTokens": 137,
+   "totalTokens": 3385,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 11,
+   "totalTokens": 4110,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The answer key marks A as correct, but option B is the correct answer based on the text and its own feedback."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 66,
+   "totalTokens": 4165,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The answer key marks B as correct, but B is a true statement based on the text, making the question unsolvable."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4054,
+   "outputTokens": 66,
+   "totalTokens": 4120,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 6,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Restart your computer.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Restart your computer.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The distractor is absurd and unrelated to the course content, serving no pedagogical purpose."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3638,
+   "outputTokens": 316,
+   "totalTokens": 3954,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3595,
+   "outputTokens": 11,
+   "totalTokens": 3606,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-cs-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Transfer him to the right team and end the chat.",
+    "problem": "The feedback text ('You promised something...') contradicts the option text, which makes no promise, and misaligns with the 'best' option's feedback which correctly describes a warm handover."
+   },
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Option: Promise the waiver to defuse things...",
+    "problem": "The feedback text ('A warm handover...') describes a positive action that contradicts the negative action described in the option (making a false promise)."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4099,
+   "outputTokens": 153,
+   "totalTokens": 4252,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[p6]",
+    "category": "language_mismatch",
+    "quote": "A data-subject request and a potential breach are both reported the same day",
+    "problem": "The Arabic translation omits the data-subject request, stating only that a potential breach is reported the same day."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 77,
+   "totalTokens": 4100,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The answer key marks A (No) as correct, but the feedback for A explains why it is incorrect, and option B (Yes) is the correct answer supported by the text."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 79,
+   "totalTokens": 4102,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The question asks what is NOT true, but the answer key marks option B, which is a true statement, making the logic of the question and the correct answer contradictory."
+   },
+   {
+    "where": "[Q1]",
+    "category": "feedback",
+    "quote": "feedback: Correct. Ordinarily harmless facts...",
+    "problem": "The feedback validates the option as factually true, which contradicts the question stem asking for the option that is 'NOT true'."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3963,
+   "outputTokens": 154,
+   "totalTokens": 4117,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 6,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Restart your computer.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Restart your computer.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "C) Change the colour of the screen.",
+    "problem": "The option is absurd and unrelated to the question, serving no educational purpose."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3558,
+   "outputTokens": 339,
+   "totalTokens": 3897,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[p4]",
+    "category": "language_mismatch",
+    "quote": "Reported the same day to whoever owns privacy",
+    "problem": "The English text states the obligation is to report to 'whoever owns privacy', but the Arabic translation incorrectly states to report to 'the person responsible for privacy' (المسؤول عن الخصوصية), contradicting the English distinction that the clock starts with any employee."
+   },
+   {
+    "where": "[p6]",
+    "category": "language_mismatch",
+    "quote": "A data-subject request... reported the same day",
+    "problem": "The English text states that a data-subject request must be reported the same day, but the Arabic translation omits the term 'data-subject request' entirely, failing to translate the core concept."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3531,
+   "outputTokens": 193,
+   "totalTokens": 3724,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-prv-01",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[p9]",
+    "category": "scenario",
+    "quote": "Recall the message and watch whether anyone notices. / الإجراء الصحيح.",
+    "problem": "The feedback labels the 'recall and watch' option as the correct action, contradicting the 'best' option and the text's own guidance that breaches must be reported."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4023,
+   "outputTokens": 83,
+   "totalTokens": 4106,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "real",
+  "model": "zai.glm-5",
+  "caught": null,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback contradicts the scenario, which states the guess was presented as fact, not labeled as a guess."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 65,
+   "totalTokens": 4273,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "wrong-key",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "answer_key",
+    "quote": "Answer key: A",
+    "problem": "The correct answer is B, but the key marks A."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 62,
+   "totalTokens": 4270,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "negative-stem",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 2,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "negative_stem",
+    "quote": "Which of the following is NOT true?",
+    "problem": "The question asks what is NOT true, but the answer key marks the option that IS true as correct."
+   },
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback inaccurately describes the text, which presents the guess as a fact without a label."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4189,
+   "outputTokens": 134,
+   "totalTokens": 4323,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "absurd-distractors",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 6,
+  "findings": [
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is nonsensical in the context of writing a shift handover and includes an irrelevant imperative verb form."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "C) Restart your computer.",
+    "problem": "The option is a nonsensical imperative instruction that does not answer the question about ordering handover items."
+   },
+   {
+    "where": "[Q1]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The option is a nonsensical imperative instruction completely irrelevant to the question."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "A) Order lunch for the team first.",
+    "problem": "The option is copied from the previous question and is irrelevant to identifying errors in a handover line."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "B) Restart your computer.",
+    "problem": "The option is copied from the previous question and is irrelevant to identifying errors in a handover line."
+   },
+   {
+    "where": "[Q2]",
+    "category": "distractors",
+    "quote": "D) Change the colour of the screen.",
+    "problem": "The option is copied from the previous question and is irrelevant to identifying errors in a handover line."
+   }
+  ],
+  "usage": {
+   "inputTokens": 3875,
+   "outputTokens": 321,
+   "totalTokens": 4196,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "generic-feedback",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 0,
+  "findings": [],
+  "usage": {
+   "inputTokens": 3817,
+   "outputTokens": 11,
+   "totalTokens": 3828,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "swapped-consequences",
+  "model": "zai.glm-5",
+  "caught": false,
+  "n_findings": 1,
+  "findings": [
+   {
+    "where": "[Q2]",
+    "category": "feedback",
+    "quote": "The second is written with a \"guess\" label.",
+    "problem": "The feedback incorrectly states that the guess was labeled, while the question stem implies the opposite by asking what is wrong with the line."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 69,
+   "totalTokens": 4277,
+   "temperature": 0
+  }
+ },
+ {
+  "sample": "lesson-ops-01-r2",
+  "defect": "mismatched-numbers",
+  "model": "zai.glm-5",
+  "caught": true,
+  "n_findings": 4,
+  "findings": [
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "Ticket #4523 ... تذكرة رقم 4524",
+    "problem": "The English text refers to ticket #4523, while the Arabic text refers to ticket #4524."
+   },
+   {
+    "where": "[p14]",
+    "category": "language_mismatch",
+    "quote": "before 4 PM ... قبل 17:01",
+    "problem": "The English deadline is 4 PM, while the Arabic deadline is 17:01 (5:01 PM)."
+   },
+   {
+    "where": "[p15]",
+    "category": "language_mismatch",
+    "quote": "before 14:00 ... قبل 15:01",
+    "problem": "The English deadline is 14:00, while the Arabic deadline is 15:01."
+   },
+   {
+    "where": "[Q2]",
+    "category": "language_mismatch",
+    "quote": "Ticket 77 ... تذكرة 78",
+    "problem": "The English text refers to Ticket 77, while the Arabic text refers to Ticket 78."
+   }
+  ],
+  "usage": {
+   "inputTokens": 4208,
+   "outputTokens": 274,
+   "totalTokens": 4482,
+   "temperature": 0
+  }
+ }
+]
