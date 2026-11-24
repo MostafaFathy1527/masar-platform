@@ -29,12 +29,18 @@ cmake --build ~/llama.cpp/build --config Release -j "$(nproc)" --target llama-se
 wait "$download"
 echo "$SHA256  $HOME/models/$GGUF" | sha256sum -c --quiet || { echo "sha256 mismatch: not the seated file"; exit 1; }
 
-# Two cards hold every layer. On one 32 GB card (the fallback when no two-card
-# node is free) 38 of the 48 layers fit beside the KV cache and the rest stay in
-# system memory: the same weights, slower.
+# The layers on the cards are worked out from the memory the cards really have.
+# Each layer of the seated file takes about 624 MiB, and about 8,800 MiB stays
+# free for the KV cache and compute buffers (on one 32 GB card that is 38 of the
+# 48 layers, as measured on 2 November). The rest stay in system memory: the
+# same weights, slower. On 23 November a one-card node had a 16 GB card and the
+# old fixed 38 failed with out of memory.
 cards=$(nvidia-smi -L | wc -l)
-if [ "$cards" -ge 2 ]; then ngl=999; else ngl=38; fi
-echo "$cards card(s): offloading $ngl layers"
+vram=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | awk '{s+=$1} END {print int(s)}')
+ngl=$(( (vram - 8800) / 624 ))
+[ "$ngl" -lt 0 ] && ngl=0
+[ "$ngl" -ge 48 ] && ngl=999
+echo "$cards card(s), ${vram} MiB: offloading $ngl layers"
 
 # One slot: the panel scores lessons one at a time. 24,576 tokens holds the
 # judge prompt (up to about 7,600 tokens) and the 12,000-token reply.
