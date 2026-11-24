@@ -400,11 +400,20 @@ NEGATIVE_STEM_EN = [
     # "Which step would not...", but not "...service, which has not been obtained".
     re.compile(r"(?:^|[.?!:]\s+)(?:which|what|who)\b(?:\W+\w+){0,6}?(?:\W+(?:not|except)\b|n't\b)", re.I),
     re.compile(r"\ball of the following\b[^?.]*\bexcept\b", re.I),
+    # "Which statement is false?": the same trap as NOT, found on 23 November in
+    # a quiz the gate passed. Only when the question names the options, so
+    # "What happens if the PIN is incorrect?" is still an ordinary question.
+    re.compile(r"(?:^|[.?!:]\s+)(?:which|what)\b[^.?!]{0,40}?\b(?:statements?|options?|answers?|"
+               r"following|these|one)\W+(?:is|are)\W+(?:false|incorrect|untrue|wrong)\b", re.I),
 ]
 _AR = "[\u0621-\u064A]"
 NEGATIVE_STEM_AR = [
-    re.compile(rf"(?<!{_AR})(?:[وف]?(?:ما )?عدا|[وف]?باستثناء)(?!{_AR})"),
+    # Bare عدا only after a space: "وعدًا" (a promise) is not "except" (found in
+    # the offline course, 24 November).
+    re.compile(rf"(?<!{_AR})(?:(?:[وف]?(?:في)?ما )?عدا|[وف]?باستثناء)(?!{_AR})"),
     re.compile(rf"(?<!{_AR})(?:اي|ايها|ما|ماذا|من)(?!{_AR})(?:\s+\S+){{0,4}}?\s+(?:ليس|ليست|ليسوا|ليسا|لا يعد|لا تعد)(?!{_AR})"),
+    # "أي العبارات التالية خاطئة؟" / "أيّ مما يلي غير صحيح؟"
+    re.compile(rf"(?<!{_AR})(?:اي|ايها)(?!{_AR})(?:\s+\S+){{0,4}}?\s*(?:خاطئة|خاطئ|خطا|غير صحيحة|غير صحيح)(?!{_AR})"),
 ]
 
 
