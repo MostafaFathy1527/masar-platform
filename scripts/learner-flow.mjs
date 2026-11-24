@@ -14,7 +14,7 @@
 //   CHROME_PATH=/usr/bin/google-chrome node scripts/learner-flow.mjs http://localhost:3000
 // Exit 0 when every step passes, 1 when any fails, 2 when it could not run.
 
-import { spawn } from 'node:child_process'
+import { execFileSync, spawn } from 'node:child_process'
 import { appendFileSync, existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -43,19 +43,59 @@ function findChrome() {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
+// Chrome's own words when it fails to start. On 22/11 GitHub's runner image
+// moved to a new Chrome and the walk died with only "did not open a debugging
+// port": stdio was ignored, so the reason was lost. Keep the tail of stderr and
+// print it, and wait longer, since a cold first start on a fresh image is slow.
+const START_WAIT_MS = 30000
+const STDERR_KEEP = 4000
+
+function chromeVersion(chrome) {
+  try {
+    return execFileSync(chrome, ['--version'], { encoding: 'utf-8', timeout: 10000 }).trim()
+  } catch (e) {
+    return `unknown (${String(e.message || e).split(/\r?\n/)[0]})`
+  }
+}
+
 async function launch() {
   const chrome = findChrome()
   if (!chrome) throw new Error('no Chrome found; set CHROME_PATH')
+  console.log(`browser: ${chromeVersion(chrome)}`)
   const profile = mkdtempSync(join(tmpdir(), 'learner-flow-'))
   const proc = spawn(chrome, [
     '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--no-sandbox',
+    '--disable-dev-shm-usage',
     'about:blank',
-  ], { stdio: 'ignore' })
+  ], { stdio: ['ignore', 'ignore', 'pipe'] })
+  let stderr = ''
+  // Chrome also announces the port on stderr ("DevTools listening on
+  // ws://127.0.0.1:<port>/..."). Some builds are slow to write the port file,
+  // so whichever comes first wins.
+  let announced = null
+  proc.stderr.on('data', (d) => {
+    stderr = (stderr + d).slice(-STDERR_KEEP)
+    const m = /DevTools listening on ws:\/\/[^:]+:(\d+)\//.exec(String(d))
+    if (m) announced = m[1]
+  })
+  let exited = null
+  proc.on('exit', (code, signal) => { exited = signal || `code ${code}` })
+  proc.on('error', (e) => { exited = `spawn error: ${e.message}` })
   const portFile = join(profile, 'DevToolsActivePort')
-  for (let i = 0; i < 100 && !existsSync(portFile); i++) await sleep(100)
-  if (!existsSync(portFile)) throw new Error('Chrome did not open a debugging port')
-  const port = readFileSync(portFile, 'utf-8').split('\n')[0].trim()
+  const t0 = Date.now()
+  while (Date.now() - t0 < START_WAIT_MS && !existsSync(portFile) && announced === null && exited === null) await sleep(100)
+  if (!existsSync(portFile) && announced === null) {
+    proc.kill()
+    const why = exited !== null ? `Chrome exited (${exited})` : `no port after ${START_WAIT_MS / 1000} s`
+    const tail = stderr.trim()
+    if (tail) console.error(`--- Chrome stderr (last ${STDERR_KEEP} chars) ---\n${tail}\n--- end ---`)
+    throw new Error(`Chrome did not open a debugging port: ${why}`)
+  }
+  // From here on Chrome's chatter is noise; keep draining so its pipe never fills.
+  proc.stderr.removeAllListeners('data')
+  proc.stderr.resume()
+  const port = existsSync(portFile) ? readFileSync(portFile, 'utf-8').split('\n')[0].trim() : announced
   const list = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()
   const page = list.find((t) => t.type === 'page')
   return {

@@ -18,10 +18,12 @@ import '../globals.css'
 // face. IBM Plex Sans Arabic replaces Cairo: Cairo is rounded and heavy and
 // made every Arabic heading shout; Plex sits at the same optical weight as the
 // Latin and has a true 500/600 for labels.
+// Preloading is kept for the faces the first screen paints with. Lighthouse's
+// simulated slow-4G load counts every preloaded file on the critical path, so
+// each extra one pushes LCP back (measured 23/11, see the commit messages).
 const newsreader = Newsreader({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
   variable: '--font-newsreader',
   display: 'swap',
 })
@@ -36,6 +38,7 @@ const jetbrains = JetBrains_Mono({
   weight: ['400', '500'],
   variable: '--font-mono-face',
   display: 'swap',
+  preload: false,
 })
 const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic', 'latin'],

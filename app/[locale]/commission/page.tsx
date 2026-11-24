@@ -73,6 +73,10 @@ export default async function CommissionPage({
 
   const subject = encodeURIComponent(ar ? 'طلب دروس — مسار' : 'Commission lessons - Masar')
   const mailto = `mailto:${CONTACT}?subject=${subject}`
+  // A buyer with no material to hand yet can still start: name a topic and the
+  // first lesson is built from public general knowledge, labelled as such.
+  const topicSubject = encodeURIComponent(ar ? 'درس أول من موضوع — مسار' : 'First lesson from a topic - Masar')
+  const topicMailto = `mailto:${CONTACT}?subject=${topicSubject}`
 
   return (
     <div className="page-shell-narrow">
@@ -186,6 +190,17 @@ export default async function CommissionPage({
         <a className="btn-primary" href={mailto}>
           {ar ? 'أرسل مادة درس واحد' : 'Send one lesson’s material'}
         </a>
+      </p>
+      <p className="mt-4 max-w-prose leading-relaxed">
+        {ar
+          ? 'لا توجد مادة يمكنكم مشاركتها بعد؟ '
+          : 'No material you can share yet? '}
+        <a className="link" href={topicMailto}>
+          {ar ? 'اذكروا موضوعًا واحدًا' : 'Name one topic'}
+        </a>
+        {ar
+          ? ' ومن هم المتعلمون، ونبني الدرس الأول من معرفة عامة منشورة، ونذكر ذلك فيه، خلال خمسة أيام عمل أيضًا وبلا مقابل.'
+          : ' and who the learners are, and we build the first lesson from public general knowledge, labelled as such. Same five working days, still free.'}
       </p>
       <p className="mt-3 max-w-prose text-sm text-muted">
         {ar
