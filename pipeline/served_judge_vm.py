@@ -32,8 +32,15 @@ TAG = 'masar-open-judge'
 # so one card is the fallback: served_judge_setup.sh counts the cards and keeps
 # the layers that do not fit in system memory. It is the same file at the same
 # settings, slower, not a smaller quantisation that would need its own calibration.
+# How much of the file sits on the cards decides the run time: on 16 November one
+# 32 GB card (38 of 48 layers) scored the 4 lessons in about 12 minutes; on 23
+# November one 16 GB card (12 layers) held the GPU about 3.5 hours and the seat
+# timed out on 2 of 4 lessons, twice. So nodes of three or two 16 GB cards
+# (48 or 32 GB in all) come before a single 16 GB card, which is the last resort.
 VARIANTS = ('v100-5-85-400-generic.2', 'v100-5-85-800-generic.2',
-            'v100-5-85-400-generic.1', 'v100-6-52-400-generic.1')
+            'v100-6-52-400-generic.3', 'v100-5-85-400-generic.1',
+            'v100-5-85-800-generic.1', 'v100-6-52-400-generic.2',
+            'v100-6-52-400-generic.1')
 IMAGE = ('https://storage.googleapis.com/cloudrift-vm-disks/disks/github/'
          'ubuntu-noble-server-gpup-580-129-20260916-043401.img')
 

@@ -37,7 +37,9 @@ echo "$SHA256  $HOME/models/$GGUF" | sha256sum -c --quiet || { echo "sha256 mism
 # old fixed 38 failed with out of memory.
 cards=$(nvidia-smi -L | wc -l)
 vram=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | awk '{s+=$1} END {print int(s)}')
-ngl=$(( (vram - 8800) / 624 ))
+# Each extra card keeps its own compute buffer: 1,024 MiB more per card is held
+# back (an estimate, not yet measured on a multi-card node).
+ngl=$(( (vram - 8800 - (cards - 1) * 1024) / 624 ))
 [ "$ngl" -lt 0 ] && ngl=0
 [ "$ngl" -ge 48 ] && ngl=999
 echo "$cards card(s), ${vram} MiB: offloading $ngl layers"
