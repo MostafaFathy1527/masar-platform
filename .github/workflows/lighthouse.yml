@@ -26,7 +26,16 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Build
+        # next/font fetches the Google Fonts CSS at build time, and that fetch
+        # has failed on the runner ("Module not found" in the Newsreader CSS,
+        # 2 of 4 builds on 24/11, both green on rerun). One retry, with a
+        # warning so a real break still shows: a second failure fails the job.
+        run: |
+          npm run build && exit 0
+          echo "::warning::build failed once (likely the Google Fonts fetch); retrying in 20 s"
+          sleep 20
+          npm run build
       - name: Audit
         run: npx -y @lhci/cli@0.14.0 autorun --config=lighthouserc.json
       - name: Keep the reports
