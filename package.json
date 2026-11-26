@@ -15,7 +15,8 @@
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
     "postinstall": "prisma generate",
-    "schema:export": "node scripts/export-schema.mts"
+    "schema:export": "node scripts/export-schema.mts",
+    "scorm:export": "node --no-warnings scripts/export-scorm.mts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
