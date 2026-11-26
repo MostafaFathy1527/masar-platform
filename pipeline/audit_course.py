@@ -13,6 +13,12 @@ On the real copies every finding is a candidate false alarm, read by hand.
 
     python pipeline/audit_course.py --out pipeline/out/calibration/2026-11-23-course-audit \
         --models deepseek.v3.2,zai.glm-5 --tag run1
+
+Review one document (the free module review): string checks first, then one model,
+written as a markdown report a second reviewer checks point by point before anything
+leaves the team. A client's file goes in only after their written consent.
+
+    python pipeline/audit_course.py --report module.txt --models zai.glm-5 --out report.md
 """
 from __future__ import annotations
 
@@ -25,6 +31,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import calibrate_judges as cj  # noqa: E402
 import judge_bedrock  # noqa: E402
+import run_lesson  # noqa: E402
+import validate  # noqa: E402
 
 CATEGORIES = ('answer_key', 'negative_stem', 'distractors', 'feedback', 'scenario',
               'language_mismatch', 'accuracy', 'other')
@@ -49,7 +57,8 @@ Document:
 
 Reply with JSON only:
 {{"findings": [{{"where": "<tag>", "category": "<one of: {cats}>",
-  "quote": "<the exact words, at most 20>", "problem": "<one sentence>"}}]}}
+  "quote": "<the exact words, at most 20>", "problem": "<one sentence>",
+  "fix": "<one sentence: what to change>"}}]}}
 An empty list is a valid answer when the module has no real defect."""
 
 
@@ -142,6 +151,74 @@ DEFECTS = {
 }
 
 
+NAMES = {'answer_key': 'Answer key', 'negative_stem': 'Negative question stem',
+         'distractors': 'Weak wrong options', 'feedback': 'Feedback explains nothing',
+         'scenario': 'Scenario consequence does not follow', 'language_mismatch':
+         'Arabic and English differ', 'accuracy': 'Factual error', 'other': 'Other'}
+
+
+def string_checks(text: str) -> list[dict]:
+    """The defects a model misses and a string check does not (23/11: GLM-5 missed
+    generic feedback). Line-based, so they also run on a client's own layout."""
+    found = []
+    for n, line in enumerate(text.splitlines(), 1):
+        neg = validate.negative_stem(line, line)
+        if neg:
+            found.append({'where': f'line {n}', 'category': 'negative_stem', 'quote': line.strip()[:160],
+                          'problem': 'A "which is NOT" question invites two defensible answers.',
+                          'fix': 'Ask for the right answer instead.', 'by': 'string check'})
+        if line.strip().lower().startswith('feedback:'):
+            for part in line.split(':', 1)[1].split(' / '):
+                if part.strip() and run_lesson.verdict_only(part):
+                    found.append({'where': f'line {n}', 'category': 'feedback', 'quote': part.strip(),
+                                  'problem': 'The feedback says right or wrong and not why.',
+                                  'fix': 'Name the misconception this option represents.',
+                                  'by': 'string check'})
+                    break
+    # The same empty feedback on eight options is one point for the reader, not eight.
+    merged: dict[tuple, dict] = {}
+    for f in found:
+        k = (f['category'], f['quote'])
+        if k in merged:
+            merged[k]['where'] += ', ' + f['where'].replace('line ', '')
+        else:
+            merged[k] = dict(f)
+    for f in merged.values():
+        if ',' in f['where']:
+            f['where'] = f['where'].replace('line ', 'lines ', 1)
+    return list(merged.values())
+
+
+def report_markdown(name: str, findings: list[dict], model: str, usage: dict) -> str:
+    lines = [f'# Module review: {name}', '',
+             f'Draft for the second reviewer. Every point needs "keep" or "drop" before anything '
+             f'reaches the client. Reader: {model} + string checks. No score, no counts outside the team.', '']
+    if not findings:
+        lines += ['No defects found. The second reviewer still reads the whole file.', '']
+    for i, f in enumerate(findings, 1):
+        lines += [f'## {i}. {NAMES.get(f.get("category"), "Other")} ({f.get("where", "?")})', '',
+                  f'- Quote: "{f.get("quote", "")}"',
+                  f'- Why it matters: {f.get("problem", "")}',
+                  f'- Suggested fix: {f.get("fix", "")}',
+                  f'- Found by: {f.get("by", "model")}',
+                  '- Second reviewer: [ ] keep  [ ] drop  note:', '']
+    lines += ['---', f'Tokens: {usage.get("inputTokens", 0)} in, {usage.get("outputTokens", 0)} out.', '']
+    return '\n'.join(lines)
+
+
+def review(path: Path, model: str, region: str) -> tuple[list[dict], dict]:
+    text = path.read_text(encoding='utf-8')
+    found = string_checks(text)
+    prompt = PROMPT.format(doc=text, cats=', '.join(CATEGORIES))
+    raw, usage = judge_bedrock.call_bedrock(prompt, model, region, max_tokens=3000)
+    model_found = judge_bedrock.extract_json(raw).get('findings', [])
+    seen = {(f['category'], f['quote']) for f in found}
+    for f in model_found:
+        if (f.get('category'), f.get('quote')) not in seen:
+            found.append(dict(f, by='model'))
+    return found, usage
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', required=True)
@@ -150,7 +227,14 @@ def main(argv=None) -> int:
     ap.add_argument('--tag', default='run1')
     ap.add_argument('--samples', default=','.join(cj.SAMPLES))
     ap.add_argument('--build-only', action='store_true')
+    ap.add_argument('--report', type=Path, help='review this one plain-text document')
     args = ap.parse_args(argv)
+    if args.report:
+        model = args.models.split(',')[0]
+        found, usage = review(args.report, model, args.region)
+        Path(args.out).write_text(report_markdown(args.report.name, found, model, usage), encoding='utf-8')
+        print(f'{len(found)} finding(s) -> {args.out}; usage {usage}')
+        return 0
     root = Path(args.out)
     root.mkdir(parents=True, exist_ok=True)
     copies = []
