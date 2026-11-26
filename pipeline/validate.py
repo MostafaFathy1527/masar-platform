@@ -218,6 +218,38 @@ def check_semantics(doc, file: str) -> list[Finding]:
     findings += check_level_completeness(doc, file)
     findings += check_prose_budget(doc, file)
     findings += check_scenario_consequences(doc, file)
+    findings += check_identifiers(doc, file)
+    return findings
+
+
+# A learner never reads a code identifier. BNK-01 printed termEn
+# "verification_step" in four runs (20/11 to 24/11), the last one after the
+# source note forbade it by name: the generator ignores the note, so a gate.
+# Fields a learner reads as a name or a heading; conceptsIntroduced, ids and
+# bucket keys are meant to be identifiers and are not read.
+IDENTIFIER_FIELDS = ("termEn", "termAr", "labelEn", "labelAr", "titleEn", "titleAr",
+                     "captionEn", "captionAr")
+SNAKE_CASE = re.compile(r"(?<![\w`])[a-z][a-z0-9]*(?:_[a-z0-9]+)+(?![\w`])")
+MD_HEADING = re.compile(r"^\s{0,3}#{1,6}\s+(.*)$", re.M)
+
+
+def check_identifiers(doc, file: str) -> list[Finding]:
+    findings: list[Finding] = []
+    for path, text in walk_strings(doc):
+        field = path.rsplit(".", 1)[-1].split("[", 1)[0]
+        if field in IDENTIFIER_FIELDS:
+            places = [text]
+        elif field in ("mdEn", "mdAr"):
+            places = MD_HEADING.findall(text)
+        else:
+            continue
+        for place in places:
+            m = SNAKE_CASE.search(place)
+            if m:
+                findings.append(Finding(
+                    file, "code-identifier",
+                    f'{path}: "{m.group(0)}" is a code identifier; write the words a learner reads'))
+                break
     return findings
 
 

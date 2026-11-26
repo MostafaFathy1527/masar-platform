@@ -248,6 +248,32 @@ def _(doc):
     assert "درس" in raw.getvalue().decode("utf-8", "replace"), "the finding names the file"
 
 
+@case("a snake_case term is rejected (BNK-01's verification_step)")
+def _(doc):
+    for lv in ("l1", "l2", "l3"):
+        for b in doc["blocks"].get(lv) or []:
+            if b["type"] == "definition_card":
+                b["payload"]["termEn"] = "verification_step"
+                assert "code-identifier" in rules(run(doc))
+                return
+    raise AssertionError("no definition_card in the golden lesson")
+
+
+@case("a snake_case markdown heading is rejected, body text and code spans are not")
+def _(doc):
+    rt = block(doc, "l1", "rich_text")["payload"]
+    rt["mdEn"] += "\n\nThe field `claim_id` holds it; see claim_id in the export."
+    assert "code-identifier" not in rules(run(doc)), "body text is not a heading"
+    rt["mdEn"] += "\n\n## next_step"
+    assert "code-identifier" in rules(run(doc))
+
+
+@case("conceptsIntroduced may stay snake_case")
+def _(doc):
+    f = [x for x in run(doc) if x.rule == "code-identifier"]
+    assert not f, [str(x) for x in f]
+
+
 def main() -> int:
     passed = sum(1 for _, ok, _ in RESULTS if ok)
     for name, ok, err in RESULTS:
