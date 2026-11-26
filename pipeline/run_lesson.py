@@ -117,7 +117,9 @@ Each item: key, objectiveId, type ("MCQ_SINGLE" or "MULTI_SELECT"), bloom ("RECA
 - Vary the authored position of the correct option across items.
 - Never write a negative stem: no "Which is NOT...", "...EXCEPT", "All of the following
   except", and in Arabic no "أي مما يلي ليس..." or "عدا / باستثناء". Ask for what is right;
-  a negative stem invites two defensible answers."""
+  a negative stem invites two defensible answers.
+- Keep the correct option no longer than the longest distractor, in both languages: a
+  learner who picks the longest option should not score."""
 
 OUTPUT_SHAPE = """\
 Return ONE JSON object and nothing else, with exactly these keys:
@@ -260,6 +262,46 @@ def check_items(lesson: dict, bank: dict, name: str) -> list[str]:
                 elif keys[ref].get('objectiveId') != b.get('objectiveId'):
                     out.append(f'{name}: block {b.get("id")} and item {ref} serve different objectives')
     return out
+
+
+# Advisory, not a gate (Tarek, 24/11): the correct option was the strictly
+# longest one in 62-80% of measured items against 25% by chance (backlog #9).
+LONGEST_WARN_SHARE = 0.40
+# A lesson bank holds two items, so one item alone is already 50%: the warning
+# needs at least two such items (measured 26/11: with one, 23 of 27 drafts warned).
+LONGEST_WARN_MIN = 2
+
+
+def longest_correct_share(bank: dict, lang: str) -> tuple[int, int]:
+    """(items whose one correct option is strictly the longest, MCQ_SINGLE items)."""
+    hits = total = 0
+    for it in (bank.get('items') if isinstance(bank, dict) else None) or []:
+        if not isinstance(it, dict) or it.get('type') != 'MCQ_SINGLE':
+            continue
+        opts = [o for o in it.get('options') or [] if isinstance(o, dict)]
+        right = [len(str(o.get('text' + lang, '')).strip()) for o in opts if o.get('isCorrect') is True]
+        wrong = [len(str(o.get('text' + lang, '')).strip()) for o in opts if o.get('isCorrect') is not True]
+        if len(right) != 1 or not wrong:
+            continue
+        total += 1
+        hits += right[0] > max(wrong)
+    return hits, total
+
+
+def answer_length_advisory(bank: dict) -> str | None:
+    """One warning line when the correct option is the longest in more than
+    LONGEST_WARN_SHARE of the items and in at least LONGEST_WARN_MIN of them,
+    in either language; None otherwise."""
+    worst = None
+    for lang in ('En', 'Ar'):
+        hits, total = longest_correct_share(bank, lang)
+        if total and hits >= LONGEST_WARN_MIN and hits / total > LONGEST_WARN_SHARE and (worst is None or hits / total > worst[1] / worst[2]):
+            worst = (lang, hits, total)
+    if worst is None:
+        return None
+    lang, hits, total = worst
+    return (f'answer-length cue: the correct option is the longest in {hits} of {total} '
+            f'single-answer items ({lang}); a learner who picks the longest scores. Advisory, does not block.')
 
 
 ACTING = set(validate.ACTING_BLOCKS)
@@ -466,7 +508,17 @@ def run(source: Path, objective: str, out: Path, *, levels: list[str], slug: str
             t0 = time.monotonic()
             stage = (tag, 'gates')
             gates = mechanical_gates(vdir / 'lesson.json', vdir / 'items.json', denylist, previous_doc)
-            (vdir / 'gates.md').write_text(gates_markdown(gates), encoding='utf-8')
+            advisory = None
+            try:
+                advisory = answer_length_advisory(
+                    json.loads((vdir / 'items.json').read_text(encoding='utf-8')))
+            except (OSError, json.JSONDecodeError):
+                pass
+            gates_md = gates_markdown(gates)
+            if advisory:
+                gates_md += f'\n## advisory (does not block)\n\n- {advisory}\n'
+                print(f'  {tag} advisory  {advisory}')
+            (vdir / 'gates.md').write_text(gates_md, encoding='utf-8')
             failed = {g: f for g, f in gates.items() if f}
             step(tag, 'gates', 'PASS' if not failed else
                  'FAIL: ' + ', '.join(f'{g} ({len(f)})' for g, f in failed.items()), t0)
