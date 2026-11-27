@@ -326,6 +326,27 @@ except run_lesson.RunError:
     check(True, 'nothing to revise is refused')
 t.cleanup()
 
+print('the answer-length cue is advisory')
+def bank_of(longest_right: int, n: int) -> dict:
+    items = []
+    for i in range(n):
+        long_right = i < longest_right
+        right = 'a correct option written out at length' if long_right else 'short'
+        items.append({'type': 'MCQ_SINGLE', 'options': [
+            {'textEn': right, 'textAr': right, 'isCorrect': True},
+            {'textEn': 'medium distractor', 'textAr': 'medium distractor', 'isCorrect': False},
+            {'textEn': 'other one', 'textAr': 'other one', 'isCorrect': False}]})
+    return {'items': items}
+check(run_lesson.longest_correct_share(bank_of(3, 5), 'En') == (3, 5), 'counts longest-correct items')
+check(run_lesson.answer_length_advisory(bank_of(2, 5)) is None, '2 of 5 (40%) is not over the line')
+check(run_lesson.answer_length_advisory(bank_of(1, 2)) is None, 'one item alone never warns')
+check(run_lesson.answer_length_advisory(bank_of(2, 2)) is not None, 'both items of a two-item bank warn')
+w = run_lesson.answer_length_advisory(bank_of(3, 5))
+check(w is not None and '3 of 5' in w and 'does not block' in w, '3 of 5 warns')
+check(not any('answer-length' in f for f in run_lesson.check_items(GOOD['lesson'], bank_of(5, 5), 'cs')),
+      'the item gate never fails on it')
+check('no longer than the longest distractor' in run_lesson.ITEM_RULES, 'the generator is told')
+
 print('a generator from a judge family never starts')
 call, prompts = generator(GOOD)
 try:
