@@ -73,7 +73,7 @@
           "textEn": "It presents a guess as a fact, and the next person will act on it.",
           "isCorrect": true,
           "feedbackAr": "صحيح. الحقيقة: فشل الدفع مرتين. التخمين: البطاقة منتهية. يُكتب الثاني بعلامة «تخمين».",
-          "feedbackEn": "Correct. The fact: the payment failed twice. The guess: the card is expired. The second is written with a \"guess\" label."
+          "feedbackEn": "Correct. The fact: the payment failed twice. The guess: the card is expired. The second needs a \"guess\" label."
         },
         {
           "textAr": "كان يجب حذف ذكر البطاقة تمامًا.",
