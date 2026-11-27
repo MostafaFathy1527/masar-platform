@@ -12,5 +12,5 @@ Tested on our own sample CS-01 only (no outside material):
 - string checks, no model: the generic-feedback copy gives 2 points (8 lines merged), the
   negative-stem copy gives the English and the Arabic stem.
 
-2 model calls, 8,222 input and 284 output tokens, under $0.02 (estimate, priced high).
+2 model calls, 8,222 input and 284 output tokens.
 Next: a module in someone else's layout (Word/PDF turned to text), not our flatten format.
